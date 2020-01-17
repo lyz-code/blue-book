@@ -1,0 +1,52 @@
+site_name: Lyz knowledge
+site_description: My second brain
+site_author: Lyz
+site_url: https://lyz-code.github.io/blue-book
+# nav:
+#   - Home: 'index.md'
+
+plugins:
+  - search
+  - tags:
+  - autolinks
+  - git-revision-date-localized:
+      type: timeago
+  - minify:
+      minify_html: true
+  # - htmlproofer
+  # - tooltipster-links
+  # - vim-md-tags
+
+markdown_extensions:
+  - admonition
+  - meta
+  - toc:
+      permalink: true
+      baselevel: 2
+  - pymdownx.arithmatex
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+theme:
+  name: material
+  logo: "images/logo.bmp"
+  palette:
+    primary: 'blue grey'
+    accent: 'deep orange'
+
+extra:
+  social:
+    - type: 'github'
+      link: 'https://github.com/lyz-code'
