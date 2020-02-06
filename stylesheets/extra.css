@@ -15,6 +15,16 @@
   color: #28292d;
 }
 
+.md-typeset h1::after {
+  width:93%;
+  height:2px;
+  background: #283551;
+  content:"";
+  display: block;
+  margin-top: 1px;
+  opacity: 0.3;
+}
+
 .md-typeset h2 {
   font-size: 24px;
   font-family: Content-font, Roboto, sans-serif;
@@ -22,6 +32,7 @@
   line-height: 1.5;
   color: #28292d;
 }
+
 .md-typeset h2::after {
   width:100%;
   height:1px;
