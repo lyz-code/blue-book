@@ -898,6 +898,9 @@
     opacity: 0.60;
 }
 
+.md-content a[title='Edit this page'] {
+    text-decoration: none;
+}
 .md-content a[title='Edit this page']::after {
     opacity: 0;
 }
