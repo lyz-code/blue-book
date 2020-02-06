@@ -893,6 +893,28 @@
     width: 0;
 }
 
+/* Gitea */
+.md-content a[href*='git.digitales.cslabrecha.org']::after {
+    background-image: url("/blue-book/assets/images/gitea.svg");
+}
+.md-content a[href*='git.digitales.cslabrecha.org']:hover::after {
+    opacity: 0.3;
+}
+.md-content a[href*='git.digitales.cslabrecha.org']::after {
+    content: "";
+    display: inline-block;
+    position: static;
+    margin: 0 0 2px 3px;
+
+    background-repeat: no-repeat;
+    background-size: 0.75em;
+    background-position: right 1px top;
+    width: 0.825em;
+    height: 0.825em;
+    display: inline-block;
+    vertical-align: baseline;
+    opacity: 0.825;
+}
 
 /* Github; I exclude github.io because that's blogs */
 .md-content a[href*='github.com']::after {
