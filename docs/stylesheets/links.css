@@ -1,0 +1,1233 @@
+/*=-----------------------------------------=*/
+/*= Icons for certain link types: by target =*/
+/*=-----------------------------------------=*/
+
+/*  Within-page (anchor) links.
+    */
+.md-content section > :not(:first-child) a[href^='#']::after,
+.md-content p a[href^='#']::after {
+    content: "\00B6";
+    margin: 0 1px 0 3px;
+    font-size: 0.75em;
+    vertical-align: baseline;
+    position: relative;
+    bottom: 0.45em;
+    opacity: 0.6;
+}
+.md-content section > :not(:first-child) a[href^='#'].footnote-ref::after,
+.md-content p a[href^='#'].footnote-ref::after,
+.md-content section > :not(:first-child) a[href^='#'].footnote-back::after,
+.md-content p a[href^='#'].footnote-back::after {
+    content: none;
+}
+
+/*  Internal (within-site) links. Avoid 'G' icons on hosted documents, local images, and infrastructure, which aren't formal writings.
+ */
+.md-content a[href^="."]:not([href*="/docs/"]):not([href*="/images/"]):not([href*="/static/"]):not([href$=".hs"]):not([href$=".sh"]):not([href$=".R"])::after,
+.md-content a[href^="https://www.gwern.net/"]:not([href*="/docs/"]):not([href*="/images/"]):not([href*="/static/"]):not([href$=".hs"]):not([href$=".sh"]):not([href$=".R"])::after {
+    content: "\1D50A"; /* Gothic G */
+    margin: 0 0 0 2px;
+    vertical-align: baseline;
+    position: relative;
+    bottom: 0.15em;
+    opacity: 0.55;
+}
+
+/* TEXTUAL PER-DOMAIN LINK ICONS: */
+/* Common style */
+.md-content a[href*="17th-angel.tumblr.com"]::after,
+.md-content a[href*="andrewgelman.com"]::after,
+.md-content a[href*="animenewsnetwork.com"]::after,
+.md-content a[href*="arstechnica.com"]::after,
+.md-content a[href*="arxiv.org"]::after,
+.md-content a[href*="bbc.com"]::after,
+.md-content a[href*="bbc.co.uk"]::after,
+.md-content a[href*="www.cdc.gov"]::after,
+.md-content a[href*="www.vox.com"]::after,
+.md-content a[href*="www.vanityfair.com"]::after,
+.md-content a[href*="www.motherjones.com"]::after,
+.md-content a[href*="www.edge.org"]::after,
+.md-content a[href*="bitcointalk.org"]::after,
+.md-content a[href*="bitcoin.t"]::after,
+.md-content a[href*="bloomberg.com"]::after,
+.md-content a[href*="bmj.com"]::after,
+.md-content a[href*="economist.com"]::after,
+.md-content a[href*="evageeks.org"]::after,
+.md-content a[href*="evamonkey.com"]::after,
+.md-content a[href*="evaotaku.com"]::after,
+.md-content a[href*="www.fanfiction.net"]::after,
+.md-content a[href*="fda.gov"]::after,
+.md-content a[href*="filfre.net"]::after,
+.md-content a[href*="gainax.co.jp"]::after,
+.md-content a[href*="goodreads.com"]::after,
+.md-content a[href*="haskell.org"]::after,
+.md-content a[href*="harney.com"]::after,
+.md-content a[href*="justice.gov"]::after,
+.md-content a[href*="khara.co.jp"]::after,
+.md-content a[href*="kk.org"]::after,
+.md-content a[href*="lesswrong.com"]::after,
+.md-content a[href*="longbets.org"]::after,
+.md-content a[href*="longnow.org"]::after,
+.md-content a[href*="marginalrevolution.com"]::after,
+.md-content a[href*="medium.com"]::after,
+.md-content a[href*="myanimelist.net"]::after,
+.md-content a[href*="nature.com"]::after,
+.md-content a[href*="onegeek.org"]::after,
+.md-content a[href*="overcomingbias.com"]::after,
+.md-content a[href*="pnas.org"]::after,
+.md-content a[href*="poniesatdawn.bandcamp.com"]::after,
+.md-content a[href*="predictionbook.com"]::after,
+.md-content a[href*="r-project.org"]::after,
+.md-content a[href*="rosettaproject.org"]::after,
+.md-content a[href*="rstudio.com"]::after,
+.md-content a[href*="salon.com"]::after,
+.md-content a[href*="sciencemag.org"]::after,
+.md-content a[href*="sciencedirect.com"]::after,
+.md-content a[href*="scholars-stage.blogspot.com"]::after,
+.md-content a[href*="slate.com"]::after,
+.md-content a[href*="slatestarcodex"]::after,
+.md-content a[href*="statmodeling.stat.columbia.edu"]::after,
+.md-content a[href*="t.umblr.com"]::after,
+.md-content a[href*="technologyreview.com"]::after,
+.md-content a[href*="theatlantic.com"]::after,
+.md-content a[href*="theinterval.org"]::after,
+.md-content a[href*="theparisreview.org"]::after,
+.md-content a[href*="tinyletter.com"]::after,
+.md-content a[href*="www.mail-archive.com"]::after,
+.md-content a[href*="groups.google.com"]::after,
+.md-content a[href*="tumblr.com"]::after,
+.md-content a[href*="tvtropes.org"]::after,
+.md-content a[href*="urth.net"]::after,
+.md-content a[href*="www.nber.org"]::after,
+.md-content a[href*="mlp.fandom.com"]::after,
+.md-content a[href*="www.wsj.com"]::after,
+.md-content a[href*="www.google.com"]::after,
+.md-content a[href*="wiley.com"]::after,
+.md-content a[href*="yunnansourcing.com"]::after,
+.md-content a[href*="yvain"]::after,
+.md-content a[href*="unsongbook.com"]::after,
+.md-content a[href*="groups.yahoo.com"]::after,
+.md-content a[href*="publicdomainreview.org"]::after,
+.md-content a[href*="meltingasphalt.com"]::after,
+.md-content a[href*="neweva.blog103.fc2.com"]::after {
+    font-size: 0.8em;
+    font-weight: 600;
+    margin: 0 0 0 2px;
+    vertical-align: baseline;
+    position: relative;
+    bottom: 0.2em;
+    opacity: 0.6;
+}
+/* MR: cheaper to abuse Unicode */
+.md-content a[href*="marginalrevolution.com"]::after {
+    content: "M𝐑"; }
+
+/* likewise */
+.md-content a[href*="medium.com"]::after {
+    content: "𝐌"; }
+
+/* Kevin Kelly */
+.md-content a[href*="kk.org"]::after {
+    font-family: "Lucida Sans Unicode", "Source Sans Pro", Helvetica, "Trebuchet MS", sans-serif;
+    content: "KK"; }
+
+/* Google searches, other tools; note that there are many Google subdomains, so we narrow down with just 'www' */
+.md-content a[href*="www.google.com"]::after {
+    content: "𝐆"; }
+
+/* Wiley & Sons's 'W' unfortunately overlaps with the WP 'W' but if we sans it, maybe that'll help */
+.md-content a[href*="wiley.com"]::after {
+    font-family: "Lucida Sans Unicode", "Source Sans Pro", Helvetica, "Trebuchet MS", sans-serif;
+    content: "W"; }
+
+/* PNAS: they don't have a real logo, but their favicon does a nice little compact square, and we can replicate that in CSS: */
+.md-content a[href*="pnas.org"]::after {
+  content: "PNAS";
+  font-size: 0.5em;
+  width: 1.4em;
+  display: inline-block;
+  overflow-wrap: break-word;
+  font-family: Baskerville;
+  line-height: 0.7;
+  text-align: center;
+  position: relative;
+  bottom: 0.3em;
+  left: 0.1em; }
+
+.md-content a[href*="www.nber.org"]:not([href$=".pdf"])::after {
+  content: "NBER";
+  font-size: 0.5em;
+  width: 1.35em;
+  display: inline-block;
+  overflow-wrap: break-word;
+  font-family: "Lucida Sans Unicode", "Source Sans Pro", Helvetica, "Trebuchet MS", sans-serif;
+  font-style: italic;
+  line-height: 0.7;
+  text-align: center;
+  position: relative;
+  bottom: 0.3em;
+  left: 0.1em; }
+
+.md-content a[href*="mlp.fandom.com"]::after {
+  content: "MLPW";
+  font-size: 0.5em;
+  width: 1.35em;
+  display: inline-block;
+  overflow-wrap: break-word;
+  font-family: "Lucida Sans Unicode", "Source Sans Pro", Helvetica, "Trebuchet MS", sans-serif;
+  font-style: italic;
+  line-height: 0.7;
+  text-align: center;
+  position: relative;
+  bottom: 0.3em;
+  left: 0.1em; }
+
+.md-content a[href*="publicdomainreview.org"]::after {
+  content: "TPDR";
+  font-size: 0.5em;
+  width: 1.6em;
+  display: inline-block;
+  overflow-wrap: break-word;
+  font-family: Baskerville;
+  line-height: 0.8em;
+  text-align: center;
+  position: relative;
+  bottom: 0.3em;
+  left: 0.1em; }
+
+.md-content a[href*="meltingasphalt.com"]::after {
+    content: "▲▲△"; }
+
+/* Bitcoin Talk: close enough! */
+.md-content a[href*="bitcointalk.org"]::after,
+.md-content a[href*="bitcoin.it"]::after {
+    content: "₿⃝"; }
+
+.md-content a[href*="salon.com"]::after {
+    content: "s"; }
+
+.md-content a[href*="www.vox.com"]::after {
+    font-style: italic;
+    content: "Vox"; }
+
+.md-content a[href*="www.vanityfair.com"]::after {
+    content: "VF"; }
+
+.md-content a[href*="www.motherjones.com"]::after {
+    font-family: "Lucida Sans Unicode", "Source Sans Pro", Helvetica, "Trebuchet MS", sans-serif;
+    content: "MJ"; }
+
+.md-content a[href*="www.edge.org"]::after {
+    font-style: italic;
+    content: "E"; }
+
+/* The Harney & Sons logo is too fancy to scale down reasonably */
+.md-content a[href*="harney.com"]::after {
+    content: "H"; }
+
+/* The FF.net logo is pretty crazy, and I don't think anyone would recognize it in monochrome */
+.md-content a[href*="www.fanfiction.net"]::after {
+    content: "FF"; }
+
+.md-content a[href*="poniesatdawn.bandcamp.com"]::after {
+    content: "P@D"; }
+
+.md-content a[href*="yunnansourcing.com"]::after {
+    content: "ʸₛ"; }
+
+/* Avoid the unfortunate connotations of 'SS' */
+.md-content a[href*="scholars-stage.blogspot.com"]::after {
+    content: "Ss"; }
+
+/* Ars is an orange box, not usable */
+.md-content a[href*="arstechnica.com"]::after {
+    font-family: "Lucida Sans Unicode", "Source Sans Pro", Helvetica, "Trebuchet MS", sans-serif;
+    content: "ars"; }
+
+/* British Medical Journal or just 'bmj' */
+.md-content a[href*="bmj.com"]::after {
+    font-family: "Lucida Sans Unicode", "Source Sans Pro", Helvetica, "Trebuchet MS", sans-serif;
+    content: "bmj"; }
+
+/* Science is just typeset in red */
+.md-content a[href*="sciencemag.org"]::after {
+    content: "S"; }
+
+/* SSC logo too bad to use */
+.md-content a[href*="yvain"]::after,
+.md-content a[href*="slatestarcodex"]::after {
+    content: "SSC"; }
+/* SSC's book */
+.md-content a[href*="unsongbook.com"]::after {
+    content: "א"; }
+
+/* OB logo too bad to use */
+.md-content a[href*="overcomingbias.com"]::after {
+    content: "OB"; }
+
+/* LW logo is just a colored 'LW', so no point in converting */
+.md-content a[href*="lesswrong.com"]::after {
+    content: "LW"; }
+
+/* PB logo is confusing. A purple question mark...? */
+.md-content a[href*="predictionbook.com"]::after {
+    content: "\FE56"; }
+
+/* GoodReads: logo doesn't make sense as a grayscale */
+.md-content a[href*="goodreads.com"]::after {
+    content: "GR"; }
+
+/* Long Now Foundation projects: */
+.md-content a[href*="longbets.org"]::after,
+.md-content a[href*="longnow.org"]::after,
+.md-content a[href*="rosettaproject.org"]::after,
+.md-content a[href*="theinterval.org"]::after {
+    content: "X";
+    text-decoration: overline; }
+
+/* ArXiv: Chi (their logo is too bad to use) */
+.md-content a[href*="arxiv.org"]::after {
+    content: "\1D6D8"; }
+
+/* Technology Review (their logo has a little slash in it which you probably can't see at low-res) but is otherwise just a 'T' so meh */
+.md-content a[href*="technologyreview.com"]::after {
+    content: "T";
+    font-family: "Lucida Sans Unicode", "Source Sans Pro", Helvetica, "Trebuchet MS", sans-serif; }
+
+/* Economist: logo is just 'Economist'... */
+.md-content a[href*="economist.com"]::after {
+    content: "E";
+    font-family: "Lucida Sans Unicode", "Source Sans Pro", Helvetica, "Trebuchet MS", sans-serif; }
+
+/* Elsevier/Sciencedirect.com: also an 'E' */
+.md-content a[href*="sciencedirect.com"]::after {
+    content: "E";
+    font-family: "Lucida Sans Unicode", "Source Sans Pro", Helvetica, "Trebuchet MS", sans-serif; }
+
+/* Favicon is a little normal distribution/histogram */
+.md-content a[href*="andrewgelman.com"]::after,
+.md-content a[href*="statmodeling.stat.columbia.edu"]::after {
+    content: "▅▇▃";
+    font-size: 0.6em; }
+
+/* Bloomberg: no usable logo, just an inset-B */
+.md-content a[href*="bloomberg.com"]::after {
+    content: "𝐁"; }
+
+/* BBC: no usable logo */
+.md-content a[href*="bbc.com"]::after,
+.md-content a[href*="bbc.co.uk"]::after {
+    font-family: "Lucida Sans Unicode", "Source Sans Pro", Helvetica, "Trebuchet MS", sans-serif;
+    content: "BBC"; }
+
+/* R: at this point R Studio has taken over a lot of control, so might as well treat them as official too... */
+.md-content a[href*="r-project.org"]::after,
+.md-content a[href*="rstudio.com"]::after {
+    content: "R";
+}
+
+/* Haskell: simplify logo; the double-lambda is too busy when used for link icons */
+.md-content a[href*="haskell.org"]::after {
+    content: "𝛌"; }
+
+/* MAL: the blue of their logo doesn't work, so just text */
+.md-content a[href*="myanimelist.net"]::after {
+    font-family: "Lucida Sans Unicode", "Source Sans Pro", Helvetica, "Trebuchet MS", sans-serif;
+    content: "MAL"; }
+
+/* Gene Wolfe mailing list; no logo */
+.md-content a[href*="urth.net"]::after {
+    content: "U"; }
+
+/* TinyLetter's icon, without color, isn't memorable enough; throw in the other email services */
+.md-content a[href*="tinyletter.com"]::after,
+.md-content a[href*="groups.google.com"]::after,
+.md-content a[href*="groups.yahoo.com"]::after,
+.md-content a[href*="www.mail-archive.com"]::after {
+    content: "✉"; }
+
+/* Tumblr: turns out there's a Unicode equivalent to their curly-T which can be used instead */
+.md-content a[href*="tumblr.com"]::after,
+.md-content a[href*="t.umblr.com"]::after {
+    content: "ʈ"; }
+
+/* The Atlantic: replicate sloping by italics */
+.md-content a[href*="theatlantic.com"]::after {
+    font-style: italic;
+    content: "A"; }
+
+/* Filfre.net/The Digital Antiquarian has no logo or usable substitue... */
+.md-content a[href*="filfre.net"]::after {
+    content: "F"; }
+
+/* ANN */
+.md-content a[href*="animenewsnetwork.com"]::after {
+    font-family: "Lucida Sans Unicode", "Source Sans Pro", Helvetica, "Trebuchet MS", sans-serif;
+    content: "ANN"; }
+
+/* TV Tropes: their lampshade icon is unrecognizable & hard to see small */
+.md-content a[href*="tvtropes.org"]::after {
+    content: "TV"; }
+
+.md-content a[href*="www.cdc.gov"]::after {
+    content: "CDC"; }
+
+/* US federal Department of Justice */
+.md-content a[href*="justice.gov"]::after {
+    content: "DoJ"; }
+
+/* FDA/Food & Drug Agency */
+.md-content a[href*="fda.gov"]::after {
+    font-family: "Lucida Sans Unicode", "Source Sans Pro", Helvetica, "Trebuchet MS", sans-serif;
+    content: "FDA"; }
+
+/* The Paris Review: not even going to try to make their weird bird logo work */
+.md-content a[href*="theparisreview.org"]::after {
+    content: "PR"; }
+
+/* The Wall Street Journal */
+.md-content a[href*="www.wsj.com"]::after {
+    content: "WSJ"; }
+
+/* Slate */
+.md-content a[href*="slate.com"]::after {
+    content: "S"; }
+
+/* Nature */
+.md-content a[href*="nature.com"]::after {
+    content: "n"; }
+
+/* Evangelion: we'll split this into EGF-related and other NGE sites */
+.md-content a[href*="evageeks.org"]::after,
+.md-content a[href*="evamonkey.com"]::after {
+    content: "EG"; }
+.md-content a[href*="onegeek.org"]::after,
+.md-content a[href*="evaotaku.com"]::after,
+.md-content a[href*="khara.co.jp"]::after,
+.md-content a[href*="gainax.co.jp"]::after,
+.md-content a[href*="17th-angel.tumblr.com"]::after,
+.md-content a[href*="neweva.blog103.fc2.com"]::after {
+    content: "NGE"; }
+
+/* IMAGE-BASED PER-DOMAIN LINK ICONS: */
+/* BioRxiv (custom icon: italic Chi with DNA cross-strands) */
+.md-content a[href*='biorxiv.org']::after {
+    background-image: url("/assets/images/chi-dna.svg");
+}
+.md-content a[href*='biorxiv.org']:hover::after {
+    opacity: 0.3;
+}
+.md-content a[href*='biorxiv.org']::after {
+    content: "";
+    display: inline-block;
+    position: static;
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    height: 1em;
+    width: 0.9em;
+    margin: 0 0 0 2px;
+    opacity: 0.60;
+}
+
+/* Google Scholar */
+.md-content a[href*='scholar.google.com']::after {
+    background-image: url("/assets/images/google-scholar.svg");
+}
+.md-content a[href*='scholar.google.com']:hover::after {
+    opacity: 0.3;
+}
+.md-content a[href*='scholar.google.com']::after {
+    content: "";
+    display: inline-block;
+    position: static;
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    height: 1em;
+    width: 1em;
+    margin: 0 0 0 2px;
+    opacity: 0.60;
+}
+
+/* PLOS ONE in all their domain permutations... */
+.md-content a[href*='plosone.org']::after,
+.md-content a[href*='plos.org']::after,
+.md-content a[href*='www.plos']::after {
+    background-image: url("/assets/images/plos.svg");
+}
+.md-content a[href*='plosone.org']:hover::after,
+.md-content a[href*='plos.org']:hover::after,
+.md-content a[href*='www.plos']:hover::after {
+    opacity: 0.3;
+}
+.md-content a[href*='plosone.org']::after,
+.md-content a[href*='plos.org']::after,
+.md-content a[href*='www.plos']::after {
+    content: "";
+    display: inline-block;
+    position: static;
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    height: 1.1em;
+    width: 1em;
+    margin: 0 0 1px 3px;
+    opacity: 0.50;
+}
+
+/* Patreon: used the old one (https://upload.wikimedia.org/wikipedia/commons/9/94/Patreon_logo.svg) because I don't like the new one */
+.md-content a[href*='patreon.com']::after {
+    background-image: url("/assets/images/patreon.svg");
+}
+.md-content a[href*='patreon.com']:hover::after {
+    opacity: 0.3;
+}
+.md-content a[href*='patreon.com']::after {
+    content: "";
+    display: inline-block;
+    position: static;
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    height: 1.1em;
+    width: 1em;
+    margin: 0 0 0 2px;
+    opacity: 0.60;}
+
+/* Upton Tea */
+.md-content a[href*='uptontea.com']::after {
+              background-image: url("/assets/images/uptontea.svg");
+}
+.md-content a[href*='uptontea.com']:hover::after {
+    opacity: 0.3;
+}
+.md-content a[href*='uptontea.com']::after {
+    content: "";
+    display: inline-block;
+    position: static;
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    height: 1.1em;
+    width: 1em;
+    margin: 0 0 0 2px;
+    opacity: 0.60;}
+
+/* Wired */
+.md-content a[href*='wired.com']::after {
+    background-image: url("/assets/images/wired.svg");
+}
+.md-content a[href*='wired.com']:hover::after {
+    opacity: 0.3;
+}
+.md-content a[href*='wired.com']::after {
+    content: "";
+    display: inline-block;
+    position: static;
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    height: 0.75em;
+    width: 0.75em;
+    margin: 0 0 2px 3px;
+    opacity: 0.50;
+}
+
+/* The Washington Post: truncated their blackletter to 'WP' */
+.md-content a[href*='washingtonpost.com']::after {
+    background-image: url("/assets/images/washingtonpost.svg");
+}
+.md-content a[href*='washingtonpost.com']:hover::after {
+    opacity: 0.3;
+}
+.md-content a[href*='washingtonpost.com']::after {
+    content: "";
+    display: inline-block;
+    position: static;
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    height: 1em;
+    width: 1em;
+    margin: 0 0 0px 3px;
+    opacity: 0.60;
+}
+
+/* The New York Times: reduction of full SVG logo to just the 'T' they use as an icon */
+.md-content a[href*='nytimes.com']::after {
+    background-image: url("/assets/images/newyorktimes.svg");}
+.md-content a[href*='nytimes.com']:hover::after {
+    opacity: 0.45;
+}
+.md-content a[href*='nytimes.com']::after {
+    content: "";
+    display: inline-block;
+    position: static;
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    height: 1em;
+    width: 0.8em;
+    margin:0 0 2px 3px;
+    opacity: 0.60;
+}
+
+/* NCBI/Pubmed: simplification of their logo (https://upload.wikimedia.org/wikipedia/commons/0/07/US-NLM-NCBI-Logo.svg) */
+.md-content a[href*='nlm.nih.gov']::after {
+    background-image: url("/assets/images/nlm-ncbi.svg");
+    }
+.md-content a[href*='nlm.nih.gov']:hover::after {
+    opacity: 0.45;
+}
+.md-content a[href*='nlm.nih.gov']::after {
+    content: "";
+    display: inline-block;
+    position: static;
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    height: 1em;
+    width: 0.8em;
+    margin:0 0 2px 3px;
+    opacity: 0.60;
+}
+
+/* The New Yorker: the Dandy SVG, simplified & rotated more vertically */
+.md-content a[href*='newyorker.com']::after {
+    background-image: url("/assets/images/thenewyorker.svg");
+}
+.md-content a[href*='newyorker.com']:hover::after {
+    opacity: 0.45;
+}
+.md-content a[href*='newyorker.com']::after {
+    content: "";
+    display: inline-block;
+    position: static;
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    height: 1.3em;
+    width: 0.9em;
+    margin: 0 0 0px 2px;
+    opacity: 0.60;
+}
+
+/* El Grauniad */
+.md-content a[href*='theguardian.com']::after,
+.md-content a[href*='www.guardian.co.uk']::after {
+    background-image: url("/assets/images/theguardian.svg");
+}
+.md-content a[href*='theguardian.com']:hover::after,
+.md-content a[href*='www.guardian.co.uk']:hover::after {
+    opacity: 0.3;
+}
+.md-content a[href*='theguardian.com']::after,
+.md-content a[href*='www.guardian.co.uk']::after {
+    content: "";
+    display: inline-block;
+    position: static;
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    height: 1.1em;
+    width: 1em;
+    margin: 0 0 0 2px;
+    opacity: 0.60;
+}
+
+/* Reddit */
+.md-content a[href*='reddit.com']::after {
+    background-image: url("/assets/images/reddit.svg");
+}
+.md-content a[href*='reddit.com']:hover::after {
+    opacity: 0.3;
+}
+.md-content a[href*='reddit.com']::after {
+    content: "";
+    display: inline-block;
+    position: static;
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    height: 0.75em;
+    width: 0.75em;
+    margin: 0 0 2px 3px;
+    opacity: 0.50;
+}
+
+/* PG/HN/YC (shared logo): */
+.md-content a[href*='paulgraham.com']::after,
+.md-content a[href*='ycombinator.com']::after {
+    background-image: url("/assets/images/hn.svg");
+}
+.md-content a[href*='paulgraham.com']:hover::after,
+.md-content a[href*='ycombinator.com']:hover::after {
+    opacity: 0.4;
+}
+.md-content a[href*='paulgraham.com']::after,
+.md-content a[href*='ycombinator.com']::after {
+    content: "";
+    display: inline-block;
+    position: static;
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    height: 0.75em;
+    width: 0.75em;
+    margin: 0 0 0 4px;
+    opacity: 0.60;
+}
+
+/* MIRI/intelligence.org */
+.md-content a[href*='intelligence.org']::after {
+    background-image: url("/assets/images/miri.svg");
+}
+.md-content a[href*='intelligence.org']:hover::after {
+    opacity: 0.3;
+}
+.md-content a[href*='intelligence.org']::after {
+    content: "";
+    display: inline-block;
+    position: static;
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    height: 1em;
+    width: 1em;
+    margin: 0 0 0 2px;
+    opacity: 0.60;
+}
+
+/* DeepMind; match articles or anchors about DM too */
+.md-content a[href*='deepmind']::after {
+    background-image: url("/assets/images/deepmind.svg");
+}
+.md-content a[href*='deepmind']:hover::after {
+    opacity: 0.5;
+}
+.md-content a[href*='deepmind']::after {
+    content: "";
+    display: inline-block;
+    position: static;
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    height: 1.1em;
+    width: 1.1em;
+    margin: 0 0 1px 4px;
+    opacity: 0.60;
+}
+
+.md-content a[href*='openai']::after {
+    background-image: url("/assets/images/openai.svg");
+}
+.md-content a[href*='openai']:hover::after {
+    opacity: 0.5;
+}
+.md-content a[href*='openai']::after {
+    content: "";
+    display: inline-block;
+    position: static;
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    height: 1.1em;
+    width: 1em;
+    margin: 0 0 0px 3px;
+    opacity: 0.60;
+}
+
+/* Twitter */
+.md-content a[href*='twitter.com']::after {
+    background-image: url("/assets/images/twitter.svg");
+}
+.md-content a[href*='twitter.com']:hover::after {
+    opacity: 0.3;
+}
+.md-content a[href*='twitter.com']::after {
+    content: "";
+    display: inline-block;
+    position: static;
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    height: 0.75em;
+    width: 0.75em;
+    margin: 0 0 2px 4px;
+    opacity: 0.60;
+}
+
+/* Erowid */
+.md-content a[href*='erowid.org']::after {
+    background-image: url("/assets/images/erowid.svg");
+}
+.md-content a[href*='erowid.org']:hover::after {
+    opacity: 0.3;
+}
+.md-content a[href*='erowid.org']::after {
+    content: "";
+    display: inline-block;
+    position: static;
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    height: 1em;
+    width: 1em;
+    margin: 0 0 0 2px;
+    opacity: 0.60;
+}
+
+/* Wikipedia */
+
+.md-content a[href*="wikipedia.org"]::after,
+.md-content a[href*="wikimedia.org"]::after,
+.md-content a[href*="wikimediafoundation.org"]::after,
+.md-content a[href*="wikisource.org"]::after {
+    content: "";
+    /* WP is used on almost every page, so make an exception and inline it */
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NDAgNTEyIj48cGF0aCBkPSJNNjQwIDUxLjJsLS4zIDEyLjJjLTI4LjEuOC00NSAxNS44LTU1LjggNDAuMy0yNSA1Ny44LTEwMy4zIDI0MC0xNTUuMyAzNTguNkg0MTVsLTgxLjktMTkzLjFjLTMyLjUgNjMuNi02OC4zIDEzMC05OS4yIDE5My4xLS4zLjMtMTUgMC0xNS0uM0MxNzIgMzUyLjMgMTIyLjggMjQzLjQgNzUuOCAxMzMuNCA2NC40IDEwNi43IDI2LjQgNjMuNC4yIDYzLjdjMC0zLjEtLjMtMTAtLjMtMTQuMmgxNjEuOXYxMy45Yy0xOS4yIDEuMS01Mi44IDEzLjMtNDMuMyAzNC4yIDIxLjkgNDkuNyAxMDMuNiAyNDAuMyAxMjUuNiAyODguNiAxNS0yOS43IDU3LjgtMTA5LjIgNzUuMy0xNDIuOC0xMy45LTI4LjMtNTguNi0xMzMuOS03Mi44LTE2MC05LjctMTcuOC0zNi4xLTE5LjQtNTUuOC0xOS43VjQ5LjhsMTQyLjUuM3YxMy4xYy0xOS40LjYtMzguMSA3LjgtMjkuNCAyNi4xIDE4LjkgNDAgMzAuNiA2OC4xIDQ4LjEgMTA0LjcgNS42LTEwLjggMzQuNy02OS40IDQ4LjEtMTAwLjggOC45LTIwLjYtMy45LTI4LjYtMzguNi0yOS40LjMtMy42IDAtMTAuMy4zLTEzLjYgNDQuNC0uMyAxMTEuMS0uMyAxMjMuMS0uNnYxMy42Yy0yMi41LjgtNDUuOCAxMi44LTU4LjEgMzEuN2wtNTkuMiAxMjIuOGM2LjQgMTYuMSA2My4zIDE0Mi44IDY5LjIgMTU2LjdMNTU5LjIgOTEuOGMtOC42LTIzLjEtMzYuNC0yOC4xLTQ3LjItMjguM1Y0OS42bDEyNy44IDEuMS4yLjV6Ii8+PC9zdmc+');
+    background-repeat: no-repeat;
+    background-size: 0.75em;
+    background-position: right 1px top;
+    width: 0.825em;
+    height: 0.825em;
+    display: inline-block;
+    vertical-align: baseline;
+    opacity: 0.825;
+}
+.md-content a[href*="wikipedia.org"]:hover::after,
+.md-content a[href*="wikimedia.org"]:hover::after,
+.md-content a[href*="wikimediafoundation.org"]:hover::after,
+.md-content a[href*="wikisource.org"]:hover::after {
+    opacity: 0.6;
+}
+
+/* YouTube/Bandcamp/SoundCloud links */
+.md-content a[href*='youtube.com']::after,
+.md-content a[href*='youtu.be']::after,
+.md-content a[href*='soundcloud.com']::after,
+.md-content a[href*='bandcamp.com']::after {
+    background-image: url('/assets/images/video.svg');
+}
+.md-content a[href*='youtube.com']:hover::after,
+.md-content a[href*='youtu.be']:hover::after,
+.md-content a[href*='soundcloud.com']:hover::after,
+.md-content a[href*='bandcamp.com']:hover::after {
+    opacity: 0.3;
+}
+.md-content a[href*='youtube.com']::after,
+.md-content a[href*='youtu.be']::after,
+.md-content a[href*='soundcloud.com']::after,
+.md-content a[href*='bandcamp.com']::after {
+    content: "";
+    display: inline-block;
+    position: static;
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    height: 1em;
+    width: 1em;
+    margin: 0 0 0 3px;
+    opacity: 0.60;
+}
+
+/* The *Exchange/*Overflow family of websites: */
+.md-content a[href*="overflow.net"]::after,
+.md-content a[href*="overflow.com"]::after,
+.md-content a[href*="stackexchange.com"]::after {
+    content: "";
+    background-image: url("/assets/images/stackexchange.svg");
+    background-repeat: no-repeat;
+    background-size: 0.75em;
+    background-position: right 1px top;
+    width: 0.85em;
+    height: 0.85em;
+    display: inline-block;
+    vertical-align: baseline;
+    opacity: 0.85;
+}
+.md-content a[href*="overflow.net"]:hover::after,
+.md-content a[href*="overflow.com"]::after,
+.md-content a[href*="stackexchange.com"]:hover::after {
+    opacity: 0.6;
+}
+
+/* Amazon */
+.md-content a[href*="amazon.com"]::after,
+.md-content a[href*="amazon.co."]::after,
+.md-content a[href*="amzn.com"]::after {
+    content: "";
+    background-image: url("/assets/images/amazon.svg");
+    background-repeat: no-repeat;
+    background-size: 0.75em;
+    background-position: right 1px top;
+    width: 1em;
+    height: 0.8em;
+    display: inline-block;
+    vertical-align: baseline;
+    opacity: 0.81;
+}
+.md-content a[href*="amazon.com"]:hover::after,
+.md-content a[href*="amazon.co."]:hover::after,
+.md-content a[href*="amzn.com"]:hover::after {
+    opacity: 0.6;
+}
+
+/*Blue book */
+.md-content a[href*='lyz-code.github.io']::after {
+    background-image: url("/assets/images/bluebook.svg");
+}
+.md-content a[href*='lyz-code.github.io']:hover::after {
+    opacity: 0.3;
+}
+.md-content a[href*='lyz-code.github.io']::after {
+    content: "";
+    display: inline-block;
+    position: static;
+    margin: 0 0 2px 3px;
+
+    background-repeat: no-repeat;
+    background-size: 0.75em;
+    background-position: right 1px top;
+    width: 0.825em;
+    height: 0.825em;
+    display: inline-block;
+    vertical-align: baseline;
+    opacity: 0.825;
+}
+
+
+/* Github; I exclude github.io because that's blogs */
+.md-content a[href*='github.com']::after {
+    background-image: url("/assets/images/github.svg");
+}
+.md-content a[href*='github.com']:hover::after {
+    opacity: 0.3;
+}
+.md-content a[href*='github.com']::after {
+    content: "";
+    display: inline-block;
+    position: static;
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    height: 0.75em;
+    width: 0.75em;
+    margin: 0 0 2px 3px;
+    opacity: 0.60;
+}
+
+.md-content a[title='Edit this page']::after {
+    opacity: 0;
+}
+
+/* Dropbox: old file-host, deprecated since they've started killing inactive accounts */
+.md-content a[href*='dropbox.com']::after,
+.md-content a[href*='dropboxusercontent.com']::after {
+    background-image: url("/assets/images/dropbox.svg");
+}
+.md-content a[href*='dropbox.com']:hover::after,
+.md-content a[href*='dropboxusercontent.com']:hover::after {
+    opacity: 0.3;
+}
+.md-content a[href*='dropbox.com']::after,
+.md-content a[href*='dropboxusercontent.com']::after {
+    content: "";
+    display: inline-block;
+    position: static;
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    height: 0.75em;
+    width: 0.75em;
+    margin: 0 0 2px 3px;
+    opacity: 0.50;
+}
+
+/* MegaUpload/Mega: filesharing (used for big files) */
+.md-content a[href*='mega.nz']::after {
+    background-image: url("/assets/images/mega.svg");
+}
+.md-content a[href*='mega.nz']:hover::after {
+    opacity: 0.3;
+}
+.md-content a[href*='mega.nz']::after {
+    content: "";
+    display: inline-block;
+    position: static;
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    height: 0.75em;
+    width: 0.75em;
+    margin: 0 0 2px 3px;
+    opacity: 0.60;
+}
+
+.md-content a[href*='archive.org']::after,
+.md-content a[href*='archive-it.org']::after,
+.md-content a[href*='archiveteam.org']::after,
+.md-content a[href*='waybackmachine.org']::after {
+    background-image: url("/assets/images/internetarchive.svg");
+}
+.md-content a[href*='archive.org']:hover::after,
+.md-content a[href*='archive-it.org']:hover::after,
+.md-content a[href*='archiveteam.org']:hover::after,
+.md-content a[href*='waybackmachine.org']:hover::after {
+    opacity: 0.3;
+}
+.md-content a[href*='archive.org']::after,
+.md-content a[href*='archive-it.org']::after,
+.md-content a[href*='archiveteam.org']::after,
+.md-content a[href*='waybackmachine.org']::after {
+    content: "";
+    display: inline-block;
+    position: static;
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    height: 0.75em;
+    width: 0.75em;
+    margin: 0 0 2px 3px;
+    opacity: 0.60;
+}
+
+/*=--------------------------------------------=*/
+/*= Icons for certain link types: by file type =*/
+/*=--------------------------------------------=*/
+/*  Note: some file extension link types have are selected additionally by
+    origin on gwern.net, because they frequently appear at the ends of ordinary
+    web page URLs.
+    */
+
+/*  PDFs */
+.md-content a[href$='.pdf' i]::after,
+.md-content a[href$='/pdf' i]::after,
+.md-content a[href$='type=pdf' i]::after,
+.md-content a[href*='.pdf#' i]::after,
+.md-content a[href*='pdfs.semanticscholar.org' i]::after,
+.md-content a[href$='.epub' i]::after,
+.md-content a[href*='citeseerx.ist.psu.edu' i]::after,
+.md-content a[href*='eprint.iacr.org' i]::after,
+/*  Textfiles */
+.md-content a[href$='.opml' i]::after,
+.md-content a[href$='.page' i]::after,
+.md-content a[href$='.txt' i]::after,
+.md-content a[href$='.xml' i]::after,
+/*  Code */
+.md-content a[href$='.css' i]::after,
+.md-content a[href$='.hs' i]::after,
+.md-content a[href$='.js' i]::after,
+.md-content a[href$='.json' i]::after,
+.md-content a[href^="."][href$='.php' i]::after,
+.md-content a[href$='.sh' i]::after,
+.md-content a[href$='.R' i]::after,
+.md-content a[href$='.patch' i]::after,
+.md-content a[href$='.diff' i]::after,
+/*  Word */
+.md-content a[href$='.doc' i]::after,
+.md-content a[href$='.docx' i]::after,
+.md-content a[href*='docs.google.com' i]::after,
+/*  Excel */
+.md-content a[href$='.xls' i]::after,
+.md-content a[href$='.xlsx' i]::after,
+.md-content a[href$='.ods' i]::after,
+/*  CSV */
+.md-content a[href$='.csv' i]::after,
+/*  Images */
+.md-content a[href$='.gif' i]::after,
+.md-content a[href$='.bmp' i]::after,
+.md-content a[href$='.ico' i]::after,
+.md-content a[href$='.jpg' i]::after,
+.md-content a[href$='.jpeg' i]::after,
+.md-content a[href$='.png' i]::after,
+.md-content a[href$='.svg' i]::after,
+.md-content a[href$='.xcf' i]::after,
+.md-content a[href*='imgur.com']::after,
+/*  Audio */
+.md-content a[href$='.mp3' i]::after,
+.md-content a[href$='.wav' i]::after,
+.md-content a[href$='.flac' i]::after,
+.md-content a[href$='.ogg' i]::after,
+.md-content a[href$='.rm' i]::after,
+/*  Video */
+.md-content a[href$='.swf' i]::after,
+.md-content a[href$='.avi' i]::after,
+.md-content a[href$='.mp4' i]::after,
+.md-content a[href$='.webm' i]::after,
+/*  Archives */
+.md-content a[href$='.tar' i]::after,
+.md-content a[href$='.zip' i]::after,
+.md-content a[href$='.xz'  i]::after,
+.md-content a[href$='.img' i]::after,
+/*  Misc */
+.md-content a[href$='.ebt' i]::after,
+.md-content a[href$='.mdb' i]::after,
+.md-content a[href$='.mht' i]::after,
+.md-content a[href$='.ttf' i]::after {
+    content: "";
+    display: inline-block;
+    position: static;
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    height: 0.75em;
+    width: 0.75em;
+    margin: 0 0 0 2px;
+    opacity: 0.55;
+}
+/*  PDFs */
+.md-content a[href$='.pdf' i]:hover::after,
+.md-content a[href$='/pdf' i]:hover::after,
+.md-content a[href$='type=pdf' i]:hover::after,
+.md-content a[href*='.pdf#' i]:hover::after,
+.md-content a[href$='.epub' i]:hover::after,
+.md-content a[href*='pdfs.semanticscholar.org' i]:hover::after,
+.md-content a[href*='citeseerx.ist.psu.edu' i]:hover::after,
+.md-content a[href*='eprint.iacr.org' i]:hover::after,
+/*  Textfiles */
+.md-content a[href$='.opml' i]:hover::after,
+.md-content a[href$='.page' i]:hover::after,
+.md-content a[href$='.txt' i]:hover::after,
+.md-content a[href$='.xml' i]:hover::after,
+/*  Code */
+.md-content a[href$='.css' i]:hover::after,
+.md-content a[href$='.hs' i]:hover::after,
+.md-content a[href$='.js' i]:hover::after,
+.md-content a[href$='.json' i]:hover::after,
+.md-content a[href^="."][href$='.php' i]:hover::after,
+.md-content a[href$='.sh' i]:hover::after,
+.md-content a[href$='.R' i]:hover::after,
+.md-content a[href$='.patch' i]:hover::after,
+.md-content a[href$='.diff' i]:hover::after,
+/*  Word */
+.md-content a[href$='.doc' i]:hover::after,
+.md-content a[href$='.docx' i]:hover::after,
+.md-content a[href*='docs.google.com' i]:hover::after,
+/*  Excel */
+.md-content a[href$='.xls' i]:hover::after,
+.md-content a[href$='.xlsx' i]:hover::after,
+.md-content a[href$='.ods' i]:hover::after,
+/*  CSV */
+.md-content a[href$='.csv' i]:hover::after,
+/*  Images */
+.md-content a[href$='.gif' i]:hover::after,
+.md-content a[href$='.bmp' i]:hover::after,
+.md-content a[href$='.ico' i]:hover::after,
+.md-content a[href$='.jpg' i]:hover::after,
+.md-content a[href$='.jpeg' i]:hover::after,
+.md-content a[href*='imgur.com']:hover::After,
+.md-content a[href$='.png' i]:hover::after,
+.md-content a[href$='.svg' i]:hover::after,
+.md-content a[href$='.xcf' i]:hover::after,
+/*  Audio */
+.md-content a[href$='.mp3' i]:hover::after,
+.md-content a[href$='.wav' i]:hover::after,
+.md-content a[href$='.flac' i]:hover::after,
+.md-content a[href$='.ogg' i]:hover::after,
+.md-content a[href$='.rm' i]:hover::after,
+/*  Video */
+.md-content a[href$='.swf' i]:hover::after,
+.md-content a[href$='.avi' i]:hover::after,
+.md-content a[href$='.mp4' i]:hover::after,
+.md-content a[href$='.webm' i]:hover::after,
+/*  Archives */
+.md-content a[href$='.tar' i]:hover::after,
+.md-content a[href$='.zip' i]:hover::after,
+.md-content a[href$='.xz'  i]:hover::after,
+.md-content a[href$='.img' i]:hover::after,
+/*  Misc */
+.md-content a[href$='.ebt' i]:hover::after,
+.md-content a[href$='.mdb' i]:hover::after,
+.md-content a[href$='.mht' i]:hover::after,
+.md-content a[href$='.ttf' i]:hover::after {
+    opacity: 0.3;
+}
+
+/*  PDFs.
+    */
+.md-content a[href$='.pdf' i]::after,
+.md-content a[href$='/pdf' i]::after,
+.md-content a[href$='type=pdf' i]::after,
+.md-content a[href*='.pdf#' i]::after,
+.md-content a[href$='.epub' i]::after,
+.md-content a[href*='pdfs.semanticscholar.org' i]::after,
+.md-content a[href*='citeseerx.ist.psu.edu' i]::after,
+.md-content a[href*='eprint.iacr.org' i]::after {
+    opacity: 0.5;
+    /* PDFs are linked on every page, so make another exception */
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzODQgNTEyIj48cGF0aCBkPSJNMTgxLjkgMjU2LjFjLTUtMTYtNC45LTQ2LjktMi00Ni45IDguNCAwIDcuNiAzNi45IDIgNDYuOXptLTEuNyA0Ny4yYy03LjcgMjAuMi0xNy4zIDQzLjMtMjguNCA2Mi43IDE4LjMtNyAzOS0xNy4yIDYyLjktMjEuOS0xMi43LTkuNi0yNC45LTIzLjQtMzQuNS00MC44ek04Ni4xIDQyOC4xYzAgLjggMTMuMi01LjQgMzQuOS00MC4yLTYuNyA2LjMtMjkuMSAyNC41LTM0LjkgNDAuMnpNMjQ4IDE2MGgxMzZ2MzI4YzAgMTMuMy0xMC43IDI0LTI0IDI0SDI0Yy0xMy4zIDAtMjQtMTAuNy0yNC0yNFYyNEMwIDEwLjcgMTAuNyAwIDI0IDBoMjAwdjEzNmMwIDEzLjIgMTAuOCAyNCAyNCAyNHptLTggMTcxLjhjLTIwLTEyLjItMzMuMy0yOS00Mi43LTUzLjggNC41LTE4LjUgMTEuNi00Ni42IDYuMi02NC4yLTQuNy0yOS40LTQyLjQtMjYuNS00Ny44LTYuOC01IDE4LjMtLjQgNDQuMSA4LjEgNzctMTEuNiAyNy42LTI4LjcgNjQuNi00MC44IDg1LjgtLjEgMC0uMS4xLS4yLjEtMjcuMSAxMy45LTczLjYgNDQuNS01NC41IDY4IDUuNiA2LjkgMTYgMTAgMjEuNSAxMCAxNy45IDAgMzUuNy0xOCA2MS4xLTYxLjggMjUuOC04LjUgNTQuMS0xOS4xIDc5LTIzLjIgMjEuNyAxMS44IDQ3LjEgMTkuNSA2NCAxOS41IDI5LjIgMCAzMS4yLTMyIDE5LjctNDMuNC0xMy45LTEzLjYtNTQuMy05LjctNzMuNi03LjJ6TTM3NyAxMDVMMjc5IDdjLTQuNS00LjUtMTAuNi03LTE3LTdoLTZ2MTI4aDEyOHYtNi4xYzAtNi4zLTIuNS0xMi40LTctMTYuOXptLTc0LjEgMjU1LjNjNC4xLTIuNy0yLjUtMTEuOS00Mi44LTkgMzcuMSAxNS44IDQyLjggOSA0Mi44IDl6Ii8+PC9zdmc+');
+}
+
+/*  Textfiles.
+    */
+.md-content a[href$='.opml' i]::after,
+.md-content a[href$='.page' i]::after,
+.md-content a[href$='.txt' i]::after,
+.md-content a[href$='.xml' i]::after {
+    background-image: url('/assets/images/txt.svg');
+}
+
+/*  Code, scripts, etc.
+    */
+.md-content a[href$='.css' i]::after,
+.md-content a[href$='.hs' i]::after,
+.md-content a[href$='.js' i]::after,
+.md-content a[href$='.json' i]::after,
+.md-content a[href$='.R' i]::after,
+.md-content a[href$='.diff' i]::after,
+.md-content a[href$='.patch' i]::after,
+.md-content a[href^="."][href$='.php' i]::after,
+.md-content a[href$='.sh' i]::after {
+    background-image: url('/assets/images/code.svg');
+}
+
+/*  Word (& compatible) documents.
+    */
+.md-content a[href$='.doc' i]::after,
+.md-content a[href$='.docx' i]::after,
+.md-content a[href*='docs.google.com' i]::after {
+    background-image: url('/assets/images/worddoc.svg');
+}
+
+/*  Excel (& compatible) documents.
+    */
+.md-content a[href$='.xls' i]::after,
+.md-content a[href$='.ods' i]::after,
+.md-content a[href$='.xlsx' i]::after {
+    background-image: url('/assets/images/spreadsheet.svg');
+}
+
+/*  CSV files.
+    */
+.md-content a[href$='.csv' i]::after {
+    background-image: url('/assets/images/csv.svg');
+}
+
+/*  Images.
+    */
+.md-content a[href$='.gif' i]::after,
+.md-content a[href$='.bmp' i]::after,
+.md-content a[href$='.ico' i]::after,
+.md-content a[href$='.jpg' i]::after,
+.md-content a[href$='.jpeg' i]::after,
+.md-content a[href$='.png' i]::after,
+.md-content a[href$='.svg' i]::after,
+.md-content a[href$='.xcf' i]::after,
+.md-content a[href*='imgur.com']::after {
+    background-image: url('/assets/images/image.svg');
+}
+
+/*  Audio files.
+    */
+.md-content a[href$='.mp3' i]::after,
+.md-content a[href$='.wav' i]::after,
+.md-content a[href$='.flac' i]::after,
+.md-content a[href$='.rm' i]::after,
+.md-content a[href$='.ogg' i]::after {
+    background-image: url('/assets/images/audio.svg');
+}
+
+/*  Video files.
+ */
+.md-content a[href$='.swf' i]::after,
+.md-content a[href$='.avi' i]::after,
+.md-content a[href$='.mp4' i]::after,
+.md-content a[href$='.webm' i]::after {
+    background-image: url('/assets/images/video.svg');
+}
+
+/*  Archive files.
+    */
+.md-content a[href$='.tar' i]::after,
+.md-content a[href$='.zip' i]::after,
+.md-content a[href$='.xz' i]::after,
+.md-content a[href$='.img' i]::after {
+    background-image: url('/assets/images/archive.svg');
+}
+
+/*  Miscellaneous files (for which there is no specific icon).
+    */
+.md-content a[href$='.ebt' i]::after,
+.md-content a[href$='.mdb' i]::after,
+.md-content a[href$='.mht' i]::after,
+.md-content a[href$='.ttf' i]::after {
+    background-image: url('/assets/images/misc.svg');
+}

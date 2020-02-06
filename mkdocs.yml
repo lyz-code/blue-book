@@ -43,6 +43,7 @@ markdown_extensions:
   - pymdownx.tilde
 theme:
   name: material
+  custom_dir: "theme"
   logo: "images/logo.bmp"
   palette:
     primary: 'blue grey'
@@ -50,6 +51,7 @@ theme:
 
 extra_css:
   - 'stylesheets/extra.css'
+  - 'stylesheets/links.css'
 
 extra:
   social:

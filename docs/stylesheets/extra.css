@@ -1,6 +1,12 @@
 .md-content a:link {
   text-decoration:underline;
 }
+
+.md-typeset a:hover {
+  color: #abb9c1;
+  text-decoration:underline;
+}
+
 .md-typeset h1 {
   font-size: 32px;
   font-family: Content-font, Roboto, sans-serif;
@@ -15,4 +21,13 @@
   font-weight: 700;
   line-height: 1.5;
   color: #28292d;
+}
+.md-typeset h2::after {
+  width:100%;
+  height:1px;
+  background: #283551;
+  content:"";
+  display: block;
+  margin-top: -5px;
+  opacity: 0.2;
 }
