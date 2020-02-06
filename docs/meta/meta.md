@@ -21,9 +21,9 @@ in between.
 I've tried writing blogs in the past, but it doesn't work for me. I can't stand
 the idea of having to save some time to sit and write a full article of
 something I've done. I need to document *at the same time* as I develop or
-learn. Furthermore, as I usually use [incremental reading](incremental_reading.md) or
-work on several projects, I don't write one article, but improve several at the
-same time in a unordered way. That's why I embrace [Gwerns Long Content
+learn. Furthermore, as I usually use incremental reading or work on several
+projects, I don't write one article, but improve several at the same time in
+a unordered way. That's why I embrace [Gwerns Long Content
 principle](https://www.gwern.net/About#long-content).
 
 The only drawback of this format is that I won't have an interesting RSS feed.
@@ -72,9 +72,6 @@ The structure of each of the posts will often look roughly like this:
    interesting on the internet regarding the topic. I often give a link of where
    I got things from.
 5. Links - Links related to the topic.
-
-If you are interested in how I maintain and write this wiki, you can visit my
-[guidelines on how to build your wiki](build_your_own_wiki.md).
 
 # Links
 
