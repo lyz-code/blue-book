@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" version="1.1" viewBox="0 0 640 640" id="svg24" sodipodi:docname="deepmind.svg" inkscape:version="0.92.2 5c3e80d, 2017-08-06">
+  <metadata id="metadata28">
+    <rdf:RDF>
+      <cc:Work rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+        <dc:title/>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview pagecolor="#ffffff" bordercolor="#666666" borderopacity="1" objecttolerance="10" gridtolerance="10" guidetolerance="10" inkscape:pageopacity="0" inkscape:pageshadow="2" inkscape:window-width="640" inkscape:window-height="480" id="namedview26" showgrid="false" inkscape:zoom="0.36875" inkscape:cx="320" inkscape:cy="320" inkscape:window-x="210" inkscape:window-y="0" inkscape:window-maximized="0" inkscape:current-layer="svg24"/>
+  <defs id="defs14">
+    <path id="a" d="m317.79 6.58c-108.65 2.51-195.49 95.25-195.58 208.85 0.09 109.07 80.38 199.75 184.39 208.26-50.55-5.95-88.78-50.64-88.81-103.82 0-57.74 44.77-104.54 100-104.54 110.46 0 200 93.61 200 209.08-0.06 108.51-79.53 198.94-182.96 208.19 158.67-9.44 282.77-146.59 282.97-312.73-0.15-163.73-120.74-299.79-276.89-312.4-6.21-0.68-12.45-1.05-18.7-1.11-0.39 0.02-0.79 0.04-1.18 0.06-1.08-0.06-2.16-0.12-3.24-0.17v0.33z"/>
+    <linearGradient id="d" x1="116.94" x2="623.06" y1="319.42" y2="319.42" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#a3a3a3" offset="0" id="stop3"/>
+      <stop stop-color="#fff" offset="1" id="stop5"/>
+    </linearGradient>
+    <path id="b" d="m322.21 633.42c108.65-2.51 195.49-95.25 195.58-208.85-0.09-109.07-80.38-199.75-184.39-208.26 50.55 5.95 88.78 50.64 88.81 103.82 0 57.74-44.77 104.54-100 104.54-110.46 0-200-93.61-200-209.08 0.06-108.51 79.53-198.94 182.96-208.19-158.67 9.44-282.77 146.59-282.97 312.73 0.15 163.73 120.74 299.79 276.89 312.4 6.21 0.68 12.45 1.05 18.7 1.11 0.39-0.02 0.79-0.04 1.18-0.06 1.08 0.06 2.16 0.12 3.24 0.17v-0.33z"/>
+    <linearGradient id="c" x1="16.94" x2="523.06" y1="320.41" y2="320.41" gradientUnits="userSpaceOnUse">
+      <stop offset="0" id="stop9"/>
+      <stop stop-color="#969696" offset="1" id="stop11"/>
+    </linearGradient>
+  </defs>
+  <use fill="url(#d)" xlink:href="#a" id="use16"/>
+  <use fill-opacity="0" stroke="#ffffff" stroke-width="2" xlink:href="#a" id="use18"/>
+  <use fill="url(#c)" xlink:href="#b" id="use20"/>
+  <use fill-opacity="0" stroke="#ffffff" stroke-width="2" xlink:href="#b" id="use22"/>
+<head xmlns=""/></svg>
