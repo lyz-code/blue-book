@@ -4,6 +4,7 @@
 
 /*  Within-page (anchor) links.
     */
+/*
 .md-content section > :not(:first-child) a[href^='#']::after,
 .md-content p a[href^='#']::after {
     content: "\00B6";
@@ -20,7 +21,7 @@
 .md-content p a[href^='#'].footnote-back::after {
     content: none;
 }
-
+*/
 /*  Internal (within-site) links. Avoid 'G' icons on hosted documents, local images, and infrastructure, which aren't formal writings.
  */
 .md-content a[href^="https://www.gwern.net/"]:not([href*="/docs/"]):not([href*="/images/"]):not([href*="/static/"]):not([href$=".hs"]):not([href$=".sh"]):not([href$=".R"])::after {
@@ -857,6 +858,7 @@
 /* Blue book: Fetch all internal links not `//` and the external links of my
  * blog */
 .md-content a[href*='lyz-code.github.io']::after,
+.md-content a:not([href*='mailto'])::after,
 .md-content a:not([href*="//"])::after {
     background-image: url("/blue-book/assets/images/bluebook.svg");
 }
@@ -881,11 +883,15 @@
     opacity: 0.825;
 }
 
+.md-content a[href*='mailto']::after,
 .md-content a[title='Permanent link'] {
     text-decoration: none;
 }
+
+.md-content a[href*='mailto']::after,
 .md-content a[title='Permanent link']::after {
     opacity: 0;
+    width: 0;
 }
 
 
