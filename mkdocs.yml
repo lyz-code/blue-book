@@ -5,6 +5,10 @@ site_url: https://lyz-code.github.io/blue-book
 nav:
   - Introduction: 'index.md'
   - Meta: 'meta/meta.md'
+  - Wishlist: 'wishlist.md'
+  - Life Automation:
+    - Introduction: 'life_automation/life_automation.md'
+  - Contact: 'contact.md'
   - Tags: 'tags.md'
 
 plugins:
@@ -52,6 +56,10 @@ theme:
 extra_css:
   - 'stylesheets/extra.css'
   - 'stylesheets/links.css'
+  # - 'stylesheets/tooltipster.bundle.min.css'
+
+# extra_js:
+#   - 'javascript/tooltipster.bundle.js'
 
 extra:
   social:

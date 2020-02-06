@@ -1,0 +1,67 @@
+---
+title: Contact
+date: 20200206
+author: Lyz
+---
+
+I'm available by:
+
+* Email or XMPP at
+  [lyz@riseup.net](mailto:lyz@riseup.net).
+
+??? note "PGP Key: `6ADA882386CDF9BD1884534C6C7D7C1612CDE02F`"
+    ```
+    -----BEGIN PGP PUBLIC KEY BLOCK-----
+
+    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
+    =9EvG
+
+    -----END PGP PUBLIC KEY BLOCK-----
+    ```
+* Through Github by [opening an issue](https://github.com/lyz-code/blue-book/issues).
