@@ -4,8 +4,8 @@ site_author: Lyz
 site_url: https://lyz-code.github.io/blue-book
 nav:
   - Introduction: 'index.md'
-  - Meta: 'meta.md'
-  - Tags: 'tags.html'
+  - Meta: 'meta/meta.md'
+  - Tags: '/tags.html'
 
 plugins:
   - search
