@@ -4,7 +4,7 @@ author: Lyz
 ---
 
 This is my personal wiki where I share everything I know about this world in
-form of an [online mkdocs book](https://www.mkdocs.org/) hosted on
+form of an online [mkdocs](https://www.mkdocs.org/) book hosted on
 [GitHub](https://github.com/lyz-code/blue-book).
 
 If this is your first time visiting this wiki, take a look at [meta](meta.md),

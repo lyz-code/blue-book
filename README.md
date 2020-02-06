@@ -4,7 +4,7 @@ mkdocs book](https://www.mkdocs.org/) hosted on
 [GitHub](https://github.com/lyz-code/blue-book).
 
 **The wiki is meant to be read [in the web
-format](https://lyz-code.github.io).**
+format](https://lyz-code.github.io/blue-book).**
 
 ## Contributing
 
