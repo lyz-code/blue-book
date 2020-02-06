@@ -64,3 +64,6 @@ I didn't have to learn how to use another editor.
   discovers new content.
 * Digital e-ink note taking system that is affordable, self hosted and performs
   character recognition.
+* A way to store music numeric ratings through the command line compatible with
+  [mpd](https://en.wikipedia.org/wiki/Music_Player_Daemon) and
+  [beets](http://beets.readthedocs.io/).
