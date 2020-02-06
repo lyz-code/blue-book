@@ -412,7 +412,7 @@
 /* IMAGE-BASED PER-DOMAIN LINK ICONS: */
 /* BioRxiv (custom icon: italic Chi with DNA cross-strands) */
 .md-content a[href*='biorxiv.org']::after {
-    background-image: url("/assets/images/chi-dna.svg");
+    background-image: url("/blue-book/assets/images/chi-dna.svg");
 }
 .md-content a[href*='biorxiv.org']:hover::after {
     opacity: 0.3;
@@ -431,7 +431,7 @@
 
 /* Google Scholar */
 .md-content a[href*='scholar.google.com']::after {
-    background-image: url("/assets/images/google-scholar.svg");
+    background-image: url("/blue-book/assets/images/google-scholar.svg");
 }
 .md-content a[href*='scholar.google.com']:hover::after {
     opacity: 0.3;
@@ -452,7 +452,7 @@
 .md-content a[href*='plosone.org']::after,
 .md-content a[href*='plos.org']::after,
 .md-content a[href*='www.plos']::after {
-    background-image: url("/assets/images/plos.svg");
+    background-image: url("/blue-book/assets/images/plos.svg");
 }
 .md-content a[href*='plosone.org']:hover::after,
 .md-content a[href*='plos.org']:hover::after,
@@ -475,7 +475,7 @@
 
 /* Patreon: used the old one (https://upload.wikimedia.org/wikipedia/commons/9/94/Patreon_logo.svg) because I don't like the new one */
 .md-content a[href*='patreon.com']::after {
-    background-image: url("/assets/images/patreon.svg");
+    background-image: url("/blue-book/assets/images/patreon.svg");
 }
 .md-content a[href*='patreon.com']:hover::after {
     opacity: 0.3;
@@ -493,7 +493,7 @@
 
 /* Upton Tea */
 .md-content a[href*='uptontea.com']::after {
-              background-image: url("/assets/images/uptontea.svg");
+              background-image: url("/blue-book/assets/images/uptontea.svg");
 }
 .md-content a[href*='uptontea.com']:hover::after {
     opacity: 0.3;
@@ -511,7 +511,7 @@
 
 /* Wired */
 .md-content a[href*='wired.com']::after {
-    background-image: url("/assets/images/wired.svg");
+    background-image: url("/blue-book/assets/images/wired.svg");
 }
 .md-content a[href*='wired.com']:hover::after {
     opacity: 0.3;
@@ -530,7 +530,7 @@
 
 /* The Washington Post: truncated their blackletter to 'WP' */
 .md-content a[href*='washingtonpost.com']::after {
-    background-image: url("/assets/images/washingtonpost.svg");
+    background-image: url("/blue-book/assets/images/washingtonpost.svg");
 }
 .md-content a[href*='washingtonpost.com']:hover::after {
     opacity: 0.3;
@@ -549,7 +549,7 @@
 
 /* The New York Times: reduction of full SVG logo to just the 'T' they use as an icon */
 .md-content a[href*='nytimes.com']::after {
-    background-image: url("/assets/images/newyorktimes.svg");}
+    background-image: url("/blue-book/assets/images/newyorktimes.svg");}
 .md-content a[href*='nytimes.com']:hover::after {
     opacity: 0.45;
 }
@@ -567,7 +567,7 @@
 
 /* NCBI/Pubmed: simplification of their logo (https://upload.wikimedia.org/wikipedia/commons/0/07/US-NLM-NCBI-Logo.svg) */
 .md-content a[href*='nlm.nih.gov']::after {
-    background-image: url("/assets/images/nlm-ncbi.svg");
+    background-image: url("/blue-book/assets/images/nlm-ncbi.svg");
     }
 .md-content a[href*='nlm.nih.gov']:hover::after {
     opacity: 0.45;
@@ -586,7 +586,7 @@
 
 /* The New Yorker: the Dandy SVG, simplified & rotated more vertically */
 .md-content a[href*='newyorker.com']::after {
-    background-image: url("/assets/images/thenewyorker.svg");
+    background-image: url("/blue-book/assets/images/thenewyorker.svg");
 }
 .md-content a[href*='newyorker.com']:hover::after {
     opacity: 0.45;
@@ -606,7 +606,7 @@
 /* El Grauniad */
 .md-content a[href*='theguardian.com']::after,
 .md-content a[href*='www.guardian.co.uk']::after {
-    background-image: url("/assets/images/theguardian.svg");
+    background-image: url("/blue-book/assets/images/theguardian.svg");
 }
 .md-content a[href*='theguardian.com']:hover::after,
 .md-content a[href*='www.guardian.co.uk']:hover::after {
@@ -627,7 +627,7 @@
 
 /* Reddit */
 .md-content a[href*='reddit.com']::after {
-    background-image: url("/assets/images/reddit.svg");
+    background-image: url("/blue-book/assets/images/reddit.svg");
 }
 .md-content a[href*='reddit.com']:hover::after {
     opacity: 0.3;
@@ -647,7 +647,7 @@
 /* PG/HN/YC (shared logo): */
 .md-content a[href*='paulgraham.com']::after,
 .md-content a[href*='ycombinator.com']::after {
-    background-image: url("/assets/images/hn.svg");
+    background-image: url("/blue-book/assets/images/hn.svg");
 }
 .md-content a[href*='paulgraham.com']:hover::after,
 .md-content a[href*='ycombinator.com']:hover::after {
@@ -668,7 +668,7 @@
 
 /* MIRI/intelligence.org */
 .md-content a[href*='intelligence.org']::after {
-    background-image: url("/assets/images/miri.svg");
+    background-image: url("/blue-book/assets/images/miri.svg");
 }
 .md-content a[href*='intelligence.org']:hover::after {
     opacity: 0.3;
@@ -687,7 +687,7 @@
 
 /* DeepMind; match articles or anchors about DM too */
 .md-content a[href*='deepmind']::after {
-    background-image: url("/assets/images/deepmind.svg");
+    background-image: url("/blue-book/assets/images/deepmind.svg");
 }
 .md-content a[href*='deepmind']:hover::after {
     opacity: 0.5;
@@ -705,7 +705,7 @@
 }
 
 .md-content a[href*='openai']::after {
-    background-image: url("/assets/images/openai.svg");
+    background-image: url("/blue-book/assets/images/openai.svg");
 }
 .md-content a[href*='openai']:hover::after {
     opacity: 0.5;
@@ -724,7 +724,7 @@
 
 /* Twitter */
 .md-content a[href*='twitter.com']::after {
-    background-image: url("/assets/images/twitter.svg");
+    background-image: url("/blue-book/assets/images/twitter.svg");
 }
 .md-content a[href*='twitter.com']:hover::after {
     opacity: 0.3;
@@ -743,7 +743,7 @@
 
 /* Erowid */
 .md-content a[href*='erowid.org']::after {
-    background-image: url("/assets/images/erowid.svg");
+    background-image: url("/blue-book/assets/images/erowid.svg");
 }
 .md-content a[href*='erowid.org']:hover::after {
     opacity: 0.3;
@@ -790,7 +790,7 @@
 .md-content a[href*='youtu.be']::after,
 .md-content a[href*='soundcloud.com']::after,
 .md-content a[href*='bandcamp.com']::after {
-    background-image: url('/assets/images/video.svg');
+    background-image: url('/blue-book/assets/images/video.svg');
 }
 .md-content a[href*='youtube.com']:hover::after,
 .md-content a[href*='youtu.be']:hover::after,
@@ -818,7 +818,7 @@
 .md-content a[href*="overflow.com"]::after,
 .md-content a[href*="stackexchange.com"]::after {
     content: "";
-    background-image: url("/assets/images/stackexchange.svg");
+    background-image: url("/blue-book/assets/images/stackexchange.svg");
     background-repeat: no-repeat;
     background-size: 0.75em;
     background-position: right 1px top;
@@ -839,7 +839,7 @@
 .md-content a[href*="amazon.co."]::after,
 .md-content a[href*="amzn.com"]::after {
     content: "";
-    background-image: url("/assets/images/amazon.svg");
+    background-image: url("/blue-book/assets/images/amazon.svg");
     background-repeat: no-repeat;
     background-size: 0.75em;
     background-position: right 1px top;
@@ -857,7 +857,7 @@
 
 /*Blue book */
 .md-content a[href*='lyz-code.github.io']::after {
-    background-image: url("/assets/images/bluebook.svg");
+    background-image: url("/blue-book/assets/images/bluebook.svg");
 }
 .md-content a[href*='lyz-code.github.io']:hover::after {
     opacity: 0.3;
@@ -881,7 +881,7 @@
 
 /* Github; I exclude github.io because that's blogs */
 .md-content a[href*='github.com']::after {
-    background-image: url("/assets/images/github.svg");
+    background-image: url("/blue-book/assets/images/github.svg");
 }
 .md-content a[href*='github.com']:hover::after {
     opacity: 0.3;
@@ -908,7 +908,7 @@
 /* Dropbox: old file-host, deprecated since they've started killing inactive accounts */
 .md-content a[href*='dropbox.com']::after,
 .md-content a[href*='dropboxusercontent.com']::after {
-    background-image: url("/assets/images/dropbox.svg");
+    background-image: url("/blue-book/assets/images/dropbox.svg");
 }
 .md-content a[href*='dropbox.com']:hover::after,
 .md-content a[href*='dropboxusercontent.com']:hover::after {
@@ -929,7 +929,7 @@
 
 /* MegaUpload/Mega: filesharing (used for big files) */
 .md-content a[href*='mega.nz']::after {
-    background-image: url("/assets/images/mega.svg");
+    background-image: url("/blue-book/assets/images/mega.svg");
 }
 .md-content a[href*='mega.nz']:hover::after {
     opacity: 0.3;
@@ -950,7 +950,7 @@
 .md-content a[href*='archive-it.org']::after,
 .md-content a[href*='archiveteam.org']::after,
 .md-content a[href*='waybackmachine.org']::after {
-    background-image: url("/assets/images/internetarchive.svg");
+    background-image: url("/blue-book/assets/images/internetarchive.svg");
 }
 .md-content a[href*='archive.org']:hover::after,
 .md-content a[href*='archive-it.org']:hover::after,
@@ -1145,7 +1145,7 @@
 .md-content a[href$='.page' i]::after,
 .md-content a[href$='.txt' i]::after,
 .md-content a[href$='.xml' i]::after {
-    background-image: url('/assets/images/txt.svg');
+    background-image: url('/blue-book/assets/images/txt.svg');
 }
 
 /*  Code, scripts, etc.
@@ -1159,7 +1159,7 @@
 .md-content a[href$='.patch' i]::after,
 .md-content a[href^="."][href$='.php' i]::after,
 .md-content a[href$='.sh' i]::after {
-    background-image: url('/assets/images/code.svg');
+    background-image: url('/blue-book/assets/images/code.svg');
 }
 
 /*  Word (& compatible) documents.
@@ -1167,7 +1167,7 @@
 .md-content a[href$='.doc' i]::after,
 .md-content a[href$='.docx' i]::after,
 .md-content a[href*='docs.google.com' i]::after {
-    background-image: url('/assets/images/worddoc.svg');
+    background-image: url('/blue-book/assets/images/worddoc.svg');
 }
 
 /*  Excel (& compatible) documents.
@@ -1175,13 +1175,13 @@
 .md-content a[href$='.xls' i]::after,
 .md-content a[href$='.ods' i]::after,
 .md-content a[href$='.xlsx' i]::after {
-    background-image: url('/assets/images/spreadsheet.svg');
+    background-image: url('/blue-book/assets/images/spreadsheet.svg');
 }
 
 /*  CSV files.
     */
 .md-content a[href$='.csv' i]::after {
-    background-image: url('/assets/images/csv.svg');
+    background-image: url('/blue-book/assets/images/csv.svg');
 }
 
 /*  Images.
@@ -1195,7 +1195,7 @@
 .md-content a[href$='.svg' i]::after,
 .md-content a[href$='.xcf' i]::after,
 .md-content a[href*='imgur.com']::after {
-    background-image: url('/assets/images/image.svg');
+    background-image: url('/blue-book/assets/images/image.svg');
 }
 
 /*  Audio files.
@@ -1205,7 +1205,7 @@
 .md-content a[href$='.flac' i]::after,
 .md-content a[href$='.rm' i]::after,
 .md-content a[href$='.ogg' i]::after {
-    background-image: url('/assets/images/audio.svg');
+    background-image: url('/blue-book/assets/images/audio.svg');
 }
 
 /*  Video files.
@@ -1214,7 +1214,7 @@
 .md-content a[href$='.avi' i]::after,
 .md-content a[href$='.mp4' i]::after,
 .md-content a[href$='.webm' i]::after {
-    background-image: url('/assets/images/video.svg');
+    background-image: url('/blue-book/assets/images/video.svg');
 }
 
 /*  Archive files.
@@ -1223,7 +1223,7 @@
 .md-content a[href$='.zip' i]::after,
 .md-content a[href$='.xz' i]::after,
 .md-content a[href$='.img' i]::after {
-    background-image: url('/assets/images/archive.svg');
+    background-image: url('/blue-book/assets/images/archive.svg');
 }
 
 /*  Miscellaneous files (for which there is no specific icon).
@@ -1232,5 +1232,5 @@
 .md-content a[href$='.mdb' i]::after,
 .md-content a[href$='.mht' i]::after,
 .md-content a[href$='.ttf' i]::after {
-    background-image: url('/assets/images/misc.svg');
+    background-image: url('/blue-book/assets/images/misc.svg');
 }
