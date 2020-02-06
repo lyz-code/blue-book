@@ -51,7 +51,7 @@ And the blue book was born.
 
 Each directory is a topic that can include other subtopics under it related to
 the parent topic. As sometimes the strict hierarchical structure of the
-categories doesn't work, I also use [tags](https://lyz-code.github.io/tags.html)
+categories doesn't work, I also use [tags](https://lyz-code.github.io/blue-book/tags.html)
 to link articles.
 
 If this is your first time visiting this wiki, you can just start reading from
