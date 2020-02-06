@@ -16,7 +16,7 @@ I will be updating this wiki quite often as I use it myself daily both to keep
 an account of things I know as well as things I want to know and everything
 in between.
 
-## History
+# History
 
 I've tried writing blogs in the past, but it doesn't work for me. I can't stand
 the idea of having to save some time to sit and write a full article of
@@ -47,7 +47,7 @@ reference making it readable and open it to the internet.
 
 And the blue book was born.
 
-## Book structure
+# Book structure
 
 Each directory is a topic that can include other subtopics under it related to
 the parent topic. As sometimes the strict hierarchical structure of the
@@ -57,7 +57,7 @@ to link articles.
 If this is your first time visiting this wiki, you can just start reading from
 the top entry down and see what sparks your interest.
 
-## Content Structure
+# Content Structure
 
 Each topic will have a title, some description of it, usually my own thoughts
 and knowledge on it as well as referencing some resources or links I have liked
@@ -76,7 +76,7 @@ The structure of each of the posts will often look roughly like this:
 If you are interested in how I maintain and write this wiki, you can visit my
 [guidelines on how to build your wiki](build_your_own_wiki.md).
 
-## Links
+# Links
 
 My blue book is heavily inspired in this two other second brains:
 

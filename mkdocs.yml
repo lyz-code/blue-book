@@ -46,9 +46,15 @@ theme:
   logo: "images/logo.bmp"
   palette:
     primary: 'blue grey'
-    accent: 'deep orange'
+    accent: 'light blue'
+
+extra_css:
+  - 'stylesheets/extra.css'
 
 extra:
   social:
     - type: 'github'
       link: 'https://github.com/lyz-code'
+
+repo_name: 'lyz-code/blue-book'
+repo_url: 'https://github.com/lyz-code/blue-book'
