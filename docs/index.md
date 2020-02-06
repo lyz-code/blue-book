@@ -11,7 +11,7 @@ mkdocs book](https://www.mkdocs.org/) hosted on
 If this is your first time visiting this wiki, take a look at [meta](meta.md),
 as it describes this wiki, its structure and goals in more detail.
 
-## Using the wiki well
+# Using the wiki well
 
 You can quickly search the contents of this wiki above or you can explore the
 tree view to the left.
@@ -19,7 +19,7 @@ tree view to the left.
 Start with the first article that grabs your attention and be ready to
 [incrementally read](incremental_reading.md) the rest.
 
-## Make your own wiki
+# Make your own wiki
 
 You can view [other similar to this, continuously updated
 wikis](https://github.com/RichardLitt/meta-knowledge#readme).
@@ -28,7 +28,7 @@ Don't be afraid to create one of your own and share what you know with the
 world. If you feel overwhelmed by this daunting task, you may want to read [some
 guidelines on how to start](build_your_own_wiki.md).
 
-## Contributing
+# Contributing
 
 If you find a mistake anywhere in this wiki, I would appreciate your help. You
 can quickly find any entry you wish to edit by [searching for the
@@ -39,7 +39,7 @@ I also appreciate any [ideas you
 have](https://github.com/lyz-code/blue-book/issues/new) on how I can
 improve this wiki.
 
-## Thank you
+# Thank you
 
 If you liked my book and want to make me happy, please see if you know how could
 I fulfill any item of my [wishlist](wishlist.md) or see if you want to
