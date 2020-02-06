@@ -3,7 +3,8 @@ I know](everything_i_know.md) about this world in form of an [online
 mkdocs book](https://www.mkdocs.org/) hosted on
 [GitHub](https://github.com/lyz-code/blue-book).
 
-The wiki is meant to be read [in the web format](https://lyz-code.github.io).
+**The wiki is meant to be read [in the web
+format](https://lyz-code.github.io).**
 
 ## Contributing
 

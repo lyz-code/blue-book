@@ -5,7 +5,7 @@ site_url: https://lyz-code.github.io/blue-book
 nav:
   - Introduction: 'index.md'
   - Meta: 'meta/meta.md'
-  - Tags: '/tags.html'
+  - Tags: 'tags.html'
 
 plugins:
   - search
