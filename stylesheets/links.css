@@ -858,7 +858,6 @@
 /* Blue book: Fetch all internal links not `//` and the external links of my
  * blog */
 .md-content a[href*='lyz-code.github.io']::after,
-.md-content a:not([href*='mailto'])::after,
 .md-content a:not([href*="//"])::after {
     background-image: url("/blue-book/assets/images/bluebook.svg");
 }
