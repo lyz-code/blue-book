@@ -20,33 +20,31 @@ So I'm integrating [grocy](grocy.md) in my life.
 
 I've been using [Taskwarrior](https://taskwarrior.org) for the last five or six
 years. It's an awesome program to do task management and it is really
-customizable.
-
-So throughout these years I've done several scripts to integrate it into my
-workflow:
+customizable. So throughout these years I've done several scripts to integrate
+it into my workflow:
 
 * [Taskban](https://github.com/lyz-code/taskban): To do [Sprint
   Reviews](https://en.wikipedia.org/wiki/Scrum_%28software_development%29#Sprint_review)
   and do data analysis on the difference between the estimation and the actual
   time for doing tasks. To do so, I had to rewrite how
-  [Tasklib](https://github.com/lyz-code/taskli://github.com/lyz-code/tasklib)
+  [tasklib](https://github.com/lyz-code/taskli://github.com/lyz-code/tasklib)
   stores task time information.
 * [Taskwarrior_recurrence](https://git.digitales.cslabrecha.org/lyz/taskwarrior_recurrence):
-  A group of hooks to fix [Taskwarriors recurrence
+  A group of hooks to fix [Taskwarrior's recurrence
   issues](https://taskwarrior.org/docs/design/recurrence.html).
 * [Taskwarrior_validation](https://git.digitales.cslabrecha.org/lyz/taskwarrior_validation):
   A hook to help in the definition of validation criteria for tasks.
 
-But it has comed a time to look for alternatives because:
+Nevertheless, I'm searching for an alternative because:
 
 * As the database grows, `taskban` becomes unusable.
 * Taskwarrior lacks several features I want.
-* It's written in C.
+* It's written in C, which I don't speak.
 * It's development has come to [code maintenance
   only](https://github.com/GothenburgBitFactory/taskwarrior/graphs/code-frequency).
 * It uses a plaintext file as data storage.
 
-[Tasklite](https://tasklite.org) is a promising project that tackles most of the
+[tasklite](https://tasklite.org) is a promising project that tackles most of the
 points above. But is written in
 [Haskel](https://en.wikipedia.org/wiki/Haskell_%28programming_language%29) which
 I don't know and I don't want to learn.
@@ -59,7 +57,7 @@ building [pydo](https://github.com/lyz-code/pydo).
 I'm refactoring all the knowledge gathered in the past in my cheat sheet
 repository into the blue book. This means migrating 7422 articles, almost 50
 million lines, to the new structure. It's going to be a slow and painful
-process  ᕙ(⇀‸↼‶)ᕗ.
+process `ᕙ(⇀‸↼‶)ᕗ`.
 
 # Clinv
 
@@ -74,7 +72,7 @@ there is still a void.
 
 * Manage a dynamic inventory of risk management resources (Projects, Services,
   Information, People) and infrastructure resources (EC2, RDS, S3, Route53, IAM
-  users, IAM groups...).
+  users, IAM groups…).
 * Add risk management metadata to your AWS resources.
 * Monitor if there are resources that are not inside your inventory.
 * Perform regular expression searches on all your resources.
@@ -115,9 +113,9 @@ get the media. That's when I learned to hate the web developers for their
 constant changes and to love the API.
 
 Then I discovered [youtube-dl](https://github.com/ytdl-org/youtube-dl), a Python
-command-line program to download video or music from streaming sites.
+command-line program to download video or music from streaming sites. But
+I still laked the ability to stay updated with the artist channels.
 
-But I still laked the ability to stay updated with the artist channels.
 So [mediarss](https://git.digitales.cslabrecha.org/lyz/mediarss) was born.
 A youtube-dl wrapper to periodically download new content.
 
@@ -136,7 +134,7 @@ to generate playlists filtering my content by:
 
 The playlists I usually generate with these filters are:
 
-* Random unlistened songs.
+* Random unheard songs.
 * Songs discovered last month/year with a rating score greater than X.
 * Songs that I haven't heard since 20XX  with a rating score greater than
   X (this one gave me pleasant surprises ^^).
@@ -153,9 +151,8 @@ key bindings and store metadata of the music I listen.
 
 I don't even publish it because it's a horrible program that would make your
 eyes bleed. 600 lines of code, only 3 functions, 6 levels of nested ifs, no
-tests at all, but hey, the functions have docstrings! (ｏ・_・)ノ”(ᴗ_ ᴗ。)
+tests at all, but hey, the functions have docstrings! `(ｏ・_・)ノ”(ᴗ_ ᴗ。)`
 
-But it works, so I everyday close my eyes and open my ears till I have
-a solution that gives me the same features with
+The thing is that it works, so I everyday close my eyes and open my ears,
+waiting for a solution that gives me the same features with
 [mpd](https://en.wikipedia.org/wiki/Music_Player_Daemon).
-

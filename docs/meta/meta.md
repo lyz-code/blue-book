@@ -23,13 +23,13 @@ the idea of having to save some time to sit and write a full article of
 something I've done. I need to document *at the same time* as I develop or
 learn. Furthermore, as I usually use incremental reading or work on several
 projects, I don't write one article, but improve several at the same time in
-a unordered way. That's why I embrace [Gwerns Long Content
+a unordered way. That's why I embrace [Gwern's Long Content
 principle](https://www.gwern.net/About#long-content).
 
 The only drawback of this format is that I won't have an interesting RSS feed.
 You could go through the [git log](https://github.com/lyz-code/blue-book) but it
 doesn't make any sense. That's why I'm thinking of generating a monthly newsletter
-similar to Gwerns [Newsletters](https://www.gwern.net/tags/newsletter) or
+similar to Gwern's [Newsletters](https://www.gwern.net/tags/newsletter) or
 [Changelog](https://www.gwern.net/Changelog).
 
 In 2016 I started writing in text files summaries of different concepts, how to

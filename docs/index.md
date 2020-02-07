@@ -4,7 +4,7 @@ author: Lyz
 ---
 
 This is my personal wiki where I share everything I know about this world in
-form of an online [mkdocs](https://www.mkdocs.org/) book hosted on
+form of an online [MkDocs](https://www.mkdocs.org/) book hosted on
 [GitHub](https://github.com/lyz-code/blue-book).
 
 If this is your first time visiting this wiki, take a look at [meta](meta.md),
@@ -24,8 +24,9 @@ repository](https://github.com/lyz-code/blue-book) and using grep.
 # Make your own wiki
 
 Don't be afraid to create one of your own and share what you know with the
-world. In case you don't want to make your own, I invite you to use a fork of
-mine and make [contributions](#contributing), the more the merrier.
+world. If you don't want to build your own, I invite you to use a fork of
+mine and make [contributions](#contributing). I would love to see the blue-book
+maintained by several people.
 
 You can view [other similar continuously updated
 wikis](https://github.com/RichardLitt/meta-knowledge#readme) to get inspiration.
@@ -48,7 +49,7 @@ can use mine
 # Thank you
 
 If you liked my book and want to make me happy, please see if you know how could
-I fulfill any item of my [wishlist](wishlist.md) or see if you want to
+I fulfill any item of my [wish list](wish_list.md) or see if you want to
 contribute to [my other projects](projects.md).
 
 [![CC0](https://img.shields.io/badge/license-CC0-0a0a0a.svg?style=flat&colorA=0a0a0a)](https://creativecommons.org/publicdomain/zero/1.0/)

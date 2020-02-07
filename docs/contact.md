@@ -4,7 +4,7 @@ date: 20200206
 author: Lyz
 ---
 
-I'm available by:
+I'm available through:
 
 * Email or XMPP at
   [lyz@riseup.net](mailto:lyz@riseup.net).

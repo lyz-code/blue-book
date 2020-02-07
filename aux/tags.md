@@ -21,4 +21,6 @@ title: Tags
 
   * [Grocy deployment notes](life_automation/grocy_deploy.md)
 
+  * [Writing](writing/writing.md)
+
  
