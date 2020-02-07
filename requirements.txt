@@ -33,7 +33,6 @@ requests==2.22.0
 six==1.14.0
 smmap2==2.0.5
 soupsieve==1.9.5
-tags-macros-plugin==0.2.0
 git+https://github.com/jldiaz/mkdocs-plugin-tags.git
 tornado==6.0.3
 urllib3==1.25.7
