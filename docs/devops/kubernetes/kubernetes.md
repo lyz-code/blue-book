@@ -26,8 +26,7 @@ This is how I learnt, but probably [there are better resources now](https://gith
   [minikube](https://kubernetes.io/docs/setup/learning-environment/minikube/).
 * Read [K8s concepts](https://kubernetes.io/docs/concepts).
 * Then [K8s tasks](https://kubernetes.io/docs/tasks/).
-* I didn't like the book [Getting started with kubernetes](
-  ~/doc/kubernetes/Getting.started.with.kubernetes_-_Jonathan.Baier.epub)
+* I didn't like the book [Getting started with kubernetes](https://www.packtpub.com/eu/virtualization-and-cloud/getting-started-kubernetes-third-edition)
 * I'd personally avoid the book [Getting started with
   kubernetes](https://www.packtpub.com/eu/virtualization-and-cloud/getting-started-kubernetes-third-edition),
   I didn't like it `¯\(°_o)/¯`.
