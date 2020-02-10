@@ -13,6 +13,7 @@ nav:
     - Kubernetes:
       - Introduction: 'devops/kubernetes/kubernetes.md'
       - Networking: 'devops/kubernetes/kubernetes_networking.md'
+      - Helmfile: 'devops/kubernetes/helmfile.md'
   - Contact: 'contact.md'
   - Emojis: 'emojis.md'
   - Tags: 'tags.md'

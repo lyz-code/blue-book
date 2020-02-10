@@ -17,6 +17,8 @@ title: Tags
 
 ## <span class="tag">WIP</span>
 
+  * [Helm](devops/kubernetes/helm.md)
+
   * [Introduction to Grocy](life_automation/grocy.md)
 
   * [Grocy deployment notes](life_automation/grocy_deploy.md)
