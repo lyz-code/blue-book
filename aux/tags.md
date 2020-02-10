@@ -21,6 +21,15 @@ title: Tags
 
   * [Grocy deployment notes](life_automation/grocy_deploy.md)
 
+  * [Build your own wiki](writing/build_your_own_wiki.md)
+
   * [Writing](writing/writing.md)
+
+ 
+
+
+## <span class="tag">writing</span>
+
+  * [Orthography Rules](writing/orthography.md)
 
  

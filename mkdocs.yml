@@ -10,6 +10,7 @@ nav:
   - Life Automation:
     - Introduction: 'life_automation/life_automation.md'
   - Contact: 'contact.md'
+  - Emojis: 'emojis.md'
   - Tags: 'tags.md'
 
 plugins:
