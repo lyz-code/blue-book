@@ -9,6 +9,10 @@ nav:
   - Wish list: 'wish_list.md'
   - Life Automation:
     - Introduction: 'life_automation/life_automation.md'
+  - DevOps:
+    - Kubernetes:
+      - Introduction: 'devops/kubernetes/kubernetes.md'
+      - Networking: 'devops/kubernetes/kubernetes_networking.md'
   - Contact: 'contact.md'
   - Emojis: 'emojis.md'
   - Tags: 'tags.md'
