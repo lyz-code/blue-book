@@ -26,7 +26,7 @@ based on the following resources:
 ## TL;DR
 
 When using EKS, if you have no networking experience and understand and accept
-their [disadvantages](#disadvantages-of-the-AWS-CNI) I'd use the AWS VPC CNI as
+their [disadvantages](#disadvantages-of-the-aws-cni) I'd use the AWS VPC CNI as
 it's installed by default. Nevertheless, the pod limit per node and the vendor
 locking makes interesting to migrate in the future to Calico. To make the
 transition smoother, you can enable Calico Network Policies with the AWS VPC CNI
