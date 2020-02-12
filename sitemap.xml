@@ -56,6 +56,11 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
+     <loc>https://lyz-code.github.io/blue-book/devops/kubernetes/operators/</loc>
+     <lastmod>2020-02-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
      <loc>https://lyz-code.github.io/blue-book/devops/prometheus/prometheus/</loc>
      <lastmod>2020-02-12</lastmod>
      <changefreq>daily</changefreq>
