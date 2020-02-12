@@ -17,7 +17,7 @@ title: Tags
 
 ## <span class="tag">monitoring</span>
 
-  * [Introduction](devops/prometheus/prometheus.md)
+  * [Prometheus](devops/prometheus/prometheus.md)
 
  
 

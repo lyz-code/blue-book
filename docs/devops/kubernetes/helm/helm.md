@@ -26,5 +26,4 @@ programs:
 * [Docs](https://docs.helm.sh)
 * [Git](https://github.com/kubernetes/helm)
 * [Chart hub](https://hub.helm.sh)
-* [Chart indexer](https://kubeapps.com/)
 * [Git charts repositories](https://github.com/kubernetes/charts)
