@@ -16,6 +16,7 @@ nav:
       - Helm:
         - Helm: 'devops/kubernetes/helm/helm.md'
         - Helm Installation: 'devops/kubernetes/helm/helm_installation.md'
+        - Helm Commands: 'devops/kubernetes/helm/helm_commands.md'
         - Helmfile: 'devops/kubernetes/helm/helmfile.md'
         - Helm Secrets: 'devops/kubernetes/helm/helm_secrets.md'
       - Operators: 'devops/kubernetes/operators.md'
