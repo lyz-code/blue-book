@@ -13,7 +13,12 @@ nav:
     - Kubernetes:
       - Kubernetes: 'devops/kubernetes/kubernetes.md'
       - Networking: 'devops/kubernetes/kubernetes_networking.md'
-      - Helmfile: 'devops/kubernetes/helmfile.md'
+      - Helm:
+        - Helm: 'devops/kubernetes/helm/helm.md'
+        - Helm Installation: 'devops/kubernetes/helm/helm_installation.md'
+        - Helmfile: 'devops/kubernetes/helm/helmfile.md'
+    - Prometheus:
+      - Prometheus: 'devops/prometheus/prometheus.md'
     - AWS:
       - IAM:
         - IAM: 'devops/aws/iam/iam.md'

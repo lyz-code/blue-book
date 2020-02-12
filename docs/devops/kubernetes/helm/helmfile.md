@@ -19,7 +19,7 @@ All information is saved in the `helmfile.yaml` file.
 In case we need custom yamls, we'll use
 [kustomize](https://github.com/kubernetes-sigs/kustomize).
 
-## Deployment
+# Installation
 
 Helmfile is not yet in the distribution package managers, so you'll need to
 install it manually.
@@ -32,10 +32,14 @@ chmod +x helmfile_linux_amd64
 mv helmfile_linux_amd64 ~/.local/bin/helmfile
 ```
 
-## Debugging helmfile
+# Debugging helmfile
 
-### Error: "release-name" has no deployed releases
+## Error: "release-name" has no deployed releases
 
 This may happen when you try to install a chart and it fails. The best solution
 until [this issue is resolved](https://github.com/roboll/helmfile/issues/471) is
 to use `helm delete --purge {{ release-name }}` and then `apply` again.
+
+# Links
+
+* [Git](https://github.com/roboll/helmfile)

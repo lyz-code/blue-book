@@ -24,11 +24,9 @@ title: Tags
 
 ## <span class="tag">WIP</span>
 
-  * [Helm](devops/kubernetes/helm.md)
+  * [Knowledge](knowledge.md)
 
   * [Concepts](devops/kubernetes/kubernetes-concepts.md)
-
-  * [Introduction](devops/prometheus/prometheus.md)
 
   * [Introduction to Grocy](life_automation/grocy.md)
 
