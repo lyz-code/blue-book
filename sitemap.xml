@@ -51,6 +51,11 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
+     <loc>https://lyz-code.github.io/blue-book/devops/kubernetes/helm/helm_secrets/</loc>
+     <lastmod>2020-02-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
      <loc>https://lyz-code.github.io/blue-book/devops/prometheus/prometheus/</loc>
      <lastmod>2020-02-12</lastmod>
      <changefreq>daily</changefreq>
