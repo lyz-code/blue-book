@@ -28,6 +28,8 @@ title: Tags
 
   * [Devops](devops/devops.md)
 
+  * [AWS](devops/aws/aws.md)
+
   * [Concepts](devops/kubernetes/kubernetes-concepts.md)
 
   * [Introduction to Grocy](life_automation/grocy.md)
