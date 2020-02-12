@@ -10,6 +10,7 @@ nav:
   - Life Automation:
     - Life Automation: 'life_automation/life_automation.md'
   - DevOps:
+    - DevOps: 'devops/devops.md'
     - Kubernetes:
       - Kubernetes: 'devops/kubernetes/kubernetes.md'
       - Networking: 'devops/kubernetes/kubernetes_networking.md'
@@ -23,6 +24,7 @@ nav:
     - Prometheus:
       - Prometheus: 'devops/prometheus/prometheus.md'
     - AWS:
+      - AWS: 'devops/aws/aws.md'
       - IAM:
         - IAM: 'devops/aws/iam/iam.md'
         - IAM Commands: 'devops/aws/iam/iam_commands.md'
