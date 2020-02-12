@@ -15,9 +15,20 @@ title: Tags
  
 
 
+## <span class="tag">monitoring</span>
+
+  * [Introduction](devops/prometheus/prometheus.md)
+
+ 
+
+
 ## <span class="tag">WIP</span>
 
   * [Helm](devops/kubernetes/helm.md)
+
+  * [Concepts](devops/kubernetes/kubernetes-concepts.md)
+
+  * [Introduction](devops/prometheus/prometheus.md)
 
   * [Introduction to Grocy](life_automation/grocy.md)
 

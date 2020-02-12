@@ -8,12 +8,17 @@ nav:
   - Projects: 'projects/projects.md'
   - Wish list: 'wish_list.md'
   - Life Automation:
-    - Introduction: 'life_automation/life_automation.md'
+    - Life Automation: 'life_automation/life_automation.md'
   - DevOps:
     - Kubernetes:
-      - Introduction: 'devops/kubernetes/kubernetes.md'
+      - Kubernetes: 'devops/kubernetes/kubernetes.md'
       - Networking: 'devops/kubernetes/kubernetes_networking.md'
       - Helmfile: 'devops/kubernetes/helmfile.md'
+    - AWS:
+      - IAM:
+        - IAM: 'devops/aws/iam/iam.md'
+        - IAM Commands: 'devops/aws/iam/iam_commands.md'
+        - IAM Debugging: 'devops/aws/iam/iam_debug.md'
   - Contact: 'contact.md'
   - Emojis: 'emojis.md'
   - Tags: 'tags.md'

@@ -35,7 +35,7 @@ This is how I learnt, but probably [there are better resources now](https://gith
 
 ## Tried
 
-* [K3s](k3s.io): Recommended small kubernetes, like hyperkube.
+* [K3s](https://k3s.io): Recommended small kubernetes, like hyperkube.
 
 ## To try
 
@@ -47,7 +47,7 @@ This is how I learnt, but probably [there are better resources now](https://gith
   across a wide range of providers, offerings, vendors, regions, and clusters.
   Crossplane offers a universal API for cloud computing, a workload scheduler,
   and a set of smart controllers that can automate work across clouds.
-* [razee](razee.io): A multi-cluster continuous delivery tool for Kubernetes
+* [razee](https://razee.io): A multi-cluster continuous delivery tool for Kubernetes
   Automate the rollout process of Kubernetes resources across multiple clusters,
   environments, and cloud providers, and gain insight into what applications and
   versions run in your cluster.
