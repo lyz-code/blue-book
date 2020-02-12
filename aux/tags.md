@@ -26,6 +26,8 @@ title: Tags
 
   * [Knowledge](knowledge.md)
 
+  * [Devops](devops/devops.md)
+
   * [Concepts](devops/kubernetes/kubernetes-concepts.md)
 
   * [Introduction to Grocy](life_automation/grocy.md)
