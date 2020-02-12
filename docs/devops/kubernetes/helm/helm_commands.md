@@ -95,12 +95,12 @@ helm delete --purge {{ release_name }}
 
 ## Working with repositories
 
-### List repos
+### List repositories
 ```bash
 helm repo list
 ```
 
-### Add repo
+### Add repository
 ```bash
 helm repo add {{ repo_name }} {{ repo_url }}
 ```
