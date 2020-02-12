@@ -93,7 +93,7 @@ helm rollback {{ release_name }} {{ revision }}
 helm delete --purge {{ release_name }}
 ```
 
-## Working with repos
+## Working with repositories
 
 ### List repos
 ```bash
