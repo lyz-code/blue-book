@@ -67,3 +67,5 @@ I didn't have to learn how to use another editor.
 * A way to store music numeric ratings through the command line compatible with
   [mpd](https://en.wikipedia.org/wiki/Music_Player_Daemon) and
   [beets](http://beets.readthedocs.io/).
+* An e-reader support that could be fixed in the wall so I wouldn't need to hold
+  it.
