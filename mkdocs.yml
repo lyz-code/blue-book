@@ -9,6 +9,7 @@ nav:
   - Wish list: 'wish_list.md'
   - Life Automation:
     - Life Automation: 'life_automation/life_automation.md'
+    - Week Automation: 'life_automation/week_automation.md'
   - DevOps:
     - DevOps: 'devops/devops.md'
     - Kubernetes:

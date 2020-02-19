@@ -26,6 +26,10 @@ Life automation can lead to [habit](https://en.wikipedia.org/wiki/Habit)
 building, which reduces even more the willpower consumption of processes, at the
 same time it reduces the error rate.
 
+# Automating life management
+
+* [Week automation](week_automation.md), or how to review and plan the week.
+
 # Automating home chores
 
 * Using [grocy](grocy.md) to maintain the house stock, shopping lists and meal
