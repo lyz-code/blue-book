@@ -26,6 +26,8 @@ title: Tags
 
   * [Knowledge](knowledge.md)
 
+  * [Radar](radar.md)
+
   * [Devops](devops/devops.md)
 
   * [AWS](devops/aws/aws.md)
