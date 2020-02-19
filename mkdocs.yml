@@ -31,6 +31,7 @@ nav:
         - IAM Debugging: 'devops/aws/iam/iam_debug.md'
   - Linux:
     - LUKS: 'linux/luks/luks.md'
+    - rm: 'linux/rm.md'
   - Contact: 'contact.md'
   - Emojis: 'emojis.md'
   - Tags: 'tags.md'
