@@ -33,9 +33,7 @@ I've made `diw` a small python script that for each overdue task allows me to:
 The purpose of the planning is to make sure that I know what I need to do and
 arrange all tasks in a way that allows me not to explode.
 
-## INBOX clean up
-
-I empty the *INBOX* file, refactoring all the information in the other knowledge
+First I empty the *INBOX* file, refactoring all the information in the other knowledge
 sinks. It's the place to go to quickly gather information, such as movie/book/serie
 recommendations, human arrangements, miscellaneous thoughts or tasks. This file
 lives in my mobile. I edit it with
