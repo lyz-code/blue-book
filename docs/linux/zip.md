@@ -33,3 +33,9 @@ zip -er {{ zip_file }} {{ files_to_save }}
 ```bash
 cat {{ files_to_compress.txt }} | zip -er {{ destination_zip }} -@
 ```
+
+## Uncompress a zip file
+
+```bash
+unzip {{ zip_file }}
+```
