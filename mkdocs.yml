@@ -33,6 +33,7 @@ nav:
   - Linux:
     - LUKS: 'linux/luks/luks.md'
     - rm: 'linux/rm.md'
+    - zip: 'linux/zip.md'
   - Contact: 'contact.md'
   - Emojis: 'emojis.md'
   - Tags: 'tags.md'
@@ -78,6 +79,8 @@ theme:
   palette:
     primary: 'blue grey'
     accent: 'light blue'
+  static_templates:
+    - rss.xml
 
 extra_css:
   - 'stylesheets/extra.css'
