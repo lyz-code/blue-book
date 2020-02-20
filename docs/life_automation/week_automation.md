@@ -28,16 +28,31 @@ I've made `diw` a small python script that for each overdue task allows me to:
 * Delete: Remove the task.
 * Reschedule: Opens a form to specify the new due date.
 
-Then I empty the *INBOX* file, refactoring all the information in the other
-knowledge sinks. This usually means the creation of tasks to meet arrangements
-I made with other people.
-
 # Week planning
 
 The purpose of the planning is to make sure that I know what I need to do and
 arrange all tasks in a way that allows me not to explode.
 
-I split my workspace in two terminals, in the first I run `task due.before:7d
+## INBOX clean up
+
+I empty the *INBOX* file, refactoring all the information in the other knowledge
+sinks. It's the place to go to quickly gather information, such as movie/book/serie
+recommendations, human arrangements, miscellaneous thoughts or tasks. This file
+lives in my mobile. I edit it with
+[Markor](https://f-droid.org/packages/net.gsantner.markor/) and transfer it to
+my computer with [Share via HTTP](https://f-droid.org/en/packages/com.MarcosDiez.shareviahttp/).
+
+Taking different actions to each *INBOX* element type:
+
+* Tasks or human arrangements: Do it if it can be completed in less than
+  3 minutes. Otherwise, create a taskwarrior task.
+* Behavior: Add it to taskwarrior.
+* Movie/Serie recommendation: Introduce it into my media monitorization system.
+* Book recommendation: Introduce into my library management system.
+* Miscellaneous thoughts: Refactor into the blue-book, project documentation or
+  Anki.
+
+Then I split my workspace in two terminals, in the first I run `task due.before:7d
 diary` where diary is a taskwarrior report that shows pending tasks that are not
 in the backlog sorted by due date. On the other I:
 

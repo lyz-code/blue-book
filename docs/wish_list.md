@@ -58,6 +58,39 @@ A possible architecture could be:
 It must be open sourced and Linux compatible. And it would be awesome if
 I didn't have to learn how to use another editor.
 
+Maybe [searx](https://github.com/asciimoo/searx) can be a solution.
+
+# Decentralized encrypted end to end VOIP and video software
+
+I'd like to be able to make phone and video calls keeping in mind that:
+
+* Every connection must be encrypted end to end.
+* I trust the security of a linux server more than a user device. This rules out
+  distributed solutions such as [tox](https://tox.chat/) that exposes the client
+  IP in a DHT table.
+* The server solution should be self hosted.
+* It must use tested cryptography, which again rolls out tox.
+
+These are the candidates I've found:
+
+* [Riot](https://about.riot.im/). You'll need to host your own [Synapse
+  server](https://github.com/matrix-org/synapse).
+* [Jami](https://jami.net). I think it can be configured as decentralized if you
+  host your own DHTproxy, bootstrap and nameserver, but I need to delve further
+  into [how it makes
+  a call](https://git.jami.net/savoirfairelinux/ring-project/wikis/technical/2.4.%20Let's%20do%20a%20call).
+  I'm not sure, but you'll probably need to use [push
+  notifications](https://git.jami.net/savoirfairelinux/ring-project/wikis/tutorials/Frequently-Asked-Questions#advanced-3)
+  so as not to expose a service from the user device.
+* [Linphone](https://www.linphone.org). If we host our
+  [Flexisip](https://www.linphone.org/flexisip-server) server, although it asks
+  for a lot of permissions.
+
+[Jitsi Meet](https://jitsi.org/jitsi-meet/) it's not an option as it's not [end
+to end encrypted](https://github.com/jitsi/jitsi-meet/issues/409). But if you
+want to use it, please use [Disroot service](https://call.disroot.org) or host
+your own.
+
 # Others
 
 * Movie/serie/music rating self hosted solution that based on your ratings
