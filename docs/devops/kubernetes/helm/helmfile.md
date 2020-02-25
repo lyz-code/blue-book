@@ -36,23 +36,44 @@ mv helmfile_linux_amd64 ~/.local/bin/helmfile
 
 ## How to deploy a new chart
 
-* Create a directory with the `{{ chart_name }}`
+When we want to add a new chart, the workflow would be:
+
+* Run `helmfile deps && helmfile diff` to check that your existing charts are
+  updated, if they are not, run `helmfile apply`.
+* Configure the release in `helmfile.yaml` specifying:
+  * `name`: Deployment name.
+  * `namespace`: K8s namespace to deploy.
+  * `chart`: Chart release.
+  * `values`: path pointing to the values file created above.
+* Create a directory with the `{{ chart_name }}`.
   ```bash
   mkdir {{ chart_name }}
   ```
-* Get a copy of the chart values inside that directory
+* Get a copy of the chart values inside that directory.
   ```bash
   helm inspect values {{ package_name }} > {{ chart_name }}/values.yaml
   ```
-* Edit the `values.yaml` file according to the chart documentation
-* Execute the changes
-  ```bash
-  helmfile apply
-  ```
+* Edit the `values.yaml` file according to the chart documentation.
+* Run `helmfile deps` to update the lock file.
+* Run `helmfile diff` to check the changes.
+* Run `helmfile apply` to apply the changes.
 
 ## Keep charts updated
 
-[TBD](https://github.com/roboll/helmfile/issues/1107)
+To have your charts updated, this would be my suggested workflow, [although the
+developers haven't confirmed it
+yet](https://github.com/roboll/helmfile/issues/1107):
+
+* A periodic CI job would run `helmfile deps`, once a change is detected in the
+  lock file, the job will run `helmfile --environment=staging apply`.
+* Developers are notified that the new version is deployed and are prompted to
+  test it.
+* Once it's validated, the developers will manually introduce the new version in
+  the lockfile and run `helmfile --environment=production apply`.
+
+Delegate to the developers the manual introduction of the version in the
+lockfile isn't the ideal solution, but it's the one I can come up to avoid race
+conditions on chart releases.
 
 ## Uninstall charts
 
