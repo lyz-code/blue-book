@@ -6,22 +6,6 @@ title: Tags
 
 
 
-## <span class="tag">Life Automation</span>
-
-  * [Introduction to Grocy](life_automation/grocy.md)
-
-  * [Life Automation](life_automation/life_automation.md)
-
- 
-
-
-## <span class="tag">monitoring</span>
-
-  * [Prometheus](devops/prometheus/prometheus.md)
-
- 
-
-
 ## <span class="tag">WIP</span>
 
   * [Knowledge](knowledge.md)
@@ -43,12 +27,5 @@ title: Tags
   * [Build your own wiki](writing/build_your_own_wiki.md)
 
   * [Writing](writing/writing.md)
-
- 
-
-
-## <span class="tag">writing</span>
-
-  * [Orthography Rules](writing/orthography.md)
 
  

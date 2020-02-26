@@ -5,8 +5,8 @@ author: Lyz
 ---
 
 In this book you'll find, in a wiki format, all the notes I made on a huge
-variety of topics, such as, Linux, DevSecOps, feminism, rationalism, [life
-automation](life_automation.md), productivity or programming.
+variety of topics, such as, Linux, [DevOps](devops.md), DevSecOps, feminism,
+rationalism, [life automation](life_automation.md), productivity or programming.
 
 The main goal is to store all the knowledge gathered throughout my life in a way
 that everyone can benefit from reading it or referencing in an easy and quickly

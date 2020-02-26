@@ -2,8 +2,6 @@
 title: Life Automation
 date: 20200206
 author: Lyz
-tags:
-  - Life Automation
 ---
 
 [Life Automation](../tags.md#life-automation) is the act of analyzing your

@@ -2,8 +2,6 @@
 title: Prometheus
 date: 20200211
 author: Lyz
-tags:
-  - monitoring
 ---
 
 [Prometheus](https://en.wikipedia.org/wiki/Prometheus_%28software%29) is a free
