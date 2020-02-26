@@ -6,11 +6,32 @@ author: Lyz
 
 [Kubernetes](https://en.wikipedia.org/wiki/Kubernetes) (commonly stylized as
 k8s) is an open-source container-orchestration system for automating application
-deployment, scaling, and management. It works with a range of container tools,
-including Docker. Many cloud services offer a Kubernetes-based platform or
-infrastructure as a service (PaaS or IaaS) on which Kubernetes can be deployed
-as a platform-providing service. Many vendors also provide their own branded
-Kubernetes distributions.
+deployment, scaling, and management. Developed by Google in Go under the Apache
+2.0 license, it was first released on June 7, 2014 reaching 1.0 by July 21,
+2015. It works with a range of container tools, including Docker. Many cloud
+services offer a Kubernetes-based platform or infrastructure as a service (PaaS
+or IaaS) on which Kubernetes can be deployed as a platform-providing service.
+Many vendors also provide their own branded Kubernetes distributions.
+
+It has become the standard infrastructure to manage containers in production
+environments. [Docker Swarm](https://docs.docker.com/engine/swarm/) would be an
+alternative but it falls short in features compared with Kubernetes.
+
+These are some of the advantages of using Kubernetes:
+
+* Widely used in production and actively developed.
+* Ensure high availability of your services with autohealing and autoscaling.
+* Easy, quickly and predictable deployment and promotion of applications.
+* Seamless roll out of features.
+* Optimize hardware use while guaranteeing resource isolation.
+* Easiest way to build multi-cloud and baremetal environments.
+
+Several companies have used Kubernetes to release their own
+[PaaS](https://en.wikipedia.org/wiki/Platform_as_a_service):
+
+* [OpenShift](https://en.wikipedia.org/wiki/OpenShift) by Red Hat.
+* [Tectonic](https://coreos.com/tectonic/) by CoreOS.
+* [Rancher labs](https://en.wikipedia.org/wiki/Rancher_Labs) by Rancher.
 
 # Learn roadmap
 
@@ -65,11 +86,16 @@ This is how I learnt, but probably [there are better resources now](https://gith
 
 * [Docs](https://kubernetes.io/docs/)
 * [Awesome K8s](https://github.com/ramitsurana/awesome-kubernetes)
-
-## Introduction
-
-* [Playground](https://www.katacoda.com/courses/kubernetes/playground)
+* [Katacoda playground](https://www.katacoda.com/courses/kubernetes/playground)
 * [Comic](https://cloud.google.com/kubernetes-engine/kubernetes-comic)
+
+## Diving deeper
+
+* [Networking](kubernetes_networking.md)
+* [Ingress](kubernetes_ingress.md)
+* [Operators](kubernetes_operators.md)
+* [Dashboard](kubernetes_dashboard.md)
+
 
 ## Reference
 

@@ -21,8 +21,9 @@ nav:
         - Helm Commands: 'devops/kubernetes/helm/helm_commands.md'
         - Helm Secrets: 'devops/kubernetes/helm/helm_secrets.md'
       - Helmfile: 'devops/kubernetes/helm/helmfile.md'
-      - Operators: 'devops/kubernetes/operators.md'
+      - Operators: 'devops/kubernetes/kubernetes_operators.md'
       - Dashboard: 'devops/kubernetes/kubernetes_dashboard.md'
+      - Tools: 'devops/kubernetes/kubernetes_tools.md'
     - Prometheus:
       - Prometheus: 'devops/prometheus/prometheus.md'
     - AWS:
