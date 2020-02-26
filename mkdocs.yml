@@ -15,15 +15,15 @@ nav:
     - Kubernetes:
       - Kubernetes: 'devops/kubernetes/kubernetes.md'
       - Networking: 'devops/kubernetes/kubernetes_networking.md'
-      - Helm:
-        - Helm: 'devops/kubernetes/helm/helm.md'
-        - Helm Installation: 'devops/kubernetes/helm/helm_installation.md'
-        - Helm Commands: 'devops/kubernetes/helm/helm_commands.md'
-        - Helm Secrets: 'devops/kubernetes/helm/helm_secrets.md'
-      - Helmfile: 'devops/kubernetes/helm/helmfile.md'
       - Operators: 'devops/kubernetes/kubernetes_operators.md'
       - Dashboard: 'devops/kubernetes/kubernetes_dashboard.md'
       - Tools: 'devops/kubernetes/kubernetes_tools.md'
+    - Helm:
+      - Helm: 'devops/helm/helm.md'
+      - Helm Installation: 'devops/helm/helm_installation.md'
+      - Helm Commands: 'devops/helm/helm_commands.md'
+      - Helm Secrets: 'devops/helm/helm_secrets.md'
+    - Helmfile: 'devops/helmfile.md'
     - Prometheus:
       - Prometheus: 'devops/prometheus/prometheus.md'
     - AWS:
