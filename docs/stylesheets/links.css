@@ -964,6 +964,27 @@
     opacity: 0.50;
 }
 
+/* Kubernetes docs */
+
+.md-content a[href*='kubernetes.io']::after {
+    background-image: url("/blue-book/assets/images/kubernetes.svg");
+    opacity: 1;
+}
+.md-content a[href*='kubernetes.io']:hover::after {
+    opacity: 0.3;
+}
+.md-content a[href*='kubernetes.io']::after {
+    content: "";
+    display: inline-block;
+    position: static;
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    height: 0.75em;
+    width: 0.75em;
+    margin: 0 0 2px 3px;
+    opacity: 0.60;
+}
+
 /* MegaUpload/Mega: filesharing (used for big files) */
 .md-content a[href*='mega.nz']::after {
     background-image: url("/blue-book/assets/images/mega.svg");
