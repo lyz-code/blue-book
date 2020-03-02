@@ -46,7 +46,52 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://lyz-code.github.io/blue-book/devops/kubernetes/kubernetes_resources/</loc>
+     <loc>https://lyz-code.github.io/blue-book/devops/kubernetes/kubernetes_namespaces/</loc>
+     <lastmod>2020-03-02</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://lyz-code.github.io/blue-book/devops/kubernetes/kubernetes_pods/</loc>
+     <lastmod>2020-03-02</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://lyz-code.github.io/blue-book/devops/kubernetes/kubernetes_replicasets/</loc>
+     <lastmod>2020-03-02</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://lyz-code.github.io/blue-book/devops/kubernetes/kubernetes_deployments/</loc>
+     <lastmod>2020-03-02</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://lyz-code.github.io/blue-book/devops/kubernetes/kubernetes_hpa/</loc>
+     <lastmod>2020-03-02</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://lyz-code.github.io/blue-book/devops/kubernetes/kubernetes_volumes/</loc>
+     <lastmod>2020-03-02</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://lyz-code.github.io/blue-book/devops/kubernetes/kubernetes_services/</loc>
+     <lastmod>2020-03-02</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc></loc>
+     
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://lyz-code.github.io/blue-book/devops/kubernetes/kubernetes_annotations/</loc>
+     <lastmod>2020-03-02</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://lyz-code.github.io/blue-book/devops/kubernetes/kubernetes_ingress/</loc>
      <lastmod>2020-03-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
