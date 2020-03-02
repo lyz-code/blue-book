@@ -96,12 +96,22 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://lyz-code.github.io/blue-book/devops/kubernetes/kubernetes_networking/</loc>
+     <loc>https://lyz-code.github.io/blue-book/devops/kubernetes/kubernetes_operators/</loc>
      <lastmod>2020-03-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://lyz-code.github.io/blue-book/devops/kubernetes/kubernetes_operators/</loc>
+     <loc>https://lyz-code.github.io/blue-book/devops/kubectl/kubectl/</loc>
+     <lastmod>2020-03-02</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://lyz-code.github.io/blue-book/devops/kubectl/kubectl_installation/</loc>
+     <lastmod>2020-03-02</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://lyz-code.github.io/blue-book/devops/kubernetes/kubernetes_networking/</loc>
      <lastmod>2020-03-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
