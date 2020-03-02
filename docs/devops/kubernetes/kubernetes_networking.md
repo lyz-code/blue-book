@@ -11,29 +11,6 @@ If you want to get a quickly grasp on how k8s networking works, I suggest you to
 read [StackRox's Kubernetes networking demystified
 article](https://www.stackrox.com/post/2020/01/kubernetes-networking-demystified/).
 
-# The role of kube-proxy
-
-Each node has a kube-proxy container process, defined by
-a [DaemonSet](kubernetes_resources.md#daemonset) in the `kube-system` namespace.
-
-kube-proxy manages forwarding of traffic addressed to the virtual IP addresses
-(VIPs) of the cluster’s Kubernetes Service objects to the appropriate backend
-pods. kube-proxy currently supports three different operation modes:
-
-* *User space*: This mode gets its name because the service routing takes place in
-  kube-proxy in the user process space instead of in the kernel network stack.
-  It is not commonly used as it is slow and outdated.
-* *Iptables*: This mode uses Linux kernel level Netfilter rules to configure all
-  routing for Kubernetes Services. This mode is the default for kube-proxy on
-  most platforms. When load balancing for multiple backend pods, it uses
-  unweighted round-robin scheduling.
-* *IPVS (IP Virtual Server)*: Built on the Netfilter framework, IPVS implements
-  Layer-4 load balancing in the Linux kernel, supporting multiple load-balancing
-  algorithms, including least connections and shortest expected delay. This
-  kube-proxy mode became generally available in Kubernetes 1.11, but it requires
-  the Linux kernel to have the IPVS modules loaded. It is also not as widely
-  supported by various Kubernetes networking projects as the iptables mode.
-
 # CNI comparison
 
 *Container networking* is the mechanism through which containers can optionally
@@ -302,7 +279,7 @@ run on any given worker node in the cluster.
 
 The primary IP for each ENI is used for cluster communication purposes. New pods
 are assigned to one of the secondary IPs for that ENI. VPC CNI has a custom
-[DaemonSet](kubernetes_resources.md#daemonset) that manages the assignment of
+[DaemonSet](kubernetes_deployments.md#daemonset) that manages the assignment of
 IPs to pods. Because ENI and IP allocation requests can take time, this l-ipam
 daemon creates a warm pool of ENIs and IPs on each node and uses one of the
 available IPs for each new pod as it is assigned. This yields the following

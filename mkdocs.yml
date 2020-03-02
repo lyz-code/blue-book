@@ -26,8 +26,11 @@ nav:
         - Labels: 'devops/kubernetes/kubernetes_labels.md'
         - Annotations: 'devops/kubernetes/kubernetes_annotations.md'
         - Ingress: 'devops/kubernetes/kubernetes_ingress.md'
+        - Operators: 'devops/kubernetes/kubernetes_operators.md'
+      - Kubectl:
+        - Kubectl: 'devops/kubectl/kubectl.md'
+        - Kubectl Installation: 'devops/kubectl/kubectl_installation.md'
       - Networking: 'devops/kubernetes/kubernetes_networking.md'
-      - Operators: 'devops/kubernetes/kubernetes_operators.md'
       - Dashboard: 'devops/kubernetes/kubernetes_dashboard.md'
       - Tools: 'devops/kubernetes/kubernetes_tools.md'
     - Helm:

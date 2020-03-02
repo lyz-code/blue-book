@@ -16,6 +16,8 @@ title: Tags
 
   * [AWS](devops/aws/aws.md)
 
+  * [Kubectl Commands](devops/kubectl/kubectl_commands.md)
+
   * [Concepts](devops/kubernetes/kubernetes-concepts.md)
 
   * [Kubernetes Ingress](devops/kubernetes/kubernetes_ingress.md)
