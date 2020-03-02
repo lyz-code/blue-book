@@ -14,6 +14,7 @@ nav:
     - DevOps: 'devops/devops.md'
     - Kubernetes:
       - Kubernetes: 'devops/kubernetes/kubernetes.md'
+      - Architecture: 'devops/kubernetes/kubernetes_architecture.md'
       - Networking: 'devops/kubernetes/kubernetes_networking.md'
       - Operators: 'devops/kubernetes/kubernetes_operators.md'
       - Dashboard: 'devops/kubernetes/kubernetes_dashboard.md'
