@@ -65,8 +65,8 @@ now](https://github.com/ramitsurana/awesome-kubernetes#starting-point):
 ## Diving deeper
 
 * [Architecture](kubernetes_architecture.md)
+* [Resources](kubernetes_resources.md)
 * [Networking](kubernetes_networking.md)
-* [Ingress](kubernetes_ingress.md)
 * [Operators](kubernetes_operators.md)
 * [Helm](helm.md)
 * [Dashboard](kubernetes_dashboard.md)

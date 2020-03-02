@@ -13,8 +13,8 @@ article](https://www.stackrox.com/post/2020/01/kubernetes-networking-demystified
 
 # The role of kube-proxy
 
-Each node has a kube-proxy container process, defined by a DaemonSet in the
-`kube-system` namespace.
+Each node has a kube-proxy container process, defined by
+a [DaemonSet](kubernetes_resources.md#daemonset) in the `kube-system` namespace.
 
 kube-proxy manages forwarding of traffic addressed to the virtual IP addresses
 (VIPs) of the cluster’s Kubernetes Service objects to the appropriate backend
@@ -302,11 +302,11 @@ run on any given worker node in the cluster.
 
 The primary IP for each ENI is used for cluster communication purposes. New pods
 are assigned to one of the secondary IPs for that ENI. VPC CNI has a custom
-daemonset that manages the assignment of IPs to pods. Because ENI and IP
-allocation requests can take time, this l-ipam daemon creates a warm pool of
-ENIs and IPs on each node and uses one of the available IPs for each new pod as
-it is assigned. This yields the following formula for maximum pod density for
-any given instance:
+[DaemonSet](kubernetes_resources.md#daemonset) that manages the assignment of
+IPs to pods. Because ENI and IP allocation requests can take time, this l-ipam
+daemon creates a warm pool of ENIs and IPs on each node and uses one of the
+available IPs for each new pod as it is assigned. This yields the following
+formula for maximum pod density for any given instance:
 
 ```
 ENIs * (IPs_per_ENI - 1)
@@ -322,9 +322,9 @@ by a small amount for clusters bound by IP address limitations.
 
 And if that set of calculations is not enough, there are a few other factors to
 consider. Kubernetes clusters generally run a set of services on each node. VPC
-CNI itself uses an l-ipam daemonset, and if you want Kubernetes network
+CNI itself uses an l-ipam DaemonSet, and if you want Kubernetes network
 policies, calico requires another. Furthermore, production clusters generally
-also have daemonsets for metrics collection, log aggregation, and other
+also have DaemonSets for metrics collection, log aggregation, and other
 cluster-wide services. Each of these uses an IP address per node.
 
 So now the formula is:
@@ -348,7 +348,7 @@ with each of the Amazon instance types, and the maximum pod densities for each
 based on the VPC CNI network plugin restrictions:
 
 * A 100 pod/node limit setting in Kubernetes,
-* A default of 4 daemonsets (2 for AWS networking, 1 for log aggregation, and
+* A default of 4 DaemonSets (2 for AWS networking, 1 for log aggregation, and
   1 for metric collection),
 * A simple cost calculation for per-pod pricing.
 
@@ -358,7 +358,7 @@ the use of this sheet:
 
 * CPU and memory requirements will often dictate lower pod density than the
   theoretical maximum here.
-* Beyond Daemonsets, Kubernetes System pods, and other “system level”
+* Beyond DaemonSets, Kubernetes System pods, and other “system level”
   operational tools used in your cluster will consume Pod IP’s and limit the
   number of application pods that you can run.
 * Each instance type also has network performance limitations which may impact
