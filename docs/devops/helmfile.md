@@ -9,6 +9,7 @@ deploying Helm charts. It lets you:
 
 * Keep a directory of chart value files and maintain changes in version control.
 * Apply CI/CD to configuration changes.
+* Environmental chart promotion.
 * Periodically sync to avoid skew in environments.
 
 To avoid upgrades for each iteration of helm, the helmfile executable delegates

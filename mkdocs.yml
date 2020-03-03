@@ -37,6 +37,7 @@ nav:
         - Cluster Autoscaler: 'devops/kubernetes/kubernetes_cluster_autoscaler.md'
         - Dashboard: 'devops/kubernetes/kubernetes_dashboard.md'
         - Storage Driver: 'devops/kubernetes/kubernetes_storage_driver.md'
+        - Vertical Pod Autoscaler: 'devops/kubernetes/kubernetes_vertical_pod_autoscaler.md'
       - Networking: 'devops/kubernetes/kubernetes_networking.md'
       - Tools: 'devops/kubernetes/kubernetes_tools.md'
     - Helm:

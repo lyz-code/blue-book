@@ -1,3 +1,5 @@
+# [The Blue Book](https://lyz-code.github.io/blue-book)
+
 This is my personal wiki where I share [everything
 I know](everything_i_know.md) about this world in form of an [online
 mkdocs book](https://www.mkdocs.org/) hosted on

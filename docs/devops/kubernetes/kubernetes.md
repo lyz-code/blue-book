@@ -15,6 +15,10 @@ services offer a Kubernetes-based platform or infrastructure as a service
 Kubernetes can be deployed as a platform-providing service.  Many vendors also
 provide their own branded Kubernetes distributions.
 
+<p align="center">
+    <img src="/images/kubernetes_logo.png">
+</p>
+
 It has become the standard infrastructure to manage containers in production
 environments. [Docker Swarm](https://docs.docker.com/engine/swarm/) would be an
 alternative but it falls short in features compared with Kubernetes.

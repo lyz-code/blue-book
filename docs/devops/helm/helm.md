@@ -8,6 +8,16 @@ author: Lyz
 it helps you define, install and upgrade even the most complex Kubernetes
 applications.
 
+<p align="center">
+    <img src="/images/helm_logo.png">
+</p>
+
+The advantages of using helm over `kubectl apply` are the easiness of:
+
+* Repeatable application installation.
+* CI integration.
+* Versioning and sharing.
+
 Charts are a group of Go templates of kubernetes yaml resource manifests, they
 are easy to create, version, share, and publish.
 
