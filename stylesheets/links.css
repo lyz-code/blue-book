@@ -855,6 +855,25 @@
     opacity: 0.6;
 }
 
+/* Amazon AWS */
+.md-content a[href*="aws.amazon.com"]::after{
+    content: "";
+    background-image: url("/blue-book/assets/images/aws.svg");
+    background-repeat: no-repeat;
+    background-size: 0.8em;
+    background-position: right 1px top;
+    width: 1em;
+    height: 0.8em;
+    display: inline-block;
+    vertical-align: baseline;
+    opacity: 0.81;
+}
+.md-content a[href*="amazon.com"]:hover::after,
+.md-content a[href*="amazon.co."]:hover::after,
+.md-content a[href*="amzn.com"]:hover::after {
+    opacity: 0.6;
+}
+
 /* Blue book: Fetch all internal links not `//` and the external links of my
  * blog */
 .md-content a[href*='lyz-code.github.io']::after,

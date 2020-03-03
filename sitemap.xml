@@ -116,7 +116,12 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://lyz-code.github.io/blue-book/devops/kubernetes/kubernetes_storage_driver/</loc>
+     <loc>https://lyz-code.github.io/blue-book/devops/kubernetes/kubernetes_ingress_controller/</loc>
+     <lastmod>2020-03-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://lyz-code.github.io/blue-book/devops/kubernetes/kubernetes_external_dns/</loc>
      <lastmod>2020-03-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -127,6 +132,11 @@
     </url>
     <url>
      <loc>https://lyz-code.github.io/blue-book/devops/kubernetes/kubernetes_dashboard/</loc>
+     <lastmod>2020-03-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://lyz-code.github.io/blue-book/devops/kubernetes/kubernetes_storage_driver/</loc>
      <lastmod>2020-03-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
