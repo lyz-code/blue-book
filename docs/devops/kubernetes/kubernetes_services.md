@@ -5,9 +5,9 @@ author: Lyz
 ---
 
 A [Service](https://kubernetes.io/docs/concepts/services-networking/service/)
-defines a logical set of Pods and a policy by which to access them.  Using
-a reliable endpoint, users and other programs can access pods running on your
-cluster seamlessly. Therefore allowing a loose coupling between dependent Pods.
+defines a policy to access a logical set of Pods using a reliable endpoint.
+Users and other programs can access pods running on your cluster seamlessly.
+Therefore allowing a loose coupling between dependent Pods.
 
 When a request arrives the endpoint, the kube-proxy pod of the node forwards the
 request to the Pods that match the service LabelSelector.
