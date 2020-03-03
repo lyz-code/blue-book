@@ -66,10 +66,10 @@ now](https://github.com/ramitsurana/awesome-kubernetes#starting-point):
 
 * [Architecture](kubernetes_architecture.md)
 * [Resources](kubernetes_namespaces.md)
+* [Kubectl](kubectl.md)
+* [Additional Components](kubernetes_namespaces.md)
 * [Networking](kubernetes_networking.md)
-* [Operators](kubernetes_operators.md)
 * [Helm](helm.md)
-* [Dashboard](kubernetes_dashboard.md)
 * [Tools](kubernetes_tools.md)
 
 ## Reference

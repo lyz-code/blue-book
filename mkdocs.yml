@@ -32,9 +32,11 @@ nav:
         - Kubectl Installation: 'devops/kubectl/kubectl_installation.md'
       - Additional Components:
         - Metrics Server: 'devops/kubernetes/kubernetes_metric_server.md'
-        - Storage Driver: 'devops/kubernetes/kubernetes_storage_driver.md'
+        - Ingress Controller: 'devops/kubernetes/kubernetes_ingress_controller.md'
+        - External DNS: 'devops/kubernetes/kubernetes_external_dns.md'
         - Cluster Autoscaler: 'devops/kubernetes/kubernetes_cluster_autoscaler.md'
         - Dashboard: 'devops/kubernetes/kubernetes_dashboard.md'
+        - Storage Driver: 'devops/kubernetes/kubernetes_storage_driver.md'
       - Networking: 'devops/kubernetes/kubernetes_networking.md'
       - Tools: 'devops/kubernetes/kubernetes_tools.md'
     - Helm:

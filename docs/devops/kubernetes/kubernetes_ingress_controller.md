@@ -11,7 +11,7 @@ underlying load balancers. They are not part of the master
 so you'll need to install them manually.
 
 There are different Ingress controllers, such as AWS ALB, Nginx, HAProxy or
-Traeffik, using one or other depends on your needs.
+Traefik, using one or other depends on your needs.
 
 Almost all controllers are open sourced and support dynamic service discovery,
 SSL termination or WebSockets. But they differ in:
@@ -142,7 +142,7 @@ The *IP mode* gives the following advantages:
 * The load balancer can be pod location-aware: reduce the chance to route
   traffic to an irrelevant node and then rely on kube-proxy and network agent.
 * The number of hops for the packet to reach its destination is *always one*
-* *No extra overlay network* comparing to using Network plugins (Calico, Flanel)
+* *No extra overlay network* comparing to using Network plugins (Calico, Flannel)
   directly int he cloud (AWS).
 
 It also has it's disadvantages:
@@ -150,7 +150,7 @@ It also has it's disadvantages:
 * Even though AWS [guides you on it's
     deployment](https://docs.aws.amazon.com/eks/latest/userguide/alb-ingress.html),
     after two months of AWS Support cases, I wasn't able to deploy it using
-    terraform + [helm](helm.md).
+    terraform and [helm](helm.md).
 * You can't [reuse existing ALBs instead of creating new ALB per
   ingress](https://github.com/kubernetes-sigs/aws-alb-ingress-controller/issues/298).
 
@@ -182,10 +182,10 @@ WAF integration. That IAM policy needs to be attached to the
 You also had to create an IAM OIDC provider, which are entities in IAM that
 describe an external identity provider (IdP) service that supports the OpenID
 Connect (OIDC) standard, such as Google or Github. You use an IAM OIDC
-identity provider when you want to establish trust between an OIDC-compatible
+identity provider when you want to establish trust between an OIDC compatible
 IdP and your AWS account. This is useful when creating a mobile app or web
 application that requires access to AWS resources, but you don't want to create
-custom sign-in code or manage your own user identities.
+custom sign in code or manage your own user identities.
 
 The IAM OIDC provider is going to be used by the [AWS EKS pod identity admission
 controller](https://github.com/aws/amazon-eks-pod-identity-webhook/) to attach
