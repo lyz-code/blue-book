@@ -48,6 +48,8 @@ nav:
     - Helmfile: 'devops/helmfile.md'
     - Prometheus:
       - Prometheus: 'devops/prometheus/prometheus.md'
+      - Architecture: 'devops/prometheus/prometheus_architecture.md'
+      - Prometheus Operator: 'devops/prometheus/prometheus_operator.md'
     - AWS:
       - AWS: 'devops/aws/aws.md'
       - IAM:

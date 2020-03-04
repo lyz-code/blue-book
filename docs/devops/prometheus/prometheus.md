@@ -12,6 +12,11 @@ alerting. The project is written in Go and licensed under the Apache
 2 License, with source code available on GitHub, and is a graduated project
 of the Cloud Native Computing Foundation, along with Kubernetes and Envoy.
 
+<p align="center">
+    <img src="/images/prometheus_logo.png">
+</p>
+
+
 A quick overview of Prometheus would be, as stated in the [coreos article](https://coreos.com/blog/coreos-and-prometheus-improve-cluster-monitoring.html):
 
 > At the core of the Prometheus monitoring system is the main server, which
@@ -33,6 +38,8 @@ A quick overview of Prometheus would be, as stated in the [coreos article](https
 > for different programming languages, and a growing number of exporters.
 > Exporters are small programs that provide Prometheus compatible metrics from
 > systems that are not natively instrumented.
+
+Go to the [Prometheus architecture post](prometheus_architecture.md) for more details.
 
 We are living a shift to the DevOps culture, containers and Kubernetes. So
 nowadays:
@@ -65,12 +72,61 @@ following features
 * *Modular and highly available components*: Metric collection, alerting,
   graphical visualization, etc, are performed by different composable services.
   All these services are designed to support redundancy and sharding.
+* *Pull based metrics*: Most monitoring systems are *pushing* metrics to
+    a centralized collection platform. Prometheus flips this model on it's head
+    with the following advantages:
+    * No need to install custom software in the physical servers or containers.
+    * Doesn't require applications to use CPU cycles pushing metrics.
+    * Handles service failure/unavailability gracefully. If a target goes down,
+        Prometheus can record it was unable to retrieve data.
+    * You can use the Pushgateway if pulling metrics is not feasible.
 
 # Installation
 
 There are [several ways to install
 prometheus](https://prometheus.io/docs/prometheus/latest/installation/), but I'd
 recommend using the [Kubernetes operator](prometheus_operator.md).
+
+# Exposing your metrics
+
+Prometheus defines a very nice text-based format for its metrics:
+
+```
+# HELP prometheus_engine_query_duration_seconds Query timings
+# TYPE prometheus_engine_query_duration_seconds summary
+prometheus_engine_query_duration_seconds{slice="inner_eval",quantile="0.5"} 7.0442e-05
+prometheus_engine_query_duration_seconds{slice="inner_eval",quantile="0.9"} 0.0084092
+prometheus_engine_query_duration_seconds{slice="inner_eval",quantile="0.99"} 0.389403939
+```
+
+The data is relatively human readable and we even have TYPE and HELP decorators
+to increase the readability.
+
+To expose application metrics to the Prometheus server, use one of the [client
+libraries](https://prometheus.io/docs/instrumenting/clientlibs/) and follow the
+suggested [naming and units conventions for
+metrics](https://prometheus.io/docs/practices/naming/#metric-names).
+
+## Metric types
+
+There are these metric types:
+
+* *Counter*: A simple monotonically incrementing type; basically use this for
+  situations where you want to know “how many times has x happened”.
+* *Gauge*: A representation of a metric that can go both up and down. Think of
+  a speedometer in a car, this type provides a snapshot of “what is the current
+  value of x now”.
+* *Histogram*: It represents observed metrics sharded into distinct buckets.
+  Think of this as a mechanism to track “how long something took” or “how big
+  something was”.
+* *Summary*: Similar to a histogram, except the bins are converted into an
+    aggregate immediately.
+
+## Using labels
+
+Prometheus metrics support the concept of Labels to provide extra dimensions to
+your data. By using Labels efficiently we can essentially provide more insights
+into our data whilst having to manage less actual metrics.
 
 # Debugging
 
@@ -103,8 +159,21 @@ it won't work.
 * [Docs](https://prometheus.io/docs/introduction/overview/).
 * [Awesome Prometheus](https://github.com/roaldnefs/awesome-prometheus).
 
+## Diving deeper
+
+* [Architecture](prometheus_architecture.md)
+* [Prometheus Operator](prometheus_operator.md)
+
+## Introduction posts
+
 * [Soundcloud
   introduction](https://developers.soundcloud.com/blog/prometheus-monitoring-at-soundcloud).
 * [Sysdig guide](https://sysdig.com/blog/kubernetes-monitoring-prometheus/).
 * [Prometheus monitoring solutions
   comparison](https://prometheus.io/docs/introduction/comparison/).
+* [ITNEXT overview](https://itnext.io/prometheus-for-beginners-5f20c2e89b6c)
+
+## Books
+
+* [Prometheus Up & Running](http://shop.oreilly.com/product/0636920147343.do).
+* [Monitoring With Prometheus](https://www.prometheusbook.com/).
