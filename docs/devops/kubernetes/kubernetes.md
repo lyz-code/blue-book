@@ -16,7 +16,7 @@ Kubernetes can be deployed as a platform-providing service.  Many vendors also
 provide their own branded Kubernetes distributions.
 
 <p align="center">
-    <img src="/images/kubernetes_logo.png">
+    <img src="/blue-book/images/kubernetes_logo.png">
 </p>
 
 It has become the standard infrastructure to manage containers in production
