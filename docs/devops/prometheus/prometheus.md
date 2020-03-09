@@ -85,7 +85,8 @@ following features
 
 There are [several ways to install
 prometheus](https://prometheus.io/docs/prometheus/latest/installation/), but I'd
-recommend using the [Kubernetes operator](prometheus_operator.md).
+recommend using the [Kubernetes](kubernetes.md) [Prometheus
+operator](prometheus_operator.md).
 
 # Exposing your metrics
 
@@ -163,6 +164,7 @@ it won't work.
 
 * [Architecture](prometheus_architecture.md)
 * [Prometheus Operator](prometheus_operator.md)
+* [Blackbox Exporter](blackbox_exporter.md)
 
 ## Introduction posts
 

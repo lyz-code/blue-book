@@ -50,6 +50,7 @@ nav:
       - Prometheus: 'devops/prometheus/prometheus.md'
       - Architecture: 'devops/prometheus/prometheus_architecture.md'
       - Prometheus Operator: 'devops/prometheus/prometheus_operator.md'
+      - Blackbox Exporter: 'devops/prometheus/blackbox_exporter.md'
     - AWS:
       - AWS: 'devops/aws/aws.md'
       - IAM:
