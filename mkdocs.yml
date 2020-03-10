@@ -57,6 +57,9 @@ nav:
         - IAM: 'devops/aws/iam/iam.md'
         - IAM Commands: 'devops/aws/iam/iam_commands.md'
         - IAM Debugging: 'devops/aws/iam/iam_debug.md'
+    - API Management:
+      - API Management: 'devops/api_management.md'
+      - Kong: 'devops/kong/kong.md'
   - Linux:
     - LUKS: 'linux/luks/luks.md'
     - rm: 'linux/rm.md'
