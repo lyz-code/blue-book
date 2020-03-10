@@ -69,6 +69,8 @@ serviceMonitor:
 The label `release: prometheus-operator` must be the [one your prometheus
 instance is searching for](prometheus.md#service-monitor-not-being-recognized).
 
+If you want to use the `icmp` probe, make sure to allow `allowIcmp: true`.
+
 I've found two grafana dashboards for the blackbox exporter.
 [`7587`](https://grafana.com/dashboards/7587) didn't work straight out of the
 box while [`5345`](https://grafana.com/dashboards/5345) did. Taking as reference
