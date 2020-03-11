@@ -71,6 +71,21 @@ instance is searching for](prometheus.md#service-monitor-not-being-recognized).
 
 If you want to use the `icmp` probe, make sure to allow `allowIcmp: true`.
 
+If you want to probe endpoints protected behind client SSL certificates, until this [chart
+issue](https://github.com/helm/charts/issues/21345) is solved, you need to create
+them manually as the Prometheus blackbox exporter helm chart doesn't yet create
+the required secrets.
+
+```bash
+kubectl create secret generic monitor-certificates \
+    --from-file=monitor.crt.pem \
+    --from-file=monitor.key.pem \
+    -n monitoring
+```
+
+Where `monitor.crt.pem` and `monitor.key.pem` are the SSL certificate and key
+for the monitor account.
+
 I've found two grafana dashboards for the blackbox exporter.
 [`7587`](https://grafana.com/dashboards/7587) didn't work straight out of the
 box while [`5345`](https://grafana.com/dashboards/5345) did. Taking as reference
@@ -110,6 +125,133 @@ And install.
 helmfile diff
 helmfile apply
 ```
+
+# Blackbox exporter probes
+
+Modules define how blackbox exporter is going to query the endpoint, therefore
+you need to create one for each request type under the `config.modules` section
+of the chart.
+
+## HTTP endpoint working correctly
+
+```yaml
+http_2xx:
+  prober: http
+  timeout: 5s
+  http:
+    valid_http_versions: ["HTTP/1.1", "HTTP/2"]
+    valid_status_codes: [200]
+    no_follow_redirects: false
+    preferred_ip_protocol: "ip4"
+```
+
+## HTTPS endpoint
+
+```yaml
+https_2xx:
+  prober: http
+  timeout: 5s
+  http:
+    method: GET
+    fail_if_ssl: false
+    fail_if_not_ssl: true
+    valid_http_versions: ["HTTP/1.1", "HTTP/2"]
+    valid_status_codes: [200]
+    no_follow_redirects: false
+    preferred_ip_protocol: "ip4"
+```
+
+## HTTPS endpoint behind client SSL certificate
+
+```yaml
+https_client_2xx:
+  prober: http
+  timeout: 5s
+  http:
+    method: GET
+    fail_if_ssl: false
+    fail_if_not_ssl: true
+    valid_http_versions: ["HTTP/1.1", "HTTP/2"]
+    valid_status_codes: [200]
+    no_follow_redirects: false
+    preferred_ip_protocol: "ip4"
+    tls_config:
+      cert_file: /etc/secrets/monitor.crt.pem
+      key_file: /etc/secrets/monitor.key.pem
+```
+
+Where the secrets have been created throughout the installation.
+
+## HTTPS endpoint with an specific error
+
+If you don't want to configure the authentication for example for an API, you
+can fetch the expected error.
+
+```yaml
+https_client_api:
+  prober: http
+  timeout: 5s
+  http:
+    method: GET
+    fail_if_ssl: false
+    fail_if_not_ssl: true
+    valid_http_versions: ["HTTP/1.1", "HTTP/2"]
+    valid_status_codes: [404]
+    no_follow_redirects: false
+    preferred_ip_protocol: "ip4"
+    fail_if_body_not_matches_regexp:
+      - '.*ERROR route not.*'
+```
+
+## HTTP endpoint not working as expected
+
+```yaml
+http_4xx:
+  prober: http
+  timeout: 5s
+  http:
+    method: HEAD
+    valid_status_codes: [404, 403]
+    valid_http_versions: ["HTTP/1.1", "HTTP/2"]
+    no_follow_redirects: false
+```
+
+## Check open port
+
+```yaml
+tcp_connect:
+  prober: tcp
+```
+
+The port is specified when using the module.
+
+```yaml
+- name: lyz-code.github.io
+  url: lyz-code.github.io:389
+  module: tcp_connect
+```
+
+## Ping to the resource
+
+Test if the target is alive. It's useful When you don't know what port to check
+or if it uses UDP.
+
+```yaml
+ping:
+  prober: icmp
+  timeout: 5s
+  icmp:
+    preferred_ip_protocol: "ip4"
+```
+
+# Troubleshooting
+
+## [Service monitors are not being created](https://github.com/helm/charts/issues/20398)
+
+When running `helmfile apply` several times to update the resources, some are
+not being correctly created. Until the bug is solved, a workaround is to remove
+the chart release `helm delete --purge prometeus-blackbox-exporter` and running
+`helmfile apply` again.
 
 # Links
 
