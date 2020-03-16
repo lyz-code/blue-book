@@ -86,7 +86,7 @@ following features
 There are [several ways to install
 prometheus](https://prometheus.io/docs/prometheus/latest/installation/), but I'd
 recommend using the [Kubernetes](kubernetes.md) [Prometheus
-operator](prometheus_operator.md).
+operator](prometheus_installation.md).
 
 # Exposing your metrics
 
