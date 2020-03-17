@@ -67,7 +67,7 @@ serviceMonitor:
 ```
 
 The label `release: prometheus-operator` must be the [one your prometheus
-instance is searching for](prometheus.md#service-monitor-not-being-recognized).
+instance is searching for](prometheus_troubleshooting.md#service-monitor-not-being-recognized).
 
 If you want to use the `icmp` probe, make sure to allow `allowIcmp: true`.
 
@@ -242,6 +242,133 @@ ping:
   timeout: 5s
   icmp:
     preferred_ip_protocol: "ip4"
+```
+
+# Blackbox exporter alerts
+
+Now that we've got the metrics, we can define the [alert
+rules](alertmanager.md#alert-rules). Most have been tweaked from the [Awesome
+prometheus alert rules](https://awesome-prometheus-alerts.grep.to/rules)
+collection.
+
+## Blackbox probe failed
+
+Blackbox probe failed.
+
+```yaml
+  - alert: BlackboxProbeFailed
+    expr: probe_success == 0
+    for: 5m
+    labels:
+      severity: error
+    annotations:
+      summary: "Blackbox probe failed (instance {{ $labels.target }})"
+      description: "Probe failed\n  VALUE = {{ $value }}"
+```
+
+## Blackbox slow probe
+
+Blackbox probe took more than 1s to complete.
+
+```yaml
+  - alert: BlackboxSlowProbe
+    expr: avg_over_time(probe_duration_seconds[1m]) > 1
+    for: 5m
+    labels:
+      severity: warning
+    annotations:
+      summary: "Blackbox slow probe (target {{ $labels.target }})"
+      description: "Blackbox probe took more than 1s to complete\n  VALUE = {{ $value }}"
+```
+
+## Blackbox probe HTTP failure
+
+HTTP status code is not 200-399.
+
+```yaml
+  - alert: BlackboxProbeHttpFailure
+    expr: probe_http_status_code <= 199 OR probe_http_status_code >= 400
+    for: 5m
+    labels:
+      severity: error
+    annotations:
+      summary: "Blackbox probe HTTP failure (instance {{ $labels.target }})"
+      description: "HTTP status code is not 200-399\n  VALUE = {{ $value }}"
+```
+
+## Blackbox SSL certificate will expire soon
+
+SSL certificate expires in 30 days.
+
+```yaml
+  - alert: BlackboxSslCertificateWillExpireSoon
+    expr: probe_ssl_earliest_cert_expiry - time() < 86400 * 30
+    for: 5m
+    labels:
+      severity: warning
+    annotations:
+      summary: "Blackbox SSL certificate will expire soon (instance {{ $labels.target }})"
+      description: "SSL certificate expires in 30 days\n  VALUE = {{ $value }}"
+```
+
+## Blackbox SSL certificate will expire soon
+
+SSL certificate expires in 3 days.
+
+```yaml
+  - alert: BlackboxSslCertificateWillExpireSoon
+    expr: probe_ssl_earliest_cert_expiry - time() < 86400 * 3
+    for: 5m
+    labels:
+      severity: error
+    annotations:
+      summary: "Blackbox SSL certificate will expire soon (instance {{ $labels.target }})"
+      description: "SSL certificate expires in 3 days\n  VALUE = {{ $value }}"
+```
+
+## Blackbox SSL certificate expired
+
+SSL certificate has expired already.
+
+```yaml
+  - alert: BlackboxSslCertificateExpired
+    expr: probe_ssl_earliest_cert_expiry - time() <= 0
+    for: 5m
+    labels:
+      severity: error
+    annotations:
+      summary: "Blackbox SSL certificate expired (instance {{ $labels.target }})"
+      description: "SSL certificate has expired already\n  VALUE = {{ $value }}"
+```
+
+## Blackbox probe slow HTTP
+
+HTTP request took more than 1s.
+
+```yaml
+  - alert: BlackboxProbeSlowHttp
+    expr: avg_over_time(probe_http_duration_seconds[1m]) > 1
+    for: 5m
+    labels:
+      severity: warning
+    annotations:
+      summary: "Blackbox probe slow HTTP (instance {{ $labels.target }})"
+      description: "HTTP request took more than 1s\n  VALUE = {{ $value }}"
+```
+
+## Blackbox probe slow ping
+
+Blackbox ping took more than 1s.
+
+```yaml
+  - alert: BlackboxProbeSlowPing
+    expr: avg_over_time(probe_icmp_duration_seconds[1m]) > 1
+    for: 5m
+    labels:
+      severity: warning
+    annotations:
+      summary: "Blackbox probe slow ping (instance {{ $labels.target }})"
+      description: "Blackbox ping took more than 1s\n  VALUE = {{ $value }}"
 ```
 
 # Troubleshooting

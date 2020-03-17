@@ -20,7 +20,7 @@ has four main keys (as `templates` is handled in
 
 * `global`: SMTP and API main configuration, it will be inherited by the other
     elements.
-* `route`:
+* `route`: Route tree definition.
 * `receivers`: Notification integrations configuration.
 * `inhibit_rules`: Alert inhibition configuration.
 
@@ -236,3 +236,35 @@ To disable both alerts, set a `match` rule in `config.inhibit_rules`:
       - target_match:
           alertname: KubeVersionMismatch
 ```
+
+# Alert rules
+
+Alert rules are a special kind of Prometheus Rules that trigger alerts based on
+PromQL expressions. People have gathered several examples under [Awesome
+prometheus alert rules](https://awesome-prometheus-alerts.grep.to/rules)
+
+Alerts must be configured in the [Prometheus operator](prometheus_operator.md)
+helm chart, under the `additionalPrometheusRulesMap`. For example:
+
+```yaml
+additionalPrometheusRulesMap:
+  - groups:
+      - name: alert-rules
+        rules:
+          - alert: BlackboxProbeFailed
+            expr: probe_success == 0
+            for: 5m
+            labels:
+              severity: error
+            annotations:
+              summary: "Blackbox probe failed (instance {{ $labels.target }})"
+              description: "Probe failed\n  VALUE = {{ $value }}\n  LABELS: {{ $labels }}"
+```
+
+Other examples of rules are:
+
+* [Blackbox Exporter rules](blackbox_exporter.md#blackbox-exporter-alerts)
+
+# Links
+
+* [Awesome prometheus alert rules](https://awesome-prometheus-alerts.grep.to/rules)

@@ -24,15 +24,33 @@ helm inspect values stable/prometheus-operator > prometheus-operator/values.yaml
 vi prometheus-operator/values.yaml
 ```
 
-If you are using a managed solution like EKS, the provider will hide
-`kube-scheduler` and `kube-controller-manager` so those metrics will fail.
-Therefore you need to disable:
+I've implemented the following changes:
 
-* `kubeScheduler` in the `defaultRule`.
-* `kubeScheduler` .
-* `kubeControllerManager`.
+* If you are using a managed solution like EKS, the provider will hide
+    `kube-scheduler` and `kube-controller-manager` so those metrics will fail.
+    Therefore you need to disable:
+
+    * `defaultRules.rules.kubeScheduler: false`.
+    * `kubeScheduler.enabled: false`.
+    * `kubeControllerManager.enabled: false`.
+* [Configure the alertmanager](alertmanager.md).
+* Enabled the ingress of `alertmanager`, `grafana` and `prometheus`.
+* Set up the `storage` of `alertmanager` and `prometheus` with
+  `storageClassName: gp2` (for AWS).
+* Configure the grafana dashboards:
+
+    * [Blackbox grafana dashboard](blackbox_exporter.md)
+* Change `additionalPrometheusRules` to `additionalPrometheusRulesMap` as the
+    former is going to be deprecated in future releases.
+* For [private clusters, disable the admission
+  webhook](prometheus_troubleshooting.md#failed-calling-webhook-prometheusrulemutate.monitoring.coreos.com).
+
+    * `prometheusOperator.admissionWebhooks.enabled=false`
+    * `prometheusOperator.admissionWebhooks.patch.enabled=false`
+    * `prometheusOperator.tlsProxy.enabled=false`
 
 And install.
+
 ```bash
 helmfile diff
 helmfile apply
@@ -72,3 +90,12 @@ And restart the DaemonSet:
 ```bash
 kubectl rollout restart -n kube-system daemonset.apps/kube-proxy
 ```
+
+# Creating alerts
+
+Alerts are configured in
+
+# Installing other exporters
+
+* [Blackbox Exporter](blackbox_exporter.md)
+

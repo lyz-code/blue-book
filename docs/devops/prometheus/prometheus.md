@@ -129,31 +129,6 @@ Prometheus metrics support the concept of Labels to provide extra dimensions to
 your data. By using Labels efficiently we can essentially provide more insights
 into our data whilst having to manage less actual metrics.
 
-# Debugging
-
-## Service monitor not being recognized
-
-Probably the service monitor labels aren't properly configured. Each prometheus
-monitors it's own targets, to see how you need to label your resources, describe
-the prometheus instance and search for `Service Monitor Selector`.
-
-```bash
-kubectl get prometheus -n monitoring
-kubectl describe prometheus prometheus-operator-prometheus -n monitoring
-```
-
-The last one will return something like:
-
-```yaml
-  Service Monitor Selector:
-    Match Labels:
-      Release:  prometheus-operator
-```
-
-Which means you need to label your service monitors with `release:
-prometheus-operator`, **be careful** if you use `Release: prometheus-operator`
-it won't work.
-
 # Links
 
 * [Homepage](https://prometheus.io/).
@@ -164,7 +139,9 @@ it won't work.
 
 * [Architecture](prometheus_architecture.md)
 * [Prometheus Operator](prometheus_operator.md)
+* [Prometheus Installation](prometheus_installation.md)
 * [Blackbox Exporter](blackbox_exporter.md)
+* [Prometheus Troubleshooting](prometheus_troubleshooting.md)
 
 ## Introduction posts
 
