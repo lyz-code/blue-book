@@ -123,6 +123,20 @@ or my version into Script field.
                     });
                 }
 
+                if (!!endVal.annotations.grafana) {
+                    finFields.push({
+                        title: "grafana",
+                        value: endVal.annotations.grafana
+                    });
+                }
+
+                if (!!endVal.annotations.prometheus) {
+                    finFields.push({
+                        title: "prometheus",
+                        value: endVal.annotations.prometheus
+                    });
+                }
+
                 if (!!endVal.annotations.message) {
                     finFields.push({
                         title: "message",

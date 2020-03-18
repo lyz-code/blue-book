@@ -264,6 +264,8 @@ Blackbox probe failed.
     annotations:
       summary: "Blackbox probe failed (instance {{ $labels.target }})"
       description: "Probe failed\n  VALUE = {{ $value }}"
+      grafana: "{{ grafana_url }}&var-targets={{ $labels.target }}"
+      prometheus: "{{ prometheus_url }}/graph?g0.expr=probe_success+%3D%3D+0&g0.tab=1"
 ```
 
 ## Blackbox slow probe
@@ -279,6 +281,8 @@ Blackbox probe took more than 1s to complete.
     annotations:
       summary: "Blackbox slow probe (target {{ $labels.target }})"
       description: "Blackbox probe took more than 1s to complete\n  VALUE = {{ $value }}"
+      grafana: "{{ grafana_url }}&var-targets={{ $labels.target }}"
+      prometheus: "{{ prometheus_url }}/graph?g0.expr=avg_over_time%28probe_duration_seconds%5B1m%5D%29+%3E+1&g0.tab=1"
 ```
 
 ## Blackbox probe HTTP failure
@@ -294,6 +298,8 @@ HTTP status code is not 200-399.
     annotations:
       summary: "Blackbox probe HTTP failure (instance {{ $labels.target }})"
       description: "HTTP status code is not 200-399\n  VALUE = {{ $value }}"
+      grafana: "{{ grafana_url }}&var-targets={{ $labels.target }}"
+      prometheus: "{{ prometheus_url }}/graph?g0.expr=probe_ssl_earliest_cert_expiry+-+time%28%29+%3C+86400+%2A+30&g0.tab=1"
 ```
 
 ## Blackbox SSL certificate will expire soon
@@ -309,6 +315,8 @@ SSL certificate expires in 30 days.
     annotations:
       summary: "Blackbox SSL certificate will expire soon (instance {{ $labels.target }})"
       description: "SSL certificate expires in 30 days\n  VALUE = {{ $value }}"
+      grafana: "{{ grafana_url }}&var-targets={{ $labels.target }}"
+      prometheus: "{{ prometheus_url }}/graph?g0.expr=probe_ssl_earliest_cert_expiry+-+time%28%29+%3C+86400+%2A+30&g0.tab=1"
 ```
 
 ## Blackbox SSL certificate will expire soon
@@ -324,6 +332,8 @@ SSL certificate expires in 3 days.
     annotations:
       summary: "Blackbox SSL certificate will expire soon (instance {{ $labels.target }})"
       description: "SSL certificate expires in 3 days\n  VALUE = {{ $value }}"
+      grafana: "{{ grafana_url }}&var-targets={{ $labels.target }}"
+      prometheus: "{{ prometheus_url }}/graph?g0.expr=probe_ssl_earliest_cert_expiry+-+time%28%29+%3C+86400+%2A+3&g0.tab=1"
 ```
 
 ## Blackbox SSL certificate expired
@@ -339,6 +349,8 @@ SSL certificate has expired already.
     annotations:
       summary: "Blackbox SSL certificate expired (instance {{ $labels.target }})"
       description: "SSL certificate has expired already\n  VALUE = {{ $value }}"
+      grafana: "{{ grafana_url }}&var-targets={{ $labels.target }}"
+      prometheus: "{{ prometheus_url }}/graph?g0.expr=probe_ssl_earliest_cert_expiry+-+time%28%29+%3C%3D+0&g0.tab=1"
 ```
 
 ## Blackbox probe slow HTTP
@@ -354,6 +366,8 @@ HTTP request took more than 1s.
     annotations:
       summary: "Blackbox probe slow HTTP (instance {{ $labels.target }})"
       description: "HTTP request took more than 1s\n  VALUE = {{ $value }}"
+      grafana: "{{ grafana_url }}&var-targets={{ $labels.target }}"
+      prometheus: "{{ prometheus_url }}/graph?g0.expr=avg_over_time%28probe_http_duration_seconds%5B1m%5D%29+%3E+1&g0.tab=1"
 ```
 
 ## Blackbox probe slow ping
@@ -369,6 +383,8 @@ Blackbox ping took more than 1s.
     annotations:
       summary: "Blackbox probe slow ping (instance {{ $labels.target }})"
       description: "Blackbox ping took more than 1s\n  VALUE = {{ $value }}"
+      grafana: "{{ grafana_url }}&var-targets={{ $labels.target }}"
+      prometheus: "{{ prometheus_url }}/graph?g0.expr=avg_over_time%28probe_icmp_duration_seconds%5B1m%5D%29+%3E+1&g0.tab=1"
 ```
 
 # Troubleshooting
