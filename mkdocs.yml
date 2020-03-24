@@ -68,6 +68,8 @@ nav:
     - rm: 'linux/rm.md'
     - zip: 'linux/zip.md'
     - Google Chrome: 'linux/google_chrome.md'
+  - Drawing:
+    - Drawing: 'drawing/drawing.md'
   - Contact: 'contact.md'
   - Emojis: 'emojis.md'
   - Tags: 'tags.md'
