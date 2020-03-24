@@ -37,16 +37,28 @@ When doing the course exercises, try to:
 * Each time you finish an exercise incorporate into a pool from which take two
     or three at the beginning of each session to do for 10 or 15 minutes.
 
-# Drawabox course overview
+## [Tools to use](https://drawabox.com/lesson/0/5)
 
-Free online course for complete self taught beginners. It focuses on [the
-following skills and concepts](https://drawabox.com/lesson/0/3):
+For the Drawabox course, you need a *fineliner*, also called *felt tips* or
+*technical pens*. The author recommends Staedtler Pigments Liners and Faber
+Castell PITT Artist Pens (their sizing is different, F is the equivalent to
+0.5).
+
+When using it, make sure you're not applying too much pressure, as it will
+damage the tip and reduce the flow of ink.
+
+For the paper, use the regular printer one.
+
+## Drawing skills
+
+The course focuses on [these psychological skills and
+concepts](https://drawabox.com/lesson/0/3):
 
 * *Confidence*: The willingness to push forwards without hesitation once your
     preparations are complete.
 * *Control*: The ability to decide ahead of time what kind of mark you wish to
     puto down on the page, and to execute as intended.
-* *Patience*:
+* *Patience*: The path is hard.
 * *Spatial Reasoning*: To be able to understand the things we draw as being
     three dimensional forms that exist in and relate to one another within
     the three dimensional world.
@@ -57,8 +69,9 @@ following skills and concepts](https://drawabox.com/lesson/0/3):
     information, and to convey it clearly and directly to an audience using
     visual means.
 
-Once you're done with each lesson, submit your homework to be reviewed by the
-community.
+Those are applied into [mechanical ](https://drawabox.com/lesson/1/1/mechanical)
+and [analytical ](https://drawabox.com/lesson/1/1/analytical) skills.
+
 
 # Links
 
