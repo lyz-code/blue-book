@@ -387,7 +387,69 @@ Blackbox ping took more than 1s.
       prometheus: "{{ prometheus_url }}/graph?g0.expr=avg_over_time%28probe_icmp_duration_seconds%5B1m%5D%29+%3E+1&g0.tab=1"
 ```
 
+# Monitoring external access to internal services
+
+There are two possible solutions to simulate traffic from outside your
+infrastructure to the internal services. Both require the installation of an
+agent outside of your internal infrastructure, it can be:
+
+* An HTTP proxy.
+* A blackbox exporter instance.
+
+Using the proxy you have following advantages:
+
+* It's really easy to set up a [transparent http
+    proxy](https://hub.docker.com/r/vimagick/tinyproxy).
+* All probe configuration goes in the same blackbox exporter instance
+    `values.yaml`.
+
+With the following disadvantages:
+
+* When using an external http proxy, [the probe runs the DNS resolution
+locally]((https://github.com/prometheus/blackbox_exporter/pull/554)). Therefore
+if the record doesn't exist in the local server the probe will fail, even if the
+proxy DNS resolver has the correct record.
+
+    The ugly workaround I've implemented is to create a "fake" DNS record in my
+    internal DNS server so the probe sees it exist.
+* There is no way to do `tcp` or `ping` probes to simulate external traffic.
+* The latency between the blackbox exporter and the proxy is added to all the
+    external probes.
+
+While using an external blackbox exporter gives the following advantages:
+
+* Traffic is completely external to the infrastructure, so the proxy
+    disadvantages would be solved.
+
+And the following disadvantages:
+
+* Simulation of external traffic in AWS could be done by spawning the blackbox
+    exporter instance in another region, but as there is no way of using EKS
+    worker nodes in different regions, there is no way of managing the exporter
+    from within Kubernetes. This means:
+
+    * The loose of the advantages of the [Prometheus
+      operator](prometheus_operator.md), so we have to write the configuration
+      manually.
+    * Configuration can't be managed with [Helm](helm.md), so two solutions
+        should be used to manage the monitorization (Ansible could be used).
+* Even if it's possible to host the second external blackbox exporter within
+    Kubernetes, two independent [Helm](helm.md) charts are needed, with the
+    consequent configuration management burden.
+
+In conclusion, when using a Kubernetes cluster that allows the creation of
+worker nodes outside the main infrastructure, or if several non HTTP/HTTPS
+endpoints need to be probed with the `tcp` or `ping` modules, install an
+external blackbox exporter instance. Otherwise install an HTTP proxy and assume
+that you can only simulate external HTTP/HTTPS traffic.
+
 # Troubleshooting
+
+To [get more debugging
+information](https://www.robustperception.io/debugging-blackbox-exporter-failures)
+of the blackbox probes, add `&debug=true` to the probe url, for example
+http://localhost:9115/probe?module=http_2xx&target=https://www.prometheus.io/&debug=true
+.
 
 ## [Service monitors are not being created](https://github.com/helm/charts/issues/20398)
 
@@ -395,6 +457,15 @@ When running `helmfile apply` several times to update the resources, some are
 not being correctly created. Until the bug is solved, a workaround is to remove
 the chart release `helm delete --purge prometeus-blackbox-exporter` and running
 `helmfile apply` again.
+
+## [probe_success == 0 when using an http proxy](https://github.com/prometheus/blackbox_exporter/pull/554)
+
+Even when using an external http proxy, the probe runs the DNS resolution
+locally. Therefore if the record doesn't exist in the local server the probe
+will fail, even if the proxy DNS resolver has the correct record.
+
+The ugly workaround I've implemented is to create a "fake" DNS record in my
+internal DNS server so the probe sees it exist.
 
 # Links
 
