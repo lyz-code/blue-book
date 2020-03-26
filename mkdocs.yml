@@ -70,6 +70,7 @@ nav:
     - Google Chrome: 'linux/google_chrome.md'
   - Drawing:
     - Drawing: 'drawing/drawing.md'
+    - Exercise Pool: 'drawing/exercise_pool.md'
   - Contact: 'contact.md'
   - Emojis: 'emojis.md'
   - Tags: 'tags.md'

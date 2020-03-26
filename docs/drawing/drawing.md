@@ -24,6 +24,80 @@ Start your drawing path with the following guidelines to make your progression s
 * [At least half of the time](https://drawabox.com/lesson/0/2/50percent) spent
     drawing must be devoted to drawing purely for its own sake. If you don't
     have much time, alternate the purpose of your sessions.
+* [Don't over control your hand with your
+    brain](https://drawabox.com/lesson/1/1/mechanical) to try to be absolutely
+    precise and accurate. Doing so will result in numerous course corrections
+    making your strokes wobbly, stiff and erratic. Furthermore, spending all
+    the focus resources in precision, will result in a lack to solve the other
+    problems involved. Once *muscle memory* is gained, the strokes will be
+    cleaner.
+* [Draw exactly what you see, while you see
+    it](https://drawabox.com/lesson/1/1/analytical). Don't trust you memory, as
+    it will simplify things without you noticing it.
+* [Draw from your shoulder](https://drawabox.com/lesson/1/3/pivots).  We are
+    used to pivot on the wrist as it makes stiff and accurate linework, suitable
+    for writing. But falls apart when making smooth and consistent strokes.
+
+    So use the wrist when drawing stiff but precise marks in areas of detail or
+    texture. There are plenty of cases where the elbow will work fine, but using
+    it will get yo u in the habit of taking [the path of least
+    resistance](https://drawabox.com/lesson/1/3/leastresistance). So try to use
+    the shoulder.
+
+    This means driving the motion from the muscles that control that joint. As
+    it has a considerable range of motion, you should be able to move your arm
+    with minimal adjustment from your elbow.
+
+    If you catch yourself having fallen back to drawing from the elbow, do the
+    following exercise: Draw pivoting from your wrist while locking the rest of
+    the joints, to get used to what that feels like. Then lock it and move to
+    the elbow. Finally lock the elbow and go for the shoulder.
+
+
+Drawing at it's simplest level is the act of putting marks on a page in order or
+communicate or convey something. Marks should:
+
+* [Flow continuously](https://drawabox.com/lesson/1/2/continuous): When making
+    a line between two points, do it with a single continuous stroke even if you
+    miss the end.
+
+    ![](../../draw-a-box-flow-continuous.jpg)
+
+* [Flow smoothly](https://drawabox.com/lesson/1/2/smooth): Draw with a confident
+    and persistent pace (enough to keep your brain from interfering and
+    attempting to course correct as you go). Again we [favor flow over
+    accuracy](https://drawabox.com/comic/1), so expect to make your lines less
+    accurate.
+
+    ![](../../draw-a-box-flow-smooth.jpg)
+
+* [Maintain a consistent
+    trayectory](https://drawabox.com/lesson/1/2/consistent): Split lines
+    into derivable strokes. Otherwise, you'll make mindless zigzags.
+
+    ![](../../draw-a-box-flow-derivable.jpg)
+
+## Drawing skills
+
+The course focuses on [these psychological skills and
+concepts](https://drawabox.com/lesson/0/3):
+
+* *Confidence*: The willingness to push forwards without hesitation once your
+    preparations are complete.
+* *Control*: The ability to decide ahead of time what kind of mark you wish to
+    puto down on the page, and to execute as intended.
+* *Patience*: The path is hard.
+* *Spatial Reasoning*: To be able to understand the things we draw as being
+    three dimensional forms that exist in and relate to one another within
+    the three dimensional world.
+* *Construction*: The ability to look at a complex object and break it down into
+    simple components that can be drawn individually and combined to reconstruct
+    our complex object on a page.
+* *Visual Communication*: The ability to take a concept, idea, or amount of
+    information, and to convey it clearly and directly to an audience using
+    visual means.
+
+# Drawabox course guidelines
 
 When doing the course exercises, try to:
 
@@ -49,31 +123,11 @@ damage the tip and reduce the flow of ink.
 
 For the paper, use the regular printer one.
 
-## Drawing skills
-
-The course focuses on [these psychological skills and
-concepts](https://drawabox.com/lesson/0/3):
-
-* *Confidence*: The willingness to push forwards without hesitation once your
-    preparations are complete.
-* *Control*: The ability to decide ahead of time what kind of mark you wish to
-    puto down on the page, and to execute as intended.
-* *Patience*: The path is hard.
-* *Spatial Reasoning*: To be able to understand the things we draw as being
-    three dimensional forms that exist in and relate to one another within
-    the three dimensional world.
-* *Construction*: The ability to look at a complex object and break it down into
-    simple components that can be drawn individually and combined to reconstruct
-    our complex object on a page.
-* *Visual Communication*: The ability to take a concept, idea, or amount of
-    information, and to convey it clearly and directly to an audience using
-    visual means.
-
-Those are applied into [mechanical ](https://drawabox.com/lesson/1/1/mechanical)
-and [analytical ](https://drawabox.com/lesson/1/1/analytical) skills.
-
-
 # Links
 
 * [Drawabox](https://drawabox.com)
 * [Ctrl+Paint](https://www.ctrlpaint.com/)
+
+## Dive deeper
+
+* [Pool of drawing exercises](exercise_pool.md)
