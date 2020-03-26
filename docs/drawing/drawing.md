@@ -61,7 +61,7 @@ communicate or convey something. Marks should:
     a line between two points, do it with a single continuous stroke even if you
     miss the end.
 
-    ![](../../draw-a-box-flow-continuous.jpg)
+    ![](../../images/draw-a-box-flow-continuous.jpg)
 
 * [Flow smoothly](https://drawabox.com/lesson/1/2/smooth): Draw with a confident
     and persistent pace (enough to keep your brain from interfering and
@@ -69,13 +69,13 @@ communicate or convey something. Marks should:
     accuracy](https://drawabox.com/comic/1), so expect to make your lines less
     accurate.
 
-    ![](../../draw-a-box-flow-smooth.jpg)
+    ![](../../images/draw-a-box-flow-smooth.jpg)
 
 * [Maintain a consistent
     trayectory](https://drawabox.com/lesson/1/2/consistent): Split lines
     into derivable strokes. Otherwise, you'll make mindless zigzags.
 
-    ![](../../draw-a-box-flow-derivable.jpg)
+    ![](../../images/draw-a-box-flow-derivable.jpg)
 
 ## Drawing skills
 

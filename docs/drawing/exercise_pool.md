@@ -13,8 +13,8 @@ exercises.
     a line with a ruler and repeat the stroke freehand eight times. Also try
     some arcing lines, and even some waves. Make sure you fray only at the end.
 
-    ![](../../draw-a-box-flow-fry-at-the-end.jpg)
+    ![](../../images/draw-a-box-flow-fry-at-the-end.jpg)
 
     Example:
 
-    ![](../../draw-a-box-flow-superimposed-lines.jpg)
+    ![](../../images/draw-a-box-flow-superimposed-lines.jpg)
