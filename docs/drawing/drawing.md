@@ -97,6 +97,36 @@ concepts](https://drawabox.com/lesson/0/3):
     information, and to convey it clearly and directly to an audience using
     visual means.
 
+## [Ghosting](https://drawabox.com/lesson/1/ghostedlines)
+
+Ghosting lines is a technique to break the mark making process into a series of
+steps that allows us to draw with confidence while also improving the accuracy
+of our results. It also forces us to think and consider our intentions before
+*each and every mark* we put down.
+
+* [*Planning*](https://drawabox.com/lesson/1/9/planning): Lay out the terms of
+    the line you want to draw, paint a dot for the start and another for the
+    end.
+
+    ![](../../images/draw-a-box-flow-ghosting-planning.jpg)
+
+* [*Rotating the page*](https://drawabox.com/lesson/1/9/rotating): Find the most
+    comfortable angle of approach for the line you've planned. Usually it's
+    roughly a 45 degree angle fom left to right (if you're right handed).
+
+    ![](../../images/draw-a-box-flow-ghosting-rotate.jpg)
+
+* [*Ghosting*](https://drawabox.com/lesson/1/9/ghosting): Go through the motion
+    of drawing your line, over and over, in one direction, without actually
+    touching the page, so as to build muscle memory.
+
+    ![](../../images/draw-a-box-flow-ghosting-ghosting.jpg)
+
+* [*Execution*](https://drawabox.com/lesson/1/9/execution): Once you feel
+    comfortable with the motion, without missing a beat or breaking the rhythm
+    of repetition, lower your pen to the page and go through the motion *one* more
+    time.
+
 # Drawabox course guidelines
 
 When doing the course exercises, try to:
