@@ -46,6 +46,11 @@ exercises.
     4 points, join them, then fill in the two diagonals, and then make a cross
     through the center of the X.
 
+    Special things to avoid:
+
+    * [Wobbly lines](https://drawabox.com/lesson/1/9/wobbling)
+    * [Arcing lines](https://drawabox.com/lesson/1/9/arc)
+
     Example:
 
     ![](../../images/draw-a-box-flow-ghosting-planes.jpg)
