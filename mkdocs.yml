@@ -60,6 +60,7 @@ nav:
         - IAM: 'devops/aws/iam/iam.md'
         - IAM Commands: 'devops/aws/iam/iam_commands.md'
         - IAM Debugging: 'devops/aws/iam/iam_debug.md'
+      - S3: 'devops/aws/s3.md'
     - API Management:
       - API Management: 'devops/api_management.md'
       - Kong: 'devops/kong/kong.md'
