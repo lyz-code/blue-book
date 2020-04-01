@@ -9,11 +9,15 @@ blackbox probing of endpoints over HTTP, HTTPS, DNS, TCP and ICMP.
 
 It can be used to test:
 
-* Website accessibility.
-* Website loading time.
+* [Website accessibility](#availability-alerts). Both for availability and
+      security purposes.
+* [Website loading time](#performance-alerts).
 * DNS response times to diagnose network latency issues.
-* SSL certificates expiration.
-* ICMP requests to gather network health information.
+* [SSL certificates expiration](#ssl-certificate-alerts).
+* [ICMP requests to gather network health information](#blackbox-probe-slow-ping).
+* [Security protections](#security-alerts) such as if and endpoint stops being
+    protected by VPN, WAF or SSL client certificate.
+* [Unauthorized read or write S3 buckets](#unauthorized-read-of-s3-buckets).
 
 When running, the Blackbox exporter is going to expose a HTTP endpoint that can
 be used in order to monitor targets over the network. By default, the Blackbox
@@ -129,8 +133,17 @@ helmfile apply
 # Blackbox exporter probes
 
 Modules define how blackbox exporter is going to query the endpoint, therefore
-you need to create one for each request type under the `config.modules` section
+one needs to be created for each request type under the `config.modules` section
 of the chart.
+
+The modules are then used in the `targets` section for the desired endpoints.
+
+```yaml
+  targets:
+   - name: lyz-code.github.io/blue-book
+     url: https://lyz-code.github.io/blue-book
+     module: https_2xx
+```
 
 ## HTTP endpoint working correctly
 
@@ -145,7 +158,7 @@ http_2xx:
     preferred_ip_protocol: "ip4"
 ```
 
-## HTTPS endpoint
+## HTTPS endpoint working correctly
 
 ```yaml
 https_2xx:
@@ -203,7 +216,7 @@ https_client_api:
       - '.*ERROR route not.*'
 ```
 
-## HTTP endpoint not working as expected
+## HTTP endpoint returning an error
 
 ```yaml
 http_4xx:
@@ -214,6 +227,85 @@ http_4xx:
     valid_status_codes: [404, 403]
     valid_http_versions: ["HTTP/1.1", "HTTP/2"]
     no_follow_redirects: false
+```
+
+## HTTPS endpoint through an HTTP proxy
+
+```yaml
+https_external_2xx:
+  prober: http
+  timeout: 5s
+  http:
+    method: GET
+    fail_if_ssl: false
+    fail_if_not_ssl: true
+    valid_http_versions: ["HTTP/1.0", "HTTP/1.1", "HTTP/2"]
+    valid_status_codes: [200]
+    no_follow_redirects: false
+    proxy_url: "http://{{ proxy_url }}:{{ proxy_port }}"
+    preferred_ip_protocol: "ip4"
+```
+
+## HTTPS endpoint with basic auth
+
+```yaml
+https_basic_auth_2xx:
+    prober: http
+    timeout: 5s
+    http:
+        method: GET
+        fail_if_ssl: false
+        fail_if_not_ssl: true
+        valid_http_versions:
+        - HTTP/1.1
+        - HTTP/2
+        valid_status_codes:
+        - 200
+        no_follow_redirects: false
+        preferred_ip_protocol: ip4
+        basic_auth:
+          username: {{ username }}
+          password: {{ password }}
+```
+
+## HTTPs endpoint with API key
+
+```yaml
+https_api_2xx:
+    prober: http
+    timeout: 5s
+    http:
+        method: GET
+        fail_if_ssl: false
+        fail_if_not_ssl: true
+        valid_http_versions:
+        - HTTP/1.1
+        - HTTP/2
+        valid_status_codes:
+        - 200
+        no_follow_redirects: false
+        preferred_ip_protocol: ip4
+        headers:
+            apikey: {{ api_key }}
+```
+
+## HTTPS Put file
+
+Test if the probe can upload a file.
+
+```yaml
+    https_put_file_2xx:
+      prober: http
+      timeout: 5s
+      http:
+        method: PUT
+        body: hi
+        fail_if_ssl: false
+        fail_if_not_ssl: true
+        valid_http_versions: ["HTTP/1.1", "HTTP/2"]
+        valid_status_codes: [200]
+        no_follow_redirects: false
+        preferred_ip_protocol: "ip4"
 ```
 
 ## Check open port
@@ -251,7 +343,13 @@ rules](alertmanager.md#alert-rules). Most have been tweaked from the [Awesome
 prometheus alert rules](https://awesome-prometheus-alerts.grep.to/rules)
 collection.
 
-## Blackbox probe failed
+To make security tests
+
+## Availability alerts
+
+The most basic probes, test if the service is up and returning.
+
+### Blackbox probe failed
 
 Blackbox probe failed.
 
@@ -268,24 +366,14 @@ Blackbox probe failed.
       prometheus: "{{ prometheus_url }}/graph?g0.expr=probe_success+%3D%3D+0&g0.tab=1"
 ```
 
-## Blackbox slow probe
-
-Blackbox probe took more than 1s to complete.
+If you use the [security alerts](#security-alerts), use the following `expr:`
+instead
 
 ```yaml
-  - alert: BlackboxSlowProbe
-    expr: avg_over_time(probe_duration_seconds[1m]) > 1
-    for: 5m
-    labels:
-      severity: warning
-    annotations:
-      summary: "Blackbox slow probe (target {{ $labels.target }})"
-      description: "Blackbox probe took more than 1s to complete\n  VALUE = {{ $value }}"
-      grafana: "{{ grafana_url }}&var-targets={{ $labels.target }}"
-      prometheus: "{{ prometheus_url }}/graph?g0.expr=avg_over_time%28probe_duration_seconds%5B1m%5D%29+%3E+1&g0.tab=1"
+    expr: probe_success{target!~".*-fail-.*$"} == 0
 ```
 
-## Blackbox probe HTTP failure
+### Blackbox probe HTTP failure
 
 HTTP status code is not 200-399.
 
@@ -302,58 +390,33 @@ HTTP status code is not 200-399.
       prometheus: "{{ prometheus_url }}/graph?g0.expr=probe_ssl_earliest_cert_expiry+-+time%28%29+%3C+86400+%2A+30&g0.tab=1"
 ```
 
-## Blackbox SSL certificate will expire soon
+## Performance alerts
 
-SSL certificate expires in 30 days.
+### Blackbox slow probe
+
+Blackbox probe took more than 1s to complete.
 
 ```yaml
-  - alert: BlackboxSslCertificateWillExpireSoon
-    expr: probe_ssl_earliest_cert_expiry - time() < 86400 * 30
+  - alert: BlackboxSlowProbe
+    expr: avg_over_time(probe_duration_seconds[1m]) > 1
     for: 5m
     labels:
       severity: warning
     annotations:
-      summary: "Blackbox SSL certificate will expire soon (instance {{ $labels.target }})"
-      description: "SSL certificate expires in 30 days\n  VALUE = {{ $value }}"
+      summary: "Blackbox slow probe (target {{ $labels.target }})"
+      description: "Blackbox probe took more than 1s to complete\n  VALUE = {{ $value }}"
       grafana: "{{ grafana_url }}&var-targets={{ $labels.target }}"
-      prometheus: "{{ prometheus_url }}/graph?g0.expr=probe_ssl_earliest_cert_expiry+-+time%28%29+%3C+86400+%2A+30&g0.tab=1"
+      prometheus: "{{ prometheus_url }}/graph?g0.expr=avg_over_time%28probe_duration_seconds%5B1m%5D%29+%3E+1&g0.tab=1"
 ```
 
-## Blackbox SSL certificate will expire soon
-
-SSL certificate expires in 3 days.
+If you use the [security alerts](#security-alerts), use the following `expr:`
+instead
 
 ```yaml
-  - alert: BlackboxSslCertificateWillExpireSoon
-    expr: probe_ssl_earliest_cert_expiry - time() < 86400 * 3
-    for: 5m
-    labels:
-      severity: error
-    annotations:
-      summary: "Blackbox SSL certificate will expire soon (instance {{ $labels.target }})"
-      description: "SSL certificate expires in 3 days\n  VALUE = {{ $value }}"
-      grafana: "{{ grafana_url }}&var-targets={{ $labels.target }}"
-      prometheus: "{{ prometheus_url }}/graph?g0.expr=probe_ssl_earliest_cert_expiry+-+time%28%29+%3C+86400+%2A+3&g0.tab=1"
+    expr: avg_over_time(probe_duration_seconds{,target!~".*-fail-.*"}[1m]) > 1
 ```
 
-## Blackbox SSL certificate expired
-
-SSL certificate has expired already.
-
-```yaml
-  - alert: BlackboxSslCertificateExpired
-    expr: probe_ssl_earliest_cert_expiry - time() <= 0
-    for: 5m
-    labels:
-      severity: error
-    annotations:
-      summary: "Blackbox SSL certificate expired (instance {{ $labels.target }})"
-      description: "SSL certificate has expired already\n  VALUE = {{ $value }}"
-      grafana: "{{ grafana_url }}&var-targets={{ $labels.target }}"
-      prometheus: "{{ prometheus_url }}/graph?g0.expr=probe_ssl_earliest_cert_expiry+-+time%28%29+%3C%3D+0&g0.tab=1"
-```
-
-## Blackbox probe slow HTTP
+### Blackbox probe slow HTTP
 
 HTTP request took more than 1s.
 
@@ -370,7 +433,14 @@ HTTP request took more than 1s.
       prometheus: "{{ prometheus_url }}/graph?g0.expr=avg_over_time%28probe_http_duration_seconds%5B1m%5D%29+%3E+1&g0.tab=1"
 ```
 
-## Blackbox probe slow ping
+If you use the [security alerts](#security-alerts), use the following `expr:`
+instead
+
+```yaml
+    expr: avg_over_time(probe_http_duration_seconds{,target!~".*-fail-.*"}[1m]) > 1
+```
+
+### Blackbox probe slow ping
 
 Blackbox ping took more than 1s.
 
@@ -385,6 +455,188 @@ Blackbox ping took more than 1s.
       description: "Blackbox ping took more than 1s\n  VALUE = {{ $value }}"
       grafana: "{{ grafana_url }}&var-targets={{ $labels.target }}"
       prometheus: "{{ prometheus_url }}/graph?g0.expr=avg_over_time%28probe_icmp_duration_seconds%5B1m%5D%29+%3E+1&g0.tab=1"
+```
+
+## SSL certificate alerts
+
+### Blackbox SSL certificate will expire in a month
+
+SSL certificate expires in 30 days.
+
+```yaml
+  - alert: BlackboxSslCertificateWillExpireSoon
+    expr: probe_ssl_earliest_cert_expiry - time() < 86400 * 30
+    for: 5m
+    labels:
+      severity: warning
+    annotations:
+      summary: "Blackbox SSL certificate will expire soon (instance {{ $labels.target }})"
+      description: "SSL certificate expires in 30 days\n  VALUE = {{ $value }}"
+      grafana: "{{ grafana_url }}&var-targets={{ $labels.target }}"
+      prometheus: "{{ prometheus_url }}/graph?g0.expr=probe_ssl_earliest_cert_expiry+-+time%28%29+%3C+86400+%2A+30&g0.tab=1"
+```
+
+### Blackbox SSL certificate will expire in a few days
+
+SSL certificate expires in 3 days.
+
+```yaml
+  - alert: BlackboxSslCertificateWillExpireSoon
+    expr: probe_ssl_earliest_cert_expiry - time() < 86400 * 3
+    for: 5m
+    labels:
+      severity: error
+    annotations:
+      summary: "Blackbox SSL certificate will expire soon (instance {{ $labels.target }})"
+      description: "SSL certificate expires in 3 days\n  VALUE = {{ $value }}"
+      grafana: "{{ grafana_url }}&var-targets={{ $labels.target }}"
+      prometheus: "{{ prometheus_url }}/graph?g0.expr=probe_ssl_earliest_cert_expiry+-+time%28%29+%3C+86400+%2A+3&g0.tab=1"
+```
+
+### Blackbox SSL certificate expired
+
+SSL certificate has expired already.
+
+```yaml
+  - alert: BlackboxSslCertificateExpired
+    expr: probe_ssl_earliest_cert_expiry - time() <= 0
+    for: 5m
+    labels:
+      severity: error
+    annotations:
+      summary: "Blackbox SSL certificate expired (instance {{ $labels.target }})"
+      description: "SSL certificate has expired already\n  VALUE = {{ $value }}"
+      grafana: "{{ grafana_url }}&var-targets={{ $labels.target }}"
+      prometheus: "{{ prometheus_url }}/graph?g0.expr=probe_ssl_earliest_cert_expiry+-+time%28%29+%3C%3D+0&g0.tab=1"
+```
+
+## Security alerts
+
+To define the security alerts, I've found easier to create a probe with the
+action I want to prevent and make sure that the probe fails.
+
+This probes contain the `-fail-` key in the target name, followed by the test
+it's performing. This convention allows the concatenation of tests. For example,
+when testing if and endpoint is accessible without basic auth and without vpn
+we'd use:
+
+```yaml
+- name: protected.endpoint.org-fail-without-ssl-and-without-credentials
+  url: protected.endpoint.org
+  module: https_external_2xx
+```
+
+### Test endpoints protected with network policies
+
+Assuming that the blackbox exporter is in the internal network and that there is
+an http proxy on the external network we want to test. Create a working probe
+with the `https_external_2xx` module containing the `-fail-without-vpn` key in
+the target name.
+
+```yaml
+  - alert: BlackboxVPNProtectionRemoved
+    expr: probe_success{target=~".*-fail-.*without-vpn.*"} == 1
+    for: 5m
+    labels:
+      severity: error
+    annotations:
+      summary: "VPN protection was removed from (instance {{ $labels.target }})"
+      description: "Successful probe to the endpoint from outside the internal network"
+      grafana: "{{ grafana_url }}&var-targets={{ $labels.target }}"
+      prometheus: "{{ prometheus_url }}/graph?g0.expr=probe_ssl_earliest_cert_expiry+-+time%28%29+%3C%3D+0&g0.tab=1"
+```
+
+### Test endpoints protected with SSL client certificate
+
+Create a working probe with a module without the SSL client certificate
+configured, such as `https_2xx` and set the `-fail-without-ssl` key in
+the target name.
+
+```yaml
+  - alert: BlackboxClientSSLProtectionRemoved
+    expr: probe_success{target=~".*-fail-.*without-ssl.*"} == 1
+    for: 5m
+    labels:
+      severity: error
+    annotations:
+      summary: "SSL client certificate protection was removed from (instance {{ $labels.target }})"
+      description: "Successful probe to the endpoint without SSL certificate"
+      grafana: "{{ grafana_url }}&var-targets={{ $labels.target }}"
+      prometheus: "{{ prometheus_url }}/graph?g0.expr=probe_ssl_earliest_cert_expiry+-+time%28%29+%3C%3D+0&g0.tab=1"
+```
+
+### Test endpoints protected with credentials.
+
+Create a working probe with a module without the basic auth credentials
+configured, such as `https_2xx` and set the `-fail-without-credentials` key in
+the target name.
+
+```yaml
+  - alert: BlackboxCredentialsProtectionRemoved
+    expr: probe_success{target=~".*-fail-.*without-credentials.*"} == 1
+    for: 5m
+    labels:
+      severity: error
+    annotations:
+      summary: "Credentials protection was removed from (instance {{ $labels.target }})"
+      description: "Successful probe to the endpoint without credentials"
+      grafana: "{{ grafana_url }}&var-targets={{ $labels.target }}"
+      prometheus: "{{ prometheus_url }}/graph?g0.expr=probe_ssl_earliest_cert_expiry+-+time%28%29+%3C%3D+0&g0.tab=1"
+```
+
+### Test endpoints protected with WAF.
+
+Create a working probe with a module bypassing the WAF, for example directly
+attacking the service and set the `-fail-without-waf` key in the target name.
+
+```yaml
+  - alert: BlackboxWAFProtectionRemoved
+    expr: probe_success{target=~".*-fail-.*without-waf.*"} == 1
+    for: 5m
+    labels:
+      severity: error
+    annotations:
+      summary: "WAF protection was removed from (instance {{ $labels.target }})"
+      description: "Successful probe to the haproxy endpoint from the internal network (bypassed the WAF)"
+      grafana: "{{ grafana_url }}&var-targets={{ $labels.target }}"
+      prometheus: "{{ prometheus_url }}/graph?g0.expr=probe_ssl_earliest_cert_expiry+-+time%28%29+%3C%3D+0&g0.tab=1"
+```
+
+### Unauthorized read of S3 buckets
+
+Create a working probe to an existent private object in an [S3](s3.md) bucket
+and set the `-fail-read-object` key in the target name.
+
+```yaml
+  - alert: BlackboxS3BucketWrongReadPermissions
+    expr: probe_success{target=~".*-fail-.*read-object.*"} == 1
+    for: 5m
+    labels:
+      severity: error
+    annotations:
+      summary: "Wrong read permissions on S3 bucket (instance {{ $labels.target }})"
+      description: "Successful read of a private object with an unauthenticated user"
+      grafana: "{{ grafana_url }}&var-targets={{ $labels.target }}"
+      prometheus: "{{ prometheus_url }}/graph?g0.expr=probe_ssl_earliest_cert_expiry+-+time%28%29+%3C%3D+0&g0.tab=1"
+```
+
+### Unauthorized write of S3 buckets
+
+Create a working probe using the `https_put_file_2xx` module to try to create
+a file in an [S3](s3.md) bucket and set the `-fail-write-object` key in the
+target name.
+
+```yaml
+  - alert: BlackboxS3BucketWrongWritePermissions
+    expr: probe_success{target=~".*-fail-.*write-object.*"} == 1
+    for: 5m
+    labels:
+      severity: error
+    annotations:
+      summary: "Wrong write permissions on S3 bucket (instance {{ $labels.target }})"
+      description: "Successful write of a private object with an unauthenticated user"
+      grafana: "{{ grafana_url }}&var-targets={{ $labels.target }}"
+      prometheus: "{{ prometheus_url }}/graph?g0.expr=probe_ssl_earliest_cert_expiry+-+time%28%29+%3C%3D+0&g0.tab=1"
 ```
 
 # Monitoring external access to internal services
