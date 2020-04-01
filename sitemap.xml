@@ -172,6 +172,22 @@
      <lastmod>2020-04-01</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
+     <loc>https://lyz-code.github.io/blue-book/linux/luks/luks/</loc>
+     <lastmod>2020-04-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/linux/rm/</loc>
+     <lastmod>2020-04-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/linux/zip/</loc>
+     <lastmod>2020-04-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/linux/google_chrome/</loc>
+     <lastmod>2020-04-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
      <loc>https://lyz-code.github.io/blue-book/devops/aws/aws/</loc>
      <lastmod>2020-04-01</lastmod>
      <changefreq>daily</changefreq>
@@ -200,19 +216,7 @@
      <lastmod>2020-04-01</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://lyz-code.github.io/blue-book/linux/luks/luks/</loc>
-     <lastmod>2020-04-01</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://lyz-code.github.io/blue-book/linux/rm/</loc>
-     <lastmod>2020-04-01</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://lyz-code.github.io/blue-book/linux/zip/</loc>
-     <lastmod>2020-04-01</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://lyz-code.github.io/blue-book/linux/google_chrome/</loc>
+     <loc>https://lyz-code.github.io/blue-book/coding/python/feedparser/</loc>
      <lastmod>2020-04-01</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
@@ -224,15 +228,11 @@
      <lastmod>2020-04-01</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://lyz-code.github.io/blue-book/contact/</loc>
-     <lastmod>2020-04-01</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
      <loc>https://lyz-code.github.io/blue-book/emojis/</loc>
      <lastmod>2020-04-01</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://lyz-code.github.io/blue-book/tags.html</loc>
+     <loc>https://lyz-code.github.io/blue-book/contact/</loc>
      <lastmod>2020-04-01</lastmod>
      <changefreq>daily</changefreq>
     </url>
