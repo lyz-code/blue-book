@@ -58,7 +58,8 @@ A possible architecture could be:
 It must be open sourced and Linux compatible. And it would be awesome if
 I didn't have to learn how to use another editor.
 
-Maybe [searx](https://github.com/asciimoo/searx) can be a solution.
+Maybe [meilisearch](https://github.com/meilisearch/meilisearch) or
+[searx](https://github.com/asciimoo/searx) could be a solution.
 
 # Decentralized encrypted end to end VOIP and video software
 

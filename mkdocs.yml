@@ -4,9 +4,10 @@ site_author: Lyz
 site_url: https://lyz-code.github.io/blue-book
 nav:
   - Introduction: 'index.md'
-  - Meta: 'meta/meta.md'
-  - Projects: 'projects/projects.md'
-  - Wish list: 'wish_list.md'
+  - Meta:
+    - Meta: 'meta/meta.md'
+    - Projects: 'projects/projects.md'
+    - Wish list: 'wish_list.md'
   - Life Automation:
     - Life Automation: 'life_automation/life_automation.md'
     - Week Automation: 'life_automation/week_automation.md'
@@ -54,6 +55,11 @@ nav:
       - AlertManager: 'devops/prometheus/alertmanager.md'
       - Blackbox Exporter: 'devops/prometheus/blackbox_exporter.md'
       - Prometheus Troubleshooting: 'devops/prometheus/prometheus_troubleshooting.md'
+    - Linux:
+      - LUKS: 'linux/luks/luks.md'
+      - rm: 'linux/rm.md'
+      - zip: 'linux/zip.md'
+      - Google Chrome: 'linux/google_chrome.md'
     - AWS:
       - AWS: 'devops/aws/aws.md'
       - IAM:
@@ -64,17 +70,14 @@ nav:
     - API Management:
       - API Management: 'devops/api_management.md'
       - Kong: 'devops/kong/kong.md'
-  - Linux:
-    - LUKS: 'linux/luks/luks.md'
-    - rm: 'linux/rm.md'
-    - zip: 'linux/zip.md'
-    - Google Chrome: 'linux/google_chrome.md'
+  - Coding:
+    - Python:
+      - Feedparser: 'coding/python/feedparser.md'
   - Drawing:
     - Drawing: 'drawing/drawing.md'
     - Exercise Pool: 'drawing/exercise_pool.md'
-  - Contact: 'contact.md'
   - Emojis: 'emojis.md'
-  - Tags: 'tags.md'
+  - Contact: 'contact.md'
 
 plugins:
   - search
