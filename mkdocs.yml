@@ -76,6 +76,8 @@ nav:
       - Feedparser: 'coding/python/feedparser.md'
     - Javascript:
       - Javascript: 'coding/javascript/javascript.md'
+    - React:
+      - React: 'coding/react/react.md'
   - Drawing:
     - Drawing: 'drawing/drawing.md'
     - Exercise Pool: 'drawing/exercise_pool.md'

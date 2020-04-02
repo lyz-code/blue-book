@@ -313,8 +313,18 @@ for (var i = 0; i < a.length; i++) {
 
 ### Append an item to an array
 
+Although `push()` could be used, is better to use `concat()` as it doesn't
+mutate the original array.
+
 ```js
-a.push(item);
+a.concat(item);
+```
+
+### Apply a function to the elements of an array
+
+```js
+const numbers = [1, 2, 3];
+const doubled = numbers.map(x => x * 2); // [2, 4, 6]
 ```
 
 ## Functions
@@ -328,6 +338,26 @@ function add(x, y) {
 
 Functions have an `arguments` array holding all of the values passed to the
 function.
+
+To save typing and avoid [the confusing behavior of
+this](https://yehudakatz.com/2011/08/11/understanding-javascript-function-invocation-and-this/),it
+is recommended to use the [arrow
+function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
+syntax for event handlers.
+
+So instead of
+
+```js
+<button className="square" onClick={function() { alert('click'); }}>
+```
+
+It's better to use
+
+```js
+<button className="square" onClick={() => alert('click')}>
+```
+Notice how with `onClick={() => alert('click')}`, the function is passed as the
+`onClick` prop.
 
 ### Define variable number of arguments
 
@@ -439,6 +469,24 @@ Person.prototype.firstNameCaps = function() {
 };
 s.firstNameCaps(); // "SIMON"
 ```
+
+## Split code for readability
+
+To split a line into several, parentheses may be used to avoid the insertion of
+semicolons.
+
+```js
+  renderSquare(i) {
+    return (
+      <Square
+        value={this.state.squares[i]}
+        onClick={() => this.handleClick(i)}
+      />
+    );
+  }
+```
+
+
 
 # Links
 
