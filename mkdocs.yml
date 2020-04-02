@@ -56,10 +56,11 @@ nav:
       - Blackbox Exporter: 'devops/prometheus/blackbox_exporter.md'
       - Prometheus Troubleshooting: 'devops/prometheus/prometheus_troubleshooting.md'
     - Linux:
+      - google chrome: 'linux/google_chrome.md'
       - LUKS: 'linux/luks/luks.md'
+      - nodejs: 'linux/nodejs.md'
       - rm: 'linux/rm.md'
       - zip: 'linux/zip.md'
-      - Google Chrome: 'linux/google_chrome.md'
     - AWS:
       - AWS: 'devops/aws/aws.md'
       - IAM:
