@@ -34,6 +34,45 @@ of code called “components”.
 * Create the basic files `index.css`, `index.js` in the `src` directory.
 * Run the server: `npm start`.
 
+## [Start a React + Flask project](https://blog.miguelgrinberg.com/post/how-to-create-a-react--flask-project)
+
+* Create the api directory.
+    ```bash
+    mkdir api
+    ```
+* Make the virtualenv.
+    ```bash
+    mkvirtualenv \
+        --python=python3 \
+        -a ~/projects/my-app \
+        my-app
+    ```
+* Install flask.
+    ```bash
+    pip install flask python-dotenv
+    ```
+* Add a basic file to `api/api.py`.
+    ```python
+    import time
+    from flask import Flask
+
+    app = Flask(__name__)
+
+    @app.route('/api/time')
+    def get_current_time():
+        return {'time': time.time()}
+    ```
+
+* Create the `.flaskenv` file.
+    ```ini
+    FLASK_APP=api/api.py
+    FLASK_ENV=development
+    ```
+* Make sure everything is alright.
+    ```bash
+    flask run
+    ```
+
 # The basics
 
 Components tell React what to show on the screen. When the data changes, React
@@ -338,3 +377,16 @@ which components to update. A component cannot inquire about its `key`.
 # Links
 
 * [React tutorial](https://reactjs.org/tutorial/tutorial.html)
+* [Awesome React](https://github.com/enaqx/awesome-react)
+* [Awesome React components](https://github.com/brillout/awesome-react-components)
+
+## Responsive React
+
+* [Responsive react](https://medium.com/@mustwin/responsive-react-9b56d63c4edc)
+* [Responsive websites without css](https://alligator.io/react/responsive-websites-without-css/)
+* [react-responsive library](https://github.com/contra/react-responsive)
+
+## With Flask
+
+* [How to create a react + flask project](https://blog.miguelgrinberg.com/post/how-to-create-a-react--flask-project)
+* [How to deploy a react + flask project](https://blog.miguelgrinberg.com/post/how-to-deploy-a-react--flask-project)
