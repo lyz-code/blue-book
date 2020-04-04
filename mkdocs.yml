@@ -60,6 +60,7 @@ nav:
       - LUKS: 'linux/luks/luks.md'
       - nodejs: 'linux/nodejs.md'
       - rm: 'linux/rm.md'
+      - syncthing: 'linux/syncthing.md'
       - zip: 'linux/zip.md'
     - AWS:
       - AWS: 'devops/aws/aws.md'

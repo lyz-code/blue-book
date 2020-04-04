@@ -78,7 +78,7 @@ and in some versions of RSS, categories can be associated with a “domain”.
 ```python
 >>> d.feed.categories
 [(u'Syndic8', u'1024'),
-(u'dmoz', 'Top/Society/People/Personal_Homepages/P/')]<Paste>
+(u'dmoz', 'Top/Society/People/Personal_Homepages/P/')]
 ```
 
 As feeds in the real world may be missing some elements, you may want to [test
