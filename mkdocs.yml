@@ -60,7 +60,7 @@ nav:
       - LUKS: 'linux/luks/luks.md'
       - nodejs: 'linux/nodejs.md'
       - rm: 'linux/rm.md'
-      - syncthing: 'linux/syncthing.md'
+      - Syncthing: 'linux/syncthing.md'
       - zip: 'linux/zip.md'
     - AWS:
       - AWS: 'devops/aws/aws.md'
@@ -74,6 +74,7 @@ nav:
       - Kong: 'devops/kong/kong.md'
   - Coding:
     - Python:
+      - Alembic: 'coding/python/alembic.md'
       - Feedparser: 'coding/python/feedparser.md'
     - Javascript:
       - Javascript: 'coding/javascript/javascript.md'
