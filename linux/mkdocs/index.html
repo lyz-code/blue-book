@@ -64,7 +64,53 @@
 <span class=nt>repo_name</span><span class=p>:</span> <span class="p p-Indicator">{{</span> <span class=nv>repository_name</span> <span class="p p-Indicator">}}</span> <span class=c1># for example: &#39;lyz-code/pydo&#39;</span>
 <span class=nt>repo_url</span><span class=p>:</span> <span class="p p-Indicator">{{</span> <span class=nv>repository_url</span> <span class="p p-Indicator">}}</span> <span class=c1># for example: &#39;https://github.com/lyz-code/pydo&#39;</span>
 </code></pre></div> </li> <li> <p><a href=https://squidfunk.github.io/mkdocs-material/getting-started/#logo>Configure your logo</a> by saving it into <code>docs/images/logo.png</code>.</p> </li> <li> <p>I like to show a small image above each link so you know where is it pointing to. To do so add the content of <a href=https://github.com/lyz-code/pydo/tree/master/docs/theme>this directory</a> to <code>theme</code>. and <a href=https://github.com/lyz-code/pydo/tree/master/docs/docs/stylesheets>these</a> files under <code>docs/stylesheets</code>.</p> </li> <li>Initialize the git repository and create the first commit.</li> <li> <p>Start the server to see everything is alright.</p> <div class=highlight><pre><span></span><code>mkdocs serve
-</code></pre></div> </li> </ul> <h3 id=add-a-github-pages-hook>Add a github pages hook.<a class=headerlink href=#add-a-github-pages-hook title="Permanent link">&para;</a></h3> <h2 id=links>Links<a class=headerlink href=#links title="Permanent link">&para;</a></h2> <ul> <li><a href=https://www.mkdocs.org/ >Homepage</a>.</li> <li><a href=https://squidfunk.github.io/mkdocs-material/getting-started/ >Material theme configuration guide</a></li> </ul> <hr> <div class=md-source-date> <small> Last update: <span class=timeago datetime=1586436577000 locale=en></span> </small> </div> </article> </div> </div> </main> <footer class=md-footer> <div class=md-footer-nav> <nav class="md-footer-nav__inner md-grid"> <a href=../luks/luks/ title=LUKS class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel=prev> <div class="md-flex__cell md-flex__cell--shrink"> <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i> </div> <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"> <span class=md-flex__ellipsis> <span class=md-footer-nav__direction> Previous </span> LUKS </span> </div> </a> <a href=../nodejs/ title=nodejs class="md-flex md-footer-nav__link md-footer-nav__link--next" rel=next> <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"> <span class=md-flex__ellipsis> <span class=md-footer-nav__direction> Next </span> nodejs </span> </div> <div class="md-flex__cell md-flex__cell--shrink"> <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i> </div> </a> </nav> </div> <div class="md-footer-meta md-typeset"> <div class="md-footer-meta__inner md-grid"> <div class=md-footer-copyright> powered by <a href=https://www.mkdocs.org target=_blank rel=noopener>MkDocs</a> and <a href=https://squidfunk.github.io/mkdocs-material/ target=_blank rel=noopener> Material for MkDocs</a> </div> <div class=md-footer-social> <link rel=stylesheet href=../../assets/fonts/font-awesome.css> <a href=https://github.com/lyz-code target=_blank rel=noopener title=github class="md-footer-social__link fa fa-github"></a> </div> </div> </div> </footer> </div> <script src=../../assets/javascripts/application.c33a9706.js></script> <script>app.initialize({version:"1.1",url:{base:"../.."}})</script> <script src=https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.0-beta.2/timeago.min.js></script> <script src=https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.0-beta.2/timeago.locales.min.js></script> <script>
+</code></pre></div> </li> </ul> <h3 id=add-a-github-pages-hook>Add a github pages hook.<a class=headerlink href=#add-a-github-pages-hook title="Permanent link">&para;</a></h3> <ul> <li> <p>Save your <code>requirements.txt</code>. <div class=highlight><pre><span></span><code>pip freeze &gt; requirements.txt
+</code></pre></div></p> </li> <li> <p>Create the <code>.github/workflows/gh-pages.yml</code> file with the following contents. <div class=highlight><pre><span></span><code><span class=nt>name</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">Github pages</span>
+
+<span class=nt>on</span><span class=p>:</span>
+  <span class=nt>push</span><span class=p>:</span>
+    <span class=nt>branches</span><span class=p>:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">master</span>
+
+<span class=nt>jobs</span><span class=p>:</span>
+  <span class=nt>deploy</span><span class=p>:</span>
+    <span class=nt>runs-on</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">ubuntu-18.04</span>
+    <span class=nt>steps</span><span class=p>:</span>
+      <span class="p p-Indicator">-</span> <span class=nt>uses</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">actions/checkout@v2</span>
+        <span class=nt>with</span><span class=p>:</span>
+          <span class=c1># Number of commits to fetch. 0 indicates all history.</span>
+          <span class=c1># Default: 1</span>
+          <span class=nt>fetch-depth</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
+
+      <span class="p p-Indicator">-</span> <span class=nt>name</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">Setup Python</span>
+        <span class=nt>uses</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">actions/setup-python@v1</span>
+        <span class=nt>with</span><span class=p>:</span>
+          <span class=nt>python-version</span><span class=p>:</span> <span class=s>&#39;3.7&#39;</span>
+          <span class=nt>architecture</span><span class=p>:</span> <span class=s>&#39;x64&#39;</span>
+
+      <span class="p p-Indicator">-</span> <span class=nt>name</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">Cache dependencies</span>
+        <span class=nt>uses</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">actions/cache@v1</span>
+        <span class=nt>with</span><span class=p>:</span>
+          <span class=nt>path</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">~/.cache/pip</span>
+          <span class=nt>key</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">${{ runner.os }}-pip-${{ hashFiles(&#39;**/requirements.txt&#39;) }}</span>
+          <span class=nt>restore-keys</span><span class=p>:</span> <span class="p p-Indicator">|</span>
+            <span class=no>${{ runner.os }}-pip-</span>
+
+      <span class="p p-Indicator">-</span> <span class=nt>name</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">Install dependencies</span>
+        <span class=nt>run</span><span class=p>:</span> <span class="p p-Indicator">|</span>
+          <span class=no>python3 -m pip install --upgrade pip</span>
+          <span class=no>python3 -m pip install -r ./requirements.txt</span>
+
+      <span class="p p-Indicator">-</span> <span class=nt>run</span><span class=p>:</span> <span class="p p-Indicator">|</span>
+          <span class=no>cd docs</span>
+          <span class=no>mkdocs build</span>
+
+      <span class="p p-Indicator">-</span> <span class=nt>name</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">Deploy</span>
+        <span class=nt>uses</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">peaceiris/actions-gh-pages@v3</span>
+        <span class=nt>with</span><span class=p>:</span>
+          <span class=nt>deploy_key</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">${{ secrets.ACTIONS_DEPLOY_KEY }}</span>
+          <span class=nt>publish_dir</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">./docs/site</span>
+</code></pre></div></p> </li> <li>Create an <a href=https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-create-ssh-deploy-key>SSH deploy key</a></li> <li>Activate <code>GitHub Pages</code> repository configuration with <code>gh-pages branch</code>.</li> <li>Make a new commit and push to check it's working.</li> </ul> <h2 id=links>Links<a class=headerlink href=#links title="Permanent link">&para;</a></h2> <ul> <li><a href=https://www.mkdocs.org/ >Homepage</a>.</li> <li><a href=https://squidfunk.github.io/mkdocs-material/getting-started/ >Material theme configuration guide</a></li> </ul> <hr> <div class=md-source-date> <small> Last update: <span class=timeago datetime=1586445874000 locale=en></span> </small> </div> </article> </div> </div> </main> <footer class=md-footer> <div class=md-footer-nav> <nav class="md-footer-nav__inner md-grid"> <a href=../luks/luks/ title=LUKS class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel=prev> <div class="md-flex__cell md-flex__cell--shrink"> <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i> </div> <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"> <span class=md-flex__ellipsis> <span class=md-footer-nav__direction> Previous </span> LUKS </span> </div> </a> <a href=../nodejs/ title=nodejs class="md-flex md-footer-nav__link md-footer-nav__link--next" rel=next> <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"> <span class=md-flex__ellipsis> <span class=md-footer-nav__direction> Next </span> nodejs </span> </div> <div class="md-flex__cell md-flex__cell--shrink"> <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i> </div> </a> </nav> </div> <div class="md-footer-meta md-typeset"> <div class="md-footer-meta__inner md-grid"> <div class=md-footer-copyright> powered by <a href=https://www.mkdocs.org target=_blank rel=noopener>MkDocs</a> and <a href=https://squidfunk.github.io/mkdocs-material/ target=_blank rel=noopener> Material for MkDocs</a> </div> <div class=md-footer-social> <link rel=stylesheet href=../../assets/fonts/font-awesome.css> <a href=https://github.com/lyz-code target=_blank rel=noopener title=github class="md-footer-social__link fa fa-github"></a> </div> </div> </div> </footer> </div> <script src=../../assets/javascripts/application.c33a9706.js></script> <script>app.initialize({version:"1.1",url:{base:"../.."}})</script> <script src=https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.0-beta.2/timeago.min.js></script> <script src=https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.0-beta.2/timeago.locales.min.js></script> <script>
             const nodes = document.querySelectorAll('.timeago');
             const locale = nodes[0].getAttribute('locale');
             timeago.render(nodes, locale);
