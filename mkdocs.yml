@@ -58,6 +58,7 @@ nav:
     - Linux:
       - google chrome: 'linux/google_chrome.md'
       - LUKS: 'linux/luks/luks.md'
+      - mkdocs: 'linux/mkdocs.md'
       - nodejs: 'linux/nodejs.md'
       - rm: 'linux/rm.md'
       - Syncthing: 'linux/syncthing.md'
