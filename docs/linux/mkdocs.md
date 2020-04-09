@@ -113,6 +113,63 @@ YAML configuration file.
 
 ## Add a github pages hook.
 
+* Save your `requirements.txt`.
+    ```bash
+    pip freeze > requirements.txt
+    ```
+
+* Create the `.github/workflows/gh-pages.yml` file with the following contents.
+    ```yaml
+    name: Github pages
+
+    on:
+      push:
+        branches:
+          - master
+
+    jobs:
+      deploy:
+        runs-on: ubuntu-18.04
+        steps:
+          - uses: actions/checkout@v2
+            with:
+              # Number of commits to fetch. 0 indicates all history.
+              # Default: 1
+              fetch-depth: 0
+
+          - name: Setup Python
+            uses: actions/setup-python@v1
+            with:
+              python-version: '3.7'
+              architecture: 'x64'
+
+          - name: Cache dependencies
+            uses: actions/cache@v1
+            with:
+              path: ~/.cache/pip
+              key: ${{ runner.os }}-pip-${{ hashFiles('**/docs/requirements.txt') }}
+              restore-keys: |
+                ${{ runner.os }}-pip-
+
+          - name: Install dependencies
+            run: |
+              python3 -m pip install --upgrade pip
+              python3 -m pip install -r ./requirements.txt
+
+          - run: |
+              cd docs
+              mkdocs build
+
+          - name: Deploy
+            uses: peaceiris/actions-gh-pages@v3
+            with:
+              deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+              publish_dir: ./docs/site
+    ```
+* Create an [SSH deploy key](https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-create-ssh-deploy-key)
+* Activate `GitHub Pages` repository configuration with `master branch /docs
+    folder`.
+* Make a new commit and push to check it's working.
 
 # Links
 
