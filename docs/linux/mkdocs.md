@@ -147,7 +147,7 @@ YAML configuration file.
             uses: actions/cache@v1
             with:
               path: ~/.cache/pip
-              key: ${{ runner.os }}-pip-${{ hashFiles('**/docs/requirements.txt') }}
+              key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
               restore-keys: |
                 ${{ runner.os }}-pip-
 
@@ -167,8 +167,7 @@ YAML configuration file.
               publish_dir: ./docs/site
     ```
 * Create an [SSH deploy key](https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-create-ssh-deploy-key)
-* Activate `GitHub Pages` repository configuration with `master branch /docs
-    folder`.
+* Activate `GitHub Pages` repository configuration with `gh-pages branch`.
 * Make a new commit and push to check it's working.
 
 # Links
