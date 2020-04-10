@@ -75,6 +75,7 @@ nav:
       - Kong: 'devops/kong/kong.md'
   - Coding:
     - Python:
+      - Project Template: 'coding/python/python_project_template.md'
       - Alembic: 'coding/python/alembic.md'
       - Feedparser: 'coding/python/feedparser.md'
     - Javascript:
