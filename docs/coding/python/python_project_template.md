@@ -65,6 +65,13 @@ work as expected. Even more if testing, docs or databases are involved.
     Remember to fill up the `install_requirements` with the dependencies that
     need to be installed at installation time.
 
+* Create the `requirements.tx` file. It should contain the
+    `install_requirements` in addition to the testing requirements such as:
+    ```
+    pytest
+    pytest-cov
+    ```
+
 ## Set up the Continuous Integration
 
 To set up the Continuous Integration on a Github workflow create the
@@ -173,5 +180,11 @@ Follow the steps under [Installation](mkdocs.md#installation).
     article](alembic.md).
 * Create the first alembic revision.
     ```bash
-    alembic revision --autogenerate -m "Initial schema"
+    alembic \
+        -c {{ program_name }}/migrations/alembic.ini \
+        revision \
+        --autogenerate \
+        -m "Initial schema"
     ```
+
+* [Set up the testing environment for SQLAlchemy](sqlalchemy.md#testing-sqlalchemy-code)
