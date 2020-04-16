@@ -201,7 +201,26 @@ op.bulk_insert(accounts_table,
 )
 ```
 
-# Links
+# Database downgrade or rollback
+
+If you want to correct a migration first check the `history` to see where do you
+want to go (it accepts `--verbose` for more information):
+
+```bash
+alembic history
+```
+
+Then you can specify the id of the revision you want to downgrade to. To specify
+the last one, use `-1`.
+
+```bash
+alembic downgrade -1
+```
+
+After the downgrade is performed, if you want to remove the last revision, you'd
+need to manually remove the revision python file.
+
+# References
 
 * [Git](https://github.com/sqlalchemy/alembic)
 * [Docs](https://alembic.sqlalchemy.org/en/latest/)
