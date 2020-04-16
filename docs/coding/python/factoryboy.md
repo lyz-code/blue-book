@@ -23,7 +23,7 @@ Use the following code to generate a factory class for the `User`
 [SQLAlchemy](sqlalchemy.md) class.
 
 ```python
-from {{ program_name }}.models import User
+from {{ program_name }} import models
 
 import factory
 
@@ -38,7 +38,7 @@ class UserFactory(factory.alchemy.SQLAlchemyModelFactory):
     name = factory.Faker('name')
 
     class Meta:
-        model = User
+        model = models.User
         sqlalchemy_session_persistence = 'commit'
 ```
 
@@ -60,6 +60,17 @@ Ideal for IDs
 ```python
 id = factory.Sequence(lambda n: n)
 ```
+
+### Random number
+
+```python
+author_id = factory.Faker('random_number')
+```
+
+### Random float
+
+```python
+score = factory.Faker('pyfloat')
 
 ## Generate strings
 
@@ -87,6 +98,24 @@ description = factory.Faker('sentence')
 name = factory.Faker('name')
 ```
 
+### Urls
+
+```python
+url = factory.Faker('url')
+```
+
+### Files
+
+```python
+file_path = factory.Faker('file_path')
+```
+
+## Generate Datetime
+
+```python
+factory.Faker('date_time')
+```
+
 ## Generate your own attribute
 
 Use `lazy_attribute` decorator.
@@ -101,7 +130,67 @@ of the attribute.
             return factory.Faker('date_time').generate({})
 ```
 
+# Define relationships
+
+## Factory Inheritance
+
+```python
+class ContentFactory(factory.alchemy.SQLAlchemyModelFactory):
+    id = factory.Sequence(lambda n: n)
+    title = factory.Faker('sentence')
+
+    class Meta:
+        model = models.Content
+        sqlalchemy_session_persistence = 'commit'
+
+
+class ArticleFactory(ContentFactory):
+    body = factory.Faker('sentence')
+
+    class Meta:
+        model = models.Article
+        sqlalchemy_session_persistence = 'commit'
+```
+
+## [Dependent objects direct ForeignKey](https://stackoverflow.com/questions/50341071/simple-sqlalchemy-subfactory-example)
+
+When one attribute is actually a complex field (e.g a ForeignKey to another
+Model), use the SubFactory declaration. Assuming the following model definition:
+
+```python
+class Author(Base):
+    id = Column(String, primary_key=True)
+    contents = relationship('Content', back_populates='author')
+
+
+class Content(Base):
+    id = Column(Integer, primary_key=True, doc='Content ID')
+    author_id = Column(String, ForeignKey(Author.id))
+    author = relationship(Author, back_populates='contents')
+```
+
+The related factories would be:
+
+```python
+class AuthorFactory(factory.alchemy.SQLAlchemyModelFactory):
+    id = factory.Faker('word')
+
+    class Meta:
+        model = models.Author
+        sqlalchemy_session_persistence = 'commit'
+
+
+class ContentFactory(factory.alchemy.SQLAlchemyModelFactory):
+    id = factory.Sequence(lambda n: n)
+    author = factory.SubFactory(AuthorFactory)
+
+    class Meta:
+        model = models.Content
+        sqlalchemy_session_persistence = 'commit'
+```
+
 # References
 
 * [Docs](https://factoryboy.readthedocs.io/en/latest/)
 * [Git](https://github.com/FactoryBoy/factory_boy)
+* [Common recipes](https://factoryboy.readthedocs.io/en/latest/recipes.html#dependent-objects-foreignkey)
