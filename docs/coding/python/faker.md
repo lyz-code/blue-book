@@ -45,6 +45,7 @@ fake.date_time()
 
 # References
 
+* [Git](https://github.com/joke2k/faker)
 * [Docs](https://faker.readthedocs.io/en/master/)
 * [Faker python
    providers](https://faker.readthedocs.io/en/master/providers/faker.providers.python.html)
