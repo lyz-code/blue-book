@@ -80,7 +80,7 @@ To set up the Continuous Integration on a Github workflow create the
 ```yaml
 name: Python package
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
   build:
