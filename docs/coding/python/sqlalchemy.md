@@ -55,7 +55,8 @@ types](https://docs.sqlalchemy.org/en/13/core/type_basics.html) of fields to add
 
 
 To make sure that a field can't contain `nulls` set the `nullable=False`
-attribute in the definition of the `Column`.
+attribute in the definition of the `Column`. If you want the contents to be
+unique use `unique=True`.
 
 It's important to add the different parameters as attributes if you want to
 access them later.
@@ -351,6 +352,21 @@ class TestUser(BaseModelTest):
 * Then [create the `models` table](#creating-tables).
 * [Create an alembic revision](alembic.md#database-migration)
 * Run `pytest`: `python -m pytest`.
+
+# [Exporting database to json](https://stackoverflow.com/questions/47307873/read-entire-database-with-sqlalchemy-and-dump-as-json)
+```python
+import json
+
+def dump_sqlalchemy(output_connection_string,output_schema):
+    """ Returns the entire content of a database as lists of dicts"""
+    engine = create_engine(f'{output_connection_string}{output_schema}')
+    meta = MetaData()
+    meta.reflect(bind=engine)  # http://docs.sqlalchemy.org/en/rel_0_9/core/reflection.html
+    result = {}
+    for table in meta.sorted_tables:
+        result[table.name] = [dict(row) for row in engine.execute(table.select())]
+    return json.dumps(result)
+```
 
 # References
 
