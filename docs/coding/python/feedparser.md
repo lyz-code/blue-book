@@ -41,7 +41,18 @@ u'For documentation <em>only</em>'
 u'Sat, 07 Sep 2002 00:00:01 GMT'
 >>> d.feed.published_parsed
 (2002, 9, 7, 0, 0, 1, 5, 250, 0)
+
 ```
+All parsed dates can [be converted to
+datetime](https://snipplr.com/view/56927/convert-the-timestructtime-object-into-a-datetimedatetime-object)
+with the following snippet:
+
+```python
+from time import mktime
+from datetime import datetime
+dt = datetime.fromtimestamp(mktime(item['updated_parsed']))
+```
+
 ### [Item elements](https://pythonhosted.org/feedparser/common-rss-elements.html#accessing-common-item-elements)
 
 ```python
