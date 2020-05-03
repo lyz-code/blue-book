@@ -31,7 +31,7 @@ Some sources I'd like to query:
 * [Wikipedia](https://wikipedia.com)
 * [Reddit](https://reddit.com).
 * [Stackoverflow](https://stackoverflow.com).
-* [Startpage](https://startpage)
+* [Startpage](https://startpage.com).
 
 Each source should be added as a plugin to let people develop their own.
 
