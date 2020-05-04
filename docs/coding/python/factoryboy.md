@@ -61,7 +61,7 @@ Ideal for IDs
 id = factory.Sequence(lambda n: n)
 ```
 
-### Random number
+### Random number or integer
 
 ```python
 author_id = factory.Faker('random_number')
@@ -114,6 +114,12 @@ file_path = factory.Faker('file_path')
 
 ```python
 factory.Faker('date_time')
+```
+
+## Generate bool
+
+```python
+factory.Faker('pybool')
 ```
 
 ## Generate your own attribute

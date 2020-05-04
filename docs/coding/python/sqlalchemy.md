@@ -88,8 +88,8 @@ class Employee(Base):
     type = Column(String(50))
 
     __mapper_args__ = {
-        'polymorphic_identity':'employee',
-        'polymorphic_on':type
+        'polymorphic_identity': 'employee',
+        'polymorphic_on': type
     }
 
 
@@ -99,7 +99,7 @@ class Engineer(Employee):
     engineer_name = Column(String(30))
 
     __mapper_args__ = {
-        'polymorphic_identity':'engineer',
+        'polymorphic_identity': 'engineer',
     }
 
 
@@ -109,7 +109,7 @@ class Manager(Employee):
     manager_name = Column(String(30))
 
     __mapper_args__ = {
-        'polymorphic_identity':'manager',
+        'polymorphic_identity': 'manager',
     }
 ```
 
@@ -122,7 +122,7 @@ from sqlalchemy.orm import relationship
 class User(db.Model):
     __tablename__ = 'user'
     id = Column(Integer, primary_key=True)
-    posts = relationship('Post', back_populates='author')
+    posts = relationship('Post', back_populates='user')
 
 
 class Post(db.Model):
@@ -137,6 +137,17 @@ present.
 
 [Factoryboy](factoryboy.md) supports the creation of [Dependent objects direct
 ForeignKey](factoryboy.md#dependent_objects_direct foreignKey).
+
+#### Self referenced one to many
+
+```python
+class Task(Base):
+    __tablename__ = 'task'
+    id = Column(String, primary_key=True, doc='fulid of creation')
+
+    parent_id = Column(String, ForeignKey('task.id'))
+    parent = relationship('Task', remote_side=[id], backref='children')
+```
 
 ### [Many to many](https://docs.sqlalchemy.org/en/13/orm/basic_relationships.html#many-to-many)
 
@@ -366,6 +377,32 @@ def dump_sqlalchemy(output_connection_string,output_schema):
     for table in meta.sorted_tables:
         result[table.name] = [dict(row) for row in engine.execute(table.select())]
     return json.dumps(result)
+```
+
+# [Cloning an SQLAlchemy object](https://stackoverflow.com/questions/28871406/how-to-clone-a-sqlalchemy-db-object-with-new-primary-key)
+The following function:
+
+* Copies all the non-primary-key columns from the input model to a new model instance.
+* Allows definition of specific arguments.
+* Leaves the original model object unmodified.
+
+```python
+def clone_model(model, **kwargs):
+    """Clone an arbitrary sqlalchemy model object without its primary key values."""
+
+    table = model.__table__
+    non_primary_key_columns = [
+        column_name
+        for column_name in table.__mapper__.attrs..keys()
+        if column_name not in table.primary_key
+    ]
+    data = {
+        column_name: getattr(model, column_name)
+        for column_name in non_pk_columns
+    }
+    data.update(kwargs)
+
+    return model.__class__(**data)
 ```
 
 # References
