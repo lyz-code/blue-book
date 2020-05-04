@@ -54,7 +54,10 @@ When we want to add a new chart, the workflow would be:
   ```bash
   helm inspect values {{ package_name }} > {{ chart_name }}/values.yaml
   ```
-* Edit the `values.yaml` file according to the chart documentation.
+* Edit the `values.yaml` file according to the chart documentation. Be careful
+    becase some charts specify the docker image version in the name. Comment out
+    that line because upgrading the chart version without upgrading the image
+    tag can break the service.
 * Run `helmfile deps` to update the lock file.
 * Run `helmfile diff` to check the changes.
 * Run `helmfile apply` to apply the changes.
