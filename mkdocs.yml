@@ -66,6 +66,7 @@ nav:
     - AWS:
       - AWS: 'devops/aws/aws.md'
       - Security groups workflow: 'devops/aws/security_groups.md'
+      - EKS: 'devops/aws/eks.md'
       - IAM:
         - IAM: 'devops/aws/iam/iam.md'
         - IAM Commands: 'devops/aws/iam/iam_commands.md'
