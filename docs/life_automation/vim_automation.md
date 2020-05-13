@@ -51,18 +51,8 @@ different caps
 ```
 
 With a bang (`:Abolish!`) the abbreviation is also appended to the file in
-`g:abolish_save_file`. So add in `~/.vim/abbreviations.vim` the following
-snippet.
-
-```vim
-" `expand('<sfile>:p')` gets the absolute path of the
-" current file that this is being executed from
-let g:abolish_save_file = expand('<sfile>:p')
-
-if !exists(":Abolish")
-  finish
-endif
-```
+`g:abolish_save_file`. By default `after/plugin/abolish.vim` which is loaded by
+default.
 
 Typing `:Abolish! im I'm` will append the following to the end of this file:
 
