@@ -114,6 +114,25 @@ tracking ratings. There are different types of ratings:
 * *binary*: Only the like or dislike for the item can be specified.
 * *unary*: Only liking of an item can be specified.
 
+Another categorization of rating systems is based in the way the feedback is
+retrieved:
+
+* *explicit ratings*: Users actively give information on their preferences.
+* *implicit ratings*: Users preferences are derived from their behavior. Such as
+    visiting a link. Therefore, implicit ratings are usually unary.
+
+## Content-Based Recommender Systems
+
+In content-based recommender systems, descriptive attributes of items are
+used to make recommendations.
+
+# Unorganized thoughts
+
+Pre-substitution of missing ratings is not recommended in explicit rating
+matrices as it leads to a significant amount of bias in the analysis. In unary
+ratings it's common to substitute the missing data by 0 as even though it adds
+some bias, it's not as great because it's assumed that the default behavior.
+
 # Past Projects
 
 * GroupLens: Pioneer recommender system to recommend Usenet news.
