@@ -59,8 +59,8 @@ There are four types of basic models:
 
 * *Collaborative filtering*: Use collaborative power of the ratings provided by
     multiple users to make recommendations.
-* *Content-based*: Use the descriptive attributes of items to make
-    recommendations.
+* *Content-based*: Use the descriptive attributes of the user rated items to
+    create a user-specific model that predicts the rating of unobserved items.
 * *Knowledge-based*: Use the similarities between customer requirements and item
     descriptions.
 * *Hybrid systems*: Combine the above to benefit from the mix of their strengths
@@ -123,37 +123,104 @@ retrieved:
 
 ## Content-Based Recommender Systems
 
-In content-based recommender systems, descriptive attributes of items are
-used to make recommendations.
+In content-based recommender systems, descriptive attributes of the user rated
+items are used to create a user-specific model that predicts the rating of
+unobserved items.
 
-# Unorganized thoughts
+These systems have the following advantages:
+
+* Works well for new items, when sufficient data is not available. If the user
+    has rated items with similar attributes.
+* Can make recommendations with only the data of one user.
+
+And the following disadvantages:
+
+* As the community knowledge from similar users is not leveraged, it tends to
+    reduce the diversity of the recommended items.
+* It requires large number of rating user data to produce robust predictions
+    without overfitting.
+
+## Knowledge-based Recommender Systems
+
+The recommendation process is performed based on the similarities between user
+requirements and item descriptions or the user requirements constrains. The
+process is facilitated with the use of knowledge bases, which contain data about
+rules and similarity functions to use during the retrieval process.
+
+Knowledge-based systems can be classified by the type of user interface:
+
+* *Constraint-based recommender systems*: Users specify requirements on the
+    item attributes or give information about their attributes. Then domain
+    specific rules are used to select the items to recommend.
+* *Case-based recommender systems*: Specific cases are selected by the user as
+    targets or anchor points. Similarity metrics are defined in a domain
+    specific way on the item attributes to retrieve similar items to these
+    cases.
+
+These user interfaces can interact with the users through several ways:
+
+* *Conversational systems*: User preferences are determined iteratively in
+    the context of a feedback loop. It's useful if the item domain is complex.
+* *Search-based systems*: User preferences are elicited by using a preset of
+    questions.
+* *Navigation-based recommendation*: Users specify a number of attribute changes
+    to the item being recommended. Also known as *critiquing recommender
+    systems*.
+
+The main difference between content-based systems and knowledge-based systems is
+that while the former learns from past user behavior, the latter does it from
+active user specification of their needs and interests.
+
+These systems have the following advantages:
+
+* Works well for items with varied properties and/or few ratings. Such as in
+    cold start scenarios, if it's difficult to capture the user interests with
+    historical data or if the item is not often consumed.
+* Allows the users to explicitly specify what they want, thus giving them
+    a greater control over the recommendation process.
+* Allows the user to iteratively change their specified requirements to reach
+    the desired items.
+* Can make recommendations with only the data of one user.
+
+And the following disadvantages:
+
+* As the community knowledge from similar users is not leveraged, it tends to
+    reduce the diversity of the recommended items.
+
+## Domain-Specific recommender systems
+
+### Demographic recommender systems
+
+In these systems the demographic information about the user is leveraged to
+learn classifiers that can map specific demographics to ratings.
+
+Although they do not usually provide the best results on a standalone basis,
+they enhance and increase robustness if used as a component of hybrid systems.
+
+# Pitfalls to avoid
 
 Pre-substitution of missing ratings is not recommended in explicit rating
 matrices as it leads to a significant amount of bias in the analysis. In unary
 ratings it's common to substitute the missing data by 0 as even though it adds
 some bias, it's not as great because it's assumed that the default behavior.
 
-# Past Projects
+# Interesting resources
 
-* GroupLens: Pioneer recommender system to recommend Usenet news.
-* [BookLens](https://booklens.umn.edu/): Books implementation of Grouplens.
-* [MovieLens](https://grouplens.org/datasets/movielens/): Movies implementation of Grouplens.
-
-# Content indexers
+## Content indexers
 
 * [Open Library](https://openlibrary.org/): Open, editable library catalog,
       building towards a web page for every book ever published. Data can be
       retrieved through their API or [bulk
       downloaded](https://openlibrary.org/developers/dumps).
 
-# Rating Datasets
+## Rating Datasets
 
-## Books
+### Books
 
 * [Book-Crossing](https://grouplens.org/datasets/book-crossing/): 278,858 users
     providing 1,149,780 ratings (explicit / implicit) about 271,379 books.
 
-## Movies
+### Movies
 
 * [MovieLens](https://grouplens.org/datasets/movielens/): 27,000,000 ratings and
     1,100,000 tag applications applied to 58,000 movies by 280,000 users.
@@ -163,31 +230,38 @@ some bias, it's not as great because it's assumed that the default behavior.
 * [Netflix prize dataset](https://archive.org/details/nf_prize_dataset.tar):
     480,000 users doing 100 million ratings on 17,000 movies.
 
-## Music
+### Music
 
 * [HetRec 2011 Last.FM](https://grouplens.org/datasets/hetrec-2011/): 92,800 artist listening records from 1892 users.
 
-## Web
+### Web
 
 * [HetRec 2011 Delicious](https://grouplens.org/datasets/hetrec-2011/): 105,000 bookmarks from 1867 users.
 
-## Miscelaneous
+### Miscelaneous
 
 * [Wikilens](https://grouplens.org/datasets/wikilens/): generalized
     collaborative recommender system that allowed its community to define item
     types (e.g. beer) and categories (e.g. microbrews, pale ales, stouts), and
     then rate and get recommendations for items.
 
+## Past Projects
+
+* GroupLens: Pioneer recommender system to recommend Usenet news.
+* [BookLens](https://booklens.umn.edu/): Books implementation of Grouplens.
+* [MovieLens](https://grouplens.org/datasets/movielens/): Movies implementation of Grouplens.
+
 # References
+
+## Books
+
+* [Recommender Systems by Chary C.Aggarwal](https://www.goodreads.com/book/show/28474669-recommender-systems).
+* Recommender systems, an introduction by Dietmar Jannach, Markus Zanker,
+    Alexander Felfernig and Gerhard Friedrich.
+* Practical Recommender Systems by Kim Falk.
+* Hands On recommendation systems in Python by Rounak Banik.
 
 ## Awesome recommender systems
 
 * [Grahamjenson](https://github.com/grahamjenson/list_of_recommender_systems)
 
-## Books
-
-* Recommender Systems by Chary C.Aggarwal.
-* Recommender systems, an introduction by Dietmar Jannach, Markus Zanker,
-    Alexander Felfernig and Gerhard Friedrich.
-* Practical Recommender Systems by Kim Falk.
-* Hands On recommendation systems in Python by Rounak Banik.
