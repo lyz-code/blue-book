@@ -69,3 +69,22 @@ nnoremap <leader>s :Abolish!<Space>
 Check the
 [README](https://github.com/tpope/vim-abolish/blob/master/doc/abolish.txt) for
 more details.
+
+## Troubleshooting
+
+Abbreviations with dashes or if you only want the first letter in capital need
+to be specified with the first letter in capital letters as stated in [this
+issue](https://github.com/tpope/vim-abolish/issues/30).
+
+```vim
+Abolish knobas knowledge-based
+Abolish w what
+```
+
+Will yield `KnowledgeBased` if invoked with `Knobas`, and `WHAT` if invoked with
+`W`. Therefore the following definitions are preferred:
+
+```vim
+Abolish Knobas Knowledge-based
+Abolish W What
+```
