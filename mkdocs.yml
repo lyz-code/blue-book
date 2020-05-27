@@ -81,6 +81,7 @@ nav:
   - Coding:
     - Python:
       - Project Template: 'coding/python/python_project_template.md'
+      - Pytest: 'coding/Python/pytest.md'
       - Alembic: 'coding/python/alembic.md'
       - FactoryBoy: 'coding/python/factoryboy.md'
       - Faker: 'coding/python/faker.md'
