@@ -11,12 +11,13 @@ work as expected. Even more if testing, docs or databases are involved.
 
 * Create virtualenv
     ```bash
+    mkdir {{ project_directory }}
     mkvirtualenv --python=python3 -a {{ project_directory }} {{ project_name }}
     ```
 
 * Create git repository
     ```bash
-    cd {{ project_name }}
+    workon {{ project_name }}
     git init .
     git ignore-io python > .gitignore
     git add .
@@ -34,15 +35,14 @@ work as expected. Even more if testing, docs or databases are involved.
 * Create the program module structure
     ```bash
     mkdir {{ program_name }}
-    echo "__version__ = '0.1.0'" >> {{ program_name }}/__init__.py
+    ```
 
 * Create the program `setup.py` file
     ```python
     from setuptools import find_packages
     from setuptools import setup
 
-    from {{ program_name }} import __version__
-
+    __version__ = '0.1.0'
 
     setup(
         name='{{ program_name }}',
