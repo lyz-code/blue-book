@@ -188,3 +188,162 @@ Follow the steps under [Installation](mkdocs.md#installation).
     ```
 
 * [Set up the testing environment for SQLAlchemy](sqlalchemy.md#testing-sqlalchemy-code)
+
+
+## Using Mariadb/Mysql with SQLAlchemy
+
+To use mysql you'll need to first install (or add to your requirements) `pymysql`:
+
+```bash
+pip install pymysql
+```
+
+The url to connect to the database will be:
+```python
+'mysql+pymysql://{}:{}@{}:{}/{}'.format(
+    DB_USER,
+    DB_PASS,
+    DB_HOST,
+    DB_PORT,
+    DATABASE
+)
+```
+
+It's probable that you'll need to [use UTF8 with
+multi byte](https://github.com/sqlalchemy/sqlalchemy/issues/4216), otherwise the
+addition of some strings into the database will fail. I've tried adding it to
+the database url without success. So I've modified the MariaDB endpoint to use
+that character and collation set with:
+
+```yaml
+services:
+  db:
+    image: mariadb:latest
+    restart: always
+    environment:
+      - MYSQL_USER=xxxx
+      - MYSQL_PASSWORD=xxxx
+      - MYSQL_DATABASE=xxxx
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+    ports:
+      - 3306:3306
+    command:
+      - '--character-set-server=utf8mb4'
+      - '--collation-server=utf8mb4_unicode_ci'
+```
+
+## Using Docker and Docker compose to host the application
+
+Docker is a popular way to distribute applications. Assuming that all required
+dependencies are set in the `setup.py`,we're going to create an image with these
+properties:
+
+* *Run by an unprivileged user*: Create an unprivileged user with permissions to
+    execute our program.
+* Robust to vulnerabilities: Don't use Alpine as it's known to react slow to
+    new vulnerabilities. Use a base of Debian instead.
+* Smallest possible: Use Docker multi build step. Create a `builder` Docker that
+    will execute `pip install`, but only copy the required executables to the
+    final image.
+
+```Dockerfile
+FROM python:3.8-slim-buster as base
+
+FROM base as builder
+
+RUN python -m venv /opt/venv
+# Make sure we use the virtualenv:
+ENV PATH="/opt/venv/bin:$PATH"
+
+COPY . /app
+WORKDIR /app
+RUN pip install .
+
+FROM base
+
+COPY --from=builder /opt/venv /opt/venv
+
+RUN useradd -m myapp
+WORKDIR /home/myapp
+
+# Copy the required directories for your program to work.
+COPY --from=builder /root/.local/share/myapp /home/myapp/.local/share/myapp
+COPY --from=builder /app/myapp /home/myapp/myapp
+RUN chown -R myapp:myapp /home/myapp/.local
+
+USER myapp
+ENV PATH="/opt/venv/bin:$PATH"
+ENTRYPOINT ["/opt/venv/bin/myapp"]
+```
+
+Once the application Docker is built, if we need to use it with MariaDB or with
+Redis. The easiest way is to use `docker-compose`.
+
+```yaml
+version: '3.8'
+
+services:
+  myapp:
+    image: myapp:latest
+    restart: always
+    links:
+      - db
+    depends_on:
+      - db
+    environment:
+      - AIRSS_DATABASE_URL=mysql+pymysql://myapp:supersecurepassword@db/myapp
+  db:
+    image: mariadb:latest
+    restart: always
+    environment:
+      - MYSQL_USER=myapp
+      - MYSQL_PASSWORD=supersecurepassword
+      - MYSQL_DATABASE=myapp
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+    ports:
+      - 3306:3306
+    command:
+      - '--character-set-server=utf8mb4'
+      - '--collation-server=utf8mb4_unicode_ci'
+    volumes:
+      - /data/myapp/mariadb:/var/lib/mysql
+```
+
+The `depends_on` flag is [not
+enough](https://docs.docker.com/compose/startup-order/) to ensure that the
+database is up when our application tries to connect. Therefore we need to use
+external programs like [wait-for-it](https://github.com/vishnubob/wait-for-it).
+To use it, modify earlier Dockerfile to match these lines:
+
+```Dockerfile
+...
+
+FROM base
+
+RUN apt-get update && apt-get install -y \
+    wait-for-it \
+ && rm -rf /var/lib/apt/lists/*
+
+...
+
+ENTRYPOINT ["/home/myapp/entrypoint.sh"]
+```
+
+Where `entrypoint.sh` is something like:
+
+```bash
+#!/bin/bash
+
+# Wait for the database to be up
+if [[ -n $DATABASE_URL ]];then
+    wait-for-it db:3306
+fi
+
+# Execute database migrations
+/opt/venv/bin/myapp install
+
+# Enter in daemon mode
+/opt/venv/bin/myapp daemon
+```
+
+Remember to add the execution permissions `chmod +x entrypoint.sh`.

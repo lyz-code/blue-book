@@ -52,14 +52,19 @@ types](https://docs.sqlalchemy.org/en/13/core/type_basics.html) of fields to add
 * Float: `score = Column(Float)`
 * Integer: `id = Column(Integer, primary_key=True, doc='Source ID')`.
 * String: `title = Column(String)`.
-
+* Text: `long_text = Column(Text)`.
 
 To make sure that a field can't contain `nulls` set the `nullable=False`
 attribute in the definition of the `Column`. If you want the contents to be
 unique use `unique=True`.
 
-It's important to add the different parameters as attributes if you want to
-access them later.
+If you want to use the Mysql driver of SQLAlchemy make sure to specify the
+length of the colums, for example `String(16)`. For reference this are the
+common lengths:
+
+* url: 2083
+* name: 255 (it occupies the same 2 and 255).
+
 
 ## Creating relationships
 
