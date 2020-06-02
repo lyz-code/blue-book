@@ -14,6 +14,8 @@ nav:
     - Vim Automation: 'life_automation/vim_automation.md'
   - DevOps:
     - DevOps: 'devops/devops.md'
+    - Architecture:
+      - Redis: 'architecture/redis.md'
     - Kubernetes:
       - Kubernetes: 'devops/kubernetes/kubernetes.md'
       - Architecture: 'devops/kubernetes/kubernetes_architecture.md'
@@ -86,6 +88,8 @@ nav:
       - Faker: 'coding/python/faker.md'
       - Feedparser: 'coding/python/feedparser.md'
       - SQLAlchemy: 'coding/python/sqlalchemy.md'
+      - Redis-py: 'coding/Python/redis-py.md'
+      - Rq: 'coding/Python/rq.md'
       - Project Template:
         - Project Template: 'coding/python/python_project_template.md'
         - Load Config from YAML: 'coding/python/python_config_yaml.md'
