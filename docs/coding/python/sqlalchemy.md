@@ -63,7 +63,9 @@ length of the colums, for example `String(16)`. For reference this are the
 common lengths:
 
 * url: 2083
-* name: 255 (it occupies the same 2 and 255).
+* name: 64 (it occupies the same 2 and 255).
+* email: 64 (it occupies the same 2 and 255).
+* username: 64 (it occupies the same 2 and 255).
 
 
 ## Creating relationships
