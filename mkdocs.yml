@@ -80,13 +80,15 @@ nav:
       - Kong: 'devops/kong/kong.md'
   - Coding:
     - Python:
-      - Project Template: 'coding/python/python_project_template.md'
       - Pytest: 'coding/Python/pytest.md'
       - Alembic: 'coding/python/alembic.md'
       - FactoryBoy: 'coding/python/factoryboy.md'
       - Faker: 'coding/python/faker.md'
       - Feedparser: 'coding/python/feedparser.md'
       - SQLAlchemy: 'coding/python/sqlalchemy.md'
+      - Project Template:
+        - Project Template: 'coding/python/python_project_template.md'
+        - Load Config from YAML: 'coding/python/python_config_yaml.md'
     - Javascript:
       - Javascript: 'coding/javascript/javascript.md'
     - React:
