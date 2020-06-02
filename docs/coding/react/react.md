@@ -10,7 +10,7 @@ of code called “components”.
 
 # [Set up a new project](https://reactjs.org/tutorial/tutorial.html#setup-option-2-local-development-environment)
 
-* [Install Node.js](nodejs.md#install)
+* [Install Node.js](../../linux/nodejs.md#install)
 
 * Create the project baseline with [Create React
     App](https://create-react-app.dev). Using this tool avoids:

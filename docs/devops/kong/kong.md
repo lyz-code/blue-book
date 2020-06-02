@@ -105,7 +105,7 @@ curl -I https://api.example.com/example -H 'apikey: vRQO6xfBbTY3KRvNV7TbeFUUW7kj
 
 To add the prometheus monitorization, enable the `serviceMonitor.enabled: true`
 and make sure you set [the correct
-labels](prometheus_troubleshooting.md#service-monitor-not-being-recognized).
+labels](../prometheus/prometheus_troubleshooting.md#service-monitor-not-being-recognized).
 There is a [grafana official
 dashboard](https://grafana.com/grafana/dashboards/7424) you can also use.
 

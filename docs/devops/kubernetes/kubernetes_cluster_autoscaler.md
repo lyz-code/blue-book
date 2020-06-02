@@ -5,8 +5,8 @@ author: Lyz
 ---
 
 While [Horizontal pod autoscaling](kubernetes_hpa.md) allows
-a [deployment](kubernetes_deployment.md) to scale given the
-resources needed, they are limited to the kubernetes existing working nodes.
+a deployment to scale given the resources needed, they are limited to the
+kubernetes existing working nodes.
 
 To autoscale the number of working nodes we need the [cluster
 autoscaler](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/README.md).

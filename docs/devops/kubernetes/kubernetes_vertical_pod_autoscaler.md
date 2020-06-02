@@ -5,9 +5,8 @@ author: Lyz
 ---
 
 Kubernetes knows the amount of resources a pod needs to operate through some
-metadata specified in the [deployment](kubernetes_deployment.md). Generally this
-values change and manually maintaining all the resources requested and limits is
-a nightmare.
+metadata specified in the deployment. Generally this values change and manually
+maintaining all the resources requested and limits is a nightmare.
 
 The [Vertical pod
 autoscaler](https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler)

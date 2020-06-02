@@ -63,4 +63,4 @@ author: Lyz
         --autogenerate \
         -m "Initial schema"
     ```
-* [Set up the testing environment for SQLAlchemy](sqlalchemy.md#testing-sqlalchemy-code)
+* [Set up the testing environment for SQLAlchemy](../sqlalchemy.md#testing-sqlalchemy-code)
