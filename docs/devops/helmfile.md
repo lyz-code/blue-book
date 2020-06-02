@@ -40,8 +40,8 @@ mv helmfile_linux_amd64 ~/.local/bin/helmfile
 When we want to add a new chart, the workflow would be:
 
 * Run `helmfile deps && helmfile diff` to check that your existing charts are
-  dated, if they are not, run `helmfile apply`.
-* nfigure the release in `helmfile.yaml` specifying:
+  updated, if they are not, run `helmfile apply`.
+* Configure the release in `helmfile.yaml` specifying:
   `name`: Deployment name.
   * `namespace`: K8s namespace to deploy.
   * `chart`: Chart release.
