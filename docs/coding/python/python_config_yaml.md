@@ -332,12 +332,15 @@ Variables to substitute in both files:
 
     ```
 
+* `assets_url`: Url pointing to the assets file, similar to
+    `https://github.com/lyz-code/pydo/blob/master/assets/config.yaml`.
 !!! note "README.md"
     ...
 
     `{{ program_name }}` configuration is done through the yaml file located at
-    `~/.local/share/{{ program_name }}/config.yaml`. The default template is provided at
-    installation time.
+    `~/.local/share/{{ program_name }}/config.yaml`. The [default
+    template]({{ assets_url }}) is
+    provided at installation time.
 
     ...
 
