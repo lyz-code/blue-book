@@ -57,6 +57,8 @@ Variables to substitute:
                 Default: ~/.local/share/{{ program_name }}/config.yaml
 
         Public methods:
+            get: Fetch the configuration value of the specified key.
+                If there are nested dictionaries, a dot notation can be used.
             load: Loads configuration from configuration YAML file.
             save: Saves configuration in the configuration YAML file.
 
@@ -66,6 +68,32 @@ Variables to substitute:
 
         def __init__(self, config_path='~/.local/share/{{ program_name }}/config.yaml'):
             self.load(os.path.expanduser(config_path))
+
+        def get(self, key):
+            """
+            Fetch the configuration value of the specified key. If there are nested
+            dictionaries, a dot notation can be used.
+
+            So if the configuration contents are:
+
+            self.data = {
+                'first': {
+                    'second': 'value'
+                },
+            }
+
+            self.data.get('first.second') == 'value'
+
+            Arguments:
+                key(str): Configuration key to fetch
+            """
+            keys = key.split('.')
+            value = self.data.copy()
+
+            for key in keys:
+                value = value[key]
+
+            return value
 
         def load(self, yaml_path):
             """
@@ -143,8 +171,6 @@ from the above file like this:
 Variables to substitute:
 
 * `program_name`
-* `string_in_config_file`: Some string that is present in the config
-
 
 As it's really dependent in the config structure, you can improve the
 `test_config_load` test to make it more meaningful.
@@ -182,6 +208,24 @@ As it's really dependent in the config structure, you can improve the
 
             self.log_patch.stop()
             self.sys_patch.stop()
+
+        def test_get_can_fetch_nested_items_with_dots(self):
+            self.config.data = {
+                'first': {
+                    'second': 'value'
+                },
+            }
+
+            assert self.config.get('first.second') == 'value'
+
+        def test_config_can_fetch_nested_items_with_dictionary_notation(self):
+            self.config.data = {
+                'first': {
+                    'second': 'value'
+                },
+            }
+
+            assert self.config['first']['second'] == 'value'
 
         def test_config_load(self):
             self.config.load(self.config_path)
@@ -224,9 +268,11 @@ As it's really dependent in the config structure, you can improve the
         def test_save_config(self):
             tmp = tempfile.mkdtemp()
             save_file = os.path.join(tmp, 'yaml_save_test.yaml')
+            self.config.data = {'a': 'b'}
+
             self.config.save(save_file)
             with open(save_file, 'r') as f:
-                assert "{{ string_in_config_file }}" in f.read()
+                assert "a:" in f.read()
 
             shutil.rmtree(tmp)
     ```
