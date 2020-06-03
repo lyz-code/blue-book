@@ -252,38 +252,6 @@
      <lastmod>2020-06-03</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://lyz-code.github.io/blue-book/coding/python/pytest/</loc>
-     <lastmod>2020-06-03</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://lyz-code.github.io/blue-book/coding/python/alembic/</loc>
-     <lastmod>2020-06-03</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://lyz-code.github.io/blue-book/coding/python/factoryboy/</loc>
-     <lastmod>2020-06-03</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://lyz-code.github.io/blue-book/coding/python/faker/</loc>
-     <lastmod>2020-06-03</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://lyz-code.github.io/blue-book/coding/python/feedparser/</loc>
-     <lastmod>2020-06-03</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://lyz-code.github.io/blue-book/coding/python/sqlalchemy/</loc>
-     <lastmod>2020-06-03</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://lyz-code.github.io/blue-book/coding/python/redis-py/</loc>
-     <lastmod>2020-06-03</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://lyz-code.github.io/blue-book/coding/python/rq/</loc>
-     <lastmod>2020-06-03</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
      <loc>https://lyz-code.github.io/blue-book/coding/python/python_project_template/</loc>
      <lastmod>2020-06-03</lastmod>
      <changefreq>daily</changefreq>
@@ -309,6 +277,46 @@
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/coding/python/python_project_template/python_docker/</loc>
+     <lastmod>2020-06-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/coding/python/alembic/</loc>
+     <lastmod>2020-06-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/coding/python/factoryboy/</loc>
+     <lastmod>2020-06-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/coding/python/faker/</loc>
+     <lastmod>2020-06-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/coding/python/feedparser/</loc>
+     <lastmod>2020-06-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/coding/python/pytest/</loc>
+     <lastmod>2020-06-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/coding/python/ruamel_yaml/</loc>
+     <lastmod>2020-06-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/coding/python/sqlalchemy/</loc>
+     <lastmod>2020-06-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/coding/python/redis-py/</loc>
+     <lastmod>2020-06-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/coding/python/requests_mock/</loc>
+     <lastmod>2020-06-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/coding/python/rq/</loc>
      <lastmod>2020-06-03</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
