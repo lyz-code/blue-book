@@ -82,14 +82,6 @@ nav:
       - Kong: 'devops/kong/kong.md'
   - Coding:
     - Python:
-      - Pytest: 'coding/python/pytest.md'
-      - Alembic: 'coding/python/alembic.md'
-      - FactoryBoy: 'coding/python/factoryboy.md'
-      - Faker: 'coding/python/faker.md'
-      - Feedparser: 'coding/python/feedparser.md'
-      - SQLAlchemy: 'coding/python/sqlalchemy.md'
-      - Redis-py: 'coding/python/redis-py.md'
-      - Rq: 'coding/python/rq.md'
       - Project Template:
         - Project Template: 'coding/python/python_project_template.md'
         - Load config from YAML: 'coding/python/python_config_yaml.md'
@@ -98,6 +90,15 @@ nav:
         - Configure SQLAlchemy for projects without flask: 'coding/python/python_project_template/python_sqlalchemy_without_flask.md'
         - Configure SQLAlchemy to use the MariaDB/Mysql backend: 'coding/python/python_project_template/python_sqlalchemy_mariadb.md'
         - Configure Docker and Docker compose to host the application: 'coding/python/python_project_template/python_docker.md'
+      - Alembic: 'coding/python/alembic.md'
+      - FactoryBoy: 'coding/python/factoryboy.md'
+      - Faker: 'coding/python/faker.md'
+      - Feedparser: 'coding/python/feedparser.md'
+      - Pytest: 'coding/python/pytest.md'
+      - Ruamel YAML: 'coding/python/ruamel_yaml.md'
+      - SQLAlchemy: 'coding/python/sqlalchemy.md'
+      - Redis-py: 'coding/python/redis-py.md'
+      - Rq: 'coding/python/rq.md'
     - Javascript:
       - Javascript: 'coding/javascript/javascript.md'
     - React:

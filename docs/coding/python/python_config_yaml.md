@@ -63,11 +63,13 @@ Variables to substitute:
             save: Saves configuration in the configuration YAML file.
 
         Attributes and properties:
+            config_path (str): Path to the configuration file.
             data(dict): Program configuration.
         """
 
         def __init__(self, config_path='~/.local/share/{{ program_name }}/config.yaml'):
-            self.load(os.path.expanduser(config_path))
+            self.config_path = os.path.expanduser(config_path)
+            self.load()
 
         def get(self, key):
             """
@@ -95,15 +97,13 @@ Variables to substitute:
 
             return value
 
-        def load(self, yaml_path):
+        def load(self):
             """
             Loads configuration from configuration YAML file.
-
-            Arguments:
-                yaml_path(str): Path to the file to open.
             """
+
             try:
-                with open(os.path.expanduser(yaml_path), 'r') as f:
+                with open(os.path.expanduser(self.config_path), 'r') as f:
                     try:
                         self.data = yaml.safe_load(f)
                     except ScannerError as e:
@@ -117,19 +117,16 @@ Variables to substitute:
                         sys.exit(1)
             except FileNotFoundError:
                 log.error(
-                    'Error opening configuration file {}'.format(yaml_path)
+                    'Error opening configuration file {}'.format(self.config_path)
                 )
                 sys.exit(1)
 
-        def save(self, yaml_path):
+        def save(self):
             """
             Saves configuration in the configuration YAML file.
-
-            Arguments:
-                yaml_path(str): Path to the file to save.
             """
 
-            with open(os.path.expanduser(yaml_path), 'w+') as f:
+            with open(os.path.expanduser(self.config_path), 'w+') as f:
                 yaml.dump(self.data, f, default_flow_style=False)
     ```
 
@@ -168,6 +165,22 @@ from the above file like this:
 
 ## Tests
 
+I feel that the tests should use the default configuration, therefore we're
+setting the environmental variable in the `conftest.py` file that gets executed
+by pytest in the tests setup.
+
+Variables to substitute:
+
+* `config_environmental_variable`: Same as the one defined in the last section.
+
+!!! note "File tests/conftest.py"
+    ```python
+
+    import os
+
+    os.environ[{{ config_environmental_variable }}] = 'assets/config.yaml'
+    ```
+
 Variables to substitute:
 
 * `program_name`
@@ -198,7 +211,7 @@ As it's really dependent in the config structure, you can improve the
         @pytest.fixture(autouse=True)
         def setup(self):
             self.config_path = 'assets/config.yaml'
-            self.log_patch = patch('{{ program_name }}.configuration.logging', autospect=True)
+            self.log_patch = patch('{{ program_name }}.configuration.log', autospect=True)
             self.log = self.log_patch.start()
             self.sys_patch = patch('{{ program_name }}.configuration.sys', autospect=True)
             self.sys = self.sys_patch.start()
@@ -228,7 +241,7 @@ As it's really dependent in the config structure, you can improve the
             assert self.config['first']['second'] == 'value'
 
         def test_config_load(self):
-            self.config.load(self.config_path)
+            self.config.load()
             assert len(self.config.data) > 0
 
         @patch('{{ program_name }}.configuration.yaml')
@@ -240,7 +253,7 @@ As it's really dependent in the config structure, you can improve the
                 'mark',
             )
 
-            self.config.load(self.config_path)
+            self.config.load()
             self.log.error.assert_called_once_with(
                 'Error parsing yaml of configuration file mark: problem'
             )
@@ -250,7 +263,7 @@ As it's really dependent in the config structure, you can improve the
         def test_load_handles_file_not_found(self, openMock):
             openMock.side_effect = FileNotFoundError()
 
-            self.config.load(self.config_path)
+            self.config.load()
             self.log.error.assert_called_once_with(
                 'Error opening configuration file {}'.format(
                     self.config_path
@@ -261,18 +274,65 @@ As it's really dependent in the config structure, you can improve the
         @patch('{{ program_name }}.configuration.Config.load')
         def test_init_calls_config_load(self, loadMock):
             Config()
-            loadMock.assert_called_once_with(
-                os.path.expanduser('~/.local/share/{{ program_name }}/config.yaml')
-            )
+            loadMock.assert_called_once_with()
 
         def test_save_config(self):
             tmp = tempfile.mkdtemp()
             save_file = os.path.join(tmp, 'yaml_save_test.yaml')
+            self.config = Config(save_file)
             self.config.data = {'a': 'b'}
 
-            self.config.save(save_file)
+            self.config.save()
             with open(save_file, 'r') as f:
                 assert "a:" in f.read()
 
             shutil.rmtree(tmp)
     ```
+## Installation
+
+It's always nice to have the default configuration template (with it's
+documentation) when configuring your use case. Therefore we're going to add
+a step in the installation process to copy the file.
+
+Variables to substitute in both files:
+
+* `program_name`
+
+!!! note "File setup.py"
+
+    ```python
+    import shutil
+    ...
+
+    Class PostInstallCommand(install):
+        ...
+
+        def run(self):
+            install.run(self)
+            try:
+                data_directory = os.path.expanduser("~/.local/share/{{ program_name }}")
+                os.makedirs(data_directory)
+                log.info("Data directory created")
+            except FileExistsError:
+                log.info("Data directory already exits")
+
+            config_path = os.path.join(data_directory, 'config.yaml')
+            if os.path.isfile(config_path) and os.access(config_path, os.R_OK):
+                log.info(
+                    "Configuration file already exists, check the documentation "
+                    "for the new version changes."
+                )
+            else:
+                shutil.copyfile('assets/config.yaml', config_path)
+                log.info("Copied default configuration template")
+
+    ```
+
+!!! note "README.md"
+    ...
+
+    `{{ program_name }}` configuration is done through the yaml file located at
+    `~/.local/share/{{ program_name }}/config.yaml`. The default template is provided at
+    installation time.
+
+    ...
