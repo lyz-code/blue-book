@@ -38,11 +38,11 @@ Variables to substitute:
     """
 
     from collections import UserDict
-    from yaml.scanner import ScannerError
+    from ruamel.yaml import YAML
+    from ruamel.yaml.scanner import ScannerError
 
     import logging
     import os
-    import yaml
     import sys
 
     log = logging.getLogger(__name__)
@@ -105,7 +105,7 @@ Variables to substitute:
             try:
                 with open(os.path.expanduser(self.config_path), 'r') as f:
                     try:
-                        self.data = yaml.safe_load(f)
+                        self.data = YAML().load(f)
                     except ScannerError as e:
                         log.error(
                             'Error parsing yaml of configuration file '
@@ -127,8 +127,12 @@ Variables to substitute:
             """
 
             with open(os.path.expanduser(self.config_path), 'w+') as f:
-                yaml.dump(self.data, f, default_flow_style=False)
+                yaml = YAML()
+                yaml.default_flow_style = False
+                yaml.dump(self.data, f)
     ```
+We use [ruamel PyYAML](ruamel_yaml.md) implementation to preserve the file
+comments.
 
 That class is meant to be loaded in the main `__init__.py` file, below the
 logging configuration (if there is any).
@@ -192,7 +196,7 @@ As it's really dependent in the config structure, you can improve the
     ```python
     from {{ program_name }}.configuration import Config
     from unittest.mock import patch
-    from yaml.scanner import ScannerError
+    from ruamel.yaml.scanner import ScannerError
 
     import os
     import pytest
@@ -244,9 +248,9 @@ As it's really dependent in the config structure, you can improve the
             self.config.load()
             assert len(self.config.data) > 0
 
-        @patch('{{ program_name }}.configuration.yaml')
+        @patch('{{ program_name }}.configuration.YAML')
         def test_load_handles_wrong_file_format(self, yamlMock):
-            yamlMock.safe_load.side_effect = ScannerError(
+            yamlMock.return_value.load.side_effect = ScannerError(
                 'error',
                 '',
                 'problem',
@@ -336,3 +340,6 @@ Variables to substitute in both files:
     installation time.
 
     ...
+
+It's also necessary to add the `ruamel.yaml` pip package to your `setup.py` and
+`requirements.txt` files.
