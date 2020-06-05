@@ -96,9 +96,11 @@ your own.
 
 * Movie/serie/music rating self hosted solution that based on your ratings
   discovers new content.
+* Hiking route classifier and rating self hosted web application.
 * Digital e-ink note taking system that is affordable, self hosted and performs
   character recognition.
 * A way to store music numeric ratings through the command line compatible with
   [mpd](https://en.wikipedia.org/wiki/Music_Player_Daemon) and
   [beets](http://beets.readthedocs.io/).
+* A mkdocs plugin to generate RSS feed on new or changed entries.
 * An e-reader support that could be fixed to the wall.
