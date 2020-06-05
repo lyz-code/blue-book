@@ -6,16 +6,6 @@ author: Lyz
 
 Also known as where I'm spending my spare time.
 
-# Home Stock inventory
-
-I try to follow the idea of emptying my mind as much as possible, so I'm able to
-spend my CPU time wisely.
-
-Keeping track of what do you have at home or what needs to be bought is an
-effort that should be avoided.
-
-So I'm integrating [grocy](grocy.md) in my life.
-
 # Pydo
 
 I've been using [Taskwarrior](https://taskwarrior.org) for the last five or six
@@ -100,6 +90,16 @@ allows me to keep on saving the same metadata.
 Once it's implemented, I'll migrate all the metadata to the new system.
 
 # Projects I maintain
+
+## Home Stock inventory
+
+I try to follow the idea of emptying my mind as much as possible, so I'm able to
+spend my CPU time wisely.
+
+Keeping track of what do you have at home or what needs to be bought is an
+effort that should be avoided.
+
+So I'm integrating [grocy](grocy.md) in my life.
 
 ## [Mediarss](https://git.digitales.cslabrecha.org/lyz/mediarss)
 
