@@ -124,4 +124,5 @@ to deploy the production service into AWS.
 * [Self-hosting Docker compose](https://github.com/hypothesis/h/issues/4899)
 * [Create admin user when using Docker
     compose](https://github.com/hypothesis/h/issues/6014)
+* [Steps required to run both h and serve the client from internal server](https://groups.google.com/a/list.hypothes.is/forum/#!searchin/dev/server|sort:date/dev/PG3Y2hqwSr8/YsjpIvNEDgAJ)
 * [How to deploy h on VM](https://groups.google.com/a/list.hypothes.is/forum/#!topic/dev/mbPxRWF2Ax4)
