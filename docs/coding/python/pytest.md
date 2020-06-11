@@ -39,6 +39,13 @@ my `<leader>`). And finally I use `;i` to run the integration tests.
 Finally, if the test suite is huge, I use `;T` to run only the tests of a single
 file.
 
+# [Mocking sys.exit](https://medium.com/python-pandemonium/testing-sys-exit-with-pytest-10c6e5f7726f)
+
+```python
+with pytest.raises(SystemExit):
+    # Code to test
+```
+
 # Reference
 
 * [Docs](https://docs.pytest.org/en/latest/)

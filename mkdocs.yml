@@ -64,6 +64,7 @@ nav:
       - brew: 'linux/brew.md'
       - fail2ban: 'linux/fail2ban.md'
       - google chrome: 'linux/google_chrome.md'
+      - hypothesis: 'linux/hypothesis.md'
       - LUKS: 'linux/luks/luks.md'
       - mkdocs: 'linux/mkdocs.md'
       - nodejs: 'linux/nodejs.md'
@@ -86,12 +87,17 @@ nav:
     - Python:
       - Project Template:
         - Project Template: 'coding/python/python_project_template.md'
-        - Load config from YAML: 'coding/python/python_config_yaml.md'
-        - Continuous integration pipelines: 'coding/python/python_ci.md'
-        - Create the documentation repository: 'coding/python/python_project_template/python_docs.md'
-        - Configure SQLAlchemy for projects without flask: 'coding/python/python_project_template/python_sqlalchemy_without_flask.md'
-        - Configure SQLAlchemy to use the MariaDB/Mysql backend: 'coding/python/python_project_template/python_sqlalchemy_mariadb.md'
-        - Configure Docker and Docker compose to host the application: 'coding/python/python_project_template/python_docker.md'
+        - Command-line Project Template:
+          - Command-line Project Template: 'coding/python/python_project_template/python_cli_template.md'
+          - Configure SQLAlchemy for projects without flask: 'coding/python/python_project_template/python_sqlalchemy_without_flask.md'
+        - Flask Project Template: 'coding/python/python_project_template/python_flask_template.md'
+        - Microservices Project Template: 'coding/python/python_project_template/python_microservices_template.md'
+        - Common configurations:
+          - Create the documentation repository: 'coding/python/python_project_template/python_docs.md'
+          - Continuous integration pipelines: 'coding/python/python_ci.md'
+          - Load config from YAML: 'coding/python/python_config_yaml.md'
+          - Configure SQLAlchemy to use the MariaDB/Mysql backend: 'coding/python/python_project_template/python_sqlalchemy_mariadb.md'
+          - Configure Docker and Docker compose to host the application: 'coding/python/python_project_template/python_docker.md'
       - Alembic: 'coding/python/alembic.md'
       - FactoryBoy: 'coding/python/factoryboy.md'
       - Faker: 'coding/python/faker.md'
