@@ -23,11 +23,13 @@ author: Lyz
     from setuptools import find_packages
     from setuptools import setup
 
-    __version__ = '0.1.0'
+    # Get the version from drode/version.py without importing the package
+    exec(compile(open('{{ program_name }}/version.py').read(),
+                 '{{ program_name }}/version.py', 'exec'))
 
     setup(
         name='{{ program_name }}',
-        version=__version__,
+        version=__version__, # noqa: F821
         description='{{ program_description }}',
         author='{{ author }}',
         author_email='{{ author_email }}',
@@ -45,6 +47,20 @@ author: Lyz
     ```
     Remember to fill up the `install_requirements` with the dependencies that
     need to be installed at installation time.
+* Create the `{{ program_name }}/version.py` file with the following contents:
+    ```python
+    __version__ = '1.0.0'
+    ```
+
+   This ugly way of loading the `__version__` was stolen from youtube-dl, it
+   loads and executes the `version.py` without loading the whole module.
+   Solutions like `from {{ program_name }}.version import __version__` will fail
+   as it tries to load the whole module. Defining it in the `setup.py` file
+   doesn't work either if you need to load the version in your program code.
+   `from setup.py import __version__` will also fail. The only problem with this
+   approach is that as the `__version__` is not defined in the code it will
+   raise a Flake8 error, therefore the `#
+   noqa: F821` in the `setup.py` code.
 
 * Create the `requirements.txt` file. It should contain the
     `install_requirements` in addition to the testing requirements such as:
