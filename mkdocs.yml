@@ -103,6 +103,8 @@ nav:
       - Faker: 'coding/python/faker.md'
       - Flask: 'coding/python/flask.md'
       - Feedparser: 'coding/python/feedparser.md'
+      - Pandas: 'coding/python/pandas.md'
+      - Plotly: 'coding/python/plotly.md'
       - Pytest: 'coding/python/pytest.md'
       - Ruamel YAML: 'coding/python/ruamel_yaml.md'
       - SQLAlchemy: 'coding/python/sqlalchemy.md'
