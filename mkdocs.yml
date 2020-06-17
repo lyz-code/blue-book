@@ -115,6 +115,7 @@ nav:
       - Javascript: 'coding/javascript/javascript.md'
     - React:
       - React: 'coding/react/react.md'
+    - YAML: 'coding/yaml/yaml.md'
   - Data Analysis:
     - Recommender Systems:
       - Recommender Systems: 'data_analysis/recommender_systems/recommender_systems.md'
