@@ -59,6 +59,7 @@ nav:
       - Prometheus Install: 'devops/prometheus/prometheus_installation.md'
       - AlertManager: 'devops/prometheus/alertmanager.md'
       - Blackbox Exporter: 'devops/prometheus/blackbox_exporter.md'
+      - Node Exporter: 'devops/prometheus/node_exporter.md'
       - Prometheus Troubleshooting: 'devops/prometheus/prometheus_troubleshooting.md'
     - Linux:
       - brew: 'linux/brew.md'

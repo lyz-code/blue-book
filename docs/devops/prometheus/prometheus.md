@@ -141,6 +141,7 @@ into our data whilst having to manage less actual metrics.
 * [Prometheus Operator](prometheus_operator.md)
 * [Prometheus Installation](prometheus_installation.md)
 * [Blackbox Exporter](blackbox_exporter.md)
+* [Node Exporter](node_exporter.md)
 * [Prometheus Troubleshooting](prometheus_troubleshooting.md)
 
 ## Introduction posts
