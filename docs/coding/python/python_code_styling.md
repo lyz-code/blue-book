@@ -32,8 +32,16 @@ Pros:
 
 * Help **catch certain errors** if used with a static type checker.
 * Help **document your code**. Docstrings can't be easily used for automatic checks.
+
+    * Easier to reason about code: Knowing the type of the parameters makes it
+        a lot easier to understand and maintain a code base. It can speed up
+        significantly the time required to catch up with a code snippet. Always
+        remember that code you read code a lot more often than you write it.
+        Therefore you should optimize for ease of reading.
 * Help you **build and maintain a cleaner architecture**. The act of writing type
     hints force you to think about the types in your program.
+
+    * Easier refactoring: Type hints make it trivial to find where a given class is used when you're trying to refactor your code base.
 * Improve IDEs and linters.
 
 Cons:
@@ -195,6 +203,51 @@ These steps will get you started with `mypy` on an existing codebase:
     * Developers should add annotations for any new code.
     * It’s also encouraged to write annotations when you modify existing code.
 
+# f-strings
+
+[f-strings](https://realpython.com/python-f-strings/), also known as *formatted
+string literals*, are strings that have an `f` at the beginning and curly braces
+containing expressions that will be replaced with their values.
+
+Introduced in Python 3.6, they not only are more readable, more
+concise, and less prone to error than other ways of formatting, but they are
+also faster.
+
+```python
+>>> name = "Eric"
+>>> age = 74
+>>> f"Hello, {name}. You are {age}."
+'Hello, Eric. You are 74.'
+```
+
+## Arbitrary expressions
+
+Because f-strings are evaluated at runtime, you can put any valid Python
+expressions in them. For example, calling a function or method from within.
+
+```python
+>>> f"{name.lower()} is funny."
+'eric idle is funny.'
+```
+
+## Multiline f-strings
+
+```python
+>>> name = "Eric"
+>>> profession = "comedian"
+>>> affiliation = "Monty Python"
+>>> message = (
+...     f"Hi {name}. "
+...     f"You are a {profession}. "
+...     f"You were in {affiliation}."
+... )
+>>> message
+'Hi Eric. You are a comedian. You were in Monty Python.'
+```
+
 # Reference
 
+## Type hints
+
+* [Bernat gabor article on the state of type hints in python](https://www.bernat.tech/the-state-of-type-hints-in-python/)
 * [Real python article on type checking](https://realpython.com/python-type-checking/#type-systems)
