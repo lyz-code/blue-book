@@ -149,6 +149,52 @@ def black_hole() -> NoReturn:
     checking](https://realpython.com/python-type-checking/#type-systems). If you
     are interested in this topic, keep on reading there.
 
+## [Using mypy with an existing codebase](https://mypy.readthedocs.io/en/latest/existing_code.html)
+
+These steps will get you started with `mypy` on an existing codebase:
+
+* [Start small](https://mypy.readthedocs.io/en/latest/existing_code.html#start-small):
+    Pick a subset of your codebase and run mypy only in this subset, without
+    any annotations.
+
+    You’ll likely need to fix some mypy errors, either by inserting annotations
+    requested by mypy or by adding `# type: ignore` comments to silence errors
+    you don’t want to fix now.
+
+
+    – get a clean mypy build for some files, with few annotations.
+* [Write a mypy runner script](https://mypy.readthedocs.io/en/latest/existing_code.html#mypy-runner-script)
+    to ensure consistent results. Here are some things you may want to do in the
+    script:
+    * Ensure that the correct version of mypy is installed.
+    * Specify mypy config file or command-line options.
+    * Provide set of files to type check. You may want to implement inclusion
+        and exclusion filters for full control of the file list.
+* [Run mypy in Continuous Integration to prevent type errors](https://mypy.readthedocs.io/en/latest/existing_code.html#continuous-integration):
+
+    Once you have a clean mypy run and a runner script for a part of your
+    codebase, set up your Continuous Integration (CI) system to run mypy to
+    ensure that developers won’t introduce bad annotations. A simple CI script
+    could look something like this:
+
+    ```python
+    python3 -m pip install mypy==0.600  # Pinned version avoids surprises
+    scripts/mypy  # Runs with the correct options
+    ```
+* Gradually annotate commonly imported modules: Most projects have some widely
+    imported modules, such as utilities or model classes. It’s a good idea to
+    annotate these pretty early on, since this allows code using these modules
+    to be type checked more effectively. Since mypy supports gradual typing,
+    it’s okay to leave some of these modules unannotated. The more you annotate,
+    the more useful mypy will be, but even a little annotation coverage is
+    useful.
+* Write annotations as you modify existing code and write new code: Now you are
+    ready to include type annotations in your development workflows. Consider
+    adding something like these in your code style conventions:
+
+    * Developers should add annotations for any new code.
+    * It’s also encouraged to write annotations when you modify existing code.
+
 # Reference
 
 * [Real python article on type checking](https://realpython.com/python-type-checking/#type-systems)
