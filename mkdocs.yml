@@ -14,10 +14,6 @@ nav:
     - Vim Automation: 'life_automation/vim_automation.md'
   - DevOps:
     - DevOps: 'devops/devops.md'
-    - Architecture:
-      - Microservices: architecture/microservices.md
-      - Restful APIS: architecture/restful_apis.md
-      - Redis: 'architecture/redis.md'
     - Kubernetes:
       - Kubernetes: 'devops/kubernetes/kubernetes.md'
       - Architecture: 'devops/kubernetes/kubernetes_architecture.md'
@@ -99,30 +95,41 @@ nav:
           - Load config from YAML: 'coding/python/python_config_yaml.md'
           - Configure SQLAlchemy to use the MariaDB/Mysql backend: 'coding/python/python_project_template/python_sqlalchemy_mariadb.md'
           - Configure Docker and Docker compose to host the application: 'coding/python/python_project_template/python_docker.md'
-      - Alembic: 'coding/python/alembic.md'
-      - FactoryBoy: 'coding/python/factoryboy.md'
-      - Faker: 'coding/python/faker.md'
-      - Flask: 'coding/python/flask.md'
-      - Feedparser: 'coding/python/feedparser.md'
-      - Pandas: 'coding/python/pandas.md'
-      - Plotly: 'coding/python/plotly.md'
+      - Anti-Patterns: 'coding/python/python_anti_patterns.md'
+      - Libraries:
+        - Alembic: 'coding/python/alembic.md'
+        - FactoryBoy: 'coding/python/factoryboy.md'
+        - Faker: 'coding/python/faker.md'
+        - Flask: 'coding/python/flask.md'
+        - Feedparser: 'coding/python/feedparser.md'
+        - Pandas: 'coding/python/pandas.md'
+        - Plotly: 'coding/python/plotly.md'
+        - Ruamel YAML: 'coding/python/ruamel_yaml.md'
+        - SQLAlchemy: 'coding/python/sqlalchemy.md'
+        - Redis-py: 'coding/python/redis-py.md'
+        - Requests-mock: 'coding/python/requests_mock.md'
+        - Rq: 'coding/python/rq.md'
+      - Data Classes: 'coding/python/data_classes.md'
       - Pytest: 'coding/python/pytest.md'
-      - Ruamel YAML: 'coding/python/ruamel_yaml.md'
-      - SQLAlchemy: 'coding/python/sqlalchemy.md'
-      - Redis-py: 'coding/python/redis-py.md'
-      - Requests-mock: 'coding/python/requests_mock.md'
-      - Rq: 'coding/python/rq.md'
     - Javascript:
       - Javascript: 'coding/javascript/javascript.md'
     - React:
       - React: 'coding/react/react.md'
     - YAML: 'coding/yaml/yaml.md'
+  - Software Architecture:
+    - SOLID: architecture/solid.md
+    - Domain Driven Design: architecture/domain_driven_design.md
+    - Microservices: architecture/microservices.md
+    - Restful APIS: architecture/restful_apis.md
+    - Redis: 'architecture/redis.md'
   - Data Analysis:
     - Recommender Systems:
       - Recommender Systems: 'data_analysis/recommender_systems/recommender_systems.md'
   - Drawing:
     - Drawing: 'drawing/drawing.md'
     - Exercise Pool: 'drawing/exercise_pool.md'
+  - Writing:
+    - English Grammar and Ortography: 'writing/orthography.md'
   - Emojis: 'emojis.md'
   - Contact: 'contact.md'
 
