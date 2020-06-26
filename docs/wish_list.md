@@ -97,6 +97,11 @@ your own.
 * Movie/serie/music rating self hosted solution that based on your ratings
   discovers new content.
 * Hiking route classifier and rating self hosted web application.
+* A command line friendly personal CRM like
+    [Monica](https://github.com/monicahq/monica) that is able to [register the
+    time length and rating of
+    interactions](https://github.com/monicahq/monica/issues/4186) to do data
+    analysis on my relations.
 * Digital e-ink note taking system that is affordable, self hosted and performs
   character recognition.
 * A way to store music numeric ratings through the command line compatible with
