@@ -4,7 +4,7 @@ date: 20200210
 author: Lyz
 ---
 
-My english writing is not so good, this articles is an effort to gather all my
+My english writing is not so good, this article is an effort to gather all my
 common pitfalls.
 
 # Who vs Whom
@@ -25,3 +25,13 @@ itself. The way we say the word will determine whether or not we use *a* or
 
 If the word begins with a vowel sound, you must use *an*. If it begins with
 a consonant sound, you must use *a*.
+
+# [Comma before and](https://www.grammarly.com/blog/comma-before-and/)
+
+There are two cases:
+
+* It's required to put a comma before and when it’s connecting two independent clauses.
+* It’s [almost always
+    optional](https://www.grammarly.com/blog/what-is-the-oxford-comma-and-why-do-people-care-so-much-about-it/)
+    the use of comma before and in lists. This case is also known as *serial
+    commas* or *Oxford commas*.
