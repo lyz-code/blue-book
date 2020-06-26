@@ -296,10 +296,6 @@
      <lastmod>2020-06-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://lyz-code.github.io/blue-book/coding/python/python_anti_patterns/</loc>
-     <lastmod>2020-06-26</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
      <loc>https://lyz-code.github.io/blue-book/coding/python/alembic/</loc>
      <lastmod>2020-06-26</lastmod>
      <changefreq>daily</changefreq>
@@ -345,6 +341,14 @@
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/coding/python/rq/</loc>
+     <lastmod>2020-06-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/coding/python/python_code_styling/</loc>
+     <lastmod>2020-06-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/coding/python/python_anti_patterns/</loc>
      <lastmod>2020-06-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
