@@ -20,8 +20,7 @@ author: Lyz
 
 * Create the program `setup.py` file
     ```python
-    from setuptools import find_packages
-    from setuptools import setup
+    from setuptools import find_packages, setup
 
     # Get the version from drode/version.py without importing the package
     exec(compile(open('{{ program_name }}/version.py').read(),
