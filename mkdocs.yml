@@ -95,7 +95,6 @@ nav:
           - Load config from YAML: 'coding/python/python_config_yaml.md'
           - Configure SQLAlchemy to use the MariaDB/Mysql backend: 'coding/python/python_project_template/python_sqlalchemy_mariadb.md'
           - Configure Docker and Docker compose to host the application: 'coding/python/python_project_template/python_docker.md'
-      - Anti-Patterns: 'coding/python/python_anti_patterns.md'
       - Libraries:
         - Alembic: 'coding/python/alembic.md'
         - FactoryBoy: 'coding/python/factoryboy.md'
@@ -109,6 +108,8 @@ nav:
         - Redis-py: 'coding/python/redis-py.md'
         - Requests-mock: 'coding/python/requests_mock.md'
         - Rq: 'coding/python/rq.md'
+      - Code Styling: 'coding/python/python_code_styling.md'
+      - Anti-Patterns: 'coding/python/python_anti_patterns.md'
       - Data Classes: 'coding/python/data_classes.md'
       - Pytest: 'coding/python/pytest.md'
     - Javascript:
