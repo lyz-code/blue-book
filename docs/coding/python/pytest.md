@@ -8,6 +8,152 @@ author: Lyz
 easy to write small tests, yet scales to support complex functional testing for
 applications and libraries.
 
+Pytest stands out over other test frameworks in:
+
+* Simple tests are simple to write in pytest.
+* Complex tests are still simple to write.
+* Tests are easy to read.
+* You can get started in seconds.
+* You use `assert` to fail a test, not things like `self.assertEqual()` or
+    `self.assertLessThan()`. Just `assert`.
+* You can use pytest to run tests written for unittest or nose.
+
+# Install
+
+```bash
+pip install pytest
+```
+
+# Usage
+
+Run in the project directory.
+
+```bash
+pytest
+```
+
+If you need more information run it with `-v`.
+
+Pytest automatically finds which tests to run in a phase called *test
+discovery*. It will get the tests that match one of the following conditions:
+
+* Test files that are named `test_{{ something }}.py` or `{{ something }}_test.py`.
+* Test methods and functions named `test_{{ something }}`.
+* Test classes named `Test{{ Something }}`.
+
+There are several possible outcomes of a test function:
+
+* *PASSED (.)*: The test ran successfully.
+* *FAILED (F)*: The test did not run usccessfully (or *XPASS* + strict).
+* *SKIPPED (s)*: The test was skipped. You can tell pytest to skip a test by
+    using enter the `@pytest.mark.skip()` or `pytest.mark.skipif()` decorators.
+* *xfail (x)*: The test was not supposed to pass, ran, and failed. You can tell
+    pytest that a test is expected to fail by using the `@pytest.mark.xfail()`
+    decorator.
+* *XPASS (X)*: The tests was not supposed to pass, ran, and passed.
+* *ERROR (E)*: An exception happened outside of the test function, in either
+    a fixture or a hook function.
+
+Pytest supports several cool flags like:
+
+* `-k EXPRESSION`: Used to select a subset of tests to run. For example `pytest
+    -k "asdict or defaults"` will run both `test_asdict()` and
+    `test_defaults()`.
+* `--lf` or `--last-failed`: Just run the tests that have failed in the previous
+    run.
+* `-x`, or `--exitfirst`: Exit on first failed test.
+* `-l` or `--showlocals`: Print out the local variables in a test if the test
+    fails.
+- `-s` Allows any output that normally would be printed to `stdout` to actually
+    be printed to `stdout`. It's an alias of `--capture=no`, so the output is
+    not captured when the tests are run, which is the default behavior. This is
+    useful to debug with `print()` statements.
+- `--durations=N`: It reports the slowest `N` number of tests/setups/teardowns
+    after the test run. If you pass in `--durations=0`, it reports everything in
+    order of slowest to fastest.
+
+## Parametrized testing
+
+Parametrized testing is a way to send multiple sets of data through the same
+test and have pytest report if any of the sets failed.
+
+!!! note "File tests/unit/test_func.py"
+    ```python
+    tasks_to_try = (
+        Task('sleep', done=True),
+        Task('wake', 'brian'),
+        Task('wake', 'brian'),
+        Task('breathe', 'BRIAN', True),
+        Task('exercise', 'BrIaN', False),
+    )
+
+    task_ids = [
+        f'Task({task.summary}, {task.owner}, {task.done})'
+        for task in tasks_to_try
+    ]
+
+    @pytest.mark.parametrize('task', tasks_to_try, ids=task_ids)
+    def test_add_4(task):
+        task_id = tasks.add(task)
+        t_from_db = tasks.get(task_id)
+        assert equivalent(t_from_db, task)
+
+    ```
+
+```bash
+$ pytest -v test_func.py::test_add_4
+===================== test session starts ======================
+collected 5 items
+
+test_add_variety.py::test_add_4[Task(sleep,None,True)] PASSED
+test_add_variety.py::test_add_4[Task(wake,brian,False)0] PASSED
+test_add_variety.py::test_add_4[Task(wake,brian,False)1] PASSED
+test_add_variety.py::test_add_4[Task(breathe,BRIAN,True)] PASSED
+test_add_variety.py::test_add_4[Task(exercise,BrIaN,False)] PASSED
+
+=================== 5 passed in 0.04 seconds ===================
+```
+
+Those identifiers can be used to run that specific test. For example `pytest -v
+"test_func.py::test_add_4[Task(breathe,BRIAN,True)]"`.
+
+`parametrize()` can be applied to classes as well.
+
+If the test id can't be derived from the parameter value, use the `id` argument
+for the `pytest.param`:
+
+```python
+@pytest.mark.parametrize('task', [
+    pytest.param(Task('create'), id='just summary'),
+    pytest.param(Task('inspire', 'Michelle'), id='summary/owner'),
+])
+def test_add_6(task):
+    ...
+```
+
+Will yield:
+
+```bash
+$ pytest-v test_add_variety.py::test_add_6
+
+=================== test session starts ====================
+collected 2 items
+
+test_add_variety.py::test_add_6[justsummary]PASSED
+test_add_variety.py::test_add_6[summary/owner]PASSED
+
+================= 2 passed in 0.05 seconds =================
+```
+
+# Snippets
+
+## [Mocking sys.exit](https://medium.com/python-pandemonium/testing-sys-exit-with-pytest-10c6e5f7726f)
+
+```python
+with pytest.raises(SystemExit):
+    # Code to test
+```
+
 # pytest integration with Vim
 
 Integrating pytest into your Vim workflow enhances your productivity while
@@ -39,14 +185,10 @@ my `<leader>`). And finally I use `;i` to run the integration tests.
 Finally, if the test suite is huge, I use `;T` to run only the tests of a single
 file.
 
-# [Mocking sys.exit](https://medium.com/python-pandemonium/testing-sys-exit-with-pytest-10c6e5f7726f)
-
-```python
-with pytest.raises(SystemExit):
-    # Code to test
-```
 
 # Reference
 
+* Book [Python Testing with pytest by Brian Okken](https://www.oreilly.com/library/view/python-testing-with/9781680502848/).
 * [Docs](https://docs.pytest.org/en/latest/)
+
 * [Vim-test plugin](https://github.com/janko-m/vim-test)
