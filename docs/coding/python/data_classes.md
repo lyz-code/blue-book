@@ -187,7 +187,7 @@ parameters:
 
 ## Type hints
 
-They support [typing](https://realpython.com/python-type-checking/) out of the
+They support [typing](python_code_styling.md#type-hints) out of the
 box. Without a type hint, the field will not be a part of the data class.
 
 While you need to add type hints in some form when using data classes, these
@@ -199,7 +199,7 @@ language](https://www.python.org/dev/peps/pep-0484/#non-goals).
 
 Same as with a normal class.
 
-## Adding complex comparison logic
+## Adding complex order comparison logic
 
 ```python
 from dataclasses import dataclass
