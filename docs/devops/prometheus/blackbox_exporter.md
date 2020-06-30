@@ -361,7 +361,7 @@ Blackbox probe failed.
       severity: error
     annotations:
       summary: "Blackbox probe failed (instance {{ $labels.target }})"
-      description: "Probe failed\n  VALUE = {{ $value }}"
+      message: "Probe failed\n  VALUE = {{ $value }}"
       grafana: "{{ grafana_url }}&var-targets={{ $labels.target }}"
       prometheus: "{{ prometheus_url }}/graph?g0.expr=probe_success+%3D%3D+0&g0.tab=1"
 ```
@@ -385,7 +385,7 @@ HTTP status code is not 200-399.
       severity: error
     annotations:
       summary: "Blackbox probe HTTP failure (instance {{ $labels.target }})"
-      description: "HTTP status code is not 200-399\n  VALUE = {{ $value }}"
+      message: "HTTP status code is not 200-399\n  VALUE = {{ $value }}"
       grafana: "{{ grafana_url }}&var-targets={{ $labels.target }}"
       prometheus: "{{ prometheus_url }}/graph?g0.expr=probe_ssl_earliest_cert_expiry+-+time%28%29+%3C+86400+%2A+30&g0.tab=1"
 ```
@@ -404,7 +404,7 @@ Blackbox probe took more than 1s to complete.
       severity: warning
     annotations:
       summary: "Blackbox slow probe (target {{ $labels.target }})"
-      description: "Blackbox probe took more than 1s to complete\n  VALUE = {{ $value }}"
+      message: "Blackbox probe took more than 1s to complete\n  VALUE = {{ $value }}"
       grafana: "{{ grafana_url }}&var-targets={{ $labels.target }}"
       prometheus: "{{ prometheus_url }}/graph?g0.expr=avg_over_time%28probe_duration_seconds%5B1m%5D%29+%3E+1&g0.tab=1"
 ```
@@ -428,7 +428,7 @@ HTTP request took more than 1s.
       severity: warning
     annotations:
       summary: "Blackbox probe slow HTTP (instance {{ $labels.target }})"
-      description: "HTTP request took more than 1s\n  VALUE = {{ $value }}"
+      message: "HTTP request took more than 1s\n  VALUE = {{ $value }}"
       grafana: "{{ grafana_url }}&var-targets={{ $labels.target }}"
       prometheus: "{{ prometheus_url }}/graph?g0.expr=avg_over_time%28probe_http_duration_seconds%5B1m%5D%29+%3E+1&g0.tab=1"
 ```
@@ -452,7 +452,7 @@ Blackbox ping took more than 1s.
       severity: warning
     annotations:
       summary: "Blackbox probe slow ping (instance {{ $labels.target }})"
-      description: "Blackbox ping took more than 1s\n  VALUE = {{ $value }}"
+      message: "Blackbox ping took more than 1s\n  VALUE = {{ $value }}"
       grafana: "{{ grafana_url }}&var-targets={{ $labels.target }}"
       prometheus: "{{ prometheus_url }}/graph?g0.expr=avg_over_time%28probe_icmp_duration_seconds%5B1m%5D%29+%3E+1&g0.tab=1"
 ```
@@ -471,7 +471,7 @@ SSL certificate expires in 30 days.
       severity: warning
     annotations:
       summary: "Blackbox SSL certificate will expire soon (instance {{ $labels.target }})"
-      description: "SSL certificate expires in 30 days\n  VALUE = {{ $value }}"
+      message: "SSL certificate expires in 30 days\n  VALUE = {{ $value }}"
       grafana: "{{ grafana_url }}&var-targets={{ $labels.target }}"
       prometheus: "{{ prometheus_url }}/graph?g0.expr=probe_ssl_earliest_cert_expiry+-+time%28%29+%3C+86400+%2A+30&g0.tab=1"
 ```
@@ -488,7 +488,7 @@ SSL certificate expires in 3 days.
       severity: error
     annotations:
       summary: "Blackbox SSL certificate will expire soon (instance {{ $labels.target }})"
-      description: "SSL certificate expires in 3 days\n  VALUE = {{ $value }}"
+      message: "SSL certificate expires in 3 days\n  VALUE = {{ $value }}"
       grafana: "{{ grafana_url }}&var-targets={{ $labels.target }}"
       prometheus: "{{ prometheus_url }}/graph?g0.expr=probe_ssl_earliest_cert_expiry+-+time%28%29+%3C+86400+%2A+3&g0.tab=1"
 ```
@@ -505,7 +505,7 @@ SSL certificate has expired already.
       severity: error
     annotations:
       summary: "Blackbox SSL certificate expired (instance {{ $labels.target }})"
-      description: "SSL certificate has expired already\n  VALUE = {{ $value }}"
+      message: "SSL certificate has expired already\n  VALUE = {{ $value }}"
       grafana: "{{ grafana_url }}&var-targets={{ $labels.target }}"
       prometheus: "{{ prometheus_url }}/graph?g0.expr=probe_ssl_earliest_cert_expiry+-+time%28%29+%3C%3D+0&g0.tab=1"
 ```
@@ -541,7 +541,7 @@ the target name.
       severity: error
     annotations:
       summary: "VPN protection was removed from (instance {{ $labels.target }})"
-      description: "Successful probe to the endpoint from outside the internal network"
+      message: "Successful probe to the endpoint from outside the internal network"
       grafana: "{{ grafana_url }}&var-targets={{ $labels.target }}"
       prometheus: "{{ prometheus_url }}/graph?g0.expr=probe_ssl_earliest_cert_expiry+-+time%28%29+%3C%3D+0&g0.tab=1"
 ```
@@ -560,7 +560,7 @@ the target name.
       severity: error
     annotations:
       summary: "SSL client certificate protection was removed from (instance {{ $labels.target }})"
-      description: "Successful probe to the endpoint without SSL certificate"
+      message: "Successful probe to the endpoint without SSL certificate"
       grafana: "{{ grafana_url }}&var-targets={{ $labels.target }}"
       prometheus: "{{ prometheus_url }}/graph?g0.expr=probe_ssl_earliest_cert_expiry+-+time%28%29+%3C%3D+0&g0.tab=1"
 ```
@@ -579,7 +579,7 @@ the target name.
       severity: error
     annotations:
       summary: "Credentials protection was removed from (instance {{ $labels.target }})"
-      description: "Successful probe to the endpoint without credentials"
+      message: "Successful probe to the endpoint without credentials"
       grafana: "{{ grafana_url }}&var-targets={{ $labels.target }}"
       prometheus: "{{ prometheus_url }}/graph?g0.expr=probe_ssl_earliest_cert_expiry+-+time%28%29+%3C%3D+0&g0.tab=1"
 ```
@@ -597,7 +597,7 @@ attacking the service and set the `-fail-without-waf` key in the target name.
       severity: error
     annotations:
       summary: "WAF protection was removed from (instance {{ $labels.target }})"
-      description: "Successful probe to the haproxy endpoint from the internal network (bypassed the WAF)"
+      message: "Successful probe to the haproxy endpoint from the internal network (bypassed the WAF)"
       grafana: "{{ grafana_url }}&var-targets={{ $labels.target }}"
       prometheus: "{{ prometheus_url }}/graph?g0.expr=probe_ssl_earliest_cert_expiry+-+time%28%29+%3C%3D+0&g0.tab=1"
 ```
@@ -615,7 +615,7 @@ and set the `-fail-read-object` key in the target name.
       severity: error
     annotations:
       summary: "Wrong read permissions on S3 bucket (instance {{ $labels.target }})"
-      description: "Successful read of a private object with an unauthenticated user"
+      message: "Successful read of a private object with an unauthenticated user"
       grafana: "{{ grafana_url }}&var-targets={{ $labels.target }}"
       prometheus: "{{ prometheus_url }}/graph?g0.expr=probe_ssl_earliest_cert_expiry+-+time%28%29+%3C%3D+0&g0.tab=1"
 ```
@@ -634,7 +634,7 @@ target name.
       severity: error
     annotations:
       summary: "Wrong write permissions on S3 bucket (instance {{ $labels.target }})"
-      description: "Successful write of a private object with an unauthenticated user"
+      message: "Successful write of a private object with an unauthenticated user"
       grafana: "{{ grafana_url }}&var-targets={{ $labels.target }}"
       prometheus: "{{ prometheus_url }}/graph?g0.expr=probe_ssl_earliest_cert_expiry+-+time%28%29+%3C%3D+0&g0.tab=1"
 ```
