@@ -119,7 +119,9 @@ nav:
     - YAML: 'coding/yaml/yaml.md'
   - Software Architecture:
     - SOLID: architecture/solid.md
-    - Domain Driven Design: architecture/domain_driven_design.md
+    - Domain Driven Design:
+      - Domain Driven Design: architecture/domain_driven_design.md
+      - Repository Pattern: architecture/repository_pattern.md
     - Microservices: architecture/microservices.md
     - Restful APIS: architecture/restful_apis.md
     - Redis: 'architecture/redis.md'
