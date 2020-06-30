@@ -16,6 +16,13 @@ helm ls
 helm inspect {{ package_name }}
 ```
 
+# List all the available versions of a chart
+
+```bash
+helm search -l {{ package_name }}
+```
+
+
 # Download a chart
 ```bash
 helm fetch {{ package_name }}
