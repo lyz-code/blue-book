@@ -75,7 +75,7 @@ helmfile diff
 helmfile apply
 ```
 
-# Node exporter alerts
+# [Node exporter alerts](https://awesome-prometheus-alerts.grep.to/rules)
 
 Now that we've got the metrics, we can define the [alert
 rules](alertmanager.md#alert-rules). Most have been tweaked from the [Awesome
@@ -421,7 +421,7 @@ Different kernel versions are running.
     grafana: "{{ grafana_url}}?var-job=node_exporter&var-hostname=All&var-node={{ $labels.instance }}"
 ```
 
-## 2.21. Host OOM kill detected
+## Host OOM kill detected
 
 OOM kill detected
 
@@ -472,4 +472,5 @@ printf "%.0f" $value }}` transmit errors in the last five minutes.
 # References
 
 * [Git](https://github.com/prometheus/node_exporter)
-* [Prometheus guide](https://prometheus.io/docs/guides/node-exporter/)
+* [Prometheus node exporter guide](https://prometheus.io/docs/guides/node-exporter/)
+* [Node exporter alerts](https://awesome-prometheus-alerts.grep.to/rules)
