@@ -10,13 +10,15 @@ abstraction over persistent storage, allowing us to decouple our model layer
 from the data layer. It hides the boring details of data access by pretending
 that all of our data is in memory.
 
-[![](../images/ddd_repository_pattern.png)](https://www.cosmicpython.com/book/chapter_02_repository.html)
+[![Repository Pattern Diagram](../images/ddd_repository_pattern.png)](https://www.cosmicpython.com/book/chapter_02_repository.html)
 
 !!! note "TL;DR"
     If your app is just a simple CRUD (create-rad-update-delete) wrapper around
-    a database, then you don't need a domain model or a repository. But the more
-    complex the domain, the more an investment in freeing yourself from
-    infrastructure concerns will pay off in terms of the ease of making changes.
+    a database, then you don't need a domain model or a repository.
+
+    But the more complex the domain, the more an investment in freeing yourself
+    from infrastructure concerns will pay off in terms of the ease of making
+    changes.
 
 Advantages:
 
