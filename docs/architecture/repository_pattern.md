@@ -55,7 +55,7 @@ Disadvantages:
     unit tests or our ability to make changes. So we'll have an *onion
     architecture*.
 
-    [![Onion architecture](../../images/ddd_onion_architecture.png)](https://www.cosmicpython.com/book/chapter_02_repository.html)
+    [![Onion architecture](../../images/ddd_architecture.png)](https://www.cosmicpython.com/book/chapter_02_repository.html)
 
     If you follow the typical SQLAlchemy tutorial, you'll end up with
     a "declarative" syntax where the model tightly depends on the ORM. The
