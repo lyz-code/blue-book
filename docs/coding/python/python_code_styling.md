@@ -4,6 +4,17 @@ date: 20200626
 author: Lyz
 ---
 
+# [Black code style](https://black.readthedocs.io)
+
+[Black](https://black.readthedocs.io/en/stable/) is a python code formatter made
+right.
+
+There are two non exclusive ways to use Black:
+
+* Integrate it in your editor, so it's executed each time you save the file.
+* Through a pre-commit hook to ensure that all the collaborator submit correctly
+    formatted code.
+
 # [Type hints](https://realpython.com/python-type-checking/#type-systems)
 
 Traditionally, types have been handled by the Python interpreter in a flexible
@@ -107,25 +118,6 @@ For example to define the hint types of list, dictionaries and tuples:
 If your function expects some king of sequence but don't care whether it's
 a list or a tuple, use the `typing.Sequence` object.
 
-### Type aliases
-
-Type hints might become oblique when working with nested types. Annotations are
-regular Python expressions, so it's easy to define type aliases and assigning
-them to new variables.
-
-```python
-from typing import List, Tuple
-
-Card = Tuple[str, str]
-Deck = List[Card]
-
-def deal_hands(deck: Deck) -> Tuple[Deck, Deck, Deck, Deck]:
-
-    """Deal the cards in the deck into four hands"""
-
-    return (deck[0::4], deck[1::4], deck[2::4], deck[3::4])
-```
-
 ### Functions without return values
 
 Some functions aren't meant to return anything. Use the `-> None` hint in these
@@ -156,6 +148,103 @@ def black_hole() -> NoReturn:
     This is just the first iteration of the synoptical reading of the full [Real python article on type
     checking](https://realpython.com/python-type-checking/#type-systems). If you
     are interested in this topic, keep on reading there.
+
+### Optional arguments
+
+A common pattern is to use `None` as a default value for an argument. This is
+usually done either to avoid problems with [mutable default
+values](python_anti_patterns.md#mutable-default-arguments) or to have a sentinel
+value flagging special behavior.
+
+This creates a challenge for type hinting as the argument may be of type string
+(for example) but it can also be `None`. We use the `Optional` type to address
+this case.
+
+```python
+from typing import Optional
+
+def player(name: str, start: Optional[str] = None) -> str:
+    ...
+```
+
+An equivalent way would be using `Union[None, str]`.
+
+### [Allow any subclass](https://mypy.readthedocs.io/en/stable/kinds_of_types.html#union-types)
+
+It's not yet supported, so the expected format
+
+```python
+class A:
+    pass
+
+class B(A):
+    pass
+
+def process_any_subclass_type_of_A(cls: A):
+    pass
+
+process_any_subclass_type_of_A(B)
+```
+
+Will fail with `error: Argument 1 to "process_any_subclass_type_of_A" has
+incompatible type "Type[B]"; expected "A"`.
+
+The solution is to use the `Union` operator:
+
+```python
+class A:
+    pass
+
+class B(A):
+    pass
+
+class C(A):
+    pass
+
+def process_any_subclass_type_of_A(cls: Union[B,C]):
+    pass
+```
+
+### Type aliases
+
+Type hints might become oblique when working with nested types. Annotations are
+regular Python expressions, so it's easy to define type aliases and assigning
+them to new variables.
+
+```python
+from typing import List, Tuple
+
+Card = Tuple[str, str]
+Deck = List[Card]
+
+def deal_hands(deck: Deck) -> Tuple[Deck, Deck, Deck, Deck]:
+
+    """Deal the cards in the deck into four hands"""
+
+    return (deck[0::4], deck[1::4], deck[2::4], deck[3::4])
+```
+
+This can be useful when you need lists of subclasses or optional list of
+subclasses. The expected behavior doesn't work.
+
+```python
+Entity = Union[model.Project, model.Tag, model.Task]
+Entities = List[Entity]
+```
+
+Instead, you need to use:
+
+```python
+Entities = Union[List[model.Project], List[model.Tag], List[model.Task]]
+OptionalEntities = Union[
+    Optional[List[model.Project]],
+    Optional[List[model.Tag]],
+    Optional[List[model.Task]]
+]
+```
+
+Ugly, but with aliases is mitigated.
+
 
 ## [Using mypy with an existing codebase](https://mypy.readthedocs.io/en/latest/existing_code.html)
 
