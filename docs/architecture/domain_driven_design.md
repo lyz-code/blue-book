@@ -34,9 +34,9 @@ They are avoided through:
     identifying a task that needs to be done in our code and giving that task to
     an abstraction, a well defined object or function.
 
-    Encapsulating behavior with abstractions is a powerful tool for hiding
-    details and protecting the consistency of our data thus making code
-    more expressive, more testable and easier to maintain.
+    Encapsulating behavior with abstractions is a powerful decoupling tool by
+    hiding details and protecting the consistency of our data, making code more
+    expressive, more testable and easier to maintain.
 
 * *Layering*: When one function, module or object uses another, we say that one
     *depends on* the other creating a dependency graph. In the big ball of mud
@@ -74,13 +74,21 @@ To successfully build a domain model we need to:
     Have an initial conversation with the business expert and agree on
     a glossary and some rules for the first minimal version of the domain model.
     Wherever possible, ask for concrete examples to illustrate each rule.
-* [*Unit testing domain models*](https://www.cosmicpython.com/book/chapter_01_domain_model.html#_unit_testing_domain_models):
-    Translate each of the rules gathered in the exploration phase into tests. The name
-    of our unit tests should describe the behaviour that we want to see from the
-    system. Then select the [domain modeling object](#domain-modeling-objects)
-    that matches the behaviour to test. The names of the classes, methods,
-    functions and variables should be taken from the business jargon.
-* Write the minimum code to meet the tests.
+* [*Testing the domain models*](https://www.cosmicpython.com/book/chapter_01_domain_model.html#_unit_testing_domain_models):
+    Translate each of the rules gathered in the exploration phase into tests.
+    Keeping in mind:
+
+    * The name of our tests should describe the behaviour that we want to see
+        from the system.
+
+    * The test level in the testing pyramid should be chosen following the [high and
+    low gear metaphor](tdd.md#tdd-in-high-gear-and-low-gear).
+
+* *Code the [domain modeling object](#domain-modeling-objects)*:
+    Choose the objects that match the behavior you are testing keeping in mind:
+
+    * The names of the classes, methods, functions and variables should be taken
+        from the business jargon.
 
 ## Domain modeling objects
 
@@ -156,9 +164,8 @@ To successfully build a domain model we need to:
     `__eq__` is [tricky
     business](https://hynek.me/articles/hashes-and-equality/).
 
-* *Service*: Holds operations that don't conceptually belong to any object. We
-    can take advantage of the fact that Python is a multiparadigm language to
-    make it a function.
+* *Service*: Functions that hold operations that don't conceptually belong to any object. We
+    take advantage of the fact that Python is a multiparadigm language.
 
 * *Exceptions*: Hold constrains imposed over the objects by the business.
 
@@ -171,9 +178,43 @@ need to build persistence-ignorant code that uses stable APIs around our domain
 This is achieved through these design patterns:
 
  * [*Repository pattern*](repository_pattern.md): An abstraction over the idea of persistent storage.
- * *Service Layer pattern*: Clearly define where our use case begins and ends.
+ * [*Service Layer pattern*](service_layer_pattern.md): Clearly define where our
+     use case begins and ends.
  * *Unit of work pattern*: Provides atomic operations.
  * *Aggregate pattern*: Enforces integrity of our data.
+
+# Unconnected thoughts
+
+## Domain model refactor
+
+Refactoring an existing project into the domain driven design architecture is
+not a nice task, These are the steps I've followed:
+
+* If the domain models are coupled with the ORM, [build a basic
+repository](repository_pattern.md) that makes the ORM dependent on the model.
+For the first version, ignore the relations between the
+models, just implement the `.add` and `.get` methods to persist and read the
+models from the persistent storage solution.
+* Create a `FakeRepository` with similar functionality to start building the
+    Service Layer.
+* Inspect the entrypoints of your program and for each orchestration action
+    create a service (always tests first).
+
+## Building blocks
+
+* *Aggregate*: A collection of objects that are bound together by a root entity,
+    otherwise known as an aggregate root. The aggregate root guarantees the
+    consistency of changes being made within the aggregate by forbidding
+    external objects from holding references to it's members.
+* *Domain Event*: A domain object that defines an event.
+* *Repository*: Methods for retrieving domain objects should delegate to
+    a specialized Repository object such that alternative storage
+    implementations may be easily interchanged.
+* *Factory*: Methods for creating domain objects should delegate to
+    a specialized Factory object such that alternative implementations may be
+    easily interchanged.
+
+[![ddd architecture image](../images/ddd_architecture.png)](https://www.cosmicpython.com/book/part1.html)
 
 # References
 
@@ -183,6 +224,8 @@ This is achieved through these design patterns:
 * [Wikipedia article](https://en.wikipedia.org/wiki/Domain-driven_design)
 
 # Further reading
+
+* [awesome domain driven design](https://github.com/ddd-crew/free-ddd-learning-resources)
 
 ## Books
 
