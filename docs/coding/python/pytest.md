@@ -144,6 +144,77 @@ test_add_variety.py::test_add_6[summary/owner]PASSED
 
 ================= 2 passed in 0.05 seconds =================
 ```
+### [Parametrize fixture arguments](https://docs.pytest.org/en/latest/example/parametrize.html#apply-indirect-on-particular-arguments)
+Sometimes is interesting to parametrize the arguments of a fixture. For example,
+imagine that we've got two fixtures to generate test data, then when the test is
+run, it must call the correct fixture for each case.
+
+```python
+@pytest.fixture
+def insert_task():
+    task = factories.TaskFactory.create()
+
+    session.execute(
+        'INSERT INTO task (id, description, state, type)'
+        'VALUES ('
+        f'"{task.id}", "{task.description}", "{task.state}", "task"'
+        ')'
+    )
+
+    return task
+
+
+@pytest.fixture
+def insert_project(session):
+    project = factories.ProjectFactory.create()
+
+    session.execute(
+        'INSERT INTO project (id, description)'
+        f'VALUES ("{project.id}", "{project.description}")'
+    )
+
+    return project
+```
+
+We can create a fixture that uses both and returns the correct one based on an
+argument that is given.
+
+```python
+@pytest.fixture
+def insert_object(
+    request,
+    insert_task,
+    insert_project
+):
+    if request.param == 'insert_task':
+        return insert_task
+    elif request.param == 'insert_project':
+        return insert_project
+
+@pytest.mark.parametrize(
+    'table,insert_object',
+    [
+        ('task', 'insert_task'),
+        ('project', 'insert_project'),
+    ]
+    models_to_try,
+    indirect=['insert_object'],
+)
+def test_repository_can_retrieve_an_object(
+    self,
+    session,
+    table,
+    insert_object,
+):
+    expected_obj = insert_object
+
+    repo = repository.SqlAlchemyRepository(session)
+    retrieved_obj = repo.get(table, expected_obj.id)
+
+    assert retrieved_obj == expected_obj
+    # Task.__eq__ only compares reference
+    assert retrieved_obj.description == expected_obj.description
+```
 
 # Snippets
 

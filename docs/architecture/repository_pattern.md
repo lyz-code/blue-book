@@ -70,15 +70,15 @@ Disadvantages:
 
     metadata = MetaData()
 
-    tasks = Table(
-        'tasks', metadata,
+    task = Table(
+        'task', metadata,
         Colum('id', Integer, primary_key=True, autoincrement=True),
         Column('description', String(255)),
         Column('priority', Integer, nullable=False),
     )
 
     def start_mappers():
-        tasks_mapper = mapper(model.Task, tasks)
+        task_mapper = mapper(model.Task, task)
     ```
 
     The end result is be that, if we call `start_mappers`, we will be able to
@@ -93,7 +93,7 @@ Disadvantages:
     ```python
     def test_task_mapper_can_load_tasks(session):
         session.execute(
-            'INSERT INTO tasks (description, priority) VALUES'
+            'INSERT INTO task (description, priority) VALUES'
             '("First task", 3),'
             '("Urgent task", 5),'
         )
@@ -110,8 +110,8 @@ Disadvantages:
         session.add(new_task)
         session.commit()
 
-        rows = list(session.execute('SELECT description, priority FROM "tasks"'))
-        assert rows = [("First task", 3)]
+        rows = list(session.execute('SELECT description, priority FROM "task"'))
+        assert rows == [("First task", 3)]
     ```
 
 The simplest repository has just two methods: `add()` to put a new item in the
@@ -120,11 +120,13 @@ these methods for data access in our domain and our service layers.
 
 ```python
 import abc
+import model
+
 
 class AbstractRepository(abc.ABC):
 
     @abc.abstractmethod
-    def add(self, batch: model.Task):
+    def add(self, task: model.Task):
         raise NotImplementedError
 
     @abc.abstractmethod
