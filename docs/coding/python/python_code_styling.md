@@ -6,14 +6,11 @@ author: Lyz
 
 # [Black code style](https://black.readthedocs.io)
 
-[Black](https://black.readthedocs.io/en/stable/) is a python code formatter made
-right.
+[Black](python_ci.md#black) is a style guide enforcement tool.
 
-There are two non exclusive ways to use Black:
+# [Flake8](https://flake8.pycqa.org/)
 
-* Integrate it in your editor, so it's executed each time you save the file.
-* Through a pre-commit hook to ensure that all the collaborator submit correctly
-    formatted code.
+[Flake8](python_ci.md#flake8) is another style guide enforcement tool.
 
 # [Type hints](https://realpython.com/python-type-checking/#type-systems)
 
@@ -267,7 +264,7 @@ These steps will get you started with `mypy` on an existing codebase:
     * Specify mypy config file or command-line options.
     * Provide set of files to type check. You may want to implement inclusion
         and exclusion filters for full control of the file list.
-* [Run mypy in Continuous Integration to prevent type errors](https://mypy.readthedocs.io/en/latest/existing_code.html#continuous-integration):
+* [Run mypy in Continuous Integration to prevent type errors](python_ci.md#mypy):
 
     Once you have a clean mypy run and a runner script for a part of your
     codebase, set up your Continuous Integration (CI) system to run mypy to
