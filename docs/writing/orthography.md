@@ -7,6 +7,22 @@ author: Lyz
 My english writing is not so good, this article is an effort to gather all my
 common pitfalls.
 
+# [When to write Apostrophes before an s](https://www.grammarly.com/blog/apostrophe/)
+
+* For most singular nouns, add `apostrophe + s`: *The writer's desk*.
+* For most plural nouns, add `apostrophe`: *The writers' desk* (multiple writers).
+* For plural nouns that do not end in s, add `apostrophe + s`: *The geese's
+    migration route*.
+* For singular proper nouns both `apostrophe` and `apostrophe + s` is accepted,
+    but as the plural proper nouns ending in s, the correct form is `apostrophe`
+    I'd use that for both, so: *Charles Dickens' novels* and *The
+    Smiths' vacation*.
+
+The personal pronouns, do *not* have apostrophes to form possessives, this means
+that *your*, *yours*, *hers*, *its*, *ours*, *their*, *whose*, and *theirs*. In
+fact, for some of these pronouns, adding an apostrophe forms a contraction
+instead of a possessive.
+
 # Who vs Whom
 
 If you can replace the word with *she* or *he*, use *who*. If you can replace it
