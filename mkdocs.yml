@@ -103,6 +103,7 @@ nav:
         - FactoryBoy: 'coding/python/factoryboy.md'
         - Faker: 'coding/python/faker.md'
         - Flask: 'coding/python/flask.md'
+        - Folium: 'coding/python/folium.md'
         - Feedparser: 'coding/python/feedparser.md'
         - Pandas: 'coding/python/pandas.md'
         - Plotly: 'coding/python/plotly.md'
