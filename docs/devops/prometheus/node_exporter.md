@@ -30,7 +30,14 @@ configuration. It can be added in the helm chart values.yaml under the key
           - region: us-east-1
             port: 9100
             refresh_interval: 1m
+        relabel_configs:
+          - source_labels: ['__meta_ec2_tag_Name', '__meta_ec2_private_ip']
+            separator: ':'
+            target_label: instance
 ```
+
+The `relabel_configs` part will substitute the `instance` label of each target
+from `{{ instance_ip }}:9100` to `{{ instance_name }}:{{ instance_ip }}`.
 
 If the worker nodes already have an IAM role with the `ec2:DescribeInstances`
 permission there is no need to specify the `role_arn` or `access_keys` and
