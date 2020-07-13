@@ -241,6 +241,17 @@ Pre-commit comes with several tests by default. These are the ones I've chosen.
         - id: check-docstring-first
         - id: check-merge-conflict
         - id: end-of-file-fixer
+        - id: detect-private-key
+    ```
+
+Test yaml syntax
+
+!!! note "File: .pre-commit-config.yaml"
+    ```yaml
+    - repo: https://github.com/adrienverge/yamllint
+      rev: v1.21.0
+      hooks:
+        - id: yamllint
     ```
 
 # Unit, integration, end-to-end, edge-to-edge tests

@@ -45,3 +45,7 @@ enhancements to be applied:
     application](python_docker.md)
 * [Load config from YAML](python_config_yaml.md)
 * [Configure a Flask project](python_flask_template.md)
+
+# References
+
+* [ionel packaging a python library post](https://blog.ionelmc.ro/2014/05/25/python-packaging/)

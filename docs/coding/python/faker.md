@@ -22,10 +22,23 @@ Or add it to the project `requirements.txt`.
 
 # Use
 
+`Faker` includes a `faker` fixture for pytest.
+
+```python
+def test_faker(faker):
+    assert isinstance(faker.name(), str)
+```
+
 ## Generate fake number
 
 ```python
 fake.random_number()
+```
+
+If you want to specify max and min values use:
+
+```python
+faker.pyint(min_value=0, max_value=99)
 ```
 
 ## Generate a fake dictionary
@@ -41,6 +54,12 @@ Where `*value_types` can be `'str', 'list'`
 
 ```python
 fake.date_time()
+```
+
+## [Generate a random string](https://faker.readthedocs.io/en/master/providers/faker.providers.python.html#faker.providers.python.Provider.pystr)
+
+```python
+faker.pystr()
 ```
 
 # References

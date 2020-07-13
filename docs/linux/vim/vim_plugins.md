@@ -30,3 +30,17 @@ encounter the error `AttributeError: module 'black' has no attribute
 cd ~/.vim/bundle/black
 git checkout 19.10b0
 ```
+
+As the default line length is 88 (ugly number by the way), we need to change the
+indent, python-mode configuration as well
+
+```vimrc
+
+"" python indent
+autocmd BufNewFile,BufRead *.py setlocal foldmethod=indent tabstop=4 softtabstop=4 shiftwidth=4 textwidth=88 smarttab expandtab
+
+" python-mode
+let g:pymode_options_max_line_length = 88
+let g:pymode_lint_options_pep8 = {'max_line_length': g:pymode_options_max_line_length}
+```
+
