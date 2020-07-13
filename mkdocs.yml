@@ -59,6 +59,7 @@ nav:
       - Prometheus Troubleshooting: 'devops/prometheus/prometheus_troubleshooting.md'
     - Linux:
       - brew: 'linux/brew.md'
+      - cookiecutter: 'linux/cookicutter.md'
       - fail2ban: 'linux/fail2ban.md'
       - google chrome: 'linux/google_chrome.md'
       - hypothesis: 'linux/hypothesis.md'
