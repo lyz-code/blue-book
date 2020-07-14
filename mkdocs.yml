@@ -22,8 +22,8 @@ nav:
               - Pods: 'devops/kubernetes/kubernetes_pods.md'
               - ReplicaSets: 'devops/kubernetes/kubernetes_replicasets.md'
               - Deployments: 'devops/kubernetes/kubernetes_deployments.md'
-              - Horizontal Pod Autoscaling: |
-                  'devops/kubernetes/kubernetes_hpa.md'
+              - Horizontal Pod Autoscaling: >-
+                  devops/kubernetes/kubernetes_hpa.md
               - Volumes: 'devops/kubernetes/kubernetes_volumes.md'
               - Services: 'devops/kubernetes/kubernetes_services.md'
               - Labels: 'devops/kubernetes/kubernetes_labels.md'
@@ -35,15 +35,15 @@ nav:
               - Kubectl Installation: 'devops/kubectl/kubectl_installation.md'
           - Additional Components:
               - Metrics Server: 'devops/kubernetes/kubernetes_metric_server.md'
-              - Ingress Controller: |
-                  'devops/kubernetes/kubernetes_ingress_controller.md'
+              - Ingress Controller: >-
+                  devops/kubernetes/kubernetes_ingress_controller.md
               - External DNS: 'devops/kubernetes/kubernetes_external_dns.md'
-              - Cluster Autoscaler: |
-                  'devops/kubernetes/kubernetes_cluster_autoscaler.md'
+              - Cluster Autoscaler: >-
+                  devops/kubernetes/kubernetes_cluster_autoscaler.md
               - Dashboard: 'devops/kubernetes/kubernetes_dashboard.md'
               - Storage Driver: 'devops/kubernetes/kubernetes_storage_driver.md'
-              - Vertical Pod Autoscaler: |
-                  'devops/kubernetes/kubernetes_vertical_pod_autoscaler.md'
+              - Vertical Pod Autoscaler: >-
+                  devops/kubernetes/kubernetes_vertical_pod_autoscaler.md
           - Networking: 'devops/kubernetes/kubernetes_networking.md'
           - Tools: 'devops/kubernetes/kubernetes_tools.md'
       - Helm:
@@ -60,8 +60,8 @@ nav:
           - AlertManager: 'devops/prometheus/alertmanager.md'
           - Blackbox Exporter: 'devops/prometheus/blackbox_exporter.md'
           - Node Exporter: 'devops/prometheus/node_exporter.md'
-          - Prometheus Troubleshooting: |
-              'devops/prometheus/prometheus_troubleshooting.md'
+          - Prometheus Troubleshooting: >-
+              devops/prometheus/prometheus_troubleshooting.md
       - Linux:
           - brew: 'linux/brew.md'
           - cookiecutter: 'linux/cookicutter.md'
@@ -94,23 +94,22 @@ nav:
           - Project Template:
               - Project Template: 'coding/python/python_project_template.md'
               - Command-line Project Template:
-                  - Command-line Project Template: |
-                      'coding/python/python_project_template/python_cli_template.md'
-                  - Configure SQLAlchemy for projects without flask: |
-                      'coding/python/python_project_template/python_sqlalchemy_without_flask.md'
-              - Flask Project Template: |
-                  'coding/python/python_project_template/python_flask_template.md'
-              - Microservices Project Template: |
-                  'coding/python/python_project_template/python_microservices_template.md'
+                  - Command-line Project Template: >-
+                      coding/python/python_project_template/python_cli_template.md
+                  - Configure SQLAlchemy for projects without flask: >-
+                      coding/python/python_project_template/python_sqlalchemy_without_flask.md
+              - Flask Project Template: >-
+                  coding/python/python_project_template/python_flask_template.md
+              - Microservices Project Template: >-
+                  coding/python/python_project_template/python_microservices_template.md
               - Common configurations:
-                  - Create the documentation repository: |
-                      'coding/python/python_project_template/python_docs.md'
-                  - Continuous integration pipelines: |
-                      'coding/python/python_ci.md'
+                  - Create the documentation repository: >-
+                      coding/python/python_project_template/python_docs.md
+                  - Continuous integration pipelines: coding/python/python_ci.md
                   - Load config from YAML: 'coding/python/python_config_yaml.md'
-                  - Configure SQLAlchemy to use the MariaDB/Mysql backend: |
-                      'coding/python/python_project_template/python_sqlalchemy_mariadb.md'
-                  - Configure Docker to host the application: |
+                  - Configure SQLAlchemy to use the MariaDB/Mysql backend: >-
+                      coding/python/python_project_template/python_sqlalchemy_mariadb.md
+                  - Configure Docker to host the application: >-
                       'coding/python/python_project_template/python_docker.md'
           - Libraries:
               - Alembic: 'coding/python/alembic.md'
@@ -147,8 +146,8 @@ nav:
       - Redis: 'architecture/redis.md'
   - Data Analysis:
       - Recommender Systems:
-          - Recommender Systems: |
-              'data_analysis/recommender_systems/recommender_systems.md'
+          - Recommender Systems: >-
+              data_analysis/recommender_systems/recommender_systems.md
   - Drawing:
       - Drawing: 'drawing/drawing.md'
       - Exercise Pool: 'drawing/exercise_pool.md'

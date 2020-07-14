@@ -17,7 +17,5 @@
   "MD035": {
     "style": "---"
   },
-  "MD046": {
-    "style": "fenced"
-  }
+  "MD046": false,
 }

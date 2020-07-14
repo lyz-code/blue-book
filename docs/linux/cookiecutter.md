@@ -23,7 +23,7 @@ cookiecutter {{ path_or_url_to_cookiecutter_template }}
 
 ## [Create files or directories with conditions](https://github.com/cookiecutter/cookiecutter/issues/723)
 
-For files use a filename similar to `'{{ ".vault_pass.sh" if
+For files use a filename like `'{{ ".vault_pass.sh" if
 cookiecutter.vault_pass_entry != "None" else "" }}'`.
 
 For directories I haven't yet found a nice way to do it (as the above will
@@ -45,7 +45,7 @@ play with `{%- ... -%}` and `{% ... %}` for different results on line appending.
 
 ## [Initialize git repository on the created cookiecutter](https://stackoverflow.com/questions/38556622/create-a-git-versioned-project-with-cookiecutter)
 
-Added the following to the post generation hooks
+Added the following to the post generation hooks.
 
 !!! note "File: hooks/post_gen_project.py"
 
