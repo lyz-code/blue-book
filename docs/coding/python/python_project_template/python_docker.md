@@ -4,16 +4,16 @@ date: 20200602
 author: Lyz
 ---
 
-Docker is a popular way to distribute applications. Assuming that all required
-dependencies are set in the `setup.py`,we're going to create an image with these
+Docker is a popular way to distribute applications. Assuming that you've set all
+required dependencies in the `setup.py`, we're going to create an image with these
 properties:
 
 * *Run by an unprivileged user*: Create an unprivileged user with permissions to
-    execute our program.
+    run our program.
 * Robust to vulnerabilities: Don't use Alpine as it's known to react slow to
     new vulnerabilities. Use a base of Debian instead.
 * Smallest possible: Use Docker multi build step. Create a `builder` Docker that
-    will execute `pip install`, but only copy the required executables to the
+    will run `pip install` and copies the required executables to the
     final image.
 
 ```Dockerfile
@@ -46,8 +46,8 @@ ENV PATH="/opt/venv/bin:$PATH"
 ENTRYPOINT ["/opt/venv/bin/myapp"]
 ```
 
-Once the application Docker is built, if we need to use it with MariaDB or with
-Redis. The easiest way is to use `docker-compose`.
+If we need to use it with MariaDB or with Redis, the easiest way is to use
+`docker-compose`.
 
 ```yaml
 version: '3.8'
@@ -81,9 +81,9 @@ services:
 
 The `depends_on` flag is [not
 enough](https://docs.docker.com/compose/startup-order/) to ensure that the
-database is up when our application tries to connect. Therefore we need to use
+database is up when our application tries to connect. So we need to use
 external programs like [wait-for-it](https://github.com/vishnubob/wait-for-it).
-To use it, modify earlier Dockerfile to match these lines:
+To use it, change the earlier Dockerfile to match these lines:
 
 ```Dockerfile
 ...
@@ -116,4 +116,8 @@ fi
 /opt/venv/bin/myapp daemon
 ```
 
-Remember to add the execution permissions `chmod +x entrypoint.sh`.
+Remember to add the permissions to run the script:
+
+```bash
+chmod +x entrypoint.sh
+```
