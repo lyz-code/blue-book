@@ -4,6 +4,126 @@ date: 20200626
 author: Lyz
 ---
 
+# [Commit message
+guidelines](https://github.com/angular/angular/blob/22b96b9/CONTRIBUTING.md#-commit-message-guidelines)
+
+I'm following the Angular commit convention that is backed up by
+[python-semantic-release](https://python-semantic-release.readthedocs.io/en/latest/commit-log-parsing.html),
+with the idea of implementing automatic [semantic
+versioning](https://semver.org/) sometime in the future.
+
+Each commit message consists of a header, a body and a footer. The header has
+a defined format that includes a type, a scope and a subject:
+
+```
+<type>(<scope>): <subject>
+<BLANK LINE>
+<body>
+<BLANK LINE>
+<footer>
+```
+
+The *header* is mandatory and the *scope* of the header is optional.
+
+Any line of the commit message cannot be longer 100 characters.
+
+The *footer* should contain a [closing reference to an issue](https://help.github.com/articles/closing-issues-via-commit-messages/) if any.
+
+Samples: (even more samples)
+
+```
+docs(changelog): update changelog to beta.5
+
+fix(release): need to depend on latest rxjs and zone.js
+
+The version in our package.json gets copied to the one we publish, and users need the latest of these.
+
+docs(router): fix typo 'containa' to 'contains' (#36764)
+
+Closes #36763
+
+PR Close #36764
+```
+
+## Revert
+
+If the commit reverts a previous commit, it should begin with `revert:` , followed
+by the header of the reverted commit. In the body it should say: `This reverts
+commit <hash>.`, where the hash is the SHA of the commit to revert.
+
+## Type
+
+Must be one of the following:
+
+* `build`: Changes that affect the build system or external dependencies.
+* `ci`: Changes to our CI configuration files and scripts.
+* `docs`: Documentation changes.
+* `feat`: A new feature.
+* `fix`: A bug fix.
+* `perf`: A code change that improves performance.
+* `refactor`: A code change that neither fixes a bug nor adds a feature.
+* `style`: Changes that do not affect the meaning of the code (white-space,
+    formatting, missing semi-colons, etc).
+* `test`: Adding missing tests or correcting existing tests.
+
+## Subject
+
+The subject contains a succinct description of the change:
+
+* Use the imperative, present tense: "change" not "changed" nor "changes".
+* Don't capitalize the first letter.
+* No dot (.) at the end.
+
+## Body
+
+Same as in the subject, use the imperative, present tense: "change" not
+"changed" nor "changes". The body should include the motivation for the change
+and contrast this with previous behavior.
+
+## Footer
+
+The footer should contain any information about Breaking Changes and is also the
+place to reference issues that this commit Closes.
+
+Breaking Changes should start with the word `BREAKING CHANGE:` with a space or
+two newlines. The rest of the commit message is then used for this.
+
+## Pre-commit
+
+To ensure that your project follows these guidelines, add the following
+to your [pre-commit configuration](python_ci.md):
+
+!!! note "File: .pre-commit-config.yaml"
+    ```yaml
+    - repo: https://github.com/commitizen-tools/commitizen
+      rev: master
+      hooks:
+        - id: commitizen
+          stages: [commit-msg]
+    ```
+
+To make your life easier, change your workflow to use
+[commitizen](https://commitizen-tools.github.io/commitizen/).
+
+In Vim, if you're using Vim fugitive [change the
+configuration](https://vi.stackexchange.com/questions/3670/how-to-enter-insert-mode-when-entering-neovim-terminal-pane)
+to:
+
+```vimrc
+nnoremap <leader>gc :terminal cz c<CR>
+nnoremap <leader>gr :terminal cz c --retry<CR>
+
+" Open terminal mode in insert mode
+if has('nvim')
+    autocmd TermOpen term://* startinsert
+endif
+autocmd BufLeave term://* stopinsert
+```
+
+If some pre-commit hook fails, make the changes and then use `<leader>gr` to
+repeat the same commit message.
+
+
 # [Black code style](https://black.readthedocs.io)
 
 [Black](python_ci.md#black) is a style guide enforcement tool.
@@ -14,13 +134,14 @@ author: Lyz
 
 # [Type hints](https://realpython.com/python-type-checking/#type-systems)
 
-Traditionally, types have been handled by the Python interpreter in a flexible
+Traditionally, the Python interpreter handles types in a flexible
 but implicit way. Recent versions of Python allow you to specify explicit type
-hints that can be used by different tools to help you develop your code more
+hints that different tools can use to help you develop your code more
 efficiently.
 
 !!! note "TL;DR"
-    [Type hints should be used whenever unit tests are worth writing](https://www.bernat.tech/the-state-of-type-hints-in-python/)
+    [Use Type hints whenever unit tests are worth
+    writing](https://www.bernat.tech/the-state-of-type-hints-in-python/)
 
 ```python
 def headline(text: str, align: bool = True) -> str:
@@ -31,25 +152,25 @@ def headline(text: str, align: bool = True) -> str:
 ```
 
 Type hints are not enforced on their own by python. So you won't catch an error
-if you try to execute `headline("use mypy", align="center")` unless a static
-type checker like [Mypy](http://mypy-lang.org/) is run.
+if you try to run `headline("use mypy", align="center")` unless you use a static
+type checker like [Mypy](http://mypy-lang.org/).
 
-## Pros and Cons
+## Advantages and disadvantages
 
-Pros:
+Advantages:
 
 * Help **catch certain errors** if used with a static type checker.
-* Help **document your code**. Docstrings can't be easily used for automatic checks.
-
-    * Easier to reason about code: Knowing the type of the parameters makes it
-        a lot easier to understand and maintain a code base. It can speed up
-        significantly the time required to catch up with a code snippet. Always
-        remember that code you read code a lot more often than you write it.
-        Therefore you should optimize for ease of reading.
+* Help **check your code**. It's not trivial to use docstrings to do
+    automatic checks.
+* Help to reason about code: Knowing the parameters type makes it a lot easier
+    to understand and maintain a code base. It can speed up the time required to
+    catch up with a code snippet. Always remember that you read code a lot more
+    often than you write it, so you should optimize for ease of reading.
 * Help you **build and maintain a cleaner architecture**. The act of writing type
     hints force you to think about the types in your program.
 
-    * Easier refactoring: Type hints make it trivial to find where a given class is used when you're trying to refactor your code base.
+* Helps refactoring: Type hints make it trivial to find where a given class is
+    used when you're trying to refactor your code base.
 * Improve IDEs and linters.
 
 Cons:
@@ -58,18 +179,18 @@ Cons:
     pays off in spending less time debugging, you will spend more time entering
     code.
 * **Introduce a slight penalty in start-up time**. If you need to use the typing
-    module, the import time may be significant, especially in short scripts.
+    module, the import time may be significant, even more in short scripts.
 * Work best in modern Pythons.
 
-A few rules of thumb on whether to add types to your project:
+Follow these guidelines when deciding if you want to add types to your project:
 
 * In libraries that will be used by others, they add a lot of value.
-* In bigger projects, type hints help you understand how types flow through your
-    code and are highly recommended.
+* In complex projects, type hints help you understand how types flow through
+   your code and are highly recommended.
 * If you are beginning to learn Python, don't use them yet.
 * If you are writing throw-away scripts, don't use them.
 
-So, [Type hints should be used whenever unit tests are worth
+So, [Use Type hints whenever unit tests are worth
 writing](https://www.bernat.tech/the-state-of-type-hints-in-python/).
 
 ## Usage
@@ -84,8 +205,8 @@ For arguments the syntax is `argument: annotation`, while the return type is
 annotated using `-> annotation`. Note that the annotation must be a valid Python
 expression.
 
-When running the code, they are stored in the special `.__annotations__`
-attribute on the function.
+When running the code, the special `.__annotations__` attribute on the function
+ stores the typing information.
 
 ### Variable annotations
 
@@ -112,7 +233,7 @@ For example to define the hint types of list, dictionaries and tuples:
 >>> version: Tuple[int, int, int] = (3, 7, 1)
 >>> options: Dict[str, bool] = {"centered": False, "capitalize": True}
 ```
-If your function expects some king of sequence but don't care whether it's
+If your function expects some kind of sequence but don't care whether it's
 a list or a tuple, use the `typing.Sequence` object.
 
 ### Functions without return values
@@ -132,8 +253,7 @@ ret_val = play("Filip")
 The annotation help catch the kinds of subtle bugs where you are trying to use
 a meaningless return value.
 
-If your function are never expected to return normally, use the `NoReturn`
-object.
+If your function doesn't return any object, use the `NoReturn` type.
 
 ```python
 from typing import NoReturn
@@ -142,14 +262,14 @@ def black_hole() -> NoReturn:
     raise Exception("There is no going back ...")
 ```
 !!! note
-    This is just the first iteration of the synoptical reading of the full [Real python article on type
-    checking](https://realpython.com/python-type-checking/#type-systems). If you
-    are interested in this topic, keep on reading there.
+    This is the first iteration of the synoptical reading of the full [Real
+    python article on type
+    checking](https://realpython.com/python-type-checking/#type-systems).
 
 ### Optional arguments
 
 A common pattern is to use `None` as a default value for an argument. This is
-usually done either to avoid problems with [mutable default
+done either to avoid problems with [mutable default
 values](python_anti_patterns.md#mutable-default-arguments) or to have a sentinel
 value flagging special behavior.
 
@@ -164,7 +284,7 @@ def player(name: str, start: Optional[str] = None) -> str:
     ...
 ```
 
-An equivalent way would be using `Union[None, str]`.
+A similar way would be to use `Union[None, str]`.
 
 ### [Allow any subclass](https://mypy.readthedocs.io/en/stable/kinds_of_types.html#union-types)
 
@@ -204,9 +324,8 @@ def process_any_subclass_type_of_A(cls: Union[B,C]):
 
 ### Type aliases
 
-Type hints might become oblique when working with nested types. Annotations are
-regular Python expressions, so it's easy to define type aliases and assigning
-them to new variables.
+Type hints might become oblique when working with nested types. If it's the
+case, save them into a new variable, and use that instead.
 
 ```python
 from typing import List, Tuple
@@ -240,35 +359,34 @@ OptionalEntities = Union[
 ]
 ```
 
-Ugly, but with aliases is mitigated.
+Still Ugly, but it mitigates the problem.
 
-
-## [Using mypy with an existing codebase](https://mypy.readthedocs.io/en/latest/existing_code.html)
+## [Using mypy with an existing
+codebase](https://mypy.readthedocs.io/en/latest/existing_code.html)
 
 These steps will get you started with `mypy` on an existing codebase:
 
 * [Start small](https://mypy.readthedocs.io/en/latest/existing_code.html#start-small):
-    Pick a subset of your codebase and run mypy only in this subset, without
+    Pick a subset of your codebase to run mypy on, without
     any annotations.
 
-    You’ll likely need to fix some mypy errors, either by inserting annotations
-    requested by mypy or by adding `# type: ignore` comments to silence errors
-    you don’t want to fix now.
+    You’ll probably need to fix some mypy errors, either by inserting
+    annotations requested by mypy or by adding `# type: ignore` comments to
+    silence errors you don’t want to fix now.
 
-
-    – get a clean mypy build for some files, with few annotations.
+    Get a clean mypy build for some files, with some annotations.
 * [Write a mypy runner script](https://mypy.readthedocs.io/en/latest/existing_code.html#mypy-runner-script)
-    to ensure consistent results. Here are some things you may want to do in the
+    to ensure consistent results. Here are some steps you may want to do in the
     script:
-    * Ensure that the correct version of mypy is installed.
+    * Ensure that you install the correct version of mypy.
     * Specify mypy config file or command-line options.
-    * Provide set of files to type check. You may want to implement inclusion
+    * Provide set of files to type check. You may want to configure the inclusion
         and exclusion filters for full control of the file list.
 * [Run mypy in Continuous Integration to prevent type errors](python_ci.md#mypy):
 
     Once you have a clean mypy run and a runner script for a part of your
     codebase, set up your Continuous Integration (CI) system to run mypy to
-    ensure that developers won’t introduce bad annotations. A simple CI script
+    ensure that developers won’t introduce bad annotations. A small CI script
     could look something like this:
 
     ```python
@@ -277,17 +395,17 @@ These steps will get you started with `mypy` on an existing codebase:
     ```
 * Gradually annotate commonly imported modules: Most projects have some widely
     imported modules, such as utilities or model classes. It’s a good idea to
-    annotate these pretty early on, since this allows code using these modules
+    annotate these soon, since this allows code using these modules
     to be type checked more effectively. Since mypy supports gradual typing,
     it’s okay to leave some of these modules unannotated. The more you annotate,
     the more useful mypy will be, but even a little annotation coverage is
     useful.
-* Write annotations as you modify existing code and write new code: Now you are
+* Write annotations as you change existing code and write new code: Now you are
     ready to include type annotations in your development workflows. Consider
     adding something like these in your code style conventions:
 
     * Developers should add annotations for any new code.
-    * It’s also encouraged to write annotations when you modify existing code.
+    * It’s also encouraged to write annotations when you change existing code.
 
 # f-strings
 
@@ -295,9 +413,8 @@ These steps will get you started with `mypy` on an existing codebase:
 string literals*, are strings that have an `f` at the beginning and curly braces
 containing expressions that will be replaced with their values.
 
-Introduced in Python 3.6, they not only are more readable, more
-concise, and less prone to error than other ways of formatting, but they are
-also faster.
+Introduced in Python 3.6, they are more readable, concise, and less prone
+to error than other ways of formatting, as well as faster.
 
 ```python
 >>> name = "Eric"
