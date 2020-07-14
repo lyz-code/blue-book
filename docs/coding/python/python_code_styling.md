@@ -4,8 +4,7 @@ date: 20200626
 author: Lyz
 ---
 
-# [Commit message
-guidelines](https://github.com/angular/angular/blob/22b96b9/CONTRIBUTING.md#-commit-message-guidelines)
+# [Commit message guidelines](https://github.com/angular/angular/blob/22b96b9/CONTRIBUTING.md#-commit-message-guidelines)
 
 I'm following the Angular commit convention that is backed up by
 [python-semantic-release](https://python-semantic-release.readthedocs.io/en/latest/commit-log-parsing.html),
@@ -361,8 +360,7 @@ OptionalEntities = Union[
 
 Still Ugly, but it mitigates the problem.
 
-## [Using mypy with an existing
-codebase](https://mypy.readthedocs.io/en/latest/existing_code.html)
+## [Using mypy with an existing codebase](https://mypy.readthedocs.io/en/latest/existing_code.html)
 
 These steps will get you started with `mypy` on an existing codebase:
 
