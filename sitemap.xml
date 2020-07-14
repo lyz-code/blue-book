@@ -56,6 +56,10 @@
      <lastmod>2020-07-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
+     <loc>https://lyz-code.github.io/blue-book/devops/kubernetes/kubernetes_hpa/</loc>
+     <lastmod>2020-07-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
      <loc>https://lyz-code.github.io/blue-book/devops/kubernetes/kubernetes_volumes/</loc>
      <lastmod>2020-07-14</lastmod>
      <changefreq>daily</changefreq>
@@ -92,7 +96,15 @@
      <lastmod>2020-07-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
+     <loc>https://lyz-code.github.io/blue-book/devops/kubernetes/kubernetes_ingress_controller/</loc>
+     <lastmod>2020-07-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
      <loc>https://lyz-code.github.io/blue-book/devops/kubernetes/kubernetes_external_dns/</loc>
+     <lastmod>2020-07-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/devops/kubernetes/kubernetes_cluster_autoscaler/</loc>
      <lastmod>2020-07-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
@@ -101,6 +113,10 @@
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/devops/kubernetes/kubernetes_storage_driver/</loc>
+     <lastmod>2020-07-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/devops/kubernetes/kubernetes_vertical_pod_autoscaler/</loc>
      <lastmod>2020-07-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
@@ -157,6 +173,10 @@
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/devops/prometheus/node_exporter/</loc>
+     <lastmod>2020-07-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/devops/prometheus/prometheus_troubleshooting/</loc>
      <lastmod>2020-07-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
@@ -248,7 +268,35 @@
      <lastmod>2020-07-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
+     <loc>https://lyz-code.github.io/blue-book/coding/python/python_project_template/python_cli_template/</loc>
+     <lastmod>2020-07-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/coding/python/python_project_template/python_sqlalchemy_without_flask/</loc>
+     <lastmod>2020-07-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/coding/python/python_project_template/python_flask_template/</loc>
+     <lastmod>2020-07-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/coding/python/python_project_template/python_microservices_template/</loc>
+     <lastmod>2020-07-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/coding/python/python_project_template/python_docs/</loc>
+     <lastmod>2020-07-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/coding/python/python_ci/</loc>
+     <lastmod>2020-07-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
      <loc>https://lyz-code.github.io/blue-book/coding/python/python_config_yaml/</loc>
+     <lastmod>2020-07-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/coding/python/python_project_template/python_sqlalchemy_mariadb/</loc>
      <lastmod>2020-07-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
@@ -361,6 +409,10 @@
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/architecture/redis/</loc>
+     <lastmod>2020-07-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/data_analysis/recommender_systems/recommender_systems/</loc>
      <lastmod>2020-07-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
