@@ -133,6 +133,7 @@ nav:
           - Pytest: 'coding/python/pytest.md'
       - Javascript:
           - Javascript: 'coding/javascript/javascript.md'
+      - JSON: 'coding/json/json.md'
       - React:
           - React: 'coding/react/react.md'
       - YAML: 'coding/yaml/yaml.md'
