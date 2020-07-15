@@ -98,7 +98,7 @@ To successfully build a domain model we need to:
     In fact, it's common to support operations, for example, mathematical
     operators.
 
-    [dataclasses](dataclasses.md) are great for value objects because:
+    [dataclasses](data_classes.md) are great for value objects because:
 
     * They follow the *value equality* property (two objects with the same attributes are treated as
     equal).
@@ -231,4 +231,3 @@ models from the persistent storage solution.
 
 * Domain-Driven Design by Eric Evans.
 * Implementing Domain-Driven Design by Vaughn Vermon.
-

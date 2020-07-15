@@ -1,3 +1,4 @@
+---
 site_name: The Blue Book
 site_description: My second brain
 site_author: Lyz
@@ -64,7 +65,7 @@ nav:
               devops/prometheus/prometheus_troubleshooting.md
       - Linux:
           - brew: 'linux/brew.md'
-          - cookiecutter: 'linux/cookicutter.md'
+          - cookiecutter: 'linux/cookiecutter.md'
           - fail2ban: 'linux/fail2ban.md'
           - google chrome: 'linux/google_chrome.md'
           - hypothesis: 'linux/hypothesis.md'
@@ -110,7 +111,7 @@ nav:
                   - Configure SQLAlchemy to use the MariaDB/Mysql backend: >-
                       coding/python/python_project_template/python_sqlalchemy_mariadb.md
                   - Configure Docker to host the application: >-
-                      'coding/python/python_project_template/python_docker.md'
+                      coding/python/python_project_template/python_docker.md
           - Libraries:
               - Alembic: 'coding/python/alembic.md'
               - FactoryBoy: 'coding/python/factoryboy.md'
