@@ -51,3 +51,8 @@ There are two cases:
     optional](https://www.grammarly.com/blog/what-is-the-oxford-comma-and-why-do-people-care-so-much-about-it/)
     the use of comma before and in lists. This case is also known as *serial
     commas* or *Oxford commas*.
+
+# [Avoid there is at the start of the sentence](https://english.stackexchange.com/questions/157830/why-should-sentences-not-start-with-there-is-or-there-are)
+
+Almost never begin a sentence with “It is...” or “There is/are...”. These are
+examples of unnecessary verbiage that shift the focus from the sentence point.
