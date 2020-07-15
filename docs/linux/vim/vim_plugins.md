@@ -12,7 +12,7 @@ To install Black you first need `python3-venv`.
 sudo apt-get install python3-venv
 ```
 
-Add the plugin and configure it to be executed each time you save.
+Add the plugin and configure it so vim runs it each time you save.
 
 !!! note "File `~/.vimrc`"
     ```vimrc
@@ -22,7 +22,7 @@ Add the plugin and configure it to be executed each time you save.
     autocmd BufWritePre *.py execute ':Black'
     ```
 
-There is an [issue](https://github.com/psf/black/issues/1293) for neovim. If you
+A configuration [issue](https://github.com/psf/black/issues/1293) exists for neovim. If you
 encounter the error `AttributeError: module 'black' has no attribute
 'find_pyproject_toml'`, do the following:
 
@@ -44,3 +44,75 @@ let g:pymode_options_max_line_length = 88
 let g:pymode_lint_options_pep8 = {'max_line_length': g:pymode_options_max_line_length}
 ```
 
+# [ALE](https://github.com/dense-analysis/ale)
+
+ALE (Asynchronous Lint Engine) is a plugin providing linting (syntax checking
+and semantic errors) in NeoVim 0.2.0+ and Vim 8 while you edit your text files,
+and acts as a Vim Language Server Protocol client.
+
+ALE makes use of NeoVim and Vim 8 job control functions and timers to run
+linters on the contents of text buffers and return errors as text changes in
+Vim. This allows for displaying warnings and errors in files before they are
+saved back to a filesystem.
+
+In other words, this plugin allows you to lint while you type.
+
+ALE offers support for fixing code with command line tools in a non-blocking
+manner with the `:ALEFix` feature, [supporting tools in many languages](https://github.com/dense-analysis/ale/blob/master/supported-tools.md), like
+prettier, eslint, autopep8, and more.
+
+## [Installation](https://github.com/dense-analysis/ale#installation)
+
+Install with Vundle:
+
+```vimrc
+Plugin 'dense-analysis/ale'
+```
+
+And [configure](https://github.com/dense-analysis/ale/blob/master/doc/ale.txt) with:
+
+```vim
+let g:ale_sign_error                  = '✘'
+let g:ale_sign_warning                = '⚠'
+highlight ALEErrorSign ctermbg        =NONE ctermfg=red
+highlight ALEWarningSign ctermbg      =NONE ctermfg=yellow
+let g:ale_linters_explicit            = 1
+let g:ale_lint_on_text_changed        = 'normal'
+" let g:ale_lint_on_text_changed        = 'never'
+let g:ale_lint_on_enter               = 0
+let g:ale_lint_on_save                = 1
+let g:ale_fix_on_save                 = 1
+
+let g:ale_linters = {
+\  'markdown': ['markdownlint', 'writegood', 'alex', 'proselint'],
+\  'json': ['jsonlint'],
+\  'python': ['flake8', 'mypy', 'pylint', 'alex'],
+\  'yaml': ['yamllint', 'alex'],
+\   '*': ['alex', 'writegood'],
+\}
+
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'json': ['jq'],
+\   'python': ['isort']
+\   'terraform': ['terraform'],
+\}
+inoremap <leader>e <esc>:ALENext<cr>
+nnoremap <leader>e :ALENext<cr>
+inoremap <leader>p <esc>:ALEPrevious<cr>
+nnoremap <leader>p :ALEPrevious<cr>
+```
+
+Where:
+
+* `let g:ale_linters_explicit`: Prevent ALE load only the selected linters.
+* use `<leader>e` and `<leader>p` to navigate through the warnings.
+
+If you feel that it's too heavy, use `ale_lint_on_enter` or increase the
+`ale_lint_delay`.
+
+Use `:ALEInfo` to see the ALE configuration for the specific buffer.
+
+# References
+
+* [ALE supported tools](https://github.com/dense-analysis/ale/blob/master/supported-tools.md)
