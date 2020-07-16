@@ -46,6 +46,26 @@ As stated in the comment, and if you are using the [proposed python project
 template](python_project_template.md), remember to add new Factories in
 `conftest.py`.
 
+# Use the factory class
+
+* Create an instance.
+
+    ```python
+    UserFactory.create()
+    ```
+
+* Create an instance with a defined attribute.
+
+    ```python
+    UserFactory.create(name='John')
+    ```
+
+* Create 100 instances of objects with an attribute defined.
+
+    ```python
+    UserFactory.create_batch(100, name='John')
+    ```
+
 # Define attributes
 
 I like to use the [faker](faker.md) integration of factory boy to generate most
@@ -71,6 +91,7 @@ author_id = factory.Faker('random_number')
 
 ```python
 score = factory.Faker('pyfloat')
+```
 
 ## Generate strings
 
