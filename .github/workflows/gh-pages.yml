@@ -16,9 +16,13 @@ jobs:
           fetch-depth: 0
 
       - name: Setup Python
-        uses: actions/setup-python@v1
+        # https://github.com/actions/virtual-environments/issues/1202
+        # uses: actions/setup-python@v1
+        # with:
+        #   python-version: '3.7'
+        uses: actions/setup-python@v2
         with:
-          python-version: '3.7'
+          python-version: 3.7.7
           architecture: 'x64'
 
       - name: Cache dependencies
