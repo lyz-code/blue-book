@@ -127,6 +127,7 @@ nav:
               - Requests-mock: 'coding/python/requests_mock.md'
               - Rq: 'coding/python/rq.md'
               - sh: 'coding/python/sh.md'
+              - TinyDB: 'coding/python/tinydb.md'
           - Code Styling: 'coding/python/python_code_styling.md'
           - Anti-Patterns: 'coding/python/python_anti_patterns.md'
           - Data Classes: 'coding/python/data_classes.md'
