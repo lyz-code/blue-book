@@ -13,12 +13,10 @@ that all of our data is in memory.
 [![Repository Pattern Diagram](../../images/ddd_repository_pattern.png)](https://www.cosmicpython.com/book/chapter_02_repository.html)
 
 !!! note "TL;DR"
-    If your app is just a simple CRUD (create-rad-update-delete) wrapper around
-    a database, then you don't need a domain model or a repository.
-
-    But the more complex the domain, the more an investment in freeing yourself
-    from infrastructure concerns will pay off in terms of the ease of making
-    changes.
+    If your app is a basic CRUD (create-rad-update-delete) wrapper around
+    a database, then you don't need a domain model or a repository. But the
+    more complex the domain, the more an investment in freeing yourself from
+    infrastructure concerns will pay off in terms of the ease of making changes.
 
 Advantages:
 
@@ -114,7 +112,7 @@ Disadvantages:
         assert rows == [("First task", 3)]
     ```
 
-The simplest repository has just two methods: `add()` to put a new item in the
+The most basic repository has just two methods: `add()` to put a new item in the
 repository, and `get()` to return a previously added item. We stick to using
 these methods for data access in our domain and our service layers.
 
