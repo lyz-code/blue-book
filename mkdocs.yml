@@ -163,12 +163,12 @@ nav:
 
 plugins:
   - search
-  - tags:
   - autolinks
   - git-revision-date-localized:
       type: timeago
   - minify:
       minify_html: true
+  # - tags:
   # - htmlproofer
   # - tooltipster-links
   # - vim-md-tags
