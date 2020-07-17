@@ -287,7 +287,7 @@ A similar way would be to use `Union[None, str]`.
 
 ### [Allow any subclass](https://mypy.readthedocs.io/en/stable/kinds_of_types.html#union-types)
 
-It's not yet supported, so the expected format
+It's not yet supported (unless inheriting from an abstract class), so the expected format
 
 ```python
 class A:
@@ -318,6 +318,25 @@ class C(A):
     pass
 
 def process_any_subclass_type_of_A(cls: Union[B,C]):
+    pass
+```
+
+The following works:
+
+```python
+class A(abc.ABC):
+    @abc.abstractmethod
+    def add(self):
+        raise NotImplementedError
+class B(A):
+    def add(self):
+        pass
+
+class C(A):
+    def add(self):
+        pass
+
+def process_any_subclass_type_of_A(cls: A):
     pass
 ```
 
