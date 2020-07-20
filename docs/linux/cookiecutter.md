@@ -57,6 +57,28 @@ Added the following to the post generation hooks.
     subprocess.call(['git', 'commit', '-m', 'Initial commit'])
     ```
 
+## [Prevent cookiecutter from processing some files](https://stackoverflow.com/questions/39138386/how-to-protect-some-files-from-the-jinja-template-processor)
+
+By default cookiecutter will try to process every file as a Jinja template. This
+behaviour produces wrong results if you have Jinja templates that are meant to
+be taken as literal. Starting with cookiecutter 1.1, you can
+tell cookiecutter to only copy some files [without interpreting them as Jinja
+templates](http://cookiecutter.readthedocs.io/en/latest/advanced/copy_without_render.html).
+
+Add a `_copy_without_render` key in the cookiecutter config file
+(`cookiecutter.json`). It takes a list of regular expressions. If a filename matches the regular expressions it will be copied and not processed as a Jinja template.
+
+```json
+{
+    "project_slug": "sample",
+    "_copy_without_render": [
+        "*.js",
+        "not_rendered_dir/*",
+        "rendered_dir/not_rendered_file.ini"
+    ]
+}
+```
+
 # Testing your own cookiecutter templates
 
 The [pytest-cookies](https://pytest-cookies.readthedocs.io) plugin comes with
