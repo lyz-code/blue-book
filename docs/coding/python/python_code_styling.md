@@ -122,6 +122,12 @@ autocmd BufLeave term://* stopinsert
 If some pre-commit hook fails, make the changes and then use `<leader>gr` to
 repeat the same commit message.
 
+To automatically generate the changelog use `cz bump --changelog --no-verify`.
+The `--no-verify` part is required [if you use pre-commit
+hooks](https://github.com/commitizen-tools/commitizen/issues/164).
+
+Whenever you want to release `1.0.0`, use `cz bump --changelog --no-verify
+--increment MAJOR`.
 
 # [Black code style](https://black.readthedocs.io)
 
