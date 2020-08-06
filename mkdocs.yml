@@ -151,13 +151,19 @@ nav:
       - Recommender Systems:
           - Recommender Systems: >-
               data_analysis/recommender_systems/recommender_systems.md
-  - Writing:
-      - English Grammar and Ortography: 'writing/orthography.md'
+  - Arts:
+    - Writing:
+        - English Grammar and Ortography: 'writing/orthography.md'
+    - Dancing:
+      - Rave Dances:
+        - Rave Dances: dancing/rave_dances.md
+        - Shuffle:
+          - Basics: dancing/shuffle_basics.md
+    - Drawing:
+        - Drawing: 'drawing/drawing.md'
+        - Exercise Pool: 'drawing/exercise_pool.md'
   - Psychology:
       - The XY Problem: 'psychology/the_xy_problem.md'
-  - Drawing:
-      - Drawing: 'drawing/drawing.md'
-      - Exercise Pool: 'drawing/exercise_pool.md'
   - Emojis: 'emojis.md'
   - Contact: 'contact.md'
 
