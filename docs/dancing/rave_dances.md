@@ -15,9 +15,6 @@ action. It's an improvised dance and involves "shuffling your feet
 inwards, then outwards, while thrusting your arms up and down, or side to side,
 in time with the beat".
 
-![T-step](../images/T-step.gif)
-![Running man](../images/Running_Man_Version_2.gif)
-
 It seems to be a minority underground dance without official competitions or
 schools. Given the music, it's origins and the energy it requires, most of the
 videos are uploaded by young people that reproduce the nasty gender roles that
