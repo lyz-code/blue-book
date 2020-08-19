@@ -43,6 +43,45 @@ If the worker nodes already have an IAM role with the `ec2:DescribeInstances`
 permission there is no need to specify the `role_arn` or `access_keys` and
 `secret_key`.
 
+If you have stopped instances, the node exporter will raise an alert because it
+won't be able to scrape the metrics from them. To only fetch data from running
+instances add a filter:
+
+```yaml
+        ec2_sd_configs:
+          - region: us-east-1
+            filters:
+            - name: instance-state-name
+              values:
+              - running
+```
+
+To monitor only the instances of a list of VPCs use this filter:
+
+```yaml
+        ec2_sd_configs:
+          - region: us-east-1
+            filters:
+            - name: vpc-id
+              values:
+              - vpc-xxxxxxxxxxxxxxxxx
+              - vpc-yyyyyyyyyyyyyyyyy
+```
+
+By default, prometheus will try to scrape the private instance ip. To use the
+public one you need to relabel it with the following snippet:
+
+```yaml
+
+        ec2_sd_configs:
+          - region: us-east-1
+        relabel_configs:
+          - source_labels: ['__meta_ec2_public_ip']
+            regex: ^(.*)$
+            target_label: __address__
+            replacement: ${1}:9100
+```
+
 I'm using the [`11074`](https://grafana.com/dashboards/11074) grafana dashboards
 for the blackbox exporter,  which worked straight out of the box. Taking as
 reference the
