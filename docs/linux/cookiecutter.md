@@ -102,6 +102,33 @@ Add a `_copy_without_render` key in the cookiecutter config file
 }
 ```
 
+## Prevent additional whitespaces when jinja condition is not met.
+
+Jinja2 has a [whitespace
+control](https://jinja.palletsprojects.com/en/2.10.x/templates/#whitespace-control)
+that can be used to manage the whitelines existent between the Jinja blocks. The
+problem comes when a condition is not met in an `if` block, in that case, Jinja
+adds a whitespace which will break most linters.
+
+This is the solution I've found out that works as expected.
+
+```jinja2
+### Multienvironment
+
+This playbook has support for the following environments:
+
+{% if cookiecutter.production_environment == "True" -%}
+* Production
+{% endif %}
+{%- if cookiecutter.staging_environment == "True" -%}
+* Staging
+{% endif %}
+{%- if cookiecutter.development_environment == "True" -%}
+* Development
+{% endif %}
+### Tags
+```
+
 # Testing your own cookiecutter templates
 
 The [pytest-cookies](https://pytest-cookies.readthedocs.io) plugin comes with
