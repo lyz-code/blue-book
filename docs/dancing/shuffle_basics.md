@@ -33,11 +33,9 @@ To specify the relative position of body parts, I'm using an imaginary clock, so
 
 Sources: [1](https://www.youtube.com/embed/LbeRR_TDRVE?start=54), [2](https://www.youtube.com/embed/NVISfLc_z8c?start=18)
 
-## Variations
+The foot going forward can land in the floor flat, heel first or toes first.
 
-* The foot going forward can land in the floor flat, heel first or toes first.
-
-### Kicking-Running man
+## Kicking-Running man
 
 ![](../images/shuffle_kicking_running_man.gif)
 
@@ -82,7 +80,9 @@ Sources: [1](https://www.youtube.com/watch?v=rOQa0gXan70?start=13)
 * *5-and*: Mirrors *1-and*.
 * *6*: Mirrors *1*.
 * *6-and*: Mirrors *1-and*.
-* *7*: Mirrors *4*.
+* *7*: Mirrors *1*.
+* *7-and*: Mirrors *1-and*.
+* *8*: Mirrors *4*.
 
 ![](../images/shuffle_t_shape_kicks_tutorial.gif)
 
