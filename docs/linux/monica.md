@@ -28,6 +28,7 @@ installation](https://github.com/monicahq/monica/blob/master/docs/installation/p
 If you just want to test it, use this docker compose
 
 !!! note "File: docker-compose.yml"
+    ```yml
     version: "3.4"
 
     services:
@@ -83,6 +84,10 @@ Once you install your own, you may want to:
     MAIL_FROM_NAME: Monica # ex: name of the sender
     ```
 
+[Here is an
+example](https://github.com/monicahq/monica/blob/master/.env.example) of all the
+possible configurations.
+
 They also share other [configuration
 examples](https://github.com/monicahq/monica/tree/master/scripts/docker/.examples)
 where you can take ideas of alternate setups.
@@ -94,4 +99,5 @@ documentation](https://github.com/monicahq/monica/tree/master/docs/installation)
 
 * [Homepage](https://www.monicahq.com/)
 * [Git](https://github.com/monicahq/monica/)
+* [Docs](https://github.com/monicahq/monica/tree/master/docs)
 * [Blog](https://www.monicahq.com/blog)
