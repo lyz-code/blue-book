@@ -141,6 +141,7 @@ nav:
           - Domain Driven Design: architecture/domain_driven_design.md
           - Repository Pattern: architecture/repository_pattern.md
           - Service Layer Pattern: architecture/service_layer_pattern.md
+      - Database Architecture: architecture/database_architecture.md
       - Microservices: architecture/microservices.md
       - Restful APIS: architecture/restful_apis.md
       - Redis: 'architecture/redis.md'
