@@ -88,3 +88,11 @@ Will yield `KnowledgeBased` if invoked with `Knobas`, and `WHAT` if invoked with
 Abolish Knobas Knowledge-based
 Abolish W What
 ```
+
+# Vim Fugitive
+
+## [Add portions of file to the index](http://vimcasts.org/episodes/fugitive-vim-working-with-the-git-index/)
+
+To stage only part of the file to a commit, open it and launch `:Gdiff`. With
+`diffput` and `diffobtain` Vim's functionality you move to the index file (the
+one in the left) the changes you want to stage.
