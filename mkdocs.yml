@@ -9,10 +9,6 @@ nav:
       - Meta: 'meta/meta.md'
       - Projects: 'projects/projects.md'
       - Wish list: 'wish_list.md'
-  - Life Automation:
-      - Life Automation: 'life_automation/life_automation.md'
-      - Week Automation: 'life_automation/week_automation.md'
-      - Vim Automation: 'life_automation/vim_automation.md'
   - DevOps:
       - DevOps: 'devops/devops.md'
       - Kubernetes:
@@ -71,6 +67,7 @@ nav:
           - hypothesis: 'linux/hypothesis.md'
           - LUKS: 'linux/luks/luks.md'
           - mkdocs: 'linux/mkdocs.md'
+          - monica: 'linux/monica.md'
           - nodejs: 'linux/nodejs.md'
           - rm: 'linux/rm.md'
           - Syncthing: 'linux/syncthing.md'
@@ -151,6 +148,11 @@ nav:
       - Recommender Systems:
           - Recommender Systems: >-
               data_analysis/recommender_systems/recommender_systems.md
+  - Life Automation:
+      - Life Automation: 'life_automation/life_automation.md'
+      - Week Automation: 'life_automation/week_automation.md'
+      - Relationship Automation: 'life_automation/relationship_automation.md'
+      - Vim Automation: 'life_automation/vim_automation.md'
   - Arts:
     - Writing:
         - English Grammar and Ortography: 'writing/orthography.md'
