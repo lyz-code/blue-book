@@ -79,6 +79,15 @@ Delegate to the developers the manual introduction of the version in the
 lockfile isn't the ideal solution, but it's the one I can come up to avoid race
 conditions on chart releases.
 
+To be able to see the differences of long diff files, you can filter it with
+`egrep`.
+
+```bash
+helmfile diff | egrep -A20 -B20 "^.{5}(\-|\+)"
+```
+
+It will show you all the changed lines with the 20 previous and next ones.
+
 ## Uninstall charts
 
 Helmfile still doesn't [remove charts](https://github.com/roboll/helmfile/issues/194)
