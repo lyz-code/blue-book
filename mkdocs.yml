@@ -112,6 +112,7 @@ nav:
                       coding/python/python_project_template/python_docker.md
           - Libraries:
               - Alembic: 'coding/python/alembic.md'
+              - Click: coding/python/click.md
               - FactoryBoy: 'coding/python/factoryboy.md'
               - Faker: 'coding/python/faker.md'
               - Flask: 'coding/python/flask.md'
