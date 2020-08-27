@@ -170,6 +170,35 @@ directory to a new, empty folder.
           assert result.output == 'Hello World!\n'
     ```
 
+# [Arguments](https://click.palletsprojects.com/en/7.x/arguments/)
+
+Arguments work similarly to options but are positional. They also only support
+a subset of the features of options due to their syntactical nature. Click will
+also not attempt to document arguments for you and wants you to document them
+manually in order to avoid ugly help pages.
+
+## [Basic Arguments](https://click.palletsprojects.com/en/7.x/arguments/#basic-arguments)
+
+The most basic option is a simple string argument of one value. If no type is
+provided, the type of the default value is used, and if no default value is
+provided, the type is assumed to be `STRING`.
+
+```python
+@click.command()
+@click.argument('filename')
+def touch(filename):
+    """Print FILENAME."""
+    click.echo(filename)
+```
+
+And what it looks like:
+
+```bash
+$ touch foo.txt
+foo.txt
+```
+
+
 
 # References
 
