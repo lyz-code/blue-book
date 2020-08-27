@@ -216,6 +216,65 @@ def test_repository_can_retrieve_an_object(
     assert retrieved_obj.description == expected_obj.description
 ```
 
+# Fixtures
+
+Fixtures are functions that are run by pytest before (and sometimes after) the
+actual test functions.
+
+You can use fixtures to get a data set for the tests to work on, or use
+them to get a system into a known state before running a test. They are
+also used to get data ready for multiple tests.
+
+Here's a simple fixture that returns a number:
+
+```python
+import pytest
+
+@pytest.fixture()
+def some_data()
+    """ Return answer to the ultimate question """
+    return 42
+
+def test_some_data(some_data):
+    """ Use fixture return value in a test"""
+    assert some_data == 42
+```
+
+The `@pytest.fixture()` decorator is used to tell pytest that a function is
+a fixture.When you include the fixture name in the parameter list of a test
+function,pytest knows to run it before running the test. Fixtures can do work,
+and can also return data to the test function.
+
+The test test_some_data() has the name of the fixture, some_data, as
+a parameter.pytest will see this and look for a fixture with this name. Naming
+is significant in pytest. pytest will look in the module of the test for
+a fixture of that name.
+
+## Sharing fixtures through conftest.py
+
+You can put fixtures into individual test files, but to share fixtures among
+multiple test files, you need to use a `conftest.py` file somewhere centrally
+located for all of the tests. Additionally you can have `conftest.py` files in
+subdirectories of the top `tests` directory. If you do, fixtures defined in
+these lower level `conftest.py` files will be available to tests in that
+directory and subdirectories.
+
+Although `conftest.py` is a Python module, it should not be imported by test
+files. The file gets read by pytest, and is considered a local *plugin*.
+
+## Specifying fixture scope
+
+Fixtures include an optional parameter called scope, which controls how often
+a fixture gets set up and torn down. The scope parameter to `@pytest.fixture()`
+can have the values of function, class, module, or session.
+
+Here’s a rundown of each scope value:
+
+* `scope='function'`: Run once per test function. The setup portion is run before each test using the fixture. The teardown portion is run after each test using the fixture. This is the default scope used when no scope parameter is specified.
+* `scope='class'`: Run once per test class, regardless of how many test methods are in the class.
+* `scope='module'`: Run once per module, regardless of how many test functions or methods or other fixtures in the module use it.
+* `scope='session'` Run once per session. All test methods and functions using a fixture of session scope share one setup and teardown call.
+
 # Snippets
 
 ## [Mocking sys.exit](https://medium.com/python-pandemonium/testing-sys-exit-with-pytest-10c6e5f7726f)
