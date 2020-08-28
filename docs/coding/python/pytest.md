@@ -275,6 +275,41 @@ Here’s a rundown of each scope value:
 * `scope='module'`: Run once per module, regardless of how many test functions or methods or other fixtures in the module use it.
 * `scope='session'` Run once per session. All test methods and functions using a fixture of session scope share one setup and teardown call.
 
+## [Use a fixture more than once in a function](https://github.com/pytest-dev/pytest/issues/2703)
+
+One solution is to make your fixture return a factory instead of the resource
+directly:
+
+```python
+@pytest.fixture(name='make_user')
+def make_user_():
+    created = []
+    def make_user():
+        u = models.User()
+        u.commit()
+        created.append(u)
+        return u
+
+    yield make_user
+
+    for u in created:
+        u.delete()
+
+def test_two_users(make_user):
+    user1 = make_user()
+    user2 = make_user()
+    # test them
+
+
+# you can even have the normal fixture when you only need a single user
+@pytest.fixture
+def user(make_user):
+    return make_user()
+
+def test_one_user(user):
+    # test him/her
+```
+
 # Snippets
 
 ## [Mocking sys.exit](https://medium.com/python-pandemonium/testing-sys-exit-with-pytest-10c6e5f7726f)
