@@ -430,6 +430,33 @@ These steps will get you started with `mypy` on an existing codebase:
     * Developers should add annotations for any new code.
     * It’s also encouraged to write annotations when you change existing code.
 
+## [Reveal the type of an expression](https://mypy.readthedocs.io/en/stable/common_issues.html?highlight=get%20type%20of%20object#displaying-the-type-of-an-expression)
+
+You can use `reveal_type(expr)` to ask mypy to display the inferred static type
+of an expression. This can be useful when you don't quite understand how mypy
+handles a particular piece of code. Example:
+
+```python
+reveal_type((1, 'hello'))  # Revealed type is 'Tuple[builtins.int, builtins.str]'
+```
+
+You can also use `reveal_locals()` at any line in a file to see the types of all
+local variables at once. Example:
+
+```python
+a = 1
+b = 'one'
+reveal_locals()
+# Revealed local types are:
+#     a: builtins.int
+#     b: builtins.str
+```
+
+`reveal_type` and `reveal_locals` are only understood by mypy and don't exist in
+Python. If you try to run your program, you’ll have to remove any `reveal_type`
+and `reveal_locals` calls before you can run your code. Both are always
+available and you don't need to import them.
+
 # f-strings
 
 [f-strings](https://realpython.com/python-f-strings/), also known as *formatted
