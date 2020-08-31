@@ -21,10 +21,24 @@ I assume you've already [set up your project to support
 sqlalchemy](python_project_template.md#set-up-sqlalchemy-for-projects-without-flask)
 in your project. If not, do so before moving forward.
 
+## [Mapping styles](https://docs.sqlalchemy.org/en/13/orm/mapping_styles.html)
+
+Modern SQLAlchemy features two distinct styles of mapper configuration. The
+“Classical” style is SQLAlchemy’s original mapping API, whereas “Declarative” is
+the richer and more succinct system that builds on top of “Classical”.
+
+The Classical, on the other hand, doesn't lock your models to the ORM, something
+that we avoid when using the [repository pattern](repository_pattern.md).
+
+If you aren't going to use the repository pattern, use the declarative way,
+otherwise use the classical one
+
 ## Creating Tables
 
 If you simply want to create a table of association without any parameters, such
 as with a many to many relationship association table, use this type of object.
+
+### Declarative type
 
 ```python
 class User(Base):
@@ -67,6 +81,39 @@ common lengths:
 * email: 64 (it occupies the same 2 and 255).
 * username: 64 (it occupies the same 2 and 255).
 
+### Classical type
+
+!!! note "File: model.py"
+    ```python
+    class User():
+        def __init__(self, id, name=None):
+            self.id = id
+            self.name = name
+    ```
+
+!!! note "File: orm.py"
+    ```python
+    from models import User
+    from sqlalchemy import (
+        Column,
+        MetaData,
+        String,
+        Table,
+        Text,
+    )
+
+    metadata = MetaData()
+
+    user = Table(
+        "user",
+        metadata,
+        Column("id", String(64), primary_key=True),
+        Column("name", String(64)),
+    )
+
+    def start_mappers():
+        mapper(User, user)
+    ```
 
 ## Creating relationships
 
@@ -86,6 +133,8 @@ when they are accessed.
 The base class in a joined inheritance hierarchy is configured with additional
 arguments that will refer to the polymorphic discriminator column as well as the
 identifier for the base class.
+
+### Declarative
 
 ```python
 class Employee(Base):
@@ -119,6 +168,65 @@ class Manager(Employee):
         'polymorphic_identity': 'manager',
     }
 ```
+
+### [Classical](https://stackoverflow.com/questions/44665708/need-classic-mapper-example-for-sqlalchemy-single-table-inheritance)
+
+!!! note "File: model.py"
+   ```python
+   class Employee:
+
+    def __init__(self, name):
+        self.name = name
+
+    class Manager(Employee):
+
+        def __init__(self, name, manager_data):
+            super().__init__(name)
+            self.manager_data = manager_data
+
+    class Engineer(Employee):
+
+        def __init__(self, name, engineer_info):
+            super().__init__(name)
+            self.engineer_info = engineer_info
+   ```
+
+!!! note "File: orm.py"
+    ```python
+    metadata = MetaData()
+
+    employee = Table(
+        'employee',
+        metadata,
+        Column('id', Integer, primary_key=True),
+        Column('name', String(50)),
+        Column('type', String(20)),
+        Column('manager_data', String(50)),
+        Column('engineer_info', String(50))
+    )
+
+    mapper(Employee, employee,
+           polymorphic_on=employee.c.type,
+           polymorphic_identity='employee',
+           exclude_properties={'engineer_info', 'manager_data'})
+
+
+    mapper(Manager,
+           inherits=Employee,
+           polymorphic_identity='manager',
+           exclude_properties={'engineer_info'})
+
+
+    mapper(Engineer,
+           inherits=Employee,
+           polymorphic_identity='engineer',
+           exclude_properties={'manager_data'})
+    ```
+
+
+
+
+
 
 ### One to many
 
