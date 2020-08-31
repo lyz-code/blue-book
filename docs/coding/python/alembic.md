@@ -68,6 +68,8 @@ important are:
 
     import os
 
+    if config.attributes.get("configure_logger", True):
+        fileConfig(config.config_file_name)
 
     def get_url():
         basedir = '~/.local/share/{{ program_name }}'
@@ -116,6 +118,7 @@ important are:
         # )
 
         connectable = create_engine(get_url())
+
 
         # Leave the rest of the file as it is
     ```
@@ -169,6 +172,26 @@ To check the status, execute:
 ```bash
 alembic current
 ```
+
+To load the migrations from the alembic library inside a python program, the
+best way to do it is through `alembic.command` instead of `alembic.config.main`
+because it will [redirect all logging output to a file](https://stackoverflow.com/questions/42427487/using-alembic-config-main-redirects-log-output)
+
+```python
+from alembic.config import Config
+import alembic.command
+
+config = Config('alembic.ini')
+config.attributes['configure_logger'] = False
+
+alembic.command.upgrade(config, 'head')
+```
+
+!!! note "File: env.py"
+    ```python
+    if config.attributes.get('configure_logger', True):
+        fileConfig(config.config_file_name)
+    ```
 
 
 # [Seed database with data](https://stackoverflow.com/questions/19334604/creating-seed-data-in-a-flask-migrate-or-alembic-migration)
