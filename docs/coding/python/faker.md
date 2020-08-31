@@ -29,6 +29,21 @@ def test_faker(faker):
     assert isinstance(faker.name(), str)
 ```
 
+By default it's populated with a [seed of
+`0`](https://faker.readthedocs.io/en/master/pytest-fixtures.html#seeding-configuration),
+to set a random seed add the following to your test configuration.
+
+!!! note "File: conftest.py"
+
+    ```python
+    import random
+
+
+    @pytest.fixture(scope="session", autouse=True)
+    def faker_seed():
+        return random.randint(0, 999999)
+    ```
+
 ## Generate fake number
 
 ```python
