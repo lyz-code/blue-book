@@ -170,6 +170,12 @@ directory to a new, empty folder.
           assert result.output == 'Hello World!\n'
     ```
 
+## Testing the value of stdout and stderr
+
+Although the `runner` allows the testing of `stdout` and `stderr`. It hasn't
+work for me for `stderr` and the `logging` module. So I suggest you use the
+[`caplog` fixture](pytest.md#the-caplog-fixture).
+
 # Options
 
 ## [Accepting values from environmental variables](https://click.palletsprojects.com/en/7.x/options/#values-from-environment-variables)
