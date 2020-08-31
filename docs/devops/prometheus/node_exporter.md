@@ -5,7 +5,7 @@ author: Lyz
 ---
 
 [Node Exporter](https://github.com/prometheus/node_exporter) is a Prometheus
-exporter for hardware and OS metrics exposed by *NIX kernels, written in Go with
+exporter for hardware and OS metrics exposed by \*NIX kernels, written in Go with
 pluggable metric collectors.
 
 # Install
