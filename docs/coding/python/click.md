@@ -170,6 +170,29 @@ directory to a new, empty folder.
           assert result.output == 'Hello World!\n'
     ```
 
+# Options
+
+## [Accepting values from environmental variables](https://click.palletsprojects.com/en/7.x/options/#values-from-environment-variables)
+
+Click is the able to accept parameters from environment variables. There are two
+ways to define them.
+
+* Passing the `auto_envvar_prefix` to the script that is invoked so each command
+    and parameter is then added as an uppercase underscore-separated variable.
+
+* Manually pull values in from specific environment variables by defining the
+    name of the environment variable on the option.
+
+    ```python
+    @click.command()
+    @click.option('--username', envvar='USERNAME')
+    def greet(username):
+        click.echo(f'Hello {username}!')
+
+    if __name__ == '__main__':
+        greet()
+    ```
+
 # [Arguments](https://click.palletsprojects.com/en/7.x/arguments/)
 
 Arguments work similarly to options but are positional. They also only support
@@ -199,6 +222,47 @@ foo.txt
 ```
 
 
+
+# [Commands and groups](https://click.palletsprojects.com/en/7.x/commands)
+
+## [Nested handling and contexts](https://click.palletsprojects.com/en/7.x/commands/?highlight=pass%20context#nested-handling-and-contexts)
+
+Each time a command is invoked, a new context is created and linked with the
+parent context. Contexts are passed to parameter callbacks together with the value
+automatically. Commands can also ask for the context to be passed by marking
+themselves with the `pass_context()` decorator. In that case, the context is
+passed as first argument.
+
+The context can also carry a program specified object that can be used for the
+program’s purposes.
+
+```python
+@click.group()
+@click.option('--debug/--no-debug', default=False)
+@click.pass_context
+def cli(ctx, debug):
+    # ensure that ctx.obj exists and is a dict (in case `cli()` is called
+    # by means other than the `if` block below)
+    ctx.ensure_object(dict)
+
+    ctx.obj['DEBUG'] = debug
+
+@cli.command()
+@click.pass_context
+def sync(ctx):
+    click.echo(f'Debug is {ctx.obj['DEBUG'] and 'on' or 'off'}'))
+
+if __name__ == '__main__':
+    cli(obj={})
+```
+
+If the object is provided, each context will pass the object onwards to its
+children, but at any level a context’s object can be overridden. To reach to
+a parent, `context.parent` can be used.
+
+In addition to that, instead of passing an object down, nothing stops the
+application from modifying global state. For instance, you could just flip
+a global `DEBUG` variable and be done with it.
 
 # References
 
