@@ -275,6 +275,120 @@ Here’s a rundown of each scope value:
 * `scope='module'`: Run once per module, regardless of how many test functions or methods or other fixtures in the module use it.
 * `scope='session'` Run once per session. All test methods and functions using a fixture of session scope share one setup and teardown call.
 
+## Builtin Fixtures
+
+### [The tmpdir fixture](https://docs.pytest.org/en/stable/tmpdir.html)
+
+You can use the `tmpdir` fixture which will provide a temporary directory unique
+to the test invocation, created in the base temporary directory.
+
+`tmpdir` is a `py.path.local` object which offers `os.path` methods and more. Here is an example test usage:
+
+!!! note "File: test_tmpdir.py"
+
+    ```python
+    def test_create_file(tmpdir):
+        p = tmpdir.mkdir("sub").join("hello.txt")
+        p.write("content")
+        assert p.read() == "content"
+        assert len(tmpdir.listdir()) == 1
+        assert 0
+    ```
+
+The `tmpdir` fixture has a scope of `function` so you can't make a session
+directory. Instead use the `tmpdir_factory` fixture.
+
+
+```python
+@pytest.fixture(scope="session")
+def image_file(tmpdir_factory):
+    img = compute_expensive_image()
+    fn = tmpdir_factory.mktemp("data").join("img.png")
+    img.save(str(fn))
+    return fn
+
+
+def test_histogram(image_file):
+    img = load_image(image_file)
+    # compute and test histogram
+```
+
+
+### [The caplog fixture](https://docs.pytest.org/en/stable/logging.html#caplog-fixture)
+
+pytest captures log messages of level WARNING or above automatically and
+displays them in their own section for each failed test in the same manner as
+captured stdout and stderr.
+
+You can change the default logging level in the pytest configuration
+
+!!! note "File: pytest.ini"
+    ```ini
+    [pytest]
+
+    log_level = debug
+    ```
+
+All the logs sent to the logger during the test run are made available on the
+fixture in the form of both the `logging.LogRecord` instances and the final log
+text. This is useful for when you want to assert on the contents of a message:
+
+```python
+def test_baz(caplog):
+    func_under_test()
+    for record in caplog.records:
+        assert record.levelname != "CRITICAL"
+    assert "wally" not in caplog.text
+```
+
+You can also resort to record_tuples if all you want to do is to ensure that
+certain messages have been logged under a given logger name with a given
+severity and message:
+
+```python
+def test_foo(caplog):
+    logging.getLogger().info("boo %s", "arg")
+
+    assert  ("root", logging.INFO, "boo arg") in caplog.record_tuples
+```
+
+You can call `caplog.clear()` to reset the captured log records in a test.
+
+Inside tests it is possible to change the log level for the captured log
+messages. This is supported by the caplog fixture:
+
+```python
+def test_foo(caplog):
+    caplog.set_level(logging.INFO)
+    pass
+```
+
+### The capsys fixture
+
+The `capsys` builtin fixture provides two bits of functionality: it allows you
+to retrieve stdout and stderr from some code, and it disables output capture
+temporarily.
+
+Suppose you have a function to print a greeting to stdout:
+
+```python
+def greeting(name):
+    print(f'Hi, {name}')
+```
+
+You can test the output by using `capsys`.
+
+```python
+def test_greeting(capsys):
+    greeting('Earthling')
+    out, err = capsys.readouterr()
+    assert out == 'Hi, Earthling\n'
+    assert err == ''
+```
+
+The return value is whatever has been captured since the beginning of the
+function, or from the last time it was called.
+
 ## [Use a fixture more than once in a function](https://github.com/pytest-dev/pytest/issues/2703)
 
 One solution is to make your fixture return a factory instead of the resource
