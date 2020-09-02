@@ -275,7 +275,7 @@ Here’s a rundown of each scope value:
 * `scope='module'`: Run once per module, regardless of how many test functions or methods or other fixtures in the module use it.
 * `scope='session'` Run once per session. All test methods and functions using a fixture of session scope share one setup and teardown call.
 
-## Builtin Fixtures
+## Useful Fixtures
 
 ### [The tmpdir fixture](https://docs.pytest.org/en/stable/tmpdir.html)
 
@@ -313,7 +313,6 @@ def test_histogram(image_file):
     # compute and test histogram
 ```
 
-
 ### [The caplog fixture](https://docs.pytest.org/en/stable/logging.html#caplog-fixture)
 
 pytest captures log messages of level WARNING or above automatically and
@@ -329,7 +328,7 @@ You can change the default logging level in the pytest configuration
     log_level = debug
     ```
 
-All the logs sent to the logger during the test run are made available on the
+All the logs sent to the logger during the test run are available on the
 fixture in the form of both the `logging.LogRecord` instances and the final log
 text. This is useful for when you want to assert on the contents of a message:
 
@@ -388,6 +387,74 @@ def test_greeting(capsys):
 
 The return value is whatever has been captured since the beginning of the
 function, or from the last time it was called.
+
+### [freezegun](https://github.com/ktosiek/pytest-freezegun)
+
+freezegun lets you freeze time in both the test and fixtures.
+
+#### Install
+
+```bash
+pip install pytest-freezegun
+```
+
+#### [Usage](https://github.com/ktosiek/pytest-freezegun#usage)
+
+Freeze time by using the freezer fixture:
+
+```python
+def test_frozen_date(freezer):
+    now = datetime.now()
+    time.sleep(1)
+    later = datetime.now()
+    assert now == later
+```
+
+This can then be used to move time:
+
+```python
+def test_moving_date(freezer):
+    now = datetime.now()
+    freezer.move_to('2017-05-20')
+    later = datetime.now()
+    assert now != later
+```
+
+You can also pass arguments to freezegun by using the `freeze_time` mark:
+
+```python
+@pytest.mark.freeze_time('2017-05-21')
+def test_current_date():
+    assert date.today() == date(2017, 5, 21)
+```
+
+The `freezer` fixture and `freeze_time` mark can be used together, and they work with other fixtures:
+
+```python
+@pytest.fixture
+def current_date():
+    return date.today()
+
+@pytest.mark.freeze_time
+def test_changing_date(current_date, freezer):
+    freezer.move_to('2017-05-20')
+    assert current_date == date(2017, 5, 20)
+    freezer.move_to('2017-05-21')
+    assert current_date == date(2017, 5, 21)
+```
+
+They can also be used in class-based tests:
+
+```python
+class TestDate:
+
+    @pytest.mark.freeze_time
+    def test_changing_date(self, current_date, freezer):
+        freezer.move_to('2017-05-20')
+        assert current_date == date(2017, 5, 20)
+        freezer.move_to('2017-05-21')
+        assert current_date == date(2017, 5, 21)
+```
 
 ## [Use a fixture more than once in a function](https://github.com/pytest-dev/pytest/issues/2703)
 
