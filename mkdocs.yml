@@ -113,6 +113,7 @@ nav:
           - Libraries:
               - Alembic: 'coding/python/alembic.md'
               - Click: coding/python/click.md
+              - DeepDiff: coding/python/deepdiff.md
               - FactoryBoy: 'coding/python/factoryboy.md'
               - Faker: 'coding/python/faker.md'
               - Flask: 'coding/python/flask.md'
