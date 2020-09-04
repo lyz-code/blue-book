@@ -13,7 +13,7 @@ that all of our data is in memory.
 [![Repository Pattern Diagram](../../images/ddd_repository_pattern.png)](https://www.cosmicpython.com/book/chapter_02_repository.html)
 
 !!! note "TL;DR"
-    If your app is a basic CRUD (create-rad-update-delete) wrapper around
+    If your app is a basic CRUD (create-read-update-delete) wrapper around
     a database, then you don't need a domain model or a repository. But the
     more complex the domain, the more an investment in freeing yourself from
     infrastructure concerns will pay off in terms of the ease of making changes.
@@ -228,6 +228,24 @@ class FakeRepository(AbstractRepository):
     def list(self) -> List(model.Task):
         return list(self._tasks)
 ```
+
+# Warnings
+
+Don't include the properties the ORM introduces into the model of the entities,
+otherwise you're going to have a bad debugging time.
+
+If we use the ORM to back populate the `children` attribute in the model of
+`Task`, don't add the attribute in the `__init__` method arguments, but
+initialize it inside the method:
+
+```python
+class Task:
+    def __init__(self, id: str, description: str) -> None:
+        self.id = id
+        self.description = description
+        self.children Optional[List['Task']]= None
+```
+
 
 # References
 
