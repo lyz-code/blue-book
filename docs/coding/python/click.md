@@ -176,7 +176,41 @@ Although the `runner` allows the testing of `stdout` and `stderr`. It hasn't
 work for me for `stderr` and the `logging` module. So I suggest you use the
 [`caplog` fixture](pytest.md#the-caplog-fixture).
 
-# Options
+# [Options](https://click.palletsprojects.com/en/7.x/options/)
+
+## [Boolean Flags](https://click.palletsprojects.com/en/7.x/options/#boolean-flags)
+
+Boolean flags are options that can be enabled or disabled. This can be
+accomplished by defining two flags in one go separated by a slash (/) for
+enabling or disabling the option. Click always wants you to provide an enable
+and disable flag so that you can change the default later.
+
+```python
+import sys
+
+@click.command()
+@click.option('--shout/--no-shout', default=False)
+def info(shout):
+    rv = sys.platform
+    if shout:
+        rv = rv.upper() + '!!!!111'
+    click.echo(rv)
+```
+
+If you really don’t want an off-switch, you can just define one and manually
+inform Click that something is a flag:
+
+```python
+import sys
+
+@click.command()
+@click.option('--shout', is_flag=True)
+def info(shout):
+    rv = sys.platform
+    if shout:
+        rv = rv.upper() + '!!!!111'
+    click.echo(rv)
+```
 
 ## [Accepting values from environmental variables](https://click.palletsprojects.com/en/7.x/options/#values-from-environment-variables)
 
@@ -227,7 +261,9 @@ $ touch foo.txt
 foo.txt
 ```
 
+## [Variadic arguments](https://pocoo-click.readthedocs.io/en/latest/arguments/?highlight=variadic#variadic-arguments)
 
+You can't use [variadic arguments and then specify a command](https://github.com/pallets/click/issues/1153).
 
 # [Commands and groups](https://click.palletsprojects.com/en/7.x/commands)
 
