@@ -368,22 +368,45 @@ This can be useful when you need lists of subclasses or optional list of
 subclasses. The expected behavior doesn't work.
 
 ```python
-Entity = Union[model.Project, model.Tag, model.Task]
+Entity = TypeVar('Entity', model.Project, model.Tag, model.Task)
 Entities = List[Entity]
 ```
 
-Instead, you need to use:
+Try to use `TypeVar` instead of `Union` of the different types, as it's able to
+deduce better the type of the return value of a function.
 
 ```python
-Entities = Union[List[model.Project], List[model.Tag], List[model.Task]]
-OptionalEntities = Union[
-    Optional[List[model.Project]],
-    Optional[List[model.Tag]],
-    Optional[List[model.Task]]
-]
+def do_something(entity: Entity) -> Entity:
+    return Entity
 ```
 
-Still Ugly, but it mitigates the problem.
+If you use `TypeVar`, if you call the function with a type `Card`, it will know
+that the result is of type `Card`, if you use `Union`, even if you call it with
+`Card` the return value will be `Union[Card,Deck]`.
+
+### [Specify the type of the class in it's method and attributes](https://stackoverflow.com/questions/33533148/how-do-i-specify-that-the-return-type-of-a-method-is-the-same-as-the-class-itsel)
+
+If you are using Python 3.10 or later, it just works.
+Python 3.7 introduces PEP 563: postponed evaluation of annotations. A module
+that uses the future statement `from __future__ import annotations` to store annotations as strings automatically:
+
+```python
+from __future__ import annotations
+
+class Position:
+    def __add__(self, other: Position) -> Position:
+        ...
+```
+
+But `pyflakes` will still complain, so I've used strings.
+
+```python
+from __future__ import annotations
+
+class Position:
+    def __add__(self, other: 'Position') -> 'Position':
+        ...
+```
 
 ## [Using mypy with an existing codebase](https://mypy.readthedocs.io/en/latest/existing_code.html)
 
