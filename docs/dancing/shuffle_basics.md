@@ -18,6 +18,22 @@ The steps below can be danced with "slow" or quick tempos. It's best to learn
 with the slow ones as they build the muscle memory to be able to skip parts of
 it as you move to higher tempos.
 
+# Dance routine
+
+After several iterations I've come to this routine:
+
+* Start dancing a bit to low tempo songs, I've got a playlist with increasing
+    tempo songs, the aim is to start warming up and remember what I've learnt
+    the last time.
+* Once you're warmed up dance some songs to your current tempo level.
+* Then put some songs a little above your tempo level and try to speed up your
+    [running man](#quick-tempo-running-man) and [T-Step](#quick-tempo-t-step).
+* Improve this notes with the new discoveries.
+* Analyze a video to extract some steps.
+* Add one or two songs to the shuffle playlist. Prepend the song name [with the
+    bpms](http://www.beatsperminuteonline.com/) (it's better to measure them
+    manually as automatic software tends to fail badly).
+
 # Running man
 
 The running man is the basic step of Melbourne shuffle, so make sure to master
@@ -48,7 +64,16 @@ The foot going forward can land in the floor flat, heel first or toes first.
 ## Quick tempo Running man
 
 As the tempo speeds up, even if it seems there is no time to stop in the *1-and*
-or *2-and* they do manage to do so. I still need to figure how.
+or *2-and* they do manage to do so. To reach there, I'd put a song a little bit quicker than
+you are comfortable and:
+
+* Get familiarity with the movement of the foot in the ground: Start with your
+    basic running man stance left foot in front. When the *1* comes, try to
+    reach the *1-and* focusing to lift your right knee and stomp in the *2*.
+    Rest a pair of beats and then try the other foot. Keep on doing it till you
+    are comfortable doing this movement.
+* Then try to do 2 complete running mans.
+* Then dance :).
 
 ## Kicking-Running man
 
@@ -121,13 +146,18 @@ I've seen that Francis when finishes his T-Step with the other leg. So instead
 of moving the right leg in front and slide back the left (if we are going to the
 right), he:
 
+* *1-and*: Equal to normal T-Step.
+* *2*: When you put your right foot down, shift your weight till it's evenly
+    spread between feet.
 * *2-and*: Switch your weight to the right foot, lift the left while you keep on
-    moving your body to your 3.
+    shifting your body weight to your 3.
 * *3*: Left foot touches ground at your 1.5, slide the right back to the running
     man stance.
 
 What I like of this variation is that you conserve the energy, it makes total
 sense. What it doesn't is that he is dancing with sandals `(¬º-°)¬`.
+
+Try to move from side to side with 2 T-Steps in between using this variation.
 
 ## Quick tempo T-Step
 
@@ -177,7 +207,9 @@ put all your weight in your left leg because you need to twist).
 
 Source: [1](https://www.youtube.com/embed/1RHfw0IYrU8?start=598)
 
-# Tap spin
+# Spins
+
+## Tap spin
 
 ![](../images/shuffle_tap_spin.gif)
 
@@ -202,6 +234,38 @@ want to go further repeat *1* and *1-and* as long as you want.
 ![](../images/shuffle_tap_spin_tutorial.gif)
 
 Sources: [1](https://www.youtube.com/embed/rOQa0gXan70?start=50)
+
+## Francis Spin
+
+![](../images/francis_spin_quick.gif)
+
+Awesome to start dancing.
+
+* *8*: Both feet under your body, weight evenly spread between them. Give
+    a small jump to start rotating clockwise (for example).
+* *8-and*: After 90 degrees of turn, your feet touch the ground, take the chance
+    to give the big push to rotate the following 270. Bring your exterior arm to
+    your shoulder level.
+* *1*: Arrive to the running man stance with the left foot in front, but don't
+    stop the rotation inertia.
+* *1-and*: Retrieve the left foot like any running man, but the foot points to
+    your 5, right knee up.
+* *2*: End your running man to your 5 with your right foot down. Add the final
+    touch by lowering your external arm down.
+
+![](../images/francis_spin.gif)
+
+To get there :
+
+* First practice the last part, the running man with a spin. The steps *1* to
+    *2* described above until you are comfortable with it in both spinning
+    directions. It's good to change the spin direction not to get dizzy.
+* Do the full move until you are comfortable.
+* Get it in time. Count in the song to start the movement in the *8* of the last
+    time before a big drop.
+
+
+Source: [1](https://www.youtube.com/embed/TaUz1KCVdJg?start=160)
 
 # Basic crossing
 
@@ -244,11 +308,15 @@ Sources: [1](https://www.youtube.com/embed/NVISfLc_z8c?start=119)
 
 # Future steps
 
-* [Francis spin](https://www.youtube.com/embed/TaUz1KCVdJg?start=160)
 * [Rocky kicks](https://www.youtube.com/watch?v=1RHfw0IYrU8) at 13:26 or 27:58.
-* [Recce kicks](https://www.youtube.com/watch?v=1RHfw0IYrU8) at 15:56 or 27:28 or 27:43 or 28:05.
+* [Recce kicks](https://www.youtube.com/watch?v=1RHfw0IYrU8) at 15:56
+    (explanation) or 27:43 or 28:05.
 * [Reverse kick spin](https://www.youtube.com/watch?v=1RHfw0IYrU8) at 18:01 or 27:65.
 * [Forward kick spin](https://www.youtube.com/watch?v=1RHfw0IYrU8) at 19:33.
+
+# Beats per minute progression
+
+* 2020-09-07: First time to be able to dance at 118bpm to [C2C - Happy](https://www.youtube.com/watch?v=_dX9zMPPomw).
 
 # References
 
@@ -260,3 +328,6 @@ Sources: [1](https://www.youtube.com/embed/NVISfLc_z8c?start=119)
 ## More videos to study
 
 * [Rocky Shuffle compilation](https://www.youtube.com/watch?v=bxvEDvNJrNE)
+* [Francis Shuffle compilation](https://www.youtube.com/watch?v=ia-06zXLa5E)
+* [Siera Shuffle compilation](https://www.youtube.com/watch?v=bUOR1KOhLXE)
+* [Bulldog Shuffle compilation](https://www.youtube.com/watch?v=AscmjFyXenQ)
