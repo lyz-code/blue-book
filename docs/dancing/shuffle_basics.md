@@ -75,23 +75,10 @@ you are comfortable and:
 * Then try to do 2 complete running mans.
 * Then dance :).
 
-## Kicking-Running man
-
-![](../images/shuffle_kicking_running_man.gif)
-
-* *8-and*: Both legs straight under our body, right leg lifted up
-    with knee up front. Weight lies on the left foot.
-* *1*: Right foot kicks forward without touching the ground, it's important that
-    the kick is clean, so swift till the end and stop suddenly. At the same time
-    the left foot has slided back a little bit.
-* *1-and*: Right foot is retrieved, knee up and foot parallel to the ground,
-    left foot keeps on sliding back.
-* *2*: Right foot hits the ground, left foot keeps on sliding, weight is evenly
-    shared between feet like the *1* of the running man.
-
-![](../images/shuffle_kicking_running_man_tutorial.gif)
-
-Sources: [1](https://www.youtube.com/embed/rOQa0gXan70?start=13)
+For me the most difficult part is to bring back the non dominant leg backwards,
+to get used to the movement I slided backwards with that leg several times, then
+do three running mans starting with that leg, rest, and then do another three
+starting with the other one.
 
 # T-Step
 
@@ -178,134 +165,6 @@ the kicks.
     man stance.
 * Then instead of starting with your knee up, start from the running man stance.
 
-## Sacco kicks
-
-Sacco kicks looks similar to the T-Step adding some side kicks. There are two
-variations, either kick first in and then out or the other way around. I'm more
-comfortable with the first and I think it gives an advantage when combining it
-with the running man.
-
-* *8-and*: Equal to the T-Step.
-* *1*: The foot of the floor equal to the T-Step but the right foot kicks to
-    your 10.5.
-* *1-and*: Equal to the T-Step.
-* *2*: The foot of the floor equal to the T-Step but the right foot kicks to
-    your 3.
-
-The advantage of the Sacco kicks is that as you are going to kick to your 10.5
-in *1*, you can slide the left foot quite a lot to your back (from *8* to *1*), therefore gliding
-further than with a simple T-Step (you only have half a tempo before you need to
-put all your weight in your left leg because you need to twist).
-
-![](../images/sacco_kicks_example.gif)
-
-!!! note ""
-    Although the guy in the video slides the foot backwards when going to his
-    left, try to do the twist of the T-Step.
-
-(The guy is crazy, shuffling barefoot over gravel soil `(╯°□°)╯ ┻━┻`).
-
-Source: [1](https://www.youtube.com/embed/1RHfw0IYrU8?start=598)
-
-# Spins
-
-## Tap spin
-
-![](../images/shuffle_tap_spin.gif)
-
-* *8*: Feet at the end of a running man, we generate a slight upper body twist
-    clockwise to load the twist.
-* *8-and*: Left foot goes back to the body axes and the right foot goes to the
-    body with knee up like a running man, with the difference that we release
-    the twist energy and we start turning counterclockwise. Weight is on the
-    left foot toes and it's knee is a little bit bent.
-* *1*: Right foot kicks sideways towards 3 touching the ground but not putting
-    any weight into it while we unbend the left knee taking the chance to keep
-    the spin going.
-* *1-and*: Right foot goes back to the body and left knee is again a little bit
-    bent waiting for the next kick.
-* *2*: Equal to *1*
-* *2-and*: Equal to *1-and*
-* *3*: Becomes the *1* of the running man.
-
-You can spin as long as you want, I've explained a two times spin, but if you
-want to go further repeat *1* and *1-and* as long as you want.
-
-![](../images/shuffle_tap_spin_tutorial.gif)
-
-Sources: [1](https://www.youtube.com/embed/rOQa0gXan70?start=50)
-
-## Francis Spin
-
-![](../images/francis_spin_quick.gif)
-
-Awesome to start dancing.
-
-* *8*: Both feet under your body, weight evenly spread between them. Give
-    a small jump to start rotating clockwise (for example).
-* *8-and*: After 90 degrees of turn, your feet touch the ground, take the chance
-    to give the big push to rotate the following 270. Bring your exterior arm to
-    your shoulder level.
-* *1*: Arrive to the running man stance with the left foot in front, but don't
-    stop the rotation inertia.
-* *1-and*: Retrieve the left foot like any running man, but the foot points to
-    your 5, right knee up.
-* *2*: End your running man to your 5 with your right foot down. Add the final
-    touch by lowering your external arm down.
-
-![](../images/francis_spin.gif)
-
-To get there :
-
-* First practice the last part, the running man with a spin. The steps *1* to
-    *2* described above until you are comfortable with it in both spinning
-    directions. It's good to change the spin direction not to get dizzy.
-* Do the full move until you are comfortable.
-* Get it in time. Count in the song to start the movement in the *8* of the last
-    time before a big drop.
-
-
-Source: [1](https://www.youtube.com/embed/TaUz1KCVdJg?start=160)
-
-# Basic crossing
-
-![](../images/shuffle_basic_crossing.gif)
-
-* *8-and*: Left legs straight under our body, with the weight in the toes and
-    the foot a little turned with the heel pointing to our right (7 o'clock),
-    right leg lifted up straight to our 3 o'clock with toes pointing down.
-    with knee up front. Weight lies on the left foot.
-* *1*: Right foot crosses before the left one, toes touch the floor first in our
-    longitudinal axes. The left foot pivots over the toes to end up pointing to
-    our 11. Weight is evenly shared between the feet toes.
-* *1-and*: Mirrors *8-and*.
-* *2*: Mirrors *1*.
-* *2-and*: Equal to *8-and*.
-
-![](../images/shuffle_basic_crossing_tutorial.gif)
-
-Sources: [1](https://www.youtube.com/embed/NVISfLc_z8c?start=41)
-
-# Wiggle feet
-
-![](../images/shuffle_wiggle_feet.gif)
-
-* *8-and*: Both legs straight under our body, right leg lifted up
-    with knee up front. Weight lies on the left foot.
-* *1*: Right foot touches the floor behind the hips pointing to 10.5, left foot
-    pivots over the toes to point to 1.5. Weight is even between feet.
-* *1-and*: Right foot pivots on the heel till 1.5. Left foot pivots on the toes
-    till 10.5.
-* *2*: Equal *1*.
-* *2-and*: Mirrors *1-and*.
-* *3*: Equal *1*.
-* *3-and*: Equal *1-and*.
-* *4*: Equal *1*.
-
-![](../images/shuffle_wiggle_feet_tutorial.gif)
-
-Sources: [1](https://www.youtube.com/embed/NVISfLc_z8c?start=119)
-
 # Future steps
 
 * [Rocky kicks](https://www.youtube.com/watch?v=1RHfw0IYrU8) at 13:26 or 27:58.
@@ -316,14 +175,9 @@ Sources: [1](https://www.youtube.com/embed/NVISfLc_z8c?start=119)
 
 # Beats per minute progression
 
-* 2020-09-07: First time to be able to dance at 118bpm to [C2C - Happy](https://www.youtube.com/watch?v=_dX9zMPPomw).
+* 2020-09-07: First time to be able to dance a song at 118bpm to [C2C - Happy](https://www.youtube.com/watch?v=_dX9zMPPomw).
 
 # References
-
-## Where to discover more tutorials
-
-* [Elements tutorial playlist](https://www.youtube.com/playlist?list=PLv695483ty5Nj0L0ZsAIiSAN62-lT6-3U)
-* [Anderson Jovani playlist](https://www.youtube.com/playlist?list=PLPAWfysb_wUx259mARAAWuYttD7b6nauh)
 
 ## More videos to study
 

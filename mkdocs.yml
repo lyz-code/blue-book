@@ -161,10 +161,12 @@ nav:
     - Writing:
         - English Grammar and Ortography: 'writing/orthography.md'
     - Dancing:
-      - Rave Dances:
-        - Rave Dances: dancing/rave_dances.md
-        - Shuffle:
-          - Basics: dancing/shuffle_basics.md
+      - Rave Dances: dancing/rave_dances.md
+      - Shuffle:
+        - Basics: dancing/shuffle_basics.md
+        - Kicks: dancing/shuffle_kicks.md
+        - Spins: dancing/shuffle_spins.md
+      - Cutting Shapes: dancing/cutting_shapes_basics.md
     - Drawing:
         - Drawing: 'drawing/drawing.md'
         - Exercise Pool: 'drawing/exercise_pool.md'
