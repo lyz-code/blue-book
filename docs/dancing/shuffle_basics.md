@@ -167,11 +167,21 @@ the kicks.
 
 # Future steps
 
+* [Sacco kicks](https://www.youtube.com/watch?v=bxvEDvNJrNE) at 14:50, 15:49,
+    17:08
 * [Rocky kicks](https://www.youtube.com/watch?v=1RHfw0IYrU8) at 13:26 or 27:58.
+    [Rocky version](https://www.youtube.com/watch?v=bxvEDvNJrNE) at 1:19, 2:34,
+    7:29
 * [Recce kicks](https://www.youtube.com/watch?v=1RHfw0IYrU8) at 15:56
     (explanation) or 27:43 or 28:05.
 * [Reverse kick spin](https://www.youtube.com/watch?v=1RHfw0IYrU8) at 18:01 or 27:65.
+    [Rocky version](https://www.youtube.com/watch?v=bxvEDvNJrNE) at 1:18, 2:16,
+    2:55, 3:26, 3:59, 4:58, 6:24, 8:17, 8:35, 15:00, 15:55
 * [Forward kick spin](https://www.youtube.com/watch?v=1RHfw0IYrU8) at 19:33.
+    [Rocky version](https://www.youtube.com/watch?v=bxvEDvNJrNE) at 2:20, 3:16,
+    3:47, 8:40, 8:49
+* [Rocky side to side](https://www.youtube.com/watch?v=bxvEDvNJrNE) at 15:04,
+    16:08
 
 # Beats per minute progression
 
