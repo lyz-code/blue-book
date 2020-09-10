@@ -62,6 +62,7 @@ nav:
       - Linux:
           - brew: 'linux/brew.md'
           - cookiecutter: 'linux/cookiecutter.md'
+          - elasticsearch: 'linux/elasticsearch.md'
           - fail2ban: 'linux/fail2ban.md'
           - google chrome: 'linux/google_chrome.md'
           - hypothesis: 'linux/hypothesis.md'
@@ -172,6 +173,8 @@ nav:
         - Exercise Pool: 'drawing/exercise_pool.md'
   - Psychology:
       - The XY Problem: 'psychology/the_xy_problem.md'
+  - Botany:
+    - Trees: botany/trees.md
   - Emojis: 'emojis.md'
   - Contact: 'contact.md'
 
