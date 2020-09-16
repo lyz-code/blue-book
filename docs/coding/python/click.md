@@ -306,6 +306,55 @@ In addition to that, instead of passing an object down, nothing stops the
 application from modifying global state. For instance, you could just flip
 a global `DEBUG` variable and be done with it.
 
+## [Add default command to group](https://github.com/click-contrib/click-default-group)
+
+You need to use `DefaultGroup`, which is a sub class of `click.Group`. But it
+invokes a default subcommand instead of showing a help message when a subcommand
+is not passed.
+
+```bash
+pip install click-default-group
+```
+
+```python
+import click
+from click_default_group import DefaultGroup
+
+@click.group(cls=DefaultGroup, default='foo', default_if_no_args=True)
+def cli():
+    pass
+
+@cli.command()
+def foo():
+    click.echo('foo')
+
+@cli.command()
+def bar():
+    click.echo('bar')
+```
+
+Then you can invoke that without explicit subcommand name:
+
+```bash
+$ cli.py --help
+Usage: cli.py [OPTIONS] COMMAND [ARGS]...
+
+Options:
+  --help    Show this message and exit.
+
+Command:
+  foo*
+  bar
+
+$ cli.py
+foo
+$ cli.py foo
+foo
+$ cli.py bar
+bar
+```
+
+
 # References
 
 * [Homepage](https://click.palletsprojects.com/)
