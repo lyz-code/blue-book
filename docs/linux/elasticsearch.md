@@ -172,7 +172,76 @@ curl -XDELETE {{ url }}/{{ path_to_ddbb }}
 
 # Troubleshooting
 
-## Reallocate unassigned shards
+## Recover from yellow state
+
+A yellow cluster represents that some of the replica shards in the cluster are
+unassigned. I can see that around 14 replica shards are unassigned.
+
+You can confirm the state of the cluster with the following commands
+
+```bash
+curl <domain-endpoint>_cluster/health?pretty
+curl -X GET <domain-endpoint>/_cat/shards | grep UNASSIGNED
+curl -X GET <domain-endpoint>/_cat/indices | grep yellow
+```
+
+If you have metrics of the JVMMemoryPressure of the nodes, check if the memory
+of a node reached 100% around the time the cluster reached yellow state.
+
+One can generally confirm the reason for a cluster going yellow by looking at
+the output of the following API call:
+
+```bash
+curl -X GET <domain-endpoint>/_cluster/allocation/explain | jq
+```
+
+If it shows a `CircuitBreakerException`, it confirms that a spike in the JVM
+metric caused the node to go down.
+
+The JVM memory pressure specifies the percentage of the Java heap in a cluster
+node. It's determined by the following factors:
+
+* The amount of data on the cluster in proportion to the amount of resources.
+* The query load on the cluster.
+
+Here's what happens as JVM memory pressure increases:
+
+* At 75%: Amazon ES triggers the Concurrent Mark Sweep (CMS) garbage collector.
+    The CMS collector runs alongside other processes to keep pauses and
+    disruptions to a minimum. The garbage collection is a CPU-intensive process.
+    If JVM memory pressure stays at this percentage for a few minutes, then you
+    could encounter ClusterBlockException, JVM OutOfMemoryError, or other
+    cluster performance issues.
+* Above 75%: If the CMS collector fails to reclaim enough memory and usage
+    remains above 75%, Amazon ES triggers a different garbage collection
+    algorithm. This algorithm tries to free up memory and prevent a JVM
+    OutOfMemoryError (OOM) exception by slowing or stopping processes.
+* Above 92% for 30 minutes: Amazon ES blocks all write operations.
+* Around 95%: Amazon ES kills processes that try to allocate memory. If
+    a critical process is killed, one or more cluster nodes might fail.
+* At 100%: Amazon ES JVM is configured to exit and eventually restarts on
+    OutOfMemory (OOM).
+
+To prevent high JVM memory pressure:
+
+* Avoid queries on wide ranges, such as aggregations, wildcard or big time range
+    queries.
+* Avoid sending a large number of requests at the same time.
+* Be sure that you have the appropriate number of shards.
+* Be sure that your shards are distributed evenly between nodes.
+* When possible, avoid aggregating on text fields. This helps prevent increases
+    in field data. The more field data you have, the more heap space is
+    consumed. Use the GET `_cluster/stats` API operation to check field data.
+* If you must aggregate on text fields, change the mapping type to keyword.
+
+
+If JVM memory pressure gets too high, use the following API operations to clear
+the field data cache: `POST /index_name/_cache/clear` (index-level cache) and `POST
+/_cache/clear` (cluster-level cache).
+
+Note: Clearing the cache can disrupt queries that are in progress.
+
+### Reallocate unassigned shards
 
 Elasticsearch makes 5 attempts to assign the shard but if it fails to be
 assigned after 5 attempts, the shards will remain unassigned. There is
