@@ -75,6 +75,7 @@ nav:
           - Syncthing: 'linux/syncthing.md'
           - Vim:
               - Vim Plugins: 'linux/vim/vim_plugins.md'
+          - Wireguard: linux/wireguard.md
           - zip: 'linux/zip.md'
       - AWS:
           - AWS: 'devops/aws/aws.md'
