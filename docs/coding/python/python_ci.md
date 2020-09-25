@@ -96,6 +96,7 @@ Trigger hooks:
 
     !!! note "File: .github/workflows/lint.yml"
         ```yaml
+        ---
         name: Lint
 
         on: [push, pull_request]
@@ -274,6 +275,7 @@ Trigger hooks:
     * `program_name`: your program name
 
     ```yaml
+    ---
     name: Python package
 
     on: [push, pull_request]
@@ -284,7 +286,7 @@ Trigger hooks:
         strategy:
           max-parallel: 3
           matrix:
-            python-version: [3.6, 3.7]
+            python-version: [3.6, 3.7, 3.8]
 
         steps:
         - uses: actions/checkout@v1
@@ -350,7 +352,7 @@ Trigger hooks:
         on: [push, pull_request]
 
         jobs:
-          safety:
+          Safety:
             runs-on: ubuntu-latest
             steps:
               - name: Checkout
