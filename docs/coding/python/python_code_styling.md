@@ -480,6 +480,27 @@ Python. If you try to run your program, you’ll have to remove any `reveal_type
 and `reveal_locals` calls before you can run your code. Both are always
 available and you don't need to import them.
 
+## [Solve cyclic imports due to typing](https://www.stefaanlippens.net/circular-imports-type-hints-python.html)
+
+You can use a conditional import that is only active in "type hinting mode", but
+doesn't interfere at run time. The `typing.TYPE_CHECKING` constant makes this
+easily possible. For example:
+
+```python
+# thing.py
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from connection import ApiConnection
+
+class Thing:
+    def __init__(self, connection: 'ApiConnection'):
+        self._conn = connection
+```
+
+The code will now execute properly as there is no circular import issue anymore.
+Type hinting tools on the other hand should still be able to resolve the
+`ApiConnection` type hint in `Thing.__init__`.
+
 # f-strings
 
 [f-strings](https://realpython.com/python-f-strings/), also known as *formatted
