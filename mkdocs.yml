@@ -4,96 +4,96 @@ site_description: My second brain
 site_author: Lyz
 site_url: https://lyz-code.github.io/blue-book
 nav:
-  - Introduction: 'index.md'
+  - Introduction: index.md
   - Meta:
-      - Meta: 'meta/meta.md'
-      - Projects: 'projects/projects.md'
-      - Wish list: 'wish_list.md'
+      - Meta: meta/meta.md
+      - Projects: projects/projects.md
+      - Wish list: wish_list.md
   - DevOps:
-      - DevOps: 'devops/devops.md'
+      - DevOps: devops/devops.md
       - Kubernetes:
-          - Kubernetes: 'devops/kubernetes/kubernetes.md'
-          - Architecture: 'devops/kubernetes/kubernetes_architecture.md'
+          - Kubernetes: devops/kubernetes/kubernetes.md
+          - Architecture: devops/kubernetes/kubernetes_architecture.md
           - Resources:
-              - Namespaces: 'devops/kubernetes/kubernetes_namespaces.md'
-              - Pods: 'devops/kubernetes/kubernetes_pods.md'
-              - ReplicaSets: 'devops/kubernetes/kubernetes_replicasets.md'
-              - Deployments: 'devops/kubernetes/kubernetes_deployments.md'
+              - Namespaces: devops/kubernetes/kubernetes_namespaces.md
+              - Pods: devops/kubernetes/kubernetes_pods.md
+              - ReplicaSets: devops/kubernetes/kubernetes_replicasets.md
+              - Deployments: devops/kubernetes/kubernetes_deployments.md
               - Horizontal Pod Autoscaling: >-
                   devops/kubernetes/kubernetes_hpa.md
-              - Volumes: 'devops/kubernetes/kubernetes_volumes.md'
-              - Services: 'devops/kubernetes/kubernetes_services.md'
-              - Labels: 'devops/kubernetes/kubernetes_labels.md'
-              - Annotations: 'devops/kubernetes/kubernetes_annotations.md'
-              - Ingress: 'devops/kubernetes/kubernetes_ingress.md'
-              - Operators: 'devops/kubernetes/kubernetes_operators.md'
+              - Volumes: devops/kubernetes/kubernetes_volumes.md
+              - Services: devops/kubernetes/kubernetes_services.md
+              - Labels: devops/kubernetes/kubernetes_labels.md
+              - Annotations: devops/kubernetes/kubernetes_annotations.md
+              - Ingress: devops/kubernetes/kubernetes_ingress.md
+              - Operators: devops/kubernetes/kubernetes_operators.md
           - Kubectl:
-              - Kubectl: 'devops/kubectl/kubectl.md'
-              - Kubectl Installation: 'devops/kubectl/kubectl_installation.md'
+              - Kubectl: devops/kubectl/kubectl.md
+              - Kubectl Installation: devops/kubectl/kubectl_installation.md
           - Additional Components:
-              - Metrics Server: 'devops/kubernetes/kubernetes_metric_server.md'
+              - Metrics Server: devops/kubernetes/kubernetes_metric_server.md
               - Ingress Controller: >-
                   devops/kubernetes/kubernetes_ingress_controller.md
-              - External DNS: 'devops/kubernetes/kubernetes_external_dns.md'
+              - External DNS: devops/kubernetes/kubernetes_external_dns.md
               - Cluster Autoscaler: >-
                   devops/kubernetes/kubernetes_cluster_autoscaler.md
-              - Dashboard: 'devops/kubernetes/kubernetes_dashboard.md'
-              - Storage Driver: 'devops/kubernetes/kubernetes_storage_driver.md'
+              - Dashboard: devops/kubernetes/kubernetes_dashboard.md
+              - Storage Driver: devops/kubernetes/kubernetes_storage_driver.md
               - Vertical Pod Autoscaler: >-
                   devops/kubernetes/kubernetes_vertical_pod_autoscaler.md
-          - Networking: 'devops/kubernetes/kubernetes_networking.md'
-          - Tools: 'devops/kubernetes/kubernetes_tools.md'
+          - Networking: devops/kubernetes/kubernetes_networking.md
+          - Tools: devops/kubernetes/kubernetes_tools.md
       - Helm:
-          - Helm: 'devops/helm/helm.md'
-          - Helm Installation: 'devops/helm/helm_installation.md'
-          - Helm Commands: 'devops/helm/helm_commands.md'
-          - Helm Secrets: 'devops/helm/helm_secrets.md'
-      - Helmfile: 'devops/helmfile.md'
+          - Helm: devops/helm/helm.md
+          - Helm Installation: devops/helm/helm_installation.md
+          - Helm Commands: devops/helm/helm_commands.md
+          - Helm Secrets: devops/helm/helm_secrets.md
+      - Helmfile: devops/helmfile.md
       - Prometheus:
-          - Prometheus: 'devops/prometheus/prometheus.md'
-          - Architecture: 'devops/prometheus/prometheus_architecture.md'
-          - Prometheus Operator: 'devops/prometheus/prometheus_operator.md'
-          - Prometheus Install: 'devops/prometheus/prometheus_installation.md'
-          - AlertManager: 'devops/prometheus/alertmanager.md'
-          - Blackbox Exporter: 'devops/prometheus/blackbox_exporter.md'
-          - Node Exporter: 'devops/prometheus/node_exporter.md'
+          - Prometheus: devops/prometheus/prometheus.md
+          - Architecture: devops/prometheus/prometheus_architecture.md
+          - Prometheus Operator: devops/prometheus/prometheus_operator.md
+          - Prometheus Install: devops/prometheus/prometheus_installation.md
+          - AlertManager: devops/prometheus/alertmanager.md
+          - Blackbox Exporter: devops/prometheus/blackbox_exporter.md
+          - Node Exporter: devops/prometheus/node_exporter.md
           - Prometheus Troubleshooting: >-
               devops/prometheus/prometheus_troubleshooting.md
       - Linux:
-          - brew: 'linux/brew.md'
-          - cookiecutter: 'linux/cookiecutter.md'
-          - elasticsearch: 'linux/elasticsearch.md'
-          - fail2ban: 'linux/fail2ban.md'
-          - google chrome: 'linux/google_chrome.md'
-          - hypothesis: 'linux/hypothesis.md'
-          - LUKS: 'linux/luks/luks.md'
-          - mkdocs: 'linux/mkdocs.md'
-          - monica: 'linux/monica.md'
-          - Miscellaneous Linux Commands: 'linux/linux_miscellaneous.md'
-          - nodejs: 'linux/nodejs.md'
-          - rm: 'linux/rm.md'
-          - Syncthing: 'linux/syncthing.md'
+          - brew: linux/brew.md
+          - cookiecutter: linux/cookiecutter.md
+          - elasticsearch: linux/elasticsearch.md
+          - fail2ban: linux/fail2ban.md
+          - google chrome: linux/google_chrome.md
+          - hypothesis: linux/hypothesis.md
+          - LUKS: linux/luks/luks.md
+          - mkdocs: linux/mkdocs.md
+          - monica: linux/monica.md
+          - Miscellaneous Linux Commands: linux/linux_miscellaneous.md
+          - nodejs: linux/nodejs.md
+          - rm: linux/rm.md
+          - Syncthing: linux/syncthing.md
           - Vim:
-              - Vim Plugins: 'linux/vim/vim_plugins.md'
+              - Vim Plugins: linux/vim/vim_plugins.md
           - Wireguard: linux/wireguard.md
-          - zip: 'linux/zip.md'
+          - zip: linux/zip.md
       - AWS:
-          - AWS: 'devops/aws/aws.md'
-          - Security groups workflow: 'devops/aws/security_groups.md'
-          - EKS: 'devops/aws/eks.md'
+          - AWS: devops/aws/aws.md
+          - Security groups workflow: devops/aws/security_groups.md
+          - EKS: devops/aws/eks.md
           - IAM:
-              - IAM: 'devops/aws/iam/iam.md'
-              - IAM Commands: 'devops/aws/iam/iam_commands.md'
-              - IAM Debugging: 'devops/aws/iam/iam_debug.md'
-          - S3: 'devops/aws/s3.md'
+              - IAM: devops/aws/iam/iam.md
+              - IAM Commands: devops/aws/iam/iam_commands.md
+              - IAM Debugging: devops/aws/iam/iam_debug.md
+          - S3: devops/aws/s3.md
       - API Management:
-          - API Management: 'devops/api_management.md'
-          - Kong: 'devops/kong/kong.md'
+          - API Management: devops/api_management.md
+          - Kong: devops/kong/kong.md
   - Coding:
       - TDD: coding/tdd.md
       - Python:
           - Project Template:
-              - Project Template: 'coding/python/python_project_template.md'
+              - Project Template: coding/python/python_project_template.md
               - Command-line Project Template:
                   - Command-line Project Template: >-
                       coding/python/python_project_template/python_cli_template.md
@@ -107,41 +107,41 @@ nav:
                   - Create the documentation repository: >-
                       coding/python/python_project_template/python_docs.md
                   - Continuous integration pipelines: coding/python/python_ci.md
-                  - Load config from YAML: 'coding/python/python_config_yaml.md'
+                  - Load config from YAML: coding/python/python_config_yaml.md
                   - Configure SQLAlchemy to use the MariaDB/Mysql backend: >-
                       coding/python/python_project_template/python_sqlalchemy_mariadb.md
                   - Configure Docker to host the application: >-
                       coding/python/python_project_template/python_docker.md
           - Libraries:
-              - Alembic: 'coding/python/alembic.md'
+              - Alembic: coding/python/alembic.md
               - Click: coding/python/click.md
               - DeepDiff: coding/python/deepdiff.md
-              - FactoryBoy: 'coding/python/factoryboy.md'
-              - Faker: 'coding/python/faker.md'
-              - Flask: 'coding/python/flask.md'
-              - Folium: 'coding/python/folium.md'
-              - Feedparser: 'coding/python/feedparser.md'
-              - Pandas: 'coding/python/pandas.md'
-              - Plotly: 'coding/python/plotly.md'
-              - Ruamel YAML: 'coding/python/ruamel_yaml.md'
-              - SQLAlchemy: 'coding/python/sqlalchemy.md'
-              - Redis-py: 'coding/python/redis-py.md'
-              - Requests-mock: 'coding/python/requests_mock.md'
-              - Rq: 'coding/python/rq.md'
-              - sh: 'coding/python/sh.md'
-              - TinyDB: 'coding/python/tinydb.md'
-              - Yoyo: 'coding/python/yoyo.md'
-          - Type Hints: 'coding/python/type_hints.md'
-          - Code Styling: 'coding/python/python_code_styling.md'
-          - Anti-Patterns: 'coding/python/python_anti_patterns.md'
-          - Data Classes: 'coding/python/data_classes.md'
-          - Pytest: 'coding/python/pytest.md'
-      - Javascript:
-          - Javascript: 'coding/javascript/javascript.md'
-      - JSON: 'coding/json/json.md'
-      - React:
-          - React: 'coding/react/react.md'
-      - YAML: 'coding/yaml/yaml.md'
+              - FactoryBoy: coding/python/factoryboy.md
+              - Faker: coding/python/faker.md
+              - Flask: coding/python/flask.md
+              - Folium: coding/python/folium.md
+              - Feedparser: coding/python/feedparser.md
+              - Pandas: coding/python/pandas.md
+              - Pypika: coding/python/pypika.md
+              - Plotly: coding/python/plotly.md
+              - Ruamel YAML: coding/python/ruamel_yaml.md
+              - SQLAlchemy: coding/python/sqlalchemy.md
+              - Redis-py: coding/python/redis-py.md
+              - Requests-mock: coding/python/requests_mock.md
+              - Rq: coding/python/rq.md
+              - sh: coding/python/sh.md
+              - TinyDB: coding/python/tinydb.md
+              - Yoyo: coding/python/yoyo.md
+          - Type Hints: coding/python/type_hints.md
+          - Code Styling: coding/python/python_code_styling.md
+          - Anti-Patterns: coding/python/python_anti_patterns.md
+          - Data Classes: coding/python/data_classes.md
+          - Pytest: coding/python/pytest.md
+      - Javascript: coding/javascript/javascript.md
+      - JSON: coding/json/json.md
+      - React: coding/react/react.md
+      - SQL: coding/sql/sql.md
+      - YAML: coding/yaml/yaml.md
   - Software Architecture:
       - SOLID: architecture/solid.md
       - Domain Driven Design:
@@ -152,19 +152,19 @@ nav:
       - ORM, Query Builder or Raw SQL: architecture/orm_builder_query_or_raw_sql.md
       - Microservices: architecture/microservices.md
       - Restful APIS: architecture/restful_apis.md
-      - Redis: 'architecture/redis.md'
+      - Redis: architecture/redis.md
   - Data Analysis:
       - Recommender Systems:
           - Recommender Systems: >-
               data_analysis/recommender_systems/recommender_systems.md
   - Life Automation:
-      - Life Automation: 'life_automation/life_automation.md'
-      - Week Automation: 'life_automation/week_automation.md'
-      - Relationship Automation: 'life_automation/relationship_automation.md'
-      - Vim Automation: 'life_automation/vim_automation.md'
+      - Life Automation: life_automation/life_automation.md
+      - Week Automation: life_automation/week_automation.md
+      - Relationship Automation: life_automation/relationship_automation.md
+      - Vim Automation: life_automation/vim_automation.md
   - Arts:
     - Writing:
-        - English Grammar and Ortography: 'writing/orthography.md'
+        - English Grammar and Ortography: writing/orthography.md
     - Dancing:
       - Rave Dances: dancing/rave_dances.md
       - Shuffle:
@@ -173,14 +173,14 @@ nav:
         - Spins: dancing/shuffle_spins.md
       - Cutting Shapes: dancing/cutting_shapes_basics.md
     - Drawing:
-        - Drawing: 'drawing/drawing.md'
-        - Exercise Pool: 'drawing/exercise_pool.md'
+        - Drawing: drawing/drawing.md
+        - Exercise Pool: drawing/exercise_pool.md
   - Psychology:
-      - The XY Problem: 'psychology/the_xy_problem.md'
+      - The XY Problem: psychology/the_xy_problem.md
   - Botany:
     - Trees: botany/trees.md
-  - Emojis: 'emojis.md'
-  - Contact: 'contact.md'
+  - Emojis: emojis.md
+  - Contact: contact.md
 
 plugins:
   - search
@@ -221,8 +221,8 @@ theme:
   custom_dir: "theme"
   logo: "images/logo.bmp"
   palette:
-    primary: 'blue grey'
-    accent: 'light blue'
+    primary: blue grey
+    accent: light blue
   static_templates:
     - rss.xml
 
@@ -236,8 +236,8 @@ extra_css:
 
 extra:
   social:
-    - type: 'github'
-      link: 'https://github.com/lyz-code'
+    - type: github
+      link: https://github.com/lyz-code
 
-repo_name: 'lyz-code/blue-book'
-repo_url: 'https://github.com/lyz-code/blue-book'
+repo_name: lyz-code/blue-book
+repo_url: https://github.com/lyz-code/blue-book
