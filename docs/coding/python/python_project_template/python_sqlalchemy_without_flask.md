@@ -4,6 +4,9 @@ date: 20200602
 author: Lyz
 ---
 
+!!! warning ""
+    I discourage you to use an ORM to manage the interactions with the
+    database. [Check the alternative solutions](orm_builder_query_or_raw_sql.md).
 
 * Install [Alembic](alembic.md):
     ```bash

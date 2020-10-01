@@ -8,6 +8,10 @@ author: Lyz
 Relational Mapper that gives application developers the full power and
 flexibility of SQL.
 
+!!! warning ""
+    I discourage you to use an ORM to manage the interactions with the
+    database. [Check the alternative solutions](orm_builder_query_or_raw_sql.md).
+
 # Creating an SQL Schema
 
 First of all it's important to create a diagram with the database structure, it

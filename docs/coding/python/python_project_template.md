@@ -48,4 +48,6 @@ enhancements to be applied:
 
 # References
 
-* [ionel packaging a python library post](https://blog.ionelmc.ro/2014/05/25/python-packaging/)
+* [ionel packaging a python library
+    post](https://blog.ionelmc.ro/2014/05/25/python-packaging/) and he's
+    [cookiecutter template](https://github.com/ionelmc/cookiecutter-pylibrary)
