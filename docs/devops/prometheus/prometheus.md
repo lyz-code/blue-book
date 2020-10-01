@@ -129,6 +129,11 @@ Prometheus metrics support the concept of Labels to provide extra dimensions to
 your data. By using Labels efficiently we can essentially provide more insights
 into our data whilst having to manage less actual metrics.
 
+# Finding a metric
+
+You can use `{__name__=~".*deploy.*"}` to find the metrics that have `deploy`
+somewhere in the name.
+
 # Links
 
 * [Homepage](https://prometheus.io/).
