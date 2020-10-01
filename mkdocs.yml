@@ -147,6 +147,7 @@ nav:
           - Repository Pattern: architecture/repository_pattern.md
           - Service Layer Pattern: architecture/service_layer_pattern.md
       - Database Architecture: architecture/database_architecture.md
+      - ORM, Query Builder or Raw SQL: architecture/orm_builder_query_or_raw_sql.md
       - Microservices: architecture/microservices.md
       - Restful APIS: architecture/restful_apis.md
       - Redis: 'architecture/redis.md'
