@@ -33,8 +33,6 @@ Excels:
 
 Cons:
 
-![](https://xkcd.com/327/)
-
 * *SQL Injections*: As you are manually writing the queries, it's easier to fall
     into these vulnerabilities.
 * *Change management*: Databases change over time. With raw SQL, you typically
