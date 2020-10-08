@@ -69,7 +69,6 @@ another way, so abstraction level over using raw SQL is small.
 
 Excels:
 
-* *Flexibility*: Same flexibility as using raw SQL.
 * *Performance*: Same performance as using raw SQL.
 * *Magic free*: Same comprehension as using raw SQL.
 * *No logic coupling*: Same coupling as using raw SQL.
@@ -78,6 +77,9 @@ Excels:
 
 Mitigates:
 
+* *Flexibility*: You depend on the builder implementation of the language you
+    are trying to use, but if the functionality you are trying to use is not
+    there, you can always fall back to raw SQL.
 * *SQL Injections*: Query builders have mechanism to insert parameters into the
     queries in a safe way.
 * *Editor support*: The query builder prevents typos in the offered parts
