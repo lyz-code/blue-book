@@ -29,5 +29,5 @@ same time it reduces the error rate.
 
 # Automating home chores
 
-* Using [grocy](grocy.md) to maintain the house stock, shopping lists and meal
+* Using Grocy to maintain the house stock, shopping lists and meal
   plans.

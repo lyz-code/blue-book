@@ -230,8 +230,6 @@ theme:
   palette:
     primary: blue grey
     accent: light blue
-  static_templates:
-    - rss.xml
 
 extra_css:
   - 'stylesheets/extra.css'

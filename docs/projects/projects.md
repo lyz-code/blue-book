@@ -99,7 +99,7 @@ spend my CPU time wisely.
 Keeping track of what do you have at home or what needs to be bought is an
 effort that should be avoided.
 
-So I'm integrating [grocy](grocy.md) in my life.
+So I'm integrating Grocy) in my life.
 
 ## [Mediarss](https://git.digitales.cslabrecha.org/lyz/mediarss)
 
