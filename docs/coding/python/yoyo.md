@@ -1,5 +1,5 @@
 ---
-title: Yoyo mirations
+title: Yoyo migrations
 date: 20201001
 author: Lyz
 ---
@@ -179,7 +179,6 @@ steps = [
   step(apply_step, rollback_step)
 ]
 ```
-
 
 #### [Post-apply hook](https://ollycope.com/software/yoyo/latest/#post-apply-hook)
 

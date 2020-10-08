@@ -9,6 +9,10 @@ migration tool for SQLAlchemy. It is created by the author of SQLAlchemy and it
 has become the de-facto standard tool to perform migrations on SQLAlchemy backed
 databases.
 
+!!! warning ""
+    I discourage you to use an ORM to manage the interactions with the
+    database. [Check the alternative solutions](orm_builder_query_or_raw_sql.md).
+
 # Database Migration in SQLAlchemy
 
 A database migration usually changes the schema of a database, such as adding
