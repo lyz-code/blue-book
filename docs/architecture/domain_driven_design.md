@@ -214,7 +214,7 @@ models from the persistent storage solution.
     a specialized Factory object such that alternative implementations may be
     easily interchanged.
 
-[![ddd architecture image](../images/ddd_architecture.png)](https://www.cosmicpython.com/book/part1.html)
+[![ddd architecture image](ddd_architecture.png)](https://www.cosmicpython.com/book/part1.html)
 
 # References
 
