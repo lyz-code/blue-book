@@ -45,7 +45,7 @@ The Operator acts on the following [custom resource definitions](https://github.
   ensures at all times that a deployment matching the resource definition is
   running.
 
-![](../../images/prometheus_operator_workflow.png)
+![ ](prometheus_operator_workflow.png)
 
 # Links
 

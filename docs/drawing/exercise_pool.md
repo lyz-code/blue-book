@@ -13,11 +13,11 @@ exercises.
     a line with a ruler and repeat the stroke freehand eight times. Also try
     some arcing lines, and even some waves. Make sure you fray only at the end.
 
-    ![](../../images/draw-a-box-flow-fry-at-the-end.jpg)
+    ![ ](draw-a-box-flow-fry-at-the-end.jpg)
 
     Example:
 
-    ![](../../images/draw-a-box-flow-superimposed-lines.jpg)
+    ![ ](draw-a-box-flow-superimposed-lines.jpg)
 
 * [Ghosted lines](https://drawabox.com/lesson/1/9/purpose): Fill up a page with
     straight lines following the [ghosting method](drawing.md#ghosting).
@@ -39,7 +39,7 @@ exercises.
 
     Example:
 
-    ![](../../images/draw-a-box-flow-ghosting-example.jpg)
+    ![ ](draw-a-box-flow-ghosting-example.jpg)
 
 * [Ghosted planes](https://drawabox.com/lesson/1/ghostedplanes): Fill up a page
     with planes using the [ghosting method](drawing.md#ghosting). Start with
@@ -53,7 +53,7 @@ exercises.
 
     Example:
 
-    ![](../../images/draw-a-box-flow-ghosting-planes.jpg)
+    ![ ](draw-a-box-flow-ghosting-planes.jpg)
 
     As you repeat the exercise, you can start to envision these planes as being
     three dimensional rectilinear surfaces. The third and fourth steps, where we

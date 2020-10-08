@@ -41,7 +41,7 @@ and
 provide good ingress controller comparisons, a synoptical resume of both
 articles follows.
 
-![](../../images/ingress_controller_comparison.png)
+![ ](ingress_controller_comparison.png)
 
 # [Kubernetes Ingress controller](https://github.com/kubernetes/ingress-nginx)
 

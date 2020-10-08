@@ -4,9 +4,8 @@ date: 20200206
 author: Lyz
 ---
 
-[Life Automation](../tags.md#life-automation) is the act of analyzing your
-interactions with the world to find ways to reduce the time or willpower spent
-on unwanted processes.
+Life Automation is the act of analyzing your interactions with the world to find
+ways to reduce the time or willpower spent on unwanted processes.
 
 Once you've covered some minimum life requirements (health, money or
 happiness), time is your most valued asset. It's sad to waste it doing stuff

@@ -6,7 +6,7 @@ author: Lyz
 
 # Kicking-Running man
 
-![](../images/shuffle_kicking_running_man.gif)
+![ ](shuffle_kicking_running_man.gif)
 
 * *8-and*: Both legs straight under our body, right leg lifted up
     with knee up front. Weight lies on the left foot.
@@ -18,7 +18,7 @@ author: Lyz
 * *2*: Right foot hits the ground, left foot keeps on sliding, weight is evenly
     shared between feet like the *1* of the running man.
 
-![](../images/shuffle_kicking_running_man_tutorial.gif)
+![ ](shuffle_kicking_running_man_tutorial.gif)
 
 Sources: [1](https://www.youtube.com/embed/rOQa0gXan70?start=13)
 
@@ -41,7 +41,7 @@ in *1*, you can slide the left foot quite a lot to your back (from *8* to *1*), 
 further than with a simple T-Step (you only have half a tempo before you need to
 put all your weight in your left leg because you need to twist).
 
-![](../images/sacco_kicks_example.gif)
+![ ](sacco_kicks_example.gif)
 
 !!! note ""
     Although the guy in the video slides the foot backwards when going to his

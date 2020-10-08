@@ -39,8 +39,8 @@ After several iterations I've come to this routine:
 The running man is the basic step of Melbourne shuffle, so make sure to master
 it.
 
-![](../images/running_man_cutting_shapes.gif)
-![](../images/running_man_cutting_shapes_2.gif)
+![ ](running_man_cutting_shapes.gif)
+![ ](running_man_cutting_shapes_2.gif)
 
 * *8-and*: Both legs straight under our body, right leg lifted up
     with knee up front. Weight lies on the left foot.
@@ -51,8 +51,8 @@ it.
 * *2*: Mirrors *1*.
 * *2-and*: Mirrors *1-and* and it's equal to *8-and*.
 
-![](../images/running_man_cutting_shapes_tutorial.gif)
-![](../images/running_man_cutting_shapes_tutorial_2.gif)
+![ ](running_man_cutting_shapes_tutorial.gif)
+![ ](running_man_cutting_shapes_tutorial_2.gif)
 
 Once you feel comfortable with it, start going around the room doing running
 mans, so you get a grasp of doing it without being stationary.
@@ -90,7 +90,7 @@ movement.
 The following instructions are a nice way to get the grasp of the movement, but
 we'll change them slightly to be able to link it with the other moves.
 
-![](../images/shuffle_t_shape_kicks.gif)
+![ ](shuffle_t_shape_kicks.gif)
 
 * *8-and*: Both legs straight under our body, right leg lifted up
     with knee up front. Weight lies on the left foot, which looks at 1.5
@@ -111,7 +111,7 @@ To move to the other side is the mirror.
 Keep the leg that holds you a bit bent so you don't harm your knee when
 twisting.
 
-![](../images/shuffle_t_shape_kicks_tutorial.gif)
+![ ](shuffle_t_shape_kicks_tutorial.gif)
 
 The usual basic pattern of Melbourne shuffle is doing some running mans pointing
 at 10.5, then doing a side step (like the T-step) to the right, then another
@@ -120,14 +120,14 @@ running man pointing to 1.5, finishing with another side step to the left.
 To join the T-Step with the running man, when you are in the *1-and* make it the
 *8-and* of the T-Step.
 
-![](../images/t_step_and_running_man.gif)
+![ ](t_step_and_running_man.gif)
 
 Sources: [1](https://www.youtube.com/embed/NVISfLc_z8c?start=88)
 [2](https://www.youtube.com/embed/ia-06zXLa5E?start=755)
 
 ### Francis T-Step
 
-![](../images/francis_t_step.gif)
+![ ](francis_t_step.gif)
 
 I've seen that Francis when finishes his T-Step with the other leg. So instead
 of moving the right leg in front and slide back the left (if we are going to the

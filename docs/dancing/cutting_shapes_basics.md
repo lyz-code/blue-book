@@ -6,7 +6,7 @@ author: Lyz
 
 # Basic crossing
 
-![](../images/shuffle_basic_crossing.gif)
+![ ](shuffle_basic_crossing.gif)
 
 * *8-and*: Left legs straight under our body, with the weight in the toes and
     the foot a little turned with the heel pointing to our right (7 o'clock),
@@ -19,13 +19,13 @@ author: Lyz
 * *2*: Mirrors *1*.
 * *2-and*: Equal to *8-and*.
 
-![](../images/shuffle_basic_crossing_tutorial.gif)
+![ ](shuffle_basic_crossing_tutorial.gif)
 
 Sources: [1](https://www.youtube.com/embed/NVISfLc_z8c?start=41)
 
 # Wiggle feet
 
-![](../images/shuffle_wiggle_feet.gif)
+![ ](shuffle_wiggle_feet.gif)
 
 * *8-and*: Both legs straight under our body, right leg lifted up
     with knee up front. Weight lies on the left foot.
@@ -39,7 +39,7 @@ Sources: [1](https://www.youtube.com/embed/NVISfLc_z8c?start=41)
 * *3-and*: Equal *1-and*.
 * *4*: Equal *1*.
 
-![](../images/shuffle_wiggle_feet_tutorial.gif)
+![ ](shuffle_wiggle_feet_tutorial.gif)
 
 Sources: [1](https://www.youtube.com/embed/NVISfLc_z8c?start=119)
 

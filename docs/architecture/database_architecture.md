@@ -94,3 +94,7 @@ Suitable for:
 
 * A lot of fields are changed in one time.
 * Generating a change report with full record history is needed
+
+# References
+
+* [Decoupling database migrations from server startup](https://pythonspeed.com/articles/schema-migrations-server-startup/)

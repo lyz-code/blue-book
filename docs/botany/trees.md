@@ -6,11 +6,11 @@ author: Lyz
 
 # [Ash](https://en.wikipedia.org/wiki/Fraxinus)
 
-![](../images/tree_ash.jpg)
+![ ](tree_ash.jpg)
 
 # [Beech](https://en.wikipedia.org/wiki/Beech)
 
-![](../images/tree_beech.jpg)
+![ ](tree_beech.jpg)
 
 Beech (Fagus) is a genus of deciduous trees in the family Fagaceae, native to
 temperate Europe, Asia, and North America. The better known Fagus subgenus
@@ -41,7 +41,7 @@ content, and are called beechnuts or beechmast.
 
 # [Birch](https://en.wikipedia.org/wiki/Birch)
 
-![](../images/tree_birch.jpg)
+![Birch botany illustration](tree_birch.jpg)
 
 A birch is a thin-leaved deciduous hardwood tree of the genus Betula, in the
 family Betulaceae, which also includes alders, hazels, and hornbeams. It is

@@ -17,7 +17,7 @@ author: Lyz
     Dashboard also provides information on the state of Kubernetes resources in
     your cluster and on any errors that may have occurred.
 
-![](../../../images/kubernetes-dashboard-ui.png)
+![ ](kubernetes-dashboard-ui.png)
 
 # Deployment
 

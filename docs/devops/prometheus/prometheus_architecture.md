@@ -4,7 +4,7 @@ date: 20200304
 author: Lyz
 ---
 
-![](../../images/prometheus_architecture.png)
+![ ](prometheus_architecture.png)
 
 # [Prometheus Server](https://github.com/prometheus/prometheus)
 

@@ -9,7 +9,7 @@ components](https://kubernetes.io/docs/concepts/overview/components/)
 distributed between two kind of nodes, [Masters](#master-nodes) and
 [Workers](#worker-nodes).
 
-![kubernetes core architecture diagram](../../images/k8s.core.architecture.png)
+![kubernetes core architecture diagram](k8s.core.architecture.png)
 
 # Master Nodes
 

@@ -61,7 +61,7 @@ communicate or convey something. Marks should:
     a line between two points, do it with a single continuous stroke even if you
     miss the end.
 
-    ![](../../images/draw-a-box-flow-continuous.jpg)
+    ![ ](draw-a-box-flow-continuous.jpg)
 
 * [Flow smoothly](https://drawabox.com/lesson/1/2/smooth): Draw with a confident
     and persistent pace (enough to keep your brain from interfering and
@@ -69,13 +69,13 @@ communicate or convey something. Marks should:
     accuracy](https://drawabox.com/comic/1), so expect to make your lines less
     accurate.
 
-    ![](../../images/draw-a-box-flow-smooth.jpg)
+    ![ ](draw-a-box-flow-smooth.jpg)
 
 * [Maintain a consistent
     trayectory](https://drawabox.com/lesson/1/2/consistent): Split lines
     into derivable strokes. Otherwise, you'll make mindless zigzags.
 
-    ![](../../images/draw-a-box-flow-derivable.jpg)
+    ![ ](draw-a-box-flow-derivable.jpg)
 
 ## Drawing skills
 
@@ -108,19 +108,19 @@ of our results. It also forces us to think and consider our intentions before
     the line you want to draw, paint a dot for the start and another for the
     end.
 
-    ![](../../images/draw-a-box-flow-ghosting-planning.jpg)
+    ![ ](draw-a-box-flow-ghosting-planning.jpg)
 
 * [*Rotating the page*](https://drawabox.com/lesson/1/9/rotating): Find the most
     comfortable angle of approach for the line you've planned. Usually it's
     roughly a 45 degree angle fom left to right (if you're right handed).
 
-    ![](../../images/draw-a-box-flow-ghosting-rotate.jpg)
+    ![ ](draw-a-box-flow-ghosting-rotate.jpg)
 
 * [*Ghosting*](https://drawabox.com/lesson/1/9/ghosting): Go through the motion
     of drawing your line, over and over, in one direction, without actually
     touching the page, so as to build muscle memory.
 
-    ![](../../images/draw-a-box-flow-ghosting-ghosting.jpg)
+    ![ ](draw-a-box-flow-ghosting-ghosting.jpg)
 
 * [*Execution*](https://drawabox.com/lesson/1/9/execution): Once you feel
     comfortable with the motion, without missing a beat or breaking the rhythm

@@ -6,7 +6,7 @@ author: Lyz
 
 # Tap spin
 
-![](../images/shuffle_tap_spin.gif)
+![ ](shuffle_tap_spin.gif)
 
 * *8*: Feet at the end of a running man, we generate a slight upper body twist
     clockwise to load the twist.
@@ -26,13 +26,13 @@ author: Lyz
 You can spin as long as you want, I've explained a two times spin, but if you
 want to go further repeat *1* and *1-and* as long as you want.
 
-![](../images/shuffle_tap_spin_tutorial.gif)
+![ ](shuffle_tap_spin_tutorial.gif)
 
 Sources: [1](https://www.youtube.com/embed/rOQa0gXan70?start=50)
 
 # Francis Spin
 
-![](../images/francis_spin_quick.gif)
+![ ](francis_spin_quick.gif)
 
 Awesome to start dancing.
 
@@ -48,7 +48,7 @@ Awesome to start dancing.
 * *2*: End your running man to your 5 with your right foot down. Add the final
     touch by lowering your external arm down.
 
-![](../images/francis_spin.gif)
+![ ](francis_spin.gif)
 
 To get there :
 
