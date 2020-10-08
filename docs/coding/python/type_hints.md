@@ -232,6 +232,8 @@ def deal_hands(deck: Deck) -> Tuple[Deck, Deck, Deck, Deck]:
     return (deck[0::4], deck[1::4], deck[2::4], deck[3::4])
 ```
 
+### [Generic types](https://www.python.org/dev/peps/pep-0484/#generics)
+
 This can be useful when you need lists of subclasses or optional list of
 subclasses. The expected behavior doesn't work.
 
@@ -251,6 +253,43 @@ def do_something(entity: Entity) -> Entity:
 If you use `TypeVar`, if you call the function with a type `Card`, it will know
 that the result is of type `Card`, if you use `Union`, even if you call it with
 `Card` the return value will be `Union[Card,Deck]`.
+
+More generally, [Generics](https://www.python.org/dev/peps/pep-0484/#generics)
+can be parameterized by using a new factory available in typing called
+`TypeVar`. Example:
+
+```python
+from typing import Sequence, TypeVar
+
+T = TypeVar('T')      # Declare type variable
+
+def first(l: Sequence[T]) -> T:   # Generic function
+    return l[0]
+```
+
+In this case the contract is that the returned value is consistent with the
+elements held by the collection.
+
+
+A `TypeVar()` expression must always directly be assigned to a variable (it
+should not be used as part of a larger expression). The argument to `TypeVar()`
+must be a string equal to the variable name to which it is assigned. Type
+variables must not be redefined.
+
+TypeVar supports constraining parametric types to a fixed set of possible types
+(note: those types cannot be parameterized by type variables). For example, we
+can define a type variable that ranges over just str and bytes. By default,
+a type variable ranges over all possible types. Example of constraining a type
+variable:
+
+```python
+from typing import TypeVar, Text
+
+AnyStr = TypeVar('AnyStr', Text, bytes)
+
+def concat(x: AnyStr, y: AnyStr) -> AnyStr:
+    return x + y
+```
 
 ### [Specify the type of the class in it's method and attributes](https://stackoverflow.com/questions/33533148/how-do-i-specify-that-the-return-type-of-a-method-is-the-same-as-the-class-itsel)
 
