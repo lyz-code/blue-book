@@ -10,7 +10,7 @@ abstraction over persistent storage, allowing us to decouple our model layer
 from the data layer. It hides the boring details of data access by pretending
 that all of our data is in memory.
 
-[![Repository Pattern Diagram](../../images/ddd_repository_pattern.png)](https://www.cosmicpython.com/book/chapter_02_repository.html)
+[![Repository Pattern Diagram](img/ddd_repository_pattern.png)](https://www.cosmicpython.com/book/chapter_02_repository.html)
 
 !!! note "TL;DR"
     If your app is a basic CRUD (create-read-update-delete) wrapper around
@@ -53,7 +53,7 @@ Disadvantages:
     unit tests or our ability to make changes. So we'll have an *onion
     architecture*.
 
-    [![Onion architecture](../../images/ddd_onion_architecture.png)](https://www.cosmicpython.com/book/chapter_02_repository.html)
+    [![Onion architecture](img/ddd_onion_architecture.png)](https://www.cosmicpython.com/book/chapter_02_repository.html)
 
     If you follow the typical SQLAlchemy tutorial, you'll end up with
     a "declarative" syntax where the model tightly depends on the ORM. The
