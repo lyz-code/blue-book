@@ -122,7 +122,9 @@ nav:
               - Folium: coding/python/folium.md
               - Feedparser: coding/python/feedparser.md
               - Pandas: coding/python/pandas.md
-              - Pydantic: coding/python/pydantic.md
+              - Pydantic:
+                  - Pydantic: coding/python/pydantic.md
+                  - Pydantic Field Types: coding/python/pydantic_types.md
               - Pypika: coding/python/pypika.md
               - Plotly: coding/python/plotly.md
               - Ruamel YAML: coding/python/ruamel_yaml.md
