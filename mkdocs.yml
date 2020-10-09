@@ -127,6 +127,8 @@ nav:
                   - Pydantic Field Types: coding/python/pydantic_types.md
                   - Pydantic Validators: coding/python/pydantic_validators.md
                   - Pydantic Exporting Models: coding/python/pydantic_exporting.md
+                  - Pydantic Validating Functions: coding/python/pydantic_functions.md
+                  - Pydantic Mypy Plugin: coding/python/pydantic_mypy_plugin.md
               - Pypika: coding/python/pypika.md
               - Plotly: coding/python/plotly.md
               - Ruamel YAML: coding/python/ruamel_yaml.md
