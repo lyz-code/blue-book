@@ -28,7 +28,7 @@ Type hints are not enforced on their own by python. So you won't catch an error
 if you try to run `headline("use mypy", align="center")` unless you use a static
 type checker like [Mypy](http://mypy-lang.org/).
 
-## Advantages and disadvantages
+# Advantages and disadvantages
 
 Advantages:
 
@@ -66,9 +66,9 @@ Follow these guidelines when deciding if you want to add types to your project:
 So, [Use Type hints whenever unit tests are worth
 writing](https://www.bernat.tech/the-state-of-type-hints-in-python/).
 
-## Usage
+# Usage
 
-### Function annotations
+## Function annotations
 
 ```python
 def func(arg: arg_type, optarg: arg_type = default) -> return_type:
@@ -81,7 +81,7 @@ expression.
 When running the code, the special `.__annotations__` attribute on the function
  stores the typing information.
 
-### Variable annotations
+## Variable annotations
 
 Sometimes the type checker needs help in figuring out the types of variables as
 well. The syntax is similar:
@@ -92,7 +92,7 @@ pi: float = 3.142
 def circumference(radius: float) -> float:
     return 2 * pi * radius
 ```
-### Composite types
+## Composite types
 
 If you need to hint other types than `str`, `float` and `bool`, you'll need to
 import the `typing` module.
@@ -109,7 +109,7 @@ For example to define the hint types of list, dictionaries and tuples:
 If your function expects some kind of sequence but don't care whether it's
 a list or a tuple, use the `typing.Sequence` object.
 
-### Functions without return values
+## Functions without return values
 
 Some functions aren't meant to return anything. Use the `-> None` hint in these
 cases.
@@ -139,7 +139,7 @@ def black_hole() -> NoReturn:
     python article on type
     checking](https://realpython.com/python-type-checking/#type-systems).
 
-### Optional arguments
+## Optional arguments
 
 A common pattern is to use `None` as a default value for an argument. This is
 done either to avoid problems with [mutable default
@@ -159,7 +159,7 @@ def player(name: str, start: Optional[str] = None) -> str:
 
 A similar way would be to use `Union[None, str]`.
 
-### [Allow any subclass](https://mypy.readthedocs.io/en/stable/kinds_of_types.html#union-types)
+## [Allow any subclass](https://mypy.readthedocs.io/en/stable/kinds_of_types.html#union-types)
 
 It's not yet supported (unless inheriting from an abstract class), so the expected format
 
@@ -214,7 +214,7 @@ def process_any_subclass_type_of_A(cls: A):
     pass
 ```
 
-### Type aliases
+## Type aliases
 
 Type hints might become oblique when working with nested types. If it's the
 case, save them into a new variable, and use that instead.
@@ -232,7 +232,7 @@ def deal_hands(deck: Deck) -> Tuple[Deck, Deck, Deck, Deck]:
     return (deck[0::4], deck[1::4], deck[2::4], deck[3::4])
 ```
 
-### [Generic types](https://www.python.org/dev/peps/pep-0484/#generics)
+## [Generic types](https://www.python.org/dev/peps/pep-0484/#generics)
 
 This can be useful when you need lists of subclasses or optional list of
 subclasses. The expected behavior doesn't work.
@@ -291,7 +291,7 @@ def concat(x: AnyStr, y: AnyStr) -> AnyStr:
     return x + y
 ```
 
-### [Specify the type of the class in it's method and attributes](https://stackoverflow.com/questions/33533148/how-do-i-specify-that-the-return-type-of-a-method-is-the-same-as-the-class-itsel)
+## [Specify the type of the class in it's method and attributes](https://stackoverflow.com/questions/33533148/how-do-i-specify-that-the-return-type-of-a-method-is-the-same-as-the-class-itsel)
 
 If you are using Python 3.10 or later, it just works.
 Python 3.7 introduces PEP 563: postponed evaluation of annotations. A module
@@ -315,7 +315,7 @@ class Position:
         ...
 ```
 
-## [Using mypy with an existing codebase](https://mypy.readthedocs.io/en/latest/existing_code.html)
+# [Using mypy with an existing codebase](https://mypy.readthedocs.io/en/latest/existing_code.html)
 
 These steps will get you started with `mypy` on an existing codebase:
 
@@ -360,7 +360,7 @@ These steps will get you started with `mypy` on an existing codebase:
     * Developers should add annotations for any new code.
     * It’s also encouraged to write annotations when you change existing code.
 
-## [Reveal the type of an expression](https://mypy.readthedocs.io/en/stable/common_issues.html?highlight=get%20type%20of%20object#displaying-the-type-of-an-expression)
+# [Reveal the type of an expression](https://mypy.readthedocs.io/en/stable/common_issues.html?highlight=get%20type%20of%20object#displaying-the-type-of-an-expression)
 
 You can use `reveal_type(expr)` to ask mypy to display the inferred static type
 of an expression. This can be useful when you don't quite understand how mypy
@@ -387,7 +387,7 @@ Python. If you try to run your program, you’ll have to remove any `reveal_type
 and `reveal_locals` calls before you can run your code. Both are always
 available and you don't need to import them.
 
-## [Solve cyclic imports due to typing](https://www.stefaanlippens.net/circular-imports-type-hints-python.html)
+# [Solve cyclic imports due to typing](https://www.stefaanlippens.net/circular-imports-type-hints-python.html)
 
 You can use a conditional import that is only active in "type hinting mode", but
 doesn't interfere at run time. The `typing.TYPE_CHECKING` constant makes this
@@ -407,3 +407,45 @@ class Thing:
 The code will now execute properly as there is no circular import issue anymore.
 Type hinting tools on the other hand should still be able to resolve the
 `ApiConnection` type hint in `Thing.__init__`.
+
+# [Make your library compatible with mypy](https://mypy.readthedocs.io/en/stable/installed_packages.html#making-pep-561-compatible-packages)
+
+
+[PEP 561](https://www.python.org/dev/peps/pep-0561) notes three main ways to
+distribute type information. The first is a package that has only inline type
+annotations in the code itself. The second is a package that ships stub files
+with type information alongside the runtime code. The third method, also known
+as a “stub only package” is a package that ships type information for a package
+separately as stub files.
+
+If you would like to publish a library package to a package repository (e.g.
+PyPI) for either internal or external use in type checking, packages that supply
+type information via type comments or annotations in the code should put
+a `py.typed` file in their package directory. For example, with a directory
+structure as follows
+
+```
+setup.py
+package_a/
+    __init__.py
+    lib.py
+    py.typed
+```
+
+the `setup.py` might look like:
+
+```python
+from distutils.core import setup
+
+setup(
+    name="SuperPackageA",
+    author="Me",
+    version="0.1",
+    package_data={"package_a": ["py.typed"]},
+    packages=["package_a"]
+)
+```
+
+!!! note ""
+    If you use setuptools, you must pass the option `zip_safe=False` to
+    `setup()`, or mypy will not be able to find the installed package.
