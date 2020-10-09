@@ -144,6 +144,33 @@ pattern.
 `pathlib.Path`
 : simply uses the type itself for validation by passing the value to `Path(v)`.
 
+## Iterables
+
+### [Define default value for an iterable](https://stackoverflow.com/questions/63793662/how-to-give-a-pydantic-list-field-a-default-value)
+
+If you want to define an empty list, dictionary, set or other iterable as
+a model attribute, you can use the `default_factory`.
+
+```python
+from typing import Sequence
+from pydantic import BaseModel, Field
+
+
+class Foo(BaseModel):
+    defaulted_list_field: Sequence[str] = Field(default_factory=list)
+```
+
+It might be tempting to do
+
+```python
+class Foo(BaseModel):
+    defaulted_list_field: Sequence[str] = [] # Bad!
+```
+
+But you'll follow the [mutable default
+argument](python_anti_patterns.md#mutable-default-arguments) anti-pattern.
+
+
 ## [Unions](https://pydantic-docs.helpmanual.io/usage/types/#unions)
 
 The `Union` type allows a model attribute to accept different types, e.g.:
