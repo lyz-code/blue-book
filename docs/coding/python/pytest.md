@@ -333,6 +333,240 @@ class TestDate:
         assert current_date == date(2017, 5, 21)
 ```
 
+## [Customize nested fixtures](http://www.obeythetestinggoat.com/a-pytest-pattern-using-parametrize-to-customise-nested-fixtures.html)
+
+Sometimes you need to tweak your fixtures so they can be used in different
+tests. As usual, there are different solutions to the same problem.
+
+!!! note "TL;DR: For simple cases [parametrize your
+fixtures](#parametrize-your-fixtures) or use [parametrization to override the
+default valued
+fixture](#use-pytest-parametrization-to-override-the-default-valued-fixtures).
+As your test suite get's more complex migrate to [pytest-case](pytest_case.md)."
+
+Let's say you're running along merrily with some fixtures that create database
+objects for you:
+
+```python
+@pytest.fixture
+def supplier(db):
+    s = Supplier(
+        ref=random_ref(),
+        name=random_name(),
+        country="US",
+    )
+    db.add(s)
+    yield s
+    db.remove(s)
+
+
+@pytest.fixture()
+def product(db, supplier):
+    p = Product(
+        ref=random_ref(),
+        name=random_name(),
+        supplier=supplier,
+        net_price=9.99,
+    )
+    db.add(p)
+    yield p
+    db.remove(p)
+```
+
+And now you're writing a new test and you suddenly realize you need to customize
+your default "supplier" fixture:
+
+```python
+def test_US_supplier_has_total_price_equal_net_price(product):
+    assert product.total_price == product.net_price
+
+def test_EU_supplier_has_total_price_including_VAT(supplier, product):
+    supplier.country = "FR" # oh, this doesn't work
+    assert product.total_price == product.net_price * 1.2
+```
+
+There are different ways to modify your fixtures
+
+### Add more fixtures
+
+We can just create more fixtures, and try to do a bit of DRY by extracting out
+common logic:
+
+```python
+def _default_supplier():
+    return Supplier(
+        ref=random_ref(),
+        name=random_name(),
+    )
+
+@pytest.fixture
+def us_supplier(db):
+    s = _default_supplier()
+    s.country = "US"
+    db.add(s)
+    yield s
+    db.remove(s)
+
+@pytest.fixture
+def eu_supplier(db):
+    s = _default_supplier()
+    s.country = "FR"
+    db.add(s)
+    yield s
+    db.remove(s)
+```
+
+That's just one way you could do it, maybe you can figure out ways to reduce the
+duplication of the `db.add()` stuff as well, but you are going to have
+a different, named fixture for each customization of Supplier, and eventually
+you may decide that doesn't scale.
+
+### Use factory fixtures
+
+Instead of a fixture returning an object directly, it can return a function that
+creates an object, and that function can take arguments:
+
+```python
+@pytest.fixture
+def make_supplier(db):
+    s = Supplier(
+        ref=random_ref(),
+        name=random_name(),
+    )
+
+    def _make_supplier(country):
+        s.country = country
+        db.add(s)
+        return s
+
+    yield _make_supplier
+    db.remove(s)
+```
+
+The problem with this is that, once you start, you tend to have to go all the
+way, and make all of your fixture hierarchy into factory functions:
+
+```python
+def test_EU_supplier_has_total_price_including_VAT(make_supplier, product):
+    supplier = make_supplier(country="FR")
+    product.supplier = supplier # OH, now this doesn't work, because it's too late again
+    assert product.total_price == product.net_price * 1.2
+```
+
+And so...
+
+```python
+@pytest.fixture
+def make_product(db):
+    p = Product(
+        ref=random_ref(),
+        name=random_name(),
+    )
+
+    def _make_product(supplier):
+        p.supplier = supplier
+        db.add(p)
+        return p
+
+    yield _make_product
+    db.remove(p)
+
+def test_EU_supplier_has_total_price_including_VAT(make_supplier, make_product):
+    supplier = make_supplier(country="FR")
+    product = make_product(supplier=supplier)
+    assert product.total_price == product.net_price * 1.2
+```
+
+That works, but firstly now everything is a factory-fixture, which makes them
+more convoluted, and secondly, your tests are filling up with extra calls to
+`make_things`, and you're having to embed some of the domain knowledge of
+what-depends-on-what into your tests as well as your fixtures. Ugly!
+
+### Parametrize your fixtures
+
+You can also [parametrize your
+fixtures](pytest_parametrized_testing.md#parametrize-the-fixtures).
+
+```python
+@pytest.fixture(params=['US', 'FR'])
+def supplier(db, request):
+    s = Supplier(
+        ref=random_ref(),
+        name=random_name(),
+        country=request.param
+    )
+    db.add(s)
+    yield s
+    db.remove(s)
+```
+
+Now any test that depends on supplier, directly or indirectly, will be run
+twice, once with `supplier.country = US` and once with `FR`.
+
+That's really cool for checking that a given piece of logic works in a variety
+of different cases, but it's not really ideal in our case. We have to build
+a bunch of if logic into our tests:
+
+```python
+def test_US_supplier_has_no_VAT_but_EU_supplier_has_total_price_including_VAT(product):
+    # this test is magically run twice, but:
+    if product.supplier.country == 'US':
+        assert product.total_price == product.net_price
+    if product.supplier.country == 'FR':
+        assert product.total_price == product.net_price * 1.2
+```
+
+So that's ugly, and on top of that, now every single test that depends
+(indirectly) on supplier gets run twice, and some of those extra test runs may
+be totally irrelevant to what the country is.
+
+### Use pytest parametrization to override the default valued fixtures
+
+We introduce an extra fixture that holds a default value for the country field:
+
+```python
+@pytest.fixture()
+def country():
+    return "US"
+
+
+@pytest.fixture
+def supplier(db, country):
+    s = Supplier(
+        ref=random_ref(),
+        name=random_name(),
+        country=country,
+    )
+    db.add(s)
+    yield s
+    db.remove(s)
+```
+
+And then in the tests that need to change it, we can use parametrize to override
+the default value of country, even though the country fixture isn't explicitly
+named in that test:
+
+```python
+@pytest.mark.parametrize('country', ["US"])
+def test_US_supplier_has_total_price_equal_net_price(product):
+    assert product.total_price == product.net_price
+
+@pytest.mark.parametrize('country', ["EU"])
+def test_EU_supplier_has_total_price_including_VAT(product):
+    assert product.total_price == product.net_price * 1.2
+```
+
+The only problem is that you're now likely to build a implicit dependencies
+where the only way to find out what's actually happening is to spend ages
+spelunking in conftest.py.
+
+### Use pytest-case
+
+[pytest-case](pytest_case.md) gives a lot of power when it comes to tweaking the
+fixtures and parameterizations.
+
+Check that file for further information.
+
 ## [Use a fixture more than once in a function](https://github.com/pytest-dev/pytest/issues/2703)
 
 One solution is to make your fixture return a factory instead of the resource

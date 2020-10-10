@@ -144,7 +144,10 @@ nav:
           - Code Styling: coding/python/python_code_styling.md
           - Anti-Patterns: coding/python/python_anti_patterns.md
           - Data Classes: coding/python/data_classes.md
-          - Pytest: coding/python/pytest.md
+          - Pytest:
+              - Pytest: coding/python/pytest.md
+              - Parametrized testing: coding/python/pytest_parametrized_testing.md
+              - Pytest-cases: coding/python/pytest_cases.md
       - Javascript: coding/javascript/javascript.md
       - JSON: coding/json/json.md
       - React: coding/react/react.md
