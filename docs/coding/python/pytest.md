@@ -342,7 +342,7 @@ tests. As usual, there are different solutions to the same problem.
 fixtures](#parametrize-your-fixtures) or use [parametrization to override the
 default valued
 fixture](#use-pytest-parametrization-to-override-the-default-valued-fixtures).
-As your test suite get's more complex migrate to [pytest-case](pytest_case.md)."
+As your test suite get's more complex migrate to [pytest-case](pytest_cases.md)."
 
 Let's say you're running along merrily with some fixtures that create database
 objects for you:
@@ -562,7 +562,7 @@ spelunking in conftest.py.
 
 ### Use pytest-case
 
-[pytest-case](pytest_case.md) gives a lot of power when it comes to tweaking the
+[pytest-case](pytest_cases.md) gives a lot of power when it comes to tweaking the
 fixtures and parameterizations.
 
 Check that file for further information.
@@ -600,6 +600,33 @@ def user(make_user):
 
 def test_one_user(user):
     # test him/her
+```
+
+# [Marks](https://docs.pytest.org/en/stable/mark.html)
+
+Pytest marks can be used to group tests. It can be useful to:
+
+`slow`
+: Mark the tests that are slow.
+
+`secondary`
+: Mart the tests that use functionality that is being tested in the same file.
+
+To mark a test, use the `@pytest.mark` decorator. For example:
+
+```python
+@pytest.mark.slow
+def test_really_slow_test():
+    pass
+```
+
+Pytest requires you to register your marks, do so in the `pytest.ini` file
+
+```ini
+[pytest]
+markers =
+    slow: marks tests as slow (deselect with '-m "not slow"')
+    secondary: mark tests that use functionality tested in the same file (deselect with '-m "not secondary"')
 ```
 
 # Snippets
