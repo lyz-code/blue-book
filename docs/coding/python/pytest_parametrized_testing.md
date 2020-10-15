@@ -115,7 +115,7 @@ This solution is a little bit magical, so I'd avoid it in favor of pytest-cases.
 
 ## Use pytest-cases
 
-[pytest-case](pytest_case.md) gives a lot of power when it comes to tweaking the
+[pytest-case](pytest_cases.md) gives a lot of power when it comes to tweaking the
 fixtures and parameterizations.
 
 Check that file for further information.
