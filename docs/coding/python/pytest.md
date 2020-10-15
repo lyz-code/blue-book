@@ -638,6 +638,19 @@ with pytest.raises(SystemExit):
     # Code to test
 ```
 
+## Testing exceptions with pytest
+
+```python
+
+def test_value_error_is_raised():
+    with pytest.raises(ValueError) as error:
+        int('a')
+    assert (
+        f"invalid literal for int() with base 10: 'a'"
+        in str(error.value)
+    )
+```
+
 # pytest integration with Vim
 
 Integrating pytest into your Vim workflow enhances your productivity while
