@@ -122,6 +122,7 @@ nav:
               - Folium: coding/python/folium.md
               - Feedparser: coding/python/feedparser.md
               - Pandas: coding/python/pandas.md
+              - Passpy: coding/python/passpy.md
               - Pydantic:
                   - Pydantic: coding/python/pydantic.md
                   - Pydantic Field Types: coding/python/pydantic_types.md
