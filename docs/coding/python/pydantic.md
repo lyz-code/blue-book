@@ -288,7 +288,7 @@ Field order is important in models for the following reasons:
 * Validation is performed in the order fields are defined; [fields
     validators](pydantic_validators.md)
   can access the values of earlier fields, but not later ones
-* Field order is preserved in the model [schema](pydantic_schema.md)
+* Field order is preserved in the model [schema](https://pydantic-docs.helpmanual.io/usage/schema/)
 * Field order is preserved in [validation errors](#error-handling)
 * Field order is preserved by `.dict()` and `.json()` etc.
 
