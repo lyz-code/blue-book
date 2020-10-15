@@ -19,6 +19,49 @@ pip install cookiecutter
 cookiecutter {{ path_or_url_to_cookiecutter_template }}
 ```
 
+## [User config](https://cookiecutter.readthedocs.io/en/1.7.2/advanced/user_config.html)
+
+If you use Cookiecutter a lot, you’ll find it useful to have a user config file.
+By default Cookiecutter tries to retrieve settings from a `.cookiecutterrc` file
+in your home directory.
+
+Example user config:
+
+```yaml
+default_context:
+    full_name: "Audrey Roy"
+    email: "audreyr@example.com"
+    github_username: "audreyr"
+cookiecutters_dir: "/home/audreyr/my-custom-cookiecutters-dir/"
+replay_dir: "/home/audreyr/my-custom-replay-dir/"
+abbreviations:
+    python: https://github.com/audreyr/cookiecutter-pypackage.git
+    gh: https://github.com/{0}.git
+    bb: https://bitbucket.org/{0}
+```
+
+Possible settings are:
+
+`default_context`
+: A list of key/value pairs that you want injected as context
+    whenever you generate a project with Cookiecutter. These values are treated
+    like the defaults in `cookiecutter.json`, upon generation of any project.
+
+`cookiecutters_dir`
+: Directory where your cookiecutters are cloned to when you
+    use Cookiecutter with a repo argument.
+
+`replay_dir`
+: Directory where Cookiecutter dumps context data to, which you
+    can fetch later on when using the replay feature.
+
+`abbreviations`
+: A list of abbreviations for cookiecutters. Abbreviations can be simple aliases
+    for a repo name, or can be used as a prefix, in the form `abbr:suffix`. Any suffix
+    will be inserted into the expansion in place of the text `{0}`, using standard
+    Python string formatting. With the above aliases, you could use the
+    `cookiecutter-pypackage` template simply by saying cookiecutter `python`.
+
 # Write your own cookietemplates
 
 ## [Create files or directories with conditions](https://github.com/cookiecutter/cookiecutter/issues/723)
