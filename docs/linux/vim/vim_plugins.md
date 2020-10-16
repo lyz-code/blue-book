@@ -69,7 +69,7 @@ Install with Vundle:
 Plugin 'dense-analysis/ale'
 ```
 
-And [configure](https://github.com/dense-analysis/ale/blob/master/doc/ale.txt) with:
+## [Configuration](https://github.com/dense-analysis/ale/blob/master/doc/ale.txt)
 
 ```vim
 let g:ale_sign_error                  = '✘'
@@ -112,6 +112,18 @@ If you feel that it's too heavy, use `ale_lint_on_enter` or increase the
 `ale_lint_delay`.
 
 Use `:ALEInfo` to see the ALE configuration for the specific buffer.
+
+### Flakehell
+
+[Flakehell](flakehell.md) is not [supported
+yet](https://github.com/dense-analysis/ale/issues/3295). Until that issue is
+closed we need the following configuration:
+
+```
+let g:ale_python_flake8_executable = flake8helled
+let g:ale_python_flake8_use_global = 1
+```
+
 
 # References
 

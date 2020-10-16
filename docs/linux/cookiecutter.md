@@ -15,7 +15,7 @@ pip install cookiecutter
 
 # Use
 
-!!! warning ""
+!!! warning "DEPRECATION: use [cruft](cruft.md) instead"
     You may want to use [cruft](cruft.md) to generate your templates instead, as
     it will help you maintain the project with the template updates. Something
     that it's not easy with [cookiecutter

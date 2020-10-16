@@ -65,6 +65,7 @@ nav:
           - Bandit: devops/bandit.md
           - Black: devops/black.md
           - Flake8: devops/flake8.md
+          - Flakehell: devops/flakehell.md
           - Mypy: devops/mypy.md
           - Pip-tools: devops/pip_tools.md
           - Safety: devops/safety.md
