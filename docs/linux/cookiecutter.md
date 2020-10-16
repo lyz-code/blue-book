@@ -17,7 +17,9 @@ pip install cookiecutter
 
 !!! warning ""
     You may want to use [cruft](cruft.md) to generate your templates instead, as
-    it will help you maintain the project with the template updates.
+    it will help you maintain the project with the template updates. Something
+    that it's not easy with [cookiecutter
+    alone](https://github.com/cookiecutter/cookiecutter/issues/784)
 
 ```bash
 cookiecutter {{ path_or_url_to_cookiecutter_template }}
