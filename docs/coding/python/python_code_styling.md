@@ -90,7 +90,7 @@ two newlines. The rest of the commit message is then used for this.
 ## Pre-commit
 
 To ensure that your project follows these guidelines, add the following
-to your [pre-commit configuration](python_ci.md):
+to your [pre-commit configuration](ci.md):
 
 !!! note "File: .pre-commit-config.yaml"
     ```yaml
@@ -131,11 +131,11 @@ Whenever you want to release `1.0.0`, use `cz bump --changelog --no-verify
 
 # [Black code style](https://black.readthedocs.io)
 
-[Black](python_ci.md#black) is a style guide enforcement tool.
+[Black](black.md) is a style guide enforcement tool.
 
 # [Flake8](https://flake8.pycqa.org/)
 
-[Flake8](python_ci.md#flake8) is another style guide enforcement tool.
+[Flake8](flake8.md) is another style guide enforcement tool.
 
 # f-strings
 

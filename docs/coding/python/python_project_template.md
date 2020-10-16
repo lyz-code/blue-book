@@ -37,7 +37,7 @@ Depending on the type of project you want to build there are different layouts:
 Once the basic project structure is defined, there are several common
 enhancements to be applied:
 
-* [Continuous integration pipelines](python_ci.md)
+* [Continuous integration pipelines](ci.md)
 * [Create the documentation repository](python_docs.md)
 * [Configure SQLAlchemy to use the MariaDB/Mysql
     backend](python_sqlalchemy_mariadb.md)

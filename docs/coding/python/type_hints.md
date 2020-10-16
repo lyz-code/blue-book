@@ -335,7 +335,7 @@ These steps will get you started with `mypy` on an existing codebase:
     * Specify mypy config file or command-line options.
     * Provide set of files to type check. You may want to configure the inclusion
         and exclusion filters for full control of the file list.
-* [Run mypy in Continuous Integration to prevent type errors](python_ci.md#mypy):
+* [Run mypy in Continuous Integration to prevent type errors](mypy.md):
 
     Once you have a clean mypy run and a runner script for a part of your
     codebase, set up your Continuous Integration (CI) system to run mypy to
