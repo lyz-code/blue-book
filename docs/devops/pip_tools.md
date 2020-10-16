@@ -45,6 +45,11 @@ With pip-tools, the dependency management is trivial.
 * If you have another `requirements.txt` for the mkdocs documentation, run
     `pip-compile docs/requirements.txt`.
 
+* To [uninstall all pip packages](https://stackoverflow.com/questions/11248073/what-is-the-easiest-way-to-remove-all-packages-installed-by-pip) use
+    ```bash
+    pip freeze | xargs pip uninstall -y
+    ```
+
 Trigger hooks:
 
 * Pre-commit:
