@@ -34,6 +34,9 @@ configuration. It can be added in the helm chart values.yaml under the key
           - source_labels: ['__meta_ec2_tag_Name', '__meta_ec2_private_ip']
             separator: ':'
             target_label: instance
+          -   source_labels:
+            - __meta_ec2_instance_type
+            target_label: instance_type
 ```
 
 The `relabel_configs` part will substitute the `instance` label of each target
@@ -120,6 +123,12 @@ And install.
 helmfile diff
 helmfile apply
 ```
+
+# [Node exporter size analysis](instance_sizing_analysis.md)
+
+Once the instance metrics are being ingested, we can do a periodic
+[analysis](instance_sizing_analysis.md) to deduce which instances are undersized
+or oversized.
 
 # [Node exporter alerts](https://awesome-prometheus-alerts.grep.to/rules)
 

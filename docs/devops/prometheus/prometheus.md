@@ -129,6 +129,52 @@ Prometheus metrics support the concept of Labels to provide extra dimensions to
 your data. By using Labels efficiently we can essentially provide more insights
 into our data whilst having to manage less actual metrics.
 
+## [Prometheus rules](https://prometheus.io/docs/practices/rules/)
+
+Prometheus supports two types of rules which may be configured and then
+evaluated at regular intervals: recording rules and alerting rules.
+
+[Recording rules](https://prometheus.io/docs/practices/rules/) allow you to
+precompute frequently needed or computationally expensive expressions and save
+their result as a new set of time series. Querying the precomputed result will
+then often be much faster than executing the original expression every time it
+is needed.
+
+A simple example rules file would be:
+
+```yaml
+groups:
+  - name: example
+    rules:
+    - record: job:http_inprogress_requests:sum
+      expr: sum by (job) (http_inprogress_requests)
+```
+
+Regarding [naming and aggregation
+conventions](https://prometheus.io/docs/practices/rules/#naming-and-aggregation),
+Recording rules should be of the general form `level:metric:operations`. `level`
+represents the aggregation level and labels of the rule output. `metric` is the
+metric name and should be unchanged other than stripping `_total` off counters
+when using `rate()` or `irate()`. `operations` is a list of operations (splitted
+by `:`) that were applied to the metric, newest operation first.
+
+If you want to add extra labels to the calculated rule use the
+[`labels`](https://prometheus.io/docs/prometheus/latest/configuration/recording_rules/)
+tag like the following example:
+
+```yaml
+groups:
+  - name: example
+    rules:
+      - record: instance_path:wrong_resource_size
+        expr: >
+          instance_path:node_memory_MemAvailable_percent:avg_plus_stddev_over_time_2w < 60
+        labels:
+          type: EC2
+          metric: RAM
+          problem: oversized
+```
+
 # Finding a metric
 
 You can use `{__name__=~".*deploy.*"}` to find the metrics that have `deploy`
@@ -139,6 +185,9 @@ somewhere in the name.
 * [Homepage](https://prometheus.io/).
 * [Docs](https://prometheus.io/docs/introduction/overview/).
 * [Awesome Prometheus](https://github.com/roaldnefs/awesome-prometheus).
+* Prometheus rules [best
+    practices](https://prometheus.io/docs/prometheus/latest/configuration/recording_rules/)
+    and [configuration](https://prometheus.io/docs/practices/rules/).
 
 ## Diving deeper
 

@@ -82,6 +82,7 @@ nav:
             - AlertManager: devops/prometheus/alertmanager.md
             - Blackbox Exporter: devops/prometheus/blackbox_exporter.md
             - Node Exporter: devops/prometheus/node_exporter.md
+            - Instance sizing analysis: devops/prometheus/instance_sizing_analysis.md
             - Prometheus Troubleshooting: >-
                 devops/prometheus/prometheus_troubleshooting.md
       - Linux:
