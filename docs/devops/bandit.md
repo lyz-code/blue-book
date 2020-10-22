@@ -30,6 +30,9 @@ You can run bandit through:
               - id: python-bandit-vulnerability-check
         ```
 
+        bandit takes a lot of time to run, so it slows down too much the
+        commiting, therefore it should be run only in the CI.
+
 * Github Actions: Make sure to check that the correct python version is applied.
 
     !!! note "File: .github/workflows/security.yml"
