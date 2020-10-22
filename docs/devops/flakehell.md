@@ -175,6 +175,8 @@ When using FlakeHell, I frequently use the following commands:
 : Removes unused codes from `# noqa` and removes bare noqa that says “ignore
     everything on this line” as is a bad practice.
 
+## Integrations
+
 Flakehell checks can be run in:
 
 * In [Vim](vim.md) though the [ALE plugin](vim_plugins#flakehell).
