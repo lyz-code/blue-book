@@ -70,6 +70,10 @@ Trigger hooks:
                 args: ['docs/requirements.txt']
         ```
 
+    pip-tools generates different results in the CI than in the development
+    environment breaking the CI without an easy way to fix it. Therefore it
+    should be run by the developers periodically.
+
 # References
 
 * [Git](https://github.com/jazzband/pip-tools)
