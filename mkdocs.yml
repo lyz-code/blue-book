@@ -158,6 +158,7 @@ nav:
               - Yoyo: coding/python/yoyo.md
           - Type Hints: coding/python/type_hints.md
           - Code Styling: coding/python/python_code_styling.md
+          - Docstrings: coding/python/docstrings.md
           - Anti-Patterns: coding/python/python_anti_patterns.md
           - Data Classes: coding/python/data_classes.md
           - Pytest:
