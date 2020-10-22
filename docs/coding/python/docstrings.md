@@ -147,6 +147,11 @@ Raises
     (because this would paradoxically make behavior under violation of the API
     part of the API).
 
+# Automatic documentation generation
+
+Use the [mkdocstrings](mkdocstrings.md) plugin to automatically generate the
+documentation.
+
 # References
 
 * [Real Python post on docstrings by James Mertz](https://realpython.com/documenting-python-code/)

@@ -136,6 +136,7 @@ nav:
               - Flask: coding/python/flask.md
               - Folium: coding/python/folium.md
               - Feedparser: coding/python/feedparser.md
+              - mkdocstrings: coding/python/mkdocstrings.md
               - Pandas: coding/python/pandas.md
               - Passpy: coding/python/passpy.md
               - Pydantic:
@@ -244,6 +245,7 @@ markdown_extensions:
   - pymdownx.smartsymbols
   - pymdownx.snippets
   - pymdownx.superfences
+  - pymdownx.tabbed
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
@@ -254,6 +256,7 @@ theme:
   features:
     - navigation.instant
   palette:
+    scheme: default
     primary: blue grey
     accent: light blue
 
