@@ -263,7 +263,85 @@ foo.txt
 
 ## [Variadic arguments](https://pocoo-click.readthedocs.io/en/latest/arguments/?highlight=variadic#variadic-arguments)
 
+The second most common version is variadic arguments where a specific (or
+unlimited) number of arguments is accepted. This can be controlled with the
+`nargs` parameter. If it is set to `-1`, then an unlimited number of arguments is
+accepted.
+
+The value is then passed as a tuple. Note that only one argument can be set to
+`nargs=-1`, as it will eat up all arguments.
+
+```python
+@click.command()
+@click.argument('src', nargs=-1)
+@click.argument('dst', nargs=1)
+def copy(src, dst):
+    """Move file SRC to DST."""
+    for fn in src:
+        click.echo('move %s to folder %s' % (fn, dst))
+```
+
 You can't use [variadic arguments and then specify a command](https://github.com/pallets/click/issues/1153).
+
+## [File Arguments](https://click.palletsprojects.com/en/7.x/arguments/#file-arguments)
+
+Command line tools are more fun if they work with files the Unix way, which is
+to accept `-` as a special file that refers to stdin/stdout.
+
+Click supports this through the `click.File` type which intelligently handles
+files for you. It also deals with Unicode and bytes correctly for all versions
+of Python so your script stays very portable.
+
+```python
+@click.command()
+@click.argument('input', type=click.File('rb'))
+@click.argument('output', type=click.File('wb'))
+def inout(input, output):
+    """Copy contents of INPUT to OUTPUT."""
+    while True:
+        chunk = input.read(1024)
+        if not chunk:
+            break
+        output.write(chunk)
+```
+
+And what it does:
+
+```bash
+$ inout - hello.txt
+hello
+^D
+$ inout hello.txt -
+hello
+```
+
+## [File path arguments](https://click.palletsprojects.com/en/7.x/arguments/#file-path-arguments)
+
+In the previous example, the files were opened immediately. If we just
+want the filename, you should be using the `Path` type. Not only will it return
+either bytes or Unicode depending on what makes more sense, but it will also be
+able to do some basic checks for you such as existence checks.
+
+```python
+@click.command()
+@click.argument('filename', type=click.Path(exists=True))
+def touch(filename):
+    """Print FILENAME if the file exists."""
+    click.echo(click.format_filename(filename))
+```
+
+And what it does:
+
+```bash
+$ touch hello.txt
+hello.txt
+
+$ touch missing.txt
+Usage: touch [OPTIONS] FILENAME
+Try 'touch --help' for help.
+
+Error: Invalid value for 'FILENAME': Path 'missing.txt' does not exist.
+```
 
 # [Commands and groups](https://click.palletsprojects.com/en/7.x/commands)
 
