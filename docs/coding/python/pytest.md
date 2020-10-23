@@ -106,6 +106,12 @@ a parameter.pytest will see this and look for a fixture with this name. Naming
 is significant in pytest. pytest will look in the module of the test for
 a fixture of that name.
 
+If the function is defined in the same file as where it's being used pylint will
+raise an `W0621: Redefining name %r from outer scope (line %s)` error. To
+[solve](https://stackoverflow.com/questions/46089480/pytest-fixtures-redefining-name-from-outer-scope-pylint)
+it either move the fixture to other file or name the decorated function
+`fixture_<fixturename>` and then use `@pytest.fixture(name='<fixturename>')`.
+
 ## Sharing fixtures through conftest.py
 
 You can put fixtures into individual test files, but to share fixtures among
