@@ -27,8 +27,13 @@ pip install cryptography
 from os import chmod
 from cryptography.hazmat.primitives import serialization
 from cryptography.hazmat.primitives.asymmetric import rsa
+from cryptography.hazmat.backends import default_backend as crypto_default_backend
 
-private_key = rsa.generate_private_key(public_exponent=65537, key_size=4096)
+private_key = rsa.generate_private_key(
+    backend=crypto_default_backend(),
+    public_exponent=65537,
+    key_size=4096
+)
 pem = private_key.private_bytes(
     encoding=serialization.Encoding.PEM,
     format=serialization.PrivateFormat.TraditionalOpenSSL,
