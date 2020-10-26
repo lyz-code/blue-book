@@ -86,6 +86,11 @@ You can use it both with:
                 uses: psf/black@stable
         ```
 
+## [Split long lines](https://github.com/psf/black/issues/1787)
+
+If you want to split long lines, you need to use the
+`--experimental-string-processing` flag.
+
 # References
 
 * [Docs](https://black.readthedocs.io/en/stable/)
