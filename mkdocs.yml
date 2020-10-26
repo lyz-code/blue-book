@@ -166,6 +166,7 @@ nav:
               - Pytest: coding/python/pytest.md
               - Parametrized testing: coding/python/pytest_parametrized_testing.md
               - Pytest-cases: coding/python/pytest_cases.md
+          - Python Snippets: coding/python/python_snippets.md
       - Javascript: coding/javascript/javascript.md
       - JSON: coding/json/json.md
       - React: coding/react/react.md
