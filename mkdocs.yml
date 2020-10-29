@@ -101,6 +101,7 @@ nav:
           - Vim:
               - Vim Plugins: linux/vim/vim_plugins.md
           - Wireguard: linux/wireguard.md
+          - ZFS: linux/zfs.md
           - zip: linux/zip.md
       - API Management:
           - API Management: devops/api_management.md
