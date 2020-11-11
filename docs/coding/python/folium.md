@@ -66,8 +66,8 @@ object supports different tiles by default. It also supports any WMS or WMTS by
 passing a Leaflet-style URL to the tiles parameter:
 `http://{s}.yourtiles.com/{z}/{x}/{y}.png`.
 
-To use the [IGN](https://www.ign.es/) beautiful map by default and then the
-OpenStreetMaps as a fallback use the following snippet:
+To use the [IGN](https://www.ign.es/) beautiful map as a fallback and the
+OpenStreetMaps as default use the following snippet:
 
 ```python
 m = folium.Map(
@@ -75,17 +75,17 @@ m = folium.Map(
     zoom_start=7,
     tiles=None,
 )
+folium.raster_layers.TileLayer(
+    name="OpenStreetMaps",
+    tiles="OpenStreetMap",
+    attr="OpenStreetMaps",
+).add_to(m)
+
 
 folium.raster_layers.TileLayer(
     name="IGN",
     tiles="https://www.ign.es/wmts/mapa-raster?request=getTile&layer=MTN&TileMatrixSet=GoogleMapsCompatible&TileMatrix={z}&TileCol={x}&TileRow={y}&format=image/jpeg",
     attr="IGN",
-).add_to(m)
-
-folium.raster_layers.TileLayer(
-    name="OpenStreetMaps",
-    tiles="OpenStreetMap",
-    attr="OpenStreetMaps",
 ).add_to(m)
 
 folium.LayerControl().add_to(m)
