@@ -124,6 +124,19 @@ let g:ale_python_flake8_executable = flake8helled
 let g:ale_python_flake8_use_global = 1
 ```
 
+### Toggle fixers on save
+
+There are cases when you don't want to run the fixers in your code.
+
+Ale [doesn't have an option to do
+it](https://github.com/dense-analysis/ale/issues/1353), but zArubaru showed how
+to do it. If you add to your configuration
+
+```
+command! ALEToggleFixer execute "let g:ale_fix_on_save = get(g:, 'ale_fix_on_save', 0) ? 0 : 1"
+```
+
+You can then use `:ALEToggleFixer` to activate an deactivate them.
 
 # References
 
