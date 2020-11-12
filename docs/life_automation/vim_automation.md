@@ -96,3 +96,45 @@ Abolish W What
 To stage only part of the file to a commit, open it and launch `:Gdiff`. With
 `diffput` and `diffobtain` Vim's functionality you move to the index file (the
 one in the left) the changes you want to stage.
+
+## Prepare environment to write the commit message
+
+When I write the commit message I like to review what changes I'm commiting. To
+do it I find useful to close all windows and do a vertical split with the
+changes so I can write the commit message in one of the window while I scroll
+down in the other. As the changes are usually no the at the top of the file,
+I scroll the window of the right to the first change and then switch back to the
+left one in insert mode to start writing.
+
+Once I've made the commit I want to only retain one buffer.
+
+Add the following snippet to do just that:
+
+```
+" Open commit message buffer in fullscreen with a vertical split, and close it with
+" leader q
+au BufNewFile,BufRead *COMMIT_EDITMSG call CommitMessage()
+
+function CommitMessage()
+  " Remap the saving mappings
+  inoremap <silent> <leader>w <esc>:w<cr> \| :only<cr> \|:Sayonara<CR>
+  nnoremap <silent> <leader>w <esc>:w<cr> \| :only<cr> \|:Sayonara<CR>
+  " Close all other windows
+  only
+  " Create a vertical split
+  vsplit
+  " Go to the right split
+  wincmd l
+  " Go to the first change
+  execute "normal! /^diff\<cr>5j"
+  " Clear the search highlights
+  nohl
+  " Go back to the left split
+  wincmd h
+  " Enter insert mode
+  execute "startinsert"
+endfunction
+```
+
+I'm assuming that you save with `<leader>w` and that you're using Sayonara to
+close your buffers.
