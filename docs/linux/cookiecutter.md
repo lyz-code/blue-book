@@ -258,6 +258,16 @@ If you want to test the content of `main`, you can now mock each of the external
 interactions. But you'll face the problem that these files are jinja2 templates
 of python files, so it's tricky to test them, due to syntax errors.
 
+## Debug failing template generation
+
+Sometimes the generation of the templates will fail in the tests, I've found
+that the easier way to debug why is to inspect the result object of the
+`result = cookies.bake()` statement with pdb.
+
+It has an `exception` method with `lineno` argument and `source`. With that
+information I've been able to locate the failing line. It also has a `filename`
+attribute but it doesn't seem to work for me.
+
 # References
 
 * [Git](https://github.com/cookiecutter/cookiecutter)
