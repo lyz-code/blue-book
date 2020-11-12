@@ -44,9 +44,12 @@ with open("/tmp/private.key", 'wb') as content_file:
     chmod("/tmp/private.key", 0600)
     content_file.write(pem)
 
-public_key = private_key.public_key().public_bytes(
-    encoding=serialization.Encoding.OpenSSH,
-    format=serialization.PublicFormat.OpenSSH,
+public_key = (
+    private_key.public_key().public_bytes(
+        encoding=serialization.Encoding.OpenSSH,
+        format=serialization.PublicFormat.OpenSSH,
+    )
+    + b' user@email.org'
 )
 with open("/tmp/public.key", 'wb') as content_file:
     content_file.write(public_key)
