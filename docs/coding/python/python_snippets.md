@@ -54,3 +54,39 @@ public_key = (
 with open("/tmp/public.key", 'wb') as content_file:
     content_file.write(public_key)
 ```
+
+# Make multiline code look clean
+
+If you need variables that contain multiline strings inside functions or methods
+you need to remove the indentation
+
+```python
+def test():
+    # end first line with \ to avoid the empty line!
+    s = '''\
+hello
+  world
+'''
+```
+
+Which is inconvenient as it breaks some editor source code folding and it's ugly
+for the eye.
+
+The solution is to use [`textwrap.dedent()`](https://docs.python.org/3/library/textwrap.html)
+
+```python
+import textwrap
+
+def test():
+    # end first line with \ to avoid the empty line!
+    s = '''\
+    hello
+      world
+    '''
+    print(repr(s))          # prints '    hello\n      world\n    '
+    print(repr(textwrap.dedent(s)))  # prints 'hello\n  world\n'
+
+```
+
+If you forget to add the trailing `\` character of `s = '''\` or use `s
+= '''hello`, you're going to have a bad time with [black](black.md).
