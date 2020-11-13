@@ -110,7 +110,7 @@ nav:
   - Coding:
       - TDD: coding/tdd.md
       - Python:
-          - Project Template:
+          - Python Project Template:
               - Project Template: coding/python/python_project_template.md
               - Command-line Project Template:
                   - Command-line Project Template: >-
@@ -158,7 +158,6 @@ nav:
               - Requests-mock: coding/python/requests_mock.md
               - Rq: coding/python/rq.md
               - sh: coding/python/sh.md
-              # - sqlite3: coding/python/sqlite3.md
               - TinyDB: coding/python/tinydb.md
               - Yoyo: coding/python/yoyo.md
           - Type Hints: coding/python/type_hints.md
@@ -188,9 +187,8 @@ nav:
       - Restful APIS: architecture/restful_apis.md
       - Redis: architecture/redis.md
   - Data Analysis:
-      - Recommender Systems:
-          - Recommender Systems: >-
-              data_analysis/recommender_systems/recommender_systems.md
+      - Recommender Systems: >-
+          data_analysis/recommender_systems/recommender_systems.md
   - Life Automation:
       - Life Automation: life_automation/life_automation.md
       - Week Automation: life_automation/week_automation.md
@@ -223,10 +221,6 @@ plugins:
       type: timeago
   - minify:
       minify_html: true
-  # - tags:
-  # - htmlproofer
-  # - tooltipster-links
-  # - vim-md-tags
 
 markdown_extensions:
   - abbr
@@ -268,10 +262,6 @@ theme:
 extra_css:
   - 'stylesheets/extra.css'
   - 'stylesheets/links.css'
-  # - 'stylesheets/tooltipster.bundle.min.css'
-
-# extra_js:
-#   - 'javascript/tooltipster.bundle.js'
 
 extra:
   social:
