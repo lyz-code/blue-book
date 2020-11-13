@@ -7,6 +7,11 @@ author: Lyz
 [Safety](https://github.com/pyupio/safety) checks your installed dependencies
 for known security vulnerabilities.
 
+!!! note ""
+    You can use [this cookiecutter
+    template](https://github.com/lyz-code/cookiecutter-python-project) to create
+    a python project with `safety` already configured.
+
 # Installation
 
 ```bash

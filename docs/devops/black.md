@@ -7,6 +7,10 @@ author: Lyz
 [Black](https://black.readthedocs.io/en/stable/) is a style guide enforcement
 tool.
 
+!!! note ""
+    You can use [this cookiecutter
+    template](https://github.com/lyz-code/cookiecutter-python-project) to create
+    a python project with `black` already configured.
 
 # Installation
 
@@ -53,9 +57,9 @@ Its configuration is stored in `pyproject.toml`.
 
 You can use it both with:
 
-* The [Vim plugin](vim_plugins.md#black)
+* The Vim [plugin](vim_plugins.md#black)
 
-* Pre-commit:
+* [Pre-commit](ci.md#configuring-pre-commit):
 
     !!! note "File: .pre-commit-config.yaml"
         ```yaml

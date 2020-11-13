@@ -11,6 +11,11 @@ them.
 For stability reasons it's a good idea to hardcode the dependencies versions.
 Furthermore, [safety](safety.md) needs them to work properly.
 
+!!! note ""
+    You can use [this cookiecutter
+    template](https://github.com/lyz-code/cookiecutter-python-project) to create
+    a python project with `pip-tools` already configured.
+
 We've got three places where the dependencies are defined:
 
 * `setup.py` should declare the loosest possible dependency versions that are
@@ -19,27 +24,50 @@ We've got three places where the dependencies are defined:
     installation job, and shouldn't be thought of as tied to any one package.
     Its job is to declare an exhaustive list of all the necessary packages to
     make a deployment work.
-* `dev-requirements.txt` Adds the dependencies required for development of the
-    program.
+* `requirements-dev.txt` Adds the dependencies required for the development of
+    the program.
+
+!!! note "Content of examples may be outdated"
+
+    An updated version of
+    [setup.py](https://github.com/lyz-code/cookiecutter-python-project/blob/master/setup.py)
+    and
+    [requirements-dev.in](https://github.com/lyz-code/cookiecutter-python-project/blob/master/setup.py)
+    can be found in the [cookiecutter
+    template](https://github.com/lyz-code/cookiecutter-python-project/).
 
 With pip-tools, the dependency management is trivial.
 
-* Install the tool: `pip install pip-tools`.
+*   Install the tool:
+
+    ```bash
+    pip install pip-tools
+    ```
+
 * Set the general dependencies in the `setup.py` `install_requires`.
-* Generate the `requirements.txt` file: `pip-compile`.
-* Add the additional testing dependencies in the `dev-requirements.in` file.
 
-    !!! note "File: dev-requirements.in"
+* Generate the `requirements.txt` file:
 
-       ```ini
-        -c requirements.txt
+    ```bash
+    pip-compile -U --allow-unsafe`
+    ```
+
+    The `-U` flag will try to upgrade the dependencies, and `--allow-unsafe`
+    will let you manage the `setuptools` and `pip` dependencies.
+
+* Add the additional testing dependencies in the `requirements-dev.in` file.
+
+    !!! note "File: requirements-dev.in"
+
+        ```
+        -r requirements.txt
         pip-tools
         factory_boy
         pytest
         pytest-cov
         ```
 
-* Compile the development requirements `dev-requirements.txt` with `pip-compile
+* Compile the development requirements `requirements-dev.txt` with `pip-compile
     dev-requirements.in`.
 
 * If you have another `requirements.txt` for the mkdocs documentation, run

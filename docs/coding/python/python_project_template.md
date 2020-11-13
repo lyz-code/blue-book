@@ -7,6 +7,17 @@ author: Lyz
 It's hard to correctly define the directory structure to make python programs
 work as expected. Even more if testing, documentation or databases are involved.
 
+!!! warning ""
+    I've automated the creation of the python project skeleton following most of
+    these section guidelines with [this cookiecutter
+    template](https://github.com/lyz-code/cookiecutter-python-project).
+
+    ```bash
+    cruft https://github.com/lyz-code/cookiecutter-python-project
+    ```
+
+    If you don't know cruft, take a look [here](cruft.md).
+
 # Basic Python project
 
 * Create virtualenv
@@ -24,6 +35,55 @@ work as expected. Even more if testing, documentation or databases are involved.
     git commit -m "Added gitignore"
     git checkout -b 'feat/initial_iteration'
     ```
+
+## Project structure
+
+After using different project structures, I've ended up using the following:
+
+```
+.
+├─── docs
+│   ├── ...
+│   └── index.md
+├── LICENSE
+├── Makefile
+├── mkdocs.yml
+├── mypy.ini
+├── pyproject.toml
+├── README.md
+├── requirements-dev.in
+├── setup.py
+├── src
+│   └── package_name
+│       ├── adapters
+│       │   └── __init__.py
+│       ├── config.py
+│       ├── entrypoints
+│       │   └── __init__.py
+│       ├── __init__.py
+│       ├── model
+│       │   └── __init__.py
+│       ├── py.typed
+│       ├── services.py
+│       └── version.py
+└── tests
+    ├── conftest.py
+    ├── e2e
+    │   └── __init__.py
+    ├── __init__.py
+    ├── integration
+    │   └── __init__.py
+    └── unit
+        ├── __init__.py
+        └── test_services.py
+```
+
+Heavily inspired by [ionel packaging python
+library](https://blog.ionelmc.ro/2014/05/25/python-packaging/) post and
+[the Architecture Patterns with
+Python](https://www.cosmicpython.com/book/preface.html) book by Harry J.W.
+Percival and Bob Gregory,
+
 # Project types
 
 Depending on the type of project you want to build there are different layouts:
@@ -39,6 +99,7 @@ enhancements to be applied:
 
 * [Continuous integration pipelines](ci.md)
 * [Create the documentation repository](python_docs.md)
+* [Manage dependencies with pip-tools](pip_tools.md)
 * [Configure SQLAlchemy to use the MariaDB/Mysql
     backend](python_sqlalchemy_mariadb.md)
 * [Configure Docker and Docker compose to host the

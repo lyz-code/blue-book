@@ -9,6 +9,11 @@ in Python code. To do this, Bandit processes each file, builds an AST from it,
 and runs appropriate plugins against the AST nodes. Once Bandit has finished
 scanning all the files, it generates a report.
 
+!!! note ""
+    You can use [this cookiecutter
+    template](https://github.com/lyz-code/cookiecutter-python-project) to create
+    a python project with `bandit` already configured.
+
 # Installation
 
 ```bash

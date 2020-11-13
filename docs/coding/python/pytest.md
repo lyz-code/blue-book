@@ -18,6 +18,11 @@ Pytest stands out over other test frameworks in:
     `self.assertLessThan()`. Just `assert`.
 * You can use pytest to run tests written for unittest or nose.
 
+!!! note ""
+    You can use [this cookiecutter
+    template](https://github.com/lyz-code/cookiecutter-python-project) to create
+    a python project with `pytest` already configured.
+
 # Install
 
 ```bash

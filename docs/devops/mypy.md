@@ -9,6 +9,11 @@ checker for Python that aims to combine the benefits of dynamic (or "duck")
 typing and static typing. Mypy combines the expressive power and convenience of
 Python with a powerful type system and compile-time type checking.
 
+!!! note ""
+    You can use [this cookiecutter
+    template](https://github.com/lyz-code/cookiecutter-python-project) to create
+    a python project with `mypy` already configured.
+
 # Installation
 
 ```bash
@@ -43,7 +48,7 @@ Mypy configuration is saved in the `mypy.ini` file, and they don't yet [support
 
 You can use it both with:
 
-* Pre-commit:
+* [Pre-commit](ci.md#configuring-pre-commit):
 
     !!! note "File: .pre-commit-config.yaml"
         ```yaml

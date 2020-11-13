@@ -449,3 +449,8 @@ setup(
 !!! note ""
     If you use setuptools, you must pass the option `zip_safe=False` to
     `setup()`, or mypy will not be able to find the installed package.
+
+# Reference
+
+* [Bernat gabor article on the state of type hints in python](https://www.bernat.tech/the-state-of-type-hints-in-python/)
+* [Real python article on type checking](https://realpython.com/python-type-checking/#type-systems)

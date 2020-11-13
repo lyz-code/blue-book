@@ -9,6 +9,11 @@ author: Lyz
 pushed.  For example it can be used to run the tests, build the documentation,
 build a package or maintain dependencies updated.
 
+!!! note ""
+    I've automated the configuration of CI/CD pipelines for python projects in
+    [this cookiecutter
+    template](https://github.com/lyz-code/cookiecutter-python-project).
+
 There are three non exclusive ways to run the tests:
 
 * Integrate them in your editor, so it's executed each time you save the file.
@@ -25,7 +30,8 @@ we'll choose from one to three of the choices above.
 
 # Configuring pre-commit
 
-To adopt `pre-commit` to our system we have to:
+To adopt [`pre-commit`](https://github.com/pre-commit/pre-commit) to our system
+we have to:
 
 * Install pre-commit: `pip3 install pre-commit` and add it to the development
     `requirements.txt`.
@@ -49,13 +55,16 @@ Formatters are tools that change your files to meet a linter requirements.
 
 ## Linters
 
-[lint, or a linter](https://en.wikipedia.org/wiki/Lint_(software)), is a static
+[Lint, or a linter](https://en.wikipedia.org/wiki/Lint_(software)), is a static
 code analysis tool used to flag programming errors, bugs, stylistic errors, and
 suspicious constructs. The term originates from a Unix utility that examined
 C language source code.
 
 * [Flake8](flakehell.md): A python style guide checker tool.
+* [markdownlint](markdownlint.md): A linter for Markdown files.
 * [Yamllint](yamllint.md): A linter for YAML files.
+* [write-good](write_good.md) is a naive linter for English
+    prose.
 
 ## Type checkers
 

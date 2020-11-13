@@ -35,6 +35,11 @@ Some of it's features are:
     * [Show all messages and codes for a plugin](https://flakehell.readthedocs.io/commands/codes.html).
     * Allow codes intersection for different plugins.
 
+!!! note ""
+    You can use [this cookiecutter
+    template](https://github.com/lyz-code/cookiecutter-python-project) to create
+    a python project with `flakehell` already configured.
+
 # Installation
 
 ```bash

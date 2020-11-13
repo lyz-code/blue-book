@@ -9,6 +9,10 @@ static site generator that's geared towards building project documentation.
 Documentation source files are written in Markdown, and configured with a single
 YAML configuration file.
 
+!!! note ""
+    I've automated the creation of the mkdocs site in [this cookiecutter
+    template](https://github.com/lyz-code/cookiecutter-python-project).
+
 # Installation
 
 * Install the basic packages.
@@ -22,6 +26,7 @@ YAML configuration file.
         pymdown-extensions \
         mkdocs-git-revision-date-localized-plugin
     ```
+
 * Create the `docs` repository.
 
     ```bash
@@ -114,11 +119,13 @@ YAML configuration file.
 ## Add a github pages hook.
 
 * Save your `requirements.txt`.
+
     ```bash
     pip freeze > requirements.txt
     ```
 
 * Create the `.github/workflows/gh-pages.yml` file with the following contents.
+
     ```yaml
     name: Github pages
 
@@ -166,6 +173,7 @@ YAML configuration file.
               deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
               publish_dir: ./docs/site
     ```
+
 * Create an [SSH deploy key](https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-create-ssh-deploy-key)
 * Activate `GitHub Pages` repository configuration with `gh-pages branch`.
 * Make a new commit and push to check it's working.

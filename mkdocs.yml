@@ -62,14 +62,23 @@ nav:
               - S3: devops/aws/s3.md
       - Continuous Integration:
           - Continuous Integration pipelines: devops/ci.md
-          - Bandit: devops/bandit.md
-          - Black: devops/black.md
-          - Flake8: devops/flake8.md
-          - Flakehell: devops/flakehell.md
-          - Mypy: devops/mypy.md
-          - Pip-tools: devops/pip_tools.md
-          - Safety: devops/safety.md
-          - Yamllint: devops/yamllint.md
+          - Linters:
+              - Alex: devops/alex.md
+              - Flakehell: devops/flakehell.md
+              - Flake8: devops/flake8.md
+              - Markdownlint: devops/markdownlint.md
+              - Proselint: devops/proselint.md
+              - Yamllint: devops/yamllint.md
+              - Write Good: devops/write_good.md
+          - Formatters:
+              - Black: devops/black.md
+          - Type Checkers:
+              - Mypy: devops/mypy.md
+          - Security Checkers:
+              - Safety: devops/safety.md
+              - Bandit: devops/bandit.md
+          - Dependency managers:
+              - Pip-tools: devops/pip_tools.md
       - Automating Processes:
           - cookiecutter: linux/cookiecutter.md
           - cruft: linux/cruft.md
@@ -196,6 +205,7 @@ nav:
       - Vim Automation: life_automation/vim_automation.md
   - Arts:
     - Writing:
+        - Writing: writing/writing.md
         - English Grammar and Ortography: writing/orthography.md
     - Dancing:
       - Rave Dances: dancing/rave_dances.md

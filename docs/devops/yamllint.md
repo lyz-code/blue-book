@@ -10,15 +10,19 @@ author: Lyz
 repetition and cosmetic problems such as lines length, trailing spaces or
 indentation.
 
-You an use it as a pre-commmit:
+You can use it both with:
 
-!!! note "File: .pre-commit-config.yaml"
-    ```yaml
-    - repo: https://github.com/adrienverge/yamllint
-      rev: v1.21.0
-      hooks:
-        - id: yamllint
-    ```
+* The Vim through the [ALE plugin](vim_plugins.md#ale).
+
+* [Pre-commit](ci.md#configuring-pre-commit):
+
+    !!! note "File: .pre-commit-config.yaml"
+        ```yaml
+        - repo: https://github.com/adrienverge/yamllint
+          rev: v1.21.0
+          hooks:
+            - id: yamllint
+        ```
 
 # References
 
