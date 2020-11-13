@@ -106,6 +106,13 @@ down in the other. As the changes are usually no the at the top of the file,
 I scroll the window of the right to the first change and then switch back to the
 left one in insert mode to start writing.
 
+I've also made some movement remappings:
+
+* `jj`, `kk`, `<C-d>` and `<C-u>` in insert mode will insert normal mode and go
+    to the window in the right to continue seeing the changes.
+* `i`: if you are in the changes window it will go to the commit message window
+    in insert mode.
+
 Once I've made the commit I want to only retain one buffer.
 
 Add the following snippet to do just that:
@@ -119,6 +126,14 @@ function CommitMessage()
   " Remap the saving mappings
   inoremap <silent> <leader>w <esc>:w<cr> \| :only<cr> \|:Sayonara<CR>
   nnoremap <silent> <leader>w <esc>:w<cr> \| :only<cr> \|:Sayonara<CR>
+
+  " Movement remappings
+  inoremap jj <esc>:wincmd l<cr>j
+  inoremap kk <esc>:wincmd l<cr>k
+  inoremap <C-d> <esc>:wincmd l<cr><C-d>
+  inoremap <C-u> <esc>:wincmd l<cr><C-u>
+  nnoremap i :wincmd h<cr>i
+
   " Close all other windows
   only
   " Create a vertical split
@@ -126,7 +141,7 @@ function CommitMessage()
   " Go to the right split
   wincmd l
   " Go to the first change
-  execute "normal! /^diff\<cr>5j"
+  execute "normal! /^diff\<cr>11j"
   " Clear the search highlights
   nohl
   " Go back to the left split
