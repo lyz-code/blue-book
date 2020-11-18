@@ -39,6 +39,7 @@ nav:
               - Kubectl:
                   - Kubectl: devops/kubectl/kubectl.md
                   - Kubectl Installation: devops/kubectl/kubectl_installation.md
+                  - Kubectl Commands: devops/kubectl/kubectl_commands.md
               - Additional Components:
                   - Metrics Server: devops/kubernetes/kubernetes_metric_server.md
                   - Ingress Controller: >-
