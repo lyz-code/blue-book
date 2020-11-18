@@ -36,6 +36,7 @@ nav:
                   - Annotations: devops/kubernetes/kubernetes_annotations.md
                   - Ingress: devops/kubernetes/kubernetes_ingress.md
                   - Operators: devops/kubernetes/kubernetes_operators.md
+                  - Jobs: devops/kubernetes/kubernetes_jobs.md
               - Kubectl:
                   - Kubectl: devops/kubectl/kubectl.md
                   - Kubectl Installation: devops/kubectl/kubectl_installation.md

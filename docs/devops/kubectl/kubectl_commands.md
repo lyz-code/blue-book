@@ -265,6 +265,32 @@ kubectl get limitrange
 kubectl describe limitrange limits
 ```
 
+## Jobs and cronjobs
+
+### Get cronjobs of a namespace
+
+```bash
+kubectl get cronjobs -n {{ namespace }}
+```
+
+### Get jobs of a namespace
+
+```bash
+kubectl get jobs -n {{ namespace }}
+```
+
+You can then describe a specific job to get the pod it created.
+
+```bash
+kubectl describe job -n {{ namespace }} {{ job_name }}
+```
+
+And now you can see the evolution of the job with:
+
+```bash
+kubectl logs -n {{ namespace }} {{ pod_name }}
+```
+
 # Interacting with nodes and cluster
 
 ## Mark node as unschedulable
