@@ -29,6 +29,8 @@ programs:
 * [Helm-secrets](helm_secrets.md) is used to remove hardcoded credentials from `values.yaml`
   files. Helm has an [open issue](https://github.com/helm/helm/issues/2196) to
   integrate it into it's codebase.
+* [Helm-git](helm_git.md) is used to install helm charts directly from Git
+    repositories.
 
 # Links
 

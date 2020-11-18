@@ -17,6 +17,7 @@ nav:
               - Helm Installation: devops/helm/helm_installation.md
               - Helm Commands: devops/helm/helm_commands.md
               - Helm Secrets: devops/helm/helm_secrets.md
+              - Helm Git: helm_git.md
           - Helmfile: devops/helmfile.md
       - Infrastructure Solutions:
           - Kubernetes:
