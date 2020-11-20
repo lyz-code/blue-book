@@ -82,7 +82,7 @@ Heavily inspired by [ionel packaging python
 library](https://blog.ionelmc.ro/2014/05/25/python-packaging/) post and
 [the Architecture Patterns with
 Python](https://www.cosmicpython.com/book/preface.html) book by Harry J.W.
-Percival and Bob Gregory,
+Percival and Bob Gregory.
 
 # Project types
 
@@ -97,16 +97,15 @@ Depending on the type of project you want to build there are different layouts:
 Once the basic project structure is defined, there are several common
 enhancements to be applied:
 
-* [Continuous integration pipelines](ci.md)
-* [Create the documentation repository](python_docs.md)
 * [Manage dependencies with pip-tools](pip_tools.md)
+* [Create the documentation repository](python_docs.md)
+* [Continuous integration pipelines](ci.md)
 * [Configure SQLAlchemy to use the MariaDB/Mysql
     backend](python_sqlalchemy_mariadb.md)
 * [Configure Docker and Docker compose to host the
     application](python_docker.md)
 * [Load config from YAML](python_config_yaml.md)
 * [Configure a Flask project](python_flask_template.md)
-
 
 ## Code tests
 

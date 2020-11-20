@@ -9,4 +9,8 @@ project, otherwise you won't ever do it or you'll die trying.
 
 Right now I use [mkdocs](mkdocs.md) with Github Pages for the documentation.
 
-Follow the steps under [Installation](../../../linux/mkdocs.md#installation) to configure it.
+Follow the steps under [Installation](mkdocs.md#installation) to configure it.
+
+!!! note ""
+    I've automated the creation of the mkdocs site in [this cookiecutter
+    template](https://github.com/lyz-code/cookiecutter-python-project).

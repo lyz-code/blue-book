@@ -50,4 +50,3 @@ author: Lyz
 * [Overview](https://kubernetes.io/docs/reference/kubectl/overview/).
 * [Cheatsheet](https://kubernetes.io/docs/user-guide/kubectl-cheatsheet/).
 * [Kbenv](https://github.com/alexppg/kbenv): Virtualenv for kubectl.
-

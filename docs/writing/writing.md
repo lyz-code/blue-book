@@ -80,6 +80,8 @@ making them an obstacle to creating memorable writing.
 * If it's a big refactor, add it to a [references](#references) section.
 * If it's a big block without editing use admonition quotes
 
+
+
 ## Take all the guidelines as suggestions
 
 All the sections above are guidelines, not rules to follow blindly, I try to
