@@ -6,7 +6,7 @@ author: Lyz
 
 [Meditation](https://en.wikipedia.org/wiki/Meditation) is a practice where an
 individual uses a technique,such as mindfulness, or focusing the mind on
-a particular object, thought, or activity , to train attention and awareness,
+a particular object, thought, or activity, to train attention and awareness,
 and achieve a mentally clear and emotionally calm and stable state.
 
 Meditation may reduce stress, anxiety, depression, and pain, and enhance peace,
@@ -110,6 +110,12 @@ There are nine popular types of meditation practice:
     It’s similar to prayer in that you reflect on the silence around you and
     seek a deeper connection with your God or Universe.
 
+# How to get started
+
+The easiest way to begin is to sit quietly and focus on your breath for 20
+minutes every day. If it's too much for you, start in small moments of time,
+even 5 or 10 minutes, and grow from there.
+
 # References
 
 * [healthline article on types of meditation](https://www.healthline.com/health/mental-health/types-of-meditation#focused-meditation)
@@ -117,7 +123,6 @@ There are nine popular types of meditation practice:
 ## To review
 
 * https://wiki.nikitavoloboev.xyz/mindfulness/meditation
-* https://www.healthline.com/health/mental-health/types-of-meditation#spiritual-meditation
 * https://www.healthline.com/health/4-7-8-breathing#Other-techniques-to-help-you-sleep
 * https://threader.app/thread/1261481222359801856
 * https://quietkit.com/box-breathing/
