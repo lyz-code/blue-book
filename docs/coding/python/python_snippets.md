@@ -90,3 +90,14 @@ def test():
 
 If you forget to add the trailing `\` character of `s = '''\` or use `s
 = '''hello`, you're going to have a bad time with [black](black.md).
+
+# [Play a sound](https://linuxhint.com/play_sound_python/)
+
+```bash
+pip install playsound
+```
+
+```python
+from playsound import playsound
+playsound('path/to/file.wav')
+```
