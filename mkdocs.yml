@@ -170,6 +170,7 @@ nav:
               - Requests-mock: coding/python/requests_mock.md
               - Rq: coding/python/rq.md
               - sh: coding/python/sh.md
+              - Talkey: talkey.md
               - TinyDB: coding/python/tinydb.md
               - Yoyo: coding/python/yoyo.md
           - Type Hints: coding/python/type_hints.md
