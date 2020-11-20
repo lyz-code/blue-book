@@ -206,6 +206,8 @@ nav:
       - Week Automation: life_automation/week_automation.md
       - Relationship Automation: life_automation/relationship_automation.md
       - Vim Automation: life_automation/vim_automation.md
+  - Health:
+      - Sleep: sleep.md
   - Arts:
     - Writing:
         - Writing: writing/writing.md
