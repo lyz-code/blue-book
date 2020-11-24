@@ -11,8 +11,10 @@ muscles during rapid eye movement (REM) sleep,and reduced interactions with
 surroundings. Distinguished from wakefulness by a decreased ability to
 react to stimuli.
 
-!!! note "Most of the content of this article is extracted from the [Why we sleep book by Matthew Walker](https://www.goodreads.com/book/show/34466963-why-we-sleep)
-"
+!!! note ""
+    Most of the content of this article is extracted from the [Why we sleep book
+    by Matthew
+    Walker](https://www.goodreads.com/book/show/34466963-why-we-sleep)
 
 # Consequences of lack of sleep
 
