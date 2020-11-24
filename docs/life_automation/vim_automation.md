@@ -181,3 +181,46 @@ to avoid unnecessary distractions.
 au FileType markdown let g:ycm_max_num_candidates = 1
 au FileType markdown let g:ycm_max_num_identifier_candidates = 1
 ```
+
+# Find synonyms
+
+Sometimes the prose linters tell you that a word is wordy or too complex, or you may be
+repeating a word too much. The [thesaurus query
+plugin](https://github.com/Ron89/thesaurus_query.vim) allows you to search
+synonyms of the word under the cursor. Assuming you use Vundle, add the
+following lines to your config.
+
+!!! note "File: ~/.vimrc"
+
+    ```vim
+    Plugin 'ron89/thesaurus_query.vim'
+
+    " Thesaurus
+    let g:tq_enabled_backends=["mthesaur_txt"]
+    let g:tq_mthesaur_file="~/.vim/thesaurus"
+    nnoremap <leader>r :ThesaurusQueryReplaceCurrentWord<CR>
+    inoremap <leader>r <esc>:ThesaurusQueryReplaceCurrentWord<CR>
+    ```
+
+Run `:PluginInstall` and download the thesaurus text from [gutenberg.org](http://www.gutenberg.org/files/3202/files/)
+
+Next time you find a word like `therefore` you can press
+`:ThesaurusQueryReplaceCurrentWord
+` and you'll get a window with the following:
+
+```
+In line: ... therefore ...
+Candidates for therefore, found by backend: mthesaur_txt
+Synonyms: (0)accordingly (1)according to circumstances (2)and so (3)appropriately (4)as a consequence
+          (5)as a result (6)as it is (7)as matters stand (8)at that rate (9)because of that (10)because of this
+          (11)compliantly (12)conformably (13)consequently (14)equally (15)ergo (16)finally (17)for that
+          (18)for that cause (19)for that reason (20)for this cause (21)for this reason (22)for which reason
+          (23)hence (24)hereat (25)in that case (26)in that event (27)inconsequence (28)inevitably
+          (29)it follows that (30)naturally (31)naturellement (32)necessarily (33)of course (34)of necessity
+          (35)on that account (36)on that ground (37)on this account (38)propter hoc (39)suitably
+          (40)that being so (41)then (42)thence (43)thereat (44)therefor (45)thus (46)thusly (47)thuswise
+          (48)under the circumstances (49)whence (50)wherefore (51)wherefrom
+Type number and <Enter> (empty cancels; 'n': use next backend; 'p' use previous backend):
+```
+
+If for example you type `45` and hit enter, it will change it for `thus`.
