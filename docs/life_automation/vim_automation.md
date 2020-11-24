@@ -171,3 +171,13 @@ let g:ycm_filetype_blacklist = {
       \ 'infolog' : 1
   \}
 ```
+
+When writing prose you don't need all possible suggestions, as navigating the
+options is slower than keep on typing. So I'm limiting the results just to one,
+to avoid unnecessary distractions.
+
+```vim
+" Limit the results for markdown files to 1
+au FileType markdown let g:ycm_max_num_candidates = 1
+au FileType markdown let g:ycm_max_num_identifier_candidates = 1
+```
