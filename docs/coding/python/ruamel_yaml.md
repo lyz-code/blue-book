@@ -63,6 +63,29 @@ with open(os.path.expanduser(file_path), 'w+') as f:
     yaml.dump(data, f)
 ```
 
+## [Save to a string](https://stackoverflow.com/questions/47614862/best-way-to-use-ruamel-yaml-to-dump-to-string-not-to-stream)
+
+For some unknown reason, they don't want to output the result to a string, you
+need to mess up with streams.
+
+```python
+
+# Configure YAML formatter
+yaml = YAML()
+yaml.indent(mapping=2, sequence=4, offset=2)
+yaml.allow_duplicate_keys = True
+yaml.explicit_start = False
+
+# Return the output to a string
+string_stream = StringIO()
+yaml.dump({'products': ['item 1', 'item 2']}, string_stream)
+source_code = string_stream.getvalue()
+string_stream.close()
+```
+
+I've opened [an issue](https://github.com/pycontribs/ruyaml/issues/27) in the
+[ruyaml fork](https://github.com/pycontribs/ruyaml) to solve it.
+
 # References
 
 * [Docs](https://yaml.readthedocs.io/en/latest/overview.html)
