@@ -83,6 +83,9 @@ You can use it both with:
             - name: mypy
               run: mypy
         ```
+## Ignore one line
+
+Add `# type: ignore` to the line you want to skip.
 
 # References
 
