@@ -43,6 +43,18 @@ chart](https://github.com/bambash/helm-cronjobs).
 
 Check [the kubectl commands to interact with jobs](kubectl_commands.md#jobs-and-cronjobs).
 
+# Debugging job logs
+
+To obtain the logs of a completed or failed job, you need to:
+
+* Locate the cronjob you want to debug: `kubectl get cronjobs -n cronjobs`.
+* Locate the associated job: `kubectl get jobs -n cronjobs`.
+* Locate the associated pod: `kubectl get pods -n cronjobs`.
+
+If the pod still exists, you can execute `kubectl logs -n cronjobs {{ pod_name
+}}`. If the pod doesn't exist anymore, you need to search the pod in your log
+centralizer solution.
+
 # [Monitorization of cronjobs](https://medium.com/@tristan_96324/prometheus-k8s-cronjob-alerts-94bee7b90511)
 
 Alerting of traditional Unix cronjobs meant sending an email if the job failed.
