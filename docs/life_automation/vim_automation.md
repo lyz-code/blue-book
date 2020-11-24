@@ -153,3 +153,21 @@ endfunction
 
 I'm assuming that you save with `<leader>w` and that you're using Sayonara to
 close your buffers.
+
+# Auto complete prose text
+
+Tools like [YouCompleteMe](https://github.com/ycm-core/YouCompleteMe) allow you
+to auto complete variables and functions. If you want the same functionality for
+prose, you need to enable it for markdown and text, as it's disabled by default.
+
+```vim
+let g:ycm_filetype_blacklist = {
+      \ 'tagbar' : 1,
+      \ 'qf' : 1,
+      \ 'notes' : 1,
+      \ 'unite' : 1,
+      \ 'vimwiki' : 1,
+      \ 'pandoc' : 1,
+      \ 'infolog' : 1
+  \}
+```

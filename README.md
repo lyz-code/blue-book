@@ -30,4 +30,3 @@ I fulfill any item of my [wishlist](wishlist.md) or see if you want
 contribute to [my other projects](projects.md).
 
 [![CC0](https://img.shields.io/badge/license-CC0-0a0a0a.svg?style=flat&colorA=0a0a0a)](https://creativecommons.org/publicdomain/zero/1.0/)
-
