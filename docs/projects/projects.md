@@ -113,6 +113,10 @@ This workflow break is annoying and almost always unnecessary.
 execute it whenever you have an import error, for example by configuring your
 editor to run it when saving the file.
 
+## [yamlfix](https://lyz-code.github.io/yamlfix)
+
+A simple opinionated yaml formatter that keeps your comments
+
 ## Media indexation
 
 I've got a music collection of 136362 songs, belonging to [mediarss](#mediarss)

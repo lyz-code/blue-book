@@ -75,6 +75,7 @@ nav:
               - Write Good: devops/write_good.md
           - Formatters:
               - Black: devops/black.md
+              - Yamlfix: yamlfix.md
           - Type Checkers:
               - Mypy: devops/mypy.md
           - Security Checkers:
