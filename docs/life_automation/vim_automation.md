@@ -110,7 +110,7 @@ I've also made some movement remappings:
 
 * `jj`, `kk`, `<C-d>` and `<C-u>` in insert mode will insert normal mode and go
     to the window in the right to continue seeing the changes.
-* `i`: if you are in the changes window it will go to the commit message window
+* `i`, `a`, `o`, `O`: if you are in the changes window it will go to the commit message window
     in insert mode.
 
 Once I've made the commit I want to only retain one buffer.
@@ -122,18 +122,36 @@ Add the following snippet to do just that:
 " leader q
 au BufNewFile,BufRead *COMMIT_EDITMSG call CommitMessage()
 
-function CommitMessage()
-  " Remap the saving mappings
-  inoremap <silent> <leader>w <esc>:w<cr> \| :only<cr> \|:Sayonara<CR>
-  nnoremap <silent> <leader>w <esc>:w<cr> \| :only<cr> \|:Sayonara<CR>
+function! RestoreBindings()
+  inoremap jj <esc>j
+  inoremap kk <esc>k
+  inoremap <C-d> <C-d>
+  inoremap <C-u> <C-u>
+  nnoremap i i
+  nnoremap a a
+  nnoremap o o
+  nnoremap O O
+endfunction
 
-  " Movement remappings
+function! CommitMessage()
+  " Remap the saving mappings
+  " Close buffer when saving
+  inoremap <silent> <leader>q <esc>:w<cr> \| :only<cr> \| :call RestoreBindings()<cr> \|:Sayonara<CR>
+  nnoremap <silent> <leader>q <esc>:w<cr> \| :only<cr> \| :call RestoreBindings()<cr> \|:Sayonara<CR>
+
   inoremap jj <esc>:wincmd l<cr>j
   inoremap kk <esc>:wincmd l<cr>k
   inoremap <C-d> <esc>:wincmd l<cr><C-d>
   inoremap <C-u> <esc>:wincmd l<cr><C-u>
   nnoremap i :wincmd h<cr>i
+  nnoremap a :wincmd h<cr>a
+  nnoremap o :wincmd h<cr>o
+  nnoremap O :wincmd h<cr>O
 
+  " Remove bad habits
+  inoremap jk <nop>
+  inoremap ZZ <nop>
+  nnoremap ZZ <nop>
   " Close all other windows
   only
   " Create a vertical split
@@ -141,7 +159,7 @@ function CommitMessage()
   " Go to the right split
   wincmd l
   " Go to the first change
-  execute "normal! /^diff\<cr>11j"
+  execute "normal! /^diff\<cr>8j"
   " Clear the search highlights
   nohl
   " Go back to the left split
