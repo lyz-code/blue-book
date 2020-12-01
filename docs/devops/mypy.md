@@ -104,6 +104,54 @@ them under the [`__all__` variable](https://stackoverflow.com/a/35710527).
     ]
     ```
 
+## [W0707: Consider explicitly re-raising using the 'from'
+keyword](https://blog.ram.rachum.com/post/621791438475296768/improving-python-exception-chaining-with)
+
+The error can be raised by two cases.
+
+* An exception was raised, we were handling it, and something went wrong in the
+    process of handling it.
+* An exception was raised, and we decided to replace it with a different
+    exception that will make more sense to whoever called this code.
+
+```python
+try:
+  self.connection, _ = self.sock.accept()
+except socket.timeout as error:
+  raise IPCException('The socket timed out') from error
+```
+
+The `error` bit at the end tells Python: The `IPCException` that we’re raising
+is just a friendlier version of the `socket.timeout` that we just caught.
+
+When we run that code and reach that exception, the traceback is going to look
+like this:
+
+```code
+Traceback (most recent call last):
+  File "foo.py", line 19, in
+    self.connection, _ = self.sock.accept()
+  File "foo.py", line 7, in accept
+    raise socket.timeout
+socket.timeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "foo.py", line 21, in
+    raise IPCException('The socket timed out') from e
+IPCException: The socket timed out
+```
+
+The `The above exception was the direct cause of the following exception:` part
+tells us that we are in the second case.
+
+If you were dealing with the first one, the message between the two tracebacks would be:
+
+```code
+During handling of the above exception, another exception occurred:
+```
+
 # References
 
 * [Docs](https://mypy.readthedocs.io/en/stable/)
