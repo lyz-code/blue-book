@@ -87,6 +87,23 @@ You can use it both with:
 
 Add `# type: ignore` to the line you want to skip.
 
+# Troubleshooting
+
+## Module X has no attribute Y
+
+If you're importing objects from your own module, you need to tell mypy that
+those objects are available. To do so in the `__init__.py` of your module, list
+them under the [`__all__` variable](https://stackoverflow.com/a/35710527).
+
+!!! note "File: __init__.py"
+    ```python
+    from .model import Entity
+
+    __all__ = [
+        "Entity",
+    ]
+    ```
+
 # References
 
 * [Docs](https://mypy.readthedocs.io/en/stable/)
