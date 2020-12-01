@@ -95,6 +95,10 @@ You can use it both with:
 If you want to split long lines, you need to use the
 `--experimental-string-processing` flag.
 
+## [Disable the formatting of some lines](https://github.com/psf/black/issues/451)
+
+You can use the comments `# fmt: off` and `# fmt: on`
+
 # References
 
 * [Docs](https://black.readthedocs.io/en/stable/)
