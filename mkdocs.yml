@@ -88,16 +88,16 @@ nav:
           - cruft: linux/cruft.md
       - Monitoring:
           - Prometheus:
-            - Prometheus: devops/prometheus/prometheus.md
-            - Architecture: devops/prometheus/prometheus_architecture.md
-            - Prometheus Operator: devops/prometheus/prometheus_operator.md
-            - Prometheus Install: devops/prometheus/prometheus_installation.md
-            - AlertManager: devops/prometheus/alertmanager.md
-            - Blackbox Exporter: devops/prometheus/blackbox_exporter.md
-            - Node Exporter: devops/prometheus/node_exporter.md
-            - Instance sizing analysis: devops/prometheus/instance_sizing_analysis.md
-            - Prometheus Troubleshooting: >-
-                devops/prometheus/prometheus_troubleshooting.md
+              - Prometheus: devops/prometheus/prometheus.md
+              - Architecture: devops/prometheus/prometheus_architecture.md
+              - Prometheus Operator: devops/prometheus/prometheus_operator.md
+              - Prometheus Install: devops/prometheus/prometheus_installation.md
+              - AlertManager: devops/prometheus/alertmanager.md
+              - Blackbox Exporter: devops/prometheus/blackbox_exporter.md
+              - Node Exporter: devops/prometheus/node_exporter.md
+              - Instance sizing analysis: devops/prometheus/instance_sizing_analysis.md
+              - Prometheus Troubleshooting: >-
+                  devops/prometheus/prometheus_troubleshooting.md
       - Linux:
           - brew: linux/brew.md
           - elasticsearch: linux/elasticsearch.md
@@ -211,20 +211,27 @@ nav:
   - Health:
       - Sleep: sleep.md
   - Arts:
-    - Writing:
-        - Writing: writing/writing.md
-        - English Grammar and Ortography: writing/orthography.md
-    - Dancing:
-      - Rave Dances: dancing/rave_dances.md
-      - Shuffle:
-        - Basics: dancing/shuffle_basics.md
-        - Kicks: dancing/shuffle_kicks.md
-        - Spins: dancing/shuffle_spins.md
-      - Cutting Shapes: dancing/cutting_shapes_basics.md
-    - Meditation: meditation.md
-    - Drawing:
-        - Drawing: drawing/drawing.md
-        - Exercise Pool: drawing/exercise_pool.md
+      - Writing:
+          - Writing: writing/writing.md
+          - English Grammar and Ortography: writing/orthography.md
+      - Dancing:
+          - Rave Dances: dancing/rave_dances.md
+          - Shuffle:
+              - Basics: dancing/shuffle_basics.md
+              - Kicks: dancing/shuffle_kicks.md
+              - Spins: dancing/shuffle_spins.md
+          - Cutting Shapes: dancing/cutting_shapes_basics.md
+      - Meditation: meditation.md
+      - Video Gaming:
+          - The Battle for Wesnoth:
+              - The Battle for Wesnoth: wesnoth.md
+              - Loyalist: wesnoth_loyalist.md
+              - Rebels: wesnoth_rebels.md
+              - Northeners: wesnoth_northeners.md
+
+      - Drawing:
+          - Drawing: drawing/drawing.md
+          - Exercise Pool: drawing/exercise_pool.md
   - Psychology:
       - The XY Problem: psychology/the_xy_problem.md
   - Botany:
@@ -255,7 +262,7 @@ markdown_extensions:
   - pymdownx.critic
   - pymdownx.details
   - pymdownx.emoji:
-      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+      emoji_generator: '!!python/name:pymdownx.emoji.to_svg'
   - pymdownx.inlinehilite
   - pymdownx.magiclink
   - pymdownx.mark
@@ -278,8 +285,8 @@ theme:
     accent: light blue
 
 extra_css:
-  - 'stylesheets/extra.css'
-  - 'stylesheets/links.css'
+  - stylesheets/extra.css
+  - stylesheets/links.css
 
 extra:
   social:
