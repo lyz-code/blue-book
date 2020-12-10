@@ -4,7 +4,7 @@ date: 20201001
 author: Lyz
 ---
 
-[Pypika](http://pypika.readthedocs.io/en/latest/) is a Python API for building
+[Pypika](https://pypika.readthedocs.io/en/latest/) is a Python API for building
 SQL queries. The motivation behind PyPika is to provide a simple interface for
 building SQL queries without limiting the flexibility of handwritten SQL.
 
@@ -12,6 +12,9 @@ PyPika is a fast, expressive and flexible way to replace handwritten SQL.
 Validation of SQL correctness is not an explicit goal of the project. Instead
 you are encouraged to check inputs you provide to PyPika or appropriately handle
 errors raised from your SQL database.
+
+After the queries have been built you need to interact with the database with
+other libraries.
 
 # [Installation](https://pypika.readthedocs.io/en/latest/1_installation.html)
 

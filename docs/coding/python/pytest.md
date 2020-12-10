@@ -175,7 +175,9 @@ to the test invocation, created in the base temporary directory.
 !!! note "File: test_tmpdir.py"
 
     ```python
-    def test_create_file(tmpdir):
+    from py._path.local import LocalPath
+
+    def test_create_file(tmpdir: LocalPath):
         p = tmpdir.mkdir("sub").join("hello.txt")
         p.write("content")
         assert p.read() == "content"
@@ -221,7 +223,9 @@ fixture in the form of both the `logging.LogRecord` instances and the final log
 text. This is useful for when you want to assert on the contents of a message:
 
 ```python
-def test_baz(caplog):
+from _pytest.logging import LogCaptureFixture
+
+def test_baz(caplog: LogCaptureFixture):
     func_under_test()
     for record in caplog.records:
         assert record.levelname != "CRITICAL"

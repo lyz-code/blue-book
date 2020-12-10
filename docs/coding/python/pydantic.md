@@ -392,6 +392,18 @@ This is a deliberate decision of *pydantic*, and in general it's the most useful
 approach. See [here](https://github.com/samuelcolvin/pydantic/issues/578) for
 a longer discussion on the subject.
 
+# Troubleshooting
+
+## [E0611: No name 'BaseModel' in module 'pydantic'](https://github.com/samuelcolvin/pydantic/issues/1961)
+
+Add to your pyproject.toml the following lines:
+
+```toml
+# --------- Pylint -------------
+[tool.pylint]
+extension-pkg-whitelist = 'pydantic'
+```
+
 # References
 
 * [Docs](https://pydantic-docs.helpmanual.io/)
