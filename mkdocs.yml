@@ -167,6 +167,7 @@ nav:
               - Plotly: coding/python/plotly.md
               - Ruamel YAML: coding/python/ruamel_yaml.md
               - SQLAlchemy: coding/python/sqlalchemy.md
+              - sqlite3: sqlite3.md
               - Redis-py: coding/python/redis-py.md
               - Requests-mock: coding/python/requests_mock.md
               - Rq: coding/python/rq.md
