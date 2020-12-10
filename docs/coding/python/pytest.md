@@ -209,7 +209,7 @@ pytest captures log messages of level WARNING or above automatically and
 displays them in their own section for each failed test in the same manner as
 captured stdout and stderr.
 
-You can change the default logging level in the pytest configuration
+You can change the default logging level in the pytest configuration:
 
 !!! note "File: pytest.ini"
     ```ini
@@ -217,6 +217,9 @@ You can change the default logging level in the pytest configuration
 
     log_level = debug
     ```
+
+Although it may not be a good idea in most cases. It's better to change the log
+level in the tests that need a lower level.
 
 All the logs sent to the logger during the test run are available on the
 fixture in the form of both the `logging.LogRecord` instances and the final log
@@ -247,6 +250,17 @@ You can call `caplog.clear()` to reset the captured log records in a test.
 
 Inside tests it is possible to change the log level for the captured log
 messages. This is supported by the caplog fixture:
+
+```python
+def test_foo(caplog):
+    caplog.set_level(logging.INFO)
+    pass
+```
+
+#### Change the log level
+
+Inside tests it's possible to change the log level for the captured log
+messages.
 
 ```python
 def test_foo(caplog):
