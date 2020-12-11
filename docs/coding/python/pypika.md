@@ -70,8 +70,7 @@ CREATE TABLE "person" (
 It seems that [they don't yet support the definition of FOREIGN
 KEYS](https://github.com/kayak/pypika/issues/497) when creating a new table.
 
-## [Selecting
-Data](https://pypika.readthedocs.io/en/latest/2_tutorial.html#selecting-data)
+## [Selecting Data](https://pypika.readthedocs.io/en/latest/2_tutorial.html#selecting-data)
 
 The entry point for building queries is `pypika.Query`. In order to select columns
 from a table, the table must first be added to the query. For simple queries
