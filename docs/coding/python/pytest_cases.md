@@ -469,7 +469,7 @@ Finally it now supports unpacking, see [unpacking feature](#unpack_fixture-unpac
     two minor, or one major version update) so as for users to have the time to
     update their code bases.
 
-### `unpack_fixture` / `unpack_into`
+### [`unpack_fixture` / `unpack_into`](https://smarie.github.io/python-pytest-cases/pytest_goodies/#unpack_fixture-unpack_into)
 
 In some cases fixtures return a tuple or a list of items. It is not easy to
 refer to a single of these items in a test or another fixture. With

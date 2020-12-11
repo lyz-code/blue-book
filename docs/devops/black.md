@@ -93,7 +93,8 @@ You can use it both with:
 ## [Split long lines](https://github.com/psf/black/issues/1787)
 
 If you want to split long lines, you need to use the
-`--experimental-string-processing` flag.
+`--experimental-string-processing` flag. I haven't found how to set that option
+in the config file.
 
 ## [Disable the formatting of some lines](https://github.com/psf/black/issues/451)
 

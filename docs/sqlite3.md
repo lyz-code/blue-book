@@ -43,6 +43,15 @@ conn.commit()
 conn.close()
 ```
 
+## [Get columns of
+a query](https://stackoverflow.com/questions/7831371/is-there-a-way-to-get-a-list-of-column-names-in-sqlite)
+
+```python
+cursor = connection.execute('select * from bar')
+names = [description[0] for description in cursor.description]
+```
+
+
 # References
 
 * [Docs](https://docs.python.org/3/library/sqlite3.html)
