@@ -216,6 +216,17 @@ models from the persistent storage solution.
 
 [![ddd architecture image](ddd_architecture.png)](https://www.cosmicpython.com/book/part1.html)
 
+
+# Injection of fakes in edge to edge tests
+
+If you are developing your program with this design pattern, you'll have fake
+versions of your adapters. When testing the edge to edge tests, you're going to
+use the fakes when there is no easy way to do a correct end to end test (if for
+example you need to bring up a service that is complex to configure).
+
+I've been banging my head against the keyboard until I've figured how to do it
+for [click command line tests](click.md#injecting-fake-dependencies).
+
 # References
 
 * [Architecture Patterns with

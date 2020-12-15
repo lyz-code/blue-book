@@ -176,6 +176,109 @@ Although the `runner` allows the testing of `stdout` and `stderr`. It hasn't
 work for me for `stderr` and the `logging` module. So I suggest you use the
 [`caplog` fixture](pytest.md#the-caplog-fixture).
 
+## Injecting fake dependencies
+
+If you're following the [domain driven design](domain_driven_design.md)
+architecture pattern, you'll probably need to inject some fake objects instead
+of using the original objects.
+
+The challenge is to do it without modifying your real code too much for the sake
+of testing. Harry J.W. Percival and Bob Gregory have an interesting proposal in
+their [Dependency Injection (and
+Bootstrapping)](https://www.cosmicpython.com/book/chapter_13_dependency_injection.html)
+chapter, although I found it a little bit complex.
+
+Imagine that we've got an adapter to interact with the
+[Gitea](https://gitea.io/) web application called `Gitea`.
+
+!!! note "File: `adapters/gitea.py`"
+    ```python
+    class Gitea():
+        fake: bool = False
+
+    ```
+
+The Click cli definition would be:
+
+!!! note "File: `entrypoints/cli.py`"
+    ```python
+    import logging
+    from adapters.gitea import Gitea
+
+    log = logging.getLogger(__name__)
+
+
+    @click.group()
+    @click.pass_context
+    def cli(ctx: click.core.Context) -> None:
+        """Command line interface main click entrypoint."""
+        ctx.ensure_object(dict)
+        try:
+            ctx.obj["gitea"]
+        except KeyError:
+            ctx.obj["gitea"] = load_gitea()
+
+    @cli.command()
+    @click.pass_context
+    def is_fake(ctx: Context) -> None:
+        if ctx.obj["gitea"].fake:
+            log.info("It's fake!")
+
+    def load_gitea() -> Gitea:
+        """Configure the Gitea object."""
+        return Gitea()
+    ```
+
+Where:
+
+* `load_gitea`: is a simplified version of the loading of an adapter, in
+    a real example, you'll probably will need to catch some exceptions when loading
+    the object.
+* `is_fake`: Is the subcommand we're going to use to test if the adapter has
+    been replaced by the fake object.
+
+The fake implementation of the adapter is called `FakeGitea`.
+
+!!! note "File: `tests/fake_adapters.py`"
+    ```python
+    class FakeGitea():
+        fake: bool = True
+    ```
+
+To inject `FakeGitea` in the tests we need to load it in the `'gitea'` key of
+the `obj` attribute of the click `ctx` `Context` object. To do it create the
+`fake_dependencies` dictionary with the required fakes and pass it to the
+`invoke` call.
+
+!!! note "File: `tests/e2e/test_cli.py`"
+    ```python
+    from tests.fake_adapters import FakeGitea
+    from _pytest.logging import LogCaptureFixture
+
+    fake_dependencies = {"gitea": FakeGitea()}
+
+
+    @pytest.fixture(name="runner")
+    def fixture_runner() -> CliRunner:
+        """Configure the Click cli test runner."""
+        return CliRunner()
+
+
+    def test_fake_injection(runner: CliRunner, caplog: LogCaptureFixture) -> None:
+        result = runner.invoke(cli, ["is_fake"], obj=fake_dependencies)
+
+        assert result.exit_code == 0
+        assert (
+            "entrypoints.cli",
+            logging.INFO,
+            "It's fake!",
+        ) in caplog.record_tuples
+    ```
+
+In this way we don't need to ship the fake objects with the code, and the
+modifications are minimal. Only the `try/except KeyError` snippet in the `cli`
+definition.
+
 # [Options](https://click.palletsprojects.com/en/7.x/options/)
 
 ## [Boolean Flags](https://click.palletsprojects.com/en/7.x/options/#boolean-flags)

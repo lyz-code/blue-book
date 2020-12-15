@@ -67,4 +67,3 @@ Do not forget, you are passing a list object as the second argument.
 
 Sometimes you can specifically “exploit” this behavior to maintain state between
 calls of a function. This is often done when writing a caching function.
-

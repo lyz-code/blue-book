@@ -177,3 +177,54 @@ expressions in them. For example, calling a function or method from within.
 >>> message
 'Hi Eric. You are a comedian. You were in Monty Python.'
 ```
+
+# Lint error fixes and ignores
+
+## [Fix Pylint R0201 error](http://pylint-messages.wikidot.com/messages:r0201)
+
+The error shows `Method could be a function`, it is used when there is no
+reference to the class, suggesting that the method could be used as a static
+function instead.
+
+Attempt using either of the decorators `@classmethod` or `@staticmethod`.
+
+If you don't need to change or use the class methods, use `staticmethod`.
+
+Example:
+
+```python
+Class Foo(object):
+    ...
+    def bar(self, baz):
+        ...
+        return llama
+```
+
+Try instead to use:
+
+```python
+Class Foo(object):
+    ...
+    @classmethod
+    def bar(cls, baz):
+        ...
+        return llama
+```
+
+Or
+
+```python
+Class Foo(object):
+    ...
+    @staticmethod
+    def bar(baz):
+        ...
+        return llama
+```
+
+## [W1203 with F-strings](https://github.com/PyCQA/pylint/issues/2354)
+
+This rule suggest you to use the `%` interpolation in the logging methods
+because it might save some interpolation time when a logging statement is not
+run. Nevertheless the performance improvement is negligible and the advantages
+of using f-strings far outweigh them.
