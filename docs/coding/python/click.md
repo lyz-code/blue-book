@@ -172,9 +172,8 @@ directory to a new, empty folder.
 
 ## Testing the value of stdout and stderr
 
-Although the `runner` allows the testing of `stdout` and `stderr`. It hasn't
-work for me for `stderr` and the `logging` module. So I suggest you use the
-[`caplog` fixture](pytest.md#the-caplog-fixture).
+The `runner` has the `stdout` and `stderr` attributes to test if something was
+written on those buffers.
 
 ## Injecting fake dependencies
 
@@ -446,6 +445,19 @@ Try 'touch --help' for help.
 Error: Invalid value for 'FILENAME': Path 'missing.txt' does not exist.
 ```
 
+## [Set allowable values for an argument](https://stackoverflow.com/questions/55065439/python-click-set-allowable-values-for-option)
+
+```python
+@cli.command()
+@click.argument('source')
+@click.argument('destination')
+@click.option('--mode', type=click.Choice(['local', 'ftp']), required = True)
+def copy(source, destination, mode):
+    print("copying files from " + source + " to " + destination + "using " + mode + " mode")
+
+```
+
+
 # [Commands and groups](https://click.palletsprojects.com/en/7.x/commands)
 
 ## [Nested handling and contexts](https://click.palletsprojects.com/en/7.x/commands/?highlight=pass%20context#nested-handling-and-contexts)
@@ -535,6 +547,11 @@ $ cli.py bar
 bar
 ```
 
+## [Hide a command from the help](https://stackoverflow.com/questions/34334392/python-click-make-some-options-hidden)
+
+```python
+@click.command(..., hidden=True)
+```
 
 # References
 

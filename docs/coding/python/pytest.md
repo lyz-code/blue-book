@@ -284,7 +284,9 @@ def greeting(name):
 You can test the output by using `capsys`.
 
 ```python
-def test_greeting(capsys):
+from _pytest.capture import CaptureFixture
+
+def test_greeting(capsys: CaptureFixture[Any]):
     greeting('Earthling')
     out, err = capsys.readouterr()
     assert out == 'Hi, Earthling\n'

@@ -106,8 +106,52 @@ For example to define the hint types of list, dictionaries and tuples:
 >>> version: Tuple[int, int, int] = (3, 7, 1)
 >>> options: Dict[str, bool] = {"centered": False, "capitalize": True}
 ```
+
 If your function expects some kind of sequence but don't care whether it's
 a list or a tuple, use the `typing.Sequence` object.
+
+### [Dictionaries with different value types per key](https://stackoverflow.com/questions/53409117/what-are-the-main-differences-of-namedtuple-and-typeddict-in-python-mypy).
+
+[`TypedDict`](https://docs.python.org/3/library/typing.html#typing.TypedDict)
+declares a dictionary type that expects all of its instances to have a certain
+set of keys, where each key is associated with a value of a consistent type.
+This expectation is not checked at runtime but is only enforced by type
+checkers.
+
+TypedDict started life as an experimental Mypy feature to wrangle typing onto
+the heterogeneous, structure-oriented use of dictionaries. As of Python 3.8, it
+was adopted into the standard library.
+
+```python
+try:
+    from typing import TypedDict  # >=3.8
+except ImportError:
+    from mypy_extensions import TypedDict  # <=3.7
+
+Movie = TypedDict('Movie', {'name': str, 'year': int})
+```
+
+A class-based type constructor is also available:
+
+```python
+class Movie(TypedDict):
+    name: str
+    year: int
+```
+
+By default, all keys must be present in a `TypedDict`. It is possible to override
+this by specifying totality. Usage:
+
+```python
+class point2D(TypedDict, total=False):
+    x: int
+    y: int
+```
+
+This means that a `point2D` `TypedDict` can have any of the keys omitted. A type
+checker is only expected to support a literal False or True as the value of the
+total argument. True is the default, and makes all items defined in the class
+body be required.
 
 ## Functions without return values
 
