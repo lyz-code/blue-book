@@ -31,6 +31,12 @@ on your system by dynamically resolving your $PATH, much like Bash does, and
 then wrapping the binary in a function. In this way, all the programs on your
 system are available to you from within Python.
 
+# Installation
+
+```bash
+pip install sh
+```
+
 # Usage
 
 ## Passing arguments

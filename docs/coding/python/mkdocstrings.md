@@ -101,6 +101,17 @@ The YAML block is optional, and contains some configuration options:
         method_b<span class="p">(</span><span class="bp">self</span><span class="p">)</span> </code>
         </h4><div><p>Print B!</p></div></div></div></div></div>
 
+## [Reference the objects in the documentation](https://pawamoy.github.io/mkdocstrings/usage/#cross-references)
+
+~~~markdown
+With a custom title:
+[`Object 1`][full.path.object1]
+
+With the identifier as title:
+[full.path.object2][]
+~~~
+
+
 # Global options
 
 MkDocstrings accept a few top-level configuration options in `mkdocs.yml`:

@@ -4,7 +4,7 @@ date: 20201001
 author: Lyz
 ---
 
-[Yoyo](https://ollycope.com/software/yoyo/latest/#contributing) is a database
+[Yoyo](https://ollycope.com/software/yoyo/latest) is a database
 schema migration tool. Migrations are written as SQL files or Python scripts
 that define a list of migration steps.
 

@@ -190,8 +190,9 @@ directory. Instead use the `tmpdir_factory` fixture.
 
 
 ```python
+from _pytest.tmpdir import TempdirFactory
 @pytest.fixture(scope="session")
-def image_file(tmpdir_factory):
+def image_file(tmpdir_factory: TempdirFactory):
     img = compute_expensive_image()
     fn = tmpdir_factory.mktemp("data").join("img.png")
     img.save(str(fn))
@@ -201,6 +202,12 @@ def image_file(tmpdir_factory):
 def test_histogram(image_file):
     img = load_image(image_file)
     # compute and test histogram
+```
+
+#### Make a subdirectory
+
+```python
+p = tmpdir.mkdir("sub").join("hello.txt")
 ```
 
 ### [The caplog fixture](https://docs.pytest.org/en/stable/logging.html#caplog-fixture)

@@ -178,6 +178,8 @@ nav:
           - Type Hints: coding/python/type_hints.md
           - Code Styling: coding/python/python_code_styling.md
           - Docstrings: coding/python/docstrings.md
+          - Profiling: python_profiling.md
+          - Optimization: python_optimization.md
           - Anti-Patterns: coding/python/python_anti_patterns.md
           - Data Classes: coding/python/data_classes.md
           - Pytest:
@@ -254,7 +256,7 @@ markdown_extensions:
   - meta
   - def_list
   - toc:
-      permalink: true
+      permalink: ⚑
       baselevel: 2
   - pymdownx.arithmatex
   - pymdownx.betterem:

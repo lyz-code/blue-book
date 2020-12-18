@@ -110,3 +110,31 @@ import copy
 d = { ... }
 d2 = copy.deepcopy(d)
 ```
+
+# [Find the root directory of a package](https://github.com/chendaniely/pyprojroot)
+
+`pyprojroot` finds the root working directory for your project as a `pathlib`
+object. You can now use the here function to pass in a relative path from the
+project root directory (no matter what working directory you are in the
+project), and you will get a full path to the specified file.
+
+## Installation
+
+```bash
+pip install pyprojroot
+```
+
+## Usage
+
+```python
+from pyprojroot import here
+
+here()
+```
+
+# [Check if an object has an attribute](https://stackoverflow.com/questions/610883/how-to-know-if-an-object-has-an-attribute-in-python)
+
+```python
+if hasattr(a, 'property'):
+    a.property
+```
