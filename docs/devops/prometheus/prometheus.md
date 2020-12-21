@@ -13,7 +13,7 @@ alerting. The project is written in Go and licensed under the Apache
 of the Cloud Native Computing Foundation, along with Kubernetes and Envoy.
 
 <p align="center">
-    <img src="/blue-book/images/prometheus_logo.png">
+    <img src="/blue-book/img/prometheus_logo.png">
 </p>
 
 
@@ -106,7 +106,7 @@ With a basic prometheus configuration:
 
 !!! note "File: /data/prometheus/prometheus.yml"
     ```yaml
-    ---
+ ?   ---
     # http://prometheus.io/docs/operating/configuration/
 
     global:

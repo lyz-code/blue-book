@@ -9,7 +9,7 @@ it helps you define, install and upgrade even the most complex Kubernetes
 applications.
 
 <p align="center">
-    <img src="/blue-book/images/helm_logo.png">
+    <img src="/blue-book/img/helm_logo.png">
 </p>
 
 The advantages of using helm over `kubectl apply` are the easiness of:
