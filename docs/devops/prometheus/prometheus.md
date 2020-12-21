@@ -88,6 +88,260 @@ prometheus](https://prometheus.io/docs/prometheus/latest/installation/), but I'd
 recommend using the [Kubernetes](kubernetes.md) [Prometheus
 operator](prometheus_installation.md).
 
+To install it outside Kubernetes, use the [cloudalchemy ansible
+role](https://github.com/cloudalchemy/ansible-prometheus) for host installations
+or the [prom/prometheus](https://hub.docker.com/r/prom/prometheus/) docker with
+the following command:
+
+```bash
+/usr/bin/docker run --rm \
+    --name prometheus \
+    -v /data/prometheus:/etc/prometheus \
+    prom/prometheus:latest \
+    --storage.tsdb.retention.time=30d \
+    --config.file=/etc/prometheus/prometheus.yml \
+```
+
+With a basic prometheus configuration:
+
+!!! note "File: /data/prometheus/prometheus.yml"
+    ```yaml
+    ---
+    # http://prometheus.io/docs/operating/configuration/
+
+    global:
+      evaluation_interval: 1m
+      scrape_interval: 1m
+      scrape_timeout: 10s
+      external_labels:
+        environment: helm
+    rule_files:
+      - /etc/prometheus/rules/*.rules
+    scrape_configs:
+      - job_name: prometheus
+        metrics_path: /metrics
+        static_configs:
+        - targets:
+          - prometheus:9090
+    ```
+
+And some basic rules:
+
+!!! note "File: /data/prometheus/rules/"
+```yaml
+groups:
+- name: ansible managed alert rules
+  rules:
+  - alert: Watchdog
+    annotations:
+      description: |-
+        This is an alert meant to ensure that the entire alerting pipeline is functional.
+        This alert is always firing, therefore it should always be firing in Alertmanager
+        and always fire against a receiver. There are integrations with various notification
+        mechanisms that send a notification when this alert is not firing. For example the
+        "DeadMansSnitch" integration in PagerDuty.
+      summary: Ensure entire alerting pipeline is functional
+    expr: vector(1)
+    for: 10m
+    labels:
+      severity: warning
+  - alert: InstanceDown
+    annotations:
+      description: '{{ $labels.instance }} of job {{ $labels.job }} has been down for
+        more than 5 minutes.'
+      summary: Instance {{ $labels.instance }} down
+    expr: up == 0
+    for: 5m
+    labels:
+      severity: critical
+  - alert: RebootRequired
+    annotations:
+      description: '{{ $labels.instance }} requires a reboot.'
+      summary: Instance {{ $labels.instance }} - reboot required
+    expr: node_reboot_required > 0
+    labels:
+      severity: warning
+  - alert: NodeFilesystemSpaceFillingUp
+    annotations:
+      description: Filesystem on {{ $labels.device }} at {{ $labels.instance }} has
+        only {{ printf "%.2f" $value }}% available space left and is filling up.
+      summary: Filesystem is predicted to run out of space within the next 24 hours.
+    expr: |-
+      (
+        node_filesystem_avail_bytes{job="node",fstype!=""} / node_filesystem_size_bytes{job="node",fstype!=""} * 100 < 40
+      and
+        predict_linear(node_filesystem_avail_bytes{job="node",fstype!=""}[6h], 24*60*60) < 0
+      and
+        node_filesystem_readonly{job="node",fstype!=""} == 0
+      )
+    for: 1h
+    labels:
+      severity: warning
+  - alert: NodeFilesystemSpaceFillingUp
+    annotations:
+      description: Filesystem on {{ $labels.device }} at {{ $labels.instance }} has
+        only {{ printf "%.2f" $value }}% available space left and is filling up fast.
+      summary: Filesystem is predicted to run out of space within the next 4 hours.
+    expr: |-
+      (
+        node_filesystem_avail_bytes{job="node",fstype!=""} / node_filesystem_size_bytes{job="node",fstype!=""} * 100 < 20
+      and
+        predict_linear(node_filesystem_avail_bytes{job="node",fstype!=""}[6h], 4*60*60) < 0
+      and
+        node_filesystem_readonly{job="node",fstype!=""} == 0
+      )
+    for: 1h
+    labels:
+      severity: critical
+  - alert: NodeFilesystemAlmostOutOfSpace
+    annotations:
+      description: Filesystem on {{ $labels.device }} at {{ $labels.instance }} has
+        only {{ printf "%.2f" $value }}% available space left.
+      summary: Filesystem has less than 5% space left.
+    expr: |-
+      (
+        node_filesystem_avail_bytes{job="node",fstype!=""} / node_filesystem_size_bytes{job="node",fstype!=""} * 100 < 5
+      and
+        node_filesystem_readonly{job="node",fstype!=""} == 0
+      )
+    for: 1h
+    labels:
+      severity: warning
+  - alert: NodeFilesystemAlmostOutOfSpace
+    annotations:
+      description: Filesystem on {{ $labels.device }} at {{ $labels.instance }} has
+        only {{ printf "%.2f" $value }}% available space left.
+      summary: Filesystem has less than 3% space left.
+    expr: |-
+      (
+        node_filesystem_avail_bytes{job="node",fstype!=""} / node_filesystem_size_bytes{job="node",fstype!=""} * 100 < 3
+      and
+        node_filesystem_readonly{job="node",fstype!=""} == 0
+      )
+    for: 1h
+    labels:
+      severity: critical
+  - alert: NodeFilesystemFilesFillingUp
+    annotations:
+      description: Filesystem on {{ $labels.device }} at {{ $labels.instance }} has
+        only {{ printf "%.2f" $value }}% available inodes left and is filling up.
+      summary: Filesystem is predicted to run out of inodes within the next 24 hours.
+    expr: |-
+      (
+        node_filesystem_files_free{job="node",fstype!=""} / node_filesystem_files{job="node",fstype!=""} * 100 < 40
+      and
+        predict_linear(node_filesystem_files_free{job="node",fstype!=""}[6h], 24*60*60) < 0
+      and
+        node_filesystem_readonly{job="node",fstype!=""} == 0
+      )
+    for: 1h
+    labels:
+      severity: warning
+  - alert: NodeFilesystemFilesFillingUp
+    annotations:
+      description: Filesystem on {{ $labels.device }} at {{ $labels.instance }} has
+        only {{ printf "%.2f" $value }}% available inodes left and is filling up fast.
+      summary: Filesystem is predicted to run out of inodes within the next 4 hours.
+    expr: |-
+      (
+        node_filesystem_files_free{job="node",fstype!=""} / node_filesystem_files{job="node",fstype!=""} * 100 < 20
+      and
+        predict_linear(node_filesystem_files_free{job="node",fstype!=""}[6h], 4*60*60) < 0
+      and
+        node_filesystem_readonly{job="node",fstype!=""} == 0
+      )
+    for: 1h
+    labels:
+      severity: critical
+  - alert: NodeFilesystemAlmostOutOfFiles
+    annotations:
+      description: Filesystem on {{ $labels.device }} at {{ $labels.instance }} has
+        only {{ printf "%.2f" $value }}% available inodes left.
+      summary: Filesystem has less than 5% inodes left.
+    expr: |-
+      (
+        node_filesystem_files_free{job="node",fstype!=""} / node_filesystem_files{job="node",fstype!=""} * 100 < 5
+      and
+        node_filesystem_readonly{job="node",fstype!=""} == 0
+      )
+    for: 1h
+    labels:
+      severity: warning
+  - alert: NodeFilesystemAlmostOutOfFiles
+    annotations:
+      description: Filesystem on {{ $labels.device }} at {{ $labels.instance }} has
+        only {{ printf "%.2f" $value }}% available inodes left.
+      summary: Filesystem has less than 3% inodes left.
+    expr: |-
+      (
+        node_filesystem_files_free{job="node",fstype!=""} / node_filesystem_files{job="node",fstype!=""} * 100 < 3
+      and
+        node_filesystem_readonly{job="node",fstype!=""} == 0
+      )
+    for: 1h
+    labels:
+      severity: critical
+  - alert: NodeNetworkReceiveErrs
+    annotations:
+      description: '{{ $labels.instance }} interface {{ $labels.device }} has encountered
+        {{ printf "%.0f" $value }} receive errors in the last two minutes.'
+      summary: Network interface is reporting many receive errors.
+    expr: |-
+      increase(node_network_receive_errs_total[2m]) > 10
+    for: 1h
+    labels:
+      severity: warning
+  - alert: NodeNetworkTransmitErrs
+    annotations:
+      description: '{{ $labels.instance }} interface {{ $labels.device }} has encountered
+        {{ printf "%.0f" $value }} transmit errors in the last two minutes.'
+      summary: Network interface is reporting many transmit errors.
+    expr: |-
+      increase(node_network_transmit_errs_total[2m]) > 10
+    for: 1h
+    labels:
+      severity: warning
+  - alert: NodeHighNumberConntrackEntriesUsed
+    annotations:
+      description: '{{ $value | humanizePercentage }} of conntrack entries are used'
+      summary: Number of conntrack are getting close to the limit
+    expr: |-
+      (node_nf_conntrack_entries / node_nf_conntrack_entries_limit) > 0.75
+    labels:
+      severity: warning
+  - alert: NodeClockSkewDetected
+    annotations:
+      message: Clock on {{ $labels.instance }} is out of sync by more than 300s. Ensure
+        NTP is configured correctly on this host.
+      summary: Clock skew detected.
+    expr: |-
+      (
+        node_timex_offset_seconds > 0.05
+      and
+        deriv(node_timex_offset_seconds[5m]) >= 0
+      )
+      or
+      (
+        node_timex_offset_seconds < -0.05
+      and
+        deriv(node_timex_offset_seconds[5m]) <= 0
+      )
+    for: 10m
+    labels:
+      severity: warning
+  - alert: NodeClockNotSynchronising
+    annotations:
+      message: Clock on {{ $labels.instance }} is not synchronising. Ensure NTP is configured
+        on this host.
+      summary: Clock not synchronising.
+    expr: |-
+      min_over_time(node_timex_sync_status[5m]) == 0
+    for: 10m
+    labels:
+      severity: warning
+```
+
+
 # Exposing your metrics
 
 Prometheus defines a very nice text-based format for its metrics:
