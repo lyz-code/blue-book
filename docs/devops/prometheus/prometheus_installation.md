@@ -108,8 +108,9 @@ the following command:
 With a basic prometheus configuration:
 
 !!! note "File: /data/prometheus/prometheus.yml"
+
     ```yaml
- ?   ---
+    ---
     # http://prometheus.io/docs/operating/configuration/
 
     global:
@@ -131,6 +132,7 @@ With a basic prometheus configuration:
 And some basic rules:
 
 ??? note "File: /data/prometheus/rules/"
+
     ```yaml
     groups:
     - name: ansible managed alert rules
