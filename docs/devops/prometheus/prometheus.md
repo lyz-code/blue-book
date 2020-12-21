@@ -127,7 +127,7 @@ With a basic prometheus configuration:
 
 And some basic rules:
 
-!!! note "File: /data/prometheus/rules/"
+??? note "File: /data/prometheus/rules/"
 ```yaml
 groups:
 - name: ansible managed alert rules
