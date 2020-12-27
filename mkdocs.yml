@@ -114,6 +114,7 @@ nav:
           - Syncthing: linux/syncthing.md
           - Vim:
               - Vim Plugins: linux/vim/vim_plugins.md
+          - Wake on Lan: wake_on_lan.md
           - Wireguard: linux/wireguard.md
           - ZFS: linux/zfs.md
           - zip: linux/zip.md
@@ -206,11 +207,13 @@ nav:
   - Data Analysis:
       - Recommender Systems: >-
           data_analysis/recommender_systems/recommender_systems.md
-  - Life Automation:
-      - Life Automation: life_automation/life_automation.md
-      - Week Automation: life_automation/week_automation.md
-      - Relationship Automation: life_automation/relationship_automation.md
-      - Vim Automation: life_automation/vim_automation.md
+  - Life Management:
+      - Automation:
+          - Life Automation: life_automation/life_automation.md
+          - Week Automation: life_automation/week_automation.md
+          - Relationship Automation: life_automation/relationship_automation.md
+          - Vim Automation: life_automation/vim_automation.md
+      - Strategy: strategy.md
   - Health:
       - Sleep: sleep.md
   - Arts:

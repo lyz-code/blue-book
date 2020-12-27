@@ -127,7 +127,7 @@ With a basic prometheus configuration:
         static_configs:
         - targets:
           - prometheus:9090
-    ```
+     ```
 
 And some basic rules:
 

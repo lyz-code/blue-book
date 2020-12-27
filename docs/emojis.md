@@ -197,4 +197,3 @@ _へ__(‾◡◝ )>
 # Links
 
 * [Japanese Emoticons](http://japaneseemoticons.me)
-

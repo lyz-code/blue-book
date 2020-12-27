@@ -681,12 +681,8 @@ with pytest.raises(SystemExit):
 ```python
 
 def test_value_error_is_raised():
-    with pytest.raises(ValueError) as error:
+    with pytest.raises(ValueError, match="invalid literal for int() with base 10: 'a'"):
         int('a')
-    assert (
-        f"invalid literal for int() with base 10: 'a'"
-        in str(error.value)
-    )
 ```
 
 # pytest integration with Vim
