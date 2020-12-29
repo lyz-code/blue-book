@@ -221,6 +221,43 @@ adenosine purge is complete. As this process is ending, the circadian
 activity rhythm has returned, and its energizing influence starts to approach,
 therefore naturally waking us up.
 
+### All-nighters
+
+Scientists can demonstrate that the two forces determining when you want to be
+awake and sleep are independent and can be decoupled from their normal lockstep.
+
+When you skip one night's sleep and remain awake throughout the following day,
+
+![ ](sleep_all_nighter.jpg)
+
+By remaining awake, and blocking access to the adenosine drain that sleep opens
+up, the brain is unable to rid itself of the chemical sleep pressure. The
+mounting adenosine levels continue to rise. This should mean that the longer you
+are awake, the sleepier you feel. But that's not true. Though you will feel
+increasingly sleepy throughout the nighttime phase, hitting a low point in your
+alertness around five or six in the morning, thereafter, you'll start to be more
+awake.  This effect is answered by the energy return of the circadian rhythm.
+Unlike sleep pressure, the circadian rhythm pays no attention to whether you are
+asleep or awake.
+
+## Am I getting enough sleep?
+
+If after waking up in the morning you could fall asleep at ten or eleven a.m, it
+means that you're likely not getting enough sleep quantity or quality. The same
+can be said if you can't function optimally without caffeine before noon, you'll
+be most likely self-medicating your state of chronic sleep deprivation.
+
+Other sleep indicators can be if you would sleep more if you didn't set an alarm
+clock, or if you find yourself at your computer screen reading and then
+rereading the same sentence.
+
+Of course, even if you are giving yourself plenty of time to get a full night of
+shut-eye, next-day fatigue and sleepiness can still occur because you are
+suffering from an undiagnosed sleep disorder.
+
+
+
+
 # References
 
 * [Why we sleep book by Matthew Walker](https://www.goodreads.com/book/show/34466963-why-we-sleep)

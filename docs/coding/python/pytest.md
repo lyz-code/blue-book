@@ -255,15 +255,6 @@ def test_foo(caplog):
 
 You can call `caplog.clear()` to reset the captured log records in a test.
 
-Inside tests it is possible to change the log level for the captured log
-messages. This is supported by the caplog fixture:
-
-```python
-def test_foo(caplog):
-    caplog.set_level(logging.INFO)
-    pass
-```
-
 #### Change the log level
 
 Inside tests it's possible to change the log level for the captured log
@@ -318,7 +309,10 @@ pip install pytest-freezegun
 Freeze time by using the freezer fixture:
 
 ```python
-def test_frozen_date(freezer):
+if TYPE_CHECKING:
+    from freezegun.api import FrozenDateTimeFactory
+
+def test_frozen_date(freezer: FrozenDateTimeFactory):
     now = datetime.now()
     time.sleep(1)
     later = datetime.now()

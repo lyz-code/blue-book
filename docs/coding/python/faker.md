@@ -36,12 +36,12 @@ to set a random seed add the following to your test configuration.
 !!! note "File: conftest.py"
 
     ```python
-    import random
+    from random import SystemRandom
 
 
     @pytest.fixture(scope="session", autouse=True)
     def faker_seed():
-        return random.randint(0, 999999)
+        return SystemRandom().randint(0, 999999)
     ```
 
 ## Generate fake number

@@ -387,6 +387,15 @@ print(DemoDataclass(ts='2017-11-08T14:00'))
 #> DemoDataclass(ts=datetime.datetime(2017, 11, 8, 14, 0))
 ```
 
+# Troubleshooting validators
+
+## [pylint complains on the validators](https://github.com/samuelcolvin/pydantic/issues/568)
+
+Pylint complains that `R0201: Method could be a function` and `N805: first
+argument of a method should be named 'self'`. Seems to be an error of pylint,
+people have solved it by specifying `@classmethod` between the definition and
+the `validator` decorator.
+
 # References
 
 * [Pydantic validators](https://pydantic-docs.helpmanual.io/usage/validators/)

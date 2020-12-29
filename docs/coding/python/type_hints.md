@@ -286,6 +286,15 @@ Entity = TypeVar('Entity', model.Project, model.Tag, model.Task)
 Entities = List[Entity]
 ```
 
+If you just want to [specify any children of a parent
+class](https://stackoverflow.com/questions/58986031/type-hinting-child-class-returning-self), use:
+
+```python
+from .model import Entity as EntityModel
+
+Entity = TypeVar('Entity', bound=EntityModel)
+```
+
 Try to use `TypeVar` instead of `Union` of the different types, as it's able to
 deduce better the type of the return value of a function.
 

@@ -145,10 +145,15 @@ factory.Faker('pybool')
 
 ## Generate your own attribute
 
+!!! warning "In newer versions of Factoryboy this method doesn't work"
+
+    As the Faker object doesn't have the generate method.
+
 Use `lazy_attribute` decorator.
 
-If you want to [use Faker inside a lazy_attribute](https://stackoverflow.com/questions/45068596/how-to-use-lazy-attribute-with-faker-in-factory-boy) use `.generate({})` at the end
-of the attribute.
+If you want to [use Faker inside
+a lazy_attribute](https://stackoverflow.com/questions/45068596/how-to-use-lazy-attribute-with-faker-in-factory-boy)
+use `.generate({})` at the end of the attribute.
 
 ```python
     @factory.lazy_attribute
