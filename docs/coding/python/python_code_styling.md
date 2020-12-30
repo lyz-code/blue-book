@@ -228,3 +228,28 @@ This rule suggest you to use the `%` interpolation in the logging methods
 because it might save some interpolation time when a logging statement is not
 run. Nevertheless the performance improvement is negligible and the advantages
 of using f-strings far outweigh them.
+
+## [W0106 in list comprehension](https://github.com/PyCQA/pylint/issues/3397)
+
+They just don't support it they suggest to use normal for loops.
+
+## [SIM105 Use
+'contextlib.suppress(Exception)'](https://docs.python.org/3/library/contextlib.html#contextlib.suppress)
+
+It's better to use
+
+```python
+from contextlib import suppress
+
+with suppress(FileNotFoundError):
+    os.remove('somefile.tmp')
+```
+
+Instead of:
+
+```python
+try:
+    os.remove('somefile.tmp')
+except FileNotFoundError:
+    pass
+```

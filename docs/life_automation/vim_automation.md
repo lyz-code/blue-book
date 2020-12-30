@@ -242,3 +242,23 @@ Type number and <Enter> (empty cancels; 'n': use next backend; 'p' use previous 
 ```
 
 If for example you type `45` and hit enter, it will change it for `thus`.
+
+## [Keep foldings](https://stackoverflow.com/questions/37552913/vim-how-to-keep-folds-on-save)
+
+When running fixers usually the foldings go to hell. To keep the foldings add
+the following snippet to your vimrc file
+
+```Vim
+augroup remember_folds
+  autocmd!
+  autocmd BufWinLeave * mkview
+  autocmd BufWinEnter * silent! loadview
+augroup END
+```
+
+## [Python folding done right](https://github.com/tmhedberg/SimpylFold)
+
+Folding Python in Vim is not easy, the python-mode plugin doesn't do it for me
+by default and after fighting with it for 2 hours...
+
+SimpylFold does the trick just fine.

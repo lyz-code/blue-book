@@ -192,6 +192,7 @@ nav:
       - JSON: coding/json/json.md
       - React: coding/react/react.md
       - SQL: coding/sql/sql.md
+      - SQLite: sqlite.md
       - YAML: coding/yaml/yaml.md
   - Software Architecture:
       - SOLID: architecture/solid.md
