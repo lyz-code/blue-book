@@ -1,0 +1,38 @@
+---
+name: Update
+on:  # yamllint disable-line rule:truthy
+  schedule:
+    - cron: 11 08 * * *
+
+jobs:
+  Update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - name: Set up Python 3.7
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.7
+      - name: Install dependencies
+        run: pip install pip-tools
+      - name: Update requirements
+        run: make update
+      - name: Install the program
+        run: make install
+      - name: Run tests
+        run: make build-docs
+      - name: Commit files
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add requirements.txt docs/requirements.txt requirements-dev.txt
+          git diff-index --quiet HEAD \
+            || git commit -m "chore: update dependency requirements"
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: master
