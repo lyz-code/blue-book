@@ -392,6 +392,48 @@ This is a deliberate decision of *pydantic*, and in general it's the most useful
 approach. See [here](https://github.com/samuelcolvin/pydantic/issues/578) for
 a longer discussion on the subject.
 
+## [Initialize attributes at object creation](https://stackoverflow.com/questions/60695759/creating-objects-with-id-and-populating-other-fields)
+
+If you want to initialize attributes of the object automatically at object
+creation, similar of what you'd do with the `__init__` method of the class, you
+need to use
+[`root_validators`](https://pydantic-docs.helpmanual.io/usage/validators/#root-validators).
+
+```python
+
+class PypikaRepository(BaseModel):
+    """Implement the repository pattern using the Pypika query builder."""
+
+    connection: sqlite3.Connection
+    cursor: sqlite3.Cursor
+
+    class Config:
+        """Configure the pydantic model."""
+
+        arbitrary_types_allowed = True
+
+    @root_validator(pre=True)
+    @classmethod
+    def set_connection(cls, values: Dict[str, Any]) -> Dict[str, Any]:
+        """Set the connection to the database.
+
+        Raises:
+            ConnectionError: If there is no database file.
+        """
+        database_file = values["database_url"].replace("sqlite:///", "")
+        if not os.path.isfile(database_file):
+            raise ConnectionError(f"There is no database file: {database_file}")
+        connection = sqlite3.connect(database_file)
+        values["connection"] = connection
+        values["cursor"] = connection.cursor()
+
+        return values
+```
+
+I had to set the `arbitrary_types_allowed` because the sqlite3 objects are not
+between the pydantic object types.
+
+
 # Troubleshooting
 
 ## [E0611: No name 'BaseModel' in module 'pydantic'](https://github.com/samuelcolvin/pydantic/issues/1961)

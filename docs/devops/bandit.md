@@ -20,6 +20,12 @@ scanning all the files, it generates a report.
 pip install bandit
 ```
 
+# Usage
+
+## Ignore an error.
+
+Add the `# nosec` comment in the line.
+
 # Configuration
 
 You can run bandit through:
