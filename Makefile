@@ -69,7 +69,7 @@ pull-master:
 	@echo ""
 
 .PHONY: build-docs
-build-docs: test-examples
+build-docs:
 	@echo "--------------------------"
 	@echo "- Building documentation -"
 	@echo "--------------------------"
