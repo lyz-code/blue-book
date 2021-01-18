@@ -4,98 +4,35 @@
 #
 #    pip-compile --allow-unsafe requirements.in
 #
-babel==2.9.0
-    # via mkdocs-git-revision-date-localized-plugin
-click==7.1.2
-    # via
-    #   mkdocs
-    #   nltk
-    #   proselint
-future==0.18.2
-    # via
-    #   lunr
-    #   proselint
-gitdb2==4.0.2
-    # via -r requirements.in
-gitdb==4.0.5
-    # via
-    #   gitdb2
-    #   gitpython
-gitpython==3.1.12
-    # via mkdocs-git-revision-date-localized-plugin
-htmlmin==0.1.12
-    # via mkdocs-minify-plugin
-importlib-metadata==3.4.0
-    # via markdown
-jinja2==2.11.2
-    # via mkdocs
-joblib==1.0.0
-    # via nltk
-jsmin==2.2.2
-    # via mkdocs-minify-plugin
-livereload==2.6.3
-    # via mkdocs
-lunr[languages]==0.5.8
-    # via mkdocs
-markdown==3.3.3
-    # via
-    #   mkdocs
-    #   mkdocs-material
-    #   pymdown-extensions
-markupsafe==1.1.1
-    # via jinja2
-mkdocs-autolinks-plugin==0.2.0
-    # via -r requirements.in
-mkdocs-git-revision-date-localized-plugin==0.8
-    # via -r requirements.in
-mkdocs-material-extensions==1.0.1
-    # via mkdocs-material
-mkdocs-material==6.2.4
-    # via
-    #   -r requirements.in
-    #   mkdocs-material-extensions
-mkdocs-minify-plugin==0.4.0
-    # via -r requirements.in
-mkdocs-new-features-notifier==0.1.6
-    # via -r requirements.in
-mkdocs==1.1.2
-    # via
-    #   -r requirements.in
-    #   mkdocs-autolinks-plugin
-    #   mkdocs-git-revision-date-localized-plugin
-    #   mkdocs-material
-    #   mkdocs-minify-plugin
-    #   mkdocs-new-features-notifier
-nltk==3.5
-    # via lunr
-proselint==0.10.2
-    # via -r requirements.in
-pygments==2.7.4
-    # via mkdocs-material
-pymdown-extensions==8.1
-    # via
-    #   -r requirements.in
-    #   mkdocs-material
-pytz==2020.5
-    # via babel
-pyyaml==5.3.1
-    # via mkdocs
-regex==2020.11.13
-    # via nltk
-six==1.15.0
-    # via
-    #   livereload
-    #   lunr
-    #   proselint
-smmap==3.0.4
-    # via gitdb
-tornado==6.1
-    # via
-    #   livereload
-    #   mkdocs
-tqdm==4.56.0
-    # via nltk
-typing-extensions==3.7.4.3
-    # via importlib-metadata
-zipp==3.4.0
-    # via importlib-metadata
+babel==2.9.0              # via mkdocs-git-revision-date-localized-plugin
+click==7.1.2              # via mkdocs, nltk, proselint
+future==0.18.2            # via lunr, proselint
+gitdb2==4.0.2             # via -r requirements.in
+gitdb==4.0.5              # via gitdb2, gitpython
+gitpython==3.1.12         # via mkdocs-git-revision-date-localized-plugin
+htmlmin==0.1.12           # via mkdocs-minify-plugin
+jinja2==2.11.2            # via mkdocs
+joblib==1.0.0             # via nltk
+jsmin==2.2.2              # via mkdocs-minify-plugin
+livereload==2.6.3         # via mkdocs
+lunr[languages]==0.5.8    # via mkdocs
+markdown==3.3.3           # via mkdocs, mkdocs-material, pymdown-extensions
+markupsafe==1.1.1         # via jinja2
+mkdocs-autolinks-plugin==0.2.0  # via -r requirements.in
+mkdocs-git-revision-date-localized-plugin==0.8  # via -r requirements.in
+mkdocs-material-extensions==1.0.1  # via mkdocs-material
+mkdocs-material==6.2.5    # via -r requirements.in, mkdocs-material-extensions
+mkdocs-minify-plugin==0.4.0  # via -r requirements.in
+mkdocs-new-features-notifier==0.1.6  # via -r requirements.in
+mkdocs==1.1.2             # via -r requirements.in, mkdocs-autolinks-plugin, mkdocs-git-revision-date-localized-plugin, mkdocs-material, mkdocs-minify-plugin, mkdocs-new-features-notifier
+nltk==3.5                 # via lunr
+proselint==0.10.2         # via -r requirements.in
+pygments==2.7.4           # via mkdocs-material
+pymdown-extensions==8.1   # via -r requirements.in, mkdocs-material
+pytz==2020.5              # via babel
+pyyaml==5.3.1             # via mkdocs
+regex==2020.11.13         # via nltk
+six==1.15.0               # via livereload, lunr, proselint
+smmap==3.0.4              # via gitdb
+tornado==6.1              # via livereload, mkdocs
+tqdm==4.56.0              # via nltk
