@@ -217,6 +217,7 @@ nav:
       - Strategy: strategy.md
   - Health:
       - Sleep: sleep.md
+      - Remote Working: remote_work.md
   - Arts:
       - Writing:
           - Writing: writing/writing.md
