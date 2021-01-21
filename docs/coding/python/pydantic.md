@@ -434,6 +434,15 @@ I had to set the `arbitrary_types_allowed` because the sqlite3 objects are not
 between the pydantic object types.
 
 
+## Lazy loading attributes
+
+[Currently](https://github.com/samuelcolvin/pydantic/issues/935) there is no
+official support for [lazy loading](lazy_loading.md) model attributes.
+
+You can define your own properties but when you export the schema they won't
+appear there. [dgasmith has
+a workaround](https://github.com/samuelcolvin/pydantic/issues/1035) though.
+
 # Troubleshooting
 
 ## [E0611: No name 'BaseModel' in module 'pydantic'](https://github.com/samuelcolvin/pydantic/issues/1961)
