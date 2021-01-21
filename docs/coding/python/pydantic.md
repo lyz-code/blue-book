@@ -18,6 +18,21 @@ Define how data should be in pure, canonical python; check it with pydantic.
 pip install pydantic
 ```
 
+# Advantages and disadvantages
+
+Advantages:
+
+* Perform data validation in an easy and nice way.
+* Seamless integration with [FastAPI](https://fastapi.tiangolo.com/) and
+    [Typer](https://typer.tiangolo.com/).
+* Nice way to export the data and data schema.
+
+Disadvantages:
+
+* You can't define [cyclic
+    relationships](https://github.com/samuelcolvin/pydantic/issues/2279),
+    therefore there is no way to simulate the *backref* SQLAlchemy function.
+
 # [Models](https://pydantic-docs.helpmanual.io/usage/models/)
 
 The primary means of defining objects in *pydantic* is via models
@@ -129,6 +144,22 @@ print(m.dict())
 ```
 
 For self-referencing models, use postponed annotations.
+
+### [Definition of two models that reference each other](https://github.com/samuelcolvin/pydantic/issues/1333)
+
+```python
+class A(BaseModel):
+    b: Optional["B"] = None
+
+
+class B(BaseModel):
+    a: Optional[A] = None
+
+A.update_forward_refs()
+```
+
+Although it [doesn't work as
+expected!](https://github.com/samuelcolvin/pydantic/issues/2279)
 
 ## [Error Handling](https://pydantic-docs.helpmanual.io/usage/models/#error-handling)
 
