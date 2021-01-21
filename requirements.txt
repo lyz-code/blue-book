@@ -78,7 +78,7 @@ pymdown-extensions==8.1
     #   mkdocs-material
 pytz==2020.5
     # via babel
-pyyaml==5.4
+pyyaml==5.4.1
     # via mkdocs
 regex==2020.11.13
     # via nltk
