@@ -22,16 +22,6 @@ Install from PyPi:
 pip install deepdiff
 ```
 
-DeepDiff prefers to use Murmur3 for hashing. However you have to manually
-install Murmur3 by running:
-
-```bash
-pip install 'deepdiff[murmur]'
-```
-
-Otherwise DeepDiff will be using SHA256 for hashing which is a cryptographic
-hash and is considerably slower.
-
 # [DeepSearch](https://zepworks.com/deepdiff/5.0.0/dsearch.html)
 
 Deep Search inside objects to find the item matching your criteria.

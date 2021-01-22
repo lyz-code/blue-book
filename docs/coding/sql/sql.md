@@ -152,3 +152,44 @@ CREATE TABLE checkouts (
   FOREIGN KEY (book_id) REFERENCES books(id) ON DELETE CASCADE
 );
 ```
+
+# [Joins](https://www.w3schools.com/sql/sql_join.asp)
+
+A `JOIN` clause is used to combine rows from two or more tables, based on
+a related column between them.
+
+![ ](img_rightjoin.png)
+
+## One to one join
+
+```sql
+SELECT users.id, addresses.street
+FROM usesr
+LEFT JOIN addresses
+ON users.id == addresses.user_id
+```
+
+It will return one line.
+
+## One to many join
+
+```sql
+SELECT books.id, reviews.rating
+FROM books
+LEFT JOIN reviews
+ON books.id == reviews.book_id
+```
+
+It will return many lines.
+
+## [Many to many
+join](https://lornajane.net/posts/2011/inner-vs-outer-joins-on-a-many-to-many-relationship)
+
+```sql
+SELECT users.id, books.id
+FROM users
+LEFT OUTER JOIN checkouts
+ON users.id == checkouts.user_id
+Left OUTER JOIN books
+ON checkouts.book_id == books.id
+```

@@ -66,6 +66,26 @@ INSERT INTO phonebook2(name,phonenumber,validDate)
     validDate=excluded.validDate
 ```
 
+## Troubleshooting
+
+### [Integer autoincrement not
+working](https://stackoverflow.com/questions/16832401/sqlite-auto-increment-not-working)
+
+
+Rename the column type from `INT` to `INTEGER` and it starts working.
+
+From this:
+
+```sql
+CREATE TABLE IF NOT EXISTS foo (id INT PRIMARY KEY, bar INT)
+```
+
+to this:
+
+```sql
+CREATE TABLE IF NOT EXISTS foo (id INTEGER PRIMARY KEY, bar INT)
+```
+
 # References
 
 * [Home](https://www.sqlite.org/index.html)
