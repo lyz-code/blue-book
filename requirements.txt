@@ -25,8 +25,6 @@ gitpython==3.1.12
     # via mkdocs-git-revision-date-localized-plugin
 htmlmin==0.1.12
     # via mkdocs-minify-plugin
-importlib-metadata==3.4.0
-    # via markdown
 jinja2==2.11.2
     # via mkdocs
 joblib==1.0.0
@@ -72,7 +70,7 @@ proselint==0.10.2
     # via -r requirements.in
 pygments==2.7.4
     # via mkdocs-material
-pymdown-extensions==8.1
+pymdown-extensions==8.1.1
     # via
     #   -r requirements.in
     #   mkdocs-material
@@ -95,7 +93,3 @@ tornado==6.1
     #   mkdocs
 tqdm==4.56.0
     # via nltk
-typing-extensions==3.7.4.3
-    # via importlib-metadata
-zipp==3.4.0
-    # via importlib-metadata
