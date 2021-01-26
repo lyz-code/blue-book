@@ -72,7 +72,7 @@ proselint==0.10.2
     # via -r requirements.in
 pygments==2.7.4
     # via mkdocs-material
-pymdown-extensions==8.1
+pymdown-extensions==8.1.1
     # via
     #   -r requirements.in
     #   mkdocs-material
