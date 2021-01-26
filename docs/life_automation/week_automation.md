@@ -68,4 +68,3 @@ in the backlog sorted by due date. On the other I:
   help with life logging.
 * If there aren't enough things to fill up all days, check the *things that
   I want to do* list and try to do one.
-

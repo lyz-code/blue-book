@@ -98,26 +98,6 @@ nav:
               - Instance sizing analysis: devops/prometheus/instance_sizing_analysis.md
               - Prometheus Troubleshooting: >-
                   devops/prometheus/prometheus_troubleshooting.md
-      - Linux:
-          - brew: linux/brew.md
-          - elasticsearch: linux/elasticsearch.md
-          - fail2ban: linux/fail2ban.md
-          - google chrome: linux/google_chrome.md
-          - HAProxy: linux/haproxy.md
-          - hypothesis: linux/hypothesis.md
-          - LUKS: linux/luks/luks.md
-          - mkdocs: linux/mkdocs.md
-          - monica: linux/monica.md
-          - Miscellaneous Linux Commands: linux/linux_miscellaneous.md
-          - nodejs: linux/nodejs.md
-          - rm: linux/rm.md
-          - Syncthing: linux/syncthing.md
-          - Vim:
-              - Vim Plugins: linux/vim/vim_plugins.md
-          - Wake on Lan: wake_on_lan.md
-          - Wireguard: linux/wireguard.md
-          - ZFS: linux/zfs.md
-          - zip: linux/zip.md
       - API Management:
           - API Management: devops/api_management.md
           - Kong: devops/kong/kong.md
@@ -213,12 +193,37 @@ nav:
       - Automation:
           - Life Automation: life_automation/life_automation.md
           - Week Automation: life_automation/week_automation.md
+          - Accounting Automation: accounting_automation.md
           - Relationship Automation: life_automation/relationship_automation.md
           - Vim Automation: life_automation/vim_automation.md
       - Strategy: strategy.md
   - Health:
       - Sleep: sleep.md
       - Remote Working: remote_work.md
+  - Operative Systems:
+      - Linux:
+          - beancount: beancount.md
+          - brew: linux/brew.md
+          - elasticsearch: linux/elasticsearch.md
+          - fail2ban: linux/fail2ban.md
+          - google chrome: linux/google_chrome.md
+          - HAProxy: linux/haproxy.md
+          - hypothesis: linux/hypothesis.md
+          - LUKS: linux/luks/luks.md
+          - mkdocs: linux/mkdocs.md
+          - monica: linux/monica.md
+          - Miscellaneous Linux Commands: linux/linux_miscellaneous.md
+          - nodejs: linux/nodejs.md
+          - rm: linux/rm.md
+          - Syncthing: linux/syncthing.md
+          - Vim:
+              - Vim Plugins: linux/vim/vim_plugins.md
+          - Wake on Lan: wake_on_lan.md
+          - Wireguard: linux/wireguard.md
+          - ZFS: linux/zfs.md
+          - zip: linux/zip.md
+      - Android:
+          - cone: cone.md
   - Arts:
       - Writing:
           - Writing: writing/writing.md
