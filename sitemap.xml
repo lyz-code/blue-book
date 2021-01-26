@@ -1,731 +1,743 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
      <loc>https://lyz-code.github.io/blue-book/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/meta/meta/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/projects/projects/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/wish_list/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/devops/devops/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/devops/helm/helm/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/devops/helm/helm_installation/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/devops/helm/helm_commands/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/devops/helm/helm_secrets/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/helm_git/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/devops/helmfile/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/devops/kubernetes/kubernetes/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/devops/kubernetes/kubernetes_architecture/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/devops/kubernetes/kubernetes_namespaces/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/devops/kubernetes/kubernetes_pods/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/devops/kubernetes/kubernetes_replicasets/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/devops/kubernetes/kubernetes_deployments/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/devops/kubernetes/kubernetes_hpa/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/devops/kubernetes/kubernetes_volumes/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/devops/kubernetes/kubernetes_services/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/devops/kubernetes/kubernetes_labels/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/devops/kubernetes/kubernetes_annotations/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/devops/kubernetes/kubernetes_ingress/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/devops/kubernetes/kubernetes_operators/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/devops/kubernetes/kubernetes_jobs/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/devops/kubectl/kubectl/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/devops/kubectl/kubectl_installation/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/devops/kubectl/kubectl_commands/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/devops/kubernetes/kubernetes_metric_server/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/devops/kubernetes/kubernetes_ingress_controller/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/devops/kubernetes/kubernetes_external_dns/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/devops/kubernetes/kubernetes_cluster_autoscaler/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/devops/kubernetes/kubernetes_dashboard/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/devops/kubernetes/kubernetes_storage_driver/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/devops/kubernetes/kubernetes_vertical_pod_autoscaler/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/devops/kubernetes/kubernetes_networking/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/devops/kubernetes/kubernetes_tools/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/devops/aws/aws/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/devops/aws/security_groups/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/devops/aws/eks/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/devops/aws/iam/iam/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/devops/aws/iam/iam_commands/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/devops/aws/iam/iam_debug/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/devops/aws/s3/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/devops/ci/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/devops/alex/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/devops/flakehell/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/devops/flake8/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/devops/markdownlint/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/devops/proselint/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/devops/yamllint/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/devops/write_good/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/devops/black/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/yamlfix/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/devops/mypy/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/devops/safety/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/devops/bandit/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/devops/pip_tools/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/linux/cookiecutter/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/linux/cruft/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/devops/prometheus/prometheus/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/devops/prometheus/prometheus_architecture/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/devops/prometheus/prometheus_operator/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/devops/prometheus/prometheus_installation/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/devops/prometheus/alertmanager/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/devops/prometheus/blackbox_exporter/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/devops/prometheus/node_exporter/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/devops/prometheus/instance_sizing_analysis/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/devops/prometheus/prometheus_troubleshooting/</loc>
-     <lastmod>2021-01-22</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://lyz-code.github.io/blue-book/linux/brew/</loc>
-     <lastmod>2021-01-22</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://lyz-code.github.io/blue-book/linux/elasticsearch/</loc>
-     <lastmod>2021-01-22</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://lyz-code.github.io/blue-book/linux/fail2ban/</loc>
-     <lastmod>2021-01-22</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://lyz-code.github.io/blue-book/linux/google_chrome/</loc>
-     <lastmod>2021-01-22</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://lyz-code.github.io/blue-book/linux/haproxy/</loc>
-     <lastmod>2021-01-22</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://lyz-code.github.io/blue-book/linux/hypothesis/</loc>
-     <lastmod>2021-01-22</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://lyz-code.github.io/blue-book/linux/luks/luks/</loc>
-     <lastmod>2021-01-22</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://lyz-code.github.io/blue-book/linux/mkdocs/</loc>
-     <lastmod>2021-01-22</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://lyz-code.github.io/blue-book/linux/monica/</loc>
-     <lastmod>2021-01-22</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://lyz-code.github.io/blue-book/linux/linux_miscellaneous/</loc>
-     <lastmod>2021-01-22</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://lyz-code.github.io/blue-book/linux/nodejs/</loc>
-     <lastmod>2021-01-22</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://lyz-code.github.io/blue-book/linux/rm/</loc>
-     <lastmod>2021-01-22</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://lyz-code.github.io/blue-book/linux/syncthing/</loc>
-     <lastmod>2021-01-22</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://lyz-code.github.io/blue-book/linux/vim/vim_plugins/</loc>
-     <lastmod>2021-01-22</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://lyz-code.github.io/blue-book/wake_on_lan/</loc>
-     <lastmod>2021-01-22</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://lyz-code.github.io/blue-book/linux/wireguard/</loc>
-     <lastmod>2021-01-22</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://lyz-code.github.io/blue-book/linux/zfs/</loc>
-     <lastmod>2021-01-22</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://lyz-code.github.io/blue-book/linux/zip/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/devops/api_management/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/devops/kong/kong/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/coding/tdd/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/coding/python/python_project_template/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/coding/python/python_project_template/python_cli_template/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/coding/python/python_project_template/python_sqlalchemy_without_flask/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/coding/python/python_project_template/python_flask_template/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/coding/python/python_project_template/python_microservices_template/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/coding/python/python_project_template/python_docs/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/coding/python/python_config_yaml/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/coding/python/python_project_template/python_sqlalchemy_mariadb/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/coding/python/python_project_template/python_docker/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/coding/python/alembic/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/coding/python/click/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/coding/python/dash/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/coding/python/dash_leaflet/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/coding/python/deepdiff/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/coding/python/factoryboy/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/coding/python/faker/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/coding/python/flask/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/coding/python/folium/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/coding/python/feedparser/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/coding/python/mkdocstrings/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/coding/python/pandas/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/coding/python/passpy/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/coding/python/pydantic/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/coding/python/pydantic_types/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/coding/python/pydantic_validators/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/coding/python/pydantic_exporting/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/coding/python/pydantic_functions/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/coding/python/pydantic_mypy_plugin/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/coding/python/pypika/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/coding/python/plotly/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/coding/python/ruamel_yaml/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/coding/python/sqlalchemy/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/sqlite3/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/coding/python/redis-py/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/coding/python/requests_mock/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/coding/python/rq/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/coding/python/sh/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/talkey/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/coding/python/tinydb/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/coding/python/yoyo/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/coding/python/type_hints/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/coding/python/python_code_styling/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/coding/python/docstrings/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/lazy_loading/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/python_profiling/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/python_optimization/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/coding/python/python_anti_patterns/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/coding/python/data_classes/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/coding/python/pytest/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/coding/python/pytest_parametrized_testing/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/coding/python/pytest_cases/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/coding/python/python_snippets/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/coding/javascript/javascript/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/coding/json/json/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/coding/react/react/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/coding/sql/sql/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/sqlite/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/coding/yaml/yaml/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/architecture/solid/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/architecture/domain_driven_design/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/architecture/repository_pattern/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/architecture/service_layer_pattern/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/architecture/database_architecture/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/architecture/orm_builder_query_or_raw_sql/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/architecture/microservices/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/architecture/restful_apis/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/architecture/redis/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/data_analysis/recommender_systems/recommender_systems/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/life_automation/life_automation/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/life_automation/week_automation/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/accounting_automation/</loc>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/life_automation/relationship_automation/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/life_automation/vim_automation/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/strategy/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/sleep/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/remote_work/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/beancount/</loc>
+     <lastmod>2021-01-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/linux/brew/</loc>
+     <lastmod>2021-01-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/linux/elasticsearch/</loc>
+     <lastmod>2021-01-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/linux/fail2ban/</loc>
+     <lastmod>2021-01-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/linux/google_chrome/</loc>
+     <lastmod>2021-01-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/linux/haproxy/</loc>
+     <lastmod>2021-01-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/linux/hypothesis/</loc>
+     <lastmod>2021-01-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/linux/luks/luks/</loc>
+     <lastmod>2021-01-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/linux/mkdocs/</loc>
+     <lastmod>2021-01-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/linux/monica/</loc>
+     <lastmod>2021-01-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/linux/linux_miscellaneous/</loc>
+     <lastmod>2021-01-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/linux/nodejs/</loc>
+     <lastmod>2021-01-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/linux/rm/</loc>
+     <lastmod>2021-01-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/linux/syncthing/</loc>
+     <lastmod>2021-01-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/linux/vim/vim_plugins/</loc>
+     <lastmod>2021-01-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/wake_on_lan/</loc>
+     <lastmod>2021-01-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/linux/wireguard/</loc>
+     <lastmod>2021-01-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/linux/zfs/</loc>
+     <lastmod>2021-01-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/linux/zip/</loc>
+     <lastmod>2021-01-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/cone/</loc>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/writing/writing/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/writing/orthography/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/dancing/rave_dances/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/dancing/shuffle_basics/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/dancing/shuffle_kicks/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/dancing/shuffle_spins/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/dancing/cutting_shapes_basics/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/meditation/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/wesnoth/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/wesnoth_loyalist/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/wesnoth_rebels/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/drawing/drawing/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/drawing/exercise_pool/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/psychology/the_xy_problem/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/botany/trees/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/emojis/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/contact/</loc>
-     <lastmod>2021-01-22</lastmod>
+     <lastmod>2021-01-26</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
