@@ -40,8 +40,9 @@ to set a random seed add the following to your test configuration.
 
 
     @pytest.fixture(scope="session", autouse=True)
-    def faker_seed():
-        return SystemRandom().randint(0, 999999)
+    def faker_seed() -> int:
+        """Create a random seed for the Faker library."""
+        eturn SystemRandom().randint(0, 999999)
     ```
 
 ## Generate fake number
@@ -76,6 +77,42 @@ fake.date_time()
 ```python
 faker.pystr()
 ```
+
+## [Generate your own custom provider](https://semaphoreci.com/community/tutorials/generating-fake-data-for-python-unit-tests-with-faker)
+
+Providers are just classes which define the methods we call on `Faker` objects to
+generate fake data.
+
+To define a provider, you need to create a class that inherits from the
+`BaseProvider`. That class can then define as many methods as you want.
+
+Once your provider is ready, add it to your `Faker` instance.
+
+```python
+import random
+
+from faker import Faker
+from faker.providers import BaseProvider
+
+fake = Faker()
+
+# Our custom provider inherits from the BaseProvider
+class TravelProvider(BaseProvider):
+    def destination(self):
+        destinations = ['NY', 'CO', 'CA', 'TX', 'RI']
+
+        # We select a random destination from the list and return it
+        return random.choice(destinations)
+
+# Add the TravelProvider to our faker object
+fake.add_provider(TravelProvider)
+
+# We can now use the destination method:
+print(fake.destination())
+```
+
+If you want to give arguments when calling the provider, add them to the
+provider method.
 
 # References
 

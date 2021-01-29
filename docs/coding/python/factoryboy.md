@@ -87,6 +87,10 @@ id = factory.Sequence(lambda n: n)
 author_id = factory.Faker('random_number')
 ```
 
+If you want to [limit the number of
+digits](https://faker.readthedocs.io/en/master/providers/baseprovider.html?highlight=random_number#faker.providers.BaseProvider.random_number)
+use `factory.Faker('random_number', digits=3)`
+
 ### Random float
 
 ```python
@@ -143,17 +147,22 @@ factory.Faker('date_time')
 factory.Faker('pybool')
 ```
 
-## Generate your own attribute
+## Generate your own attributes
 
-!!! warning "In newer versions of Factoryboy this method doesn't work"
+### Using custom Faker providers
 
-    As the Faker object doesn't have the generate method.
+
+### Using lazy_attributes
 
 Use `lazy_attribute` decorator.
 
 If you want to [use Faker inside
 a lazy_attribute](https://stackoverflow.com/questions/45068596/how-to-use-lazy-attribute-with-faker-in-factory-boy)
 use `.generate({})` at the end of the attribute.
+
+!!! warning "In newer versions of Factoryboy you can't use Faker inside a lazy attribute"
+
+    As the Faker object doesn't have the generate method.
 
 ```python
     @factory.lazy_attribute

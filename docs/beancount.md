@@ -7,18 +7,6 @@ author: Lyz
 [Beancount](http://furius.ca/beancount/) is a Python double entry accounting command
 line tool similar to `ledger`.
 
-# State of the project
-
-The main developer doesn't seems to be the nicest of people, but what could you
-expect of an accounting developer.
-
-He keeps the docs of the project in google docs, his code in bitbucket and
-closed an initiative called ledgerhub that was a way for external developers to
-share the importers.
-
-But it's written in Python, at least [for
-now](https://beancount.github.io/docs/beancount_v3.html), so stay strong.
-
 # Installation
 
 ```bash
@@ -511,10 +499,23 @@ include {{ path/to/file.beancount }}
 
 The path could be relative or absolute.
 
+# Library usage
+
+Beancount can also be used as a Python library.
+
+There are some articles in the documentation where you can start seeing how to
+use it: [scripting
+plugins](https://beancount.github.io/docs/beancount_scripting_plugins.html)
+, [external
+contributions](https://beancount.github.io/docs/external_contributions.html) and
+the [api reference](https://beancount.github.io/docs/api_reference/index.html).
+Although I found it more pleasant to read the source code itself as it's really
+well documented (both by docstrings and type hints).
+
 # References
 
 * [Homepage](http://furius.ca/beancount/)
-* [Git](https://bitbucket.org/blais/beancount/src)
+* [Git](https://github.com/beancount/beancount)
 * [Docs](https://beancount.github.io/docs/)
 * [Awesome beancount](https://awesome-beancount.com/)
 * [Docs in google](https://docs.google.com/document/d/1RaondTJCS_IUPBHFNdT8oqFKJjVJDsfsn6JEjBG04eA/edit)

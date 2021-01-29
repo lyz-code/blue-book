@@ -138,3 +138,60 @@ here()
 if hasattr(a, 'property'):
     a.property
 ```
+
+# [Check if a loop ends completely](https://stackoverflow.com/questions/38381850/how-to-check-whether-for-loop-ends-completely-in-python/38381893)
+
+`for` loops can take an `else` block which is not run if the loop has ended with
+a `break` statement.
+
+```python
+for i in [1,2,3]:
+    print(i)
+    if i==3:
+        break
+else:
+    print("for loop was not broken")
+```
+
+## [Merge two lists](https://stackoverflow.com/questions/1720421/how-do-i-concatenate-two-lists-in-python)
+
+```python
+z = x + y
+```
+
+## [Merge two dictionaries](https://stackoverflow.com/questions/38987/how-to-merge-two-dictionaries-in-a-single-expression)
+
+```python
+z = {**x, **y}
+```
+
+## [Create user defined
+exceptions](https://docs.python.org/3/tutorial/errors.html#user-defined-exceptions)
+
+Programs may name their own exceptions by creating a new exception class.
+Exceptions should typically be derived from the `Exception` class, either directly
+or indirectly.
+
+Exception classes are meant to be kept simple, only offering a number of
+attributes that allow information about the error to be extracted by handlers
+for the exception. When creating a module that can raise several distinct
+errors, a common practice is to create a base class for exceptions defined by
+that module, and subclass that to create specific exception classes for
+different error conditions:
+
+```python
+class Error(Exception):
+    """Base class for exceptions in this module."""
+
+
+class ConceptNotFoundError(Error):
+    """Transactions with unmatched concept."""
+
+    def __init__(self, transactions: List[Transaction]) -> None:
+        """Initialize the exception."""
+        super().__init__()
+        self.transactions = transactions
+```
+
+Most exceptions are defined with names that end in “Error”, similar to the
+naming of the standard exceptions.

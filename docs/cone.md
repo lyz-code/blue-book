@@ -28,7 +28,7 @@ To be compliant with my [beancount](beancount.md) ledger:
 * Cone doesn't still support the [beancount
     format](https://github.com/bradyt/cone/issues/12) by default, so in the
     description of the transaction I also introduce the payee. For example:
-    `"payee1" "Bought X` instead of just `Bought X`.
+    `* "payee1" "Bought X` instead of just `Bought X`.
 
 If I need to edit or delete a transaction, I change it with the Markor editor.
 

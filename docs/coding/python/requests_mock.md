@@ -32,16 +32,18 @@ a parameter. There is no need to import requests-mock it simply needs to be
 installed and specified as an argument in the test definition.
 
 ```python
->>> import pytest
->>> import requests
+import pytest
+import requests
+from requests_mock.mocker import Mocker
 
->>> def test_url(requests_mock):
-...     requests_mock.get('http://test.com', text='data')
-...     assert 'data' == requests.get('http://test.com').text
-...
+
+def test_url(requests_mock: Mocker):
+    requests_mock.get('http://test.com', text='data')
+    assert 'data' == requests.get('http://test.com').text
 ```
 
 ### [As a function decorator](https://requests-mock.readthedocs.io/en/latest/mocker.html#decorator)
+
 ```python
 >>> @requests_mock.Mocker()
 ... def test_function(m):
@@ -77,6 +79,16 @@ requests_mock.get(
         "number": 209,
         "finished": 1591197904,
     },
+)
+```
+
+### Add a header or a cookie to the response
+
+```python
+requests_mock.post(
+    "https://test.com",
+    cookies={"Id": "0"},
+    headers={"id": "0"},
 )
 ```
 

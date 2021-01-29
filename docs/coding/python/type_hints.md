@@ -118,6 +118,11 @@ set of keys, where each key is associated with a value of a consistent type.
 This expectation is not checked at runtime but is only enforced by type
 checkers.
 
+!!! warning "Not yet supported with pydantic"
+    See [#760](https://github.com/samuelcolvin/pydantic/issues/760) and
+    [#1430](https://github.com/samuelcolvin/pydantic/issues/1430). But it will
+    soon be [#2216](https://github.com/samuelcolvin/pydantic/pull/2216).
+
 TypedDict started life as an experimental Mypy feature to wrangle typing onto
 the heterogeneous, structure-oriented use of dictionaries. As of Python 3.8, it
 was adopted into the standard library.
