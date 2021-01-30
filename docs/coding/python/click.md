@@ -135,6 +135,9 @@ parameter of `CliRunner.invoke()` method:
       assert 'Syncing' in result.output
     ```
 
+If you want to test user stdin interaction check the
+[prompt_toolkit](prompt_toolkit.md) and [pexpect](pexpect.md) articles.
+
 ## [File system isolation](https://click.palletsprojects.com/en/7.x/testing/#file-system-isolation)
 
 For basic command line tools with file system operations, the

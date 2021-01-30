@@ -148,6 +148,7 @@ nav:
                   - Pydantic Mypy Plugin: coding/python/pydantic_mypy_plugin.md
               - Pypika: coding/python/pypika.md
               - Plotly: coding/python/plotly.md
+              - questionary: questionary.md
               - Ruamel YAML: coding/python/ruamel_yaml.md
               - SQLAlchemy: coding/python/sqlalchemy.md
               - sqlite3: sqlite3.md
