@@ -5,5 +5,5 @@ mkdocs-git-revision-date-localized-plugin
 mkdocs-minify-plugin
 mkdocs-material
 pymdown-extensions
-mkdocs-autolinks-plugin
+git+git://github.com/lyz-code/mkdocs-autolinks-plugin.git
 mkdocs-new-features-notifier
