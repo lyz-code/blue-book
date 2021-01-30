@@ -184,14 +184,35 @@ class Error(Exception):
     """Base class for exceptions in this module."""
 
 
+
 class ConceptNotFoundError(Error):
     """Transactions with unmatched concept."""
 
-    def __init__(self, transactions: List[Transaction]) -> None:
+    def __init__(self, message: str, transactions: List[Transaction]) -> None:
         """Initialize the exception."""
-        super().__init__()
+        self.message = message
         self.transactions = transactions
+        super().__init__(self.message)
 ```
 
 Most exceptions are defined with names that end in “Error”, similar to the
 naming of the standard exceptions.
+
+## [Import a module or it's objects from within a python program](https://docs.python.org/3/library/importlib.html)
+
+```python
+import importlib
+
+module = importlib.import_module('os')
+module_class = module.getcwd
+
+relative_module = importlib.import_module('.model', package='mypackage')
+class_to_extract = 'MyModel'
+extracted_class = geattr(relative_module, class_to_extract)
+```
+
+The first argument specifies what module to import in absolute or relative terms
+(e.g. either `pkg.mod` or `..mod`). If the name is specified in relative terms, then
+the package argument must be set to the name of the package which is to act as
+the anchor for resolving the package name (e.g. `import_module('..mod',
+'pkg.subpkg')` will `import pkg.mod`).

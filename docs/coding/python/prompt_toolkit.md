@@ -16,8 +16,7 @@ pip install prompt_toolkit
 
 # Usage
 
-## [A simple
-prompt](https://python-prompt-toolkit.readthedocs.io/en/master/pages/getting_started.html#a-simple-prompt)
+## [A simple prompt](https://python-prompt-toolkit.readthedocs.io/en/master/pages/getting_started.html#a-simple-prompt)
 
 The following snippet is the most simple example, it uses the `prompt()` function
 to asks the user for input and returns the text. Just like `(raw_)input`.
@@ -36,7 +35,7 @@ interface](https://en.wikipedia.org/wiki/Text-based_user_interface) (TUI) with
 python is not well documented. Some of the main developers suggest [mocking
 it](https://github.com/prompt-toolkit/python-prompt-toolkit/issues/477) while
 [others](https://github.com/copier-org/copier/pull/260/files#diff-4e8715c7a425ee52e74b7df4d34efd32e8c92f3e60bd51bc2e1ad5943b82032e)
-use [pexpect](https://pexpect.readthedocs.io/en/stable/overview.html).
+use [pexpect](pexpect.md).
 
 With the first approach you can test python functions and methods internally but
 it can lead you to the over mocking problem. The second will limit you to test
@@ -71,13 +70,12 @@ internally.
     ```
 
 !!! note "File: test_source.py"
-   ```python
-    from pexpect.popen_spawn import PopenSpawn
+    ```python
     import pexpect
 
 
     def test_tui() -> None:
-        tui = PopenSpawn(["python", "source.py"], timeout=1)
+        tui = pexpect.spawn("python source.py", timeout=5)
         tui.expect("Give me .*")
         tui.sendline("HI")
         tui.expect_exact(pexpect.EOF)
@@ -86,8 +84,12 @@ internally.
             assert f.read() == "HI"
    ```
 
-The `tui.expect_exact(pexpect.EOF)` line is required so that the tests aren't
-run before the process has ended, otherwise the file might not exist yet.
+Where:
+
+* The `tui.expect_exact(pexpect.EOF)` line is required so that the tests aren't
+    run before the process has ended, otherwise the file might not exist yet.
+* The `timeout=5` is required in case that the `pexpect` interaction is not well
+    defined, so that the test is not hung forever.
 
 !!! note "Thank you [Jairo Llopis](https://github.com/Yajo) for this solution."
     I've deduced the solution from his
@@ -98,4 +100,5 @@ run before the process has ended, otherwise the file might not exist yet.
 # References
 
 * [Docs](https://python-prompt-toolkit.readthedocs.io/en/master/)
+* [Git](https://github.com/prompt-toolkit/python-prompt-toolkit)
 * [Projects using prompt_toolkit](https://github.com/prompt-toolkit/python-prompt-toolkit/blob/master/PROJECTS.rst)

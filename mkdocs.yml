@@ -137,6 +137,7 @@ nav:
               - mkdocstrings: coding/python/mkdocstrings.md
               - Pandas: coding/python/pandas.md
               - Passpy: coding/python/passpy.md
+              - pexpect: pexpect.md
               - Prompt Toolkit: coding/python/prompt_toolkit.md
               - Pydantic:
                   - Pydantic: coding/python/pydantic.md

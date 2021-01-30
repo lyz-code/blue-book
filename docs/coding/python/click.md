@@ -4,7 +4,6 @@ date: 20200827
 author: Lyz
 ---
 
-
 [Click](https://click.palletsprojects.com/) is a Python package for creating
 beautiful command line interfaces in a composable way with as little code as
 necessary. It’s the “Command Line Interface Creation Kit”. It’s highly

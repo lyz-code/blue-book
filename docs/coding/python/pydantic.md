@@ -431,6 +431,7 @@ need to use
 [`root_validators`](https://pydantic-docs.helpmanual.io/usage/validators/#root-validators).
 
 ```python
+from pydantic import root_validator
 
 class PypikaRepository(BaseModel):
     """Implement the repository pattern using the Pypika query builder."""
