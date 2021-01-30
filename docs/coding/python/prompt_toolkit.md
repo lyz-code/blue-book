@@ -1,0 +1,101 @@
+---
+title: Python Prompt Toolkit
+date: 20200827
+author: Lyz
+---
+
+[Python Prompt Toolkit](https://python-prompt-toolkit.readthedocs.io/en/master/)
+is a library for building powerful interactive command line and terminal
+applications in Python.
+
+# [Installation](https://python-prompt-toolkit.readthedocs.io/en/master/pages/getting_started.html#installation)
+
+```bash
+pip install prompt_toolkit
+```
+
+# Usage
+
+## [A simple
+prompt](https://python-prompt-toolkit.readthedocs.io/en/master/pages/getting_started.html#a-simple-prompt)
+
+The following snippet is the most simple example, it uses the `prompt()` function
+to asks the user for input and returns the text. Just like `(raw_)input`.
+
+```python
+from prompt_toolkit import prompt
+
+text = prompt('Give me some input: ')
+print('You said: %s' % text)
+```
+
+# Testing
+
+Testing prompt_toolkit or any [text-based user
+interface](https://en.wikipedia.org/wiki/Text-based_user_interface) (TUI) with
+python is not well documented. Some of the main developers suggest [mocking
+it](https://github.com/prompt-toolkit/python-prompt-toolkit/issues/477) while
+[others](https://github.com/copier-org/copier/pull/260/files#diff-4e8715c7a425ee52e74b7df4d34efd32e8c92f3e60bd51bc2e1ad5943b82032e)
+use [pexpect](https://pexpect.readthedocs.io/en/stable/overview.html).
+
+With the first approach you can test python functions and methods internally but
+it can lead you to the over mocking problem. The second will limit you to test
+functionality exposed through your program's command line, as it will spawn
+a process and interact it externally.
+
+Given that the TUIs are entrypoints to your program, it makes sense to test them
+in end-to-end tests, so I'm going to follow the second option. On the other
+hand, you may want to test a small part of your TUI in a unit test, if you
+want to follow this other path, I'd start with
+[monkeypatch](https://stackoverflow.com/questions/38723140/i-want-to-use-stdin-in-a-pytest-test),
+although I didn't have good results with it.
+
+```python
+def test_method(monkeypatch):
+    monkeypatch.setattr('sys.stdin', io.StringIO('my input'))
+```
+
+## [Using pexpect](https://github.com/copier-org/copier/pull/260/files)
+
+This method is useful to test end to end functions as you need to all the
+program as a command line. You can't use it to tests python functions
+internally.
+
+!!! note "File: source.py"
+    ```python
+    from prompt_toolkit import prompt
+
+    text = prompt("Give me some input: ")
+    with open("/tmp/tui.txt", "w") as f:
+        f.write(text)
+    ```
+
+!!! note "File: test_source.py"
+   ```python
+    from pexpect.popen_spawn import PopenSpawn
+    import pexpect
+
+
+    def test_tui() -> None:
+        tui = PopenSpawn(["python", "source.py"], timeout=1)
+        tui.expect("Give me .*")
+        tui.sendline("HI")
+        tui.expect_exact(pexpect.EOF)
+
+        with open("/tmp/tui.txt", "r") as f:
+            assert f.read() == "HI"
+   ```
+
+The `tui.expect_exact(pexpect.EOF)` line is required so that the tests aren't
+run before the process has ended, otherwise the file might not exist yet.
+
+!!! note "Thank you [Jairo Llopis](https://github.com/Yajo) for this solution."
+    I've deduced the solution from his
+    [#260](https://github.com/copier-org/copier/pull/260/files) PR into
+    [copier](https://github.com/copier-org/copier), and the comments of
+    [#1243](https://github.com/prompt-toolkit/python-prompt-toolkit/issues/1243)
+
+# References
+
+* [Docs](https://python-prompt-toolkit.readthedocs.io/en/master/)
+* [Projects using prompt_toolkit](https://github.com/prompt-toolkit/python-prompt-toolkit/blob/master/PROJECTS.rst)

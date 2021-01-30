@@ -104,7 +104,7 @@ nav:
   - Coding:
       - TDD: coding/tdd.md
       - Python:
-          - Python Project Template:
+          - Project Template:
               - Project Template: coding/python/python_project_template.md
               - Command-line Project Template:
                   - Command-line Project Template: >-
@@ -137,6 +137,7 @@ nav:
               - mkdocstrings: coding/python/mkdocstrings.md
               - Pandas: coding/python/pandas.md
               - Passpy: coding/python/passpy.md
+              - Prompt Toolkit: coding/python/prompt_toolkit.md
               - Pydantic:
                   - Pydantic: coding/python/pydantic.md
                   - Pydantic Field Types: coding/python/pydantic_types.md
