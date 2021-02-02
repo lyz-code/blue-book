@@ -203,6 +203,10 @@ nav:
       - Strategy: strategy.md
   - Health:
       - Sleep: sleep.md
+      - Teeth:
+          - Teeth: teeth.md
+          - Deep cleaning: teeth_deep_cleaning.md
+
       - Remote Working: remote_work.md
   - Operative Systems:
       - Linux:

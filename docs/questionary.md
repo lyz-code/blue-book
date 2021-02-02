@@ -112,6 +112,11 @@ question types:
 Check the [examples](https://github.com/tmbo/questionary/examples) to see them
 in action and how to use them.
 
+# Testing
+
+To test questionary code, follow the guidelines of [testing
+prompt_toolkit](prompt_toolkit.md#testing).
+
 # References
 
 * [Docs](https://questionary.readthedocs.io)
