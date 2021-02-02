@@ -4,8 +4,7 @@ date: 20210201
 author: Lyz
 ---
 
-!!! note "TL;DR: Ask the opinion of two or three independent dentists before
-doing a deep clean."
+!!! note "TL;DR: Ask the opinion of two or three independent dentists before doing a deep clean."
 
 [Scaling and root
 planing](https://en.wikipedia.org/wiki/Scaling_and_root_planing), also known as
@@ -20,9 +19,9 @@ establish a periodontium that is in remission of periodontal disease.
 As to the frequency of cleaning, research on this matter is inconclusive. That
 is, it has neither been shown that more frequent cleaning leads to better
 outcomes nor that it does
-not.[[source](https://en.wikipedia.org/wiki/Teeth_cleaning#cite_note-7)] Thus,
-any general recommendation for a frequency of routine cleaning (e.g. every six
-months, every year) has no empirical basis.
+not. Thus, any general recommendation for a frequency of routine cleaning (e.g.
+every six months, every year) has no empirical basis.
+([1](https://en.wikipedia.org/wiki/Teeth_cleaning#cite_note-7))
 
 # [Why do we need deep cleaning](https://www.today.com/series/one-small-thing/do-you-need-deep-dental-cleaning-dentists-discuss-t127590)
 
