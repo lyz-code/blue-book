@@ -185,6 +185,7 @@ nav:
           - Domain Driven Design: architecture/domain_driven_design.md
           - Repository Pattern: architecture/repository_pattern.md
           - Service Layer Pattern: architecture/service_layer_pattern.md
+      - Architecture Decision Record: adr.md
       - Database Architecture: architecture/database_architecture.md
       - ORM, Query Builder or Raw SQL: architecture/orm_builder_query_or_raw_sql.md
       - Microservices: architecture/microservices.md
