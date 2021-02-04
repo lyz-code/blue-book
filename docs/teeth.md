@@ -108,6 +108,7 @@ The procedure I'm using right now is:
     damage the surface of your teeth.
 * Rinse with water.
 * Place a pea sized amount of toothpaste on the brush and repeat the cycle.
+* Brush your tongue.
 * Spit the extra toothpaste but don't rinse or drink anything in the next 30
     minutes.
 

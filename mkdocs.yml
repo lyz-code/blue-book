@@ -200,6 +200,7 @@ nav:
           - Accounting Automation: accounting_automation.md
           - Relationship Automation: life_automation/relationship_automation.md
           - Vim Automation: life_automation/vim_automation.md
+          - Virtual Assistant: virtual_assistant.md
       - Strategy: strategy.md
   - Health:
       - Sleep: sleep.md

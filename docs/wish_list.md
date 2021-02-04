@@ -92,6 +92,11 @@ to end encrypted](https://github.com/jitsi/jitsi-meet/issues/409). But if you
 want to use it, please use [Disroot service](https://call.disroot.org) or host
 your own.
 
+# Self hosted voice assistant
+
+Host a [virtual assistant](virtual_assistant.md) in my servers to help me
+automate repetitive stuff.
+
 # Others
 
 * Movie/serie/music rating self hosted solution that based on your ratings
