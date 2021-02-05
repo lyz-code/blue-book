@@ -50,7 +50,7 @@ mkdocs-git-revision-date-localized-plugin==0.8
     # via -r requirements.in
 mkdocs-material-extensions==1.0.1
     # via mkdocs-material
-mkdocs-material==6.2.7
+mkdocs-material==6.2.8
     # via
     #   -r requirements.in
     #   mkdocs-material-extensions
