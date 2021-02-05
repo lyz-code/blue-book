@@ -172,6 +172,18 @@ endfunction
 I'm assuming that you save with `<leader>w` and that you're using Sayonara to
 close your buffers.
 
+## [Git push sets the upstream by default](https://github.com/tpope/vim-fugitive/issues/1272)
+
+Add to your config:
+
+```vim
+nnoremap <leader>gp :Git -c push.default=current push<CR>
+```
+
+If you want to see the [output of the push
+command](https://github.com/tpope/vim-fugitive/issues/951), use `:copen` after
+the successful push.
+
 # Auto complete prose text
 
 Tools like [YouCompleteMe](https://github.com/ycm-core/YouCompleteMe) allow you

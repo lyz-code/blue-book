@@ -36,7 +36,7 @@ you can start with, being the most popular [Michael Nygard's
 one](https://github.com/joelparkerhenderson/architecture_decision_record/blob/master/adr_template_by_michael_nygard.md).
 
 The documents are stored in the project repository under the `doc/arch`
-directory, with a name convention of `adr-NNN.md`, where `NNN` is
+directory, with a name convention of `NNN-title.md`, where `NNN` is
 a monotonically increasing number.
 
 If a decision is reversed, we'll keep the old one around, but mark it as
