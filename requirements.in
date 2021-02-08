@@ -4,6 +4,7 @@ gitdb2
 mkdocs-git-revision-date-localized-plugin
 mkdocs-minify-plugin
 mkdocs-material
+mkdocs-section-index
 pymdown-extensions
 git+git://github.com/lyz-code/mkdocs-autolinks-plugin.git
 mkdocs-new-features-notifier
