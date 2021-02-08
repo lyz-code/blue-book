@@ -112,5 +112,8 @@ automate repetitive stuff.
 * A way to store music numeric ratings through the command line compatible with
   [mpd](https://en.wikipedia.org/wiki/Music_Player_Daemon) and
   [beets](http://beets.readthedocs.io/).
-* A mkdocs plugin to generate RSS feed on new or changed entries.
+* A mkdocs plugin to generate RSS feed on new or changed entries. Guts has
+    created [mkdocs-rss-plugin](https://github.com/Guts/mkdocs-rss-plugin), but
+    it still doesn't support [semantic
+    versioning](https://github.com/Guts/mkdocs-rss-plugin/issues/42).
 * An e-reader support that could be fixed to the wall.

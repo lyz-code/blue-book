@@ -210,6 +210,9 @@ nav:
           - Deep cleaning: teeth_deep_cleaning.md
 
       - Remote Working: remote_work.md
+  - Feminism:
+      - Diversity, Equity and Inclusion:
+          - Anonymous Feedback: anonymous_feedback.md
   - Operative Systems:
       - Linux:
           - beancount: beancount.md
