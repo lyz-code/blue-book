@@ -44,7 +44,7 @@ is usually not considered a safe space by the employees because they may:
     companies may lead the employee not to trust open-doors policies until they
     have seen them in practice.
 
-* *Not know the internal processes of the organization*: As a [Slack study
+* *Not knowing the internal processes of the organization*: As a [Slack study
     shows](https://slack.com/intl/en-ng/blog/transformation/trust-tools-and-teamwork-what-workers-want),
     55 percent of business owners described their organization as very transparent,
     but only 18 percent of their employees would agree.
@@ -178,5 +178,7 @@ Once you have sent the anonymous feedback, be sure to:
 # References
 
 * [Osasumwen Arigbe article on Diversity, Inclusion, and Anonymous Feedback](https://inkrement.io/blog/diversity-inclusion-and-anonymous-feedback/)
-* [Paula Clapon article Why anonymous employee feedback is the better
-    alternative](https://gethppy.com/employee-engagement/why-anonymous-employee-feedback-is-the-better-alternative)
+* [Paula Clapon article Why anonymous employee feedback is the better alternative](https://gethppy.com/employee-engagement/why-anonymous-employee-feedback-is-the-better-alternative)
+* [Julian Cook article](https://www.linkedin.com/pulse/three-reasons-why-anonymous-workplace-feedback-better-julian-cook).
+    I haven't used it's text, but it's written for managers in their language,
+    it may help someone there.

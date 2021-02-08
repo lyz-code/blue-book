@@ -6,14 +6,14 @@ site_url: https://lyz-code.github.io/blue-book
 nav:
   - Introduction: index.md
   - Meta:
-      - Meta: meta/meta.md
+      - meta/meta.md
       - Projects: projects/projects.md
       - Wish list: wish_list.md
   - DevOps:
-      - DevOps: devops/devops.md
+      - devops/devops.md
       - Infrastructure as Code:
           - Helm:
-              - Helm: devops/helm/helm.md
+              - devops/helm/helm.md
               - Helm Installation: devops/helm/helm_installation.md
               - Helm Commands: devops/helm/helm_commands.md
               - Helm Secrets: devops/helm/helm_secrets.md
@@ -21,7 +21,7 @@ nav:
           - Helmfile: devops/helmfile.md
       - Infrastructure Solutions:
           - Kubernetes:
-              - Kubernetes: devops/kubernetes/kubernetes.md
+              - devops/kubernetes/kubernetes.md
               - Architecture: devops/kubernetes/kubernetes_architecture.md
               - Resources:
                   - Namespaces: devops/kubernetes/kubernetes_namespaces.md
@@ -38,7 +38,7 @@ nav:
                   - Operators: devops/kubernetes/kubernetes_operators.md
                   - Jobs: devops/kubernetes/kubernetes_jobs.md
               - Kubectl:
-                  - Kubectl: devops/kubectl/kubectl.md
+                  - devops/kubectl/kubectl.md
                   - Kubectl Installation: devops/kubectl/kubectl_installation.md
                   - Kubectl Commands: devops/kubectl/kubectl_commands.md
               - Additional Components:
@@ -55,16 +55,16 @@ nav:
               - Networking: devops/kubernetes/kubernetes_networking.md
               - Tools: devops/kubernetes/kubernetes_tools.md
           - AWS:
-              - AWS: devops/aws/aws.md
+              - devops/aws/aws.md
               - Security groups workflow: devops/aws/security_groups.md
               - EKS: devops/aws/eks.md
               - IAM:
-                  - IAM: devops/aws/iam/iam.md
+                  - devops/aws/iam/iam.md
                   - IAM Commands: devops/aws/iam/iam_commands.md
                   - IAM Debugging: devops/aws/iam/iam_debug.md
               - S3: devops/aws/s3.md
       - Continuous Integration:
-          - Continuous Integration pipelines: devops/ci.md
+          - devops/ci.md
           - Linters:
               - Alex: devops/alex.md
               - Flakehell: devops/flakehell.md
@@ -88,7 +88,7 @@ nav:
           - cruft: linux/cruft.md
       - Monitoring:
           - Prometheus:
-              - Prometheus: devops/prometheus/prometheus.md
+              - devops/prometheus/prometheus.md
               - Architecture: devops/prometheus/prometheus_architecture.md
               - Prometheus Operator: devops/prometheus/prometheus_operator.md
               - Prometheus Install: devops/prometheus/prometheus_installation.md
@@ -99,16 +99,15 @@ nav:
               - Prometheus Troubleshooting: >-
                   devops/prometheus/prometheus_troubleshooting.md
       - API Management:
-          - API Management: devops/api_management.md
+          - devops/api_management.md
           - Kong: devops/kong/kong.md
   - Coding:
       - TDD: coding/tdd.md
       - Python:
           - Project Template:
-              - Project Template: coding/python/python_project_template.md
+              - coding/python/python_project_template.md
               - Command-line Project Template:
-                  - Command-line Project Template: >-
-                      coding/python/python_project_template/python_cli_template.md
+                  - coding/python/python_project_template/python_cli_template.md
                   - Configure SQLAlchemy for projects without flask: >-
                       coding/python/python_project_template/python_sqlalchemy_without_flask.md
               - Flask Project Template: >-
@@ -140,7 +139,7 @@ nav:
               - pexpect: pexpect.md
               - Prompt Toolkit: coding/python/prompt_toolkit.md
               - Pydantic:
-                  - Pydantic: coding/python/pydantic.md
+                  - coding/python/pydantic.md
                   - Pydantic Field Types: coding/python/pydantic_types.md
                   - Pydantic Validators: coding/python/pydantic_validators.md
                   - Pydantic Exporting Models: coding/python/pydantic_exporting.md
@@ -169,7 +168,7 @@ nav:
           - Anti-Patterns: coding/python/python_anti_patterns.md
           - Data Classes: coding/python/data_classes.md
           - Pytest:
-              - Pytest: coding/python/pytest.md
+              - coding/python/pytest.md
               - Parametrized testing: coding/python/pytest_parametrized_testing.md
               - Pytest-cases: coding/python/pytest_cases.md
           - Python Snippets: coding/python/python_snippets.md
@@ -182,7 +181,7 @@ nav:
   - Software Architecture:
       - SOLID: architecture/solid.md
       - Domain Driven Design:
-          - Domain Driven Design: architecture/domain_driven_design.md
+          - architecture/domain_driven_design.md
           - Repository Pattern: architecture/repository_pattern.md
           - Service Layer Pattern: architecture/service_layer_pattern.md
       - Architecture Decision Record: adr.md
@@ -206,9 +205,8 @@ nav:
   - Health:
       - Sleep: sleep.md
       - Teeth:
-          - Teeth: teeth.md
+          - teeth.md
           - Deep cleaning: teeth_deep_cleaning.md
-
       - Remote Working: remote_work.md
   - Feminism:
       - Diversity, Equity and Inclusion:
@@ -239,7 +237,8 @@ nav:
           - cone: cone.md
   - Arts:
       - Writing:
-          - Writing: writing/writing.md
+          - writing/writing.md
+          - Build your own wiki: writing/build_your_own_wiki.md
           - English Grammar and Orthography: writing/orthography.md
       - Dancing:
           - Rave Dances: dancing/rave_dances.md
@@ -255,9 +254,8 @@ nav:
               - Loyalist: wesnoth_loyalist.md
               - Rebels: wesnoth_rebels.md
               - Northeners: wesnoth_northeners.md
-
       - Drawing:
-          - Drawing: drawing/drawing.md
+          - drawing/drawing.md
           - Exercise Pool: drawing/exercise_pool.md
   - Psychology:
       - The XY Problem: psychology/the_xy_problem.md
@@ -273,6 +271,7 @@ plugins:
       type: timeago
   - minify:
       minify_html: true
+  - section-index
 
 markdown_extensions:
   - abbr
