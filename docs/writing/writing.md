@@ -153,6 +153,15 @@ There are some checks that I wasn't able to adopt:
   statistical significance; this common confusion is one reason for
   ["statistical-significance considered harmful"](http://lesswrong.com/lw/g13/against_nhst/))
 
+# Vim enhancements
+
+* [vim-pencil](https://github.com/reedes/vim-pencil) looks promising but it's
+[still not ready](issues.md)
+* [mdnav](https://github.com/chmp/mdnav) opens links to urls or files when
+    pressing `enter` in normal mode over a markdown link, similar to `gx` but
+    more powerful. I specially like the ability of following `[self referencing
+    link][]` links, that allows storing the links at the bottom.
+
 # Writing workflow
 
 * Start with a template.
@@ -201,6 +210,14 @@ Good:
   * [Introduction on Readability](https://en.wikipedia.org/wiki/Readability)
   * [List of readability tests and formulas](https://en.wikipedia.org/wiki/List_of_readability_tests_and_formulas)
   * [An example of a formula](https://en.wikipedia.org/wiki/Flesch%E2%80%93Kincaid_readability_tests)
+
+### Vim plugins
+
+* [Vim-lexical](https://github.com/reedes/vim-lexical)
+* [Vim-textobj-quote](https://github.com/reedes/vim-textobj-quote)
+* [Vim-textobj-sentence](https://github.com/reedes/vim-textobj-sentence)
+* [Vim-ditto](https://github.com/dbmrq/vim-ditto)
+* [Vim-exchange](https://github.com/tommcdo/vim-exchange)
 
 ### Books
 

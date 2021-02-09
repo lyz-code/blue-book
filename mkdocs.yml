@@ -178,6 +178,7 @@ nav:
       - SQL: coding/sql/sql.md
       - SQLite: sqlite.md
       - YAML: coding/yaml/yaml.md
+      - Issues: issues.md
   - Software Architecture:
       - SOLID: architecture/solid.md
       - Domain Driven Design:
@@ -238,7 +239,9 @@ nav:
   - Arts:
       - Writing:
           - writing/writing.md
-          - Build your own wiki: writing/build_your_own_wiki.md
+          - Digital Gardens:
+              - digital_garden.md
+              - Build your own Digital Garden: writing/build_your_own_wiki.md
           - English Grammar and Orthography: writing/orthography.md
       - Dancing:
           - Rave Dances: dancing/rave_dances.md

@@ -116,4 +116,11 @@ automate repetitive stuff.
     created [mkdocs-rss-plugin](https://github.com/Guts/mkdocs-rss-plugin), but
     it still doesn't support [semantic
     versioning](https://github.com/Guts/mkdocs-rss-plugin/issues/42).
+* A git issue tracker that keeps the context of why I subscribed to them. Until
+    I find one, I'll use the [issues](issues.md#vim-workflow-improvements) document.
+* An easy way of creating markdown links to other file's sections. Similar to
+    [mkdx](https://github.com/SidOfc/mkdx#insert-mode-fragment-completion)
+    functionality. I tried using it but it didn't work for me, and I don't know
+    if it works for other files.
+* A markdown formatter that fixes the indentation of lists.
 * An e-reader support that could be fixed to the wall.

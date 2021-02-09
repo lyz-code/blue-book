@@ -12,7 +12,7 @@ The main goal is to store all the knowledge gathered throughout my life in a way
 that everyone can benefit from reading it or referencing in an easy and quickly
 way.
 
-I will be updating this wiki quite often as I use it myself daily both to keep
+I will be updating the content quite often as I use it myself daily both to keep
 an account of things I know as well as things I want to know and everything
 in between.
 
@@ -73,9 +73,10 @@ The structure of each of the posts will often look roughly like this:
    I got things from.
 5. Links - Links related to the topic.
 
-# Links
+# References
 
-My blue book is heavily inspired in this two other second brains:
+My blue book is heavily inspired in this two other [digital
+gardens](digital_garden.md):
 
 * [Gwern's website](https://www.gwern.net/)
 * [Nikita's wiki](https://wiki.nikitavoloboev.xyz)

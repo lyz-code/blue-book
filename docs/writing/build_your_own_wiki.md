@@ -59,7 +59,11 @@ plugins:
   * How to decide when to create a new section,
   * Add to the index nav once it's finished, not before
 * Use the `tbd` tag to mark the articles that need attention.
-* Avoid file hardcoding, use [mkdocs autolinks plugin](https://github.com/midnightprioriem/mkdocs-autolinks-plugin/)
+* Avoid file hardcoding, use [mkdocs autolinks
+    plugin](https://github.com/midnightprioriem/mkdocs-autolinks-plugin/), or
+    [mkdocs-altlink-plugin](https://github.com/cmitu/mkdocs-altlink-plugin) if
+    [#15](https://github.com/midnightprioriem/mkdocs-autolinks-plugin/issues/15)
+    is not solved and you don't need to link images.
 * Use underscores for the file names, so the autocompletion feature of your
   editor works.
 * Add a link to the github pages site both in the git repository description and
