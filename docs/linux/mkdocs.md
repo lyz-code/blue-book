@@ -178,7 +178,30 @@ YAML configuration file.
 * Activate `GitHub Pages` repository configuration with `gh-pages branch`.
 * Make a new commit and push to check it's working.
 
+# [Plugin development](https://www.mkdocs.org/user-guide/plugins/)
+
+Like MkDocs, plugins must be written in Python. It is expected that
+each plugin would be distributed as a separate Python module. At a minimum,
+a MkDocs Plugin must consist of
+a [BasePlugin](https://www.mkdocs.org/user-guide/plugins/#baseplugin) subclass
+and an [entry point](https://www.mkdocs.org/user-guide/plugins/#entry-point) which
+points to it.
+
+The BasePlugin class is meant to have `on_<event_name>` methods that run actions
+on the MkDocs defined
+[events](https://www.mkdocs.org/user-guide/plugins/#events).
+
+The same object is called at the different events, so you can save objects from
+one event to the other in the object attributes.;
+
 # Links
 
 * [Homepage](https://www.mkdocs.org/).
 * [Material theme configuration guide](https://squidfunk.github.io/mkdocs-material/getting-started/)
+
+## Plugin development
+
+* [User guide](https://www.mkdocs.org/user-guide/plugins/)
+* [List of events](https://www.mkdocs.org/user-guide/plugins/#events)
+* [Plugin testing
+    example](https://github.com/andyoakley/mkdocs-blog/tree/master/tests)

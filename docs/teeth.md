@@ -256,7 +256,7 @@ options before diving into anything you may regret.
 Once you have it, yearly go to their dreaded places so they can:
 
 * Check that everything is alright.
-* Decide if you need to [do a deep clean](teeth_deep_cleaning.md).
+* Do a regular clean, but beware of [unnecessary deep cleaning](teeth_deep_cleaning.md).
 
 # References
 
