@@ -21,7 +21,7 @@ gitdb==4.0.5
     # via
     #   gitdb2
     #   gitpython
-gitpython==3.1.12
+gitpython==3.1.13
     # via mkdocs-git-revision-date-localized-plugin
 htmlmin==0.1.12
     # via mkdocs-minify-plugin
@@ -29,7 +29,7 @@ importlib-metadata==3.4.0
     # via markdown
 jinja2==2.11.3
     # via mkdocs
-joblib==1.0.0
+joblib==1.0.1
     # via nltk
 jsmin==2.2.2
     # via mkdocs-minify-plugin
@@ -96,7 +96,7 @@ tornado==6.1
     # via
     #   livereload
     #   mkdocs
-tqdm==4.56.0
+tqdm==4.56.1
     # via nltk
 typing-extensions==3.7.4.3
     # via importlib-metadata
