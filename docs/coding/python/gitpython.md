@@ -1,0 +1,187 @@
+---
+title: GitPython
+date: 20210210
+author: Lyz
+---
+
+[GitPython](https://gitpython.readthedocs.io) is a python library used to
+interact with git repositories, high-level like git-porcelain, or low-level like
+git-plumbing.
+
+It provides abstractions of git objects for easy access of repository data, and
+additionally allows you to access the git repository more directly using either
+a pure python implementation, or the faster, but more resource intensive git
+command implementation.
+
+The object database implementation is optimized for handling large quantities of
+objects and large datasets, which is achieved by using low-level structures and
+data streaming.
+
+# [Installation](https://gitpython.readthedocs.io/en/stable/intro.html#installing-gitpython)
+
+```bash
+pip install GitPython
+```
+
+# Usage
+
+## Initialize a repository
+
+```python
+from git import Repo
+
+repo = Repo.init('path/to/initialize')
+```
+
+## Load a repository
+
+```python
+from git import Repo
+
+repo = Repo('existing/git/repo/path')
+```
+
+## [Make
+a commit](https://gitpython.readthedocs.io/en/stable/tutorial.html#the-index-object)
+
+Given a `repo` object:
+
+```python
+index = repo.index
+
+# add the changes
+index.add(['README.md'])
+
+from git import Actor
+author = Actor("An author", "author@example.com")
+committer = Actor("A committer", "committer@example.com")
+# commit by commit message and author and committer
+index.commit("my commit message", author=author, committer=committer)
+```
+
+### Change commit date
+
+When [building fake data](#build-fake-data), creating commits in other points in
+time is useful.
+
+```python
+import datetime
+from dateutil import tz
+
+commit_date = datetime.datetime(2020, 2, 2, tzinfo=tz.tzlocal()),
+
+index.commit(
+    "my commit message",
+    author=author,
+    committer=committer,
+    author_date=commit_date,
+    commit_date=commit_date,
+)
+```
+
+## [Inspect the history](https://gitpython.readthedocs.io/en/stable/tutorial.html#examining-references)
+
+You first need to select the branch you want to inspect. To use the default
+repository branch use `head.reference`.
+
+```python
+repo.head.reference
+```
+
+Then you can either get all the `Commit` objects of that reference, or inspect
+the log.
+
+### [Get all commits of
+a branch](https://stackoverflow.com/questions/18502729/finding-the-first-commit-on-a-branch-with-gitpython)
+
+```python
+[commit for commit in repo.iter_commits(rev=repo.head.reference)]
+```
+
+It gives you a List of commits where the first element is the last commit in
+time.
+
+
+### Inspect the log
+
+Inspect it with the `repo.head.reference.log()`, which contains a list of
+`RefLogEntry` objects that have the interesting attributes:
+
+* `actor`: Actor object of the author of the commit
+* `time`: The commit timestamp, to load it as a datetime object use the
+    `datetime.datetime.fromtimestamp` method
+* `message`: Message as a string.
+
+# Testing
+
+There is no testing functionality, you need to either Mock, build fake data or
+fake adapters.
+
+## Build fake data
+
+Create a `test_data` directory in your testing directory with the contents of
+the git repository you want to test. Don't initialize it, we'll create a fixture
+that does it, and create a desired log history. Assuming that the data is in
+`tests/assets/test_data`:
+
+!!! note "File: tests/conftest.py"
+    ```python
+    import datetime
+    from dateutil import tz
+    import shutil
+    import textwrap
+
+    import pytest
+    from git import Actor, Repo
+    from py._path.local import LocalPath
+
+
+    @pytest.fixture(name="repo")
+    def repo_(tmpdir: LocalPath) -> Repo:
+        """Create a git repository with fake data and history.
+
+        Args:
+            tmpdir: Pytest fixture that creates a temporal directory
+        """
+        # Copy the content from `tests/assets/test_data`.
+        repo_path = tmpdir / "test_data"
+        shutil.copytree("tests/assets/test_data", repo_path)
+
+        # Initializes the git repository.
+        repo = Repo.init(repo_path)
+        index = repo.index
+        author = Actor("An author", "author@example.com")
+        committer = Actor("A committer", "committer@example.com")
+
+        # ---------------------------
+        # Creates a fake git history
+        # ---------------------------
+
+        commit_date = datetime.datetime(2020, 2, 1, tzinfo=tz.tzlocal())
+        index.add(["mkdocs.yml"])
+        index.commit(
+            "Initial skeleton",
+            author=author,
+            committer=committer,
+            author_date=commit_date,
+            commit_date=commit_date,
+        )
+
+        return repo
+    ```
+
+Then you can use that fixture in any test:
+
+```python
+def test_assert_true(repo: Repo) -> None:
+    assert not repo.bare
+```
+
+It may be interesting to use [freezegun](pytest.md#freezegun) to test the
+different cases.
+
+# References
+
+* [Docs](https://gitpython.readthedocs.io)
+* [Git](https://github.com/gitpython-developers/GitPython)
+* [Tutorial](https://gitpython.readthedocs.io/en/stable/tutorial.html#tutorial-label)

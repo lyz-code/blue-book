@@ -236,7 +236,7 @@ They just don't support it they suggest to use normal for loops.
 ## [SIM105 Use
 'contextlib.suppress(Exception)'](https://docs.python.org/3/library/contextlib.html#contextlib.suppress)
 
-It's better to use
+To bypass exceptions, it's better to use:
 
 ```python
 from contextlib import suppress

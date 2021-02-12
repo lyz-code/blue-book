@@ -296,7 +296,8 @@ function, or from the last time it was called.
 
 ### [freezegun](https://github.com/ktosiek/pytest-freezegun)
 
-freezegun lets you freeze time in both the test and fixtures.
+[freezegun](https://github.com/spulec/freezegun) lets you freeze time in both
+the test and fixtures.
 
 #### Install
 

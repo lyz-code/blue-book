@@ -216,3 +216,43 @@ The first argument specifies what module to import in absolute or relative terms
 the package argument must be set to the name of the package which is to act as
 the anchor for resolving the package name (e.g. `import_module('..mod',
 'pkg.subpkg')` will `import pkg.mod`).
+
+# [Get system's timezone and use it in datetime](https://stackoverflow.com/a/61124241)
+
+To obtain timezone information in the form of a `datetime.tzinfo` object, use
+`dateutil.tz.tzlocal()`:
+
+```python
+from dateutil import tz
+myTimeZone = tz.tzlocal()
+```
+
+This object can be used in the `tz` parameter of `datetime.datetime.now()`:
+
+```python
+from datetime import datetime
+from dateutil import tz
+localisedDatetime = datetime.now(tz = tz.tzlocal())
+```
+
+# [Capitalize a sentence](https://stackoverflow.com/questions/53898070/capitalize-only-the-first-letter-of-sentences-in-python-using-split-function)
+
+To change the caps of the first letter of the first word of a sentence use:
+
+```python
+>> sentence = "add funny Emojis"
+>> sentence[0].upper() + sentence[1:]
+Add funny Emojis
+```
+
+The `.capitalize` method transforms the rest of words to lowercase.
+The `.title` transforms all sentence words to capitalize.
+
+# [Get the last monday datetime](https://www.pythonprogramming.in/find-the-previous-and-coming-monday-s-date-based-on-current-date.html)
+
+```python
+import datetime
+
+today = datetime.date.today()
+last_monday = today - datetime.timedelta(days=today.weekday())
+```

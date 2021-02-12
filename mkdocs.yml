@@ -1,6 +1,6 @@
 ---
 site_name: The Blue Book
-site_description: My second brain
+site_description: My personal digital garden
 site_author: Lyz
 site_url: https://lyz-code.github.io/blue-book
 nav:
@@ -133,6 +133,7 @@ nav:
               - Flask: coding/python/flask.md
               - Folium: coding/python/folium.md
               - Feedparser: coding/python/feedparser.md
+              - GitPython: coding/python/gitpython.md
               - mkdocstrings: coding/python/mkdocstrings.md
               - Pandas: coding/python/pandas.md
               - Passpy: coding/python/passpy.md
@@ -243,6 +244,8 @@ nav:
               - digital_garden.md
               - Build your own Digital Garden: writing/build_your_own_wiki.md
           - English Grammar and Orthography: writing/orthography.md
+      - Pilates:
+          - pilates.md
       - Dancing:
           - Rave Dances: dancing/rave_dances.md
           - Shuffle:

@@ -62,5 +62,3 @@ fig.show()
 
 * [Homepage](https://plotly.com/python/)
 * [Git](https://github.com/plotly/plotly.py)
-
-
