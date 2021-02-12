@@ -96,7 +96,7 @@ tornado==6.1
     # via
     #   livereload
     #   mkdocs
-tqdm==4.56.1
+tqdm==4.56.2
     # via nltk
 typing-extensions==3.7.4.3
     # via importlib-metadata
