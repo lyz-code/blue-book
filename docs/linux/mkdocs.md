@@ -189,13 +189,70 @@ points to it.
 
 The BasePlugin class is meant to have `on_<event_name>` methods that run actions
 on the MkDocs defined
-[events](https://www.mkdocs.org/user-guide/plugins/#events).
+[events](#events).
 
 The same object is called at the different events, so you can save objects from
-one event to the other in the object attributes.;
+one event to the other in the object attributes.
+
+## Interesting objects
+
+### [Files](https://github.com/mkdocs/mkdocs/blob/master/mkdocs/structure/files.py#L14)
+
+`mkdocs.structure.files.Files` contains a list of [File](#file) objects under
+the `._files` attribute and allows you to `append` files to the collection. As
+well as extracting the different file types:
+
+* `documentation_pages`: Iterable of markdown page file objects.
+* `static_pages`: Iterable of static page file objects.
+* `media_files`: Iterable of all files that are not documentation or static pages.
+* `javascript_files`: Iterable of javascript files.
+* `css_files`: Iterable of css files.
+
+It is initialized with a list of [`File`](#file) objects.
+
+### [File](https://github.com/mkdocs/mkdocs/blob/master/mkdocs/structure/files.py#L92)
+[`mkdocs.structure.files.File`](https://github.com/mkdocs/mkdocs/blob/master/mkdocs/structure/files.py#L92)
+objects points to the source and destination locations of a file. It has the
+following interesting attributes:
+
+* `name`: Name of the file without the extension.
+* `src_path` or `abs_src_path`: Relative or absolute path to the original path,
+    for example the markdown file.
+* `dest_path` or `abs_dest_path`: Relative or absolute path to the destination path,
+    for example the html file generated from the markdown one.
+* `url`: Url where the file is going to be exposed.
+
+It is initialized with the arguments:
+
+* `path`: Must be a path that exists relative to `src_dir`.
+* `src_dir` and `dest_dir`: Which must be absolute paths on the local file
+    system.
+* `use_directory_urls`: If `False`, a Markdown file is mapped to an HTML file of
+    the same name (the file extension is changed to `.html`). If True,
+    a Markdown file is mapped to an HTML index file (`index.html`) nested in
+    a directory using the "name" of the file in `path`. The `use_directory_urls`
+    argument has no effect on non-Markdown files.
+
+## [Events](https://www.mkdocs.org/user-guide/plugins/#events)
+
+### [on_files](https://www.mkdocs.org/user-guide/plugins/#on_files)
+
+The `files` event is called after the files collection is populated from the
+`docs_dir`. Use this event to add, remove, or alter files in the collection.
+Note that Page objects have not yet been associated with the file objects in the
+collection. Use Page Events to manipulate page specific data.
+
+Parameters:
+* `files`: global [files collection](#files)
+* `config`: global configuration object
+
+Returns:
+
+* global [files collection](#files)
 
 # Links
 
+* [Git](https://github.com/mkdocs/mkdocs/)
 * [Homepage](https://www.mkdocs.org/).
 * [Material theme configuration guide](https://squidfunk.github.io/mkdocs-material/getting-started/)
 

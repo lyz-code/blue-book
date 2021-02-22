@@ -19,3 +19,35 @@ still some usability issues that need to be fixed first:
     [#95](https://github.com/reedes/vim-pencil/issues/95).
 * [Disable wrap of document
     headers](https://github.com/reedes/vim-pencil/issues/92) (less important).
+
+# Gitea Kanban board improvements
+
+* Remove the Default issue template:
+    [#14383](https://github.com/go-gitea/gitea/issues/14383). When it's solved
+    apply it in the work's issue tracker.
+
+# Docker monitorization
+
+* Integrate diun in the CI pipelines when they [support prometheus
+    metrics](https://github.com/crazy-max/diun/issues/201). Update the
+    [docker](docker.md) article too.
+
+# Gadgetbridge improvements
+
+* [Smart alarm
+    support](https://codeberg.org/Freeyourgadget/Gadgetbridge/issues/1208): Use
+    it whenever it's available.
+* [GET Sp02 real time data, or at least export
+    it](https://codeberg.org/Freeyourgadget/Gadgetbridge/issues/2164): See how
+    to use this data once it's available.
+* [export heart rate for activities without a GPX
+    track](https://codeberg.org/Freeyourgadget/Gadgetbridge/issues/2049): See if
+    I can export the heart rate for post processing. Maybe it's covered
+    [here](https://codeberg.org/Freeyourgadget/Gadgetbridge/wiki/Huami-Heartrate-measurement).
+* [Add UI and logic for more complex database import, export and
+    merging](https://codeberg.org/Freeyourgadget/Gadgetbridge/issues/1841):
+    Monitor to see if there are new ways or improvements of exporting data.
+* [Blog's RSS is not
+    working](https://codeberg.org/Freeyourgadget/Gadgetbridge/issues/2204): Add
+    it to the feed reader once it does, and remove the warning from the
+    gadgetbridge article

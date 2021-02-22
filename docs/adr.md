@@ -76,26 +76,24 @@ snippet:
 
 ```vim
 snippet adr "ADR"
-# ${1:Title}
-
 Date: `date +%Y-%m-%d`
 
-## Status
+# Status
 <!-- What is the status? Draft, Proposed, Accepted, Rejected, Deprecated or Superseded?
 -->
-$2
+$1
 
-## Context
+# Context
 <!-- What is the issue that we're seeing that is motivating this decision or change? -->
 $0
 
-## Proposals
+# Proposals
 <!-- What are the possible solutions to the problem described in the context -->
 
-## Decision
+# Decision
 <!-- What is the change that we're proposing and/or doing? -->
 
-## Consequences
+# Consequences
 <!-- What becomes easier or more difficult to do because of this change? -->
 endsnippet
 ```
@@ -122,6 +120,12 @@ I found useful to:
         * The final user that is going to consume the outcome.
         * The middle user that is going to host and maintain the solution.
         * Ourselves as developers.
+* Use the problem definition of `001` and draft the phases of the solution at `002`.
+* Create another ADR for each of the phases, getting a level closer to the final
+    implementation.
+
+* Use `00X` for the early drafts. Once you give it a number try not to change
+    the file name, or you'll need to manually update the references you make.
 
 ## Tools
 

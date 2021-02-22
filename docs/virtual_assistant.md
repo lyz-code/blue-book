@@ -9,7 +9,11 @@ a software agent that can perform tasks or services for an individual based on
 commands or questions.
 
 Of the open source solutions [kalliope](https://kalliope-project.github.io/) is
-the one I've liked most.
+the one I've liked most. I've also looked at
+[mycroft](https://github.com/MycroftAI/mycroft-core) but it seems less oriented
+to self hosted solutions, although [it's
+possible](https://mycroft-ai.gitbook.io/docs/about-mycroft-ai/faq). Mycroft has
+a bigger community behind though.
 
 To interact with it I may start with the [android
 app](https://play.google.com/store/apps/details?id=kalliope.project), but then

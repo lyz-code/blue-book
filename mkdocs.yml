@@ -87,6 +87,7 @@ nav:
           - cookiecutter: linux/cookiecutter.md
           - cruft: linux/cruft.md
       - Monitoring:
+          - Monitoring Comparison: monitoring_comparison.md
           - Prometheus:
               - devops/prometheus/prometheus.md
               - Architecture: devops/prometheus/prometheus_architecture.md
@@ -237,6 +238,7 @@ nav:
           - zip: linux/zip.md
       - Android:
           - cone: cone.md
+          - GadgetBridge: gadgetbridge.md
   - Arts:
       - Writing:
           - writing/writing.md

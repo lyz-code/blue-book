@@ -120,19 +120,15 @@ fake adapters.
 ## Build fake data
 
 Create a `test_data` directory in your testing directory with the contents of
-the git repository you want to test. Don't initialize it, we'll create a fixture
-that does it, and create a desired log history. Assuming that the data is in
-`tests/assets/test_data`:
+the git repository you want to test. Don't initialize it, we'll create a `repo`
+fixture that does it. Assuming that the data is in `tests/assets/test_data`:
 
 !!! note "File: tests/conftest.py"
     ```python
-    import datetime
-    from dateutil import tz
     import shutil
-    import textwrap
 
     import pytest
-    from git import Actor, Repo
+    from git import Repo
     from py._path.local import LocalPath
 
 
@@ -148,16 +144,60 @@ that does it, and create a desired log history. Assuming that the data is in
         shutil.copytree("tests/assets/test_data", repo_path)
 
         # Initializes the git repository.
-        repo = Repo.init(repo_path)
+        return Repo.init(repo_path)
+    ```
+
+On each test you can add the commits that you need for your use case.
+
+```python
+author = Actor("An author", "author@example.com")
+committer = Actor("A committer", "committer@example.com")
+
+@pytest.mark.freeze_time("2021-02-01T12:00:00")
+def test_repo_is_not_empty(repo: Repo) -> None:
+    commit_date = datetime.datetime(2021, 2, 1, tzinfo=tz.tzlocal())
+    repo.index.add(["mkdocs.yml"])
+    repo.index.commit(
+        "Initial skeleton",
+        author=author,
+        committer=committer,
+        author_date=commit_date,
+        commit_date=commit_date,
+    )
+
+    assert not repo.bare
+```
+
+If you feel that the tests are too verbose, you can create a fixture with all
+the commits done, and select each case with the [freezegun pytest
+fixture](pytest.md#freezegun). In my opinion, it will make the tests less clear
+though. The fixture can look like:
+
+!!! note "File: tests/conftest.py"
+    ```python
+    import datetime
+    from dateutil import tz
+    import shutil
+    import textwrap
+
+    import pytest
+    from git import Actor, Repo
+    from py._path.local import LocalPath
+
+
+    @pytest.fixture(name="full_repo")
+    def full_repo_(repo: Repo) -> Repo:
+        """Create a git repository with fake data and history.
+
+        Args:
+            repo: an initialized Repo
+        """
         index = repo.index
         author = Actor("An author", "author@example.com")
         committer = Actor("A committer", "committer@example.com")
 
-        # ---------------------------
-        # Creates a fake git history
-        # ---------------------------
-
-        commit_date = datetime.datetime(2020, 2, 1, tzinfo=tz.tzlocal())
+        # Add a commit in time
+        commit_date = datetime.datetime(2021, 2, 1, tzinfo=tz.tzlocal())
         index.add(["mkdocs.yml"])
         index.commit(
             "Initial skeleton",
@@ -166,19 +206,15 @@ that does it, and create a desired log history. Assuming that the data is in
             author_date=commit_date,
             commit_date=commit_date,
         )
-
-        return repo
     ```
 
 Then you can use that fixture in any test:
 
 ```python
-def test_assert_true(repo: Repo) -> None:
+@pytest.mark.freeze_time("2021-02-01T12:00:00")
+def test_assert_true(full_repo: Repo) -> None:
     assert not repo.bare
 ```
-
-It may be interesting to use [freezegun](pytest.md#freezegun) to test the
-different cases.
 
 # References
 

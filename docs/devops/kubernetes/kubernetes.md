@@ -59,6 +59,44 @@ now](https://github.com/ramitsurana/awesome-kubernetes#starting-point):
   kubernetes](https://www.packtpub.com/eu/virtualization-and-cloud/getting-started-kubernetes-third-edition),
   I didn't like it `¯\(°_o)/¯`.
 
+# [Tools to test](https://filippobuletto.github.io/kubernetes-toolbox/)
+
+* [Popeye](https://github.com/derailed/popeye) is a utility that scans live
+    Kubernetes cluster and reports potential issues with deployed resources and
+    configurations. It sanitizes your cluster based on what's deployed and not
+    what's sitting on disk. By scanning your cluster, it detects
+    misconfigurations and helps you to ensure that best practices are in place,
+    thus preventing future headaches. It aims at reducing the cognitive overload
+    one faces when operating a Kubernetes cluster in the wild. Furthermore, if
+    your cluster employs a metric-server, it reports potential resources
+    over/under allocations and attempts to warn you should your cluster run out
+    of capacity.
+
+    Popeye is a readonly tool, it does not alter any of your Kubernetes
+    resources in any way!
+
+* [Stern](https://github.com/wercker/stern) allows you to tail multiple pods on
+    Kubernetes and multiple containers within the pod. Each result is color
+    coded for quicker debugging.
+
+    The query is a regular expression so the pod name can easily be filtered and
+    you don't need to specify the exact id (for instance omitting the deployment
+    id). If a pod is deleted it gets removed from tail and if a new pod is added
+    it automatically gets tailed.
+
+    When a pod contains multiple containers Stern can tail all of them too
+    without having to do this manually for each one. Simply specify the
+    container flag to limit what containers to show. By default all containers
+    are listened to.
+
+* [Fairwinds' Polaris](https://github.com/FairwindsOps/polaris) keeps your
+    clusters sailing smoothly. It runs a variety of checks to ensure that
+    Kubernetes pods and controllers are configured using best practices, helping
+    you avoid problems in the future.
+
+* [kube-hunter](https://github.com/aquasecurity/kube-hunter) hunts for security
+    weaknesses in Kubernetes clusters. The tool was developed to increase
+    awareness and visibility for security issues in Kubernetes environments.
 # Links
 
 * [Docs](https://kubernetes.io/docs/)
