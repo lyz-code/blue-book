@@ -150,9 +150,9 @@ monitoring-plugins.org. Which is a nasty move against the community.
 
 ## Configuration and usage
 
-Nagios is easy to configure and use. Prometheus flexibility pays it's toll here,
-and it's more difficult to adapt it to suit your needs. It also means that for
-users to be able to use it, they need a greater knowledge of the system.
+Neither solution is easy to configure, you need to invest time in them.
+
+Nagios is easier to use for non technical users though.
 
 ## Visualizations
 
@@ -164,7 +164,8 @@ Nagios comes with a set of dashboards that fit the requirements of monitoring
 networks and infrastructure components. Yet, it still lacks graphs for more
 applicative-related issues.
 
-Personally I find Grafana dashboards more beautiful and easier to change.
+Personally I find Grafana dashboards more beautiful and easier to change. It
+also has a massive community behind providing customizable dashboards for free.
 
 ## Installation
 
@@ -248,7 +249,8 @@ Nagios has no storage per-se, beyond the current check state. There are plugins
 which can store data such as for [visualisation](https://docs.pnp4nagios.org/).
 
 Prometheus has a defined amount of data that's available (for example 30 days),
-to be able to store more you need an external solution, but it's possible.
+to be able to store more you need to use Thanos, the prometheus long term
+storage solution.
 
 ## High availability
 
