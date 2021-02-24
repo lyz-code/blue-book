@@ -25,7 +25,7 @@ gitpython==3.1.13
     # via mkdocs-git-revision-date-localized-plugin
 htmlmin==0.1.12
     # via mkdocs-minify-plugin
-importlib-metadata==3.4.0
+importlib-metadata==3.6.0
     # via markdown
 jinja2==2.11.3
     # via mkdocs
