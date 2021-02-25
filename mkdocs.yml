@@ -202,7 +202,9 @@ nav:
           - Week Automation: life_automation/week_automation.md
           - Accounting Automation: accounting_automation.md
           - Relationship Automation: life_automation/relationship_automation.md
-          - Fitness Tracker: fitness_band.md
+          - Fitness Tracker:
+              - fitness_band.md
+              - Amazfit Band 5: amazfit_band_5.md
           - Vim Automation: life_automation/vim_automation.md
           - Virtual Assistant: virtual_assistant.md
       - Strategy: strategy.md

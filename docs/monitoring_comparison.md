@@ -93,15 +93,21 @@ aggregation of all the results can be found in the [summary](#summary).
 ## Open source
 
 Only the Nagios Core is [open sourced](https://en.wikipedia.org/wiki/Nagios), it
-provides basic monitoring and comes with a limited list of agents. It's also the
-base of the rest solutions, which are proprietary.
+provides basic monitoring but it's enhanced by [community
+contributions](https://exchange.nagios.org/). It's also the base of the rest
+solutions, which are proprietary.
 
 Prometheus is completely open source under the Apache 2.0 license.
 
 ## Community
 
-In Nagios, only the Nagios Core is open-source tool, the rest is proprietary, so
-there is no community behind it.
+In Nagios, only the Nagios Core is an open-source tool. The rest are proprietary, so
+there is no community behind them.
+
+Community contributions to Nagios are gathered in the [Nagios
+Exchange](https://exchange.nagios.org/), it's hard to get other activity
+statistics than the overall number of contributions, but there are more than 850
+addons, 4.5k plugins and 300 documentation contributions.
 
 Overall metrics (2021-02-22):
 
@@ -125,13 +131,26 @@ Last month metrics (2021-02-22):
 | Commits       | 0           | 74         |
 | Authors       | 0           | 35         |
 
-We can see that Prometheus is:
+We can see that Prometheus in comparison with Nagios Core is:
 
 * More popular in terms of community contributions.
 * More maintained.
-* Is growing more.
+* Growing more.
 * Development is more distributed.
 * Manages the issues collaboratively.
+
+This comparison is biased though, because Nagios comes from a time where GitHub
+and Git (and Youtube!) did not exist, and the communities formed around
+different sites.
+
+Also, given that Nagios has almost 20 years of existence, and that it forked
+from a previous monitoring project (NetSaint), the low number contributions
+indicate a stable and mature product, whereas the high numbers for Prometheus
+are indicators of a young, still in development product.
+
+Keep in mind that this comparison only analyzes the core, it doesn't take into
+account the metrics of the community contributions, as it is not easy to
+aggregate their statistics.
 
 Which makes Prometheus one of the biggest open-source projects in existence. It
 actually has hundreds of contributors maintaining it. The tool continues to be
@@ -205,7 +224,7 @@ complete, and you find yourself often looking at issues and stackoverflow.
 
 ## Integrations
 
-Prometheus’ integrations are [practically
+Official Prometheus’ integrations are [practically
 boundless](https://prometheus.io/docs/instrumenting/exporters/). The long list
 of existing exporters combined with the user’s ability to write new exporters
 allows integration with any tool, and PromQL allows users to query Prometheus
@@ -214,7 +233,9 @@ data from any visualization tool that supports it.
 Nagios has a [very limited list of official
 integrations](https://www.nagios.com/integrations/). Most of them are operating
 systems which use the agents to monitor other network components. Others include
-MongoDB, Oracle, Selenium, and VMware.
+MongoDB, Oracle, Selenium, and VMware. Once again, the community comes to rescue
+us with [their contributions](https://exchange.nagios.org/), keep in mind that
+you'll need to dive into the exchange for special monitoring needs.
 
 ## Alerts
 
@@ -254,9 +275,13 @@ storage solution.
 
 ## High availability
 
-Nagios servers are standalone, so if one falls down, the whole service is down.
+Nagios servers are standalone, they are not meant to collaborate with other
+instances, so to achieve high availability you need to do it the old way, with
+multiple independent instances with a loadbalancer upfront.
+
 Prometheus can have different servers running collaboratively, monitoring
-between themselves. If one goes down, the rest of them keep on giving service.
+between themselves. So you get high availability for free without any special
+configuration.
 
 ## Dynamic infrastructure
 
@@ -273,7 +298,9 @@ discovery, new services are added and dead one removed automatically.
 Nagios alerting is based on the return codes of scripts, therefore it's
 straightforward to create an alert based on a custom script.
 
-In Prometheus, to be able to do this you'd need either to:
+If you need to monitor something in Prometheus, and nobody has done it before,
+the development costs of an ad-hoc solutions are incredibly high, compared to
+Nagios. You'd need either to:
 
 * Use the [script_exporter](https://github.com/adhocteam/script_exporter) with
     your script.  I've seen their repo, and the last commit is from March, and
@@ -301,6 +328,11 @@ In Prometheus, to be able to do this you'd need either to:
             now.
     * If it's not already in your stack, it would mean adding a new exporter to
         maintain and a new development team to depend on.
+
+    Alternatively you can use the script exporter binary in a baremetal or
+    virtualized server instead of using a docker, that way you wouldn't need to
+    maintain the different dockers for the different solutions, but you'd need
+    a "dedicated" server for this purpose.
 
 * Create your own exporter. You'd need to create a docker that exposes the
 command line functionality through a `metrics` endpoint. You wouldn't depend on
@@ -341,22 +373,24 @@ monitoring, Nagios does a better job.
 
 | Metric                                              | Nagios | Prometheus |
 | ---                                                 | ---    | ---        |
-| [Open Source](#open-source)                         | x      | ✓          |
-| [Community](#community)                             | x      | ✓          |
+| [Open Source](#open-source)                         | ✓*     | ✓✓         |
+| [Community](#community)                             | ✓      | ✓✓         |
 | [Configuration and usage](#configuration-and-usage) | ✓      | x          |
 | [Visualizations](#visualizations)                   | ✓      | ✓✓         |
 | [Ansible Role](#installation)                       | ✓      | ✓✓         |
 | [Helm chart](#installation)                         | x      | ✓          |
 | [Kubernetes](#kubernetes)                           | x      | ✓          |
 | [Documentation](#documentation)                     | ✓      | x          |
-| [Integrations](#integrations)                       | x      | ✓          |
+| [Integrations](#integrations)                       | ✓      | ✓✓         |
 | [Alerts](#alerts)                                   | ✓      | ✓✓         |
 | [Advanced monitoring](#advanced-monitoring)         | x      | ✓          |
 | [Custom script execution](#custom-script-execution) | ✓✓     | ✓          |
 | [Data storage](#data-storage)                       | x      | ✓          |
 | [Dynamic infrastructure](#dynamic-infrastructure)   | x      | ✓          |
-| [High availability](#high-availability)             | x      | ✓          |
-| [Network Monitoring](#network-monitoring)           | ✓✓?    | ✓          |
+| [High availability](#high-availability)             | ✓      | ✓✓         |
+| [Network Monitoring](#network-monitoring)           | ✓      | ✓          |
+
+\* Only Nagios Core and the community contributions are open sourced.
 
 Where each symbol means:
 
@@ -365,11 +399,13 @@ Where each symbol means:
 * ✓✓: Meets the criteria and it's better than the other solution.
 * ?: I'm not sure.
 
-Nagios is suitable for basic monitoring of small and/or static systems where
-blackbox probing is sufficient.
+Nagios is the reference of the old-school monitoring solutions, suitable for
+basic monitoring of small, static and/or old-school systems where blackbox
+probing is sufficient.
 
-If you want to do whitebox monitoring, or have a dynamic or cloud based
-environment, then Prometheus is a good choice.
+Prometheus is the reference of the new-wave monitoring solutions, suitable for
+more advanced monitoring of dynamic, new-wave systems (web applications, cloud,
+containers or Kubernetes) where whitebox monitoring is desired.
 
 # References
 

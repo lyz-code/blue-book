@@ -59,7 +59,8 @@ It must be open sourced and Linux compatible. And it would be awesome if
 I didn't have to learn how to use another editor.
 
 Maybe [meilisearch](https://github.com/meilisearch/meilisearch) or
-[searx](https://github.com/asciimoo/searx) could be a solution.
+[searx](https://github.com/asciimoo/searx) could be a solution. Following
+another approach, [archivy](https://archivy.github.io/) looks good too.
 
 # Decentralized encrypted end to end VOIP and video software
 

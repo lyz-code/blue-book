@@ -51,3 +51,32 @@ still some usability issues that need to be fixed first:
     working](https://codeberg.org/Freeyourgadget/Gadgetbridge/issues/2204): Add
     it to the feed reader once it does, and remove the warning from the
     gadgetbridge article
+* [Integrate with home
+    assistant](https://codeberg.org/Freeyourgadget/Gadgetbridge/issues/2198):
+    Check if the integration with kalliope is easy.
+* [Issues with zoom, swipe, interact with
+    graphs](https://codeberg.org/Freeyourgadget/Gadgetbridge/issues/2111):
+    enable back *disable swipe between tabs* in the chart settings.
+* [PAI
+    implementation](https://codeberg.org/Freeyourgadget/Gadgetbridge/issues/1905):
+    Check it once it's ready.
+* [Calendar synchronization
+    issue](https://codeberg.org/Freeyourgadget/Gadgetbridge/issues/1866), could
+    be related with [notifications work after
+    restart](https://codeberg.org/Freeyourgadget/Gadgetbridge/issues/1721): try
+    it when it's solved
+* [Change snooze time
+    span](https://codeberg.org/Freeyourgadget/Gadgetbridge/issues/2210): Change
+    the timespan from 10 to 5 minutes.
+
+# Ombi improvements
+
+* [Ebook
+    requests](https://features.ombi.io/suggestions/120488/implement-ebook-requests):
+    Configure it in the service, notify the people and start using it.
+* [Add working links to the details
+    pages](https://ombifeatures.featureupvote.com/suggestions/162866/add-working-links-to-tmdb-in-the-details-page):
+    nothing to do, just start using it.
+* [Allow search by
+    genre](https://features.ombi.io/suggestions/115149/search-by-genres): Notify
+    the people and start using it.
