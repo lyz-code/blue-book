@@ -25,8 +25,15 @@ before standing up. I'll try with the proprietary application soon and compare r
 If it doesn't work either, I might think of getting a specific device like
 [withings sleep analyzer](https://www.withings.com/nl/en/sleep-analyzer) which
 seems to have much more accuracy and useful insights. I've sent them an email to
-see if it's possible to extract the data before it reach their servers, let's
-see their answer.
+see if it's possible to extract the data before it reach their servers, and they
+confirmed that there is no way. Maybe you can route the requests to their
+servers to one of your own, bring up an http server and reverse engineer the
+communication.
+
+Karlicoss, the author of the awesome [HPI](https://beepb00p.xyz/hpi.html) uses
+the [Emfit
+QS](https://github.com/karlicoss/HPI/blob/master/my/emfit/__init__.py), so that
+could be another option.
 
 # Firmware updates
 

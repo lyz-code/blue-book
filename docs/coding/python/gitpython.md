@@ -33,6 +33,9 @@ from git import Repo
 repo = Repo.init('path/to/initialize')
 ```
 
+If you want to get the working directory of the `Repo` object use the
+`working_dir` attribute.
+
 ## Load a repository
 
 ```python

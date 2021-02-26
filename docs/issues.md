@@ -8,6 +8,14 @@ I haven't found a tool to monitor the context it made me track certain software
 issues, so I get lost when updates come. Until a tool shows up, I'll use the
 good old markdown to keep track.
 
+# Mkdocs issues
+
+* [Search bar missing when upgrading to
+    7.x](https://github.com/squidfunk/mkdocs-material/issues/2339): Upgrade back
+    to 7.x.
+* [Repository stats lost after upgrade to
+    7.x](https://github.com/squidfunk/mkdocs-material/issues/2350).
+
 # Vim workflow improvements
 
 Manually formatting paragraphs is an unproductive pain in the ass,
@@ -19,6 +27,12 @@ still some usability issues that need to be fixed first:
     [#95](https://github.com/reedes/vim-pencil/issues/95).
 * [Disable wrap of document
     headers](https://github.com/reedes/vim-pencil/issues/92) (less important).
+
+# Gitea improvements
+
+* [Replying discussion comments redirects to mail pull request
+    page](https://github.com/go-gitea/gitea/issues/14797): Notify the people
+    that it's fixed.
 
 # Gitea Kanban board improvements
 

@@ -135,6 +135,7 @@ nav:
               - Folium: coding/python/folium.md
               - Feedparser: coding/python/feedparser.md
               - GitPython: coding/python/gitpython.md
+              - Jinja2: python_jinja2.md
               - mkdocstrings: coding/python/mkdocstrings.md
               - Pandas: coding/python/pandas.md
               - Passpy: coding/python/passpy.md

@@ -4,6 +4,97 @@ date: 20200717
 author: Lyz
 ---
 
+# [Group a list of dictionaries by a specific key](https://medium.com/swlh/grouping-list-of-dictionaries-by-specific-key-s-in-python-61edafbbc0ed)
+
+The `itertools` function in Python provides an efficient way for looping lists,
+tuples and dictionaries. The
+[`itertools.groupby`](https://docs.python.org/3/library/itertools.html#itertools.groupby)
+function can group a list of dictionaries by a particular key.
+
+Given the initial data:
+
+````python
+data = [
+    {"name": "tobi", "class": "1", "age": "14", "gender": "m"},
+    {"name": "joke", "class": "1", "age": "18", "gender": "f"},
+    {"name": "mary", "class": "2", "age": "14", "gender": "f"},
+    {"name": "kano", "class": "2", "age": "15", "gender": "m"},
+    {"name": "ada", "class": "1", "age": "15", "gender": "f"},
+    {"name": "bola", "class": "2", "age": "10", "gender": "f"},
+    {"name": "nnamdi", "class": "1", "age": "15", "gender": "m"},
+]
+````
+
+If we want to group them by `class`.
+
+```python
+import operator
+import itertools
+
+criteria = operator.itemgetter("class")
+data = sorted(data, key=criteria)
+
+outputList=[]
+for sorted_key, element in itertools.groupby(data, key=criteria):
+     outputList.append(list(element))
+```
+
+The result would be:
+
+```python
+[
+    [
+        {"name": "tobi", "class": "1", "age": "14", "gender": "m"},
+        {"name": "joke", "class": "1", "age": "18", "gender": "f"},
+        {"name": "ada", "class": "1", "age": "15", "gender": "f"},
+        {"name": "nnamdi", "class": "1", "age": "15", "gender": "m"},
+    ],
+    [
+        {"name": "mary", "class": "2", "age": "14", "gender": "f"},
+        {"name": "kano", "class": "2", "age": "15", "gender": "m"},
+        {"name": "bola", "class": "2", "age": "10", "gender": "f"},
+    ],
+]
+```
+
+Note that the sorted function must be called before the groupby.
+
+In the case when two or more python dictionaries are to be considered for the
+grouping, simply add the remaining keys in the `itemgetter` functions. The
+following code block shows the case when the students are expected to be grouped
+by class and gender.
+
+```python
+criteria = operator.itemgetter("class", "gender")
+data = sorted(data, key=criteria)
+outputList=[]
+for sorted_key, element in itertools.groupby(data, key=criteria):
+    outputList.append(list(element))
+```
+
+The result would be:
+
+```python
+[
+    [
+        {"age": "18", "class": "1", "gender": "f", "name": "joke"},
+        {"age": "15", "class": "1", "gender": "f", "name": "ada"},
+    ],
+    [
+        {"age": "14", "class": "1", "gender": "m", "name": "tobi"},
+        {"age": "15", "class": "1", "gender": "m", "name": "nnamdi"},
+    ],
+    [
+        {"age": "14", "class": "2", "gender": "f", "name": "mary"},
+        {"age": "10", "class": "2", "gender": "f", "name": "bola"},
+    ],
+    [{"age": "15", "class": "2", "gender": "m", "name": "kano"}],
+]
+```
+
+`criteria` can be any function that accepts a value and returns the key which
+you want to sort the elements by.
+
 # [Iterate over an instance object's data attributes in Python](https://www.saltycrane.com/blog/2008/09/how-iterate-over-instance-objects-data-attributes-python/)
 
 ```python
