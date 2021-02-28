@@ -8,14 +8,6 @@ I haven't found a tool to monitor the context it made me track certain software
 issues, so I get lost when updates come. Until a tool shows up, I'll use the
 good old markdown to keep track.
 
-# Mkdocs issues
-
-* [Search bar missing when upgrading to
-    7.x](https://github.com/squidfunk/mkdocs-material/issues/2339): Upgrade back
-    to 7.x.
-* [Repository stats lost after upgrade to
-    7.x](https://github.com/squidfunk/mkdocs-material/issues/2350).
-
 # Vim workflow improvements
 
 Manually formatting paragraphs is an unproductive pain in the ass,
