@@ -102,6 +102,10 @@ nav:
       - API Management:
           - devops/api_management.md
           - Kong: devops/kong/kong.md
+      - Scrum:
+          - scrum.md
+          - Templates:
+              - Refinement Template: refinement_template.md
   - Coding:
       - TDD: coding/tdd.md
       - Python:
@@ -215,8 +219,9 @@ nav:
           - teeth.md
           - Deep cleaning: teeth_deep_cleaning.md
       - Remote Working: remote_work.md
-  - Feminism:
+  - Activism:
       - Diversity, Equity and Inclusion:
+          - diversity.md
           - Anonymous Feedback: anonymous_feedback.md
   - Operative Systems:
       - Linux:
