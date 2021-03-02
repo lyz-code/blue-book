@@ -483,8 +483,8 @@ Add to your pyproject.toml the following lines:
 
 ```toml
 # --------- Pylint -------------
-[tool.pylint]
-extension-pkg-whitelist = 'pydantic'
+[tool.pylint.'MESSAGES CONTROL']
+extension-pkg-whitelist = "pydantic"
 ```
 
 Or if it fails, add to the line `# pylint: extension-pkg-whitelist`.

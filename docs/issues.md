@@ -8,6 +8,15 @@ I haven't found a tool to monitor the context it made me track certain software
 issues, so I get lost when updates come. Until a tool shows up, I'll use the
 good old markdown to keep track.
 
+# Pydantic errors
+
+* [No name 'BaseModel' in module 'pydantic'
+    (no-name-in-module)](https://github.com/samuelcolvin/pydantic/issues/1961#issuecomment-786674519),
+    you can find a patch in [the pydantic article](pydantic.md#troubleshooting),
+    the pydantic developers took that as a solution as it lays in [pylint's
+    roof](https://github.com/PyCQA/pylint/issues/1524), once that last issue is
+    solved try to find a better way to improve the patch solution.
+
 # Vim workflow improvements
 
 Manually formatting paragraphs is an unproductive pain in the ass,

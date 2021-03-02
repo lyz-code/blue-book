@@ -4,8 +4,12 @@ date: 20200210
 author: Lyz
 ---
 
-My english writing is not so good, this article is an effort to gather all my
-common pitfalls.
+Bad grammar can thwart communication. It's especially important in today's world
+where we don't have the chance to have in person interactions or when your words
+might reach a wide audience. The quality of your text will impact how your
+message reaches people.
+
+This article is an effort to gather all my common pitfalls.
 
 # [When to write Apostrophes before an s](https://www.grammarly.com/blog/apostrophe/)
 
@@ -18,8 +22,8 @@ common pitfalls.
     I'd use that for both, so: *Charles Dickens' novels* and *The
     Smiths' vacation*.
 
-The personal pronouns, do *not* have apostrophes to form possessives, this means
-that *your*, *yours*, *hers*, *its*, *ours*, *their*, *whose*, and *theirs*. In
+The personal pronouns, do *not* have apostrophes to form possessives, such as
+your, yours, hers, its, ours, their, whose, and theirs. In
 fact, for some of these pronouns, adding an apostrophe forms a contraction
 instead of a possessive.
 
@@ -52,7 +56,16 @@ There are two cases:
     the use of comma before and in lists. This case is also known as *serial
     commas* or *Oxford commas*.
 
+Since in some cases is useful, I'm going to use them to reduce the mental load.
+
 # [Avoid there is at the start of the sentence](https://english.stackexchange.com/questions/157830/why-should-sentences-not-start-with-there-is-or-there-are)
 
 Almost never begin a sentence with “It is...” or “There is/are...”. These are
 examples of unnecessary verbiage that shift the focus from the sentence point.
+
+# References
+
+* [Julia Olech article on
+    grammar](https://www.wizcase.com/blog/how-good-grammar-saves-lives-and-other-reasons-its-still-important/),
+    even though is a bit sensational and I don't like the overall tone, it has
+    good insights on common grammar mistakes. Thanks for the link Dave :)
