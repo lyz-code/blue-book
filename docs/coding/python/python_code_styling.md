@@ -4,6 +4,27 @@ date: 20200626
 author: Lyz
 ---
 
+# [Not using setdefault() to initialize a dictionary](https://docs.quantifiedcode.com/python-anti-patterns/correctness/not_using_setdefault_to_initialize_a_dictionary.html)
+
+When initializing a dictionary, it is common to see a code check for the
+existence of a key and then create the key if it does not exist.
+
+Given a `dictionary = {}`, if you want to create a key if it doesn't exist,
+instead of doing:
+
+```python
+try:
+    dictionary['key']
+except KeyError:
+    dictionary['key'] = {}
+```
+
+You can use:
+
+```python
+dictionary.setdefault('key', {})
+```
+
 # [Commit message guidelines](https://github.com/angular/angular/blob/22b96b9/CONTRIBUTING.md#-commit-message-guidelines)
 
 I'm following the Angular commit convention that is backed up by

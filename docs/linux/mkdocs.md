@@ -211,6 +211,7 @@ well as extracting the different file types:
 It is initialized with a list of [`File`](#file) objects.
 
 ### [File](https://github.com/mkdocs/mkdocs/blob/master/mkdocs/structure/files.py#L92)
+
 [`mkdocs.structure.files.File`](https://github.com/mkdocs/mkdocs/blob/master/mkdocs/structure/files.py#L92)
 objects points to the source and destination locations of a file. It has the
 following interesting attributes:
@@ -233,6 +234,16 @@ It is initialized with the arguments:
     a directory using the "name" of the file in `path`. The `use_directory_urls`
     argument has no effect on non-Markdown files.
 
+### [Navigation](https://github.com/mkdocs/mkdocs/blob/master/mkdocs/structure/nav.py#L11)
+
+[`mkdocs.structure.nav.Navigation`](https://github.com/mkdocs/mkdocs/blob/master/mkdocs/structure/nav.py#L11)
+objects hold the information to build the navigation of the site. It has the
+following interesting attributes:
+
+* `items`: Nested List with full navigation of Sections, SectionPages, Pages, and Links.
+* `pages`: Flat List of subset of Pages in nav, in order.
+
+
 ## [Events](https://www.mkdocs.org/user-guide/plugins/#events)
 
 ### [on_files](https://www.mkdocs.org/user-guide/plugins/#on_files)
@@ -243,12 +254,32 @@ Note that Page objects have not yet been associated with the file objects in the
 collection. Use Page Events to manipulate page specific data.
 
 Parameters:
+
 * `files`: global [files collection](#files)
 * `config`: global configuration object
 
 Returns:
 
 * global [files collection](#files)
+
+### [on_nav](https://www.mkdocs.org/user-guide/plugins/#on_nav)
+
+The `nav` event is called after the site navigation is created and can be used
+to alter the site navigation.
+
+If you want to append items, you would need to create the Section, Pages, SectionPages
+or Link objects and append them to the `nav.items`. Maybe it's easier to edit
+the `config['nav']` dictionary in the [`on_files`](#on_files) event.
+
+Parameters:
+
+* `nav`: global [navigation object](#navigation).
+* `config`: global configuration object.
+* `files`: global [files collection](#files).
+
+Returns:
+
+* global navigation object
 
 # Links
 

@@ -251,10 +251,11 @@ nav:
   - Arts:
       - Writing:
           - writing/writing.md
+          - Grammar and Orthography: writing/orthography.md
+          - Writing Style: writing_style.md
           - Digital Gardens:
               - digital_garden.md
               - Build your own Digital Garden: writing/build_your_own_wiki.md
-          - English Grammar and Orthography: writing/orthography.md
       - Pilates:
           - pilates.md
       - Dancing:

@@ -4,6 +4,64 @@ date: 20200717
 author: Lyz
 ---
 
+# [Get the week number of a datetime](https://stackoverflow.com/questions/2600775/how-to-get-week-number-in-python)
+
+`datetime.datetime` has a `isocalendar()` method, which returns a tuple
+containing the calendar week:
+
+```python
+>>> import datetime
+>>> datetime.datetime(2010, 6, 16).isocalendar()[1]
+24
+```
+
+`datetime.date.isocalendar()` is an instance-method returning a tuple containing
+year, weeknumber and weekday in respective order for the given date instance.
+
+# [Get the monday of a week number](https://stackoverflow.com/questions/17087314/get-date-from-week-number)
+
+A week number is not enough to generate a date; you need a day of the week as well. Add a default:
+
+```python
+import datetime
+d = "2013-W26"
+r = datetime.datetime.strptime(d + '-1', "%Y-W%W-%w")
+```
+
+The `-1` and `-%w` pattern tells the parser to pick the Monday in that week.
+
+# [Get the month name from a number](https://stackoverflow.com/questions/6557553/get-month-name-from-number)
+
+```python
+import calendar
+
+>> calendar.month_name[3]
+'March'
+```
+
+# [Get ordinal from number](https://stackoverflow.com/questions/9647202/ordinal-numbers-replacement)
+
+```python
+def int_to_ordinal(number: int) -> str:
+    '''Convert an integer into its ordinal representation.
+
+    make_ordinal(0)   => '0th'
+    make_ordinal(3)   => '3rd'
+    make_ordinal(122) => '122nd'
+    make_ordinal(213) => '213th'
+
+    Args:
+        number: Number to convert
+
+    Returns:
+        ordinal representation of the number
+    '''
+    suffix = ['th', 'st', 'nd', 'rd', 'th'][min(number % 10, 4)]
+    if 11 <= (number % 100) <= 13:
+        suffix = 'th'
+    return f"{number}{suffix}"
+```
+
 # [Group a list of dictionaries by a specific key](https://medium.com/swlh/grouping-list-of-dictionaries-by-specific-key-s-in-python-61edafbbc0ed)
 
 The `itertools` function in Python provides an efficient way for looping lists,
