@@ -194,6 +194,9 @@ on the MkDocs defined
 The same object is called at the different events, so you can save objects from
 one event to the other in the object attributes.
 
+Keep in mind that the order of execution of the plugins follows the ordering of
+the list of the `mkdocs.yml` file where they are defined.
+
 ## Interesting objects
 
 ### [Files](https://github.com/mkdocs/mkdocs/blob/master/mkdocs/structure/files.py#L14)
@@ -243,6 +246,35 @@ following interesting attributes:
 * `items`: Nested List with full navigation of Sections, SectionPages, Pages, and Links.
 * `pages`: Flat List of subset of Pages in nav, in order.
 
+### [Page](https://github.com/mkdocs/mkdocs/blob/master/mkdocs/structure/pages.py#L18)
+
+[`mkdocs.structure.pages.Page`](https://github.com/mkdocs/mkdocs/blob/master/mkdocs/structure/pages.py#L18)
+models each page of the site.
+
+To initialize it you need the `title`, the [`File`](#file) object of the page,
+and the MkDocs `config` object.
+
+### [Section](https://github.com/mkdocs/mkdocs/blob/master/mkdocs/structure/nav.py#L32)
+
+[`mkdocs.structure.nav.Section`](https://github.com/mkdocs/mkdocs/blob/master/mkdocs/structure/nav.py#L32)
+object models a section of the navigation of a MkDocs site.
+
+To initialize it you need the `title` of the section and the `children` which are
+the elements that belong to the section. If you don't yet know the children,
+pass an empty list `[]`.
+
+### [SectionPage](https://github.com/oprypin/mkdocs-section-index/blob/master/mkdocs_section_index/__init__.py#L11)
+[`mkdocs_section_index.SectionPage`](https://github.com/oprypin/mkdocs-section-index/blob/master/mkdocs_section_index/__init__.py#L11)
+, part of the
+[mkdocs-section-index](https://github.com/oprypin/mkdocs-section-index/) plugin,
+models [Section](#section) objects that have an associated [Page](#page),
+allowing you to have nav sections that when clicked, load the Page and not only
+opens the menu for the children elements.
+
+To initialize it you need the `title` of the section, the [`File`](#file) object of the page,
+, the MkDocs `config` object, and the `children` which are the elements that
+belong to the section. If you don't yet know the children, pass an empty list
+`[]`.
 
 ## [Events](https://www.mkdocs.org/user-guide/plugins/#events)
 
@@ -268,8 +300,12 @@ The `nav` event is called after the site navigation is created and can be used
 to alter the site navigation.
 
 If you want to append items, you would need to create the Section, Pages, SectionPages
-or Link objects and append them to the `nav.items`. Maybe it's easier to edit
-the `config['nav']` dictionary in the [`on_files`](#on_files) event.
+or Link objects and append them to the `nav.items`.
+
+Even though it seems more easy to create the nav structure in the
+[`on_files`](#on_files) event, by editing the `nav` dictionary of the `config`
+object, there is no way of returning the `config` object in that event, so we're
+forced to do it in this event.
 
 Parameters:
 
@@ -281,7 +317,7 @@ Returns:
 
 * global navigation object
 
-# Links
+# References
 
 * [Git](https://github.com/mkdocs/mkdocs/)
 * [Homepage](https://www.mkdocs.org/).

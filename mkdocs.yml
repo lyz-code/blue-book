@@ -275,6 +275,7 @@ nav:
       - Drawing:
           - drawing/drawing.md
           - Exercise Pool: drawing/exercise_pool.md
+      - Origami: origami.md
   - Psychology:
       - The XY Problem: psychology/the_xy_problem.md
   - Botany:

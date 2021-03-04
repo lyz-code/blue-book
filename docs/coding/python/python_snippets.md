@@ -251,8 +251,7 @@ from playsound import playsound
 playsound('path/to/file.wav')
 ```
 
-# [Deep copy
-a dictionary](https://stackoverflow.com/questions/5105517/deep-copy-of-a-dict-in-python)
+# [Deep copy a dictionary](https://stackoverflow.com/questions/5105517/deep-copy-of-a-dict-in-python)
 
 ```python
 import copy
@@ -314,8 +313,7 @@ z = x + y
 z = {**x, **y}
 ```
 
-## [Create user defined
-exceptions](https://docs.python.org/3/tutorial/errors.html#user-defined-exceptions)
+## [Create user defined exceptions](https://docs.python.org/3/tutorial/errors.html#user-defined-exceptions)
 
 Programs may name their own exceptions by creating a new exception class.
 Exceptions should typically be derived from the `Exception` class, either directly

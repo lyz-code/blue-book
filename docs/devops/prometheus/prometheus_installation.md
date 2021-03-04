@@ -6,6 +6,17 @@ author: Lyz
 
 # Kubernetes
 
+!!! warning "It looks like you need helm 3"
+
+    Later versions of the chart return an [Error: apiVersion 'v2' is not valid.
+    The value must be
+    "v1"](https://github.com/prometheus-community/helm-charts/issues/607) when
+    using helm 2.
+
+    [Diving
+    deeper](https://artifacthub.io/packages/helm/prometheus-community/kube-prometheus-stack/#from-11-x-to-12-x),
+    it seems that from 11.1.7 support for helm 2 was dropped.
+
 To install the operator we'll use [helmfile](helmfile.md) to install the
 [stable/prometheus-operator
 chart](https://github.com/helm/charts/tree/master/stable/prometheus-operator).
@@ -351,3 +362,9 @@ And some basic rules:
 * [Configure the alertmanager alerts](alertmanager.md).
 * Configure the [Blackbox Exporter](blackbox_exporter.md).
 * Configure the grafana dashboards.
+
+# Issues
+
+* [Error: apiVersion 'v2' is not valid.  The value must be
+    "v1"](https://github.com/prometheus-community/helm-charts/issues/607):
+    Update the warning above and update the clusters.

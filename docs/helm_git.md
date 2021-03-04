@@ -17,8 +17,11 @@ This fits the following use cases:
 # [Installation](https://github.com/aslafy-z/helm-git#install)
 
 ```bash
-helm plugin install https://github.com/aslafy-z/helm-git --version 0.10.0
+helm plugin install https://github.com/aslafy-z/helm-git --version 0.8.0
 ```
+
+Until [this issue](https://github.com/aslafy-z/helm-git/issues/131) is solved,
+you need to stick to the `0.8.0` version.
 
 # [Usage](https://github.com/aslafy-z/helm-git#usage)
 
@@ -60,6 +63,13 @@ Fetching also works:
 helm fetch cert-manager/cert-manager --version "0.6.6"
 helm fetch git+https://github.com/jetstack/cert-manager@deploy/charts/cert-manager-v0.6.2.tgz?ref=v0.6.2
 ```
+
+# Issues
+
+* [bug: regression: unable to fetch with empty path
+    ](https://github.com/aslafy-z/helm-git/issues/131): update the
+    [installation](#installation) docs, update the plugin version and test if it
+    works.
 
 # References
 

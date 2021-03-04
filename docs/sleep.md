@@ -20,18 +20,18 @@ react to stimuli.
 
 Sleeping less than six or seven hours a night can produce these consequences:
 
-*   Demolishing of the immune system.
-*   Doubling your risk of cancer.
-*   Is a key lifestyle factor determining the development of the Alzheimer's
+* Demolishing of the immune system.
+* Doubling your risk of cancer.
+* Is a key lifestyle factor determining the development of the Alzheimer's
     disease.
-*   Disruption of blood sugar levels so profoundly that you would be classified as
+* Disruption of blood sugar levels so profoundly that you would be classified as
     pre-diabetic.
-*   Increase the likelihood of block and brittle of your coronary arteries.
+* Increase the likelihood of block and brittle of your coronary arteries.
     Setting you on a path toward cardiovascular disease, stroke, and congestive
     heart failure.
-*   Contributes to all major psychiatric conditions, including depression,
+* Contributes to all major psychiatric conditions, including depression,
     anxiety, and suicidality.
-*   Swelling concentrations of a hormone that makes you feel hungry while
+* Swelling concentrations of a hormone that makes you feel hungry while
     suppressing a companion hormone that otherwise signals food satisfaction.
 
 A balanced diet and exercise are of vital importance, but we now see sleep as
@@ -242,6 +242,10 @@ asleep or awake.
 
 ## Am I getting enough sleep?
 
+When you don't sleep enough, one consequence among many is that adenosine
+concentrations remain too high, so the next morning you continue to accumulate
+sleep debt
+
 If after waking up in the morning you could fall asleep at ten or eleven a.m, it
 means that you're likely not getting enough sleep quantity or quality. The same
 can be said if you can't function optimally without caffeine before noon, you'll
@@ -255,7 +259,83 @@ Of course, even if you are giving yourself plenty of time to get a full night of
 shut-eye, next-day fatigue and sleepiness can still occur because you are
 suffering from an undiagnosed sleep disorder.
 
+# Defining and generating sleep
 
+## The sleep cycle
+
+Humans cycle through two types of sleep in a regular pattern throughout the
+night with a period of 90 minutes. They were called non-rapid eye movement (NREM) and rapid
+eye movement (REM). Later, NREM sleep was further subdivided into four separate
+stages, named from 1 to 4 (all awful names `(҂⌣̀_⌣́)`). Stages 3 and 4 are the
+deepest stages of NREM sleep, meaning that it's more difficult to wake you up in
+comparison with stages 1 and 2.
+
+In REM sleep, your eyes rapidly move from side to side underneath the lids. This
+movement are accompanied by active brainwaves, almost identical to those
+observed when you are awake. On the other hand, eyes remain still and the
+brainwaves also calm down in the NREM phases.
+
+![ ](sleep_cycle.jpg)
+
+Even though we switch from sleep phases each 90 minutes, the ratio of NREM to
+REM sleep throughout the night changes across the night. In the first half of
+the night, the vast majority of time is spent in deep NREM and very little REM.
+But as we transition through the second half of the night, REM starts
+dominating.
+
+Although there is no scientific consensus, the need to remodel and
+update our neural circuits at night can explain this repeatable but
+asymmetric pattern. Throughout the day, the new memories are
+stored in the RAM of your brain, when you start to sleep, the brain needs to
+move the important ones to the hard drive, for long term retrieval. The brain
+needs to solve an optimization problem:
+
+* The hard drive and the RAM have limited capacity.
+* The RAM needs to be cleaned to be able to register the next day's memories.
+* The brain needs RAM to do the analysis of which memories to keep and
+    which to remove.
+
+A key function of NREM sleep is to remove unnecessary neural connections, while
+REM sleep plays a role in strengthening those connections. The different roles
+and the capacity limits explains why the brain needs to switch between them.
+The asymmetry can be explained with the simile of creating a sculpture from
+a block of clay. At the beginning of the night, the long phases of NREM
+extensively removes unneeded material, with short REM phases to define the basic
+form. With each cycle, less material needs to be strongly removed and more
+enhancing of the details is required, thus the increase of REM sleep.
+
+A danger resides in this sleep profile. Since your brain desires most of its REM
+sleep in the last part of the night, if you wake up early, sleeping 6 hours
+instead of 8, you can be losing between 60 to 90% of all your REM sleep, even
+though you are losing 25% of your total sleep time. It works both ways, if you
+instead go to sleep two hours late, you'll loose a significant amount of deep
+NREM sleep. Preventing the brain to have the required REM or NREM daily rations
+results in many physical and mental issues.
+
+## Sleeping time and sense distortions
+
+When you're asleep, you loose awareness of the outside world. Your ears are
+still hearing, your eyes, though closed, are still seeing, and the rest of the
+organs keep on working too.
+
+All these signals still flood into the center of your brain, but it's there, in
+the sensory convergence zone, where they end. The thalamus is the sensory gate
+to the brain that blocks them. If it lets them pass, they travel
+to the cortex at the top of your brain, where they are consciously perceived. By
+locking its gates shut when you're asleep, the thalamus imposes a sensory
+blackout in the brain. As a result, you are no longer consciously aware of the
+information transmitted from your sense organs.
+
+Another consequence of sleeping is a sense of time distortion experienced in two
+contradictory ways. While you loose your conscious mapping during sleep,
+at a non-conscious level, the brain keeps track of time with incredible
+precision. To distort it even more, you sense a time dilation in dreams. The
+signature patterns of brain-cell activity that occurs as you learn, gets
+recurrently repeated during sleep. That is, memories are being replayed at the
+level of brain-cell activity as you sleep. During REM sleep, the memories are
+replayed at half or quarter the speed in comparison of the activity when you're
+awake. This slow neural recounting may be the reason why we have that time
+dilation.
 
 
 # References
