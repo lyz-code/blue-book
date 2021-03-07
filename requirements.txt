@@ -73,7 +73,7 @@ nltk==3.5
     # via lunr
 proselint==0.10.2
     # via -r requirements.in
-pygments==2.8.0
+pygments==2.8.1
     # via mkdocs-material
 pymdown-extensions==8.1.1
     # via
