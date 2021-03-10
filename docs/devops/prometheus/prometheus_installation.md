@@ -6,7 +6,7 @@ author: Lyz
 
 # Kubernetes
 
-!!! warning "It looks like you need helm 3"
+!!! warning "Helm 2 is not supported anymore."
 
     Later versions of the chart return an [Error: apiVersion 'v2' is not valid.
     The value must be
@@ -99,6 +99,28 @@ And restart the DaemonSet:
 ```bash
 kubectl rollout restart -n kube-system daemonset.apps/kube-proxy
 ```
+
+## Upgrading notes
+
+### 10.x -> 11.1.7
+
+If you have a private cluster in EKS, you are not able to use the admission
+webhooks as the nodes are not able to reach the master.
+
+Between those versions, [something
+changed](https://github.com/prometheus-community/helm-charts/issues/418) and you
+need to disable tls too with:
+
+```yaml
+prometheusOperator:
+  tls:
+    enabled: false
+  admissionWebhooks:
+    enabled: false
+```
+
+If you run `helmfile apply` without that flag, the deployment gets tainted, and
+you may need to edit the deployment to remove the `tls-secret` volume.
 
 # Docker
 

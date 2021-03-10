@@ -22,7 +22,7 @@ Sleeping less than six or seven hours a night can produce these consequences:
 
 * Demolishing of the immune system.
 * Doubling your risk of cancer.
-* Is a key lifestyle factor determining the development of the Alzheimer's
+* Is a key lifestyle factor determining and worsening the development of the Alzheimer's
     disease.
 * Disruption of blood sugar levels so profoundly that you would be classified as
     pre-diabetic.
@@ -33,6 +33,7 @@ Sleeping less than six or seven hours a night can produce these consequences:
     anxiety, and suicidality.
 * Swelling concentrations of a hormone that makes you feel hungry while
     suppressing a companion hormone that otherwise signals food satisfaction.
+* Thwart the ability to learn and memorize.
 
 A balanced diet and exercise are of vital importance, but we now see sleep as
 the key factor in health. The physical and mental impairments caused by one
@@ -54,15 +55,15 @@ composture.
 
 Downstairs in the body, sleep:
 
-*   Restocks the armory of our immune system: helping fight malignancy, preventing
+* Restocks the armory of our immune system: helping fight malignancy, preventing
     infection, and warding off sickness.
-*   Reforms the body's metabolic state by fine-tuning the balance of insulin and
+* Reforms the body's metabolic state by fine-tuning the balance of insulin and
     circulating glucose.
-*   Regulates our appetite, helping control body weight through healthy food
+* Regulates our appetite, helping control body weight through healthy food
     selection rather than rash impulsivity.
-*   Maintains a flourishing microbiome within your gut essential to our
+* Maintains a flourishing microbiome within your gut essential to our
     nutritional health being.
-*   Is tied to the fitness of our cardiovascular system, lowering blood pressure
+* Is tied to the fitness of our cardiovascular system, lowering blood pressure
     while keeping our hearts in fine condition.
 
 Dreaming produces a neurochemical bath that mollifies painful memories and
@@ -76,8 +77,8 @@ brain and body health each day**.
 
 There are two main factors that determine when you want to sleep or stay awake:
 
-*   The signal sent by the suprachiasmatic nucleus following the circadian rhythm.
-*   Sleep pressure: The brain builds up a chemical substance that creates
+* The signal sent by the suprachiasmatic nucleus following the circadian rhythm.
+* Sleep pressure: The brain builds up a chemical substance that creates
     the "sleep pressure". The longer you've been awake, the more that chemical
     sleep pressure accumulates, and consequentially, the sleepier you feel.
 
@@ -99,9 +100,9 @@ respectively. The circadian rhythm determines:
 Contrary to common belief, circadian rhythm is not defined by the daylight sun
 cycle. As Kleitman and Richardson demonstrated in 1938:
 
-*   When cut off from the daily cycle of light and dark, the body keeps on
+* When cut off from the daily cycle of light and dark, the body keeps on
     maintaining the rhythm.
-*   The period of the circadian rhythm is different for each person, but has an
+* The period of the circadian rhythm is different for each person, but has an
     average of 24 hours and 15 minutes.
 
 Even if it's not defined by the sun light, it corrects those 15 minutes of delay
@@ -111,11 +112,11 @@ hour each day, that is why jet lag can be spawn through multiple days.
 That reset does not come free. Studies in airplane cabin crews who frequently
 fly on long haul routes and have little chance to recover have registered:
 
-*   The part of the brains related to learning and memory had physically shrunk,
+* The part of the brains related to learning and memory had physically shrunk,
     suggesting the destruction of brain cells caused by the biological stress of
     timezone travel.
-*   Their short term memory was significantly impaired.
-*   They had far higher rates of cancer and type 2 diabetes than the general
+* Their short term memory was significantly impaired.
+* They had far higher rates of cancer and type 2 diabetes than the general
     population.
 
 The peak and valley points of wakefulness or sleepiness vary too between people,
@@ -123,12 +124,12 @@ it's known as their [*chronotype*](https://en.wikipedia.org/wiki/Chronotype) and
 it's strongly determined by genetics. The chronotype defines three types of
 people:
 
-*   *Morning types*: They have their peak of wakefulness early in the day and the
+* *Morning types*: They have their peak of wakefulness early in the day and the
     sleepiness early at night. They prefer to wake at or around dawn, and
     function optimally at this time of day.
-*   *Evening types*: They prefer going to bed late and subsequently wake up late
+* *Evening types*: They prefer going to bed late and subsequently wake up late
     the following morning, or even in the afternoon.
-*   *In between*: The remaining people fall somewhere in between, with a slight
+* *In between*: The remaining people fall somewhere in between, with a slight
     leaning towards eveningness.
 
 ### Melatonin
@@ -240,13 +241,13 @@ awake.  This effect is answered by the energy return of the circadian rhythm.
 Unlike sleep pressure, the circadian rhythm pays no attention to whether you are
 asleep or awake.
 
-## Am I getting enough sleep?
+### Am I getting enough sleep?
 
 When you don't sleep enough, one consequence among many is that adenosine
 concentrations remain too high, so the next morning you continue to accumulate
 sleep debt
 
-If after waking up in the morning you could fall asleep at ten or eleven a.m, it
+If after waking up you could fall asleep at ten or eleven in the morning, it
 means that you're likely not getting enough sleep quantity or quality. The same
 can be said if you can't function optimally without caffeine before noon, you'll
 be most likely self-medicating your state of chronic sleep deprivation.
@@ -258,8 +259,6 @@ rereading the same sentence.
 Of course, even if you are giving yourself plenty of time to get a full night of
 shut-eye, next-day fatigue and sleepiness can still occur because you are
 suffering from an undiagnosed sleep disorder.
-
-# Defining and generating sleep
 
 ## The sleep cycle
 
@@ -336,7 +335,6 @@ level of brain-cell activity as you sleep. During REM sleep, the memories are
 replayed at half or quarter the speed in comparison of the activity when you're
 awake. This slow neural recounting may be the reason why we have that time
 dilation.
-
 
 # References
 

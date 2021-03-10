@@ -229,13 +229,15 @@ following interesting attributes:
 It is initialized with the arguments:
 
 * `path`: Must be a path that exists relative to `src_dir`.
-* `src_dir` and `dest_dir`: Which must be absolute paths on the local file
-    system.
+* `src_dir`: Absolute path on the local file system to the directory where the
+        docs are.
+*  `dest_dir`: Absolute path on the local file system to the directory where the
+        site is going to be built.
 * `use_directory_urls`: If `False`, a Markdown file is mapped to an HTML file of
     the same name (the file extension is changed to `.html`). If True,
     a Markdown file is mapped to an HTML index file (`index.html`) nested in
     a directory using the "name" of the file in `path`. The `use_directory_urls`
-    argument has no effect on non-Markdown files.
+    argument has no effect on non-Markdown files. By default MkDocs uses `True`.
 
 ### [Navigation](https://github.com/mkdocs/mkdocs/blob/master/mkdocs/structure/nav.py#L11)
 
@@ -245,6 +247,10 @@ following interesting attributes:
 
 * `items`: Nested List with full navigation of Sections, SectionPages, Pages, and Links.
 * `pages`: Flat List of subset of Pages in nav, in order.
+
+The `Navigation` object has no `__eq__` method, so when testing, instead of
+trying to build a similar `Navigation` object and compare them, you need to
+assert that the contents of the object are what you expect.
 
 ### [Page](https://github.com/mkdocs/mkdocs/blob/master/mkdocs/structure/pages.py#L18)
 
@@ -278,6 +284,21 @@ belong to the section. If you don't yet know the children, pass an empty list
 
 ## [Events](https://www.mkdocs.org/user-guide/plugins/#events)
 
+### [on_config](https://www.mkdocs.org/user-guide/plugins/#on_config)
+
+The config event is the first event called on build and is run immediately after
+the user configuration is loaded and validated. Any alterations to the config
+should be made here.
+
+Parameters:
+
+* `config`: global configuration object
+
+Returns:
+
+* global configuration object
+
+
 ### [on_files](https://www.mkdocs.org/user-guide/plugins/#on_files)
 
 The `files` event is called after the files collection is populated from the
@@ -299,13 +320,9 @@ Returns:
 The `nav` event is called after the site navigation is created and can be used
 to alter the site navigation.
 
-If you want to append items, you would need to create the Section, Pages, SectionPages
-or Link objects and append them to the `nav.items`.
+!!! warning ""
 
-Even though it seems more easy to create the nav structure in the
-[`on_files`](#on_files) event, by editing the `nav` dictionary of the `config`
-object, there is no way of returning the `config` object in that event, so we're
-forced to do it in this event.
+    Read the following section if you want to [add new files](#adding-new-files).
 
 Parameters:
 
@@ -316,6 +333,56 @@ Parameters:
 Returns:
 
 * global navigation object
+
+## Adding new files
+
+!!! note "TL;DR: Add them in the `on_config` event."
+
+To add new files to the repository you will need two phases:
+
+* Create the markdown article pages.
+* Add them to the navigation.
+
+My first idea as a MkDocs user, and newborn plugin developer was to add the
+navigation items to the `nav` key in the `config` object, as it's more easy to
+add items to a dictionary I'm used to work with than to dive into the code and
+understand how MkDocs creates the navigation. As I understood from the
+docs, the files should be created in the `on_files` event. the problem with this
+approach is that the only event that allows you to change the `config` is the
+`on_config` event, which is before the `on_files` one, so you can't build the
+navigation this way after you've created the files.
+
+Next idea was to add the items in the `on_nav` event, that means creating
+yourself the [`Section`](#section), [`Pages`](#page),
+[`SectionPages`](#sectionpage) or `Link` objects and append them to the
+`nav.items`.  [The problem](https://github.com/mkdocs/mkdocs/issues/2324) is that MkDocs initializes and processes the
+`Navigation` object in the
+[`get_navigation`](https://github.com/mkdocs/mkdocs/blob/master/mkdocs/structure/nav.py#L99)
+function. If you want to add items with a plugin in the `on_nav` event, you need
+to manually run all the post processing functions such as building the `pages`
+attribute, by running the `_get_by_type`, ` _add_previous_and_next_links` or
+` _add_parent_links` yourself. Additionally, when building the site you'll get
+the `The following pages exist in the docs directory, but are not included in
+the "nav" configuration` error, because that check is done *before* all plugins
+change the navigation in the `on_nav` object.
+
+The last approach is to build the files and tweak the navigation in the
+`on_config` event. This approach has the next advantages:
+
+* You need less knowledge of how MkDocs works.
+* You don't need to create the `File` or `Files` objects.
+* You don't need to create the `Page`, `Section`, `SectionPage` objects.
+* More robust as you rely on existent MkDocs functionality.
+
+# Testing
+
+# Issues
+
+Once they are closed:
+
+* [Process the navigation object after the `on_nav`
+    event](https://github.com/mkdocs/mkdocs/issues/2324): Update the [Adding new
+    files](#adding-new-files) section.
 
 # References
 

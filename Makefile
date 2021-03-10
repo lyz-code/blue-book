@@ -35,7 +35,6 @@ clean:
 	rm -rf build
 	rm -rf dist
 	rm -f src/*.c pydantic/*.so
-	python setup.py clean
 	rm -rf site
 	rm -rf docs/_build
 	rm -rf docs/.changelog.md docs/.version.md docs/.tmp_schema_mappings.html

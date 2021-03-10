@@ -4,6 +4,48 @@ date: 20200717
 author: Lyz
 ---
 
+# [Remove the extension of a file](https://stackoverflow.com/questions/678236/how-to-get-the-filename-without-the-extension-from-a-path-in-python)
+
+```python
+os.path.splitext("/path/to/some/file.txt")[0]
+```
+
+# [Iterate over the files of a directory](https://www.newbedev.com/python/howto/how-to-iterate-over-files-in-a-given-directory/#2-using-os-scandir)
+
+```python
+import os
+
+directory = '/path/to/directory'
+for entry in os.scandir(directory):
+    if (entry.path.endswith(".jpg")
+            or entry.path.endswith(".png")) and entry.is_file():
+        print(entry.path)
+```
+
+### Create directory
+
+```python
+if not os.path.exists(directory):
+    os.makedirs(directory)
+```
+
+### [Touch a file](https://stackoverflow.com/questions/1158076/implement-touch-using-python)
+
+```python
+from pathlib import Path
+
+Path('path/to/file.txt').touch()
+```
+
+
+
+# [Get the first day of next month](https://stackoverflow.com/questions/4130922/how-to-increment-datetime-by-custom-months-in-python-without-using-library)
+
+```python
+current = datetime.datetime(mydate.year, mydate.month, 1)
+next_month = datetime.datetime(mydate.year + int(mydate.month / 12), ((mydate.month % 12) + 1), 1)
+```
+
 # [Get the week number of a datetime](https://stackoverflow.com/questions/2600775/how-to-get-week-number-in-python)
 
 `datetime.datetime` has a `isocalendar()` method, which returns a tuple
