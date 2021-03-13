@@ -225,6 +225,7 @@ nav:
           - Anonymous Feedback: anonymous_feedback.md
   - Operative Systems:
       - Linux:
+          - ActivityWatch: activitywatch.md
           - beancount: beancount.md
           - brew: linux/brew.md
           - elasticsearch: linux/elasticsearch.md
@@ -248,6 +249,7 @@ nav:
       - Android:
           - cone: cone.md
           - GadgetBridge: gadgetbridge.md
+          - Signal: signal.md
   - Arts:
       - Writing:
           - writing/writing.md
@@ -291,6 +293,7 @@ plugins:
   - minify:
       minify_html: true
   - section-index
+  # - mkdocs-newsletter
 
 markdown_extensions:
   - abbr

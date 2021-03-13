@@ -30,6 +30,15 @@ sudo apt-get install syncthing
 
 Use [Linuxserver Docker](https://docs.linuxserver.io/images/docker-syncthing)
 
+## Configuration
+
+If you're only going to use syncthing in an internal network, or you're going to
+fix the IPs of the devices you can disable the [Global
+Discovery](https://docs.syncthing.net/users/security.html#global-discovery) and
+[Relaying
+connections](https://docs.syncthing.net/users/security.html#relay-connections)
+so that you don't leak the existence of your services to the syncthing servers.
+
 # Links
 
 * [Home](https://syncthing.net/)
