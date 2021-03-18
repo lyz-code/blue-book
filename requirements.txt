@@ -83,7 +83,7 @@ pytz==2021.1
     # via babel
 pyyaml==5.4.1
     # via mkdocs
-regex==2020.11.13
+regex==2021.3.17
     # via nltk
 six==1.15.0
     # via
