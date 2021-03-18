@@ -60,6 +60,11 @@ But you can add more, such as:
     history](https://github.com/ActivityWatch/aw-watcher-web/issues/32), or if
     you [use incognito mode](https://github.com/ActivityWatch/aw-watcher-web/pull/54)
 
+    It's known not to be [very
+    accurate](https://github.com/ActivityWatch/aw-watcher-web/issues/20). The
+    overall time spent in the browser shown by the `aw-watcher-window` is
+    greater than the one shown in `aw-watcher-web-firefox`.
+
 * [aw-watcher-vim](https://github.com/ActivityWatch/aw-watcher-vim): Watches the
     actively edited file and associated metadata like path, language, and
     project name (folder name of git root).
@@ -68,17 +73,37 @@ But you can add more, such as:
 
     ![ ](activitywatch_vim.png)
 
+    It still doesn't [add the branch
+    information](https://github.com/ActivityWatch/aw-watcher-vim/issues/19), it
+    could be useful to give hints of what task you're working on inside
+    a project.
+
 They even show you how to [create your own
 watcher](https://docs.activitywatch.net/en/latest/examples/writing-watchers.html).
 
+# [Syncing](https://docs.activitywatch.net/en/latest/features/syncing.html)
+
+There is [currently no syncing
+support](https://github.com/ActivityWatch/activitywatch/issues/35). You'll need
+to export the data (under `Raw Data`, `Export all buckets as JSON`), and either
+tweak it so it can be imported, or analyze the data through other processes.
+
 # Issues
 
+* [Syncing support](https://github.com/ActivityWatch/activitywatch/issues/35):
+    See how to merge the data from the different devices.
 * [Firefox not logging
     data](https://github.com/ActivityWatch/aw-watcher-web/issues/32): Once it's
     solved, try it again.
 * [Making it work in incognito
     mode](https://github.com/ActivityWatch/aw-watcher-web/pull/54): Try it once
     it's solved.
+* [Add branch information in vim
+    watcher](https://github.com/ActivityWatch/aw-watcher-vim/issues/19): try it
+    once it's out.
+* [Web tracking is not
+    accurate](https://github.com/ActivityWatch/aw-watcher-web/issues/20): Test
+    the solution once it's implemented.
 * [Physical Activity Monitor Integration
     (gadgetbridge)](https://forum.activitywatch.net/t/physical-activity-monitor-integration-via-gadgetbridge-maybe/1121):
     Try it once there is a solution.

@@ -31,3 +31,10 @@ same time it reduces the error rate.
 
 * Using Grocy to maintain the house stock, shopping lists and meal
   plans.
+
+# Automating computer file management
+
+Today I've stumbled upon [organize](https://organize.readthedocs.io/en/latest/)
+looks good for automating processes on files. Maybe it's interesting to run it
+with [inotifywait](https://askubuntu.com/a/819290) instead of with a [cron
+job](https://github.com/tfeldmann/organize/issues/18).

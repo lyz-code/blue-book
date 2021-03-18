@@ -179,7 +179,9 @@ nav:
               - Parametrized testing: coding/python/pytest_parametrized_testing.md
               - Pytest-cases: coding/python/pytest_cases.md
           - Python Snippets: coding/python/python_snippets.md
-      - Javascript: coding/javascript/javascript.md
+      - Javascript:
+          - coding/javascript/javascript.md
+          - MermaidJS: mermaidjs.md
       - JSON: coding/json/json.md
       - React: coding/react/react.md
       - SQL: coding/sql/sql.md
@@ -238,6 +240,7 @@ nav:
           - monica: linux/monica.md
           - Miscellaneous Linux Commands: linux/linux_miscellaneous.md
           - nodejs: linux/nodejs.md
+          - Peek: peek.md
           - rm: linux/rm.md
           - Syncthing: linux/syncthing.md
           - Vim:
@@ -293,7 +296,7 @@ plugins:
   - minify:
       minify_html: true
   - section-index
-  # - mkdocs-newsletter
+  - mkdocs-newsletter
 
 markdown_extensions:
   - abbr

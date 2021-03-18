@@ -178,6 +178,43 @@ YAML configuration file.
 * Activate `GitHub Pages` repository configuration with `gh-pages branch`.
 * Make a new commit and push to check it's working.
 
+## Create MermaidJS diagrams
+
+Even though the Material theme [supports mermaid
+diagrams](https://squidfunk.github.io/mkdocs-material/reference/diagrams/#fn:2)
+it's only giving it for the paid users. The [funding needs to reach
+5000$](https://squidfunk.github.io/mkdocs-material/insiders/#funding) so it's
+released to the general public.
+
+The alternative is to use the
+[mkdocs-mermaid2-plugin](https://github.com/fralau/mkdocs-mermaid2-plugin)
+plugin, which can't be used with `mkdocs-minify-plugin` and doesn't adapt to
+dark mode.
+
+To [install it](https://github.com/fralau/mkdocs-mermaid2-plugin#installation):
+
+* Download the package: `pip install mkdocs-mermaid2-plugin`.
+* Enable the plugin in `mkdocs.yml`.
+
+    ```yaml
+    plugins:
+      # Not compatible with mermaid2
+      # - minify:
+      #    minify_html: true
+      - mermaid2:
+          arguments:
+            securityLevel: 'loose'
+    markdown_extensions:
+      - pymdownx.superfences:
+          # make exceptions to highlighting of code:
+          custom_fences:
+            - name: mermaid
+              class: mermaid
+              format: !!python/name:mermaid2.fence_mermaid
+    ```
+
+Check the [MermaidJS](mermaidjs.md) article to see how to create the diagrams.
+
 # [Plugin development](https://www.mkdocs.org/user-guide/plugins/)
 
 Like MkDocs, plugins must be written in Python. It is expected that
@@ -383,6 +420,9 @@ Once they are closed:
 * [Process the navigation object after the `on_nav`
     event](https://github.com/mkdocs/mkdocs/issues/2324): Update the [Adding new
     files](#adding-new-files) section.
+* MermaidJS material theme support. Once it's released we need to:
+    * Migrate the projects that are using mkdocs-mermaid2-plugin
+    * Update the [mermaidjs](#mermaidjs) docs.
 
 # References
 

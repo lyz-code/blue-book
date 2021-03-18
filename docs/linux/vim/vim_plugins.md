@@ -143,8 +143,8 @@ You can then use `:ALEToggleFixer` to activate an deactivate them.
 ## Vim-Abolish
 
 * [Error adding elipsis instead of three
-    dots](https://github.com/tpope/vim-abolish/issues/99): add it to the
-    configuration once it's closed.
+    dots](https://github.com/tpope/vim-abolish/issues/99): Pope said that it's
+    not possible :(.
 
 # References
 
