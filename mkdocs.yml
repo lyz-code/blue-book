@@ -109,6 +109,7 @@ nav:
   - Coding:
       - TDD: coding/tdd.md
       - Python:
+          - python.md
           - Project Template:
               - coding/python/python_project_template.md
               - Command-line Project Template:
@@ -244,6 +245,8 @@ nav:
           - rm: linux/rm.md
           - Syncthing: linux/syncthing.md
           - Vim:
+              - vim.md
+              - Tabs vs Buffers: vim_tabs.md
               - Vim Plugins: linux/vim/vim_plugins.md
           - Wake on Lan: wake_on_lan.md
           - Wireguard: linux/wireguard.md
@@ -276,7 +279,7 @@ nav:
               - The Battle for Wesnoth: wesnoth.md
               - Loyalist: wesnoth_loyalist.md
               - Rebels: wesnoth_rebels.md
-              - Northeners: wesnoth_northeners.md
+              - Northeners: wesnoth_northerners.md
       - Drawing:
           - drawing/drawing.md
           - Exercise Pool: drawing/exercise_pool.md

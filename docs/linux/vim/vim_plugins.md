@@ -138,6 +138,36 @@ command! ALEToggleFixer execute "let g:ale_fix_on_save = get(g:, 'ale_fix_on_sav
 
 You can then use `:ALEToggleFixer` to activate an deactivate them.
 
+# [vim-easymotion](https://github.com/easymotion/vim-easymotion)
+
+EasyMotion provides a much simpler way to use some motions in vim. It takes the
+`<number>` out of `<number>w` or `<number>f{char}` by highlighting all possible
+choices and allowing you to press one key to jump directly to the target.
+
+When one of the available motions is triggered, all visible text preceding or
+following the cursor is faded, and motion targets are highlighted.
+
+## [Installation](https://github.com/easymotion/vim-easymotion#installation)
+
+Add to Vundle `Plugin 'easymotion/vim-easymotion'`
+
+The configuration can be quite complex, but I'm starting with the basics:
+
+```vim
+" Easymotion
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+
+" Jump to anywhere you want with minimal keystrokes, with just one key binding.
+" `s{char}{label}`
+nmap s <Plug>(easymotion-overwin-f)
+
+" JK motions: Line motions
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+```
+
+It's awesome to move between windows with `s`.
+
 # Issues
 
 ## Vim-Abolish

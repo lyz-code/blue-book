@@ -125,7 +125,7 @@ them.
     *I take different actions* -> *Taking different actions*.
 * Don't be possessive, use `the` instead of `my`.
 * If you don't know how to express something use services like
-    [deepl](deepl.com).
+    [deepl](https://www.deepl.com).
 * Use synonyms instead of repeating the same word over and over.
 * Think who are you writing to.
 * Use *active voice*: Active voice ensures that the actors are identified and it

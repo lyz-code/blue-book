@@ -101,6 +101,7 @@ plugins:
 * [Plugin to generate Python Docstrings](https://github.com/pawamoy/mkdocstrings)
 * [Add Mermaid graphs](https://github.com/pugong/mkdocs-mermaid-plugin)
 * [Add Plantuml graphs](https://github.com/christo-ph/mkdocs_build_plantuml)
+* [Analyze the text readability](https://github.com/shivam5992/textstat)
 
 ## About page
 
