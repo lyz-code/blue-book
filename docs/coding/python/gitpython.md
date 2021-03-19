@@ -93,8 +93,7 @@ repo.head.reference
 Then you can either get all the `Commit` objects of that reference, or inspect
 the log.
 
-### [Get all commits of
-a branch](https://stackoverflow.com/questions/18502729/finding-the-first-commit-on-a-branch-with-gitpython)
+### [Get all commits of a branch](https://stackoverflow.com/questions/18502729/finding-the-first-commit-on-a-branch-with-gitpython)
 
 ```python
 [commit for commit in repo.iter_commits(rev=repo.head.reference)]
