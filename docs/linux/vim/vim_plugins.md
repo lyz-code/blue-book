@@ -168,6 +168,47 @@ map <Leader>k <Plug>(easymotion-k)
 
 It's awesome to move between windows with `s`.
 
+# [Vim-test](https://github.com/janko-m/vim-test)
+
+A Vim wrapper for running tests on different granularities.
+
+Currently the following testing frameworks are supported:
+
+| Language       | Frameworks                                            | Identifiers                                                       |
+| :------------: | ----------------------------------------------------- | ----------------------------------------------------------------- |
+| **C#**         | .NET                                                  | `dotnettest`                                                      |
+| **Clojure**    | Fireplace.vim                                         | `fireplacetest`                                                   |
+| **Crystal**    | Crystal                                               | `crystalspec`                                                     |
+| **Elixir**     | ESpec, ExUnit                                         | `espec`, `exunit`                                                 |
+| **Erlang**     | CommonTest                                            | `commontest`                                                      |
+| **Go**         | Ginkgo, Go                                            | `ginkgo`, `gotest`                                                |
+| **Java**       | Maven                                                 | `maventest`                                                       |
+| **JavaScript** | Intern, Jasmine, Jest, Karma, Lab, Mocha, TAP,        | `intern`, `jasmine`, `jest`, `karma`, `lab`, `mocha`, `tap`       |
+| **Lua**        | Busted                                                | `busted`                                                          |
+| **PHP**        | Behat, Codeception, Kahlan, Peridot, PHPUnit, PHPSpec | `behat`, `codeception`, `kahlan`, `peridot`, `phpunit`, `phpspec` |
+| **Perl**       | Prove                                                 | `prove`                                                           |
+| **Python**     | Django, Nose, Nose2, PyTest, PyUnit                   | `djangotest`, `djangonose` `nose`, `nose2`, `pytest`, `pyunit`    |
+| **Racket**     | RackUnit                                              | `rackunit`                                                        |
+| **Ruby**       | Cucumber, [M], [Minitest][minitest], Rails, RSpec     | `cucumber`, `m`, `minitest`, `rails`, `rspec`                     |
+| **Rust**       | Cargo                                                 | `cargotest`                                                       |
+| **Shell**      | Bats                                                  | `bats`                                                            |
+| **VimScript**  | Vader.vim, VSpec                                      | `vader`, `vspec`                                                  |
+
+## Features
+
+* Zero dependencies
+* Zero configuration required (it Does the Right Thing™, see
+  [**Philosophy**](https://github.com/janko-m/vim-test/wiki))
+* Wide range of test runners which are automagically detected
+* **Polyfills** for nearest tests (by [constructing regexes](#commands))
+* Wide range of execution environments ("[strategies](#strategies)")
+* Fully customized CLI options configuration
+* Extendable with new runners and strategies
+
+Test.vim consists of a core which provides an abstraction over running any kind
+of tests from the command-line. Concrete test runners are then simply plugged
+in, so they all work in the same unified way.
+
 # Issues
 
 ## Vim-Abolish
