@@ -44,8 +44,7 @@ from git import Repo
 repo = Repo('existing/git/repo/path')
 ```
 
-## [Make
-a commit](https://gitpython.readthedocs.io/en/stable/tutorial.html#the-index-object)
+## [Make a commit](https://gitpython.readthedocs.io/en/stable/tutorial.html#the-index-object)
 
 Given a `repo` object:
 
