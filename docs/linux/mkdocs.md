@@ -413,6 +413,77 @@ The last approach is to build the files and tweak the navigation in the
 
 # Testing
 
+I haven't found any official documentation on how to test MkDocs plugins, in the
+[issues](https://github.com/mkdocs/mkdocs/issues/1528) they suggest you look at
+how they test it in the [search
+plugin](https://github.com/mkdocs/mkdocs/blob/master/mkdocs/tests/search_tests.py).
+I've looked at other plugins such as
+[mkdocs_blog](https://github.com/andyoakley/mkdocs-blog) and used the next way
+to test [mkdocs-newsletter](https://github.com/lyz-code/mkdocs-newsletter).
+
+I see the plugin definition as an entrypoint to the functionality of our
+program, that's why I feel the definition should be in
+`src/mkdocs_newsletter/entrypoints/mkdocs_plugin.py`. As any entrypoint, the
+best way to test them are in end-to-end tests.
+
+You need to have a [working test
+site](https://github.com/lyz-code/mkdocs-newsletter/tree/master/tests/assets/test_data)
+in `tests/assets/test_data`, with it's `mkdocs.yml` file that loads your plugin
+and some fake articles.
+
+To prepare the test we can define the next [fixture](pytest.md#fixtures) that
+prepares the building of the site:
+
+!!! note "File: `tests/conftest.py`"
+
+    ```python
+    import os
+    import shutil
+
+    from mkdocs import config
+    from mkdocs.config.base import Config
+    from py._path.local import LocalPath
+
+    @pytest.fixture(name="config")
+    def config_(tmpdir: LocalPath) -> Config:
+        """Load the mkdocs configuration."""
+        repo_path = tmpdir / "test_data"
+        shutil.copytree("tests/assets/test_data", repo_path)
+        mkdocs_config = config.load_config(
+            os.path.join(repo_path, "mkdocs.yml")
+        )
+        mkdocs_config["site_dir"] = os.path.join(repo_path, "site")
+        return mkdocs_config
+    ```
+
+It does the next steps:
+
+* Copy the fake MkDocs site to a temporal directory
+* Prepare the MkDocs `Config` object to build the site.
+
+Now we can use it in the e2e tests:
+
+!!! note "File: tests/e2e/test_plugin.py"
+
+    ```python
+    def test_plugin_builds_newsletters(full_repo: Repo, config: Config) -> None:
+        build.build(config)  # act
+
+        newsletter_path = f"{full_repo.working_dir}/site/newsletter/2021_02/index.html"
+        with open(newsletter_path, "r") as newsletter_file:
+            newsletter = newsletter_file.read()
+        assert "<title>February of 2021 - The Blue Book</title>" in newsletter
+    ```
+
+That test is meant to ensure that our plugin works with the MkDocs ecosystem, so
+the assertions should be done against the created html files.
+
+If your functionality can't be covered by the happy path of the end-to-end test,
+it's better to create unit tests to make sure that they work as you want.
+
+You can see a full example
+[here](https://github.com/lyz-code/mkdocs-newsletter/tree/master/tests).
+
 # Issues
 
 Once they are closed:
