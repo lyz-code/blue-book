@@ -4,6 +4,34 @@ date: 20200717
 author: Lyz
 ---
 
+# Check directories and files
+
+```python
+def test_dir(directory):
+    from os.path import exists
+    from os import makedirs
+    if not exists(directory):
+        makedirs(directory)
+
+
+def test_file(filepath, mode):
+    ''' Check if a file exist and is accessible. '''
+
+    def check_mode(os_mode, mode):
+        if os.path.isfile(filepath) and os.access(filepath, os_mode):
+            return
+        else:
+            raise IOError("Can't access the file with mode " + mode)
+
+    if mode is 'r':
+        check_mode(os.R_OK, mode)
+    elif mode is 'w':
+        check_mode(os.W_OK, mode)
+    elif mode is 'a':
+        check_mode(os.R_OK, mode)
+        check_mode(os.W_OK, mode)
+```
+
 # [Remove the extension of a file](https://stackoverflow.com/questions/678236/how-to-get-the-filename-without-the-extension-from-a-path-in-python)
 
 ```python
