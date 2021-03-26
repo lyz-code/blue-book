@@ -11,6 +11,27 @@ message reaches people.
 
 This article is an effort to gather all my common pitfalls.
 
+# [How to use the singular they](https://apastyle.apa.org/blog/singular-they)
+
+The singular “they” is a generic third-person pronoun used in English.
+
+When readers see a gendered pronoun, such as he or she, they make assumptions
+about the gender of the person being described. It's better to use the singular
+“they” because it is inclusive of all people and helps writers avoid making
+assumptions about gender.
+
+You should use it in these cases:
+
+* When referring to a generic person whose gender is unknown or irrelevant to the context and
+* When referring to a specific, known person who uses “they” as their pronoun.
+
+When “they” is the subject of a sentence, “they” takes a plural verb regardless
+of whether “they” is meant to be singular or plural.  For example, write “they
+are” not “they is”. The singular “they” works similarly to the singular
+“you”, even though “you” may refer to one person or multiple people. However, if
+the noun in one sentence is a word like “individual” or a person’s name, use
+a singular verb.
+
 # Where to add your pronouns
 
 The correct place to add your pronouns is after you present yourself, such as:

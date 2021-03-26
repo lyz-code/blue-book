@@ -10,8 +10,6 @@ good old markdown to keep track.
 
 # Python dependency errors
 
-* [Gitdb smmap update](https://github.com/gitpython-developers/gitdb/issues/67):
-    once it's done, update the mkdocs-newsletter requirements.
 * [python-semantic-release python-gitlab
     dependency](https://github.com/relekang/python-semantic-release/issues/329):
     once it's done, update the mkdocs-newsletter requirements.

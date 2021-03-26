@@ -27,8 +27,9 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add requirements.txt
+          git add docs/newsletter
           git diff-index --quiet HEAD \
-            || git commit -m "chore: update dependency requirements"
+            || git commit -m "chore: update dependency and publish newsletters"
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:

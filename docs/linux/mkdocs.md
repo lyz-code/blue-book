@@ -488,9 +488,6 @@ You can see a full example
 
 Once they are closed:
 
-* [Process the navigation object after the `on_nav`
-    event](https://github.com/mkdocs/mkdocs/issues/2324): Update the [Adding new
-    files](#adding-new-files) section.
 * MermaidJS material theme support. Once it's released we need to:
     * Migrate the projects that are using mkdocs-mermaid2-plugin
     * Update the [mermaidjs](#mermaidjs) docs.
