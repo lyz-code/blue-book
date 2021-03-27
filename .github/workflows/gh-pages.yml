@@ -1,16 +1,20 @@
+---
 name: github pages
 
 on:
   push:
     branches:
       - master
+  schedule:
+    - cron: 11 08 * * *
 
 jobs:
   deploy:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
         with:
+          persist-credentials: false
           # Number of commits to fetch. 0 indicates all history.
           # Default: 1
           fetch-depth: 0
@@ -23,7 +27,7 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: 3.7.7
-          architecture: 'x64'
+          architecture: x64
 
       - name: Cache dependencies
         uses: actions/cache@v1
@@ -34,11 +38,28 @@ jobs:
             ${{ runner.os }}-pip-
 
       - name: Install dependencies
-        run: |
-          python3 -m pip install --upgrade pip
-          python3 -m pip install -r ./requirements.txt
+        run: pip install pip-tools
 
-      - run: mkdocs build
+      - name: Update requirements
+        run: make update
+
+      - name: Make the site
+        run: make build-docs
+
+      - name: Commit files
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add requirements.txt
+          git add docs/newsletter
+          git diff-index --quiet HEAD \
+            || git commit -m "chore: update dependency and publish newsletters"
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: master
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
