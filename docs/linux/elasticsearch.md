@@ -170,6 +170,70 @@ curl -H 'Content-Type: application/x-ndjson' -XPOST \
 curl -XDELETE {{ url }}/{{ path_to_ddbb }}
 ```
 
+# [Reindex an index](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/remote-reindex.html#remote-reindex-largedatasets)
+
+If you encountered errors while reindexing `source_index` to
+`destination_index` it can be because the cluster hit a timeout on the scroll
+locks. As a work around, you can increase the timeout period to a reasonable
+value and then reindex. The default AWS values are search context of 5 minutes,
+socket timeout of 30 seconds, and batch size of 1,000.
+
+First clear the cache of the index with:
+
+```bash
+curl -X POST https://elastic.url/destination_index/_cache/clear
+```
+
+If the index is big, they suggest to disable replicas in your destination index
+by setting number_of_replicas to 0 and re-enable them once the reindex process
+is complete.
+
+To get the current state use:
+
+```bash
+curl https://elastic.url/destination_index/_settings
+```
+
+Then disable the replicas with:
+
+```bash
+curl -X PUT \
+    https://elastic.url/destination_index \
+  -H 'Content-Type: application/json' \
+  -d '{"settings": {"refresh_interval": -1, "number_of_replicas": 0}}
+```
+
+Now you can reindex the index with:
+
+```bash
+curl -X POST \
+  https://elastic.url/_reindex?wait_for_completion=false\&timeout=10m\&scroll=10h\&pretty=true \
+  -H 'Content-Type: application/json' \
+  -d '{"source": { "remote": { "host": "https://elastic.url:443", "socket_timeout": "60m" }, "index": "source_index" }, "dest": {"index": "destination_index"}}'
+```
+
+And [check the evolution of the
+task](https://linuxhint.com/elasticsearch-reindex-all-indices-and-check-the-status/)
+with:
+
+```bash
+curl 'https://elastic.url/_tasks?detailed=true&actions=*reindex&group_by=parents&pretty=true'
+```
+
+The output is quite verbose, so I use `vimdiff` to see the differences between
+instant states.
+
+If you see there are no tasks running, check the indices status to see if
+the reindex ended well.
+
+```bash
+curl https://elastic.url/_cat/indices
+```
+
+
+After the reindex process is complete, you can reset your desired replica count
+and remove the refresh interval setting.
+
 # Troubleshooting
 
 ## Recover from yellow state
