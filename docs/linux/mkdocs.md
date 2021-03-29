@@ -116,6 +116,52 @@ YAML configuration file.
     mkdocs serve
     ```
 
+## Material theme customizations
+
+### [Color palette toggle](https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/#color-palette-toggle)
+
+Since 7.1.0, you can have a light-dark mode on the site using a toggle in the
+upper bar.
+
+To enable it add to your `mkdocs.yml`:
+
+```yaml
+theme:
+  palette:
+
+    # Light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: blue grey
+      accent: light blue
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+
+    # Dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue grey
+      accent: light blue
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
+```
+
+Changing your desired colors for each mode
+
+### [Back to top button](https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/#back-to-top-button)
+
+Since 7.1.0, a back-to-top button can be shown when the user, after scrolling
+down, starts to scroll up again. It's rendered in the lower right corner of the
+viewport. Add the following lines to mkdocs.yml:
+
+```yaml
+theme:
+  features:
+    - navigation.top
+```
+
 ## Add a github pages hook.
 
 * Save your `requirements.txt`.

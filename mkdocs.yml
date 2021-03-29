@@ -333,10 +333,25 @@ theme:
   logo: img/logo.bmp
   features:
     - navigation.instant
+    - navigation.top
   palette:
-    scheme: default
-    primary: blue grey
-    accent: light blue
+    # Light mode
+    - media: '(prefers-color-scheme: light)'
+      scheme: default
+      primary: blue grey
+      accent: light blue
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+
+    # Dark mode
+    - media: '(prefers-color-scheme: dark)'
+      scheme: slate
+      primary: blue grey
+      accent: light blue
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
 
 extra_css:
   - stylesheets/extra.css
