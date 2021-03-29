@@ -7,5 +7,4 @@ mkdocs-material
 mkdocs-section-index
 pymdown-extensions
 git+git://github.com/lyz-code/mkdocs-autolinks-plugin.git
-git+git://github.com/lyz-code/mkdocs-newsletter.git@feat/add-rss-support
-# mkdocs-newsletter
+mkdocs-newsletter
