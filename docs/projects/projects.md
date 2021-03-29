@@ -1,14 +1,54 @@
 ---
 title: Projects
-date: 20200206
+date: 20210206
 author: Lyz
 ---
 
-Also known as where I'm spending my spare time.
+There is an ever growing pool of ideas where I want to invest my time. Sadly
+time is a finite currency, and even though I am lucky enough to be able to put
+my focus on maximizing it, it's never enough.
 
-# Active projects
+I understand projects as a mental tool that groups ideas, processes and tools to
+achieve a specific goal. Following the [digital garden](digital_garden.md)
+metaphor, projects are plants in different phases of development where I've
+spent a different amount of effort.
 
-Projects under active development.
+The development phases are:
+
+* *Seeds*: Are raw, basic ideas of projects that may once be.
+* *Seedlings*: Are projects that don't yet have their first stable version, but
+    the drafts of the [ADR](adr.md) and some code is already written.
+* [*Growing*](#growing-plants): Projects that have a stable release and are
+    under active development.
+* [*Dormant*](#dormant-plants): Projects whose growth has temporally stopped.
+    I still believe they are useful and even though I don't want to work on them
+    at the moment, I see myself doing it in the future.
+
+    I still maintain them by answering to issues, reviewing pull requests,
+    keeping the continuous integration pipelines alive and developing fixes to
+    important issues.
+* [*Dying*](#dying-plants): Projects that I know are going to be deprecated
+    soon, and I'm looking for alternatives.
+* *Dead*: Project no longer used.
+
+# Growing plants
+
+## [Blue book](https://lyz-code.github.io/blue-book/)
+
+What you're reading right now. I'm storing most of the new knowledge I learn
+every day. At the same time I'm migrating the notes of the previous
+version of this digital garden which consists on 7422 articles, almost 50
+million lines.
+
+## [Repository pattern](https://github.com/lyz-code/repository-pattern)
+
+I'm creating a [Python library](https://github.com/lyz-code/repository-pattern)
+to make it easier to use the [repository pattern](repository_pattern.md) in new
+projects.
+
+I monthly spin up new ideas for programs, and managing the storage of the
+information is cumbersome and repeating. My idea is to refactor that common
+codebase into a generic library that anyone can use.
 
 ## [Pydo](https://lyz-code.github.io/pydo)
 
@@ -50,12 +90,65 @@ I'm now doing a full rewrite of the codebase following the [repository
 pattern](repository_pattern.md) which led me to create a [Python
 library](#repository-pattern).
 
-## [Blue book](https://lyz-code.github.io/blue-book/)
+# Dormant Plants
 
-I'm refactoring all the knowledge gathered in the past in my cheat sheet
-repository into the blue book. This means migrating 7422 articles, almost 50
-million lines, to the new structure. It's going to be a slow and painful
-process `ᕙ(⇀‸↼‶)ᕗ`.
+## [mkdocs-newsletter](https://github.com/lyz-code/mkdocs-newsletter)
+
+MkDocs plugin to show the changes of documentation repositories in a user
+friendly format, at the same time that it's easy for the authors to maintain.
+
+It creates daily, weekly, monthly and yearly newsletter articles with the
+changes of each period. Those pages, stored under the `Newsletters` section, are
+filled with the changes extracted from the commit messages of the git history.
+The changes are grouped by categories, subcategories and then by file using the
+order of the site's navigation structure. RSS feeds are also created for each
+newsletter type, so it's easy for people to keep updated with the evolution of
+the site.
+
+I use it for this site
+[newsletters](https://lyz-code.github.io/blue-book/newsletter/0_newsletter_index/).
+
+## [Autoimport](https://lyz-code.github.io/autoimport/)
+
+Throughout the development of a python program you continuously need to manage
+the python import statements either because you need one new object or because
+you no longer need it. This means that you need to stop writing whatever you
+were writing, go to the top of the file, create or remove the import statement
+and then resume coding.
+
+This workflow break is annoying and almost always unnecessary.
+[autoimport](https://lyz-code.github.io/autoimport/) solves this problem if you
+execute it whenever you have an import error, for example by configuring your
+editor to run it when saving the file.
+
+The reasons why it is dormant are:
+
+* The current features cover most of needs. Even though I'd like to be able to
+    [import broken package
+    objects](https://github.com/lyz-code/autoimport/issues/74), and that it is
+    intelligent enough to use [relative
+    imports](https://github.com/lyz-code/autoimport/issues/75).
+* My hype is elsewhere.
+
+## [yamlfix](https://lyz-code.github.io/yamlfix)
+
+A simple opinionated yaml formatter that keeps your comments.
+
+The reasons why it is dormant are:
+
+* The current features cover most of needs.
+* My hype is elsewhere.
+
+## [Cookiecutter Python template](https://lyz-code.github.io/cookiecutter-python-project/)
+
+Following the same reasoning as the previous section, I've spent a lot of time
+investigating quality measures for python projects, such as project structure, ci
+testing, ci building, dependency management, beautiful docs or pre-commits. With
+the [cookiecutter
+template](https://github.com/lyz-code/cookiecutter-python-project), it is easy
+to create a new project with the best quality measures with zero effort.
+Furthermore, with [cruft](cruft.md) I can keep all the projects generated with
+the template updated with the best practices.
 
 ## [Clinv](https://github.com/lyz-code/clinv)
 
@@ -77,93 +170,17 @@ a DevSecOps point of view.
 * Get all your resources information.
 * Works from the command line.
 
-So I started building [clinv](https://github.com/lyz-code/clinv),
+So I started building [clinv](https://github.com/lyz-code/clinv).
 
-## [Repository pattern](https://github.com/lyz-code/repository-pattern)
+The reasons why it is dormant are:
 
-I'm creating a [Python library](https://github.com/lyz-code/repository-pattern)
-so that implementing the [repository pattern](repository_pattern.md) in new
-projects is easier.
-
-I usually spin up new ideas for programs monthly, and managing the storage of
-the information is cumbersome and repeating. My idea is to refactor that common
-codebase into a generic library that anyone can use.
-
-## [Cookiecutter Python template](https://lyz-code.github.io/cookiecutter-python-project/)
-
-Following the same reasoning as the previous section, I've spent a lot of time
-investigating quality measures for python projects, such as project structure, ci
-testing, ci building, dependency management, beautiful docs or pre-commits. With
-the [cookiecutter
-template](https://github.com/lyz-code/cookiecutter-python-project), it is easy
-to create a new project with the best quality measures with zero effort.
-Furthermore, with [cruft](cruft.md) I can keep all the projects generated with
-the template updated with the best practices.
-
-## [Autoimport](https://lyz-code.github.io/autoimport/)
-
-Throughout the development of a python program you continuously need to manage
-the python import statements either because you need one new object or because
-you no longer need it. This means that you need to stop writing whatever you
-were writing, go to the top of the file, create or remove the import statement
-and then resume coding.
-
-This workflow break is annoying and almost always unnecessary.
-[autoimport](https://lyz-code.github.io/autoimport/) solves this problem if you
-execute it whenever you have an import error, for example by configuring your
-editor to run it when saving the file.
-
-## [yamlfix](https://lyz-code.github.io/yamlfix)
-
-A simple opinionated yaml formatter that keeps your comments
-
-## Media indexation
-
-I've got a music collection of 136362 songs, belonging to [mediarss](#mediarss)
-downloads, bought CDs rips and friend library sharing. It is more less
-organized in a directory tree by genre, but I lack any library management
-features. I've got a lot of duplicates, incoherent naming scheme, no way of
-filtering or intelligent playlist generation.
-
-[playlist_generator](#playlist_generator) helped me with the last point, based
-on the metadata gathered with [mep](#mep), but it's still not enough.
-
-So I'm in my way of migrate all the library to
-[beets](http://beets.readthedocs.io/), and then I'll deprecate [mep](#mep) in
-favor to a [mpd](https://en.wikipedia.org/wiki/Music_Player_Daemon) client that
-allows me to keep on saving the same metadata.
-
-Once it's implemented, I'll migrate all the metadata to the new system.
-
-# Maintained projects
-
-Projects where I don't have my focus on, but I still give support and eventually
-develop new features.
-
-## [Drode](https://github.com/lyz-code/drode)
-
-[drode](https://github.com/lyz-code/drode) is a wrapper over the Drone and AWS
-APIs to make deployments more user friendly.
-
-It assumes that the projects are configured to continuous deliver all master
-commits to staging. Then those commits can be promoted to production or to
-staging for upgrades and rollbacks.
-
-It has the following features:
-
-* Prevent failed jobs to be promoted to production.
-* Promote jobs with less arguments than the drone command line.
-* Wait for a drone build to end, then raise the terminal bell.
-
-## Home Stock inventory
-
-I try to follow the idea of emptying my mind as much as possible, so I'm able to
-spend my CPU time wisely.
-
-Keeping track of what do you have at home or what needs to be bought is an
-effort that should be avoided.
-
-So I've integrated [Grocy](https://grocy.info/) in my life.
+* Since I started building it I've learnt about [domain driven
+    design](domain_driven_design.md), [type hints](type_hints.md),
+    [documentation](docstrings.md) and avoiding mocking as much as possible.
+    This project not being compliant with those concepts makes me want to fix it
+    before I develop any further feature.
+* The current state of the program covers my current needs of managing the
+    inventory of the infrastructure I maintain.
 
 ## Mediarss
 
@@ -180,7 +197,7 @@ Then I discovered [youtube-dl](https://github.com/ytdl-org/youtube-dl), a Python
 command-line program to download video or music from streaming sites. But
 I still laked the ability to stay updated with the artist channels.
 
-So mediarss was born.  A youtube-dl wrapper to periodically download new
+So mediarss was born. A youtube-dl wrapper to periodically download new
 content.
 
 This way, instead of using Youtube, Soundcloud or Bandcamp subscriptions, I've got
@@ -202,6 +219,51 @@ The playlists I usually generate with these filters are:
 * Songs discovered last month/year with a rating score greater than X.
 * Songs that I haven't heard since 20XX  with a rating score greater than
   X (this one gave me pleasant surprises ^^).
+
+## Media indexation
+
+I've got a music collection of more than 136362 songs, belonging to
+[mediarss](#mediarss) downloads, bought CDs rips and friend library sharing. It
+is more less organized in a directory tree by genre, but I lack any library
+management features. I've got a lot of duplicates, incoherent naming scheme, no
+way of filtering or intelligent playlist generation.
+
+[playlist_generator](#playlist_generator) helped me with the last point, based
+on the metadata gathered with [mep](#mep), but it's still not enough.
+
+So I'm in my way of migrate all the library to
+[beets](http://beets.readthedocs.io/), and then I'll deprecate [mep](#mep) in
+favor to a [mpd](https://en.wikipedia.org/wiki/Music_Player_Daemon) client that
+allows me to keep on saving the same metadata.
+
+Once it's implemented, I'll migrate all the metadata to the new system.
+
+## Home Stock inventory
+
+I try to follow the idea of emptying my mind as much as possible, so I'm able to
+spend my CPU time wisely.
+
+Keeping track of what do you have at home or what needs to be bought is an
+effort that should be avoided.
+
+So I've integrated [Grocy](https://grocy.info/) in my life.
+
+## [Drode](https://github.com/lyz-code/drode)
+
+[drode](https://github.com/lyz-code/drode) is a wrapper over the Drone and AWS
+APIs to make deployments more user friendly.
+
+It assumes that the projects are configured to continuous deliver all master
+commits to staging. Then those commits can be promoted to production or to
+staging for upgrades and rollbacks.
+
+It has the following features:
+
+* Prevent failed jobs to be promoted to production.
+* Promote jobs with less arguments than the drone command line.
+* Wait for a drone build to end, then raise the terminal bell.
+
+# Dying plants
 
 ## mep
 
