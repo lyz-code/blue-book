@@ -8,13 +8,6 @@ I haven't found a tool to monitor the context it made me track certain software
 issues, so I get lost when updates come. Until a tool shows up, I'll use the
 good old markdown to keep track.
 
-# Jellyfin
-
-* [Stuck at login page](https://github.com/jellyfin/jellyfin-web/issues/2507):
-    or if there is a new release (from 10.7.1), try to upgrade and check if the
-    issue is solved. Once it's done edit the email template of invites. reinstall the
-    Email and Kodi sync plugins.
-
 # Python dependency errors
 
 * [python-semantic-release python-gitlab

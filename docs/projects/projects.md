@@ -381,6 +381,12 @@ automate repetitive stuff.
 
 ## Others
 
+* A tool or service to follow the updates of software, right now I subscribe to
+    the releases of the github repositories, but I'd like it to be provider
+    agnostic, and cleaner than the emails github sends.
+* A tool or service to automatically update the dockers of my services in an
+    intelligent way, for example telling it to be one minor versions after the
+    last to avoid instabilities.
 * Movie/serie/music rating self hosted solution that based on your ratings
   discovers new content.
 * Hiking route classifier and rating self hosted web application.
