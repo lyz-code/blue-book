@@ -5,10 +5,7 @@ site_author: Lyz
 site_url: https://lyz-code.github.io/blue-book
 nav:
   - Introduction: index.md
-  - Meta:
-      - meta/meta.md
-      - Projects: projects/projects.md
-      - Wish list: wish_list.md
+  - Projects: projects/projects.md
   - DevOps:
       - devops/devops.md
       - Infrastructure as Code:
