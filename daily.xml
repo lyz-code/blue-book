@@ -11,7 +11,7 @@
     <managingEditor>Lyz</managingEditor>
 
     
-    <pubDate>2021-03-30 06:55:19+00:00</pubDate>
+    <pubDate>2021-03-31 08:39:17+00:00</pubDate>
     <ttl>1440</ttl>
 
     
@@ -25,6 +25,16 @@
     
 
     
+    
+    <item><title>30th March 2021</title>
+      <author>Lyz</author>
+      <description>&lt;article class=&#34;md-content__inner md-typeset&#34;&gt; &lt;a class=&#34;md-content__button md-icon&#34; href=&#34;https://github.com/lyz-code/blue-book/edit/master/docs/newsletter/2021_03_30.md&#34; title=&#34;Edit this page&#34;&gt; &lt;svg viewbox=&#34;0 0 24 24&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z&#34;&gt;&lt;/path&gt;&lt;/svg&gt; &lt;/a&gt;  &lt;h2 id=&#34;introduction&#34;&gt;&lt;a href=&#34;../..&#34;&gt;Introduction&lt;/a&gt;&lt;/h2&gt; &lt;ul&gt; &lt;li&gt;Reorganization: Merge the Meta article into the index.&lt;/li&gt; &lt;/ul&gt; &lt;h2 id=&#34;projects&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/projects/projects/&#34;&gt;Projects&lt;/a&gt;&lt;/h2&gt; &lt;ul&gt; &lt;li&gt;Reorganization: &lt;a href=&#34;https://lyz-code.github.io/blue-book/projects/projects/#seeds&#34;&gt;Merge the wish_list article into the projects.&lt;/a&gt;&lt;/li&gt; &lt;li&gt;New: Add seed to follow the updates of software.&lt;/li&gt; &lt;li&gt;New: Add seed to automatically update the dockers of maintained services.&lt;/li&gt; &lt;/ul&gt; &lt;h2 id=&#34;coding&#34;&gt;Coding&lt;/h2&gt; &lt;h3 id=&#34;issues&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/issues/&#34;&gt;Issues&lt;/a&gt;&lt;/h3&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;Correction: Jellyfin login page problem after upgrade to 10.7.X is solved.&lt;/p&gt; &lt;p&gt;Surprisingly the instructions in &lt;a href=&#34;https://github.com/jellyfin/jellyfin/issues/5489&#34;&gt;#5489&lt;/a&gt; solved it.&lt;/p&gt;  &lt;/li&gt; &lt;/ul&gt; &lt;h2 id=&#34;other&#34;&gt;Other&lt;/h2&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;New: Introduce the media system and monitor interesting issues.&lt;/p&gt; &lt;p&gt;&lt;a href=&#34;https://jellyfin.org/&#34;&gt;Jellyfin&lt;/a&gt; is a Free Software Media System that puts you in control of managing and streaming your media. It is an alternative to the proprietary Emby and Plex, to provide media from a dedicated server to end-user devices via multiple apps. Jellyfin is descended from Emby&#39;s 3.5.2 release and ported to the .NET Core framework to enable full cross-platform support. There are no strings attached, no premium licenses or features, and no hidden agendas: just a team who want to build something better and work together to achieve it.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;hr/&gt; &lt;div class=&#34;md-source-date&#34;&gt; &lt;small&gt; Last update: &lt;span class=&#34;git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago&#34;&gt;&lt;span class=&#34;timeago&#34; datetime=&#34;2021-03-31T08:39:17+00:00&#34; locale=&#34;en&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date&#34;&gt;2021-03-31&lt;/span&gt; &lt;/small&gt; &lt;/div&gt; &lt;/article&gt;</description>
+      <link>https://lyz-code.github.io/blue-book/newsletter/2021_03_30/</link>
+      <pubDate>2021-03-31 08:39:17+00:00</pubDate>
+      <source url="https://lyz-code.github.io/blue-book/daily.xml">The Blue Book</source>
+      <guid isPermaLink="true">https://lyz-code.github.io/blue-book/newsletter/2021_03_30/</guid>
+      
+    </item>
     
     <item><title>29th March 2021</title>
       <author>Lyz</author>
@@ -206,16 +216,6 @@ resources-fonts.2331/&#34;&gt;geek doing forum&lt;/a&gt; though, so it is intere
       <pubDate>2021-03-18 14:02:50+00:00</pubDate>
       <source url="https://lyz-code.github.io/blue-book/daily.xml">The Blue Book</source>
       <guid isPermaLink="true">https://lyz-code.github.io/blue-book/newsletter/2021_02_12/</guid>
-      
-    </item>
-    
-    <item><title>10th February 2021</title>
-      <author>Lyz</author>
-      <description>&lt;article class=&#34;md-content__inner md-typeset&#34;&gt; &lt;a class=&#34;md-content__button md-icon&#34; href=&#34;https://github.com/lyz-code/blue-book/edit/master/docs/newsletter/2021_02_10.md&#34; title=&#34;Edit this page&#34;&gt; &lt;svg viewbox=&#34;0 0 24 24&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z&#34;&gt;&lt;/path&gt;&lt;/svg&gt; &lt;/a&gt;  &lt;h2 id=&#34;coding&#34;&gt;Coding&lt;/h2&gt; &lt;h3 id=&#34;issues&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/issues/&#34;&gt;Issues&lt;/a&gt;&lt;/h3&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;New: Introduce the issue tracking document.&lt;/p&gt; &lt;p&gt;I haven&#39;t found a tool to monitor the context it made me track certain software issues, so I get lost when updates come. Until a tool shows up, I&#39;ll use the good old markdown to keep track of them.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;h2 id=&#34;health&#34;&gt;Health&lt;/h2&gt; &lt;h3 id=&#34;teeth&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/teeth/&#34;&gt;Teeth&lt;/a&gt;&lt;/h3&gt; &lt;ul&gt; &lt;li&gt;Correction: Recommend a regular clean instead of a deep clean.&lt;/li&gt; &lt;/ul&gt; &lt;h2 id=&#34;operative-systems&#34;&gt;Operative Systems&lt;/h2&gt; &lt;h3 id=&#34;linux&#34;&gt;Linux&lt;/h3&gt; &lt;h4 id=&#34;mkdocs&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/linux/mkdocs/&#34;&gt;mkdocs&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt;New: Explain how to develop your own plugins.&lt;/li&gt; &lt;/ul&gt; &lt;hr/&gt;  &lt;/article&gt;</description>
-      <link>https://lyz-code.github.io/blue-book/newsletter/2021_02_10/</link>
-      <pubDate>2021-03-18 14:02:50+00:00</pubDate>
-      <source url="https://lyz-code.github.io/blue-book/daily.xml">The Blue Book</source>
-      <guid isPermaLink="true">https://lyz-code.github.io/blue-book/newsletter/2021_02_10/</guid>
       
     </item>
     
