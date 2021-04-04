@@ -6,7 +6,7 @@ on:
     branches:
       - master
   schedule:
-    - cron: 11 08 * * *
+    - cron: 11 06 * * *
 
 jobs:
   deploy:

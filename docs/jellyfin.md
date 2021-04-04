@@ -14,6 +14,10 @@ just a team who want to build something better and work together to achieve it.
 
 # Issues
 
+* [Intel Hardware transcoding
+    broken](https://github.com/linuxserver/docker-jellyfin/issues/96): remove
+    the workaround script
+    `/config/custom-cont-init.d/fix-hardware-transcoding.sh`.
 * [Local social
     features](https://features.jellyfin.org/posts/349/local-social-features):
     test it and see how to share rating between users.

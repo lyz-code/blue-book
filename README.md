@@ -19,7 +19,7 @@ request, if you don't know what that means, you cal always open an
 ## Thank you
 
 If you liked my book and want to show your support, please see if you know how
-can I fulfill any item of my [wish list](wish_list.md) or contribute to [my
+can I fulfill any item of my [wish list](projects.md#seeds) or contribute to [my
 other projects](projects.md).
 
 [![CC0](https://img.shields.io/badge/license-CC0-0a0a0a.svg?style=flat&colorA=0a0a0a)](https://creativecommons.org/publicdomain/zero/1.0/)

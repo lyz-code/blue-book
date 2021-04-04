@@ -233,6 +233,7 @@ nav:
           - google chrome: linux/google_chrome.md
           - HAProxy: linux/haproxy.md
           - hypothesis: linux/hypothesis.md
+          - Jellyfin: jellyfin.md
           - LUKS: linux/luks/luks.md
           - mkdocs: linux/mkdocs.md
           - monica: linux/monica.md
