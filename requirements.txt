@@ -31,7 +31,7 @@ cryptography==3.4.7
     # via secretstorage
 deepdiff==5.2.3
     # via mkdocs-newsletter
-docutils==0.16
+docutils==0.17
     # via readme-renderer
 dotty-dict==1.3.0
     # via python-semantic-release
