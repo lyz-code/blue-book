@@ -98,6 +98,7 @@ And remove documents:
 >>> db.all()
 [{'count': 10, 'type': 'apple'}]
 ```
+
 # [Query construction](https://tinydb.readthedocs.io/en/latest/usage.html#queries)
 
 !!! note ""
@@ -324,6 +325,31 @@ If you want to know the number of documents that match a query use
 ```python
 >>> db.count(User.name == 'John')
 2
+```
+
+# Serializing custom data
+
+TinyDB has a limited support to serialize common objects, they added support for
+[custom serializers](https://github.com/msiemens/tinydb/pull/50) but [it's not
+yet documented](https://github.com/msiemens/tinydb/issues/388). Check the
+[tinydb-serialization](https://github.com/msiemens/tinydb-serialization) package
+to see how to implement your own.
+
+## [Serializing datetime objects](https://github.com/msiemens/tinydb-serialization)
+
+The [tinydb-serialization](https://github.com/msiemens/tinydb-serialization)
+package gives serialization objects for datetime objects.
+
+```python
+from tinydb import TinyDB
+from tinydb.storages import JSONStorage
+from tinydb_serialization import SerializationMiddleware
+from tinydb_serialization.serializers import DateTimeSerializer
+
+serialization = SerializationMiddleware(JSONStorage)
+serialization.register_serializer(DateTimeSerializer(), 'TinyDate')
+
+db = TinyDB('db.json', storage=serialization)
 ```
 
 # [Tables](https://tinydb.readthedocs.io/en/latest/usage.html#tables)

@@ -413,6 +413,11 @@ These steps will get you started with `mypy` on an existing codebase:
     * Developers should add annotations for any new code.
     * It’s also encouraged to write annotations when you change existing code.
 
+If you need to [ignore a linter error and a type
+error](https://stackoverflow.com/questions/51179109/set-pyflake-and-mypy-ignore-same-line)
+use first the type and then the linter. For example, `# type: ignore # noqa:
+W0212`.
+
 # [Reveal the type of an expression](https://mypy.readthedocs.io/en/stable/common_issues.html?highlight=get%20type%20of%20object#displaying-the-type-of-an-expression)
 
 You can use `reveal_type(expr)` to ask mypy to display the inferred static type

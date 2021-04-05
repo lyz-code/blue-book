@@ -82,9 +82,9 @@ Models possess the following methods and attributes:
 : returns a deep copy of the model.
 
 `parse_obj()`
-: very similar to the `__init__` method of the model, except it takes a dict
-  rather than keyword arguments. If the object passed is not a dict
-  a `ValidationError` will be raised.
+: very similar to the `__init__` method of the model, used to import objects
+    from a  dict rather than keyword arguments. If the object passed is not
+    a dict a `ValidationError` will be raised.
 
 `parse_raw()`
 : takes a *str* or *bytes* and parses it as *json*, then passes the result

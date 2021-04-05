@@ -235,7 +235,8 @@ print(t.dict(exclude={'user': {'username', 'password'}, 'value': ...}))
 #> {'id': '1234567890', 'user': {'id': 42}}
 
 print(t.dict(include={'id': ..., 'user': {'id'}}))
-#> {'id': '1234567890', 'user': {'id': 42}}```
+#> {'id': '1234567890', 'user': {'id': 42}}
+```
 
 The ellipsis (``...``) indicates that we want to exclude or include an entire
 key, just as if we included it in a set.  Of course, the same can be done at any

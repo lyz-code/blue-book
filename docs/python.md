@@ -13,6 +13,11 @@ projects.
 
 # Interesting libraries to explore
 
+* [aiomultiprocess](https://github.com/omnilib/aiomultiprocess): Presents
+    a simple interface, while running a full AsyncIO event loop on each child
+    process, enabling levels of concurrency never before seen in a Python
+    application. Each child process can execute multiple coroutines at once,
+    limited only by the workload and number of cores available.
 * [twint](https://github.com/twintproject/twint): An advanced Twitter scraping
     & OSINT tool written in Python that doesn't use Twitter's API, allowing you
     to scrape a user's followers, following, Tweets and more while evading most
