@@ -11,7 +11,7 @@
     <managingEditor>Lyz</managingEditor>
 
     
-    <pubDate>2021-03-31 08:40:10+00:00</pubDate>
+    <pubDate>2021-04-06 06:40:25+00:00</pubDate>
     <ttl>1440</ttl>
 
     
@@ -25,6 +25,16 @@
     
 
     
+    
+    <item><title>5th April 2021</title>
+      <author>Lyz</author>
+      <description>&lt;article class=&#34;md-content__inner md-typeset&#34;&gt; &lt;a class=&#34;md-content__button md-icon&#34; href=&#34;https://github.com/lyz-code/blue-book/edit/master/docs/newsletter/2021_04_05.md&#34; title=&#34;Edit this page&#34;&gt; &lt;svg viewbox=&#34;0 0 24 24&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z&#34;&gt;&lt;/path&gt;&lt;/svg&gt; &lt;/a&gt;  &lt;h2 id=&#34;coding&#34;&gt;Coding&lt;/h2&gt; &lt;h3 id=&#34;python&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/python/&#34;&gt;Python&lt;/a&gt;&lt;/h3&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;Improvement: Add aiomultiprocess to the list of libraries to test.&lt;/p&gt; &lt;p&gt;&lt;a href=&#34;https://github.com/omnilib/aiomultiprocess&#34;&gt;aiomultiprocess&lt;/a&gt;: Presents a simple interface, while running a full AsyncIO event loop on each child process, enabling levels of concurrency never before seen in a Python application. Each child process can execute multiple coroutines at once, limited only by the workload and number of cores available.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;h4 id=&#34;type-hints&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/coding/python/type_hints/&#34;&gt;Type Hints&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;Improvement: Explain how to ignore a linter error and a type error.&lt;/p&gt; &lt;p&gt;With &lt;code&gt;# type: ignore # noqa: W0212&lt;/code&gt;&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;h4 id=&#34;pydantic&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/coding/python/pydantic/&#34;&gt;Pydantic&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt;Improvement: Change parse_obj definition to find how to import pydantic models from dictionary.&lt;/li&gt; &lt;/ul&gt; &lt;h4 id=&#34;tinydb&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/coding/python/tinydb/&#34;&gt;TinyDB&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt;New: &lt;a href=&#34;https://lyz-code.github.io/blue-book/coding/python/tinydb/#serializing-custom-data&#34;&gt;Explain how to serialize datetime objects.&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt; &lt;hr/&gt;  &lt;/article&gt;</description>
+      <link>https://lyz-code.github.io/blue-book/newsletter/2021_04_05/</link>
+      <pubDate>2021-04-06 06:40:25+00:00</pubDate>
+      <source url="https://lyz-code.github.io/blue-book/daily.xml">The Blue Book</source>
+      <guid isPermaLink="true">https://lyz-code.github.io/blue-book/newsletter/2021_04_05/</guid>
+      
+    </item>
     
     <item><title>30th March 2021</title>
       <author>Lyz</author>
@@ -206,16 +216,6 @@ resources-fonts.2331/&#34;&gt;geek doing forum&lt;/a&gt; though, so it is intere
       <pubDate>2021-03-18 14:02:50+00:00</pubDate>
       <source url="https://lyz-code.github.io/blue-book/daily.xml">The Blue Book</source>
       <guid isPermaLink="true">https://lyz-code.github.io/blue-book/newsletter/2021_02_22/</guid>
-      
-    </item>
-    
-    <item><title>12th February 2021</title>
-      <author>Lyz</author>
-      <description>&lt;article class=&#34;md-content__inner md-typeset&#34;&gt; &lt;a class=&#34;md-content__button md-icon&#34; href=&#34;https://github.com/lyz-code/blue-book/edit/master/docs/newsletter/2021_02_12.md&#34; title=&#34;Edit this page&#34;&gt; &lt;svg viewbox=&#34;0 0 24 24&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z&#34;&gt;&lt;/path&gt;&lt;/svg&gt; &lt;/a&gt;  &lt;h2 id=&#34;coding&#34;&gt;Coding&lt;/h2&gt; &lt;h3 id=&#34;python&#34;&gt;Python&lt;/h3&gt; &lt;h4 id=&#34;gitpython&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/coding/python/gitpython/&#34;&gt;GitPython&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;New: Introduce the python library.&lt;/p&gt; &lt;p&gt;&lt;a href=&#34;https://gitpython.readthedocs.io&#34;&gt;GitPython&lt;/a&gt; is a python library used to interact with git repositories, high-level like git-porcelain, or low-level like git-plumbing.&lt;/p&gt; &lt;p&gt;It provides abstractions of git objects for easy access of repository data, and additionally allows you to access the git repository more directly using either a pure python implementation, or the faster, but more resource intensive git command implementation.&lt;/p&gt; &lt;p&gt;Explain how to:&lt;/p&gt; &lt;ul&gt; &lt;li&gt;Initialize or load repositories.&lt;/li&gt; &lt;li&gt;Make commits.&lt;/li&gt; &lt;li&gt;Interact with the history.&lt;/li&gt; &lt;li&gt;Test applications that use it.&lt;/li&gt; &lt;/ul&gt; &lt;/li&gt; &lt;/ul&gt; &lt;h4 id=&#34;python-snippets&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/coding/python/python_snippets/&#34;&gt;Python Snippets&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;New: Add today&#39;s learned python tricks.&lt;/p&gt; &lt;ul&gt; &lt;li&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/coding/python/python_snippets/#get-systems-timezone-and-use-it-in-datetime&#34;&gt;Get system&#39;s timezone and use it in datetime&lt;/a&gt;.&lt;/li&gt; &lt;li&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/coding/python/python_snippets/#capitalize-a-sentence&#34;&gt;Capitalize a sentence&lt;/a&gt;.&lt;/li&gt; &lt;li&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/coding/python/python_snippets/#get-the-last-monday-datetime&#34;&gt;Get the last monday datetime&lt;/a&gt;.&lt;/li&gt; &lt;/ul&gt; &lt;/li&gt; &lt;/ul&gt; &lt;h2 id=&#34;software-architecture&#34;&gt;Software Architecture&lt;/h2&gt; &lt;h3 id=&#34;architecture-decision-record&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/adr/&#34;&gt;Architecture Decision Record&lt;/a&gt;&lt;/h3&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;New: &lt;a href=&#34;https://lyz-code.github.io/blue-book/adr/#adr-template&#34;&gt;Update the ADR template with the week learnings.&lt;/a&gt;&lt;/p&gt; &lt;ul&gt; &lt;li&gt;Add the Proposals and Date sections&lt;/li&gt; &lt;li&gt;Explain the possible Status states.&lt;/li&gt; &lt;li&gt;Add an &lt;a href=&#34;https://github.com/SirVer/ultisnips&#34;&gt;Ultisnip&lt;/a&gt; vim snippet.&lt;/li&gt; &lt;li&gt;Explain how I&#39;ve used it to create &lt;a href=&#34;https://github.com/lyz-code/mkdocs-newsletter&#34;&gt;mkdocs- newsletter&lt;/a&gt;.&lt;/li&gt; &lt;/ul&gt; &lt;/li&gt; &lt;/ul&gt; &lt;h2 id=&#34;arts&#34;&gt;Arts&lt;/h2&gt; &lt;h3 id=&#34;pilates&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/pilates/&#34;&gt;Pilates&lt;/a&gt;&lt;/h3&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;New: Introduce the art.&lt;/p&gt; &lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Pilates&#34;&gt;Pilates&lt;/a&gt; is a physical fitness system based on controlled movements putting emphasis on alignment, breathing, developing a strong core, and improving coordination and balance. The core (or powerhouse), consisting of the muscles of the abdomen, low back, and hips, is thought to be the key to a person&#39;s stability.&lt;/p&gt; &lt;p&gt;Pilates&#39; system allows for different exercises to be modified in range of difficulty from beginner to advanced or to any other level, and also in terms of the instructor and practitioner&#39;s specific goals and/or limitations. Intensity can be increased over time as the body adapts itself to the exercises.&lt;/p&gt; &lt;p&gt;You can think of yoga, but without the spiritual aspects.&lt;/p&gt; &lt;p&gt;Also added:&lt;/p&gt; &lt;ul&gt; &lt;li&gt;It&#39;s principles&lt;/li&gt; &lt;li&gt;The &lt;a href=&#34;https://lyz-code.github.io/blue-book/pilates/#swing-from-table&#34;&gt;swing from table&lt;/a&gt; exercise.&lt;/li&gt; &lt;/ul&gt; &lt;/li&gt; &lt;/ul&gt; &lt;hr/&gt;  &lt;/article&gt;</description>
-      <link>https://lyz-code.github.io/blue-book/newsletter/2021_02_12/</link>
-      <pubDate>2021-03-18 14:02:50+00:00</pubDate>
-      <source url="https://lyz-code.github.io/blue-book/daily.xml">The Blue Book</source>
-      <guid isPermaLink="true">https://lyz-code.github.io/blue-book/newsletter/2021_02_12/</guid>
       
     </item>
     
