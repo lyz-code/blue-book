@@ -234,6 +234,7 @@ nav:
           - HAProxy: linux/haproxy.md
           - hypothesis: linux/hypothesis.md
           - Jellyfin: jellyfin.md
+          - ffmpeg: ffmpeg.md
           - LUKS: linux/luks/luks.md
           - mkdocs: linux/mkdocs.md
           - monica: linux/monica.md
