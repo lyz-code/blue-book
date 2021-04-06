@@ -187,7 +187,7 @@ tornado==6.1
     # via
     #   livereload
     #   mkdocs
-tqdm==4.59.0
+tqdm==4.60.0
     # via
     #   nltk
     #   twine
