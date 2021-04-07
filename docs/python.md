@@ -23,3 +23,14 @@ projects.
     to scrape a user's followers, following, Tweets and more while evading most
     API limitations.
 * [tweepy](https://github.com/tweepy/tweepy): Twitter for Python.
+
+
+# How to write good documentation
+
+It doesn't matter how good your program is, because if its documentation is not
+good enough, people will not use it.
+
+I would like to refactor
+[divio's](https://documentation.divio.com/introduction/) and
+[Vue's](https://v3.vuejs.org/guide/contributing/writing-guide.html#principles)
+guidelines in this section and apply it to my projects.

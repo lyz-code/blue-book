@@ -4,6 +4,23 @@ date: 20200717
 author: Lyz
 ---
 
+# Install a python dependency from a git repository
+
+With [pip you
+can](https://stackoverflow.com/questions/16584552/how-to-state-in-requirements-txt-a-direct-github-source):
+
+```bash
+pip install git+git://github.com/path/to/repository@master
+```
+
+If you want [to hard code it in your `setup.py`](https://stackoverflow.com/questions/32688688/how-to-write-setup-py-to-include-a-git-repository-as-a-dependency/54794506#54794506), you need to:
+
+```python
+install_requires = [
+  'some-pkg @ git+ssh://git@github.com/someorgname/pkg-repo-name@v1.1#egg=some-pkg',
+]
+```
+
 # Check directories and files
 
 ```python

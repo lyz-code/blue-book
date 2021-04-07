@@ -50,6 +50,23 @@ cursor = connection.execute('select * from bar')
 names = [description[0] for description in cursor.description]
 ```
 
+# [Regexp](https://stackoverflow.com/questions/5365451/problem-with-regexp-python-and-sqlite/5365533#5365533)
+
+[SQLite](sqlite.md) needs the user to define a [regexp](sqlite.md#regexp)
+function to be able to use the filter.
+
+```python
+import sqlite3
+import re
+
+def regexp(expr, item):
+    reg = re.compile(expr)
+    return reg.search(item) is not None
+
+conn = sqlite3.connect(':memory:')
+conn.create_function("REGEXP", 2, regexp)
+cursor = conn.cursor()
+```
 
 # References
 

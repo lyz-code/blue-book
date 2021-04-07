@@ -152,6 +152,12 @@ If you were dealing with the first one, the message between the two tracebacks w
 During handling of the above exception, another exception occurred:
 ```
 
+# Issues
+
+* [Incompatible return value with
+    TypeVar](https://github.com/python/mypy/issues/10003): search for `10003` in
+    repository-pattern and fix the `type: ignore`.
+
 # References
 
 * [Docs](https://mypy.readthedocs.io/en/stable/)

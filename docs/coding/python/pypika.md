@@ -476,6 +476,11 @@ and `^`.
     SELECT id,fname,lname,phone FROM customers WHERE age>=18 XOR is_registered
     ```
 
+!!! warning "Using the REGEXP filter"
+
+    Pypika supports regex, but if you're using [sqlite3](sqlite3.md) you need
+    to [configure the connection to the database](sqlite3.md#regexp).
+
 ### [Joining tables and subqueries](https://pypika.readthedocs.io/en/latest/2_tutorial.html#joining-tables-and-subqueries)
 
 Tables and subqueries can be joined to any query using the `Query.join()` method.

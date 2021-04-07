@@ -23,7 +23,7 @@ widely deployed database engine, as it is used today by several widespread
 browsers, operating systems, and embedded systems (such as mobile phones), among
 others.
 
-## [Upsert statements](https://www.sqlite.org/lang_UPSERT.html)
+# [Upsert statements](https://www.sqlite.org/lang_UPSERT.html)
 
 UPSERT is a special syntax addition to INSERT that causes the INSERT to behave
 as an UPDATE or a no-op if the INSERT would violate a uniqueness constraint.
@@ -65,6 +65,16 @@ INSERT INTO phonebook2(name,phonenumber,validDate)
     phonenumber=excluded.phonenumber,
     validDate=excluded.validDate
 ```
+
+# REGEXP
+
+The [REGEXP operator](https://www.sqlite.org/lang_expr.html#regexp) is a special
+syntax for the `regexp()` user function. No `regexp()` user function is defined by
+default and so use of the REGEXP operator will normally result in an error
+message. If an application-defined SQL function named `regexp` is added at
+run-time, then the `X REGEXP Y` operator will be implemented as a call to
+`regexp(Y,X)`. If you're using [sqlite3](sqlite3.md), you can check [how to
+create the regexp function](sqlite3.md#regexp).
 
 ## Troubleshooting
 

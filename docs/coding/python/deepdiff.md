@@ -78,6 +78,16 @@ To obtain the keys and values of the matched objects, you can use the
 5
 ```
 
+!!! warning "The official fort doesn't support regular expressions"
+    Until [#239](https://github.com/seperman/deepdiff/pull/239) is merged, the
+    official library doesn't support searching for regular expressions. You can
+    use [my fork](https://github.com/lyz-code/deepdiff) instead.
+
+# Issues
+
+* [Support for regular
+    expressions](https://github.com/seperman/deepdiff/issues/238): Change the
+    above warning and the requirements of repository-pattern.
 
 # References
 
