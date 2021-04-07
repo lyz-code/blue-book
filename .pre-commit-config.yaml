@@ -1,0 +1,36 @@
+---
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v3.1.0
+  hooks:
+    - id: trailing-whitespace
+    - id: check-added-large-files
+    - id: check-merge-conflict
+    - id: detect-private-key
+    - id: end-of-file-fixer
+- repo: https://github.com/amperser/proselint/
+  rev: 0.10.2
+  hooks:
+    - id: proselint
+      exclude: LICENSE|requirements
+      files: \.(md|mdown|markdown)$
+- repo: https://github.com/igorshubovych/markdownlint-cli
+  rev: v0.23.2
+  hooks:
+    - id: markdownlint
+- repo: https://github.com/Lucas-C/pre-commit-hooks-safety
+  rev: v1.1.3
+  hooks:
+    - id: python-safety-dependencies-check
+- repo: https://github.com/jazzband/pip-tools
+  rev: 5.0.0
+  hooks:
+    - name: Build requirements.txt
+      id: pip-compile
+    - name: Build requirements-dev.txt
+      id: pip-compile
+      args: ['requirements-dev.in', '--allow-unsafe']
+
+- repo: https://github.com/adrienverge/yamllint
+  rev: v1.21.0
+  hooks:
+    - id: yamllint
