@@ -21,6 +21,43 @@ install_requires = [
 ]
 ```
 
+But [Pypi won't allow you to upload the
+package](https://github.com/BaderLab/saber/issues/35), as it will give you
+an error:
+
+```
+HTTPError: 400 Bad Request from https://test.pypi.org/legacy/
+Invalid value for requires_dist. Error: Can't have direct dependency: 'deepdiff @ git+git://github.com/lyz-code/deepdiff@master'
+```
+
+It looks like this is a conscious decision on the PyPI side. Basically, they
+don't want pip to reach out to URLs outside their site when installing from PyPI.
+
+An ugly patch is to install the dependencies in a `PostInstall` custom script in
+the `setup.py` of your program:
+
+```python
+from setuptools.command.install import install
+from subprocess import getoutput
+
+# ignore: cannot subclass install, has type Any. And what would you do?
+class PostInstall(install):  # type: ignore
+    """Install direct dependency.
+
+    Pypi doesn't allow uploading packages with direct dependencies, so we need to
+    install them manually.
+    """
+
+    def run(self) -> None:
+        """Install dependencies."""
+        install.run(self)
+        print(getoutput("pip install git+git://github.com/lyz-code/deepdiff@master"))
+
+setup(
+    cmdclass={'install': PostInstall}
+)
+```
+
 # Check directories and files
 
 ```python
@@ -490,3 +527,9 @@ import datetime
 today = datetime.date.today()
 last_monday = today - datetime.timedelta(days=today.weekday())
 ```
+
+# Issues
+
+* [Pypi won't allow you to upload packages with direct
+    dependencies](https://github.com/BaderLab/saber/issues/35): update the
+    section above.

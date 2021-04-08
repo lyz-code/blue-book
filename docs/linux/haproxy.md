@@ -58,3 +58,7 @@ Other useful examples can be retrieved from [drmalex07
 ](https://gist.github.com/drmalex07/10d09c299245e3ab333c) or
 [ferdinandosimonetti](https://gist.github.com/ferdinandosimonetti/23d0d9e468314a85d803bf5e2576be4d)
 gists.
+
+# References
+
+* [Guidelines for HAProxy termination in AWS](https://github.com/jvehent/haproxy-aws)

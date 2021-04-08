@@ -40,15 +40,22 @@ every day. At the same time I'm migrating the notes of the previous
 version of this digital garden which consists on 7422 articles, almost 50
 million lines.
 
-## [Repository pattern](https://github.com/lyz-code/repository-pattern)
+## [Repository ORM](https://lyz-code.github.io/repository-orm)
 
-I'm creating a [Python library](https://github.com/lyz-code/repository-pattern)
+I'm creating a [Python library](https://github.com/lyz-code/repository-orm)
 to make it easier to use the [repository pattern](repository_pattern.md) in new
 projects.
 
 I monthly spin up new ideas for programs, and managing the storage of the
 information is cumbersome and repeating. My idea is to refactor that common
 codebase into a generic library that anyone can use.
+
+In the latest version `0.2.0`, we added:
+
+* Support for the [TinyDB
+    repository](https://lyz-code.github.io/repository-orm/tinydb_repository/).
+* Support for regular expressions in the `search` method.
+* Easier repository loading with `load_repository` function.
 
 ## [Pydo](https://lyz-code.github.io/pydo)
 
@@ -339,9 +346,21 @@ A possible architecture could be:
 It must be open sourced and Linux compatible. And it would be awesome if
 I didn't have to learn how to use another editor.
 
-Maybe [meilisearch](https://github.com/meilisearch/meilisearch) or
+Maybe [meilisearch](https://github.com/meilisearch/meilisearch) (follow their
+[blog](https://blog.meilisearch.com/)) or
 [searx](https://github.com/asciimoo/searx) could be a solution. Following
 another approach, [archivy](https://archivy.github.io/) looks good too.
+
+## Quantified self
+
+I've been gathering data about myself for a long time, but I don't have
+a centralized solution that lets me extract information.
+
+There are already good solutions to start with, being the best
+[HPI](https://beepb00p.xyz/hpi.html).
+[bionic](https://github.com/bionic-dev/bionic) or [their explanations on how to
+export data](https://github.com/bionic-dev/how-to-export-personal-data) can be
+useful too.
 
 ## Decentralized encrypted end to end VOIP and video software
 
