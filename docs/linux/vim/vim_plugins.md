@@ -94,7 +94,7 @@ let g:ale_linters = {
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'json': ['jq'],
-\   'python': ['isort']
+\   'python': ['isort'],
 \   'terraform': ['terraform'],
 \}
 inoremap <leader>e <esc>:ALENext<cr>
