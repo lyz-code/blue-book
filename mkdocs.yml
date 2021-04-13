@@ -168,6 +168,7 @@ nav:
           - Code Styling: coding/python/python_code_styling.md
           - Docstrings: coding/python/docstrings.md
           - Lazy loading: lazy_loading.md
+          - Plugin System: python_plugin_system.md
           - Profiling: python_profiling.md
           - Optimization: python_optimization.md
           - Anti-Patterns: coding/python/python_anti_patterns.md
@@ -232,6 +233,7 @@ nav:
           - fail2ban: linux/fail2ban.md
           - google chrome: linux/google_chrome.md
           - HAProxy: linux/haproxy.md
+          - Hushboard: husboard.md
           - hypothesis: linux/hypothesis.md
           - Jellyfin: jellyfin.md
           - ffmpeg: ffmpeg.md

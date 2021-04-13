@@ -297,6 +297,28 @@ This is a gathering of tools, ideas or services that I'd like to enjoy.
 If you have any lead, as smallest as it may be on how to fulfill them, please
 [contact me](contact.md).
 
+## Automate email management
+
+Most of the emails I receive require repetitive actions that can be automated,
+I've stumbled upon [notmuchmail](https://notmuchmail.org/), which looks very
+promising. A friend suggested to use
+[afew](https://afew.readthedocs.io/en/latest/) for tagging, and I'd probably use
+[alot](https://github.com/pazz/alot) to interact with the system (and finally be
+able to use email from the cli). The [alot
+docs](https://alot.readthedocs.io/en/latest/index.html) are pretty good, the
+[ncurses interface](https://github.com/pazz/alot/wiki/Gallery) is nice, and
+[pazz's mail setup](https://github.com/pazz/alot/wiki/pazz's-mail-setup) is
+exactly what I'd use. You can even send [HTML mails writing them on
+markdown](https://github.com/pazz/alot/wiki/HTML-mails). When configuring
+it, look at [Tips, Tricks and other cool
+Hacks](https://github.com/pazz/alot/wiki/Tips,-Tricks-and-other-cool-Hacks) and
+[Contrib Hooks](https://github.com/pazz/alot/wiki/Contrib-Hooks).
+
+Their [hooks
+system](https://alot.readthedocs.io/en/latest/configuration/hooks.html) is the
+perfect place to create the custom python scripts to process the different
+automatic workflows.
+
 ## Self hosted search engine
 
 It would be awesome to be able to self host a personal search engine that
@@ -351,6 +373,9 @@ Maybe [meilisearch](https://github.com/meilisearch/meilisearch) (follow their
 [searx](https://github.com/asciimoo/searx) could be a solution. Following
 another approach, [archivy](https://archivy.github.io/) looks good too.
 
+If I've already started the [quantified self](#quantified-self) project, maybe
+[adri's memex](https://github.com/adri/memex)  is a good solution.
+
 ## Quantified self
 
 I've been gathering data about myself for a long time, but I don't have
@@ -361,6 +386,19 @@ There are already good solutions to start with, being the best
 [bionic](https://github.com/bionic-dev/bionic) or [their explanations on how to
 export data](https://github.com/bionic-dev/how-to-export-personal-data) can be
 useful too.
+
+For the interface [adri's memex](https://github.com/adri/memex) looks awesome!
+It's inspired in the Andrew Louis [talk Building
+a Memex](https://www.youtube.com/watch?v=DFWxvQn4cf8&t=1616s) whose [blog
+posts](https://hyfen.net/memex/) seems to be a gold mine.
+
+Also look at [hpi's compilation](https://github.com/hpi/hpi).
+
+## Improve the way of launching applications with i3wm
+
+In the past I tried installing [rofi](https://github.com/davatorium/rofi)
+without success, I should try again. If the default features are not enough,
+check [adi1090x's custom resources](https://github.com/adi1090x/rofi).
 
 ## Decentralized encrypted end to end VOIP and video software
 
