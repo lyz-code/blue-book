@@ -228,6 +228,7 @@ nav:
       - Linux:
           - ActivityWatch: activitywatch.md
           - beancount: beancount.md
+          - Beets: beets.md
           - brew: linux/brew.md
           - elasticsearch: linux/elasticsearch.md
           - fail2ban: linux/fail2ban.md

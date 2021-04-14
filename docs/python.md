@@ -33,4 +33,6 @@ good enough, people will not use it.
 I would like to refactor
 [divio's](https://documentation.divio.com/introduction/) and
 [Vue's](https://v3.vuejs.org/guide/contributing/writing-guide.html#principles)
-guidelines in this section and apply it to my projects.
+guidelines, and compare them with [FastAPI awesome
+docs](https://fastapi.tiangolo.com/tutorial/) in this section and apply it to my
+projects.
