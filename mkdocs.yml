@@ -241,6 +241,7 @@ nav:
           - ffmpeg: ffmpeg.md
           - LUKS: linux/luks/luks.md
           - mkdocs: linux/mkdocs.md
+          - Modipy: modipy.md
           - monica: linux/monica.md
           - Miscellaneous Linux Commands: linux/linux_miscellaneous.md
           - nodejs: linux/nodejs.md

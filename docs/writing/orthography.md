@@ -11,6 +11,12 @@ message reaches people.
 
 This article is an effort to gather all my common pitfalls.
 
+# [Won't vs Wont](https://www.grammarly.com/blog/wont-vs-wont/)
+
+* Won't is the correct way to contract will not.
+* Wont is a synonym of "a habit". For example, "He went for a morning jog, as was
+    his wont".
+
 # [How to use the singular they](https://apastyle.apa.org/blog/singular-they)
 
 The singular “they” is a generic third-person pronoun used in English.
