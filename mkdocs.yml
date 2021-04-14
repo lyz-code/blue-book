@@ -133,6 +133,7 @@ nav:
               - DeepDiff: coding/python/deepdiff.md
               - FactoryBoy: coding/python/factoryboy.md
               - Faker: coding/python/faker.md
+              - FastAPI: fastapi.md
               - Flask: coding/python/flask.md
               - Folium: coding/python/folium.md
               - Feedparser: coding/python/feedparser.md
