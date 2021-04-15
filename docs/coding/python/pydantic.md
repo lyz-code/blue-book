@@ -466,6 +466,38 @@ I had to set the `arbitrary_types_allowed` because the sqlite3 objects are not
 between the pydantic object types.
 
 
+## [Set private attributes](https://pydantic-docs.helpmanual.io/usage/models/#private-model-attributes)
+
+If you want to define some attributes that are not part of the model use
+`PrivateAttr`:
+
+```python
+from datetime import datetime
+from random import randint
+
+from pydantic import BaseModel, PrivateAttr
+
+
+class TimeAwareModel(BaseModel):
+    _processed_at: datetime = PrivateAttr(default_factory=datetime.now)
+    _secret_value: str = PrivateAttr()
+
+    def __init__(self, **data: Any) -> None:
+        super().__init__(**data)
+        # this could also be done with default_factory
+        self._secret_value = randint(1, 5)
+
+
+m = TimeAwareModel()
+print(m._processed_at)
+#> 2021-03-03 17:30:04.030758
+print(m._secret_value)
+#> 5
+```
+
+
+
+
 ## Lazy loading attributes
 
 [Currently](https://github.com/samuelcolvin/pydantic/issues/935) there is no

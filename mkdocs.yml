@@ -140,6 +140,7 @@ nav:
               - GitPython: coding/python/gitpython.md
               - Jinja2: python_jinja2.md
               - mkdocstrings: coding/python/mkdocstrings.md
+              - NetworkX: networkx.md
               - Pandas: coding/python/pandas.md
               - Passpy: coding/python/passpy.md
               - pexpect: pexpect.md

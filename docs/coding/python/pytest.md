@@ -680,6 +680,14 @@ def test_value_error_is_raised():
         int('a')
 ```
 
+## [Excluding code from coverage](https://coverage.readthedocs.io/en/coverage-4.3.3/excluding.html)
+
+You may have code in your project that you know won’t be executed, and you want
+to tell `coverage.py` to ignore it. For example, if you have some code in
+abstract classes that is going to be tested on the subclasses, you can ignore it
+with `# pragma: no cover`.
+
+
 # pytest integration with Vim
 
 Integrating pytest into your Vim workflow enhances your productivity while

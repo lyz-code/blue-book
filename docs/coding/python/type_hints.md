@@ -303,7 +303,7 @@ def do_something(entity: Entity) -> Entity:
     return Entity
 ```
 
-If you use `TypeVar`, if you call the function with a type `Card`, it will know
+If you use `TypeVar`, when you call the function with a type `Card`, it will know
 that the result is of type `Card`, if you use `Union`, even if you call it with
 `Card` the return value will be `Union[Card,Deck]`.
 

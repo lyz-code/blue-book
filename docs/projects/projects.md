@@ -50,12 +50,11 @@ I monthly spin up new ideas for programs, and managing the storage of the
 information is cumbersome and repeating. My idea is to refactor that common
 codebase into a generic library that anyone can use.
 
-In the latest version `0.2.0`, we added:
+In the latest version `0.3.1`, we added:
 
-* Support for the [TinyDB
-    repository](https://lyz-code.github.io/repository-orm/tinydb_repository/).
-* Support for regular expressions in the `search` method.
-* Easier repository loading with `load_repository` function.
+* Add `first` and `last` methods to the repositories.
+* Make entity `id_` definition optional.
+* add `_model_name` attribute to entities.
 
 ## [Pydo](https://lyz-code.github.io/pydo)
 
