@@ -69,13 +69,14 @@ Pytest supports several cool flags like:
 * `-x`, or `--exitfirst`: Exit on first failed test.
 * `-l` or `--showlocals`: Print out the local variables in a test if the test
     fails.
-- `-s` Allows any output that normally would be printed to `stdout` to actually
+* `-s` Allows any output that normally would be printed to `stdout` to actually
     be printed to `stdout`. It's an alias of `--capture=no`, so the output is
     not captured when the tests are run, which is the default behavior. This is
     useful to debug with `print()` statements.
-- `--durations=N`: It reports the slowest `N` number of tests/setups/teardowns
+* `--durations=N`: It reports the slowest `N` number of tests/setups/teardowns
     after the test run. If you pass in `--durations=0`, it reports everything in
     order of slowest to fastest.
+* `--setup-show`: Show the fixtures in use.
 
 # Fixtures
 

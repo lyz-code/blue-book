@@ -127,6 +127,7 @@ nav:
                       coding/python/python_project_template/python_docker.md
           - Libraries:
               - Alembic: coding/python/alembic.md
+              - Boto3: boto3.md
               - Click: coding/python/click.md
               - Dash: coding/python/dash.md
               - Dash Leaflet: coding/python/dash_leaflet.md

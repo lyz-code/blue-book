@@ -11,6 +11,32 @@ message reaches people.
 
 This article is an effort to gather all my common pitfalls.
 
+# [I'm good or I'm well](https://thegrammargeekblog.wordpress.com/2019/05/27/im-good-or-im-well/)
+
+!!! note "TL;DR"
+    Use I'm well when referring to being ill, use I'm good for the rest.
+
+`Good` is an adjective. `Well` is usually an adverb, but it can also act as
+an adjective.
+
+Adjectives modify nouns. When you say you're having a good day, the adjective
+`good` modifies the noun `day`.
+
+When people say `I'm good`, they're using `good` to modify `I`. Because `I` is
+a noun, this use of `good` is correct. The confusion comes when using the verb
+`am`, which makes people think we need an adverb. For example, you might say, `I
+play the piano poorly`. The adverb `poorly` is modifying the verb `play`, so
+that sentence is correct.
+
+But the sentence `I'm good`', `good` is modifying `I`, it's not modifying `am`,
+so `good` is correct, and `well` is not.
+
+`Well` is an adverb, they are here to modify verbs, adjectives or other adverbs.
+You might say `I play the piano well`. Here `well` changes the verb `play`.
+However, `well` can also be an adjective, usually to describe someone who is in
+good health. So when some one says `I'm well`, they're using `well` as an
+adjective modifying `I`.
+
 # [Won't vs Wont](https://www.grammarly.com/blog/wont-vs-wont/)
 
 * Won't is the correct way to contract will not.

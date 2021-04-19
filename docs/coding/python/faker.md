@@ -78,6 +78,44 @@ fake.date_time()
 faker.pystr()
 ```
 
+## [Create a random choice from an Enum](https://github.com/NazarioJL/faker_enum)
+
+[pydantic](pydantic.md) uses `Enum` objects to define [the choices of
+fields](https://pydantic-docs.helpmanual.io/usage/types/#enums-and-choices), so
+we need them to create the factories of those objects.
+
+Sadly, there is no official provider for `Enums`, but NazarioJL made a custom
+provider.
+
+### Install
+
+```bash
+pip install fake_enum
+```
+
+### Usage
+
+```python
+from enum import Enum
+
+from faker import Faker
+from faker_enum import EnumProvider
+
+fake = Faker()
+fake.add_provider(EnumProvider)
+
+class Color(Enum):
+    RED = 1
+    GREEN = 2
+    BLUE = 3
+
+fake.enum(Color)
+# One of [Color.RED, Color.GREEN, Color.BLUE]
+```
+
+If you're using [factoryboy](factoryboy.md), check [this
+instructions](factoryboy.md#word-from-enum-choices).
+
 ## [Generate your own custom provider](https://semaphoreci.com/community/tutorials/generating-fake-data-for-python-unit-tests-with-faker)
 
 Providers are just classes which define the methods we call on `Faker` objects to

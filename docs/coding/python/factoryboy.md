@@ -111,6 +111,17 @@ default = factory.Faker('word')
 user = factory.Faker('word', ext_word_list=[None, 'value_1', 'value_2'])
 ```
 
+### Word from Enum choices
+
+First [install the Enum provider](faker.md#create-a-random-choice-from-an-enum)
+
+```python
+factory.Faker.add_provider(EnumProvider)
+
+class EntityFactory(factory.Factory):  # type: ignore
+    state = factory.Faker("enum", enum_cls=EntityState)
+```
+
 ### Sentences
 
 ```python

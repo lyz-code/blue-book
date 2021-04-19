@@ -1,0 +1,173 @@
+---
+title: Boto3
+date: 20210419
+author: Lyz
+---
+
+[Boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html) is
+the AWS SDK for Python to create, configure, and manage AWS services,
+such as Amazon Elastic Compute Cloud (Amazon EC2) and Amazon Simple Storage
+Service (Amazon S3). The SDK provides an object-oriented API as well as
+low-level access to AWS services.
+
+# [Installation](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html#installation)
+
+```bash
+pip install boto3
+```
+
+# Usage
+
+## Run EC2 instance
+
+Use the
+[`run_instances`](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Client.run_instances)
+method of the `ec2` client. Check their docs for the different configuration
+options. The required ones are `MinCount` and `MaxCount`.
+
+```python
+import boto3
+
+ec2 = boto3.client('ec2')
+instance = ec2.run_instances(MinCount=1, MaxCount=1)
+```
+
+# Type hints
+
+AWS library doesn't have working type hints `-.-`, so you either use `Any` or
+dive into the myriad of packages that implement them. I've so far tried
+[boto3_type_annotations](https://github.com/alliefitter/boto3_type_annotations),
+[boto3-stubs](https://pypi.org/project/boto3-stubs/), and
+[mypy_boto3_builder](https://github.com/vemel/mypy_boto3_builder) without
+success. `Any` it is for now...
+
+# Testing
+
+Programs that interact with AWS through `boto3` create, change or get
+information on real AWS resources.
+
+When developing these programs, you don't want the testing framework to actually
+do those changes, as it might break things and cost you money. You need to find
+a way to intercept the calls to AWS and substitute them with the data their API
+would return. I've found three ways to achieve this:
+
+* Manually mocking the `boto3` methods used by the program with `unittest.mock`.
+* Using [moto](https://github.com/spulec/moto).
+* Using [Botocore's
+    Stubber](https://botocore.amazonaws.com/v1/documentation/api/latest/reference/stubber.html).
+
+!!! note "TL;DR"
+
+    Try to use moto, using the stubber as fallback option.
+
+Using `unittest.mock` forces you to know what the API is going to return and
+hardcode it in your tests. If the response changes, you need to update your
+tests, which is not good.
+
+[moto](https://github.com/spulec/moto) is a library that allows you to easily
+mock out tests based on AWS infrastructure. It works well because it mocks out
+all calls to AWS automatically without requiring any dependency injection. The
+downside is that it goes behind `boto3` so some of the methods you need to test
+won't be still implemented, that leads us to the third option.
+
+[Botocore's
+Stubber](https://botocore.amazonaws.com/v1/documentation/api/latest/reference/stubber.html)
+is a class that allows you to stub out requests so you don't have to hit an
+endpoint to write tests. Responses are returned first in, first out. If
+operations are called out of order, or are called with no remaining queued
+responses, an error will be raised. It's like the first option but cleaner. If
+you go down this path, check [adamj's post on testing
+S3](https://adamj.eu/tech/2019/04/22/testing-boto3-with-pytest-fixtures/).
+
+## [moto](https://github.com/spulec/moto)
+
+moto's library lets you fictitiously create and change AWS resources as you
+normally do with the `boto3` library. They mimic what the real methods do on
+fake objects.
+
+The [Docs](http://docs.getmoto.org/en/latest/docs/getting_started.html) are
+awful though.
+
+### [Install](https://github.com/spulec/moto#install)
+
+```bash
+pip install moto
+```
+
+### Simple usage
+
+To understand better how it works, I'm going to show you an understandable
+example, it's not the best way to use it though, go to the [usage
+section](#usage) for production ready usage.
+
+Imagine you have a function that you use to launch new ec2 instances:
+
+```python
+import boto3
+
+
+def add_servers(ami_id, count):
+    client = boto3.client('ec2', region_name='us-west-1')
+    client.run_instances(ImageId=ami_id, MinCount=count, MaxCount=count)
+```
+
+To test it we'd use:
+
+```python
+from . import add_servers
+from moto import mock_ec2
+
+@mock_ec2
+def test_add_servers():
+    add_servers('ami-1234abcd', 2)
+
+    client = boto3.client('ec2', region_name='us-west-1')
+    instances = client.describe_instances()['Reservations'][0]['Instances']
+    assert len(instances) == 2
+    instance1 = instances[0]
+    assert instance1['ImageId'] == 'ami-1234abcd'
+```
+
+The decorator `@mock_ec2` tells `moto` to capture all `boto3` calls to AWS. When
+we run the `add_servers` function to test, it will create the fake objects on
+the memory (without contacting AWS servers), and the `client.describe_instances`
+`boto3` method returns the data of that fake data. Isn't it awesome?
+
+### Usage
+
+You can use it with [decorators](https://github.com/spulec/moto#decorator),
+[context managers](https://github.com/spulec/moto#context-manager),
+[directly](https://github.com/spulec/moto#raw-use) or with
+[pytest fixtures](https://github.com/spulec/moto#very-important----recommended-usage).
+
+Being a [pytest](pytest.md) fan, the last option looks the cleaner to me.
+
+To make sure that you don't change the real infrastructure, ensure that your
+tests have dummy environmental variables.
+
+!!! note "File: `tests/conftest.py`"
+
+    ```python
+    @pytest.fixture()
+    def _aws_credentials() -> None:
+        """Mock the AWS Credentials for moto."""
+        os.environ["AWS_ACCESS_KEY_ID"] = "testing"
+        os.environ["AWS_SECRET_ACCESS_KEY"] = "testing"
+        os.environ["AWS_SECURITY_TOKEN"] = "testing"
+        os.environ["AWS_SESSION_TOKEN"] = "testing"
+
+
+    @pytest.fixture()
+    def ec2(_aws_credentials: None) -> Any:
+        """Configure the boto3 EC2 client."""
+        with mock_ec2():
+            yield boto3.client("ec2", region_name="us-east-1")
+    ```
+
+The `ec2` fixture can then be used in the tests to setup the environment or
+assert results.
+
+# References
+
+* [Git](https://github.com/boto/boto3)
+* [Docs](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html)

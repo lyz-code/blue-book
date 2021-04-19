@@ -4,7 +4,7 @@ date: 20201016
 author: Lyz
 ---
 
-[Flakehell](https://github.com/life4/flakehell) is a [Flake8](flake8.md) wrapper
+[Flakehell](https://github.com/flakehell/flakehell) is a [Flake8](flake8.md) wrapper
 to make it cool.
 
 Some of it's features are:
@@ -207,7 +207,7 @@ Flakehell checks can be run in:
 
 # References
 
-* [Git](https://github.com/life4/flakehell)
+* [Git](https://github.com/flakehell/flakehell)
 * [Docs](https://flakehell.readthedocs.io/)
 
 * [Using Flake8 and pyproject.toml with FlakeHell article by Jonathan Bowman](https://dev.to/bowmanjd/using-flake8-and-pyproject-toml-with-flakehell-1cn1)

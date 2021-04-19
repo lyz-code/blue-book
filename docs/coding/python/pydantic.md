@@ -495,8 +495,20 @@ print(m._secret_value)
 #> 5
 ```
 
+## [Update entity attributes with a dictionary](https://pydantic-docs.helpmanual.io/usage/exporting_models/#modelcopy)
 
+To update a model with the data of a dictionary you can create a new object with
+the new data using the `update` argument of the `copy` method.
 
+```python
+class FooBarModel(BaseModel):
+    banana: float
+    foo: str
+
+m = FooBarModel(banana=3.14, foo='hello')
+
+m.copy(update={'banana': 0})
+```
 
 ## Lazy loading attributes
 

@@ -58,6 +58,10 @@ setup(
 )
 ```
 
+!!! warning "It may not work!"
+    Last time I used this solution, when I added the library on a `setup.py` the
+    direct dependencies weren't installed :S
+
 # Check directories and files
 
 ```python
