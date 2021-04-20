@@ -332,6 +332,54 @@ Check the official docs to check the method arguments:
 * [`create_hosted_zone`](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53.html#Route53.Client.create_hosted_zone).
 * [`change_resource_record_sets`](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53.html#Route53.Client.change_resource_record_sets).
 
+#### Test VPC
+
+Use the `ec2` fixture defined in the [usage section](#usage).
+
+To create an instance use:
+
+```python
+instance = ec2.create_vpc(
+    CidrBlock="172.16.0.0/16",
+)["Vpc"]
+```
+
+Check the official docs to check the method arguments:
+
+* [`create_vpc`](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Client.create_vpc).
+* [`create_subnet`](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Client.create_subnet).
+
+#### Testing autoscaling groups
+
+Use the `autoscaling` fixture:
+
+```python
+from moto import mock_autoscaling
+
+@pytest.fixture(name='autoscaling')
+def autoscaling_(_aws_credentials: None) -> Any:
+    """Configure the boto3 Autoscaling Group client."""
+    with mock_autoscaling():
+        yield boto3.client("autoscaling")
+```
+
+
+They don't [yet support
+LaunchTemplates](https://github.com/spulec/moto/issues/2003), so you'll have to
+use LaunchConfigurations. To create an instance use:
+
+
+```python
+autoscaling.create_launch_configuration(LaunchConfigurationName='LaunchConfiguration', ImageId='ami-xxxx', InstanceType='t2.medium')
+autoscaling.create_auto_scaling_group(AutoScalingGroupName='ASG name', MinSize=1, MaxSize=3, LaunchConfigurationName='LaunchConfiguration', AvailabilityZones=['us-east-1a'])
+```
+
+https://github.com/spulec/moto/issues/2582
+
+Check the official docs to check the method arguments:
+
+* [`create_auto_scaling_group`](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/autoscaling.html#AutoScaling.Client.create_auto_scaling_group).
+* [`create_launch_configuration`](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/autoscaling.html#AutoScaling.Client.create_launch_configuration).
 
 # References
 
