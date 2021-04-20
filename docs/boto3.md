@@ -167,6 +167,172 @@ tests have dummy environmental variables.
 The `ec2` fixture can then be used in the tests to setup the environment or
 assert results.
 
+#### Testing EC2
+
+If you want to add security groups to the tests, you need to create the resource
+first.
+
+```python
+def test_ec2_with_security_groups(ec2: Any) -> None:
+    security_group_id = ec2.create_security_group(
+        GroupName="TestSecurityGroup", Description="SG description"
+    )["GroupId"]
+    instance = ec2.run_instances(
+        ImageId="ami-xxxx",
+        MinCount=1,
+        MaxCount=1,
+        SecurityGroupIds=[security_group_id],
+    )["Instances"][0]
+
+    # Test your code here
+```
+
+To add tags, use:
+
+```python
+def test_ec2_with_security_groups(ec2: Any) -> None:
+    instance = ec2.run_instances(
+        ImageId="ami-xxxx",
+        MinCount=1,
+        MaxCount=1,
+        TagSpecifications=[
+            {
+                "ResourceType": "instance",
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "instance name",
+                    },
+                ],
+            }
+        ],
+    )["Instances"][0]
+
+    # Test your code here
+```
+
+#### Testing RDS
+
+Use the `rds` fixture:
+
+```python
+from moto import mock_rds2
+
+@pytest.fixture()
+def rds(_aws_credentials: None) -> Any:
+    """Configure the boto3 RDS client."""
+    with mock_rds2():
+        yield boto3.client("rds", region_name="us-east-1")
+```
+
+To create an instance use:
+
+```python
+instance = rds.create_db_instance(
+    DBInstanceIdentifier="db-xxxx",
+    DBInstanceClass="db.m3.2xlarge",
+    Engine="postgres",
+)["DBInstance"]
+```
+
+It won't have VPC information, if you need it, [create the subnet group
+first](https://github.com/spulec/moto/issues/2183) (you'll need the `ec2`
+fixture too):
+
+```python
+subnets = [subnet['SubnetId'] for subnet in ec2.describe_subnets()["Subnets"]]
+rds.create_db_subnet_group(DBSubnetGroupName="dbsg", SubnetIds=subnets, DBSubnetGroupDescription="Text")
+instance = rds.create_db_instance(
+    DBInstanceIdentifier="db-xxxx",
+    DBInstanceClass="db.m3.2xlarge",
+    Engine="postgres",
+    DBSubnetGroupName="dbsg",
+)["DBInstance"]
+```
+
+#### Testing S3
+
+Use the `s3_mock` fixture:
+
+```python
+from moto import mock_s3
+
+@pytest.fixture()
+def s3_mock(_aws_credentials: None) -> Any:
+    """Configure the boto3 S3 client."""
+    with mock_s3():
+        yield boto3.client("s3")
+```
+
+To create an instance use:
+
+```python
+s3_mock.create_bucket(Bucket="mybucket")
+instance = s3_mock.list_buckets()["Buckets"][0]
+```
+
+Check the [official
+docs](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.create_bucket)
+to check the `create_bucket` arguments.
+
+#### Testing Route53
+
+Use the `route53` fixture:
+
+```python
+from moto import mock_route53
+
+@pytest.fixture(name='route53')
+def route53_(_aws_credentials: None) -> Any:
+    """Configure the boto3 Route53 client."""
+    with mock_route53():
+        yield boto3.client("route53")
+```
+
+To create an instance use:
+
+```python
+hosted_zone = route53.create_hosted_zone(
+    Name="example.com", CallerReference="Test"
+)["HostedZone"]
+hosted_zone_id = re.sub(".hostedzone.", "", hosted_zone["Id"])
+route53.change_resource_record_sets(
+    ChangeBatch={
+        "Changes": [
+            {
+                "Action": "CREATE",
+                "ResourceRecordSet": {
+                    "Name": "example.com",
+                    "ResourceRecords": [
+                        {
+                            "Value": "192.0.2.44",
+                        },
+                    ],
+                    "TTL": 60,
+                    "Type": "A",
+                },
+            },
+        ],
+        "Comment": "Web server for example.com",
+    },
+    HostedZoneId=hosted_zone_id,
+)
+```
+You need to first create a hosted zone. The `change_resource_record_sets` order
+to create the instance doesn't return any data, so if you need to work on it,
+use the `list_resource_record_sets` method of the route53 client (you'll need to
+set the `HostedZoneId` argument). If you have many records, the endpoint gives
+you a paginated response, so if the `IsTruncated` attribute is `True`, you need
+to call the method again setting the `StartRecordName` and `StartRecordType` to
+the `NextRecordName` and `NextRecordType` response arguments. Not nice at all.
+
+
+Check the official docs to check the method arguments:
+
+* [`create_hosted_zone`](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53.html#Route53.Client.create_hosted_zone).
+* [`change_resource_record_sets`](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53.html#Route53.Client.change_resource_record_sets).
+
+
 # References
 
 * [Git](https://github.com/boto/boto3)
