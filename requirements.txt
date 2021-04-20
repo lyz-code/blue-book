@@ -113,7 +113,7 @@ mkdocs==1.1.2
     #   mkdocs-minify-plugin
     #   mkdocs-newsletter
     #   mkdocs-section-index
-nltk==3.6.1
+nltk==3.6.2
     # via lunr
 ordered-set==4.0.2
     # via deepdiff
