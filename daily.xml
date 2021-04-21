@@ -11,7 +11,7 @@
     <managingEditor>Lyz</managingEditor>
 
     
-    <pubDate>2021-04-20 06:43:13+00:00</pubDate>
+    <pubDate>2021-04-21 06:40:03+00:00</pubDate>
     <ttl>1440</ttl>
 
     
@@ -25,6 +25,16 @@
     
 
     
+    
+    <item><title>20th April 2021</title>
+      <author>Lyz</author>
+      <description>&lt;article class=&#34;md-content__inner md-typeset&#34;&gt; &lt;a class=&#34;md-content__button md-icon&#34; href=&#34;https://github.com/lyz-code/blue-book/edit/master/docs/newsletter/2021_04_20.md&#34; title=&#34;Edit this page&#34;&gt; &lt;svg viewbox=&#34;0 0 24 24&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z&#34;&gt;&lt;/path&gt;&lt;/svg&gt; &lt;/a&gt;  &lt;h2 id=&#34;coding&#34;&gt;Coding&lt;/h2&gt; &lt;h3 id=&#34;python&#34;&gt;Python&lt;/h3&gt; &lt;h4 id=&#34;boto3&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/boto3/&#34;&gt;Boto3&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt;New: Explain how to test ec2, route53, s3, and rds resources.&lt;/li&gt; &lt;li&gt;New: Explain how to test vpc and auto scaling group resources.&lt;/li&gt; &lt;/ul&gt; &lt;h4 id=&#34;rich&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/rich/&#34;&gt;rich&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;New: Introduce the python cli builder library and it&#39;s progress bar.&lt;/p&gt; &lt;p&gt;&lt;a href=&#34;https://github.com/willmcgugan/rich&#34;&gt;Rich&lt;/a&gt; is a Python library for rich text and beautiful formatting in the terminal.&lt;/p&gt; &lt;p&gt;Check out the beautiful progress bar:&lt;/p&gt;  &lt;/li&gt; &lt;/ul&gt; &lt;hr/&gt; &lt;div class=&#34;md-source-date&#34;&gt; &lt;small&gt; Last update: &lt;span class=&#34;git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago&#34;&gt;&lt;span class=&#34;timeago&#34; datetime=&#34;2021-04-21T06:40:03+00:00&#34; locale=&#34;en&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date&#34;&gt;2021-04-21&lt;/span&gt; &lt;/small&gt; &lt;/div&gt; &lt;/article&gt;</description>
+      <link>https://lyz-code.github.io/blue-book/newsletter/2021_04_20/</link>
+      <pubDate>2021-04-21 06:40:03+00:00</pubDate>
+      <source url="https://lyz-code.github.io/blue-book/daily.xml">The Blue Book</source>
+      <guid isPermaLink="true">https://lyz-code.github.io/blue-book/newsletter/2021_04_20/</guid>
+      
+    </item>
     
     <item><title>19th April 2021</title>
       <author>Lyz</author>
@@ -180,16 +190,6 @@ connections&#34;&gt;Relaying connections&lt;/a&gt; options.&lt;/p&gt; &lt;/li&gt
       <pubDate>2021-03-18 14:02:50+00:00</pubDate>
       <source url="https://lyz-code.github.io/blue-book/daily.xml">The Blue Book</source>
       <guid isPermaLink="true">https://lyz-code.github.io/blue-book/newsletter/2021_03_13/</guid>
-      
-    </item>
-    
-    <item><title>10th March 2021</title>
-      <author>Lyz</author>
-      <description>&lt;article class=&#34;md-content__inner md-typeset&#34;&gt; &lt;a class=&#34;md-content__button md-icon&#34; href=&#34;https://github.com/lyz-code/blue-book/edit/master/docs/newsletter/2021_03_10.md&#34; title=&#34;Edit this page&#34;&gt; &lt;svg viewbox=&#34;0 0 24 24&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z&#34;&gt;&lt;/path&gt;&lt;/svg&gt; &lt;/a&gt;  &lt;h2 id=&#34;devops&#34;&gt;DevOps&lt;/h2&gt; &lt;h3 id=&#34;monitoring&#34;&gt;Monitoring&lt;/h3&gt; &lt;h4 id=&#34;prometheus-install&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/devops/prometheus/prometheus_installation/&#34;&gt;Prometheus Install&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;Improvement: &lt;a href=&#34;https://lyz-code.github.io/blue-book/devops/prometheus/prometheus_installation/#upgrading-notes&#34;&gt;Add upgrading notes from 10.x -&amp;gt; 11.1.7.&lt;/a&gt;&lt;/p&gt;  &lt;/li&gt; &lt;/ul&gt; &lt;h2 id=&#34;coding&#34;&gt;Coding&lt;/h2&gt; &lt;h3 id=&#34;python&#34;&gt;Python&lt;/h3&gt; &lt;h4 id=&#34;python-snippets&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/coding/python/python_snippets/&#34;&gt;Python Snippets&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;New: Add file management snippets.&lt;/p&gt; &lt;ul&gt; &lt;li&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/coding/python/python_snippets/#remove-the-extension-of-a-file&#34;&gt;Remove the extension of a file&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/coding/python/python_snippets/#iterate-over-the-files-of-a-directory&#34;&gt;Iterate over the files of a directory&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/coding/python/python_snippets/#create-directory&#34;&gt;Create directory&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/coding/python/python_snippets/#touch-a-file&#34;&gt;Touch a file&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;Improvement: &lt;a href=&#34;https://lyz-code.github.io/blue-book/coding/python/python_snippets/#get-the-first-day-of-next-month&#34;&gt;Get the first day of next month.&lt;/a&gt;&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;h2 id=&#34;life-management&#34;&gt;Life Management&lt;/h2&gt; &lt;h3 id=&#34;automation&#34;&gt;Automation&lt;/h3&gt; &lt;h4 id=&#34;fitness-tracker&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/fitness_band/&#34;&gt;Fitness Tracker&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;Improvement: Discovery of wasp-os and Colmi P8.&lt;/p&gt; &lt;p&gt;&lt;a href=&#34;https://github.com/daniel-thompson/wasp-os&#34;&gt;wasp-os&lt;/a&gt; is an open source firmware for smart watches that are based on the nRF52 family of microcontrollers. Fully supported by &lt;a href=&#34;https://lyz-code.github.io/blue-book/gadgetbridge/&#34;&gt;gadgetbridge&lt;/a&gt;, Wasp-os features full heart rate monitoring and step counting support together with multiple clock faces, a stopwatch, an alarm clock, a countdown timer, a calculator and lots of other games and utilities. All of this, and still with access to the MicroPython REPL for interactive tweaking, development and testing.&lt;/p&gt; &lt;p&gt;One of the supported devices, the &lt;a href=&#34;https://wasp-os.readthedocs.io/en/latest/install.html#colmi-p8&#34;&gt;Colmi P8&lt;/a&gt;, looks really good.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;h2 id=&#34;operative-systems&#34;&gt;Operative Systems&lt;/h2&gt; &lt;h3 id=&#34;linux&#34;&gt;Linux&lt;/h3&gt; &lt;h4 id=&#34;mkdocs&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/linux/mkdocs/&#34;&gt;mkdocs&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;Correction: &lt;a href=&#34;https://lyz-code.github.io/blue-book/linux/mkdocs/#adding-new-files&#34;&gt;Explain how to add files through a plugin.&lt;/a&gt;&lt;/p&gt; &lt;p&gt;Long story short, use the &lt;code&gt;on_config&lt;/code&gt; event instead of &lt;code&gt;on_files&lt;/code&gt; and &lt;code&gt;on_nav&lt;/code&gt; if you need to add files and want to change the navigation menu.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;hr/&gt; &lt;div class=&#34;md-source-date&#34;&gt; &lt;small&gt; Last update: &lt;span class=&#34;git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago&#34;&gt;&lt;span class=&#34;timeago&#34; datetime=&#34;2021-03-27T21:10:19+00:00&#34; locale=&#34;en&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date&#34;&gt;2021-03-27&lt;/span&gt; &lt;/small&gt; &lt;/div&gt; &lt;/article&gt;</description>
-      <link>https://lyz-code.github.io/blue-book/newsletter/2021_03_10/</link>
-      <pubDate>2021-03-27 21:10:19+00:00</pubDate>
-      <source url="https://lyz-code.github.io/blue-book/daily.xml">The Blue Book</source>
-      <guid isPermaLink="true">https://lyz-code.github.io/blue-book/newsletter/2021_03_10/</guid>
       
     </item>
     
