@@ -454,6 +454,13 @@ result = client.post(
 )
 ```
 
+# Logging to Sentry
+
+FastAPI can [integrate with
+Sentry](https://philstories.medium.com/integrate-sentry-to-fastapi-7250603c070f)
+or similar [application loggers](python_logging.md) through the [ASGI
+middleware](https://fastapi.tiangolo.com/advanced/middleware/#other-middlewares).
+
 # Interesting features to explore
 
 * [Structure big

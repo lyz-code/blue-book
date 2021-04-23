@@ -363,7 +363,6 @@ def autoscaling_(_aws_credentials: None) -> Any:
         yield boto3.client("autoscaling")
 ```
 
-
 They don't [yet support
 LaunchTemplates](https://github.com/spulec/moto/issues/2003), so you'll have to
 use LaunchConfigurations. To create an instance use:
@@ -372,14 +371,76 @@ use LaunchConfigurations. To create an instance use:
 ```python
 autoscaling.create_launch_configuration(LaunchConfigurationName='LaunchConfiguration', ImageId='ami-xxxx', InstanceType='t2.medium')
 autoscaling.create_auto_scaling_group(AutoScalingGroupName='ASG name', MinSize=1, MaxSize=3, LaunchConfigurationName='LaunchConfiguration', AvailabilityZones=['us-east-1a'])
+instance = autoscaling.describe_auto_scaling_groups()["AutoScalingGroups"][0]
 ```
-
-https://github.com/spulec/moto/issues/2582
 
 Check the official docs to check the method arguments:
 
 * [`create_auto_scaling_group`](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/autoscaling.html#AutoScaling.Client.create_auto_scaling_group).
 * [`create_launch_configuration`](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/autoscaling.html#AutoScaling.Client.create_launch_configuration).
+* [`describe_auto_scaling_groups`](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/autoscaling.html#AutoScaling.Client.describe_auto_scaling_groups).
+
+#### Test Security Groups
+
+Use the `ec2` fixture defined in the [usage section](#usage).
+
+To create an instance use:
+
+```python
+
+instance_id = ec2.create_security_group(
+    GroupName="TestSecurityGroup", Description="SG description"
+)["GroupId"]
+instance = ec2.describe_security_groups(GroupIds=[instance_id])
+```
+
+To add permissions to the security group you need to use the
+`authorize_security_group_ingress` and `authorize_security_group_egress`
+methods.
+
+```python
+ec2.authorize_security_group_ingress(
+    GroupId=instance_id,
+    IpPermissions=[
+        {
+            "IpProtocol": "tcp",
+            "FromPort": 80,
+            "ToPort": 80,
+            "IpRanges": [{"CidrIp": "0.0.0.0/0"}],
+        },
+    ],
+)
+```
+
+By default, the created security group comes with an egress rule to
+allow all traffic. To remove rules use the `revoke_security_group_egress` and
+`revoke_security_group_ingress` methods.
+
+```python
+ec2.revoke_security_group_egress(
+    GroupId=instance_id,
+    IpPermissions=[
+        {"IpProtocol": "-1", "IpRanges": [{"CidrIp": "0.0.0.0/0"}]},
+    ],
+)
+```
+
+
+
+Check the official docs to check the method arguments:
+
+* [`create_security_group`](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Client.create_security_group).
+* [`describe_security_group`](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Client.describe_security_groups).
+* [`authorize_security_group_ingress`](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Client.authorize_security_group_ingress).
+* [`authorize_security_group_egress`](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Client.authorize_security_group_egress).
+* [`revoke_security_group_ingress`](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Client.revoke_security_group_ingress).
+* [`revoke_security_group_egress`](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Client.revoke_security_group_egress).
+
+# Issues
+
+* [Support LaunchTemplates](https://github.com/spulec/moto/issues/2003): Once
+    they are, test [clinv](https://github.com/lyz-code/clinv) autoscaling group
+    adapter support for launch templates.
 
 # References
 

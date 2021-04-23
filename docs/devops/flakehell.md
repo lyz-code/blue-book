@@ -205,6 +205,20 @@ Flakehell checks can be run in:
     Assuming you're using a Makefile like the one in my
     [cookiecutter-python-project](https://github.com/lyz-code/cookiecutter-python-project/).
 
+# Issues
+
+* ['Namespace' object has no attribute 'extended_default_ignore'
+    error](https://github.com/flakehell/flakehell/issues/10#issuecomment-823512441):
+    Until it's fixed either use a version below or equal to 3.9.0, or add to
+    your `pyproject.toml`:
+
+    ```ini
+    [tool.flakehell]
+    extended_default_ignore=[]  # add this
+    ```
+
+    Once it's fixed, remove the patch from the maintained projects.
+
 # References
 
 * [Git](https://github.com/flakehell/flakehell)

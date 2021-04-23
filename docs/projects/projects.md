@@ -391,7 +391,9 @@ It's inspired in the Andrew Louis [talk Building
 a Memex](https://www.youtube.com/watch?v=DFWxvQn4cf8&t=1616s) whose [blog
 posts](https://hyfen.net/memex/) seems to be a gold mine.
 
-Also look at [hpi's compilation](https://github.com/hpi/hpi).
+Also look at [hpi's compilation](https://github.com/hpi/hpi) and the
+[awesome-quantified-self](https://github.com/woop/awesome-quantified-self)
+resources.
 
 ## Improve the way of launching applications with i3wm
 
@@ -434,6 +436,11 @@ your own.
 
 Host a [virtual assistant](virtual_assistant.md) in my servers to help me
 automate repetitive stuff.
+
+## Migrate software bug tracker to a vendor free one
+
+Instead of relaying on Github, I could use something like
+[git-bug](https://github.com/MichaelMure/git-bug).
 
 ## Others
 

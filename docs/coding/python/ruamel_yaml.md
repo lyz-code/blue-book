@@ -19,8 +19,11 @@ It has the following enhancements:
 
 # Installation
 
+I suggest to use the `ruyaml` fork, as it's maintained by the community and
+versioned with git.
+
 ```bash
-pip install ruamel.yaml
+pip install ruyaml
 ```
 
 # Usage

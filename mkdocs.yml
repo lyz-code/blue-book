@@ -169,6 +169,7 @@ nav:
               - TinyDB: coding/python/tinydb.md
               - Yoyo: coding/python/yoyo.md
           - Type Hints: coding/python/type_hints.md
+          - Logging: python_logging.md
           - Code Styling: coding/python/python_code_styling.md
           - Docstrings: coding/python/docstrings.md
           - Lazy loading: lazy_loading.md
