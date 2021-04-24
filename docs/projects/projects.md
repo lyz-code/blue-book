@@ -401,6 +401,52 @@ In the past I tried installing [rofi](https://github.com/davatorium/rofi)
 without success, I should try again. If the default features are not enough,
 check [adi1090x's custom resources](https://github.com/adi1090x/rofi).
 
+## Improve the notification management in Linux
+
+I want to be able to group and silence the notifications under a custom logic.
+For example:
+
+* If I want to focus on a task, only show the most important ones.
+* Only show alerts once every X minutes. Or define that I want to receive them
+    the first 10 minutes of every hour.
+* If I'm not working, silence all work alerts.
+
+From what I see [dunst](https://dunst-project.org/) notification manager
+supports rules and filters, if it's not powerful enough, I may use it with
+a custom script that uses [apprise](https://github.com/caronc/apprise).
+
+Check [Archlinux dunst wiki page](https://wiki.archlinux.org/index.php/Dunst) and the [source
+code](https://github.com/dunst-project/dunst) too.
+
+## Improve the hard drive monitor system
+
+Use something like [scrutiny](https://github.com/AnalogJ/scrutiny) (there's
+a [linuxserver image](https://docs.linuxserver.io/images/docker-scrutiny)) to
+collect and display the information. For alerts, use one of their [supported
+providers](https://github.com/AnalogJ/scrutiny#notifications).
+
+## Improve the periodic tasks and application metrics monitoring
+
+Setup an [healthchecks](https://healthchecks.io/) instance with the [linuxserver
+image](https://docs.linuxserver.io/images/docker-healthchecks) to monitor
+cronjobs.
+
+For the notifications either use the [prometheus
+metrics](https://healthchecks.io/docs/configuring_prometheus/) or an
+[apprise](https://github.com/healthchecks/healthchecks/issues/271) compatible
+system.
+
+See the source code [here](https://github.com/healthchecks/healthchecks).
+
+## Aggregate all notifications
+
+Instead of reading the email, github, gitlab, discourse, reddit notifications,
+aggregate all in one place and show them to the user in a nice command line
+interface.
+
+For the aggregator server, my first choice would be
+[gotify](https://gotify.net/).
+
 ## Decentralized encrypted end to end VOIP and video software
 
 I'd like to be able to make phone and video calls keeping in mind that:
@@ -454,8 +500,8 @@ Instead of relaying on Github, I could use something like
   discovers new content.
 * Hiking route classifier and rating self hosted web application.
 * A command line friendly personal CRM like
-    [Monica](https://github.com/monicahq/monica) that is able to [register the
-    time length and rating of
+    [Monica](https://github.com/monicahq/monica) that is able to
+    [register the time length and rating of
     interactions](https://github.com/monicahq/monica/issues/4186) to do data
     analysis on my relations.
 * Digital e-ink note taking system that is affordable, self hosted and performs

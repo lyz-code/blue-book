@@ -227,6 +227,38 @@ These are the basics, FastAPI supports more complex patterns such as:
     models](https://fastapi.tiangolo.com/tutorial/body-fields/).
 * [Nested models](https://fastapi.tiangolo.com/tutorial/body-nested-models/).
 
+# [Sending data to the client](https://fastapi.tiangolo.com/advanced/response-directly/)
+
+When you create a FastAPI path operation you can normally return any data from
+it: a `dict`, a `list`, a Pydantic model, a database model, etc.
+
+By default, FastAPI would automatically convert that return value to JSON using
+the `jsonable_encoder`.
+
+To return custom responses such as a direct string, xml or html use
+[`Response`](https://fastapi.tiangolo.com/advanced/response-directly/#returning-a-custom-response):
+
+```python
+from fastapi import FastAPI, Response
+
+app = FastAPI()
+
+
+@app.get("/legacy/")
+def get_legacy_data():
+    data = """<?xml version="1.0"?>
+    <shampoo>
+    <Header>
+        Apply shampoo here.
+    </Header>
+    <Body>
+        You'll have to use soap here.
+    </Body>
+    </shampoo>
+    """
+    return Response(content=data, media_type="application/xml")
+```
+
 # [Handling errors](https://fastapi.tiangolo.com/tutorial/handling-errors/)
 
 There are many situations in where you need to notify an error to a client that

@@ -13,6 +13,12 @@ projects.
 
 # Interesting libraries to explore
 
+* [apprise](https://github.com/caronc/apprise): Allows you to send
+    a notification to almost all of the most popular notification services
+    available to us today such as: Linux, Telegram, Discord, Slack, Amazon SNS,
+    Gotify, etc. Look at [all the supported
+    notifications](https://github.com/caronc/apprise#supported-notifications)
+    `(¬º-°)¬`.
 * [aiomultiprocess](https://github.com/omnilib/aiomultiprocess): Presents
     a simple interface, while running a full AsyncIO event loop on each child
     process, enabling levels of concurrency never before seen in a Python
