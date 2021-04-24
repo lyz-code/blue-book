@@ -98,7 +98,7 @@ mkdocs-material==7.1.2
     #   mkdocs-material-extensions
 mkdocs-minify-plugin==0.4.0
     # via -r requirements.in
-mkdocs-newsletter==0.2.1
+mkdocs-newsletter==0.3.0
     # via -r requirements.in
 mkdocs-section-index==0.2.3
     # via
