@@ -11,7 +11,7 @@
     <managingEditor>Lyz</managingEditor>
 
     
-    <pubDate>2021-04-21 06:40:55+00:00</pubDate>
+    <pubDate>2021-04-24 06:41:56+00:00</pubDate>
     <ttl>1440</ttl>
 
     
@@ -25,6 +25,16 @@
     
 
     
+    
+    <item><title>23rd April 2021</title>
+      <author>Lyz</author>
+      <description>&lt;article class=&#34;md-content__inner md-typeset&#34;&gt; &lt;a class=&#34;md-content__button md-icon&#34; href=&#34;https://github.com/lyz-code/blue-book/edit/master/docs/newsletter/2021_04_23.md&#34; title=&#34;Edit this page&#34;&gt; &lt;svg viewbox=&#34;0 0 24 24&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z&#34;&gt;&lt;/path&gt;&lt;/svg&gt; &lt;/a&gt;  &lt;h2 id=&#34;projects&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/projects/projects/&#34;&gt;Projects&lt;/a&gt;&lt;/h2&gt; &lt;ul&gt; &lt;li&gt;Improvement: &lt;a href=&#34;projects.md#quantified-self&#34;&gt;Add [woop awesome quantified self](https://github.com/woop/awesome-quantified-self) resources to the research list.&lt;/a&gt;&lt;/li&gt; &lt;li&gt;New: &lt;a href=&#34;projects.md#migrate-software-bug-tracker-to-a-vendor-free-one&#34;&gt;Add project to migrate software bug tracker to a vendor free one like [git-bug](https://github.com/MichaelMure/git-bug).&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt; &lt;h2 id=&#34;devops&#34;&gt;DevOps&lt;/h2&gt; &lt;h3 id=&#34;continuous-integration&#34;&gt;Continuous Integration&lt;/h3&gt; &lt;h4 id=&#34;flakehell&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/devops/flakehell/&#34;&gt;Flakehell&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;New: Explain how to patch the extended_default_ignore error for versions &amp;gt; 3.9.0.&lt;/p&gt; &lt;p&gt;Add to your your &lt;code&gt;pyproject.toml&lt;/code&gt;:&lt;/p&gt;  &lt;/li&gt; &lt;/ul&gt; &lt;h2 id=&#34;coding&#34;&gt;Coding&lt;/h2&gt; &lt;h3 id=&#34;python&#34;&gt;Python&lt;/h3&gt; &lt;h4 id=&#34;boto3&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/boto3/&#34;&gt;Boto3&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;Improvement: Explain how to extract the instance when testing autoscaling groups.&lt;/p&gt; &lt;p&gt;Also track the &lt;a href=&#34;https://lyz-code.github.io/blue-book/boto3/#issues&#34;&gt;issue to add support to launch templates&lt;/a&gt;.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;New: &lt;a href=&#34;https://lyz-code.github.io/blue-book/boto3/#test-security-groups&#34;&gt;Explain how to test security groups.&lt;/a&gt;&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;h4 id=&#34;logging&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/python_logging/&#34;&gt;Logging&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;New: Explain how to log python program exceptions better than to a file.&lt;/p&gt; &lt;p&gt;Using &lt;code&gt;logging&lt;/code&gt; to write write exceptions and breadcrumbs to a file might not be the best solution because unless you look at it directly most errors will pass unnoticed.&lt;/p&gt; &lt;p&gt;To actively monitor and react to code exceptions use an application monitoring platform like &lt;a href=&#34;https://sentry.io/welcome/&#34;&gt;sentry&lt;/a&gt;.&lt;/p&gt; &lt;p&gt;In the article I explain what are the advantages of using this solution and do a comparison between Sentry and &lt;a href=&#34;https://glitchtip.com&#34;&gt;GlitchTip&lt;/a&gt;.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;h4 id=&#34;fastapi&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/fastapi/&#34;&gt;FastAPI&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt;New: &lt;a href=&#34;https://lyz-code.github.io/blue-book/fastapi/#logging-to-sentry&#34;&gt;Explain how to log exceptions to sentry.&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt; &lt;h4 id=&#34;ruamel-yaml&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/coding/python/ruamel_yaml/&#34;&gt;Ruamel YAML&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;Improvement: Suggest to use ruyaml instead of ruamel.yaml.&lt;/p&gt; &lt;p&gt;As it&#39;s maintained by the community and versioned with git.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;hr/&gt; &lt;div class=&#34;md-source-date&#34;&gt; &lt;small&gt; Last update: &lt;span class=&#34;git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago&#34;&gt;&lt;span class=&#34;timeago&#34; datetime=&#34;2021-04-24T06:41:56+00:00&#34; locale=&#34;en&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date&#34;&gt;2021-04-24&lt;/span&gt; &lt;/small&gt; &lt;/div&gt; &lt;/article&gt;</description>
+      <link>https://lyz-code.github.io/blue-book/newsletter/2021_04_23/</link>
+      <pubDate>2021-04-24 06:41:56+00:00</pubDate>
+      <source url="https://lyz-code.github.io/blue-book/daily.xml">The Blue Book</source>
+      <guid isPermaLink="true">https://lyz-code.github.io/blue-book/newsletter/2021_04_23/</guid>
+      
+    </item>
     
     <item><title>20th April 2021</title>
       <author>Lyz</author>
@@ -179,17 +189,6 @@ elements-inside-the-recording-area&#34;&gt;may not even be clickable&lt;/a&gt;.&
       <pubDate>2021-03-19 10:17:33+00:00</pubDate>
       <source url="https://lyz-code.github.io/blue-book/daily.xml">The Blue Book</source>
       <guid isPermaLink="true">https://lyz-code.github.io/blue-book/newsletter/2021_03_18/</guid>
-      
-    </item>
-    
-    <item><title>13th March 2021</title>
-      <author>Lyz</author>
-      <description>&lt;article class=&#34;md-content__inner md-typeset&#34;&gt; &lt;a class=&#34;md-content__button md-icon&#34; href=&#34;https://github.com/lyz-code/blue-book/edit/master/docs/newsletter/2021_03_13.md&#34; title=&#34;Edit this page&#34;&gt; &lt;svg viewbox=&#34;0 0 24 24&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z&#34;&gt;&lt;/path&gt;&lt;/svg&gt; &lt;/a&gt;  &lt;h2 id=&#34;operative-systems&#34;&gt;Operative Systems&lt;/h2&gt; &lt;h3 id=&#34;linux&#34;&gt;Linux&lt;/h3&gt; &lt;h4 id=&#34;activitywatch&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/activitywatch/&#34;&gt;ActivityWatch&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;New: Introduce ActivityWatch tracking software.&lt;/p&gt; &lt;p&gt;It&#39;s a web application that can be installed both in Linux and Android that automatically tracks where you spend the time on.&lt;/p&gt; &lt;p&gt;Super interesting for life logging and automating stuff. Until I save some time to react on the data, I&#39;ll just gather it and see how to aggregate it.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;h4 id=&#34;syncthing&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/linux/syncthing/&#34;&gt;Syncthing&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;Improvement: Mention privacy configurations.&lt;/p&gt; &lt;p&gt;Disable the &lt;a href=&#34;https://docs.syncthing.net/users/security.html#global-discovery&#34;&gt;Global Discovery&lt;/a&gt; and &lt;a href=&#34;https://docs.syncthing.net/users/security.html#relay-
-connections&#34;&gt;Relaying connections&lt;/a&gt; options.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;h3 id=&#34;android&#34;&gt;Android&lt;/h3&gt; &lt;h4 id=&#34;signal&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/signal/&#34;&gt;Signal&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt;New: Introduce the messaging app and how to decrypt the backups.&lt;/li&gt; &lt;/ul&gt; &lt;hr/&gt;  &lt;/article&gt;</description>
-      <link>https://lyz-code.github.io/blue-book/newsletter/2021_03_13/</link>
-      <pubDate>2021-03-18 14:02:50+00:00</pubDate>
-      <source url="https://lyz-code.github.io/blue-book/daily.xml">The Blue Book</source>
-      <guid isPermaLink="true">https://lyz-code.github.io/blue-book/newsletter/2021_03_13/</guid>
       
     </item>
     
