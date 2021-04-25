@@ -459,7 +459,6 @@ class Error(Exception):
     """Base class for exceptions in this module."""
 
 
-
 class ConceptNotFoundError(Error):
     """Transactions with unmatched concept."""
 

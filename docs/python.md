@@ -13,6 +13,16 @@ projects.
 
 # Interesting libraries to explore
 
+* [kivi](https://kivy.org/): Create android/Linux/iOS/Windows applications with
+    python. Use it with [kivimd](https://github.com/kivymd/KivyMD) to make it beautiful,
+    check [the examples](https://github.com/HeaTTheatR/Articles) and the
+    [docs](https://kivymd.readthedocs.io/en/latest/).
+
+    For beginner tutorials check the [real
+    python's](https://realpython.com/mobile-app-kivy-python/) and [towards data
+    science](https://towardsdatascience.com/building-android-apps-with-python-part-1-603820bebde8?gi=9a0166808127)
+    (and [part
+    2](https://medium.com/swlh/building-android-apps-with-python-part-2-1d8e78ef9166)).
 * [apprise](https://github.com/caronc/apprise): Allows you to send
     a notification to almost all of the most popular notification services
     available to us today such as: Linux, Telegram, Discord, Slack, Amazon SNS,

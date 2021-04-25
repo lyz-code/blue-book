@@ -98,6 +98,11 @@ library](#repository-pattern).
 
 # Dormant Plants
 
+## [faker-optional](https://lyz-code.github.io/faker-optional/)
+
+Wrapper over other Faker providers to return their value or `None`. Useful to
+create data of type `Optional[Any]`.
+
 ## [mkdocs-newsletter](https://github.com/lyz-code/mkdocs-newsletter)
 
 MkDocs plugin to show the changes of documentation repositories in a user
@@ -516,4 +521,6 @@ Instead of relaying on Github, I could use something like
     functionality. I tried using it but it didn't work for me, and I don't know
     if it works for other files.
 * A markdown formatter that fixes the indentation of lists.
+* A python library to automatically create [factoryboy](factoryboy.md) factories
+    using the schema of [pydantic](pydantic.md) models.
 * An e-reader support that could be fixed to the wall.

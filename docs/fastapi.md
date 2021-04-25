@@ -337,9 +337,88 @@ You can also use the HTTP PATCH operation to partially update data.
 This means that you can send only the data that you want to update, leaving the
 rest intact.
 
-# OpenAPI configuration
+# Configuration
 
-## [Define title, description and version](https://fastapi.tiangolo.com/tutorial/metadata/#title-description-and-version)
+## [Application configuration](https://fastapi.tiangolo.com/advanced/settings/)
+
+In many cases your application could need some external settings or
+configurations, for example secret keys, database credentials, credentials for
+email services, etc.
+
+You can load these configurations through [environmental
+variables](https://fastapi.tiangolo.com/advanced/settings/#environment-variables),
+or you can use the awesome [Pydantic settings
+management](https://pydantic-docs.helpmanual.io/usage/settings/), whose
+advantages are:
+
+* Do Pydantic's type validation on the fields.
+* [Automatically reads the missing values from environmental variables](https://pydantic-docs.helpmanual.io/usage/settings/#environment-variable-names).
+* Supports reading variables from [Dotenv
+    files](https://pydantic-docs.helpmanual.io/usage/settings/#dotenv-env-support).
+* [Supports
+    secrets](https://pydantic-docs.helpmanual.io/usage/settings/#secret-support).
+
+First you define the `Settings` class with all the fields:
+
+!!! note "File: `config.py`"
+    ```python
+    from pydantic import BaseSettings
+
+
+    class Settings(BaseSettings):
+        verbose: bool = True
+        database_url: str = "tinydb://~/.local/share/pyscrobbler/database.tinydb"
+    ```
+
+Then in the api definition, [set the
+dependency](https://fastapi.tiangolo.com/advanced/settings/#settings-in-a-dependency).
+
+!!! note "File: `api.py`"
+
+    ```python
+    from functools import lru_cache
+    from fastapi import Depends, FastAPI
+
+
+    app = FastAPI()
+
+    @lru_cache()
+    def get_settings() -> Settings:
+        """Configure the program settings."""
+        return Settings()
+
+    @app.get("/verbose")
+    def verbose(settings: Settings = Depends(get_settings)) -> bool:
+        return settings.verbose
+    ```
+
+Where:
+
+* `get_settings` is the dependency function that configures the `Settings`
+    object. The endpoint `verbose` is [dependant of
+    `get_settings`](https://fastapi.tiangolo.com/tutorial/dependencies/).
+* [The `@lru_cache`
+    decorator](https://fastapi.tiangolo.com/advanced/settings/#creating-the-settings-only-once-with-lru_cache)
+    changes the function it decorates to return the same value that was
+    returned the first time, instead of computing it again, executing the code
+    of the function every time.
+
+    So, the function will be executed once for each combination of arguments.
+    And then the values returned by each of those combinations of arguments will
+    be used again and again whenever the function is called with exactly the
+    same combination of arguments.
+
+    Creating the `Settings` object is a costly operation as it needs to check
+    the environment variables or read a file, so we want to do it just once, not
+    on each request.
+
+This setup makes it easy to [inject testing
+configuration](#inject-testing-configuration) so as not to break production
+code.
+
+## OpenAPI configuration
+
+### [Define title, description and version](https://fastapi.tiangolo.com/tutorial/metadata/#title-description-and-version)
 
 ```python
 from fastapi import FastAPI
@@ -351,7 +430,7 @@ app = FastAPI(
 )
 ```
 
-## [Define path tags](https://fastapi.tiangolo.com/tutorial/path-operation-configuration/#tags)
+### [Define path tags](https://fastapi.tiangolo.com/tutorial/path-operation-configuration/#tags)
 
 You can add tags to your path operation, pass the parameter tags with a list of
 `str` (commonly just one `str`):
@@ -388,7 +467,7 @@ async def read_users():
 They will be added to the OpenAPI schema and used by the automatic documentation
 interfaces.
 
-### [Add metadata to the tags](https://fastapi.tiangolo.com/tutorial/metadata/#metadata-for-tags)
+#### [Add metadata to the tags](https://fastapi.tiangolo.com/tutorial/metadata/#metadata-for-tags)
 
 ```python
 tags_metadata = [
@@ -410,7 +489,7 @@ tags_metadata = [
 
 app = FastAPI(openapi_tags=tags_metadata)
 
-## [Add a summary and description](https://fastapi.tiangolo.com/tutorial/path-operation-configuration/#summary-and-description)
+### [Add a summary and description](https://fastapi.tiangolo.com/tutorial/path-operation-configuration/#summary-and-description)
 
 ```python
 @app.post("/items/", response_model=Item, summary="Create an item")
@@ -427,7 +506,7 @@ async def create_item(item: Item):
     return item
 ```
 
-## [Response description](https://fastapi.tiangolo.com/tutorial/path-operation-configuration/#response-description)
+### [Response description](https://fastapi.tiangolo.com/tutorial/path-operation-configuration/#response-description)
 
 ```python
 @app.post(
@@ -438,7 +517,7 @@ async def create_item(item: Item):
     return item
 ```
 
-## [Deprecate a path operation](https://fastapi.tiangolo.com/tutorial/path-operation-configuration/#deprecate-a-path-operation)
+### [Deprecate a path operation](https://fastapi.tiangolo.com/tutorial/path-operation-configuration/#deprecate-a-path-operation)
 
 When you need to mark a path operation as deprecated, but without removing it
 
@@ -467,10 +546,12 @@ async def read_main():
     return {"msg": "Hello World"}
 
 
-client = TestClient(app)
+@pytest.fixture(name="client")
+def client_() -> TestClient:
+    """Configure FastAPI TestClient."""
+    return TestClient(app)
 
-
-def test_read_main():
+def test_read_main(client: TestClient):
     response = client.get("/")
     assert response.status_code == 200
     assert response.json() == {"msg": "Hello World"}
@@ -484,6 +565,43 @@ result = client.post(
     headers={"X-Token": "coneofsilence"},
     json={"id": "foobar", "title": "Foo Bar", "description": "The Foo Barters"},
 )
+```
+
+## Inject testing configuration
+
+If your application follows the [application configuration
+section](#application-configuration), injecting testing configuration is easy
+with [dependency
+injection](https://fastapi.tiangolo.com/advanced/testing-dependencies/).
+
+Imagine you have a `db_tinydb` [fixture](pytest.md#fixtures) that sets up the
+testing database:
+
+```python
+@pytest.fixture(name="db_tinydb")
+def db_tinydb_(tmpdir: LocalPath) -> str:
+    """Create an TinyDB database engine.
+
+    Returns:
+        database_url: Url used to connect to the database.
+    """
+    tinydb_file_path = str(tmpdir.join("tinydb.db"))
+    return f"tinydb:///{tinydb_file_path}"
+```
+
+You can override the default `database_url` with:
+
+```python
+@pytest.fixture(name="client")
+def client_(db_tinydb: str) -> TestClient:
+    """Configure FastAPI TestClient."""
+
+    def override_settings() -> Settings:
+        """Inject the testing database in the application settings."""
+        return Settings(database_url=db_tinydb)
+
+    app.dependency_overrides[get_settings] = override_settings
+    return TestClient(app)
 ```
 
 # Logging to Sentry

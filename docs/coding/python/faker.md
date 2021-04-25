@@ -116,6 +116,44 @@ fake.enum(Color)
 If you're using [factoryboy](factoryboy.md), check [this
 instructions](factoryboy.md#word-from-enum-choices).
 
+## [Create `Optional` data](https://lyz-code.github.io/faker-optional/)
+
+### [Install](https://lyz-code.github.io/faker-optional/#installing)
+
+```bash
+pip install fake-optional
+```
+
+### [Usage](https://lyz-code.github.io/faker-optional/#a-simple-example)
+
+```python
+from faker import Faker
+from faker_optional import OptionalProvider
+
+fake = Faker()
+fake.add_provider(OptionalProvider)
+
+fake.optional_int()
+# None
+
+fake.optional_int()
+# 1234
+```
+
+`OptionalProvider` uses existent faker providers to create the data, so you can
+use the provider method arguments.
+
+For example, `optional_int` uses the [`python provider
+pyint`](https://faker.readthedocs.io/en/master/providers/faker.providers.python.html#faker.providers.python.Provider.pyint),
+so you can use the `min_value`, `max_value`, and `step` arguments. Every
+`optional_` method accepts the float `ratio` argument between `0` and `1`, with
+a default value of `0.5` to define what percent of results should be `None`,
+a greater value will mean that less results will be `None`.
+
+Check the [supported
+methods](https://lyz-code.github.io/faker-optional/reference/#faker_optional.model.OptionalProvider).
+
+
 ## [Generate your own custom provider](https://semaphoreci.com/community/tutorials/generating-fake-data-for-python-unit-tests-with-faker)
 
 Providers are just classes which define the methods we call on `Faker` objects to
