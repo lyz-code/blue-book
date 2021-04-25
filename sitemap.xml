@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
-     <loc>https://lyz-code.github.io/blue-book/</loc>
-     <lastmod>2021-04-25</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
      <loc>https://lyz-code.github.io/blue-book/projects/projects/</loc>
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
@@ -21,6 +17,10 @@
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/helm_git/</loc>
+     <lastmod>2021-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/devops/helm/helm/</loc>
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
@@ -88,6 +88,10 @@
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
+     <loc>https://lyz-code.github.io/blue-book/devops/kubectl/kubectl/</loc>
+     <lastmod>2021-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
      <loc>https://lyz-code.github.io/blue-book/devops/kubernetes/kubernetes_metric_server/</loc>
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
@@ -124,6 +128,10 @@
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
+     <loc>https://lyz-code.github.io/blue-book/devops/kubernetes/kubernetes/</loc>
+     <lastmod>2021-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
      <loc>https://lyz-code.github.io/blue-book/devops/aws/security_groups/</loc>
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
@@ -140,7 +148,15 @@
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
+     <loc>https://lyz-code.github.io/blue-book/devops/aws/iam/iam/</loc>
+     <lastmod>2021-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
      <loc>https://lyz-code.github.io/blue-book/devops/aws/s3/</loc>
+     <lastmod>2021-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/devops/aws/aws/</loc>
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
@@ -196,6 +212,10 @@
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
+     <loc>https://lyz-code.github.io/blue-book/devops/ci/</loc>
+     <lastmod>2021-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
      <loc>https://lyz-code.github.io/blue-book/linux/cookiecutter/</loc>
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
@@ -240,11 +260,27 @@
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
+     <loc>https://lyz-code.github.io/blue-book/devops/prometheus/prometheus/</loc>
+     <lastmod>2021-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
      <loc>https://lyz-code.github.io/blue-book/devops/kong/kong/</loc>
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
+     <loc>https://lyz-code.github.io/blue-book/devops/api_management/</loc>
+     <lastmod>2021-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
      <loc>https://lyz-code.github.io/blue-book/refinement_template/</loc>
+     <lastmod>2021-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/scrum/</loc>
+     <lastmod>2021-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/devops/devops/</loc>
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
@@ -253,6 +289,10 @@
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/coding/python/python_project_template/python_sqlalchemy_without_flask/</loc>
+     <lastmod>2021-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/coding/python/python_project_template/python_cli_template/</loc>
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
@@ -277,6 +317,10 @@
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/coding/python/python_project_template/python_docker/</loc>
+     <lastmod>2021-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/coding/python/python_project_template/</loc>
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
@@ -377,6 +421,10 @@
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/coding/python/pydantic_mypy_plugin/</loc>
+     <lastmod>2021-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/coding/python/pydantic/</loc>
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
@@ -488,11 +536,23 @@
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
+     <loc>https://lyz-code.github.io/blue-book/coding/python/pytest/</loc>
+     <lastmod>2021-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
      <loc>https://lyz-code.github.io/blue-book/coding/python/python_snippets/</loc>
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
+     <loc>https://lyz-code.github.io/blue-book/python/</loc>
+     <lastmod>2021-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
      <loc>https://lyz-code.github.io/blue-book/mermaidjs/</loc>
+     <lastmod>2021-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/coding/javascript/javascript/</loc>
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
@@ -529,6 +589,10 @@
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/architecture/service_layer_pattern/</loc>
+     <lastmod>2021-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/architecture/domain_driven_design/</loc>
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
@@ -580,6 +644,10 @@
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
+     <loc>https://lyz-code.github.io/blue-book/fitness_band/</loc>
+     <lastmod>2021-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
      <loc>https://lyz-code.github.io/blue-book/life_automation/vim_automation/</loc>
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
@@ -600,11 +668,19 @@
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
+     <loc>https://lyz-code.github.io/blue-book/teeth/</loc>
+     <lastmod>2021-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
      <loc>https://lyz-code.github.io/blue-book/remote_work/</loc>
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/anonymous_feedback/</loc>
+     <lastmod>2021-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/diversity/</loc>
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
@@ -696,6 +772,10 @@
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
+     <loc>https://lyz-code.github.io/blue-book/vim/</loc>
+     <lastmod>2021-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
      <loc>https://lyz-code.github.io/blue-book/wake_on_lan/</loc>
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
@@ -733,6 +813,14 @@
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/writing/build_your_own_wiki/</loc>
+     <lastmod>2021-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/digital_garden/</loc>
+     <lastmod>2021-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/writing/writing/</loc>
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
@@ -784,6 +872,10 @@
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
+     <loc>https://lyz-code.github.io/blue-book/drawing/drawing/</loc>
+     <lastmod>2021-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
      <loc>https://lyz-code.github.io/blue-book/origami/</loc>
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
@@ -832,6 +924,10 @@
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
+     <loc>https://lyz-code.github.io/blue-book/newsletter/2021_w15/</loc>
+     <lastmod>2021-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
      <loc>https://lyz-code.github.io/blue-book/newsletter/2021_04_10/</loc>
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
@@ -852,6 +948,10 @@
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
+     <loc>https://lyz-code.github.io/blue-book/newsletter/2021_w14/</loc>
+     <lastmod>2021-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
      <loc>https://lyz-code.github.io/blue-book/newsletter/2021_03_30/</loc>
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
@@ -860,7 +960,15 @@
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
+     <loc>https://lyz-code.github.io/blue-book/newsletter/2021_w13/</loc>
+     <lastmod>2021-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
      <loc>https://lyz-code.github.io/blue-book/newsletter/2021_03_26/</loc>
+     <lastmod>2021-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/newsletter/2021_w12/</loc>
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
@@ -872,11 +980,19 @@
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
+     <loc>https://lyz-code.github.io/blue-book/newsletter/2021_w11/</loc>
+     <lastmod>2021-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
      <loc>https://lyz-code.github.io/blue-book/newsletter/2021_03_13/</loc>
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/newsletter/2021_03_10/</loc>
+     <lastmod>2021-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/newsletter/2021_w10/</loc>
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
@@ -889,6 +1005,14 @@
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/newsletter/2021_03_02/</loc>
+     <lastmod>2021-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/newsletter/2021_w09/</loc>
+     <lastmod>2021-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/newsletter/2021_03/</loc>
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
@@ -912,6 +1036,10 @@
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
+     <loc>https://lyz-code.github.io/blue-book/newsletter/2021_w08/</loc>
+     <lastmod>2021-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
      <loc>https://lyz-code.github.io/blue-book/newsletter/2021_02_12/</loc>
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
@@ -928,6 +1056,10 @@
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
+     <loc>https://lyz-code.github.io/blue-book/newsletter/2021_w06/</loc>
+     <lastmod>2021-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
      <loc>https://lyz-code.github.io/blue-book/newsletter/2021_02_05/</loc>
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
@@ -937,6 +1069,14 @@
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/newsletter/2021_02_02/</loc>
+     <lastmod>2021-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/newsletter/2021_w05/</loc>
+     <lastmod>2021-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/newsletter/2021_02/</loc>
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
@@ -952,6 +1092,10 @@
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
+     <loc>https://lyz-code.github.io/blue-book/newsletter/2021_w04/</loc>
+     <lastmod>2021-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
      <loc>https://lyz-code.github.io/blue-book/newsletter/2021_01_22/</loc>
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
@@ -964,7 +1108,19 @@
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
+     <loc>https://lyz-code.github.io/blue-book/newsletter/2021_w03/</loc>
+     <lastmod>2021-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
      <loc>https://lyz-code.github.io/blue-book/newsletter/2021_01_05/</loc>
+     <lastmod>2021-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/newsletter/2021_w01/</loc>
+     <lastmod>2021-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/newsletter/2021_01/</loc>
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
@@ -984,6 +1140,10 @@
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
+     <loc>https://lyz-code.github.io/blue-book/newsletter/2020_w52/</loc>
+     <lastmod>2021-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
      <loc>https://lyz-code.github.io/blue-book/newsletter/2020_12_18/</loc>
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
@@ -993,6 +1153,10 @@
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/newsletter/2020_12_15/</loc>
+     <lastmod>2021-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/newsletter/2020_w51/</loc>
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
@@ -1008,6 +1172,10 @@
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
+     <loc>https://lyz-code.github.io/blue-book/newsletter/2020_w50/</loc>
+     <lastmod>2021-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
      <loc>https://lyz-code.github.io/blue-book/newsletter/2020_12_03/</loc>
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
@@ -1016,11 +1184,23 @@
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
+     <loc>https://lyz-code.github.io/blue-book/newsletter/2020_w49/</loc>
+     <lastmod>2021-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/newsletter/2020_12/</loc>
+     <lastmod>2021-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
      <loc>https://lyz-code.github.io/blue-book/newsletter/2020_11_25/</loc>
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/newsletter/2020_11_24/</loc>
+     <lastmod>2021-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/newsletter/2020_w48/</loc>
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
@@ -1036,6 +1216,10 @@
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
+     <loc>https://lyz-code.github.io/blue-book/newsletter/2020_w47/</loc>
+     <lastmod>2021-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
      <loc>https://lyz-code.github.io/blue-book/newsletter/2020_11_13/</loc>
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
@@ -1048,11 +1232,23 @@
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
+     <loc>https://lyz-code.github.io/blue-book/newsletter/2020_w46/</loc>
+     <lastmod>2021-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
      <loc>https://lyz-code.github.io/blue-book/newsletter/2020_11_07/</loc>
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
+     <loc>https://lyz-code.github.io/blue-book/newsletter/2020_w45/</loc>
+     <lastmod>2021-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
      <loc>https://lyz-code.github.io/blue-book/newsletter/2020_w44/</loc>
+     <lastmod>2021-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/newsletter/2020_11/</loc>
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
@@ -1076,11 +1272,19 @@
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
+     <loc>https://lyz-code.github.io/blue-book/newsletter/2020_w43/</loc>
+     <lastmod>2021-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
      <loc>https://lyz-code.github.io/blue-book/newsletter/2020_10_16/</loc>
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/newsletter/2020_10_15/</loc>
+     <lastmod>2021-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/newsletter/2020_w42/</loc>
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
@@ -1096,7 +1300,19 @@
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
+     <loc>https://lyz-code.github.io/blue-book/newsletter/2020_w41/</loc>
+     <lastmod>2021-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
      <loc>https://lyz-code.github.io/blue-book/newsletter/2020_10_01/</loc>
+     <lastmod>2021-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/newsletter/2020_w40/</loc>
+     <lastmod>2021-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/newsletter/2020_10/</loc>
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
@@ -1112,7 +1328,15 @@
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
+     <loc>https://lyz-code.github.io/blue-book/newsletter/2020_w39/</loc>
+     <lastmod>2021-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
      <loc>https://lyz-code.github.io/blue-book/newsletter/2020_09_16/</loc>
+     <lastmod>2021-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/newsletter/2020_w38/</loc>
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
@@ -1128,6 +1352,10 @@
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
+     <loc>https://lyz-code.github.io/blue-book/newsletter/2020_w37/</loc>
+     <lastmod>2021-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
      <loc>https://lyz-code.github.io/blue-book/newsletter/2020_09_04/</loc>
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
@@ -1137,6 +1365,14 @@
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/newsletter/2020_09_01/</loc>
+     <lastmod>2021-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/newsletter/2020_w36/</loc>
+     <lastmod>2021-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/newsletter/2020_09/</loc>
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
@@ -1160,11 +1396,19 @@
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
+     <loc>https://lyz-code.github.io/blue-book/newsletter/2020_w35/</loc>
+     <lastmod>2021-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
      <loc>https://lyz-code.github.io/blue-book/newsletter/2020_08_20/</loc>
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/newsletter/2020_08_19/</loc>
+     <lastmod>2021-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/newsletter/2020_w34/</loc>
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
@@ -1181,6 +1425,10 @@
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/newsletter/2020_w31/</loc>
+     <lastmod>2021-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/newsletter/2020_08/</loc>
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
@@ -1204,7 +1452,23 @@
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
+     <loc>https://lyz-code.github.io/blue-book/newsletter/2020_w29/</loc>
+     <lastmod>2021-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
      <loc>https://lyz-code.github.io/blue-book/newsletter/2020_w28/</loc>
+     <lastmod>2021-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/newsletter/2020_07/</loc>
+     <lastmod>2021-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/newsletter/2020/</loc>
+     <lastmod>2021-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/newsletter/0_newsletter_index/</loc>
      <lastmod>2021-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
