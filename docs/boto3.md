@@ -321,11 +321,14 @@ route53.change_resource_record_sets(
 You need to first create a hosted zone. The `change_resource_record_sets` order
 to create the instance doesn't return any data, so if you need to work on it,
 use the `list_resource_record_sets` method of the route53 client (you'll need to
-set the `HostedZoneId` argument). If you have many records, the endpoint gives
+set the `HostedZoneId` argument). If you have more than 300 records, the endpoint gives
 you a paginated response, so if the `IsTruncated` attribute is `True`, you need
 to call the method again setting the `StartRecordName` and `StartRecordType` to
 the `NextRecordName` and `NextRecordType` response arguments. Not nice at all.
 
+Pagination [is not yet supported by
+moto](https://github.com/spulec/moto/issues/3879), so you won't be able to test
+that part of your code.
 
 Check the official docs to check the method arguments:
 
@@ -425,8 +428,6 @@ ec2.revoke_security_group_egress(
 )
 ```
 
-
-
 Check the official docs to check the method arguments:
 
 * [`create_security_group`](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Client.create_security_group).
@@ -441,6 +442,8 @@ Check the official docs to check the method arguments:
 * [Support LaunchTemplates](https://github.com/spulec/moto/issues/2003): Once
     they are, test [clinv](https://github.com/lyz-code/clinv) autoscaling group
     adapter support for launch templates.
+* [Support Route53 pagination](https://github.com/spulec/moto/issues/3879): test
+    clinv route53 update and update the [test route53](#test-route53) section.
 
 # References
 

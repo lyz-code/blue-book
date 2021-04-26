@@ -689,6 +689,34 @@ abstract classes that is going to be tested on the subclasses, you can ignore it
 with `# pragma: no cover`.
 
 
+# [Running tests in parallel](https://pypi.org/project/pytest-xdist/)
+
+`pytest-xdist` makes it possible to run the tests in parallel, useful when the
+test suit is large or when the tests are slow.
+
+## Installation
+
+```bash
+pip install pytest-xdist
+```
+
+## Usage
+
+```bash
+pytest -n 4
+```
+
+It will run the tests with `4` workers. If you use `auto` it will adapt the
+number of workers to the number of CPUS, or 1 if you use `--pdb`.
+
+To configure it in the `pyproject.toml` use the `addopts`
+
+```ini
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-vv --tb=short -n auto"
+```
+
 # pytest integration with Vim
 
 Integrating pytest into your Vim workflow enhances your productivity while
@@ -699,7 +727,7 @@ can be installed through [Vundle](https://github.com/VundleVim/Vundle.vim)) with
 following configuration.
 
 ```vim
-nmap <silent> t :TestNearest<CR>
+nmap <silent> t :TestNearest --pdb<CR>
 nmap <silent> <leader>t :TestSuite tests/unit<CR>
 nmap <silent> <leader>i :TestSuite tests/integration<CR>
 nmap <silent> <leader>T :TestFile<CR>
@@ -719,6 +747,9 @@ my `<leader>`). And finally I use `;i` to run the integration tests.
 
 Finally, if the test suite is huge, I use `;T` to run only the tests of a single
 file.
+
+As you can see only the `t` has the `--pdb` flag, so the rest of them will run
+en parallel and any pdb trace will fail.
 
 
 # Reference
