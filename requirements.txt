@@ -141,7 +141,7 @@ python-dateutil==2.8.1
     # via mkdocs-newsletter
 python-gitlab==2.7.1
     # via python-semantic-release
-python-semantic-release==7.15.3
+python-semantic-release==7.15.4
     # via mkdocs-newsletter
 pytz==2021.1
     # via babel
