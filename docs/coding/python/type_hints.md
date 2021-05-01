@@ -203,61 +203,6 @@ def player(name: str, start: Optional[str] = None) -> str:
 
 A similar way would be to use `Union[None, str]`.
 
-## [Allow any subclass](https://mypy.readthedocs.io/en/stable/kinds_of_types.html#union-types)
-
-It's not yet supported (unless inheriting from an abstract class), so the expected format
-
-```python
-class A:
-    pass
-
-class B(A):
-    pass
-
-def process_any_subclass_type_of_A(cls: A):
-    pass
-
-process_any_subclass_type_of_A(B)
-```
-
-Will fail with `error: Argument 1 to "process_any_subclass_type_of_A" has
-incompatible type "Type[B]"; expected "A"`.
-
-The solution is to use the `Union` operator:
-
-```python
-class A:
-    pass
-
-class B(A):
-    pass
-
-class C(A):
-    pass
-
-def process_any_subclass_type_of_A(cls: Union[B,C]):
-    pass
-```
-
-The following works:
-
-```python
-class A(abc.ABC):
-    @abc.abstractmethod
-    def add(self):
-        raise NotImplementedError
-class B(A):
-    def add(self):
-        pass
-
-class C(A):
-    def add(self):
-        pass
-
-def process_any_subclass_type_of_A(cls: A):
-    pass
-```
-
 ## Type aliases
 
 Type hints might become oblique when working with nested types. If it's the
@@ -276,72 +221,111 @@ def deal_hands(deck: Deck) -> Tuple[Deck, Deck, Deck, Deck]:
     return (deck[0::4], deck[1::4], deck[2::4], deck[3::4])
 ```
 
-## [Generic types](https://www.python.org/dev/peps/pep-0484/#generics)
+## [Allow any subclass](https://mypy.readthedocs.io/en/stable/kinds_of_types.html#class-types)
 
-This can be useful when you need lists of subclasses or optional list of
-subclasses. The expected behavior doesn't work.
+Every class is also a valid type. Any instance of a subclass is also compatible
+with all superclasses – it follows that every value is compatible with the
+object type (and incidentally also the Any type, discussed below). Mypy analyzes
+the bodies of classes to determine which methods and attributes are available in
+instances. For example
 
 ```python
-Entity = TypeVar('Entity', model.Project, model.Tag, model.Task)
-Entities = List[Entity]
+class A:
+    def f(self) -> int:  # Type of self inferred (A)
+        return 2
+
+class B(A):
+    def f(self) -> int:
+         return 3
+    def g(self) -> int:
+        return 4
+
+def foo(a: A) -> None:
+    print(a.f())  # 3
+    a.g()         # Error: "A" has no attribute "g"
+
+foo(B())  # OK (B is a subclass of A)
 ```
 
-If you just want to [specify any children of a parent
-class](https://stackoverflow.com/questions/58986031/type-hinting-child-class-returning-self), use:
+### [Deduce returned value type from the arguments](https://mypy.readthedocs.io/en/stable/kinds_of_types.html#the-type-of-class-objects)
+
+The previous approach works if you don't need to use class objects that inherit
+from a given class. For example:
 
 ```python
-from .model import Entity as EntityModel
+class User:
+    # Defines fields like name, email
 
-Entity = TypeVar('Entity', bound=EntityModel)
+class BasicUser(User):
+    def upgrade(self):
+        """Upgrade to Pro"""
+
+class ProUser(User):
+    def pay(self):
+        """Pay bill"""
+
+def new_user(user_class) -> User:
+    user = user_class()
+    # (Here we could write the user object to a database)
+    return user
 ```
 
-Try to use `TypeVar` instead of `Union` of the different types, as it's able to
-deduce better the type of the return value of a function.
+Where:
+
+* `ProUser` doesn’t inherit from `BasicUser`.
+* `new_user` creates an instance of one of these classes if you pass
+    it the right class object.
+
+The problem is that right now mypy doesn't know which subclass of `User` you're
+giving it, and will only accept the methods and attributes defined in the parent
+class `User`.
 
 ```python
-def do_something(entity: Entity) -> Entity:
-    return Entity
+buyer = new_user(ProUser)
+buyer.pay()  # Rejected, not a method on User
 ```
 
-If you use `TypeVar`, when you call the function with a type `Card`, it will know
-that the result is of type `Card`, if you use `Union`, even if you call it with
-`Card` the return value will be `Union[Card,Deck]`.
-
-More generally, [Generics](https://www.python.org/dev/peps/pep-0484/#generics)
-can be parameterized by using a new factory available in typing called
-`TypeVar`. Example:
+This can be solved using [Type variables with upper
+bounds](https://mypy.readthedocs.io/en/stable/generics.html#type-variable-upper-bound).
 
 ```python
-from typing import Sequence, TypeVar
+UserType = TypeVar('UserType', bound=User)
 
-T = TypeVar('T')      # Declare type variable
-
-def first(l: Sequence[T]) -> T:   # Generic function
-    return l[0]
+def new_user(user_class: Type[UserType]) -> UserType:
+    # Same  implementation as before
 ```
 
-In this case the contract is that the returned value is consistent with the
-elements held by the collection.
-
-
-A `TypeVar()` expression must always directly be assigned to a variable (it
-should not be used as part of a larger expression). The argument to `TypeVar()`
-must be a string equal to the variable name to which it is assigned. Type
-variables must not be redefined.
-
-TypeVar supports constraining parametric types to a fixed set of possible types
-(note: those types cannot be parameterized by type variables). For example, we
-can define a type variable that ranges over just str and bytes. By default,
-a type variable ranges over all possible types. Example of constraining a type
-variable:
+We're creating a new type `UserType` that is linked to the class or subclasses
+of `User`. That way, mypy knows that the return value is an object created from
+the class given in the argument `user_class`.
 
 ```python
-from typing import TypeVar, Text
+beginner = new_user(BasicUser)  # Inferred type is BasicUser
+beginner.upgrade()  # OK
+```
 
-AnyStr = TypeVar('AnyStr', Text, bytes)
+Keep in mind that the `TypeVar` is a [Generic
+type](https://mypy.readthedocs.io/en/stable/generics.html), as such, they take
+one or more type parameters, similar to built-in types such as `List[X]`.
 
-def concat(x: AnyStr, y: AnyStr) -> AnyStr:
-    return x + y
+That means that when you create type aliases, you'll need to give the type
+parameter. So:
+
+```python
+UserType = TypeVar("UserType", bound=User)
+UserTypes = List[Type[UserType]]
+
+
+def new_users(user_class: UserTypes) -> UserType: # Type error!
+    pass
+```
+
+Will give a `Missing type parameters for generic type "UserTypes"` error. To
+solve it use:
+
+```python
+def new_users(user_class: UserTypes[UserType]) -> UserType: # OK!
+    pass
 ```
 
 ## [Specify the type of the class in it's method and attributes](https://stackoverflow.com/questions/33533148/how-do-i-specify-that-the-return-type-of-a-method-is-the-same-as-the-class-itsel)

@@ -390,7 +390,6 @@ Use the `ec2` fixture defined in the [usage section](#usage).
 To create an instance use:
 
 ```python
-
 instance_id = ec2.create_security_group(
     GroupName="TestSecurityGroup", Description="SG description"
 )["GroupId"]
@@ -436,6 +435,49 @@ Check the official docs to check the method arguments:
 * [`authorize_security_group_egress`](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Client.authorize_security_group_egress).
 * [`revoke_security_group_ingress`](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Client.revoke_security_group_ingress).
 * [`revoke_security_group_egress`](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Client.revoke_security_group_egress).
+
+#### Test IAM users
+
+Use the `iam` fixture:
+
+```python
+from moto import mock_iam
+
+@pytest.fixture(name='iam')
+def iam_(_aws_credentials: None) -> Any:
+    """Configure the boto3 IAM client."""
+    with mock_iam():
+        yield boto3.client("iam")
+```
+
+To create an instance use:
+
+
+```python
+instance = iam.create_user(UserName="User")["User"]
+```
+
+Check the official docs to check the method arguments:
+
+* [`create_user`](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iam.html#IAM.Client.create_user)
+* [`list_users`](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iam.html#IAM.Client.list_users)
+
+#### Test IAM Groups
+
+Use the `iam` fixture defined in the [test IAM users section](#test-iam-users):
+
+To create an instance use:
+
+```python
+user = iam.create_user(UserName="User")["User"]
+instance = iam.create_group(GroupName="UserGroup")["Group"]
+iam.add_user_to_group(GroupName=instance["GroupName"], UserName=user["UserName"])
+```
+
+Check the official docs to check the method arguments:
+
+* [`create_group`](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iam.html#IAM.Client.create_group)
+* [`add_user_to_group`](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iam.html#IAM.Client.add_user_to_group)
 
 # Issues
 

@@ -104,7 +104,6 @@ nav:
           - Templates:
               - Refinement Template: refinement_template.md
   - Coding:
-      - TDD: coding/tdd.md
       - Python:
           - python.md
           - Project Template:
@@ -183,14 +182,16 @@ nav:
               - Parametrized testing: coding/python/pytest_parametrized_testing.md
               - Pytest-cases: coding/python/pytest_cases.md
           - Python Snippets: coding/python/python_snippets.md
-      - Javascript:
-          - coding/javascript/javascript.md
-          - MermaidJS: mermaidjs.md
+      - Writing good documentation: documentation.md
+      - TDD: coding/tdd.md
       - JSON: coding/json/json.md
-      - React: coding/react/react.md
       - SQL: coding/sql/sql.md
       - SQLite: sqlite.md
       - YAML: coding/yaml/yaml.md
+      - Javascript:
+          - coding/javascript/javascript.md
+          - MermaidJS: mermaidjs.md
+      - React: coding/react/react.md
       - Issues: issues.md
   - Software Architecture:
       - SOLID: architecture/solid.md

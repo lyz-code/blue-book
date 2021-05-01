@@ -434,3 +434,4 @@ prettified JSON files like this:
 * [Docs](https://tinydb.readthedocs.io/en/latest/usage.html)
 * [Git](https://github.com/msiemens/tinydb)
 * [Issues](https://github.com/msiemens/tinydb/issues)
+* [Reference](https://tinydb.readthedocs.io/en/latest/api.html)
