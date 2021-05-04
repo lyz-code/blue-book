@@ -127,7 +127,7 @@ pycparser==2.20
     # via cffi
 pydantic==1.8.1
     # via mkdocs-newsletter
-pygments==2.8.1
+pygments==2.9.0
     # via
     #   mkdocs-material
     #   readme-renderer
