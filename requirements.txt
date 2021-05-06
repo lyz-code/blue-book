@@ -169,7 +169,7 @@ semver==2.13.0
     # via python-semantic-release
 setuptools-scm==6.0.1
     # via dotty-dict
-six==1.15.0
+six==1.16.0
     # via
     #   bleach
     #   livereload
