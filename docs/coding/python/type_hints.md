@@ -351,6 +351,15 @@ class Position:
     def __add__(self, other: 'Position') -> 'Position':
         ...
 ```
+## [Type hints of Generators](https://stackoverflow.com/questions/42531143/type-hinting-generator-in-python-3-6)
+
+```python
+from typing import Generator
+
+def generate() -> Generator[int, None, None]:
+```
+
+Where the first argument of `Generator` is the type of the yielded value.
 
 # [Using mypy with an existing codebase](https://mypy.readthedocs.io/en/latest/existing_code.html)
 

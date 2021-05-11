@@ -323,6 +323,39 @@ system](https://alot.readthedocs.io/en/latest/configuration/hooks.html) is the
 perfect place to create the custom python scripts to process the different
 automatic workflows.
 
+## Inbox management
+
+I want a system to improve the management of ideas, tasks,
+references, suggestions when I'm not in front of the computer. Right now I've
+got Markor for Android to register these quicknotes, but the reality is that
+I don't act upon them, so it's just a log of tasks that never get done, and
+ideas, references and suggestions that aren't registered in my knowledge or
+media management systems.
+
+On the computer there are also cases of tasks that are not worth registering in
+the task management system, or ideas that I get at a moment but don't have time
+to process at the moment.
+
+The idea then is to automatically sync the Android quicknote with syncthing,
+and have a special format for the file that allows an automated program
+listening to changes in the synced file to extract
+the elements from that file to the "inbox system". For example:
+
+```
+t. buy groceries
+tv. IT crowd
+i. Improve the inbox management
+
+I want a system to improve ...
+```
+
+Will get introduced in the "inbox system" as a task, a TV suggestion and an idea
+elements.
+
+The inbox system will be a command line tool that lists the inbox elements and
+makes it easy to transform the data stored there to the respective, task, media
+or knowledge management system items.
+
 ## Self hosted search engine
 
 It would be awesome to be able to self host a personal search engine that
@@ -376,6 +409,9 @@ Maybe [meilisearch](https://github.com/meilisearch/meilisearch) (follow their
 [blog](https://blog.meilisearch.com/)) or
 [searx](https://github.com/asciimoo/searx) could be a solution. Following
 another approach, [archivy](https://archivy.github.io/) looks good too.
+
+Or I could use [Jina](https://github.com/jina-ai/jina) is a search library
+linked to pydantic.
 
 If I've already started the [quantified self](#quantified-self) project, maybe
 [adri's memex](https://github.com/adri/memex)  is a good solution.

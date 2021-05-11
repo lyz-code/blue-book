@@ -486,6 +486,9 @@ Check the official docs to check the method arguments:
     adapter support for launch templates.
 * [Support Route53 pagination](https://github.com/spulec/moto/issues/3879): test
     clinv route53 update and update the [test route53](#test-route53) section.
+* [`cn-north-1` rds and autoscaling
+    errors](https://github.com/spulec/moto/issues/3894): increase the timeout of
+    clinv, and test if the coverage has changed.
 
 # References
 

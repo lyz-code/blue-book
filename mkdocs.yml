@@ -188,6 +188,7 @@ nav:
       - SQL: coding/sql/sql.md
       - SQLite: sqlite.md
       - YAML: coding/yaml/yaml.md
+      - Vue.js: vuejs.md
       - Javascript:
           - coding/javascript/javascript.md
           - MermaidJS: mermaidjs.md
@@ -232,6 +233,7 @@ nav:
           - Anonymous Feedback: anonymous_feedback.md
   - Operative Systems:
       - Linux:
+          - Linux Snippets: linux/linux_miscellaneous.md
           - ActivityWatch: activitywatch.md
           - beancount: beancount.md
           - Beets: beets.md
@@ -248,7 +250,6 @@ nav:
           - mkdocs: linux/mkdocs.md
           - Modipy: modipy.md
           - monica: linux/monica.md
-          - Miscellaneous Linux Commands: linux/linux_miscellaneous.md
           - nodejs: linux/nodejs.md
           - Peek: peek.md
           - rm: linux/rm.md
