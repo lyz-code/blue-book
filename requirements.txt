@@ -45,7 +45,7 @@ gitdb==4.0.7
     # via
     #   gitdb2
     #   gitpython
-gitpython==3.1.14
+gitpython==3.1.16
     # via
     #   mkdocs-git-revision-date-localized-plugin
     #   mkdocs-newsletter
@@ -195,6 +195,7 @@ twine==3.4.1
     # via python-semantic-release
 typing-extensions==3.10.0.0
     # via
+    #   gitpython
     #   importlib-metadata
     #   pydantic
 urllib3==1.26.4
