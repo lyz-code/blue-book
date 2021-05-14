@@ -238,6 +238,7 @@ nav:
           - beancount: beancount.md
           - Beets: beets.md
           - brew: linux/brew.md
+          - Docker: docker.md
           - elasticsearch: linux/elasticsearch.md
           - fail2ban: linux/fail2ban.md
           - google chrome: linux/google_chrome.md

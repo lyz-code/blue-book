@@ -527,6 +527,82 @@ async def read_elements():
     return [{"item_id": "Foo"}]
 ```
 
+# [Deploy with Docker](https://fastapi.tiangolo.com/deployment/docker/).
+
+FastAPI has it's own
+optimized [docker](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker),
+which makes the deployment of your applications really easy.
+
+* In your project directory create the `Dockerfile` file:
+
+    ```dockerfile
+    FROM tiangolo/uvicorn-gunicorn-fastapi:python3.7
+
+    COPY ./app /app
+    ```
+
+* Go to the project directory (in where your Dockerfile is, containing your app directory).
+* Build your FastAPI image:
+
+    ```bash
+    docker build -t myimage .
+    ```
+
+* Run a container based on your image:
+
+    ```bash
+    docker run -d --name mycontainer -p 80:80 myimage
+    ```
+
+Now you have an optimized FastAPI server in a Docker container. Auto-tuned for
+your current server (and number of CPU cores).
+
+## [Installing dependencies](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker#dependencies-and-packages)
+
+If your program needs other dependencies, use the next dockerfile:
+
+```dockerfile
+FROM tiangolo/uvicorn-gunicorn-fastapi:python3.7
+
+COPY ./requirements.txt /app
+RUN pip install -r requirements.txt
+
+COPY ./app /app
+```
+
+## Other project structures
+
+The previous examples assume that you have followed the FastAPI project
+structure. If instead you've used
+[mine](https://github.com/lyz-code/cookiecutter-python-project) your application
+will be defined in the `app` variable in the
+`src/program_name/entrypoints/api.py` file.
+
+To make things simpler make the `app` variable available on the root of your
+package, so you can do `from program_name import app` instead of `from
+program_name.entrypoints.api import app`. To do that we need to add `app` to the
+`__all__` internal python variable of the `__init__.py` file of our package.
+
+!!! note "File: src/program_name/__init__.py"
+    ```python
+    from .entrypoints.api import app
+
+    __all__: List[str] = ['app']
+    ```
+
+The image is
+configured through [environmental
+variables](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker#environment-variables)
+
+So we will need to use:
+
+```dockerfile
+FROM tiangolo/uvicorn-gunicorn-fastapi:python3.7
+
+ENV MODULE_NAME="program_name"
+
+COPY ./src/program_name /app/program_name
+```
 
 # [Testing](https://fastapi.tiangolo.com/tutorial/testing/)
 
@@ -604,7 +680,53 @@ def client_(db_tinydb: str) -> TestClient:
     return TestClient(app)
 ```
 
-# Logging to Sentry
+# Tips and tricks
+
+## Test that your application works locally
+
+Once you have your application [built](#deploy-with-docker) and
+[tested](#testing), everything should work right? well, sometimes it don't. If
+you need to use `pdb` to debug what's going on, you can't use the docker as you
+won't be able to interact with the debugger.
+
+Instead, launch an uvicorn application directly with:
+
+```bash
+uvicorn program_name:app --reload
+```
+
+!!! note ""
+
+    The command is assuming that your `app` is available at the root of your
+    package, look at the [deploy section](#other-project-structures) if you feel
+    lost.
+
+# Logging
+
+By default the [application log messages are not shown in the uvicorn
+log](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/issues/19), you
+need to add the next lines to the file where your app is defined:
+
+!!! note "File: src/program_name/entrypoints/api.py"
+
+    ```python
+    from fastapi import FastAPI
+    from fastapi.logger import logger
+    import logging
+
+    log = logging.getLogger("gunicorn.error")
+    logger.handlers = log.handlers
+    if __name__ != "main":
+        logger.setLevel(log.level)
+    else:
+        logger.setLevel(logging.DEBUG)
+
+    app = FastAPI()
+
+    # rest of the application...
+    ```
+
+## Logging to Sentry
 
 FastAPI can [integrate with
 Sentry](https://philstories.medium.com/integrate-sentry-to-fastapi-7250603c070f)
@@ -621,12 +743,17 @@ middleware](https://fastapi.tiangolo.com/advanced/middleware/#other-middlewares)
 * [Return a different response
     model](https://fastapi.tiangolo.com/tutorial/response-model/).
 * [Upload files](https://fastapi.tiangolo.com/tutorial/request-files/).
-* [Deploy with Docker](https://fastapi.tiangolo.com/deployment/docker/).
 * [Set
     authentication](https://fastapi.tiangolo.com/tutorial/security/first-steps/).
 * [Host behind a proxy](https://fastapi.tiangolo.com/advanced/behind-a-proxy/).
 * [Static files](https://fastapi.tiangolo.com/tutorial/static-files/).
 
+# Issues
+
+* [FastAPI does not log
+    messages](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/issues/19):
+    update `pyscrobbler` and any other maintained applications and remove the
+    snippet defined in the [logging section](#logging).
 # References
 
 * [Docs](https://fastapi.tiangolo.com/)
