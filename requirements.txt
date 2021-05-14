@@ -45,7 +45,7 @@ gitdb==4.0.7
     # via
     #   gitdb2
     #   gitpython
-gitpython==3.1.14
+gitpython==3.1.17
     # via
     #   mkdocs-git-revision-date-localized-plugin
     #   mkdocs-newsletter
@@ -65,7 +65,7 @@ jeepney==0.6.0
     # via
     #   keyring
     #   secretstorage
-jinja2==2.11.3
+jinja2==3.0.0
     # via mkdocs
 joblib==1.0.1
     # via nltk
@@ -82,17 +82,17 @@ markdown==3.3.4
     #   mkdocs
     #   mkdocs-material
     #   pymdown-extensions
-markupsafe==1.1.1
+markupsafe==2.0.0
     # via jinja2
 git+git://github.com/lyz-code/mkdocs-autolinks-plugin.git
     # via
     #   -r requirements.in
     #   mkdocs-newsletter
-mkdocs-git-revision-date-localized-plugin==0.9
+mkdocs-git-revision-date-localized-plugin==0.9.2
     # via -r requirements.in
 mkdocs-material-extensions==1.0.1
     # via mkdocs-material
-mkdocs-material==7.1.3
+mkdocs-material==7.1.4
     # via
     #   -r requirements.in
     #   mkdocs-material-extensions
@@ -125,13 +125,13 @@ proselint==0.10.2
     # via -r requirements.in
 pycparser==2.20
     # via cffi
-pydantic==1.8.1
+pydantic==1.8.2
     # via mkdocs-newsletter
-pygments==2.8.1
+pygments==2.9.0
     # via
     #   mkdocs-material
     #   readme-renderer
-pymdown-extensions==8.1.1
+pymdown-extensions==8.2
     # via
     #   -r requirements.in
     #   mkdocs-material
@@ -161,7 +161,7 @@ requests==2.25.1
     #   python-semantic-release
     #   requests-toolbelt
     #   twine
-rfc3986==1.4.0
+rfc3986==1.5.0
     # via twine
 secretstorage==3.3.1
     # via keyring
@@ -169,7 +169,7 @@ semver==2.13.0
     # via python-semantic-release
 setuptools-scm==6.0.1
     # via dotty-dict
-six==1.15.0
+six==1.16.0
     # via
     #   bleach
     #   livereload
@@ -193,8 +193,9 @@ tqdm==4.60.0
     #   twine
 twine==3.4.1
     # via python-semantic-release
-typing-extensions==3.7.4.3
+typing-extensions==3.10.0.0
     # via
+    #   gitpython
     #   importlib-metadata
     #   pydantic
 urllib3==1.26.4
@@ -207,5 +208,5 @@ zipp==3.4.1
     # via importlib-metadata
 
 # The following packages are considered to be unsafe in a requirements file:
-setuptools==56.0.0
+setuptools==56.2.0
     # via setuptools-scm
