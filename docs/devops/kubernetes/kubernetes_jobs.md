@@ -239,7 +239,10 @@ attempts:
 
           label_replace(
               label_replace(
-                  (kube_job_status_failed != 0),
+                  (
+                    kube_job_status_failed != 0 and
+                    kube_job_status_succeeded == 0
+                  ),
                   "job", "$1", "job_name", "(.+)"
               ),
               "cronjob", "$1", "label_cron", "(.+)"
@@ -250,9 +253,24 @@ attempts:
 The initial `clamp_max` clause is used to transform our start times metric into
 a set of time series to perform label matching to filter another set of metrics.
 Multiplication by 1 (or addition of 0), is a useful means of filter and merging
-time series and it is well worth taking the time to understand the technique. We
-adjust the labels on the raw `kube_job_status_failed` to match our start time
-metric so ensure the labels have the same meaning as those on our
+time series and it is well worth taking the time to understand the technique.
+
+We get those cronjobs that have a failed job and no successful ones with the
+query:
+
+```promql
+(
+    kube_job_status_failed != 0 and
+    kube_job_status_succeeded == 0
+)
+```
+
+The `kube_job_status_succeeded == 0` it's important, otherwise once a job has
+a failed instance, it doesn't matter if there's a posterior one that succeeded,
+we're going to keep on receiving the alert that it failed.
+
+We adjust the labels on the previous query to match our start time metric so
+ensure the labels have the same meaning as those on our
 `job_cronjob:kube_job_status_start_time:max` metric. The label matching on the
 multiplication will then perform our filtering. We now have a metric containing
 the set of most recently failed jobs, labeled by their parent cronjob, so we can
