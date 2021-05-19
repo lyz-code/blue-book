@@ -65,7 +65,7 @@ jeepney==0.6.0
     # via
     #   keyring
     #   secretstorage
-jinja2==3.0.0
+jinja2==3.0.1
     # via mkdocs
 joblib==1.0.1
     # via nltk
@@ -82,7 +82,7 @@ markdown==3.3.4
     #   mkdocs
     #   mkdocs-material
     #   pymdown-extensions
-markupsafe==2.0.0
+markupsafe==2.0.1
     # via jinja2
 git+git://github.com/lyz-code/mkdocs-autolinks-plugin.git
     # via
