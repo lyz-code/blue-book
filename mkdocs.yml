@@ -241,6 +241,7 @@ nav:
           - Docker: docker.md
           - elasticsearch: linux/elasticsearch.md
           - fail2ban: linux/fail2ban.md
+          - Gajim: gajim.md
           - google chrome: linux/google_chrome.md
           - HAProxy: linux/haproxy.md
           - Hushboard: husboard.md

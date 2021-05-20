@@ -14,10 +14,38 @@ just a team who want to build something better and work together to achieve it.
 
 # Issues
 
+* [Stuck at login page](https://github.com/jellyfin/jellyfin-web/issues/2507):
+    Until it's fixed run the next snippet:
+
+    ```bash
+    systemctl stop jellyfin.service
+    mv /var/lib/jellyfin/data/jellyfin.db{,.bak}
+    systemctl start jellyfin.service
+    # Go to JF URL, get asked to log in even though
+    # there are no Users in the JF DB now
+    systemctl stop jellyfin.service
+    mv /var/lib/jellyfin/data/jellyfin.db{.bak,}
+    systemctl start jellyfin.service
+    ```
+
+    Even if you fix it, if a new user is created with
+    [jfa-go](https://github.com/hrfee/jfa-go), it [gets broken
+    again](https://github.com/hrfee/jfa-go/issues/101).
+
 * [Intel Hardware transcoding
-    broken](https://github.com/linuxserver/docker-jellyfin/issues/96): remove
-    the workaround script
-    `/config/custom-cont-init.d/fix-hardware-transcoding.sh`.
+    broken](https://github.com/linuxserver/docker-jellyfin/issues/109): Until
+    fixed run each time you restart:
+
+    ```bash
+    docker exec -it jellyfin /bin/bash
+    wget https://repo.jellyfin.org/releases/server/ubuntu/versions/jellyfin-ffmpeg/4.3.2-1/jellyfin-ffmpeg_4.3.2-1-focal_amd64.deb
+    dpkg -i jellyfin-ffmpeg_4.3.2-1-focal_amd64.deb
+    ```
+
+    Once fixed tweak the [init container script in
+    `/config/custom-cont-init.d`](https://blog.linuxserver.io/2019/09/14/customizing-our-containers/).
+* [Unnecessary transcoding](https://github.com/jellyfin/jellyfin/issues/3277):
+    nothing to do
 * [Local social
     features](https://features.jellyfin.org/posts/349/local-social-features):
     test it and see how to share rating between users.
