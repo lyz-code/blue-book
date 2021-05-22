@@ -11,7 +11,7 @@
     <managingEditor>Lyz</managingEditor>
 
     
-    <pubDate>2021-05-21 06:43:23+00:00</pubDate>
+    <pubDate>2021-05-21 06:44:24+00:00</pubDate>
     <ttl>1440</ttl>
 
     
@@ -31,9 +31,9 @@
       <description>&lt;article class=&#34;md-content__inner md-typeset&#34;&gt; &lt;a class=&#34;md-content__button md-icon&#34; href=&#34;https://github.com/lyz-code/blue-book/edit/master/docs/newsletter/2021_05_20.md&#34; title=&#34;Edit this page&#34;&gt; &lt;svg viewbox=&#34;0 0 24 24&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z&#34;&gt;&lt;/path&gt;&lt;/svg&gt; &lt;/a&gt;  &lt;h2 id=&#34;operative-systems&#34;&gt;Operative Systems&lt;/h2&gt; &lt;h3 id=&#34;linux&#34;&gt;Linux&lt;/h3&gt; &lt;h4 id=&#34;gajim&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/gajim/&#34;&gt;Gajim&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;New: Introduce gajim.&lt;/p&gt; &lt;p&gt;&lt;a href=&#34;https://gajim.org/&#34;&gt;Gajim&lt;/a&gt; is the best Linux XMPP client in terms of end-to-end encryption support as it&#39;s able to speak OMEMO.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;h4 id=&#34;jellyfin&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/jellyfin/&#34;&gt;Jellyfin&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;Correction: Explain how to fix the stuck at login page issue.&lt;/p&gt;  &lt;/li&gt; &lt;li&gt; &lt;p&gt;Correction: Explain how to fix the Intel Hardware transcoding.&lt;/p&gt; &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;docker &lt;span class=&#34;nb&#34;&gt;exec&lt;/span&gt; -it jellyfin /bin/bash
 wget https://repo.jellyfin.org/releases/server/ubuntu/versions/jellyfin-ffmpeg/4.3.2-1/jellyfin-ffmpeg_4.3.2-1-focal_amd64.deb
 dpkg -i jellyfin-ffmpeg_4.3.2-1-focal_amd64.deb
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt; &lt;/li&gt; &lt;/ul&gt; &lt;hr/&gt; &lt;div class=&#34;md-source-date&#34;&gt; &lt;small&gt; Last update: &lt;span class=&#34;git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago&#34;&gt;&lt;span class=&#34;timeago&#34; datetime=&#34;2021-05-21T06:43:23+00:00&#34; locale=&#34;en&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date&#34;&gt;2021-05-21&lt;/span&gt; &lt;/small&gt; &lt;/div&gt; &lt;/article&gt;</description>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt; &lt;/li&gt; &lt;/ul&gt; &lt;hr/&gt; &lt;div class=&#34;md-source-date&#34;&gt; &lt;small&gt; Last update: &lt;span class=&#34;git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago&#34;&gt;&lt;span class=&#34;timeago&#34; datetime=&#34;2021-05-21T06:44:24+00:00&#34; locale=&#34;en&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date&#34;&gt;2021-05-21&lt;/span&gt; &lt;/small&gt; &lt;/div&gt; &lt;/article&gt;</description>
       <link>https://lyz-code.github.io/blue-book/newsletter/2021_05_20/</link>
-      <pubDate>2021-05-21 06:43:23+00:00</pubDate>
+      <pubDate>2021-05-21 06:44:24+00:00</pubDate>
       <source url="https://lyz-code.github.io/blue-book/daily.xml">The Blue Book</source>
       <guid isPermaLink="true">https://lyz-code.github.io/blue-book/newsletter/2021_05_20/</guid>
       
