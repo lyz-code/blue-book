@@ -359,6 +359,13 @@ system](https://alot.readthedocs.io/en/latest/configuration/hooks.html) is the
 perfect place to create the custom python scripts to process the different
 automatic workflows.
 
+## Automating computer file management
+
+Today I've stumbled upon [organize](https://organize.readthedocs.io/en/latest/)
+looks good for automating processes on files. Maybe it's interesting to run it
+with [inotifywait](https://askubuntu.com/a/819290) instead of with a [cron
+job](https://github.com/tfeldmann/organize/issues/18).
+
 ## Inbox management
 
 I want a system to improve the management of ideas, tasks,
