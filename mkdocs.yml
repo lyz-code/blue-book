@@ -231,6 +231,7 @@ nav:
       - Diversity, Equity and Inclusion:
           - diversity.md
           - Anonymous Feedback: anonymous_feedback.md
+      - Free Knowledge: free_knowledge.md
   - Operative Systems:
       - Linux:
           - Linux Snippets: linux/linux_miscellaneous.md

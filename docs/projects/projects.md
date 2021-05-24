@@ -88,6 +88,8 @@ Nevertheless, I'm searching for an alternative because:
 points above. But is written in
 [Haskel](https://en.wikipedia.org/wiki/Haskell_%28programming_language%29) which
 I don't know and I don't want to learn.
+[git-bug](https://github.com/MichaelMure/git-bug) is a nice distributed
+issue tracker using git where we can get some ideas.
 
 So taking my experience with taskwarrior and looking at tasklite, I've started
 building [pydo](https://lyz-code.github.io/pydo).
@@ -300,6 +302,40 @@ This is a gathering of tools, ideas or services that I'd like to enjoy.
 
 If you have any lead, as smallest as it may be on how to fulfill them, please
 [contact me](contact.md).
+
+## Improve the reliability of the Open Science collections
+
+The current [free knowledge efforts](free_knowledge.md) are based on the health
+of a collection of torrents.
+
+Something that is needed is a command line tool that reads the [list of ill
+torrents](https://phillm.net/torrent-health-frontend/seeds-needed.php), and
+downloads the ones that have a low number of seeders and DHT peers. The
+number of torrents to download could be limited by the amount the user wants to
+share. A second version could have an interaction with the torrent client so
+that when a torrent is no longer ill, it's automatically replaced with one that
+is.
+
+Once the tool is built:
+
+* Update the [Free knowledge post](free_knowledge.md).
+* Promote the tool in the relevant reddit posts
+    [1](https://www.reddit.com/r/DataHoarder/comments/nc27fv/rescue_mission_for_scihub_and_open_science_we_are/)
+    and
+    [2](https://www.reddit.com/r/DataHoarder/comments/ed9byj/library_genesis_project_update_25_million_books/),
+    try to add it to the [freeread.org wiki](https://freeread.org/torrents/)
+    ([source](https://github.com/freereadorg/freeread)), and to the
+    [awesome-libgen list](https://github.com/freereadorg/awesome-libgen).
+
+## Monitor and notify on disk prices
+
+[Diskprices.com](https://diskprices.com/) sorts the prices of the disks on the
+different amazon sites based on many filters. It will be interesting to have
+a service that monitors the data on this site and alerts the user once there is
+a deal that matches its criteria.
+
+Once it's done, promote it in the [DataHoarder
+reddit](https://www.reddit.com/r/DataHoarder/).
 
 ## Automate email management
 
