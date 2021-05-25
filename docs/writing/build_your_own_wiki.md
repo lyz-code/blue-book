@@ -4,8 +4,10 @@ date: 20200205
 author: Lyz
 ---
 
-!!! note "This page is an early version of a WIP"
+!!! warning "This page is an early version of a WIP"
 
+If you don't want to start from scratch, you can [fork the blue
+book](forking_this_wiki.md) and start writing straight away.
 
 # Enable clickable navigation sections
 

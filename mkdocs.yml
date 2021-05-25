@@ -201,6 +201,7 @@ nav:
       - Interruption Management:
           - interruption_management.md
           - Work Interruption Analysis: work_interruption_analysis.md
+          - Personal Interruption Analysis: personal_interruption_analysis.md
       - Week Management: week_management.md
       - Relationship Management: relationship_management.md
       - Process Automation:
@@ -283,6 +284,7 @@ nav:
           - Digital Gardens:
               - digital_garden.md
               - Build your own Digital Garden: writing/build_your_own_wiki.md
+              - Forking this garden: forking_this_wiki.md
       - Pilates:
           - pilates.md
       - Dancing:

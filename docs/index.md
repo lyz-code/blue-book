@@ -35,6 +35,9 @@ Don't be afraid to [create one of your own](build_your_own_wiki.md) and share
 what you know with the world. Or [contribute](#contributing) to existing ones,
 I would love to see the blue-book maintained by other people too.
 
+If you don't want to start from scratch, you can [fork the blue
+book](forking_this_wiki.md) and start writing straight away.
+
 You can view [other similar gardens](digital_garden.md#existing-digital-gardens)
 to get inspiration.
 
