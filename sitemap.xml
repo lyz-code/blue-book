@@ -592,6 +592,10 @@
      <lastmod>2021-05-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
+     <loc>https://lyz-code.github.io/blue-book/task_management/</loc>
+     <lastmod>2021-05-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
      <loc>https://lyz-code.github.io/blue-book/work_interruption_analysis/</loc>
      <lastmod>2021-05-25</lastmod>
      <changefreq>daily</changefreq>
@@ -612,19 +616,19 @@
      <lastmod>2021-05-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://lyz-code.github.io/blue-book/accounting_automation/</loc>
+     <loc>https://lyz-code.github.io/blue-book/money_management/</loc>
      <lastmod>2021-05-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://lyz-code.github.io/blue-book/amazfit_band_5/</loc>
+     <loc>https://lyz-code.github.io/blue-book/email_management/</loc>
      <lastmod>2021-05-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://lyz-code.github.io/blue-book/fitness_band/</loc>
+     <loc>https://lyz-code.github.io/blue-book/instant_messages_management/</loc>
      <lastmod>2021-05-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://lyz-code.github.io/blue-book/life_automation/vim_automation/</loc>
+     <loc>https://lyz-code.github.io/blue-book/tool_management/</loc>
      <lastmod>2021-05-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
@@ -657,6 +661,14 @@
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/remote_work/</loc>
+     <lastmod>2021-05-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/amazfit_band_5/</loc>
+     <lastmod>2021-05-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/fitness_band/</loc>
      <lastmod>2021-05-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
@@ -809,6 +821,10 @@
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://lyz-code.github.io/blue-book/linux/vim/vim_plugins/</loc>
+     <lastmod>2021-05-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://lyz-code.github.io/blue-book/write_neovim_plugins/</loc>
      <lastmod>2021-05-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
