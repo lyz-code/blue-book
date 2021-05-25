@@ -26,7 +26,9 @@ The marvelous [xkcd comic](https://xkcd.com) has gathered the essence and
 pitfalls of process automation many times:
 
 ![ ](is_it_worth_the_time.png)
+
 ![ ](automation.png)
+
 ![ ](efficiency.png)
 
 # Automating home chores

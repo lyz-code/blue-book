@@ -156,6 +156,7 @@ The configuration can be quite complex, but I'm starting with the basics:
 ```vim
 " Easymotion
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
+let g:EasyMotion_keys='asdfghjkl'
 
 " Jump to anywhere you want with minimal keystrokes, with just one key binding.
 " `s{char}{label}`
@@ -167,6 +168,102 @@ map <Leader>k <Plug>(easymotion-k)
 ```
 
 It's awesome to move between windows with `s`.
+
+# Vim Fugitive
+
+## [Add portions of file to the index](http://vimcasts.org/episodes/fugitive-vim-working-with-the-git-index/)
+
+To stage only part of the file to a commit, open it and launch `:Gdiff`. With
+`diffput` and `diffobtain` Vim's functionality you move to the index file (the
+one in the left) the changes you want to stage.
+
+## Prepare environment to write the commit message
+
+When I write the commit message I like to review what changes I'm commiting. To
+do it I find useful to close all windows and do a vertical split with the
+changes so I can write the commit message in one of the window while I scroll
+down in the other. As the changes are usually no the at the top of the file,
+I scroll the window of the right to the first change and then switch back to the
+left one in insert mode to start writing.
+
+I've also made some movement remappings:
+
+* `jj`, `kk`, `<C-d>` and `<C-u>` in insert mode will insert normal mode and go
+    to the window in the right to continue seeing the changes.
+* `i`, `a`, `o`, `O`: if you are in the changes window it will go to the commit message window
+    in insert mode.
+
+Once I've made the commit I want to only retain one buffer.
+
+Add the following snippet to do just that:
+
+```
+" Open commit message buffer in fullscreen with a vertical split, and close it with
+" leader q
+au BufNewFile,BufRead *COMMIT_EDITMSG call CommitMessage()
+
+function! RestoreBindings()
+  inoremap jj <esc>j
+  inoremap kk <esc>k
+  inoremap <C-d> <C-d>
+  inoremap <C-u> <C-u>
+  nnoremap i i
+  nnoremap a a
+  nnoremap o o
+  nnoremap O O
+endfunction
+
+function! CommitMessage()
+  " Remap the saving mappings
+  " Close buffer when saving
+  inoremap <silent> <leader>q <esc>:w<cr> \| :only<cr> \| :call RestoreBindings()<cr> \|:Sayonara<CR>
+  nnoremap <silent> <leader>q <esc>:w<cr> \| :only<cr> \| :call RestoreBindings()<cr> \|:Sayonara<CR>
+
+  inoremap jj <esc>:wincmd l<cr>j
+  inoremap kk <esc>:wincmd l<cr>k
+  inoremap <C-d> <esc>:wincmd l<cr><C-d>
+  inoremap <C-u> <esc>:wincmd l<cr><C-u>
+  nnoremap i :wincmd h<cr>i
+  nnoremap a :wincmd h<cr>a
+  nnoremap o :wincmd h<cr>o
+  nnoremap O :wincmd h<cr>O
+
+  " Remove bad habits
+  inoremap jk <nop>
+  inoremap ZZ <nop>
+  nnoremap ZZ <nop>
+  " Close all other windows
+  only
+  " Create a vertical split
+  vsplit
+  " Go to the right split
+  wincmd l
+  " Go to the first change
+  execute "normal! /^diff\<cr>8j"
+  " Clear the search highlights
+  nohl
+  " Go back to the left split
+  wincmd h
+  " Enter insert mode
+  execute "startinsert"
+endfunction
+```
+
+I'm assuming that you save with `<leader>w` and that you're using Sayonara to
+close your buffers.
+
+## [Git push sets the upstream by default](https://github.com/tpope/vim-fugitive/issues/1272)
+
+Add to your config:
+
+```vim
+nnoremap <leader>gp :Git -c push.default=current push<CR>
+```
+
+If you want to see the [output of the push
+command](https://github.com/tpope/vim-fugitive/issues/951), use `:copen` after
+the successful push.
+
 
 # [Vim-test](https://github.com/janko-m/vim-test)
 

@@ -57,3 +57,30 @@ their tasks.
 If you want to see the analysis in action, check my [work
 analysis](work_interruption_analysis.md) or my [personal
 one](personal_interruption_analysis.md).
+
+# Workflow
+
+Once you have all the interruption sources identified, classified, and defined the
+checking periodicity, you need to decide how to handle them.
+
+## Define your interruption events
+
+To minimize the times you interrupt your workflow, aggregate the different
+sources and schedule when are you want to check them. For example, if the
+analysis gave the next sources:
+
+* Source A: check each 4 hours.
+* Source B: check each 5 hours.
+* Source C: check each 20 minutes.
+
+You can schedule the next interruption events:
+
+* Check sources A, B and C: when you start working, before lunch and before the
+    end of the day.
+* Check C: after each [Pomodoro
+    iteration](time_management.md#minimieze-the-context-switches).
+
+## Process the interruption event information
+
+When an interruption event arrives, process sequentially each source
+following [the inbox emptying guidelines](task_management.md#inbox).

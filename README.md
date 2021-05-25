@@ -12,7 +12,7 @@ format](https://lyz-code.github.io/blue-book).**
 
 If you find a mistake or want to add new content, please make the changes. You
 can use the edit button on the top right of any article to add them in a pull
-request, if you don't know what that means, you cal always open an
+request, if you don't know what that means, you can always open an
 [issue](https://github.com/lyz-code/blue-book/issues/new) or send me an
 [email](https://lyz-code.github.io/blue-book/contact/).
 

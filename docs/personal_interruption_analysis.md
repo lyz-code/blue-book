@@ -59,7 +59,8 @@ available. In my case emails can be categorized as:
     These can be dealt with daily.
 
 In conclusion, I can check the personal emails twice a day, one after
-breakfast and another in the middle of the afternoon.
+breakfast and another in the middle of the afternoon. So its safe to disable the
+notifications.
 
 I'm eager to start the [email automation
 project](projects.md#automate-email-management) so I can spend even less time
@@ -92,6 +93,29 @@ I categorize the calls in two groups:
 As calls are very rare and of high priority, I have my phone configured to ring
 on incoming calls.
 
+#### Instant messages
+
+It's the main communication channel for most people, so it has a great volume of
+events but most have low priority. They can be categorized as:
+
+* Asking for help through direct messages: We don't have many as we've agreed to
+    [use groups as much as
+    possible](instant_messages_management.md#at-work-or-collectives-use-group-rooms-over-direct-messages).
+    So they have high priority and I have the notifications enabled.
+* Social interaction through direct messages: I don't have many as I try to
+    [arrange one on one calls
+    instead](instant_messages_management#use-calls-for-non-short-conversations),
+    so they have a low priority.
+* Team group or support rooms: We've defined the *interruption role* so I check them
+    whenever an chosen interruption event comes.
+* Information rooms: They have no priority and can be checked daily.
+
+In conclusion, I can check the personal chat applications three times per day,
+for example, after each meal. As I usually need them when I'm off the computer,
+I only have them configured at my mobile phone, with no sound notifications.
+That way I only check them when I want to.
+
 #### Desktop notifications
 
-I have none but I've seen people have a notification each time the music player changes of song.
+I have none but I've seen people have a notification each time the music player
+changes of song. It makes no sense at all.

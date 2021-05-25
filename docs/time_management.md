@@ -60,7 +60,7 @@ The difficult part of the workflow is to manage to shut yourself off the world
 for that amount of time. One way to do it is by [managing the
 interruptions](#interruptions-management).
 
-### Interruption management
+### [Interruption management](interruption_management.md)
 
 We've come to accept that we need to be available 24/7 and answer immediately,
 that makes us slaves of the interruptions, it drives our work and personal
@@ -76,6 +76,29 @@ minutes](time_management.md#minimize-the-context-switches) without checking the
 interruption channels.
 
 Fill up your own [interruption analysis
-report](interruption_management.md#interruption_analysis) to discover how can
-you improve your efficiency with [interruption
-management](interruption_management.md).
+report](interruption_management.md#interruption_analysis) and define your
+[workflow](interruption_management.md#workflow) to manage them.
+
+### Others
+
+* Plan first and then do stuff (avoid time invested in tasks that are not useful)
+* Procrastinate mindfully
+* Avoid the lost time doing nothing (endless switch of windows)
+* It's not a person problem, but a context one, monitor your usage of the
+    environment and see where are you losing time and switch your environment so
+    you don't fall into the trap
+
+## Improve the way we do the tasks so that we can do it in less time.
+
+### [Tool management](tool_management.md)
+
+Most of the tasks or processes we do involve some kind of tool, the better you
+know how to use them, the better your efficiency will be. The more you use
+a tool, the more it's worth the investment of time to improve your usage of it.
+
+Whenever I use a tool, I try to think if I could configure it or use it in a way
+that will make it easier or quicker. Don't go crazy and try to change everything. Go
+step by step, and once you've internalized the improvement, implement the next.
+
+* [Email management](email_management.md).
+* [Instant messages management](instant_messages_management.md).

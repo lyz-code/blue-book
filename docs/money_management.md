@@ -1,10 +1,10 @@
 ---
-title: Accounting Automation
+title: Money Management
 date: 20210126
 author: Lyz
 ---
 
-Accounting Automation is the act of analyzing where you spend your money on with
+Money management is the act of analyzing where you spend your money on with
 the least amount of mental load.
 
 Some years ago I started using [the double entry counting

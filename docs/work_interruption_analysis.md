@@ -96,7 +96,8 @@ available. In my case emails can be categorized as:
     Master.
 
 In conclusion, I can check the work email only when I start working, on the
-lunch break and when I'm about to leave.
+lunch break and when I'm about to leave. So its safe to disable the
+notifications.
 
 I'm eager to start the [email automation
 project](projects.md#automate-email-management) so I can spend even less time
@@ -120,8 +121,31 @@ on incoming calls.
 
 #### Instant messages
 
-New chat message: Very often with a wide range of priorities.
+It's the main internal communication channel, so it has a great volume of events
+with a wide range of priorities. They can be categorized as:
+
+* Asking for help through direct messages: We don't have many as we've agreed to
+    [use groups as much as
+    possible](instant_messages_management.md#at-work-or-collectives-use-group-rooms-over-direct-messages).
+    So they have high priority and I have the notifications enabled.
+* Social interaction through direct messages: I don't have many as I try to
+    [arrange one on one meetings
+    instead](instant_messages_management#use-calls-for-non-short-conversations),
+    so they have a low priority. As notifications are defined for all direct
+    messages, I inherit the notifications from the last category.
+* Team group or support rooms: We've defined the *interruption role* so I check them
+    whenever an chosen interruption event comes. If I'm assuming the role
+    I enable the notifications on the channel, if not I'll check them whenever
+    I check the application.
+* Information rooms: They have no priority and can be checked each 4 hours.
+
+In conclusion, I can check the work chat applications each pomodoro cycle or
+when I receive a direct notification until the [improve the notification management in
+Linux](projects.md#improve-the-notification-management-in-linux) project is ready.
 
 #### Calendar events
 
 Often with a wide range of priorities.
+
+* decide if you have to go
+* Define an agenda with times

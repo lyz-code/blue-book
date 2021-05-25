@@ -196,21 +196,21 @@ nav:
               - Refinement Template: refinement_template.md
   - Life Management:
       - life_management.md
-      - Time Management:
-          - time_management.md
+      - Time Management: time_management.md
+      - Task Management: task_management.md
       - Interruption Management:
           - interruption_management.md
           - Work Interruption Analysis: work_interruption_analysis.md
           - Personal Interruption Analysis: personal_interruption_analysis.md
       - Week Management: week_management.md
       - Relationship Management: relationship_management.md
+      - Money Management: money_management.md
+      - Tool Management:
+          - tool_management.md
+          - Email Management: email_management.md
+          - Instant Messages Management: instant_messages_management.md
       - Process Automation:
           - process_automation.md
-          - Accounting Automation: accounting_automation.md
-          - Fitness Tracker:
-              - fitness_band.md
-              - Amazfit Band 5: amazfit_band_5.md
-          - Vim Automation: life_automation/vim_automation.md
           - Virtual Assistant: virtual_assistant.md
       - Strategy: strategy.md
   - Health:
@@ -219,6 +219,9 @@ nav:
           - teeth.md
           - Deep cleaning: teeth_deep_cleaning.md
       - Remote Working: remote_work.md
+      - Fitness Tracker:
+          - fitness_band.md
+          - Amazfit Band 5: amazfit_band_5.md
   - Activism:
       - Diversity, Equity and Inclusion:
           - diversity.md
@@ -268,6 +271,7 @@ nav:
               - vim.md
               - Tabs vs Buffers: vim_tabs.md
               - Vim Plugins: linux/vim/vim_plugins.md
+              - Write Neovim Plugins: write_neovim_plugins.md
           - Wake on Lan: wake_on_lan.md
           - Wireguard: linux/wireguard.md
           - ZFS: linux/zfs.md
