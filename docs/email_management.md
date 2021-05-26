@@ -23,7 +23,7 @@ decided the frequency, try to respect it!. If you want an example, check my
 # Workflow
 
 Each time I decide to go through my emails I follow the [inbox processing
-guidelines](task_management.md#inbox). I understand the email inbox are items
+guidelines](task_tools.md#inbox). I understand the email inbox are items
 that need to be taken care of. If an email doesn't fall in that category I either
 archive or delete it. That way the inbox has the smallest number of items, and
 if everything went well, it is empty. Having an empty inbox helps you a lot to

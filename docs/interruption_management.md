@@ -83,4 +83,4 @@ You can schedule the next interruption events:
 ## Process the interruption event information
 
 When an interruption event arrives, process sequentially each source
-following [the inbox emptying guidelines](task_management.md#inbox).
+following [the inbox emptying guidelines](task_tools.md#inbox).

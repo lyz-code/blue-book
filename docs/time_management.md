@@ -27,7 +27,8 @@ could spark some ideas that you can implement on your daily life.
 To increase the productivity we can:
 
 * [Reduce the time spent doing unproductive tasks](#reduce-the-time-spent-doing-unproductive-tasks).
-* [Improve the way we do the tasks so that we can do them in less time](#improve-the-way-we-do-the-tasks-so-that-we-can-do-it-in-less-time).
+* [Improve the way you do the tasks](#improve-the-way-you-do-the-tasks).
+* [Improve how you manage your tools](#improve-how-you-manage-your-tools).
 * [Improve your state and environment to be more efficient](#improve-your-state-and-environment-to-be-more-efficient).
 
 ## Reduce the time spent doing unproductive tasks
@@ -43,22 +44,8 @@ necessary information to be able to address the new task. Dumping the old task
 information and loading the new is both time consuming and exhausting, so do it
 consciously and sparingly.
 
-One way of improving in this front is by using the [Pomodoro
-technique](https://en.wikipedia.org/wiki/Pomodoro_Technique) by following the
-next steps:
-
-* Decide on the task to be done.
-* Set a 20-25 minutes timer.
-* Work on the task uninterruptedly.
-* End work when the timer rings and put a checkmark on a piece of paper.
-* If you have fewer than four checkmarks, take a short break (3–5 minutes) and
-    then set the timer again; otherwise continue to the next step.
-* After four pomodoros, take a longer break (15–30 minutes), reset your
-    checkmark count to zero, then go to step 1.
-
-The difficult part of the workflow is to manage to shut yourself off the world
-for that amount of time. One way to do it is by [managing the
-interruptions](#interruptions-management).
+One way of improving this behaviour is by using the [Pomodoro
+technique](task_workflows.md).
 
 ### [Interruption management](interruption_management.md)
 
@@ -79,18 +66,28 @@ Fill up your own [interruption analysis
 report](interruption_management.md#interruption_analysis) and define your
 [workflow](interruption_management.md#workflow) to manage them.
 
-### Others
+### Avoid lost time doing nothing
 
-* Plan first and then do stuff (avoid time invested in tasks that are not useful)
-* Procrastinate mindfully
-* Avoid the lost time doing nothing (endless switch of windows)
-* It's not a person problem, but a context one, monitor your usage of the
-    environment and see where are you losing time and switch your environment so
-    you don't fall into the trap
+Sometimes I catch myself watching at the screen with zero mental activity and
+drooling. Other times I endlessly switch between browser tabs or the email
+client and the chat clients for no reason, it's just a reflex act. You probably
+have similar behaviours that lead you nowhere. Some should be an alert that you
+need a break (don't drool the keyboard please), but others are bad uncontrolled
+behaviours that could be identified and got rid of.
 
-## Improve the way we do the tasks so that we can do it in less time.
+### Fix your environment
 
-### [Tool management](tool_management.md)
+When we loose time, we don't do it consciously, that's why it's difficult for us
+to stay alert and actively try to change those behaviours.  It's much easier to
+fix your environment so that the reasons that trigger the time loss don't happen
+at all.
+
+For example, if you keep on going back to the email client regularly even though
+you decided only to check it three times a day, instead of mentally punishing
+yourself when you check it, close the client or move it to another workspace so
+it's not where you're used to see it.
+
+## [Improve how you manage your tools](tool_management.md)
 
 Most of the tasks or processes we do involve some kind of tool, the better you
 know how to use them, the better your efficiency will be. The more you use
@@ -102,3 +99,4 @@ step by step, and once you've internalized the improvement, implement the next.
 
 * [Email management](email_management.md).
 * [Instant messages management](instant_messages_management.md).
+* [Meeting management](meeting_management.md).

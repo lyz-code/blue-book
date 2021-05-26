@@ -197,7 +197,10 @@ nav:
   - Life Management:
       - life_management.md
       - Time Management: time_management.md
-      - Task Management: task_management.md
+      - Task Management:
+          - task_management.md
+          - Task Management Tools: task_tools.md
+          - Task Management Workflows: task_workflows.md
       - Interruption Management:
           - interruption_management.md
           - Work Interruption Analysis: work_interruption_analysis.md

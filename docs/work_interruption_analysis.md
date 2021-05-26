@@ -119,7 +119,7 @@ on incoming calls.
 
     Remember to give it to the fewer people as possible.
 
-#### Instant messages
+# Instant messages
 
 It's the main internal communication channel, so it has a great volume of events
 with a wide range of priorities. They can be categorized as:
@@ -143,7 +143,7 @@ In conclusion, I can check the work chat applications each pomodoro cycle or
 when I receive a direct notification until the [improve the notification management in
 Linux](projects.md#improve-the-notification-management-in-linux) project is ready.
 
-#### Calendar events
+# Calendar events
 
 Often with a wide range of priorities.
 

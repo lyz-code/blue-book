@@ -16,10 +16,13 @@ spent a different amount of effort.
 The development phases are:
 
 * [*Seeds*](#seeds): Are raw, basic ideas of projects that may once be.
+
 * *Seedlings*: Are projects that don't yet have their first stable version, but
     the drafts of the [ADR](adr.md) and some code is already written.
+
 * [*Growing*](#growing-plants): Projects that have a stable release and are
     under active development.
+
 * [*Dormant*](#dormant-plants): Projects whose growth has temporally stopped.
     I still believe they are useful and even though I don't want to work on them
     at the moment, I see myself doing it in the future.
@@ -27,8 +30,10 @@ The development phases are:
     I still maintain them by answering to issues, reviewing pull requests,
     keeping the continuous integration pipelines alive and developing fixes to
     important issues.
+
 * [*Dying*](#dying-plants): Projects that I know are going to be deprecated
     soon, and I'm looking for alternatives.
+
 * *Dead*: Project no longer used.
 
 # Growing plants
@@ -275,26 +280,6 @@ It has the following features:
 * Prevent failed jobs to be promoted to production.
 * Promote jobs with less arguments than the drone command line.
 * Wait for a drone build to end, then raise the terminal bell.
-
-# Dying plants
-
-## mep
-
-I started  [life logging](https://en.wikipedia.org/wiki/Lifelog) with `mep`. One
-of the first programs I wrote when learning
-[Bash](https://en.wikipedia.org/wiki/Bash_%28Unix_shell%29).
-
-It is a [mplayer](https://en.wikipedia.org/wiki/MPlayer) wrapper that allows me
-to control it with [i3](https://en.wikipedia.org/wiki/I3_%28window_manager%29)
-key bindings and store metadata of the music I listen.
-
-I don't even publish it because it's a horrible program that would make your
-eyes bleed. 600 lines of code, only 3 functions, 6 levels of nested ifs, no
-tests at all, but hey, the functions have docstrings! `(ｏ・_・)ノ”(ᴗ_ ᴗ。)`
-
-The thing is that it works, so I everyday close my eyes and open my ears,
-waiting for a solution that gives me the same features with
-[mpd](https://en.wikipedia.org/wiki/Music_Player_Daemon).
 
 # Seeds
 
@@ -603,3 +588,23 @@ Instead of relaying on Github, I could use something like
 * A python library to automatically create [factoryboy](factoryboy.md) factories
     using the schema of [pydantic](pydantic.md) models.
 * An e-reader support that could be fixed to the wall.
+
+# Dying plants
+
+## mep
+
+I started  [life logging](https://en.wikipedia.org/wiki/Lifelog) with `mep`. One
+of the first programs I wrote when learning
+[Bash](https://en.wikipedia.org/wiki/Bash_%28Unix_shell%29).
+
+It is a [mplayer](https://en.wikipedia.org/wiki/MPlayer) wrapper that allows me
+to control it with [i3](https://en.wikipedia.org/wiki/I3_%28window_manager%29)
+key bindings and store metadata of the music I listen.
+
+I don't even publish it because it's a horrible program that would make your
+eyes bleed. 600 lines of code, only 3 functions, 6 levels of nested ifs, no
+tests at all, but hey, the functions have docstrings! `(ｏ・_・)ノ”(ᴗ_ ᴗ。)`
+
+The thing is that it works, so I everyday close my eyes and open my ears,
+waiting for a solution that gives me the same features with
+[mpd](https://en.wikipedia.org/wiki/Music_Player_Daemon).

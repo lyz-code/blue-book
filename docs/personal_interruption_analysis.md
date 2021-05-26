@@ -93,7 +93,7 @@ I categorize the calls in two groups:
 As calls are very rare and of high priority, I have my phone configured to ring
 on incoming calls.
 
-#### Instant messages
+# Instant messages
 
 It's the main communication channel for most people, so it has a great volume of
 events but most have low priority. They can be categorized as:
@@ -115,7 +115,7 @@ for example, after each meal. As I usually need them when I'm off the computer,
 I only have them configured at my mobile phone, with no sound notifications.
 That way I only check them when I want to.
 
-#### Desktop notifications
+# Desktop notifications
 
 I have none but I've seen people have a notification each time the music player
 changes of song. It makes no sense at all.

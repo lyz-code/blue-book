@@ -4,7 +4,7 @@ author: Lyz
 ---
 
 This is my personal [digital garden](digital_garden.md) where I share everything
-I learn about a huge variety of topics, such as, [python](python.md),
+I learn about a huge variety of topics, such as, [Python](python.md),
 [DevOps](devops.md), [software architecture](adr.md), [health](sleep.md),
 [activism](diversity.md), [life
 management](life_automation.md), [writing](writing.md),
