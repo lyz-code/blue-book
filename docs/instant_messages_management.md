@@ -26,15 +26,15 @@ I interact with messaging applications in two ways:
 * To start a conversation.
 
 The passively reading for new items works perfectly with the [interruption
-management](interruption_management.md) processes. Each time I decide to check
-for new messages I follow the [inbox processing
-guidelines](task_tools.md#inbox) to extract the information to the
-appropriate system (task manager, calendar or knowledge manager). If I answer
-someone or if I start a new conversation, I assume that any work done in the
-next 5 to 10 minutes will probably be interrupted, so I choose small or mindless
-tasks from a previously defined pool. If the person doesn't answer in that time
-I start a new [pomodoro](time_management.md#minimize-the-context-switches) and
-go back when the next interruption event comes.
+management](interruption_management.md) processes. Each time you decide to check
+for new messages, follow the [inbox processing guidelines](task_tools.md#inbox)
+to extract the information to the appropriate system (task manager, calendar or
+knowledge manager). If you answer someone or if you start a new conversation,
+assume that any work done in the next 5 to 10 minutes will probably be
+interrupted, so choose small or mindless tasks. If the person doesn't answer in
+that time, start a new
+[pomodoro](time_management.md#minimize-the-context-switches) and go back when
+the next interruption event comes.
 
 ## Use calls for non short conversations
 

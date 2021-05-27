@@ -4,6 +4,32 @@ date: 20210526
 author: Lyz
 ---
 
+# Hype flow versus a defined plan
+
+I've found two ways to work on my tasks: following a plan and following the hype
+flow.
+
+The first one helps you finish what you started, and directs your efforts
+towards big goals. The side effect is that it achieves it by setting constrains
+on what to do, so you sometimes end up in the position of doing tasks that you
+don't want to at the moment, and suppressing yourself not to do the ones that
+you want.
+
+The second one takes advantage of letting you work on wherever you want at the
+moment, which boosts your creativity and productivity. This way imposes less
+constrains on you and is more pleasant because surfing the hype is awesome. The
+side effect is that if you have many interests, you can move forward very
+quickly on many directions leaving a lot of projects half done, instead of
+pushing in the direction of your big goals.
+
+The art here is to combine both at need, if you have a good plan, you may be
+able to start surfing the hype, and when the time constrains start to press you,
+switch to a stricter plan to be able to deliver value in time. This makes more
+sense in work environments, at personal level I usually just surf the hype
+unless I have a clear objective with a due date to reach.
+
+# Planning workflows
+
 Task management can be done at different levels. All of them help you in
 different ways to reduce the mental load, each also gives you extra benefits
 that can't be gained by the others. Going from lowest to highest abstraction
@@ -20,7 +46,7 @@ If you're starting your task management career, start with the first level. Once
 you're comfortable, move one step up until you reach the sweet spot between time
 invested in management and the profit it returns.
 
-# Pomodoro
+## Pomodoro
 
 Pomodoro is a technique used to ensure that for short periods of time, you invest
 all your mental resources in doing the work needed to finish a task. It's your
@@ -66,7 +92,7 @@ end of the iteration:
 If you're super focused at the end of a Pomodoro cycle, you can skip the task
 plan update until the end of the iteration.
 
-# Task plan
+## Task plan
 
 The task plan defines the steps required to finish a task. It's your most basic
 roadmap to address a task, and a good starting point if you feel
@@ -98,7 +124,7 @@ of the steps don't make sense, all the time invested in their definition will be
 lost. That's why it's a good idea to have a great detail for the first steps and
 gradually move to rougher definitions on later ones.
 
-# Day plan
+## Day plan
 
 This plan defines at day level which tasks are you going to work on and
 schedules when are you going to address them. It's the most basic roadmap to
@@ -139,7 +165,7 @@ events so as not to get overwhelmed, and not to schedule a new task before you
 finish what you've already started. It's better to eventually fall short on
 tasks, than never reaching your goal.
 
-# Week plan
+## Week plan
 
 The plan defines at week level which tasks are you going to work on and
 schedules when are you going to address them. It's the next roadmap level to
