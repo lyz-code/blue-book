@@ -54,7 +54,7 @@ htmlmin==0.1.12
     # via mkdocs-minify-plugin
 idna==2.10
     # via requests
-importlib-metadata==4.0.1
+importlib-metadata==4.2.0
     # via
     #   keyring
     #   markdown
@@ -141,7 +141,7 @@ python-dateutil==2.8.1
     # via mkdocs-newsletter
 python-gitlab==2.7.1
     # via python-semantic-release
-python-semantic-release==7.15.4
+python-semantic-release==7.15.5
     # via mkdocs-newsletter
 pytz==2021.1
     # via babel
@@ -181,7 +181,7 @@ smmap==4.0.0
     # via gitdb
 soupsieve==2.2.1
     # via beautifulsoup4
-tomlkit==0.7.2
+tomlkit==0.7.0
     # via python-semantic-release
 tornado==6.1
     # via
@@ -198,7 +198,7 @@ typing-extensions==3.10.0.0
     #   gitpython
     #   importlib-metadata
     #   pydantic
-urllib3==1.26.4
+urllib3==1.26.5
     # via requests
 webencodings==0.5.1
     # via bleach
