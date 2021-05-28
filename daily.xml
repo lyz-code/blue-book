@@ -11,7 +11,7 @@
     <managingEditor>Lyz</managingEditor>
 
     
-    <pubDate>2021-05-27 07:08:47+00:00</pubDate>
+    <pubDate>2021-05-28 07:23:28+00:00</pubDate>
     <ttl>1440</ttl>
 
     
@@ -25,6 +25,16 @@
     
 
     
+    
+    <item><title>27th May 2021</title>
+      <author>Lyz</author>
+      <description>&lt;article class=&#34;md-content__inner md-typeset&#34;&gt; &lt;a class=&#34;md-content__button md-icon&#34; href=&#34;https://github.com/lyz-code/blue-book/edit/master/docs/newsletter/2021_05_27.md&#34; title=&#34;Edit this page&#34;&gt; &lt;svg viewbox=&#34;0 0 24 24&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z&#34;&gt;&lt;/path&gt;&lt;/svg&gt; &lt;/a&gt;  &lt;h2 id=&#34;life-management&#34;&gt;Life Management&lt;/h2&gt; &lt;h3 id=&#34;time-management&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/time_management/&#34;&gt;Time Management&lt;/a&gt;&lt;/h3&gt; &lt;ul&gt; &lt;li&gt;New: &lt;a href=&#34;https://lyz-code.github.io/blue-book/time_management/#meetings&#34;&gt;Explain how to manage meetings efficiently.&lt;/a&gt;&lt;/li&gt; &lt;li&gt;New: &lt;a href=&#34;https://lyz-code.github.io/blue-book/time_management/#improve-your-state&#34;&gt;Explain how to improve efficiency by taking care of yourself.&lt;/a&gt;&lt;/li&gt; &lt;li&gt;New: &lt;a href=&#34;https://lyz-code.github.io/blue-book/time_management/#don&#39;t-wait,-switch-task&#34;&gt;Explain how to prevent blocks by efficiently switching mental processes.&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt; &lt;h3 id=&#34;task-management&#34;&gt;Task Management&lt;/h3&gt; &lt;h4 id=&#34;task-management-workflows&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/task_workflows/&#34;&gt;Task Management Workflows&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt;New: &lt;a href=&#34;https://lyz-code.github.io/blue-book/task_workflows/#hype-flow-versus-a-defined-plan&#34;&gt;Explain the difference of surfing the hype flow versus following a defined plan.&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt; &lt;hr/&gt;  &lt;/article&gt;</description>
+      <link>https://lyz-code.github.io/blue-book/newsletter/2021_05_27/</link>
+      <pubDate>2021-05-28 07:23:28+00:00</pubDate>
+      <source url="https://lyz-code.github.io/blue-book/daily.xml">The Blue Book</source>
+      <guid isPermaLink="true">https://lyz-code.github.io/blue-book/newsletter/2021_05_27/</guid>
+      
+    </item>
     
     <item><title>26th May 2021</title>
       <author>Lyz</author>
@@ -176,16 +186,6 @@ dpkg -i jellyfin-ffmpeg_4.3.2-1-focal_amd64.deb
       <pubDate>2021-04-19 19:13:38+00:00</pubDate>
       <source url="https://lyz-code.github.io/blue-book/daily.xml">The Blue Book</source>
       <guid isPermaLink="true">https://lyz-code.github.io/blue-book/newsletter/2021_04_15/</guid>
-      
-    </item>
-    
-    <item><title>14th April 2021</title>
-      <author>Lyz</author>
-      <description>&lt;article class=&#34;md-content__inner md-typeset&#34;&gt; &lt;a class=&#34;md-content__button md-icon&#34; href=&#34;https://github.com/lyz-code/blue-book/edit/master/docs/newsletter/2021_04_14.md&#34; title=&#34;Edit this page&#34;&gt; &lt;svg viewbox=&#34;0 0 24 24&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z&#34;&gt;&lt;/path&gt;&lt;/svg&gt; &lt;/a&gt;  &lt;h2 id=&#34;coding&#34;&gt;Coding&lt;/h2&gt; &lt;h3 id=&#34;python&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/python/&#34;&gt;Python&lt;/a&gt;&lt;/h3&gt; &lt;ul&gt; &lt;li&gt;Improvement: Add FastAPI docs as a model to study and follow.&lt;/li&gt; &lt;/ul&gt; &lt;h4 id=&#34;fastapi&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/fastapi/&#34;&gt;FastAPI&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;New: Introduce FastAPI the pydantic friendly python framework to build APIs.&lt;/p&gt; &lt;p&gt;&lt;a href=&#34;https://fastapi.tiangolo.com/&#34;&gt;FastAPI&lt;/a&gt; is a modern, fast (high-performance), web framework for building APIs with Python 3.6+ based on standard Python type hints.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;h2 id=&#34;operative-systems&#34;&gt;Operative Systems&lt;/h2&gt; &lt;h3 id=&#34;linux&#34;&gt;Linux&lt;/h3&gt; &lt;h4 id=&#34;beets&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/beets/&#34;&gt;Beets&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;New: Introduce Beets the music management library.&lt;/p&gt; &lt;p&gt;&lt;a href=&#34;https://beets.io/&#34;&gt;Beets&lt;/a&gt; is a music management library used to get your music collection right once and for all. It catalogs your collection, automatically improving its metadata as it goes using the MusicBrainz database. Then it provides a set of tools for manipulating and accessing your music.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;h4 id=&#34;modipy&#34;&gt;&lt;a href=&#34;modipy.md&#34;&gt;Modipy&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;New: Introduce the music server.&lt;/p&gt; &lt;p&gt;&lt;a href=&#34;https://github.com/mopidy/mopidy&#34;&gt;Mopidy&lt;/a&gt; is an extensible music server written in Python, that plays perfectly with &lt;a href=&#34;https://lyz-code.github.io/blue-book/beets/&#34;&gt;beets&lt;/a&gt; and the MPD ecosystem.&lt;/p&gt; &lt;p&gt;The awesome documentation, being Python based, the extension system, JSON-RPC, and JavaScript APIs make Mopidy a perfect base for your projects.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;h2 id=&#34;arts&#34;&gt;Arts&lt;/h2&gt; &lt;h3 id=&#34;writing&#34;&gt;Writing&lt;/h3&gt; &lt;h4 id=&#34;grammar-and-orthography&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/writing/orthography/&#34;&gt;Grammar and Orthography&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;New: Explain when to write won&#39;t or wont.&lt;/p&gt; &lt;ul&gt; &lt;li&gt;Won&#39;t is the correct way to contract will not.&lt;/li&gt; &lt;li&gt;Wont is a synonym of &#34;a habit&#34;. For example, &#34;He went for a morning jog, as was his wont&#34;.&lt;/li&gt; &lt;/ul&gt; &lt;/li&gt; &lt;/ul&gt; &lt;hr/&gt;  &lt;/article&gt;</description>
-      <link>https://lyz-code.github.io/blue-book/newsletter/2021_04_14/</link>
-      <pubDate>2021-04-15 06:40:52+00:00</pubDate>
-      <source url="https://lyz-code.github.io/blue-book/daily.xml">The Blue Book</source>
-      <guid isPermaLink="true">https://lyz-code.github.io/blue-book/newsletter/2021_04_14/</guid>
       
     </item>
     
