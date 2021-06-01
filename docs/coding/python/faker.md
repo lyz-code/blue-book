@@ -90,7 +90,7 @@ provider.
 ### Install
 
 ```bash
-pip install fake_enum
+pip install faker-enum
 ```
 
 ### Usage

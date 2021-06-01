@@ -57,6 +57,14 @@ They are avoided through:
     details when we need to without needing to make changes to the business
     layer.
 
+!!! warning "Refactoring old code is expensive"
+    You may be tempted to migrate all your old code to this architecture once
+    you fall in love with it. Truth being told, it's the best way to learn how to
+    use it, but it's time expensive too! [The last
+    refactor](https://github.com/lyz-code/clinv/pull/40) I did required a
+    change of 60% of the code. The upside is that I reduced the total lines of
+    code a 25%.
+
 # [Domain modeling](https://www.cosmicpython.com/book/chapter_01_domain_model.html)
 
 Keeping in mind that *Domain* is the problem you are trying to solve, and
