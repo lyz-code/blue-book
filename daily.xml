@@ -11,7 +11,7 @@
     <managingEditor>Lyz</managingEditor>
 
     
-    <pubDate>2021-05-28 07:24:34+00:00</pubDate>
+    <pubDate>2021-06-02 08:07:18+00:00</pubDate>
     <ttl>1440</ttl>
 
     
@@ -25,6 +25,16 @@
     
 
     
+    
+    <item><title>1st June 2021</title>
+      <author>Lyz</author>
+      <description>&lt;article class=&#34;md-content__inner md-typeset&#34;&gt; &lt;a class=&#34;md-content__button md-icon&#34; href=&#34;https://github.com/lyz-code/blue-book/edit/master/docs/newsletter/2021_06_01.md&#34; title=&#34;Edit this page&#34;&gt; &lt;svg viewbox=&#34;0 0 24 24&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z&#34;&gt;&lt;/path&gt;&lt;/svg&gt; &lt;/a&gt;  &lt;h2 id=&#34;software-architecture&#34;&gt;Software Architecture&lt;/h2&gt; &lt;h3 id=&#34;domain-driven-design&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/architecture/domain_driven_design/&#34;&gt;Domain Driven Design&lt;/a&gt;&lt;/h3&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;Improvement: Add warning when migrating old code.&lt;/p&gt; &lt;p&gt;You may be tempted to migrate all your old code to this architecture once you fall in love with it. Truth being told, it&#39;s the best way to learn how to use it, but it&#39;s time expensive too! &lt;a href=&#34;https://github.com/lyz-code/clinv/pull/40&#34;&gt;The last refactor&lt;/a&gt; I did required a change of 60% of the code. The upside is that I reduced the total lines of code a 25%.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;hr/&gt;  &lt;/article&gt;</description>
+      <link>https://lyz-code.github.io/blue-book/newsletter/2021_06_01/</link>
+      <pubDate>2021-06-02 08:07:18+00:00</pubDate>
+      <source url="https://lyz-code.github.io/blue-book/daily.xml">The Blue Book</source>
+      <guid isPermaLink="true">https://lyz-code.github.io/blue-book/newsletter/2021_06_01/</guid>
+      
+    </item>
     
     <item><title>27th May 2021</title>
       <author>Lyz</author>
@@ -176,16 +186,6 @@ dpkg -i jellyfin-ffmpeg_4.3.2-1-focal_amd64.deb
       <pubDate>2021-04-20 06:43:13+00:00</pubDate>
       <source url="https://lyz-code.github.io/blue-book/daily.xml">The Blue Book</source>
       <guid isPermaLink="true">https://lyz-code.github.io/blue-book/newsletter/2021_04_19/</guid>
-      
-    </item>
-    
-    <item><title>15th April 2021</title>
-      <author>Lyz</author>
-      <description>&lt;article class=&#34;md-content__inner md-typeset&#34;&gt; &lt;a class=&#34;md-content__button md-icon&#34; href=&#34;https://github.com/lyz-code/blue-book/edit/master/docs/newsletter/2021_04_15.md&#34; title=&#34;Edit this page&#34;&gt; &lt;svg viewbox=&#34;0 0 24 24&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z&#34;&gt;&lt;/path&gt;&lt;/svg&gt; &lt;/a&gt;  &lt;h2 id=&#34;projects&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/projects/projects/&#34;&gt;Projects&lt;/a&gt;&lt;/h2&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;Improvement: &lt;a href=&#34;https://lyz-code.github.io/blue-book/projects/projects/#repository-orm&#34;&gt;Show the changes of repository-orm 0.3.1.&lt;/a&gt;&lt;/p&gt; &lt;ul&gt; &lt;li&gt;Add &lt;code&gt;first&lt;/code&gt; and &lt;code&gt;last&lt;/code&gt; methods to the repositories.&lt;/li&gt; &lt;li&gt;Make entity &lt;code&gt;id_&lt;/code&gt; definition optional.&lt;/li&gt; &lt;li&gt;add &lt;code&gt;_model_name&lt;/code&gt; attribute to entities.&lt;/li&gt; &lt;/ul&gt; &lt;/li&gt; &lt;/ul&gt; &lt;h2 id=&#34;coding&#34;&gt;Coding&lt;/h2&gt; &lt;h3 id=&#34;python&#34;&gt;Python&lt;/h3&gt; &lt;h4 id=&#34;fastapi&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/fastapi/&#34;&gt;FastAPI&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;New: Sum up the basic documentation.&lt;/p&gt; &lt;p&gt;Explain how to:&lt;/p&gt; &lt;ul&gt; &lt;li&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/fastapi/#sending-data-to-the-server&#34;&gt;Sending data to the server&lt;/a&gt;: Through &lt;a href=&#34;https://lyz-code.github.io/blue-book/fastapi/#path-parameters&#34;&gt;path parameters&lt;/a&gt;, &lt;a href=&#34;fastapi.md#query-parameters&#34;&gt;query parameters&lt;/a&gt; and &lt;a href=&#34;fastapi.md#body-requests&#34;&gt;body requests&lt;/a&gt;.&lt;/li&gt; &lt;li&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/fastapi/#handling-errors&#34;&gt;Handle errors&lt;/a&gt;.&lt;/li&gt; &lt;li&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/fastapi/#updating-data&#34;&gt;Update data&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/fastapi/#openapi-configuration&#34;&gt;Configure OpenAPI&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/fastapi/#testing&#34;&gt;Test FastAPI applications&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt; &lt;p&gt;And add a lot of &lt;a href=&#34;https://lyz-code.github.io/blue-book/fastapi/#interesting-features-to-explore&#34;&gt;more interesting features&lt;/a&gt; I&#39;ve discovered.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;h4 id=&#34;pytest&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/coding/python/pytest/&#34;&gt;Pytest&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;New: &lt;a href=&#34;https://lyz-code.github.io/blue-book/coding/python/pytest/#excluding-code-from-coverage&#34;&gt;Explain how to exclude code from the coverage report.&lt;/a&gt;&lt;/p&gt; &lt;p&gt;Add &lt;code&gt;# pragma: no cover&lt;/code&gt;.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;h4 id=&#34;networkx&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/networkx/&#34;&gt;NetworkX&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;New: Introduce the python library.&lt;/p&gt; &lt;p&gt;&lt;a href=&#34;https://networkx.org/&#34;&gt;NetworkX&lt;/a&gt; is a Python package for the creation, manipulation, and study of the structure, dynamics, and functions of complex networks.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;h4 id=&#34;pydantic&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/coding/python/pydantic/&#34;&gt;Pydantic&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;New: &lt;a href=&#34;https://lyz-code.github.io/blue-book/coding/python/pydantic/#set-private-attributes&#34;&gt;Explain how to use private attributes.&lt;/a&gt;&lt;/p&gt; &lt;p&gt;With the &lt;a href=&#34;https://pydantic-docs.helpmanual.io/usage/models/#private-model-attributes&#34;&gt;&lt;code&gt;PrivateAttr&lt;/code&gt;&lt;/a&gt; object.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;hr/&gt;  &lt;/article&gt;</description>
-      <link>https://lyz-code.github.io/blue-book/newsletter/2021_04_15/</link>
-      <pubDate>2021-04-19 19:13:38+00:00</pubDate>
-      <source url="https://lyz-code.github.io/blue-book/daily.xml">The Blue Book</source>
-      <guid isPermaLink="true">https://lyz-code.github.io/blue-book/newsletter/2021_04_15/</guid>
       
     </item>
     
