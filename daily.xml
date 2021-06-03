@@ -11,7 +11,7 @@
     <managingEditor>Lyz</managingEditor>
 
     
-    <pubDate>2021-06-02 08:07:18+00:00</pubDate>
+    <pubDate>2021-06-02 08:08:20+00:00</pubDate>
     <ttl>1440</ttl>
 
     
@@ -30,7 +30,7 @@
       <author>Lyz</author>
       <description>&lt;article class=&#34;md-content__inner md-typeset&#34;&gt; &lt;a class=&#34;md-content__button md-icon&#34; href=&#34;https://github.com/lyz-code/blue-book/edit/master/docs/newsletter/2021_06_01.md&#34; title=&#34;Edit this page&#34;&gt; &lt;svg viewbox=&#34;0 0 24 24&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z&#34;&gt;&lt;/path&gt;&lt;/svg&gt; &lt;/a&gt;  &lt;h2 id=&#34;software-architecture&#34;&gt;Software Architecture&lt;/h2&gt; &lt;h3 id=&#34;domain-driven-design&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/architecture/domain_driven_design/&#34;&gt;Domain Driven Design&lt;/a&gt;&lt;/h3&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;Improvement: Add warning when migrating old code.&lt;/p&gt; &lt;p&gt;You may be tempted to migrate all your old code to this architecture once you fall in love with it. Truth being told, it&#39;s the best way to learn how to use it, but it&#39;s time expensive too! &lt;a href=&#34;https://github.com/lyz-code/clinv/pull/40&#34;&gt;The last refactor&lt;/a&gt; I did required a change of 60% of the code. The upside is that I reduced the total lines of code a 25%.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;hr/&gt;  &lt;/article&gt;</description>
       <link>https://lyz-code.github.io/blue-book/newsletter/2021_06_01/</link>
-      <pubDate>2021-06-02 08:07:18+00:00</pubDate>
+      <pubDate>2021-06-02 08:08:20+00:00</pubDate>
       <source url="https://lyz-code.github.io/blue-book/daily.xml">The Blue Book</source>
       <guid isPermaLink="true">https://lyz-code.github.io/blue-book/newsletter/2021_06_01/</guid>
       
