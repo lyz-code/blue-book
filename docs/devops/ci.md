@@ -139,3 +139,12 @@ Variables to substitute:
 [![Coverage Status](https://coveralls.io/repos/github/{{ repository_path
 }}/badge.svg?branch=master)](https://coveralls.io/github/{{ repository_path }}?branch=master)
 ~~~
+
+# Troubleshooting
+
+## error: pathspec 'master' did not match any file(s) known to git
+
+If you have this error while making a commit through a pipeline step, it may be
+the pre-commits stepping in.
+
+To fix it, remove all git hooks with `rm -r .git/hooks`.
