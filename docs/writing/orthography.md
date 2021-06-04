@@ -11,6 +11,79 @@ message reaches people.
 
 This article is an effort to gather all my common pitfalls.
 
+# [Use collocations](https://en.wikipedia.org/wiki/English_collocations)
+
+Collocation refers to a natural combination of words that are closely affiliated
+with each other. They make it easier to avoid overused or ambiguous words like
+"very", "nice", or "beautiful", by using a pair of words that fit the context
+better and that have a more precise meaning. Skilled users of the language can
+produce effects such as humor by varying the normal patterns of collocation.
+
+## [Stop saying "very"](https://www.youtube.com/watch?v=PCoyTwltu5g)
+
+| wrong            | collocation                                                        |
+| ---              | ---                                                                |
+| Very full        | stuffed                                                            |
+| Very risky       | perilous                                                           |
+| Very thin        | slender                                                            |
+| Very long        | extensive                                                          |
+| Very interesting | intriguing                                                         |
+| Very happy       | jubilant, delighted, joyful, overjoyed                             |
+| Very worried     | anxious                                                            |
+| Very Thirsty     | parched                                                            |
+| Very dirty       | squalid                                                            |
+| Very clean       | spotless                                                           |
+| Very rude        | vulgar                                                             |
+| Very short       | brief                                                              |
+| Very boring      | dull                                                               |
+| Very good        | superb, marvelous, excellent, extraordinary, splendid, spectacular |
+| Very hot         | scalding / scorching                                               |
+| Very cold        | freezing                                                           |
+| Very hungry      | ravenous                                                           |
+| Very slow        | sluggish                                                           |
+| Very fast        | rapid                                                              |
+| Very tired       | exhausted                                                          |
+| Very poor        | destitute                                                          |
+| Very rich        | wealthy                                                            |
+| Very hard        | challenging                                                        |
+| Very smart       | bright                                                             |
+| Very beautiful   | mesmerizing, stunning, astonishing, charming, magnificent          |
+| Very sad         | depressing                                                         |
+| Very funny       | hilarious, absurd                                                  |
+| Very scared      | petrified / frightened / fearful                                   |
+| Very sleepy      | drowsy                                                             |
+| Very full        | crowded                                                            |
+| Very ugly        | hideous                                                            |
+| Very wicked      | villainous                                                         |
+| Very quiet       | silent                                                             |
+| Very accurate    | exact                                                              |
+| Very large       | huge                                                               |
+| Very powerful    | compelling                                                         |
+| Very lazy        | indolent                                                           |
+| Very fat         | obese                                                              |
+| Very often       | frequently                                                         |
+| Very smooth      | sleek                                                              |
+| Very long term   | enduring                                                           |
+| Very strong      | unyelding                                                          |
+| Very tasty       | delicious                                                          |
+| Very valuable    | precious                                                           |
+| Very creative    | innovative                                                         |
+| Very light       | luminous                                                           |
+| Very wet         | soaked                                                             |
+| Very bright      | blinding                                                           |
+| Very strange     | abnormal. bizarre, outlandish                                      |
+| Very small       | tiny                                                               |
+| Very big         | giant, immense, massive                                            |
+| Very bad         | horrendous, atrocious, horrible                                    |
+| Very important   | essential                                                          |
+| Very exciting    | engaging                                                           |
+| Very calm        | peaceful                                                           |
+| Very painful     | agonizing                                                          |
+| Very expensive   | priceless                                                          |
+| Very drunk       | intoxicated                                                        |
+| Very humble      | polite                                                             |
+| Very smart       | intelligent                                                        |
+
 # [I'm good or I'm well](https://thegrammargeekblog.wordpress.com/2019/05/27/im-good-or-im-well/)
 
 !!! note "TL;DR"
@@ -202,3 +275,5 @@ Since in some cases is useful, I'm going to use them to reduce the mental load.
     grammar](https://www.wizcase.com/blog/how-good-grammar-saves-lives-and-other-reasons-its-still-important/),
     even though is a bit sensational and I don't like the overall tone, it has
     good insights on common grammar mistakes. Thanks for the link Dave :)
+
+* [JamesESL videos](https://www.youtube.com/c/engvidJames/videos)
