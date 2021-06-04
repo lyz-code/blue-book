@@ -56,6 +56,7 @@ nav:
                   - Pydantic Validating Functions: coding/python/pydantic_functions.md
                   - Pydantic Mypy Plugin: coding/python/pydantic_mypy_plugin.md
               - Pypika: coding/python/pypika.md
+              - Python Mysql: python_mysql.md
               - Plotly: coding/python/plotly.md
               - questionary: questionary.md
               - rich: rich.md

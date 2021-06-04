@@ -4,6 +4,25 @@ date: 20200717
 author: Lyz
 ---
 
+# [Convert html to readable plaintext](https://stackoverflow.com/questions/13337528/rendered-html-to-plain-text-using-python)
+
+```bash
+pip install html2text
+```
+
+```python
+import html2text
+html = open("foobar.html").read()
+print(html2text.html2text(html))
+```
+
+# [Parse a datetime from a string](https://stackoverflow.com/questions/466345/converting-string-into-datetime)
+
+```python
+from dateutil import parser
+parser.parse("Aug 28 1999 12:00AM")  # datetime.datetime(1999, 8, 28, 0, 0)
+```
+
 # Install a python dependency from a git repository
 
 With [pip you
