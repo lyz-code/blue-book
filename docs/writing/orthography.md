@@ -11,6 +11,47 @@ message reaches people.
 
 This article is an effort to gather all my common pitfalls.
 
+# [Stop saying "I know"](https://www.youtube.com/watch?v=FXjvpR02uNg)
+
+Using "I know" may not be the best way to show the other person that you've
+received the information. You can take the chance to use other words that
+additionally gives more context on how you stand with the information you've
+received, thus improving the communication and creating a bond. Each of the next
+words carries a different nuance:
+
+* `Recognize`: You acknowledge the truth, existence or validity of the
+    information.
+
+* `From my perspective`: You're showing that given the information, you see the
+    person's point and state that you have a different one.
+
+* `Appreciate`: You recognize the implications and true value of the subject and
+    are being thankful for the information.
+
+* `Understand`: You show that you've perceived the underlying meaning of the
+    information. It implies a deeper level of information processing.
+
+* `I see`: You show that you understand and that you're paying all your
+    attention.
+
+Besides showing where you stand or how you feel, you can use other phrases that
+make connection at the visual, audio and kinesthetic levels to improve the
+communication.
+
+* `I hear what you're saying`: Shows auditory connection.
+* `I get the picture` or `I see what you mean`: Shows visual connection.
+* `I catch your drift`: Shows kinesthetic connection.
+
+You can also add information when saying that you don't know. For example you
+can use:
+
+* `Misread`: You give the idea that you perceived the information wrong.
+* `Misunderstood`: You perceived the information well, but formed the wrong idea
+    in your head.
+* `Mixed up`: You had the correct information and idea, but you ended up saying
+    or doing the wrong answer.
+* `Confused`: You have the correct information but you can't form a clear idea.
+
 # [Use collocations](https://en.wikipedia.org/wiki/English_collocations)
 
 Collocation refers to a natural combination of words that are closely affiliated
