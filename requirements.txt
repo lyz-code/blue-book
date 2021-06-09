@@ -18,7 +18,7 @@ chardet==4.0.0
     # via requests
 click-log==0.3.2
     # via python-semantic-release
-click==7.1.2
+click==8.0.1
     # via
     #   click-log
     #   mkdocs
@@ -55,6 +55,7 @@ idna==2.10
     # via requests
 importlib-metadata==4.5.0
     # via
+    #   click
     #   keyring
     #   markdown
     #   mkdocs
@@ -139,7 +140,7 @@ python-dateutil==2.8.1
     #   mkdocs-newsletter
 python-gitlab==2.7.1
     # via python-semantic-release
-python-semantic-release==7.15.5
+python-semantic-release==7.16.1
     # via mkdocs-newsletter
 pytz==2021.1
     # via babel
