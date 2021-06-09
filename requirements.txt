@@ -101,7 +101,7 @@ mkdocs-section-index==0.3.1
     # via
     #   -r requirements.in
     #   mkdocs-newsletter
-mkdocs==1.2
+mkdocs==1.2.1
     # via
     #   -r requirements.in
     #   mkdocs-autolinks-plugin
