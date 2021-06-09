@@ -293,6 +293,9 @@ nav:
               - digital_garden.md
               - Build your own Digital Garden: writing/build_your_own_wiki.md
               - Forking this garden: forking_this_wiki.md
+      - Cooking:
+          - cooking.md
+          - Cooking Basics: cooking_basics.md
       - Pilates:
           - pilates.md
       - Dancing:
