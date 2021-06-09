@@ -51,6 +51,16 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/cooking/</loc>
+         <lastmod>2021-06-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/cooking_basics/</loc>
+         <lastmod>2021-06-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/digital_garden/</loc>
          <lastmod>2021-06-09</lastmod>
          <changefreq>daily</changefreq>
