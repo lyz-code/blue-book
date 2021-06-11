@@ -17,7 +17,7 @@ The development phases are:
 
 * [*Seeds*](#seeds): Are raw, basic ideas of projects that may once be.
 
-* *Seedlings*: Are projects that don't yet have their first stable version, but
+* [*Seedlings*](#seedlings): Are projects that don't yet have their first stable version, but
     the drafts of the [ADR](adr.md) and some code is already written.
 
 * [*Growing*](#growing-plants): Projects that have a stable release and are
@@ -281,6 +281,34 @@ It has the following features:
 * Promote jobs with less arguments than the drone command line.
 * Wait for a drone build to end, then raise the terminal bell.
 
+# Seedlings
+
+## Self hosted map
+
+I love maps, as well as traveling and hiking. This project aims to create a web
+interface that let's me interact with the data gathered throughout my life. I'd
+like to:
+
+* Browse the waypoints and routes that I've done.
+* Create routes and export the gpx.
+* Be able to search through the data
+* Plan trips
+
+All the data must live in my servers.
+
+I first started with [umap](https://umap.openstreetmap.fr/en/) but it stopped
+being responsive when you add many points, and it's not easy to self-host. Then
+I went with [folium](folium.md), but it lacked the interactively I wanted, so
+I ended up using [dash leaflet](dash_leaflet.md).
+
+The first phase of the project is to be able to import and browse the existing
+data. A second phase will be to add the [routing
+functionality](https://wiki.openstreetmap.org/wiki/Routing/online_routers),
+maybe with [Leaflet Routing
+Machine](http://www.liedman.net/leaflet-routing-machine/#getting-started), which
+will probably need a [self-hosted OSRM
+server](https://github.com/Project-OSRM/osrm-backend/wiki/Running-OSRM).
+
 # Seeds
 
 This is a gathering of tools, ideas or services that I'd like to enjoy.
@@ -343,6 +371,12 @@ Their [hooks
 system](https://alot.readthedocs.io/en/latest/configuration/hooks.html) is the
 perfect place to create the custom python scripts to process the different
 automatic workflows.
+
+## Switch to a better browser
+
+Firefox + Trydactil has it's limits, and Firefox has been following an ill path
+for a while, [qutebrowser](https://github.com/qutebrowser/qutebrowser) looks
+like the perfect replacement.
 
 ## Automating computer file management
 
