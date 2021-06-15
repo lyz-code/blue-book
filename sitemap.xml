@@ -81,6 +81,16 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/dunst/</loc>
+         <lastmod>2021-06-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/elasticsearch_exporter/</loc>
+         <lastmod>2021-06-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/email_management/</loc>
          <lastmod>2021-06-15</lastmod>
          <changefreq>daily</changefreq>
