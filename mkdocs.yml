@@ -184,6 +184,7 @@ nav:
               - Prometheus Install: devops/prometheus/prometheus_installation.md
               - AlertManager: devops/prometheus/alertmanager.md
               - Blackbox Exporter: devops/prometheus/blackbox_exporter.md
+              - Elasticsearch Exporter: elasticsearch_exporter.md
               - Node Exporter: devops/prometheus/node_exporter.md
               - Instance sizing analysis: devops/prometheus/instance_sizing_analysis.md
               - Prometheus Troubleshooting: >-
@@ -254,6 +255,7 @@ nav:
           - Beets: beets.md
           - brew: linux/brew.md
           - Docker: docker.md
+          - dunst: dunst.md
           - elasticsearch: linux/elasticsearch.md
           - fail2ban: linux/fail2ban.md
           - Gajim: gajim.md

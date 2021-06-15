@@ -164,9 +164,9 @@ a related column between them.
 
 ```sql
 SELECT users.id, addresses.street
-FROM usesr
+FROM users
 LEFT JOIN addresses
-ON users.id == addresses.user_id
+ON users.id = addresses.user_id
 ```
 
 It will return one line.
@@ -177,7 +177,7 @@ It will return one line.
 SELECT books.id, reviews.rating
 FROM books
 LEFT JOIN reviews
-ON books.id == reviews.book_id
+ON books.id = reviews.book_id
 ```
 
 It will return many lines.
