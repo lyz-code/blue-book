@@ -320,6 +320,61 @@ The most basic probes, test if the service is healthy
       Elasticsearch has pending tasks. Cluster works slowly.
       VALUE = {{ $value }}
       LABELS = {{ $labels }}
+
+- alert: ElasticsearchCountOfJVMGarbageCollectorRuns
+  expr: rate(elasticsearch_jvm_gc_collection_seconds_count{}[5m]) > 5
+  for: 1m
+  labels:
+    severity: warning
+  annotations:
+    summary: >
+      Elasticsearch JVM Garbage Collector runs > 5
+      (cluster {{ $labels.cluster_name }})
+    description: |
+      Elastic Cluster JVM Garbage Collector runs > 5
+      VALUE = {{ $value }}
+      LABELS = {{ $labels }}
+
+- alert: ElasticsearchCountOfJVMGarbageCollectorTime
+  expr: rate(elasticsearch_jvm_gc_collection_seconds_sum[5m]) > 0.3
+  for: 1m
+  labels:
+    severity: warning
+  annotations:
+    summary: >
+      Elasticsearch JVM Garbage Collector time > 0.3
+      (cluster {{ $labels.cluster_name }})
+    description: |
+      Elastic Cluster JVM Garbage Collector runs > 0.3
+      VALUE = {{ $value }}
+      LABELS = {{ $labels }}
+- alert: ElasticsearchJSONParseErrors
+  expr: elasticsearch_cluster_health_json_parse_failures > 0
+  for: 1m
+  labels:
+    severity: warning
+  annotations:
+    summary: >
+      Elasticsearch json parse error
+      (cluster {{ $labels.cluster_name }})
+    description: |
+      Elasticsearch json parse error
+      VALUE = {{ $value }}
+      LABELS = {{ $labels }}
+- alert: ElasticsearchCircuitBreakerTripped
+  expr: rate(elasticsearch_breakers_tripped{}[5m])>0
+  for: 1m
+  labels:
+    severity: warning
+  annotations:
+    summary: >
+      Elasticsearch breaker {{ $labels.breaker }} tripped
+      (cluster {{ $labels.cluster_name }}, node {{ $labels.name }})
+    description: |
+      Elasticsearch breaker {{ $labels.breaker }} tripped
+      (cluster {{ $labels.cluster_name }}, node {{ $labels.name }})
+      VALUE = {{ $value }}
+      LABELS = {{ $labels }}
 ```
 
 ## Snapshot alerts
@@ -341,6 +396,27 @@ The most basic probes, test if the service is healthy
     description: |
       Last successful elasticsearch snapshot
       of repository {{ $labels.repository}} is older than 32 days.
+      VALUE = {{ $value }}
+      LABELS = {{ $labels }}
+
+- record: elasticsearch_indices_search_latency:rate1m
+  expr: |
+    increase(elasticsearch_indices_search_query_time_seconds[1m])/
+    increase(elasticsearch_indices_search_query_total[1m])
+- record: elasticsearch_indices_search_rate:rate1m
+  expr: increase(elasticsearch_indices_search_query_total[1m])/60
+- alert: ElasticsearchSlowSearchLatency
+  expr: elasticsearch_indices_search_latency:rate1m > 1
+  for: 2m
+  labels:
+    severity: warning
+  annotations:
+    summary: >
+      Elasticsearch search latency is greater than 1 s
+      (cluster {{ $labels.cluster_name }}, node {{ $labels.name }})
+    description: |
+      Elasticsearch search latency is greater than 1 s
+      (cluster {{ $labels.cluster_name }}, node {{ $labels.name }})
       VALUE = {{ $value }}
       LABELS = {{ $labels }}
 ```
