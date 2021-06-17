@@ -11,7 +11,7 @@
     <managingEditor>Lyz</managingEditor>
 
     
-    <pubDate>2021-06-16 06:41:57+00:00</pubDate>
+    <pubDate>2021-06-17 06:41:18+00:00</pubDate>
     <ttl>1440</ttl>
 
     
@@ -25,6 +25,16 @@
     
 
     
+    
+    <item><title>16th June 2021</title>
+      <author>Lyz</author>
+      <description>&lt;article class=&#34;md-content__inner md-typeset&#34;&gt; &lt;a class=&#34;md-content__button md-icon&#34; href=&#34;https://github.com/lyz-code/blue-book/edit/master/docs/newsletter/2021_06_16.md&#34; title=&#34;Edit this page&#34;&gt; &lt;svg viewbox=&#34;0 0 24 24&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z&#34;&gt;&lt;/path&gt;&lt;/svg&gt; &lt;/a&gt;  &lt;h2 id=&#34;devops&#34;&gt;DevOps&lt;/h2&gt; &lt;h3 id=&#34;monitoring&#34;&gt;Monitoring&lt;/h3&gt; &lt;h4 id=&#34;elasticsearch-exporter&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/elasticsearch_exporter/&#34;&gt;Elasticsearch Exporter&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;Improvement: Add more elasticsearch alerts.&lt;/p&gt; &lt;p&gt;Measure the search latency, search rate and create alerts on the garbage collector, json parser and circuit breaker errors&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;hr/&gt;  &lt;/article&gt;</description>
+      <link>https://lyz-code.github.io/blue-book/newsletter/2021_06_16/</link>
+      <pubDate>2021-06-17 06:41:18+00:00</pubDate>
+      <source url="https://lyz-code.github.io/blue-book/daily.xml">The Blue Book</source>
+      <guid isPermaLink="true">https://lyz-code.github.io/blue-book/newsletter/2021_06_16/</guid>
+      
+    </item>
     
     <item><title>15th June 2021</title>
       <author>Lyz</author>
@@ -181,16 +191,6 @@ dpkg -i jellyfin-ffmpeg_4.3.2-1-focal_amd64.deb
       <pubDate>2021-05-14 16:35:07+00:00</pubDate>
       <source url="https://lyz-code.github.io/blue-book/daily.xml">The Blue Book</source>
       <guid isPermaLink="true">https://lyz-code.github.io/blue-book/newsletter/2021_05_11/</guid>
-      
-    </item>
-    
-    <item><title>1st May 2021</title>
-      <author>Lyz</author>
-      <description>&lt;article class=&#34;md-content__inner md-typeset&#34;&gt; &lt;a class=&#34;md-content__button md-icon&#34; href=&#34;https://github.com/lyz-code/blue-book/edit/master/docs/newsletter/2021_05_01.md&#34; title=&#34;Edit this page&#34;&gt; &lt;svg viewbox=&#34;0 0 24 24&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z&#34;&gt;&lt;/path&gt;&lt;/svg&gt; &lt;/a&gt;  &lt;h2 id=&#34;coding&#34;&gt;Coding&lt;/h2&gt; &lt;h3 id=&#34;python&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/python/&#34;&gt;Python&lt;/a&gt;&lt;/h3&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;New: Add parso library to interesting libraries to explore.&lt;/p&gt; &lt;p&gt;&lt;a href=&#34;https://github.com/davidhalter/parso&#34;&gt;parso&lt;/a&gt; is a library to parse Python code.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;h4 id=&#34;boto3&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/boto3/&#34;&gt;Boto3&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt;New: &lt;a href=&#34;https://lyz-code.github.io/blue-book/boto3/#test-iam-users&#34;&gt;Explain how to test IAM users and groups.&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt; &lt;h4 id=&#34;type-hints&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/coding/python/type_hints/&#34;&gt;Type Hints&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;Improvement: &lt;a href=&#34;https://lyz-code.github.io/blue-book/coding/python/type_hints/#allow-any-subclass&#34;&gt;Explain how to define the type hints of functions and methods that use subclasses.&lt;/a&gt;&lt;/p&gt; &lt;p&gt;It&#39;s a complex topic that has taken me many months to get it right :).&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;h3 id=&#34;writing-good-documentation&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/documentation/&#34;&gt;Writing good documentation&lt;/a&gt;&lt;/h3&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;New: Start explaining how to write good documentation for a software project.&lt;/p&gt; &lt;p&gt;It doesn&#39;t matter how good your program is, because if its documentation is not good enough, people will not use it.&lt;/p&gt; &lt;p&gt;People working with software need different kinds of documentation at different times, in different circumstances, so good software documentation needs them all. In this first iteration, I define the five kinds of documentation, and give the ideas to write good introduction and get started sections.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;hr/&gt;  &lt;/article&gt;</description>
-      <link>https://lyz-code.github.io/blue-book/newsletter/2021_05_01/</link>
-      <pubDate>2021-05-02 06:41:48+00:00</pubDate>
-      <source url="https://lyz-code.github.io/blue-book/daily.xml">The Blue Book</source>
-      <guid isPermaLink="true">https://lyz-code.github.io/blue-book/newsletter/2021_05_01/</guid>
       
     </item>
     
