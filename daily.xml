@@ -11,7 +11,7 @@
     <managingEditor>Lyz</managingEditor>
 
     
-    <pubDate>2021-06-17 06:41:18+00:00</pubDate>
+    <pubDate>2021-06-17 06:42:28+00:00</pubDate>
     <ttl>1440</ttl>
 
     
@@ -30,7 +30,7 @@
       <author>Lyz</author>
       <description>&lt;article class=&#34;md-content__inner md-typeset&#34;&gt; &lt;a class=&#34;md-content__button md-icon&#34; href=&#34;https://github.com/lyz-code/blue-book/edit/master/docs/newsletter/2021_06_16.md&#34; title=&#34;Edit this page&#34;&gt; &lt;svg viewbox=&#34;0 0 24 24&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z&#34;&gt;&lt;/path&gt;&lt;/svg&gt; &lt;/a&gt;  &lt;h2 id=&#34;devops&#34;&gt;DevOps&lt;/h2&gt; &lt;h3 id=&#34;monitoring&#34;&gt;Monitoring&lt;/h3&gt; &lt;h4 id=&#34;elasticsearch-exporter&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/elasticsearch_exporter/&#34;&gt;Elasticsearch Exporter&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;Improvement: Add more elasticsearch alerts.&lt;/p&gt; &lt;p&gt;Measure the search latency, search rate and create alerts on the garbage collector, json parser and circuit breaker errors&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;hr/&gt;  &lt;/article&gt;</description>
       <link>https://lyz-code.github.io/blue-book/newsletter/2021_06_16/</link>
-      <pubDate>2021-06-17 06:41:18+00:00</pubDate>
+      <pubDate>2021-06-17 06:42:28+00:00</pubDate>
       <source url="https://lyz-code.github.io/blue-book/daily.xml">The Blue Book</source>
       <guid isPermaLink="true">https://lyz-code.github.io/blue-book/newsletter/2021_06_16/</guid>
       
