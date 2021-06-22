@@ -283,6 +283,11 @@ It has the following features:
 
 # Seedlings
 
+## [Life](https://lyz-code.github.io/life/)
+
+Life is a real time sandbox role game where you play as yourself surviving in today's
+world.
+
 ## Self hosted map
 
 I love maps, as well as traveling and hiking. This project aims to create a web
