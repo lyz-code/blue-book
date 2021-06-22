@@ -55,6 +55,19 @@ If the pod still exists, you can execute `kubectl logs -n cronjobs {{ pod_name
 }}`. If the pod doesn't exist anymore, you need to search the pod in your log
 centralizer solution.
 
+## [Rerunning failed jobs](https://serverfault.com/questions/809632/is-it-possible-to-rerun-kubernetes-job)
+
+If you have a job that has failed after the 6 default retries, it will show up
+in your monitorization forever, to fix it, you can manually trigger the job
+yourself with:
+
+```bash
+kubectl get job "your-job" -o json \
+    | jq 'del(.spec.selector)' \
+    | jq 'del(.spec.template.metadata.labels)' \
+    | kubectl replace --force -f -
+```
+
 # [Monitorization of cronjobs](https://medium.com/@tristan_96324/prometheus-k8s-cronjob-alerts-94bee7b90511)
 
 Alerting of traditional Unix cronjobs meant sending an email if the job failed.
