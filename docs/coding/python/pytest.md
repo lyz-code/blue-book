@@ -717,6 +717,75 @@ minversion = "6.0"
 addopts = "-vv --tb=short -n auto"
 ```
 
+# [Setting a timeout for your tests](https://pypi.org/project/pytest-timeout/)
+
+To make your tests fail if they don't end in less than X seconds, use
+[pytest-timeout](https://pypi.org/project/pytest-timeout/).
+
+Install it with:
+
+```bash
+pip install pytest-timeout
+```
+
+You can set a global timeout in your `pyproject.toml`:
+
+```toml
+[pytest]
+timeout = 300
+```
+
+Or define it for each test with:
+
+```python
+@pytest.mark.timeout(60)
+def test_foo():
+    pass
+```
+
+# [Rerun tests that fail sometimes](https://pypi.org/project/pytest-rerunfailures/)
+
+[pytest-rerunfailures](https://pypi.org/project/pytest-rerunfailures/) is
+a plugin for pytest that re-runs tests to eliminate intermittent failures. Using
+this plugin is generally a bad idea, it would be best to solve the reason why
+your code is not reliable. It's useful when you rely on non robust third party
+software in a way that you can't solve, or if the error is not in your code but
+in the testing code, and again you are not able to fix it.
+
+Install it with:
+
+```bash
+pip install pytest-rerunfailures
+```
+
+To re-run all test failures, use the `--reruns` command line option with the
+maximum number of times you’d like the tests to run:
+
+```bash
+pytest --reruns 5
+```
+
+Failed fixture or setup_class will also be re-executed.
+
+To add a delay time between re-runs use the `--reruns-delay` command line option
+with the amount of seconds that you would like wait before the next test re-run
+is launched:
+
+```bash
+pytest --reruns 5 --reruns-delay 1
+```
+
+To mark individual tests as flaky, and have them automatically re-run when they
+fail, add the `flaky` mark with the maximum number of times you’d like the test
+to run:
+
+```python
+@pytest.mark.flaky(reruns=5)
+def test_example():
+    import random
+    assert random.choice([True, False])
+```
+
 # pytest integration with Vim
 
 Integrating pytest into your Vim workflow enhances your productivity while

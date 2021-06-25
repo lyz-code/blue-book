@@ -46,6 +46,7 @@ binary somewhere in your `PATH`.
 ```python
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+
 opts = Options()
 opts.binary_location = '/usr/bin/chromium'
 driver = webdriver.Chrome(options=opts)
@@ -82,6 +83,29 @@ don't use this.
 Assuming that you've got a configured `driver`, to get the url you're in after
 javascript has done it's magic use the `driver.current_url` method. To return
 the HTML of the page use `driver.page_source`.
+
+## Close the browser
+
+```python
+driver.close()
+```
+
+## [Set timeout of a response](https://stackoverflow.com/questions/17533024/how-to-set-selenium-python-webdriver-default-timeout)
+
+For Firefox and Chromedriver:
+
+```python
+driver.set_page_load_timeout(30)
+```
+
+The rest:
+
+```python
+driver.implicitly_wait(30)
+```
+
+This will throw a `TimeoutException` whenever the page load takes more than 30
+seconds.
 
 ## [Get the status code of a response](https://stackoverflow.com/questions/5799228/how-to-get-status-code-by-using-selenium-py-python-code)
 
@@ -147,11 +171,21 @@ if content_type and response_received:
 And try to see why `url != data["message"]["params"]["response"]["url"]`.
 Sometimes servers redirect the user to a url without the `www.`.
 
-## Close the browser
+# Troubleshooting
+
+## Chromedriver hangs up unexpectedly
+
+[Some say that adding the `DBUS_SESSION_BUS_ADDRESS` environmental
+variable](https://bugs.chromium.org/p/chromedriver/issues/detail?id=1699) fixes
+it:
 
 ```python
-driver.close()
+os.environ["DBUS_SESSION_BUS_ADDRESS"] = "/dev/null"
 ```
+
+But it still hangs for me. Right now the only solution I see is to assume it's
+going to hang and add functionality in your program to resume the work instead
+of starting from scratch. Ugly I know...
 
 # Issues
 

@@ -4,6 +4,17 @@ date: 20200717
 author: Lyz
 ---
 
+# [Create combination of elements in groups of two](https://stackoverflow.com/questions/20762574/combinations-with-two-elements)
+
+Using the combinations function in Python's itertools module:
+
+```python
+>>> list(itertools.combinations('ABC', 2))
+[('A', 'B'), ('A', 'C'), ('B', 'C')]
+```
+
+If you want the permutations use `itertools.permutations`.
+
 # [Convert html to readable plaintext](https://stackoverflow.com/questions/13337528/rendered-html-to-plain-text-using-python)
 
 ```bash
