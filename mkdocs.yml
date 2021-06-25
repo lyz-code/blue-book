@@ -61,6 +61,7 @@ nav:
               - questionary: questionary.md
               - rich: rich.md
               - Ruamel YAML: coding/python/ruamel_yaml.md
+              - Selenium: selenium.md
               - SQLAlchemy: coding/python/sqlalchemy.md
               - sqlite3: sqlite3.md
               - Redis-py: coding/python/redis-py.md
@@ -249,7 +250,7 @@ nav:
           data_analysis/recommender_systems/recommender_systems.md
   - Operative Systems:
       - Linux:
-          - Linux Snippets: linux/linux_miscellaneous.md
+          - Linux Snippets: linux_snippets.md
           - ActivityWatch: activitywatch.md
           - beancount: beancount.md
           - Beets: beets.md

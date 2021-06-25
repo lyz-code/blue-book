@@ -474,7 +474,7 @@ The context can also carry a program specified object that can be used for the
 program’s purposes.
 
 ```python
-@click.group()
+@click.group(help="Description of the command line.")
 @click.option('--debug/--no-debug', default=False)
 @click.pass_context
 def cli(ctx, debug):

@@ -682,6 +682,23 @@ def client_(db_tinydb: str) -> TestClient:
 
 # Tips and tricks
 
+## [Create redirections](https://fastapi.tiangolo.com/advanced/custom-response/#redirectresponse)
+
+Returns an HTTP redirect. Uses a 307 status code (Temporary Redirect) by default.
+
+```python
+from fastapi import FastAPI
+from fastapi.responses import RedirectResponse
+
+app = FastAPI()
+
+
+@app.get("/typer")
+async def read_typer():
+    return RedirectResponse("https://typer.tiangolo.com")
+```
+
+
 ## Test that your application works locally
 
 Once you have your application [built](#deploy-with-docker) and
@@ -732,6 +749,60 @@ FastAPI can [integrate with
 Sentry](https://philstories.medium.com/integrate-sentry-to-fastapi-7250603c070f)
 or similar [application loggers](python_logging.md) through the [ASGI
 middleware](https://fastapi.tiangolo.com/advanced/middleware/#other-middlewares).
+
+# [Run a FastAPI server in the background for testing purposes](https://stackoverflow.com/questions/57412825/how-to-start-a-uvicorn-fastapi-in-background-when-testing-with-pytest)
+
+Sometimes you want to launch a web server with a simple API to test a program
+that can't use the [testing client](#testing). First define the API to launch
+with:
+
+!!! note "File: tests/api_server.py"
+
+    ```python
+    from fastapi import FastAPI, HTTPException
+
+    app = FastAPI()
+
+
+    @app.get("/existent")
+    async def existent():
+        return {"msg": "exists!"}
+
+
+    @app.get("/inexistent")
+    async def inexistent():
+        raise HTTPException(status_code=404, detail="It doesn't exist")
+    ```
+
+Then create the fixture:
+
+!!! note "File: tests/conftest.py"
+    ```python
+    from multiprocessing import Process
+
+    from typing import Generator
+    import pytest
+    import uvicorn
+
+    from .api_server import app
+
+
+    def run_server() -> None:
+        """Command to run the fake api server."""
+        uvicorn.run(app)
+
+
+    @pytest.fixture()
+    def _server() -> Generator[None, None, None]:
+        """Start the fake api server."""
+        proc = Process(target=run_server, args=(), daemon=True)
+        proc.start()
+        yield
+        proc.kill()  # Cleanup after test
+    ```
+
+Now you can use the `server: None` fixture in your tests and run your queries
+against `http://localhost:8000`.
 
 # Interesting features to explore
 

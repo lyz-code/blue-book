@@ -1,8 +1,18 @@
 ---
-title: Linux Miscellaneous
+title: Linux snippets
 date: 20200826
 author: Lyz
 ---
+
+# [Split a file into many with equal number of lines](https://stackoverflow.com/questions/2016894/how-to-split-a-large-text-file-into-smaller-files-with-equal-number-of-lines)
+
+You could do something like this:
+
+```bash
+split -l 200000 filename
+```
+
+Which will create files each with 200000 lines named `xaa`, `xab`, `xac`, ...
 
 # Check if an rsync command has gone well
 
