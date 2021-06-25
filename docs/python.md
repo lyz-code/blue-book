@@ -13,6 +13,8 @@ projects.
 
 # Interesting libraries to explore
 
+* [textual](https://github.com/willmcgugan/textual): Textual is a TUI (Text User
+    Interface) framework for Python using Rich as a renderer.
 * [parso](https://github.com/davidhalter/parso): Parses Python code.
 * [kivi](https://kivy.org/): Create android/Linux/iOS/Windows applications with
     python. Use it with [kivimd](https://github.com/kivymd/KivyMD) to make it beautiful,

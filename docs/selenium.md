@@ -4,7 +4,7 @@ date: 20210624
 author: Lyz
 ---
 
-[Selenium](https://en.wikipedia.org/wiki/Selenium_(software) is a portable
+[Selenium](https://en.wikipedia.org/wiki/Selenium_%28software%29) is a portable
 framework for testing web applications. It also provides a test domain-specific
 language (Selenese) to write tests in a number of popular programming
 languages.

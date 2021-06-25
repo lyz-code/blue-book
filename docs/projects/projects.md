@@ -148,26 +148,6 @@ The reasons why it is dormant are:
     imports](https://github.com/lyz-code/autoimport/issues/75).
 * My hype is elsewhere.
 
-## [yamlfix](https://lyz-code.github.io/yamlfix)
-
-A simple opinionated yaml formatter that keeps your comments.
-
-The reasons why it is dormant are:
-
-* The current features cover most of needs.
-* My hype is elsewhere.
-
-## [Cookiecutter Python template](https://lyz-code.github.io/cookiecutter-python-project/)
-
-Following the same reasoning as the previous section, I've spent a lot of time
-investigating quality measures for python projects, such as project structure, ci
-testing, ci building, dependency management, beautiful docs or pre-commits. With
-the [cookiecutter
-template](https://github.com/lyz-code/cookiecutter-python-project), it is easy
-to create a new project with the best quality measures with zero effort.
-Furthermore, with [cruft](cruft.md) I can keep all the projects generated with
-the template updated with the best practices.
-
 ## [Clinv](https://github.com/lyz-code/clinv)
 
 As part of my [DevSecOps](https://dzone.com/articles/shifting-left-devsecops)
@@ -199,6 +179,30 @@ The reasons why it is dormant are:
     before I develop any further feature.
 * The current state of the program covers my current needs of managing the
     inventory of the infrastructure I maintain.
+
+## [yamlfix](https://lyz-code.github.io/yamlfix)
+
+A simple opinionated yaml formatter that keeps your comments.
+
+The reasons why it is dormant are:
+
+* The current features cover most of needs.
+* My hype is elsewhere.
+
+## [bruty](https://github.com/lyz-code/bruty)
+
+Python program to bruteforce dynamic web applications with Selenium.
+
+## [Cookiecutter Python template](https://lyz-code.github.io/cookiecutter-python-project/)
+
+Following the same reasoning as the previous section, I've spent a lot of time
+investigating quality measures for python projects, such as project structure, ci
+testing, ci building, dependency management, beautiful docs or pre-commits. With
+the [cookiecutter
+template](https://github.com/lyz-code/cookiecutter-python-project), it is easy
+to create a new project with the best quality measures with zero effort.
+Furthermore, with [cruft](cruft.md) I can keep all the projects generated with
+the template updated with the best practices.
 
 ## Mediarss
 

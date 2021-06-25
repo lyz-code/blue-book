@@ -4,6 +4,11 @@ date: 20200826
 author: Lyz
 ---
 
+# [Identify what a string or file contains](https://github.com/bee-san/pyWhat)
+
+Identify anything. `pyWhat` easily lets you identify emails, IP addresses, and
+more. Feed it a .pcap file or some text and it'll tell you what it is.
+
 # [Split a file into many with equal number of lines](https://stackoverflow.com/questions/2016894/how-to-split-a-large-text-file-into-smaller-files-with-equal-number-of-lines)
 
 You could do something like this:
