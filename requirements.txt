@@ -140,7 +140,7 @@ python-dateutil==2.8.1
     #   mkdocs-newsletter
 python-gitlab==2.8.0
     # via python-semantic-release
-python-semantic-release==7.16.1
+python-semantic-release==7.16.2
     # via mkdocs-newsletter
 pytz==2021.1
     # via babel
@@ -191,7 +191,7 @@ typing-extensions==3.10.0.0
     #   gitpython
     #   importlib-metadata
     #   pydantic
-urllib3==1.26.5
+urllib3==1.26.6
     # via requests
 watchdog==2.1.2
     # via mkdocs
