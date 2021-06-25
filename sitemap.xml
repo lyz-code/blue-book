@@ -176,6 +176,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/linux_snippets/</loc>
+         <lastmod>2021-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/meditation/</loc>
          <lastmod>2021-06-25</lastmod>
          <changefreq>daily</changefreq>
@@ -307,6 +312,11 @@
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/scrum/</loc>
+         <lastmod>2021-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/selenium/</loc>
          <lastmod>2021-06-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -1162,11 +1172,6 @@
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/linux/hypothesis/</loc>
-         <lastmod>2021-06-25</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://lyz-code.github.io/blue-book/linux/linux_miscellaneous/</loc>
          <lastmod>2021-06-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
