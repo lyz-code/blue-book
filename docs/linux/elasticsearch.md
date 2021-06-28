@@ -41,12 +41,21 @@ curl {{ url }}/_snapshot/{{ backup_path }}/*?pretty
 First you need to close the selected indices
 
 ```bash
-curl {{ url }}/{{ indice_name }}/_close
+curl -X {{ url }}/{{ indice_name }}/_close
 ```
 
 Then restore
 ```bash
 curl {{ url }}/_snapshot/{{ backup_path }}/{{ snapshot_name }}/_restore?wait_for_completion=true
+```
+
+If you want to restore only one index, use:
+
+```bash
+curl -X POST "{{ url }}/_snapshot/{{ backup_path }}/{{ snapshot_name }}/_restore?pretty" -H 'Content-Type: application/json' -d'
+{
+  "indices": "{{ index_to_restore }}",
+}'
 ```
 
 ## Create snapshot of selected indices
@@ -236,6 +245,191 @@ and remove the refresh interval setting.
 
 # Troubleshooting
 
+## Fix Circuit breakers triggers
+
+The [`elasticsearch_exporter`](elastichsearch_exporter.md) has
+a `elasticsearch_breakers_tripped` metric, which counts then number of Circuit
+Breakers triggered of the different kinds. The Grafana dashboard paints a count
+of all the triggers with a big red number, which may scare you at first.
+
+Lets first understand what are Circuit Breakers. Elasticsearch is built with
+Java and as such depends on the JVM heap for many operations and caching purposes.
+By default in AWS, each data node is assigned half the RAM to be used for heap
+for ES. In Elasticsearch the default Garbage Collector is Concurrent-Mark and
+Sweep (CMS).  When the JVM Memory Pressure reaches 75%, this collector pauses
+some threads and attempts to reclaim some heap space. High heap usage occurs
+when the garbage collection process cannot keep up. An indicator of high heap
+usage is when the garbage collection is incapable of reducing the heap usage to
+around 30%.
+
+When a request reaches the ES nodes, circuit breakers estimate the amount of
+memory needed to load the required data. The cluster then compares the estimated
+size with the configured heap size limit. If the estimated size of your data is
+greater than the available heap size, the query is terminated. As a result,
+a CircuitBreakerException is thrown to prevent overloading the node.
+
+In essence, these breakers are present to prevent a request overloading a data
+node and consuming more heap space than that node can provide at that time. If
+these breakers weren't present, then the request will use up all the heap that
+the node can provide and this node will then restart due to OOM.
+
+Lets assume a data node has 16GB heap configured, When the parent circuit
+breaker is tripped, then a similar error is thrown:
+
+```json
+"error": {
+        "root_cause": [
+            {
+                "type": "circuit_breaking_exception",
+                "reason": "[parent] Data too large, data for [<HTTP_request>] would be [16355096754/15.2gb], which is larger than the limit of [16213167308/15gb], real usage: [15283269136/14.2gb], new bytes reserved: [1071827618/1022.1mb]",
+               }
+      ]
+}
+```
+
+The parent circuit breaker (a circuit breaker type) is responsible for the
+overall memory usage of your Elasticsearch cluster. When a parent circuit
+breaker exception occurs, the total memory used across all circuit breakers has
+exceeded the set limit. A parent breaker throws an exception when the cluster
+exceeds 95% of 16 GB, which is 15.2 GB of heap (in above example).
+
+A circuit breaking exception is generally caused by high JVM. When the JVM
+Memory Pressure is high, it indicates that a large portion of one or more data
+nodes configured heap is currently being used heavily, and as such, the
+frequency of the circuit breakers being tripped increases as there is not enough
+heap available at the time to process concurrent smaller or larger
+requests.
+
+It is worth noting that that the error can also be thrown by a certain request
+that would just consume all the available heap on a certain data node at the
+time such as an intensive search query.
+
+If you see numerous spikes to the high 90%, with occasionally spikes to 100%,
+it's not uncommon for the parent circuit breaker to be tripped in response to
+requests.
+
+To troubleshoot circuit breakers, you'll then have to address the High JVM
+issues, which can be caused by:
+
+* Increase in the number of requests to the cluster. Check the IndexRate and
+    SearchRate metrics in to determine your current load.
+* Aggregation, wildcards, and using wide time ranges in your queries.
+* Unbalanced shard allocation across nodes or too many shards in a cluster.
+* Index mapping explosions.
+* Using the fielddata data structure to query data. Fielddata can consume
+    a large amount of heap space, and remains in the heap for the lifetime of
+    a segment. As a result, JVM memory pressure remains high on the cluster when
+    fielddata is used.
+
+Here's what happens as JVM memory pressure increases in AWS:
+
+* At 75%: Amazon ES triggers the Concurrent Mark Sweep (CMS) garbage collector.
+    The CMS collector runs alongside other processes to keep pauses and
+    disruptions to a minimum. The garbage collection is a CPU-intensive process.
+    If JVM memory pressure stays at this percentage for a few minutes, then you
+    could encounter ClusterBlockException, JVM OutOfMemoryError, or other
+    cluster performance issues.
+* Above 75%: If the CMS collector fails to reclaim enough memory and usage
+    remains above 75%, Amazon ES triggers a different garbage collection
+    algorithm. This algorithm tries to free up memory and prevent a JVM
+    OutOfMemoryError (OOM) exception by slowing or stopping processes.
+* Above 92% for 30 minutes: Amazon ES blocks all write operations.
+* Around 95%: Amazon ES kills processes that try to allocate memory. If
+    a critical process is killed, one or more cluster nodes might fail.
+* At 100%: Amazon ES JVM is configured to exit and eventually restarts on
+    OutOfMemory (OOM).
+
+To resolve high JVM memory pressure, try the following tips:
+
+* Reduce incoming traffic to your cluster, especially if you have a heavy
+    workload.
+* Consider scaling the cluster to obtain more JVM memory to support your
+    workload. As mentioned above each data node gets half the RAM allocated to
+    be used as Heap. Consider scaling to a data node type with more RAM and
+    hence more Available Heap. Thereby increasing the parent circuit breaker
+    limit.
+
+* If cluster scaling isn't possible, try reducing the number of shards by
+    deleting old or unused indices. Because shard metadata is stored in memory,
+    reducing the number of shards can reduce overall memory usage.
+
+* Enable slow logs to identify faulty requests. Note: Before enabling
+    configuration changes, verify that JVM memory pressure is below 85%. This
+    way, you can avoid additional overhead to existing resources.
+
+* Optimize search and indexing requests, and choose the correct number of
+    shards.
+
+* Disable and avoid using fielddata. By default, fielddata is set to "false" on
+    a text field unless it's explicitly defined as otherwise in index mappings.
+
+    Field data is a potentially a huge consumer of JVM Heap space. This build up of
+    field data occurs when aggregations are run on fields that are of type `text`.
+    More on how you can periodically clear field data below.
+
+* Change your index mapping type to a `keyword`, using reindex API. You can
+    use the `keyword` type as an alternative for performing aggregations and
+    sorting on text fields.
+
+    As mentioned in above point, by aggregating on `keyword` type instead of
+    `text`, no field data has to be built on demand and hence won't consume
+    precious heap space. Look into the commonly aggregated fields in index
+    mappings and ensure they are not of type `text`.
+
+    If they are, you can consider changing them to `keyword`. You will have to
+    create a new index with the desired mapping and then use the Reindex API to
+    transfer over the documents from the source index to the new index. Once
+    Re-index has completed then you can delete the old index.
+
+* Avoid aggregating on text fields to prevent increases in field data. When you
+    use more field data, more heap space is consumed. Use the cluster stats API
+    operation to check your field data.
+
+* Clear the fielddata cache with the following API call:
+
+    ```
+    POST /index_name/_cache/clear?fielddata=true (index-level cache)
+    POST */_cache/clear?fielddata=true (cluster-level cache)
+    ```
+
+Generally speaking, if you notice your workload (search rate and index rate)
+remaining consistent during these high spikes and non of the above
+optimizations can be applied or if they have already been applied and the JVM is
+still high during these workload times, then it is an indication that the
+cluster needs to be scaled in terms of JVM resources to cope with this
+workload.
+
+You can't reset the 'tripped' count. This is a Node level metric and thus will be reset to
+`0` when the Elasticsearch Service is restarted on that Node. Since in AWS it's
+a managed service, unfortunately you will not have access to the underlaying EC2
+instance to restart the ES Process.
+
+However the ES Process can be restarted on your end (on all nodes) in the following ways:
+
+* Initiate a Configuration Change that causes a blue/green deployment : When you
+    initiate a configuration change, a subsequent blue/green deployment process
+    is launched in which we launch a new fleet that matches the desired
+    configuration. The old fleet continues to run and serve requests.
+    Simultaneously, data in the form of shards are then migrated from the old
+    fleet to the new fleet. Once all this data has been migrated the old fleet
+    is terminated and the new one takes over.
+
+    During this process ES is restarted on the Nodes.
+
+    Ensure that CPU Utilization and JVM Memory Pressure are below the recommended
+    80% thresholds to prevent any issues with this process as it uses clusters
+    resources to initiate and complete.
+
+    You can scale the EBS Volumes attached to the data nodes by an arbitrary
+    amount such as 1GB, wait for the blue/green to complete and then scale it
+    back.
+
+* Wait for a new service software release and update the service software of the
+    Cluster.
+
+    This will also cause a blue/green and hence ES process will be restarted on
+    the nodes.
+
 ## Recover from yellow state
 
 A yellow cluster represents that some of the replica shards in the cluster are
@@ -260,50 +454,9 @@ curl -X GET <domain-endpoint>/_cluster/allocation/explain | jq
 ```
 
 If it shows a `CircuitBreakerException`, it confirms that a spike in the JVM
-metric caused the node to go down.
-
-The JVM memory pressure specifies the percentage of the Java heap in a cluster
-node. It's determined by the following factors:
-
-* The amount of data on the cluster in proportion to the amount of resources.
-* The query load on the cluster.
-
-Here's what happens as JVM memory pressure increases:
-
-* At 75%: Amazon ES triggers the Concurrent Mark Sweep (CMS) garbage collector.
-    The CMS collector runs alongside other processes to keep pauses and
-    disruptions to a minimum. The garbage collection is a CPU-intensive process.
-    If JVM memory pressure stays at this percentage for a few minutes, then you
-    could encounter ClusterBlockException, JVM OutOfMemoryError, or other
-    cluster performance issues.
-* Above 75%: If the CMS collector fails to reclaim enough memory and usage
-    remains above 75%, Amazon ES triggers a different garbage collection
-    algorithm. This algorithm tries to free up memory and prevent a JVM
-    OutOfMemoryError (OOM) exception by slowing or stopping processes.
-* Above 92% for 30 minutes: Amazon ES blocks all write operations.
-* Around 95%: Amazon ES kills processes that try to allocate memory. If
-    a critical process is killed, one or more cluster nodes might fail.
-* At 100%: Amazon ES JVM is configured to exit and eventually restarts on
-    OutOfMemory (OOM).
-
-To prevent high JVM memory pressure:
-
-* Avoid queries on wide ranges, such as aggregations, wildcard or big time range
-    queries.
-* Avoid sending a large number of requests at the same time.
-* Be sure that you have the appropriate number of shards.
-* Be sure that your shards are distributed evenly between nodes.
-* When possible, avoid aggregating on text fields. This helps prevent increases
-    in field data. The more field data you have, the more heap space is
-    consumed. Use the GET `_cluster/stats` API operation to check field data.
-* If you must aggregate on text fields, change the mapping type to keyword.
-
-
-If JVM memory pressure gets too high, use the following API operations to clear
-the field data cache: `POST /index_name/_cache/clear` (index-level cache) and `POST
-/_cache/clear` (cluster-level cache).
-
-Note: Clearing the cache can disrupt queries that are in progress.
+metric caused the node to go down. Check the [Fix Circuit breaker
+triggers](#fix-circuit-breaker-triggers) section above to see how to solve that
+case.
 
 ### Reallocate unassigned shards
 
