@@ -160,6 +160,21 @@ The most basic probes, test if the service is healthy
       Missing node in Elasticsearch cluster
       VALUE = {{ $value }}
       LABELS = {{ $labels }}
+- alert: ElasticsearchHealthyMasterNodes
+  expr: >
+    elasticsearch_cluster_health_number_of_nodes
+    - elasticsearch_cluster_health_number_of_data_nodes > 0 < 3
+  for: 0m
+  labels:
+    severity: critical
+  annotations:
+    summary: >
+      Elasticsearch Healthy Master Nodes < 3
+      (cluster {{ $labels.cluster_name }})
+    description: |
+      Missing master node in Elasticsearch cluster
+      VALUE = {{ $value }}
+      LABELS = {{ $labels }}
 - alert: ElasticsearchHealthyDataNodes
   expr: elasticsearch_cluster_health_number_of_data_nodes < 3
   for: 0m
