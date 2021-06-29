@@ -14,9 +14,44 @@ they use fewer resources than virtual machines.
 
 # How to keep containers updated
 
-[Diun](https://github.com/crazy-max/diun) is a CLI application written in Go and
-delivered as a single executable (and a Docker image) to receive notifications
-when a Docker image is updated on a Docker registry.
+With [watchtower](https://containrrr.dev/watchtower/) you can update the running
+version of your containerized app simply by pushing a new image to the Docker
+Hub or your own image registry. Watchtower will pull down your new image,
+gracefully shut down your existing container and restart it with the same
+options that were used when it was deployed initially.
+
+Run the watchtower container with the next command:
+
+```bash
+docker run -d \
+--name watchtower \
+-v /var/run/docker.sock:/var/run/docker.sock \
+-v /etc/localtime:/etc/localtime:ro \
+-e WATCHTOWER_NOTIFICATIONS=email \
+-e WATCHTOWER_NOTIFICATION_EMAIL_FROM={{ email.from }} \
+-e WATCHTOWER_NOTIFICATION_EMAIL_TO={{ email.to }} \\
+-e WATCHTOWER_NOTIFICATION_EMAIL_SERVER=mail.riseup.net \
+-e WATCHTOWER_NOTIFICATION_EMAIL_SERVER_PORT=587 \
+-e WATCHTOWER_NOTIFICATION_EMAIL_SERVER_USER={{ email.user }} \
+-e WATCHTOWER_NOTIFICATION_EMAIL_SERVER_PASSWORD={{ email.password }} \
+-e WATCHTOWER_NOTIFICATION_EMAIL_DELAY=2 \
+containrrr/watchtower:latest --no-restart --no-startup-message
+```
+
+Use the `--no-restart` flag if you use systemd to manage the dockers, and
+`--no-startup-message` if you don't want watchtower to send you an email each
+time it starts the update process.
+
+Keep in mind that if the containers don't have good migration scripts, upgrading
+may break the service. To enable this feature, make sure you have frequent
+backups and a tested rollback process. If you're not sure one of the containers
+is going to behave well, you can only monitor it or disable it by using docker
+labels.
+
+Another alternative is [Diun](https://github.com/crazy-max/diun), which is a CLI
+application written in Go and delivered as a single executable (and a Docker
+image) to receive notifications when a Docker image is updated on a Docker
+registry.
 
 They don't [yet support Prometheus
 metrics](https://github.com/crazy-max/diun/issues/201) but it surely looks
