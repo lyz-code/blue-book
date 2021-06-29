@@ -48,6 +48,9 @@ backups and a tested rollback process. If you're not sure one of the containers
 is going to behave well, you can only monitor it or disable it by using docker
 labels.
 
+The first check will be done by default in the next 24 hours, to
+check that everything works use the `--run-once` flag.
+
 Another alternative is [Diun](https://github.com/crazy-max/diun), which is a CLI
 application written in Go and delivered as a single executable (and a Docker
 image) to receive notifications when a Docker image is updated on a Docker
