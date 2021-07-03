@@ -199,7 +199,7 @@ webencodings==0.5.1
     # via bleach
 wheel==0.36.2
     # via python-semantic-release
-zipp==3.4.1
+zipp==3.5.0
     # via importlib-metadata
 
 # The following packages are considered to be unsafe in a requirements file:
