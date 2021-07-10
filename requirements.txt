@@ -60,7 +60,7 @@ importlib-metadata==4.6.1
     #   markdown
     #   mkdocs
     #   twine
-invoke==1.5.0
+invoke==1.6.0
     # via python-semantic-release
 jeepney==0.6.0
     # via
@@ -116,7 +116,7 @@ packaging==21.0
     # via
     #   bleach
     #   mkdocs
-pkginfo==1.7.0
+pkginfo==1.7.1
     # via twine
 proselint==0.11.2
     # via -r requirements.in
