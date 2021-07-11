@@ -62,7 +62,7 @@ importlib-metadata==4.6.1
     #   twine
 invoke==1.6.0
     # via python-semantic-release
-jeepney==0.6.0
+jeepney==0.7.0
     # via
     #   keyring
     #   secretstorage
@@ -96,7 +96,7 @@ git+git://github.com/lyz-code/mkdocs-autolinks-plugin.git
     #   mkdocs-newsletter
 mkdocs-git-revision-date-localized-plugin==0.9.2
     # via -r requirements.in
-mkdocs-material==7.1.9
+mkdocs-material==7.1.10
     # via
     #   -r requirements.in
     #   mkdocs-material-extensions
@@ -118,7 +118,7 @@ packaging==21.0
     #   mkdocs
 pkginfo==1.7.1
     # via twine
-proselint==0.11.2
+proselint==0.11.3
     # via -r requirements.in
 pycparser==2.20
     # via cffi
