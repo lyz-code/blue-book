@@ -346,6 +346,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/tahoe/</loc>
+         <lastmod>2021-07-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/talkey/</loc>
          <lastmod>2021-07-12</lastmod>
          <changefreq>daily</changefreq>
