@@ -12,7 +12,7 @@ bleach==3.3.0
     # via readme-renderer
 certifi==2021.5.30
     # via requests
-cffi==1.14.5
+cffi==1.14.6
     # via cryptography
 chardet==4.0.0
     # via requests
@@ -53,16 +53,16 @@ htmlmin==0.1.12
     # via mkdocs-minify-plugin
 idna==2.10
     # via requests
-importlib-metadata==4.6.0
+importlib-metadata==4.6.1
     # via
     #   click
     #   keyring
     #   markdown
     #   mkdocs
     #   twine
-invoke==1.5.0
+invoke==1.6.0
     # via python-semantic-release
-jeepney==0.6.0
+jeepney==0.7.0
     # via
     #   keyring
     #   secretstorage
@@ -96,7 +96,7 @@ git+git://github.com/lyz-code/mkdocs-autolinks-plugin.git
     #   mkdocs-newsletter
 mkdocs-git-revision-date-localized-plugin==0.9.2
     # via -r requirements.in
-mkdocs-material==7.1.9
+mkdocs-material==7.1.10
     # via
     #   -r requirements.in
     #   mkdocs-material-extensions
@@ -112,13 +112,13 @@ mkdocs-section-index==0.3.1
     #   mkdocs-newsletter
 ordered-set==4.0.2
     # via deepdiff
-packaging==20.9
+packaging==21.0
     # via
     #   bleach
     #   mkdocs
-pkginfo==1.7.0
+pkginfo==1.7.1
     # via twine
-proselint==0.10.2
+proselint==0.11.3
     # via -r requirements.in
 pycparser==2.20
     # via cffi
@@ -182,7 +182,7 @@ soupsieve==2.2.1
     # via beautifulsoup4
 tomlkit==0.7.0
     # via python-semantic-release
-tqdm==4.61.1
+tqdm==4.61.2
     # via twine
 twine==3.4.1
     # via python-semantic-release
@@ -199,9 +199,9 @@ webencodings==0.5.1
     # via bleach
 wheel==0.36.2
     # via python-semantic-release
-zipp==3.4.1
+zipp==3.5.0
     # via importlib-metadata
 
 # The following packages are considered to be unsafe in a requirements file:
-setuptools==57.0.0
+setuptools==57.1.0
     # via setuptools-scm
