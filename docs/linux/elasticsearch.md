@@ -319,7 +319,7 @@ GET /_tasks
 
 # Troubleshooting
 
-## Deal with the AWS timeout service
+## Deal with the AWS service timeout
 
 AWS' Elasticsearch service is exposed behind a load balancer that returns
 a timeout after 300 seconds. If the query you're sending takes longer you won't
