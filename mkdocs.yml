@@ -274,6 +274,7 @@ nav:
           - Peek: peek.md
           - rm: linux/rm.md
           - Syncthing: linux/syncthing.md
+          - Tahoe-LAFS: tahoe.md
           - Vim:
               - vim.md
               - Tabs vs Buffers: vim_tabs.md

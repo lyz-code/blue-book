@@ -4,9 +4,9 @@ date: 20210130
 author: Lyz
 ---
 
-[questionary](https://questionary.readthedocs.io) is a Python library for
-effortlessly building pretty command line interfaces. It makes it very easy to
-query your user for input.
+[questionary](https://questionary.readthedocs.io) is a Python library based on
+[Prompt Toolkit](prompt_toolkit.md) to effortlessly building pretty command
+line interfaces. It makes it very easy to query your user for input.
 
 ![ ](questionary.gif)
 

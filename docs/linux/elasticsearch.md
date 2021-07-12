@@ -41,7 +41,7 @@ curl {{ url }}/_snapshot/{{ backup_path }}/*?pretty
 First you need to close the selected indices
 
 ```bash
-curl -X {{ url }}/{{ indice_name }}/_close
+curl -X POST {{ url }}/{{ indice_name }}/_close
 ```
 
 Then restore
@@ -56,12 +56,6 @@ curl -X POST "{{ url }}/_snapshot/{{ backup_path }}/{{ snapshot_name }}/_restore
 {
   "indices": "{{ index_to_restore }}",
 }'
-```
-
-## Create snapshot of selected indices
-
-```bash
-curl {{ url }}/_snapshot/{{ backup_path }}/{{ snapshot_name }}?wait_for_completion=true
 ```
 
 ## Delete snapshot
@@ -243,7 +237,133 @@ curl https://elastic.url/_cat/indices
 After the reindex process is complete, you can reset your desired replica count
 and remove the refresh interval setting.
 
+# KNN
+
+## [KNN sizing](https://opendistro.github.io/for-elasticsearch-docs/docs/knn/performance-tuning/#estimating-memory-usage)
+
+Typically, in an Elasticsearch cluster, a certain portion of RAM is set aside
+for the JVM heap. The k-NN plugin allocates graphs to a portion of the remaining
+RAM. This portion’s size is determined by the circuit_breaker_limit cluster
+setting. By default, the circuit breaker limit is set at 50%.
+
+The memory required for graphs is estimated to be `1.1 * (4 * dimension
++ 8 * M)` bytes/vector.
+
+To get the `dimension` and `m` use the `/index` elasticsearch endpoint. To get
+the number of vectors, use `/index/_count`. The number of vectors is the same as
+the number of documents.
+
+As an example, assume that we have 1 Million vectors with a dimension of 256 and
+M of 16, and the memory required can be estimated as:
+
+```
+1.1 * (4 *256 + 8 * 16) * 1,000,000 ~= 1.26 GB
+```
+
+!!! note "Remember that having a replica will double the total number of vectors."
+
+I've seen some queries work with indices that required 120% of the available
+memory for the KNN.
+
+A good way to see if it fits, is [warming up the knn vectors](#knn-warmup). If
+the process returns a timeout, you probably don't have enough memory.
+
+## [KNN warmup](https://opendistro.github.io/for-elasticsearch-docs/docs/knn/api/#warmup-operation)
+
+The Hierarchical Navigable Small World (HNSW) graphs that are used to perform an
+approximate k-Nearest Neighbor (k-NN) search are stored as .hnsw files with
+other Apache Lucene segment files. In order for you to perform a search on these
+graphs using the k-NN plugin, these files need to be loaded into native memory.
+
+If the plugin has not loaded the graphs into native memory, it loads them when
+it receives a search request. This loading time can cause high latency during
+initial queries. To avoid this situation, users often run random queries during
+a warmup period. After this warmup period, the graphs are loaded into native
+memory and their production workloads can begin. This loading process is
+indirect and requires extra effort.
+
+As an alternative, you can avoid this latency issue by running the k-NN plugin
+warmup API operation on whatever indices you’re interested in searching. This
+operation loads all the graphs for all of the shards (primaries and replicas) of
+all the indices specified in the request into native memory.
+
+After the process finishes, you can start searching against the indices with no
+initial latency penalties. The warmup API operation is idempotent, so if
+a segment’s graphs are already loaded into memory, this operation has no impact
+on those graphs. It only loads graphs that aren’t currently in memory.
+
+This request performs a warmup on three indices:
+
+```
+GET /_opendistro/_knn/warmup/index1,index2,index3?pretty
+{
+  "_shards" : {
+    "total" : 6,
+    "successful" : 6,
+    "failed" : 0
+  }
+}
+```
+
+`total` indicates how many shards the k-NN plugin attempted to warm up. The
+response also includes the number of shards the plugin succeeded and failed to
+warm up.
+
+The call does not return until the warmup operation is complete or the request
+times out. If the request times out, the operation still continues on the
+cluster. To monitor the warmup operation, use the Elasticsearch `_tasks` API:
+
+```
+GET /_tasks
+```
+
 # Troubleshooting
+
+## Deal with the AWS timeout service
+
+AWS' Elasticsearch service is exposed behind a load balancer that returns
+a timeout after 300 seconds. If the query you're sending takes longer you won't
+be able to retrieve the information.
+
+You can consider using Asynchronous search which requires Elasticsearch 7.10 or
+later. Asynchronous search lets you run search requests that run in the
+background. You can monitor the progress of these searches and get back partial
+results as they become available. After the search finishes, you can save the
+results to examine at a later time.
+
+If the query you're running is a KNN one, you can try:
+
+* Using the [knn warmup
+    api](#knn-warmup)
+    before running initial queries.
+
+* Scaling up the instances: Amazon ES uses half of an instance's RAM for the
+    Java heap (up to a heap size of 32 GiB). By default, KNN uses up to 50% of
+    the remaining half, so an instance type with 64 GiB of RAM can accommodate
+    16 GiB of graphs (64 * 0.5 * 0.5). Performance can suffer if graph memory
+    usage exceeds this value.
+
+* In a less recommended approach, you can make more percentage of memory
+    available for KNN operations.
+
+	Open Distro for Elasticsearch lets you modify all KNN settings using the
+    `_cluster/settings` API. On Amazon ES, you can change all settings except
+    `knn.memory.circuit_breaker.enabled` and `knn.circuit_breaker.triggered`.
+
+    You can change the circuit breaker settings as:
+
+    ```
+    PUT /_cluster/settings
+    {
+      "persistent" : {
+        "knn.memory.circuit_breaker.limit" : "<value%>"
+      }
+    }
+    ```
+
+
+You could also do [performance tuning your KNN
+request](https://opendistro.github.io/for-elasticsearch-docs/docs/knn/performance-tuning/).
 
 ## Fix Circuit breakers triggers
 

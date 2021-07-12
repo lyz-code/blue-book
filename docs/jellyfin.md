@@ -12,6 +12,13 @@ ported to the .NET Core framework to enable full cross-platform support. There
 are no strings attached, no premium licenses or features, and no hidden agendas:
 just a team who want to build something better and work together to achieve it.
 
+# Troubleshooting
+
+## Wrong image covers
+
+Remove all the `jpg` files of the directory and then fetch again the data from
+your favourite media management software.
+
 # Issues
 
 * [Stuck at login page](https://github.com/jellyfin/jellyfin-web/issues/2507):
