@@ -14,7 +14,7 @@ certifi==2021.5.30
     # via requests
 cffi==1.14.6
     # via cryptography
-chardet==4.0.0
+charset-normalizer==2.0.1
     # via requests
 click==8.0.1
     # via
@@ -51,7 +51,7 @@ gitpython==3.1.18
     #   python-semantic-release
 htmlmin==0.1.12
     # via mkdocs-minify-plugin
-idna==2.10
+idna==3.2
     # via requests
 importlib-metadata==4.6.1
     # via
@@ -152,7 +152,7 @@ pyyaml-env-tag==0.1
     # via mkdocs
 readme-renderer==29.0
     # via twine
-requests==2.25.1
+requests==2.26.0
     # via
     #   python-gitlab
     #   python-semantic-release
