@@ -493,10 +493,11 @@ I've been gathering data about myself for a long time, but I don't have
 a centralized solution that lets me extract information.
 
 There are already good solutions to start with, being the best
-[HPI](https://beepb00p.xyz/hpi.html).
-[bionic](https://github.com/bionic-dev/bionic) or [their explanations on how to
+[HPI](https://beepb00p.xyz/hpi.html):
+* [bionic](https://github.com/bionic-dev/bionic) or [their explanations on how to
 export data](https://github.com/bionic-dev/how-to-export-personal-data) can be
 useful too.
+* [rsarai hq](https://github.com/rsarai/hq)
 
 For the interface [adri's memex](https://github.com/adri/memex) looks awesome!
 It's inspired in the Andrew Louis [talk Building

@@ -21,6 +21,9 @@ your favourite media management software.
 
 # Issues
 
+* [Trailers not
+    working](https://github.com/crobibero/jellyfin-plugin-tmdb-trailers/issues/8):
+    No solution until it's fixed
 * [Stuck at login page](https://github.com/jellyfin/jellyfin-web/issues/2507):
     Until it's fixed run the next snippet:
 

@@ -287,6 +287,7 @@ nav:
       - Android:
           - cone: cone.md
           - GadgetBridge: gadgetbridge.md
+          - OsmAnd: osmand.md
           - Signal: signal.md
   - Arts:
       - Writing:
