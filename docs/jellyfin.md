@@ -19,6 +19,16 @@ just a team who want to build something better and work together to achieve it.
 Remove all the `jpg` files of the directory and then fetch again the data from
 your favourite media management software.
 
+## Green bars in the reproduction
+
+It's related to some hardware transcoding issue related to some video codecs,
+the solution is to either get a file with other codec, or convert it yourself
+without the hardware transcoding with:
+
+```bash
+ffmpeg -i input.avi -c:v libx264 out.mp4
+```
+
 # Issues
 
 * [Trailers not
