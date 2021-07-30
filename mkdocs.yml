@@ -271,6 +271,7 @@ nav:
           - Modipy: modipy.md
           - monica: linux/monica.md
           - nodejs: linux/nodejs.md
+          - Oracle Database: oracle_database.md
           - Peek: peek.md
           - rm: linux/rm.md
           - Syncthing: linux/syncthing.md

@@ -109,7 +109,7 @@ question types:
     [`Autocomplete`](https://questionary.readthedocs.io/en/stable/pages/types.html#type-autocomplete)
     to ask for free text with autocomplete help.
 
-Check the [examples](https://github.com/tmbo/questionary/examples) to see them
+Check the [examples](https://github.com/tmbo/questionary/tree/master/examples) to see them
 in action and how to use them.
 
 # Testing

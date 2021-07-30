@@ -47,6 +47,12 @@ cryptsetup luksHeaderBackup --header-backup-file {{ file }} {{ device }}
 cryptsetup luksAddKey --key-slot 1 {{ luks_device }}
 ```
 
+### Change a key
+
+```bash
+cryptsetup luksChangeKey {{ luks_device }} -s 0
+```
+
 ### Test if you remember the key
 
 Try to add a new key and cancel the process

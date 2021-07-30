@@ -11,6 +11,9 @@ maps.
 
 # Issues
 
+* [Live map update not
+    working](https://github.com/osmandapp/OsmAnd/issues/12282): test that it
+    works.
 * [Add amenity to favourites](https://github.com/osmandapp/OsmAnd/issues/12016):
     Once it's done, remove the "Restaurant", or any other amenity words from the
     name of the favourite.
