@@ -211,6 +211,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/oracle_database/</loc>
+         <lastmod>2021-07-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/origami/</loc>
          <lastmod>2021-07-30</lastmod>
          <changefreq>daily</changefreq>
