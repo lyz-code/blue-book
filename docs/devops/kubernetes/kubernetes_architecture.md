@@ -111,6 +111,165 @@ Each node has the services necessary to run pods:
 
 The *kubectl* is the command line client used to communicate with the Masters.
 
-# Links
+# [Number of clusters](https://learnk8s.io/how-many-clusters)
+
+You can run a given set of workloads either on few large clusters (with many
+workloads in each cluster) or on many clusters (with few workloads in each
+cluster).
+
+Here's a table that summarizes the pros and cons of various approaches:
+
+![ ](number_k8s_clusters.svg)
+*Figure: Possibilities of number of clusters from [learnk8s.io
+article](https://learnk8s.io/how-many-clusters)*
+
+Reference to the [original article](https://learnk8s.io/how-many-clusters) for
+a full read (it's really good!). I'm going to analyze only the *Large shared
+cluster* and *Cluster per environment* options, as they are the closest to my
+use case.
+
+## One Large shared cluster
+
+With this option, you run all your workloads in the same cluster. Kubernetes
+provides namespaces to logically separate portions of a cluster from each other,
+and in the above case, you could use a separate namespace for each application
+instance.
+
+Pros:
+
+* *Efficient resource usage*: You need to have only one copy of all the
+    resources that are needed to run and manage a Kubernetes cluster (master
+    nodes, load balancers, Ingress controllers, authentication, logging, and
+    monitoring).
+
+* *Cheap*: As you avoid the duplication of resources, you require less hardware.
+
+* *Efficient administration*: Administering a Kubernetes cluster requires:
+
+    * Upgrading the Kubernetes version
+    * Setting up a CI/CD pipeline
+    * Installing a CNI plugin
+    * Setting up the user authentication system
+    * Installing an admission controller
+
+    If you have only a single cluster, you need to do all of this only once.
+
+    If you have many clusters, then you need to apply everything multiple times,
+    which probably requires you to develop some automated processes and tools
+    for being able to do this consistently.
+
+Cons:
+
+* *Single point of failure*: If you have only one cluster and if that cluster
+    breaks, then all your workloads are down.
+
+    There are many ways that something can go wrong:
+
+    * A Kubernetes upgrade produces unexpected side effects.
+    * An cluster-wide component (such as a CNI plugin) doesn't work as expected.
+    * An erroneous configuration is made to one of the cluster components.
+    * An outage occurs in the underlying infrastructure.
+
+    A single incident like this can produce major damage across all your
+    workloads if you have only a single shared cluster.
+
+* *No hard security isolation*: If multiple apps run in the same Kubernetes
+    cluster, this means that these apps share the hardware, network, and
+    operating system on the nodes of the cluster.
+
+    Concretely, two containers of two different apps running on the same node
+    are technically two processes running on the same hardware and operating
+    system kernel.
+
+    Linux containers provide some form of isolation, but this isolation is not
+    as strong as the one provided by, for example, virtual machines (VMs). Under
+    the hood, a process in a container is still just a process running on the
+    host's operating system.
+
+    This may be an issue from a security point of view — it theoretically allows
+    unrelated apps to interact with each other in undesired ways (intentionally
+    and unintentionally).
+
+    Furthermore, all the workloads in a Kubernetes cluster share certain
+    cluster-wide services, such as DNS — this allows apps to discover the
+    Services of other apps in the cluster.
+
+    It's important to keep in mind that Kubernetes is designed for sharing, and
+    not for isolation and security.
+
+* *No hard multi-tenancy*: Given the many shared resources in a Kubernetes
+    cluster, there are many ways that different apps can "step on each other's
+    toes".
+
+    For example, an app may monopolize a certain shared resource, such as the
+    CPU or memory, and thus starve other apps running on the same node.
+
+    Kubernetes provides various ways to control this behaviour, however it's not
+    trivial to tweak these tools in exactly the right way, and they cannot
+    prevent every unwanted side effect either.
+
+* *Many users*: If you have only a single cluster, then many people in your
+    organisation must have access to this cluster.
+
+    The more people have access to a system, the higher the risk that they break
+    something.
+
+    Within the cluster, you can control who can do what with role-based access
+    control (RBAC) — however, this still can't prevent that users break
+    something within their area of authorisation.
+
+## Cluster per environment
+
+With this option you have a separate cluster for each environment.
+
+For example, you can have a `dev`, `test`, and `prod` cluster where you run all the
+application instances of a specific environment.
+
+* *Isolation of the *prod* environment*: In general, this approach isolates all
+    the environments from each other — but, in practice, this especially matters
+    for the prod environment.
+
+    The production versions of your app are now not affected by whatever happens
+    in any of the other clusters and application environments.
+
+    So, if some misconfiguration creates havoc in your dev cluster, the prod
+    versions of your apps keep running as if nothing had happened.
+
+* *Cluster can be customised for an environment*:
+
+    You can optimise each cluster for its environment — for example, you can:
+
+        * Install development and debugging tools in the dev cluster.
+        * Install testing frameworks and tools in the test cluster.
+        * Use more powerful hardware and network connections for the prod
+        cluster.
+
+    This may improve the efficiency of both the development and operation of
+    your apps.
+* *Lock down access to prod cluster*: Nobody really needs to do work on the prod
+    cluster, so you can make access to it very restrictive.
+
+Cons:
+
+* *More administration and resources*: In comparison with the single cluster.
+
+* *Lack of isolation between apps*: The main disadvantage of this approach is
+    the missing hardware and resource isolation between apps.
+
+    Unrelated apps share cluster resources, such as the operating system kernel,
+    CPU, memory, and several other services.
+
+    As already mentioned, this may be a security issue.
+
+* *App requirements are not localised*: If an app has special requirements, then
+    these requirements must be satisfied in all clusters.
+
+# Conclusion
+
+If you don't need environment isolation and are not afraid of upgrading the
+Kubernetes cluster, go for the single cluster, otherwise use a cluster per
+environment.
+
+# References
 
 * [Kubernetes components overview](https://kubernetes.io/docs/concepts/overview/components/)

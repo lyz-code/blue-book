@@ -362,8 +362,9 @@ reddit](https://www.reddit.com/r/DataHoarder/).
 ## Automate email management
 
 Most of the emails I receive require repetitive actions that can be automated,
-I've stumbled upon [notmuchmail](https://notmuchmail.org/), which looks very
-promising. A friend suggested to use
+I've stumbled upon [notmuchmail](https://notmuchmail.org/), a very
+promising tool to create a searchable index of your email inbox, it's the core
+for the next tools. A friend suggested to use
 [afew](https://afew.readthedocs.io/en/latest/) for tagging, and I'd probably use
 [alot](https://github.com/pazz/alot) to interact with the system (and finally be
 able to use email from the cli). The [alot

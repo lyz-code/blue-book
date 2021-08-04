@@ -4,6 +4,12 @@ date: 20200826
 author: Lyz
 ---
 
+# [Allocate space for a virtual filesystem](https://askubuntu.com/questions/506910/creating-a-large-size-file-in-less-time)
+
+```bash
+fallocate -l 20G /path/to/file
+```
+
 # [Identify what a string or file contains](https://github.com/bee-san/pyWhat)
 
 Identify anything. `pyWhat` easily lets you identify emails, IP addresses, and

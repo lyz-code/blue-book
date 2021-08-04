@@ -11,6 +11,19 @@ message reaches people.
 
 This article is an effort to gather all my common pitfalls.
 
+# Use of z or s in some words
+
+It looks like American english uses `z` while British uses `s`, some examples:
+
+* [Organizations vs
+    organisation](https://writingexplained.org/organisation-vs-organization-difference).
+* [Authorization vs
+    authorisation](https://english.stackexchange.com/questions/282621/authorization-vs-authorisation-im-in-some-real-dilemma).
+* [Customized vs
+    customised](https://grammarist.com/spelling/customise-customize/).
+
+Both forms are correct, so choose the one that suits your liking.
+
 # [Stop saying "I know"](https://www.youtube.com/watch?v=FXjvpR02uNg)
 
 Using "I know" may not be the best way to show the other person that you've

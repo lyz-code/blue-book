@@ -23,7 +23,8 @@ Oracle Database is an awful proprietary database, run away from it!
     mv ~/Download/LINUX.X64_193000_db_home.zip ./docker-images/OracleDatabase/SingleInstance/dockerfiles/19.3.0/
     ```
 
-* The next step is to build the image.
+* The next step is to build the image. You need at least 20G free in
+    `/var/lib/docker`.
 
     ```bash
     ./docker-images/OracleDatabase/SingleInstance/dockerfiles/19.3.0/buildDockerImage.sh -v 19.3.0 -e
@@ -40,8 +41,8 @@ Oracle Database is an awful proprietary database, run away from it!
 * Run the database docker.
     ```bash
     docker run --name myOracle1930 \
-     -p 1521:1521 \
-     -p 5500:5500 \
+     -p 127.0.0.1:1521:1521 \
+     -p 127.0.0.1:5500:5500 \
      -e ORACLE_SID=ORCLCDB \
      -e ORACLE_PDB=ORCLPDB1 \
      -e ORACLE_PWD=root \
@@ -50,10 +51,3 @@ Oracle Database is an awful proprietary database, run away from it!
      -e ORACLE_CHARACTERSET=AL32UTF8 \
      oracle/database:19.3.0-ee
     ```
-
-
-
-
-# References
-
-* []()
