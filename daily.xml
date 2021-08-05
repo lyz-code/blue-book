@@ -11,7 +11,7 @@
     <managingEditor>Lyz</managingEditor>
 
     
-    <pubDate>2021-07-31 06:38:37+00:00</pubDate>
+    <pubDate>2021-08-05 06:38:17+00:00</pubDate>
     <ttl>1440</ttl>
 
     
@@ -25,6 +25,16 @@
     
 
     
+    
+    <item><title>4th August 2021</title>
+      <author>Lyz</author>
+      <description>&lt;article class=&#34;md-content__inner md-typeset&#34;&gt; &lt;a class=&#34;md-content__button md-icon&#34; href=&#34;https://github.com/lyz-code/blue-book/edit/master/docs/newsletter/2021_08_04.md&#34; title=&#34;Edit this page&#34;&gt; &lt;svg viewbox=&#34;0 0 24 24&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z&#34;&gt;&lt;/path&gt;&lt;/svg&gt; &lt;/a&gt;  &lt;h2 id=&#34;devops&#34;&gt;DevOps&lt;/h2&gt; &lt;h3 id=&#34;infrastructure-solutions&#34;&gt;Infrastructure Solutions&lt;/h3&gt; &lt;h4 id=&#34;kubernetes&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/devops/kubernetes/kubernetes/&#34;&gt;Kubernetes&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;New: &lt;a href=&#34;https://lyz-code.github.io/blue-book/devops/kubernetes/kubernetes/#tools-to-test&#34;&gt;Add Velero as interesting tool.&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&lt;a href=&#34;https://velero.io/&#34;&gt;Velero&lt;/a&gt; is a tool to backup and migrate Kubernetes resources and persistent volumes.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;h4 id=&#34;architecture&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/devops/kubernetes/kubernetes_architecture/&#34;&gt;Architecture&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;New: &lt;a href=&#34;https://lyz-code.github.io/blue-book/devops/kubernetes/kubernetes_architecture/#number-of-clusters&#34;&gt;Give suggestions on how to choose the number of kubernetes clusters to use.&lt;/a&gt;&lt;/p&gt; &lt;p&gt;You can run a given set of workloads either on few large clusters (with many workloads in each cluster) or on many clusters (with few workloads in each cluster).&lt;/p&gt; &lt;p&gt;Here&#39;s a table that summarizes the pros and cons of various approaches:&lt;/p&gt; &lt;p&gt;&lt;img alt=&#34; &#34; src=&#34;number_k8s_clusters.svg&#34;/&gt; &lt;em&gt;Figure: Possibilities of number of clusters from &lt;a href=&#34;https://learnk8s.io/how-many-clusters&#34;&gt;learnk8s.io article&lt;/a&gt;&lt;/em&gt;&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;h2 id=&#34;operative-systems&#34;&gt;Operative Systems&lt;/h2&gt; &lt;h3 id=&#34;linux&#34;&gt;Linux&lt;/h3&gt; &lt;h4 id=&#34;linux-snippets&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/linux_snippets/&#34;&gt;Linux Snippets&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;New: &lt;a href=&#34;https://lyz-code.github.io/blue-book/linux_snippets/#allocate-space-for-a-virtual-filesystem&#34;&gt;Explain how to allocate space for a virtual filesystem.&lt;/a&gt;&lt;/p&gt;  &lt;/li&gt; &lt;/ul&gt; &lt;h2 id=&#34;arts&#34;&gt;Arts&lt;/h2&gt; &lt;h3 id=&#34;writing&#34;&gt;Writing&lt;/h3&gt; &lt;h4 id=&#34;grammar-and-orthography&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/writing/orthography/&#34;&gt;Grammar and Orthography&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;New: &lt;a href=&#34;https://lyz-code.github.io/blue-book/writing/orthography/#use-of-z-or-s-in-some-words&#34;&gt;Explain the use of z or s in some words.&lt;/a&gt;&lt;/p&gt; &lt;p&gt;It looks like American english uses &lt;code&gt;z&lt;/code&gt; while British uses &lt;code&gt;s&lt;/code&gt;, some examples:&lt;/p&gt; &lt;ul&gt; &lt;li&gt;&lt;a href=&#34;https://writingexplained.org/organisation-vs-organization-difference&#34;&gt;Organizations vs organisation&lt;/a&gt;.&lt;/li&gt; &lt;li&gt;&lt;a href=&#34;https://english.stackexchange.com/questions/282621/authorization-vs-authorisation-im-in-some-real-dilemma&#34;&gt;Authorization vs authorisation&lt;/a&gt;.&lt;/li&gt; &lt;li&gt;&lt;a href=&#34;https://grammarist.com/spelling/customise-customize/&#34;&gt;Customized vs customised&lt;/a&gt;.&lt;/li&gt; &lt;/ul&gt; &lt;p&gt;Both forms are correct, so choose the one that suits your liking.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;hr/&gt; &lt;div class=&#34;md-source-date&#34;&gt; &lt;small&gt; Last update: &lt;span class=&#34;git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago&#34;&gt;&lt;span class=&#34;timeago&#34; datetime=&#34;2021-08-05T06:38:17+00:00&#34; locale=&#34;en&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date&#34;&gt;2021-08-05&lt;/span&gt; &lt;/small&gt; &lt;/div&gt; &lt;/article&gt;</description>
+      <link>https://lyz-code.github.io/blue-book/newsletter/2021_08_04/</link>
+      <pubDate>2021-08-05 06:38:17+00:00</pubDate>
+      <source url="https://lyz-code.github.io/blue-book/daily.xml">The Blue Book</source>
+      <guid isPermaLink="true">https://lyz-code.github.io/blue-book/newsletter/2021_08_04/</guid>
+      
+    </item>
     
     <item><title>30th July 2021</title>
       <author>Lyz</author>
@@ -181,16 +191,6 @@
       <pubDate>2021-06-04 08:10:04+00:00</pubDate>
       <source url="https://lyz-code.github.io/blue-book/daily.xml">The Blue Book</source>
       <guid isPermaLink="true">https://lyz-code.github.io/blue-book/newsletter/2021_06_03/</guid>
-      
-    </item>
-    
-    <item><title>1st June 2021</title>
-      <author>Lyz</author>
-      <description>&lt;article class=&#34;md-content__inner md-typeset&#34;&gt; &lt;a class=&#34;md-content__button md-icon&#34; href=&#34;https://github.com/lyz-code/blue-book/edit/master/docs/newsletter/2021_06_01.md&#34; title=&#34;Edit this page&#34;&gt; &lt;svg viewbox=&#34;0 0 24 24&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z&#34;&gt;&lt;/path&gt;&lt;/svg&gt; &lt;/a&gt;  &lt;h2 id=&#34;software-architecture&#34;&gt;Software Architecture&lt;/h2&gt; &lt;h3 id=&#34;domain-driven-design&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/architecture/domain_driven_design/&#34;&gt;Domain Driven Design&lt;/a&gt;&lt;/h3&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;Improvement: Add warning when migrating old code.&lt;/p&gt; &lt;p&gt;You may be tempted to migrate all your old code to this architecture once you fall in love with it. Truth being told, it&#39;s the best way to learn how to use it, but it&#39;s time expensive too! &lt;a href=&#34;https://github.com/lyz-code/clinv/pull/40&#34;&gt;The last refactor&lt;/a&gt; I did required a change of 60% of the code. The upside is that I reduced the total lines of code a 25%.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;hr/&gt;  &lt;/article&gt;</description>
-      <link>https://lyz-code.github.io/blue-book/newsletter/2021_06_01/</link>
-      <pubDate>2021-06-02 08:08:20+00:00</pubDate>
-      <source url="https://lyz-code.github.io/blue-book/daily.xml">The Blue Book</source>
-      <guid isPermaLink="true">https://lyz-code.github.io/blue-book/newsletter/2021_06_01/</guid>
       
     </item>
     
