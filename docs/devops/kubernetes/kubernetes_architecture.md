@@ -264,7 +264,7 @@ Cons:
 * *App requirements are not localised*: If an app has special requirements, then
     these requirements must be satisfied in all clusters.
 
-# Conclusion
+## Conclusion
 
 If you don't need environment isolation and are not afraid of upgrading the
 Kubernetes cluster, go for the single cluster, otherwise use a cluster per

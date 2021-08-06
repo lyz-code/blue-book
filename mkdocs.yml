@@ -109,6 +109,7 @@ nav:
               - Helm Secrets: devops/helm/helm_secrets.md
               - Helm Git: helm_git.md
           - Helmfile: devops/helmfile.md
+          - Terraform: terraform.md
       - Infrastructure Solutions:
           - Kubernetes:
               - devops/kubernetes/kubernetes.md
