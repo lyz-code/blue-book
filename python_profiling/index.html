@@ -39,7 +39,7 @@ Program: script.py
       │  └─ <span class=m>4</span>.425 computation  script.py:2
       └─ <span class=m>0</span>.092 function3  script.py:21
          └─ <span class=m>0</span>.092 computation  script.py:2
-</code></pre></div> <p>With the possibility to generate an HTML report.</p> <p><img alt src=pyinstrument.png></p> <p>The disadvantages are that it's only easy to profile python script files, not full packages.</p> <p>You can also <a href=https://github.com/joerick/pyinstrument#profile-a-specific-chunk-of-code>profile a chunk of code</a>, which can be useful when developing or for writing performance tests.</p> <div class=highlight><pre><span></span><code><span class=kn>from</span> <span class=nn>pyinstrument</span> <span class=kn>import</span> <span class=n>Profiler</span>
+</code></pre></div> <p>With the possibility to generate an HTML report.</p> <p><img alt src=../img/pyinstrument.png></p> <p>The disadvantages are that it's only easy to profile python script files, not full packages.</p> <p>You can also <a href=https://github.com/joerick/pyinstrument#profile-a-specific-chunk-of-code>profile a chunk of code</a>, which can be useful when developing or for writing performance tests.</p> <div class=highlight><pre><span></span><code><span class=kn>from</span> <span class=nn>pyinstrument</span> <span class=kn>import</span> <span class=n>Profiler</span>
 
 <span class=n>profiler</span> <span class=o>=</span> <span class=n>Profiler</span><span class=p>()</span>
 <span class=n>profiler</span><span class=o>.</span><span class=n>start</span><span class=p>()</span>
