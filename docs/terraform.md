@@ -738,6 +738,49 @@ Console](https://console.developers.google.com/). Go to `Credentials` then
 Select `Compute engine default service account` and select `JSON` as the key
 type.
 
+# [Ignore the change of an attribute](https://www.terraform.io/docs/language/meta-arguments/lifecycle.html#syntax-and-arguments)
+
+Sometimes you don't care whether some attributes of a resource change, if that's
+the case use the `lifecycle` statement:
+
+```hcl
+resource "aws_instance" "example" {
+  # ...
+
+  lifecycle {
+    ignore_changes = [
+      # Ignore changes to tags, e.g. because a management agent
+      # updates these based on some ruleset managed elsewhere.
+      tags,
+    ]
+  }
+}
+```
+
+# [Define the default value of an variable that contains an object as empty](https://github.com/hashicorp/terraform/issues/19898)
+
+```hcl
+variable "database" {
+  type = object({
+    size                 = number
+    instance_type        = string
+    storage_type         = string
+    engine               = string
+    engine_version       = string
+    parameter_group_name = string
+    multi_az             = bool
+  })
+  default     = null
+```
+
+# [Do a conditional if a variable is not null](https://stackoverflow.com/questions/53200585/terraform-conditionals-if-variable-does-not-exist)
+
+```hcl
+resource "aws_db_instance" "instance" {
+  count                = var.database == null ? 0 : 1
+  ...
+```
+
 # References
 
 * [Docs](https://www.terraform.io/docs/index.html)

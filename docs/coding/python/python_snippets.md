@@ -4,6 +4,47 @@ date: 20200717
 author: Lyz
 ---
 
+# [Find a static file of a python module](https://stackoverflow.com/questions/39104/finding-a-file-in-a-python-module-distribution)
+
+Useful when you want to initialize a configuration file of a cli program when
+it's not present.
+
+Imagine you have a `setup.py` with the next contents:
+
+```python
+setup(
+    name="pynbox",
+    packages=find_packages("src"),
+    package_dir={"": "src"},
+    package_data={"pynbox": ["py.typed", "assets/config.yaml"]},
+```
+
+Then you could import the data with:
+
+```python
+import pkg_resources
+
+file_path = pkg_resources.resource_filename("pynbox", "assets/config.yaml"),
+```
+
+# [Delete a file](https://www.w3schools.com/python/python_file_remove.asp)
+
+```python
+import os
+os.remove('demofile.txt')
+```
+
+# [Measure elapsed time between lines of code](https://stackoverflow.com/questions/7370801/how-to-measure-elapsed-time-in-python)
+
+```python
+import time
+
+start = time.time()
+print("hello")
+end = time.time()
+print(end - start)
+```
+
 # [Create combination of elements in groups of two](https://stackoverflow.com/questions/20762574/combinations-with-two-elements)
 
 Using the combinations function in Python's itertools module:
@@ -220,7 +261,7 @@ def int_to_ordinal(number: int) -> str:
     return f"{number}{suffix}"
 ```
 
-# [Group a list of dictionaries by a specific key](https://medium.com/swlh/grouping-list-of-dictionaries-by-specific-key-s-in-python-61edafbbc0ed)
+# [Group or sort a list of dictionaries by a specific key](https://medium.com/swlh/grouping-list-of-dictionaries-by-specific-key-s-in-python-61edafbbc0ed)
 
 The `itertools` function in Python provides an efficient way for looping lists,
 tuples and dictionaries. The

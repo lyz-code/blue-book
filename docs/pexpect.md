@@ -71,6 +71,24 @@ class Keyboard(str, Enum):
     Backspace = ControlH
 ```
 
+## [Read output of command](https://stackoverflow.com/questions/17632010/python-how-to-read-output-from-pexpect-child)
+
+```python
+import sys
+import pexpect
+child = pexpect.spawn('ls')
+child.logfile = sys.stdout
+child.expect(pexpect.EOF)
+```
+
+For the tests, you can use the [capsys](pytest.md#the-capsys-fixture) fixture to
+do assertions on the content:
+
+```python
+out, err = capsys.readouterr()
+assert "WARNING! you took 1 seconds to process the last element" in out
+```
+
 # References
 
 * [Docs](https://pexpect.readthedocs.io)
