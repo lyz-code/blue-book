@@ -103,6 +103,34 @@ I'm now doing a full rewrite of the codebase following the [repository
 pattern](repository_pattern.md) which led me to create a [Python
 library](#repository-pattern).
 
+## [Pynbox](https://lyz-code.github.io/pynbox)
+
+I wanted a system to improve the management of ideas, tasks,
+references, suggestions when I'm not in front of the computer. Right now I've
+got Markor for Android to register these quicknotes, but the reality is that
+I don't act upon them, so it's just a log of tasks that never get done, and
+ideas, references and suggestions that aren't registered in my knowledge or
+media management systems.
+
+On the computer there are also cases of tasks that are not worth registering in
+the task management system, or ideas that I get at a moment but don't have time
+to process at the moment.
+
+The idea then is to automatically sync the Android quicknote with syncthing,
+and have a special format for the file that allows `pynbox`
+to extract
+the elements from that file to the "inbox system". For example:
+
+```
+t. buy groceries
+tv. IT crowd
+i. Improve the inbox management
+
+I want a system to improve ...
+```
+
+Gets introduced in the "inbox system" as a task, a TV suggestion and an idea.
+
 # Dormant Plants
 
 ## [faker-optional](https://lyz-code.github.io/faker-optional/)
@@ -388,45 +416,15 @@ Firefox + Trydactil has it's limits, and Firefox has been following an ill path
 for a while, [qutebrowser](https://github.com/qutebrowser/qutebrowser) looks
 like the perfect replacement.
 
+I've just stumbled upon [nyxt](https://nyxt.atlas.engineer/)
+([code](https://github.com/atlas-engineer/nyxt)), and it looks superb.
+
 ## Automating computer file management
 
 Today I've stumbled upon [organize](https://organize.readthedocs.io/en/latest/)
 looks good for automating processes on files. Maybe it's interesting to run it
 with [inotifywait](https://askubuntu.com/a/819290) instead of with a [cron
 job](https://github.com/tfeldmann/organize/issues/18).
-
-## Inbox management
-
-I want a system to improve the management of ideas, tasks,
-references, suggestions when I'm not in front of the computer. Right now I've
-got Markor for Android to register these quicknotes, but the reality is that
-I don't act upon them, so it's just a log of tasks that never get done, and
-ideas, references and suggestions that aren't registered in my knowledge or
-media management systems.
-
-On the computer there are also cases of tasks that are not worth registering in
-the task management system, or ideas that I get at a moment but don't have time
-to process at the moment.
-
-The idea then is to automatically sync the Android quicknote with syncthing,
-and have a special format for the file that allows an automated program
-listening to changes in the synced file to extract
-the elements from that file to the "inbox system". For example:
-
-```
-t. buy groceries
-tv. IT crowd
-i. Improve the inbox management
-
-I want a system to improve ...
-```
-
-Will get introduced in the "inbox system" as a task, a TV suggestion and an idea
-elements.
-
-The inbox system will be a command line tool that lists the inbox elements and
-makes it easy to transform the data stored there to the respective, task, media
-or knowledge management system items.
 
 ## Self hosted search engine
 

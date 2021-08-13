@@ -28,8 +28,8 @@ is as follows:
 * There have been only a few minutes, but you feel pretty good. Everything is
     where it should be.
 
-I've got a [seed project](projects.md#inbox-management) to automate the emptying
-of the inbox. Help out if you like it!
+I've developed [`pynbox`](https://lyz-code.github.io/pynbox) to automate the
+management of the inbox. Help out if you like it!
 
 # Task manager
 
