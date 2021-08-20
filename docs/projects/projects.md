@@ -315,6 +315,12 @@ It has the following features:
 
 # Seedlings
 
+## [Automate email management](email_management.md)
+
+Most of the emails I receive require repetitive actions that can be automated,
+in the [Email management](email_management.md) article I'm gathering the steps
+to setup such an infrastructure.
+
 ## [Life](https://lyz-code.github.io/life/)
 
 Life is a real time sandbox role game where you play as yourself surviving in today's
@@ -406,29 +412,6 @@ a deal that matches its criteria.
 
 Once it's done, promote it in the [DataHoarder
 reddit](https://www.reddit.com/r/DataHoarder/).
-
-## Automate email management
-
-Most of the emails I receive require repetitive actions that can be automated,
-I've stumbled upon [notmuchmail](https://notmuchmail.org/), a very
-promising tool to create a searchable index of your email inbox, it's the core
-for the next tools. A friend suggested to use
-[afew](https://afew.readthedocs.io/en/latest/) for tagging, and I'd probably use
-[alot](https://github.com/pazz/alot) to interact with the system (and finally be
-able to use email from the cli). The [alot
-docs](https://alot.readthedocs.io/en/latest/index.html) are pretty good, the
-[ncurses interface](https://github.com/pazz/alot/wiki/Gallery) is nice, and
-[pazz's mail setup](https://github.com/pazz/alot/wiki/pazz's-mail-setup) is
-exactly what I'd use. You can even send [HTML mails writing them on
-markdown](https://github.com/pazz/alot/wiki/HTML-mails). When configuring
-it, look at [Tips, Tricks and other cool
-Hacks](https://github.com/pazz/alot/wiki/Tips,-Tricks-and-other-cool-Hacks) and
-[Contrib Hooks](https://github.com/pazz/alot/wiki/Contrib-Hooks).
-
-Their [hooks
-system](https://alot.readthedocs.io/en/latest/configuration/hooks.html) is the
-perfect place to create the custom python scripts to process the different
-automatic workflows.
 
 ## Switch to a better browser
 
