@@ -829,6 +829,7 @@ against `http://localhost:8000`.
 
 * [Docs](https://fastapi.tiangolo.com/)
 * [Git](https://github.com/tiangolo/fastapi)
+* [Awesome FastAPI](https://github.com/mjhea0/awesome-fastapi)
 
 * [Testdriven.io course](https://testdriven.io/courses/tdd-fastapi/): suggested
     by the developer.

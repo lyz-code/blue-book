@@ -353,6 +353,26 @@ This is a gathering of tools, ideas or services that I'd like to enjoy.
 If you have any lead, as smallest as it may be on how to fulfill them, please
 [contact me](contact.md).
 
+## Shared accounting
+
+I use [beancount](beancount.md) for my personal accounting, I'd like to have
+a system that integrates more less easily with beancount and let's do a shared
+accounting with other people, for example in trips. I've used [settle
+up](https://settleup.io/) in the past but it requires access to their servers,
+and an account linked to google, facebook or one you register in their servers.
+
+I've looked at [facto](https://github.com/nymanjens/facto) but it uses a logic
+that doesn't apply to my case, it does a heavy use on a common account, instead
+of minimizing the transactions between the people. I also tried
+[tabby](https://github.com/bertvandepoel/tabby#installation), even though they
+still [don't support Docker](https://github.com/bertvandepoel/tabby/issues/13),
+but it doesn't suit my case either :(.
+
+Until a new solution shows up, I'll go with [Tricky
+Tripper](https://github.com/koelleChristian/trickytripper) available in F-Droid,
+and manage the expenses myself and periodically send the html reports to the
+rest of the group.
+
 ## Improve the reliability of the Open Science collections
 
 The current [free knowledge efforts](free_knowledge.md) are based on the health
@@ -481,7 +501,9 @@ Maybe [meilisearch](https://github.com/meilisearch/meilisearch) (follow their
 another approach, [archivy](https://archivy.github.io/) looks good too.
 
 Or I could use [Jina](https://github.com/jina-ai/jina) is a search library
-linked to pydantic.
+linked to pydantic, or maybe
+[quickwit](https://github.com/quickwit-inc/quickwit) if they're more stable and
+mature than right now.
 
 If I've already started the [quantified self](#quantified-self) project, maybe
 [adri's memex](https://github.com/adri/memex)  is a good solution.

@@ -29,6 +29,7 @@ nav:
                       coding/python/python_project_template/python_docker.md
           - Libraries:
               - Alembic: coding/python/alembic.md
+              - asyncio: asyncio.md
               - Boto3: boto3.md
               - Click: coding/python/click.md
               - Dash: coding/python/dash.md

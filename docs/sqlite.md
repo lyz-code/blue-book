@@ -99,3 +99,7 @@ CREATE TABLE IF NOT EXISTS foo (id INTEGER PRIMARY KEY, bar INT)
 # References
 
 * [Home](https://www.sqlite.org/index.html)
+* [rqlite](https://github.com/rqlite/rqlite): is a lightweight, distributed
+    relational database, which uses SQLite as its storage engine. Forming
+    a cluster is very straightforward, it gracefully handles leader elections,
+    and tolerates failures of machines, including the leader.

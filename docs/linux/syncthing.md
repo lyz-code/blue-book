@@ -84,6 +84,12 @@ fingerprint ( what you put ) doesn't match ( actual fingerprint )`.
     setting `network.proxy.allow_hijacking_localhost` to `false`. Otherwise you
     won't be able to access the user interface.
 
+# Issues
+
+* [Wifi run condition needs location to be turned
+    on](https://github.com/syncthing/syncthing-android/issues/1129): update and
+    check that you no longer need it.
+
 # Links
 
 * [Home](https://syncthing.net/)
