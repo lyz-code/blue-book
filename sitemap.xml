@@ -26,6 +26,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/asyncio/</loc>
+         <lastmod>2021-08-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/beancount/</loc>
          <lastmod>2021-08-20</lastmod>
          <changefreq>daily</changefreq>
