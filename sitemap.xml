@@ -16,6 +16,16 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/afew/</loc>
+         <lastmod>2021-08-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/alot/</loc>
+         <lastmod>2021-08-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/amazfit_band_5/</loc>
          <lastmod>2021-08-20</lastmod>
          <changefreq>daily</changefreq>
@@ -92,6 +102,11 @@
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/elasticsearch_exporter/</loc>
+         <lastmod>2021-08-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/email_automation/</loc>
          <lastmod>2021-08-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -186,6 +201,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/mbsync/</loc>
+         <lastmod>2021-08-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/meditation/</loc>
          <lastmod>2021-08-20</lastmod>
          <changefreq>daily</changefreq>
@@ -212,6 +232,11 @@
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/networkx/</loc>
+         <lastmod>2021-08-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/notmuch/</loc>
          <lastmod>2021-08-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
