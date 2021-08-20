@@ -8,12 +8,6 @@ I haven't found a tool to monitor the context it made me track certain software
 issues, so I get lost when updates come. Until a tool shows up, I'll use the
 good old markdown to keep track.
 
-# Python dependency errors
-
-* [python-semantic-release python-gitlab
-    dependency](https://github.com/relekang/python-semantic-release/issues/329):
-    once it's done, update the mkdocs-newsletter requirements.
-
 # Pydantic errors
 
 * [No name 'BaseModel' in module 'pydantic'

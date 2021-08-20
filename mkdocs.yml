@@ -213,10 +213,10 @@ nav:
       - Week Management: week_management.md
       - Relationship Management: relationship_management.md
       - Money Management: money_management.md
-      - Tool Management:
-          - tool_management.md
-          - Email Management: email_management.md
-          - Instant Messages Management: instant_messages_management.md
+      - Email Management:
+          - email_management.md
+          - Email Automation: email_automation.md
+      - Instant Messages Management: instant_messages_management.md
       - Process Automation:
           - process_automation.md
           - Virtual Assistant: virtual_assistant.md
@@ -253,6 +253,8 @@ nav:
   - Operative Systems:
       - Linux:
           - Linux Snippets: linux_snippets.md
+          - afew: afew.md
+          - alot: alot.md
           - ActivityWatch: activitywatch.md
           - beancount: beancount.md
           - Beets: beets.md
@@ -269,9 +271,11 @@ nav:
           - Jellyfin: jellyfin.md
           - ffmpeg: ffmpeg.md
           - LUKS: linux/luks/luks.md
+          - mbsync: mbsync.md
           - mkdocs: linux/mkdocs.md
           - Modipy: modipy.md
           - monica: linux/monica.md
+          - notmuch: notmuch.md
           - nodejs: linux/nodejs.md
           - Oracle Database: oracle_database.md
           - Peek: peek.md
