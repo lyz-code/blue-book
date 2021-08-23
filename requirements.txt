@@ -118,7 +118,7 @@ packaging==21.0
     #   mkdocs
 pkginfo==1.7.1
     # via twine
-proselint==0.11.3
+proselint==0.12.0
     # via -r requirements.in
 pycparser==2.20
     # via cffi
