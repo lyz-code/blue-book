@@ -182,7 +182,7 @@ soupsieve==2.2.1
     # via beautifulsoup4
 tomlkit==0.7.0
     # via python-semantic-release
-tqdm==4.62.1
+tqdm==4.62.2
     # via twine
 twine==3.4.2
     # via python-semantic-release
@@ -193,7 +193,7 @@ typing-extensions==3.10.0.0
     #   pydantic
 urllib3==1.26.6
     # via requests
-watchdog==2.1.4
+watchdog==2.1.5
     # via mkdocs
 webencodings==0.5.1
     # via bleach
