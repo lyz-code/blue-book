@@ -11,7 +11,7 @@
     <managingEditor>Lyz</managingEditor>
 
     
-    <pubDate>2021-08-21 06:36:45+00:00</pubDate>
+    <pubDate>2021-08-24 06:35:04+00:00</pubDate>
     <ttl>1440</ttl>
 
     
@@ -25,6 +25,16 @@
     
 
     
+    
+    <item><title>23rd August 2021</title>
+      <author>Lyz</author>
+      <description>&lt;article class=&#34;md-content__inner md-typeset&#34;&gt; &lt;a class=&#34;md-content__button md-icon&#34; href=&#34;https://github.com/lyz-code/blue-book/edit/master/docs/newsletter/2021_08_23.md&#34; title=&#34;Edit this page&#34;&gt; &lt;svg viewbox=&#34;0 0 24 24&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z&#34;&gt;&lt;/path&gt;&lt;/svg&gt; &lt;/a&gt;  &lt;h2 id=&#34;coding&#34;&gt;Coding&lt;/h2&gt; &lt;h3 id=&#34;python&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/python/&#34;&gt;Python&lt;/a&gt;&lt;/h3&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;New: Add schedule to interesting libraries to explore.&lt;/p&gt; &lt;p&gt;&lt;a href=&#34;https://github.com/dbader/schedule&#34;&gt;schedule&lt;/a&gt; is a Python job scheduling for humans. Run Python functions (or any other callable) periodically using a friendly syntax.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;h2 id=&#34;contact&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/contact/&#34;&gt;Contact&lt;/a&gt;&lt;/h2&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;Correction: Update the XMPP address.&lt;/p&gt; &lt;p&gt;Riseup has stopped giving support for XMPP :(&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;hr/&gt;  &lt;/article&gt;</description>
+      <link>https://lyz-code.github.io/blue-book/newsletter/2021_08_23/</link>
+      <pubDate>2021-08-24 06:35:04+00:00</pubDate>
+      <source url="https://lyz-code.github.io/blue-book/daily.xml">The Blue Book</source>
+      <guid isPermaLink="true">https://lyz-code.github.io/blue-book/newsletter/2021_08_23/</guid>
+      
+    </item>
     
     <item><title>20th August 2021</title>
       <author>Lyz</author>
@@ -236,16 +246,6 @@
       <pubDate>2021-06-16 06:41:57+00:00</pubDate>
       <source url="https://lyz-code.github.io/blue-book/daily.xml">The Blue Book</source>
       <guid isPermaLink="true">https://lyz-code.github.io/blue-book/newsletter/2021_06_15/</guid>
-      
-    </item>
-    
-    <item><title>11th June 2021</title>
-      <author>Lyz</author>
-      <description>&lt;article class=&#34;md-content__inner md-typeset&#34;&gt; &lt;a class=&#34;md-content__button md-icon&#34; href=&#34;https://github.com/lyz-code/blue-book/edit/master/docs/newsletter/2021_06_11.md&#34; title=&#34;Edit this page&#34;&gt; &lt;svg viewbox=&#34;0 0 24 24&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z&#34;&gt;&lt;/path&gt;&lt;/svg&gt; &lt;/a&gt;  &lt;h2 id=&#34;projects&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/projects/projects/&#34;&gt;Projects&lt;/a&gt;&lt;/h2&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;New: &lt;a href=&#34;https://lyz-code.github.io/blue-book/projects/projects/#self-hosted-map&#34;&gt;Introduce seedling self-hosted map project.&lt;/a&gt;&lt;/p&gt; &lt;p&gt;I love maps, as well as traveling and hiking. This project aims to create a web interface that let&#39;s me interact with the data gathered throughout my life. I&#39;d like to:&lt;/p&gt; &lt;ul&gt; &lt;li&gt;Browse the waypoints and routes that I&#39;ve done.&lt;/li&gt; &lt;li&gt;Create routes and export the gpx.&lt;/li&gt; &lt;li&gt;Be able to search through the data&lt;/li&gt; &lt;li&gt;Plan trips&lt;/li&gt; &lt;/ul&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;New: &lt;a href=&#34;https://lyz-code.github.io/blue-book/projects/projects/#switch-to-a-better-browser&#34;&gt;Introduce the seed project to.&lt;/a&gt;&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;hr/&gt;  &lt;/article&gt;</description>
-      <link>https://lyz-code.github.io/blue-book/newsletter/2021_06_11/</link>
-      <pubDate>2021-06-12 06:40:05+00:00</pubDate>
-      <source url="https://lyz-code.github.io/blue-book/daily.xml">The Blue Book</source>
-      <guid isPermaLink="true">https://lyz-code.github.io/blue-book/newsletter/2021_06_11/</guid>
       
     </item>
     
