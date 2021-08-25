@@ -36,6 +36,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/antifascism/</loc>
+         <lastmod>2021-08-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/asyncio/</loc>
          <lastmod>2021-08-25</lastmod>
          <changefreq>daily</changefreq>
