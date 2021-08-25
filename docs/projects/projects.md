@@ -315,11 +315,24 @@ It has the following features:
 
 # Seedlings
 
+## [Learn about antifascism](antifascism.md)
+
+I'm summing up the key insights of
+[Mark's](https://www.mhpbooks.com/books/antifa/) and
+[Pol's](https://www.txalaparta.eus/es/libros/todo-el-mundo-puede-ser-antifa)
+awesome books in [this article](antifascism.md)
+
 ## [Automate email management](email_management.md)
 
 Most of the emails I receive require repetitive actions that can be automated,
 in the [Email management](email_management.md) article I'm gathering the steps
 to setup such an infrastructure.
+
+## [Learn about sleep](sleep.md)
+
+I'm reading Matthew Walker's awesome book [Why we
+sleep](https://www.goodreads.com/book/show/34466963-why-we-sleep) and summing up
+the key insights in [this article](sleep.md)
 
 ## [Life](https://lyz-code.github.io/life/)
 
