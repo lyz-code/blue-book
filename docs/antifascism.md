@@ -21,8 +21,8 @@ actively fought with whatever means are necessary.
 
     It assumes that you identify yourself as an antifascist, so I'll go straight
     to the point, skipping much of the argumentation that is needed to sustain
-    these ideas. I'll add links to [Mark's][#references] and
-    [Pol's][#references] awesome books, which I strongly recommend you to buy,
+    these ideas. I'll add links to [Mark's](#references) and
+    [Pol's](#references) awesome books, which I strongly recommend you to buy,
     as they both are jewels that everyone should read.
 
 Despite the criminalization and stigmatization by the mainstream press and part
@@ -61,7 +61,7 @@ discourse of the privileged against the oppressed.
 
 They dress themselves as antisystems, pursuing the liberty behind the authority,
 and accepting the democratic system introducing totalitarianism nuances ([Pol
-p.20][#references]).
+p.20](#references)).
 
 ## How to identify fascism
 
@@ -69,7 +69,7 @@ We need to make sure that we use the term well, otherwise we run into the risk
 of the word loosing meaning. But equally important is not to fall in
 a wording discussion that paralyzes us.
 
-[Pol][#references] suggests to use [Kimberlé Williams
+[Pol](#references) suggests to use [Kimberlé Williams
 Crenshaw](https://en.wikipedia.org/wiki/Kimberl%C3%A9_Williams_Crenshaw)
 [intersectionality theory](https://en.wikipedia.org/wiki/Intersectionality)
 , which states that individuals experience oppression or privilege based on a belonging
