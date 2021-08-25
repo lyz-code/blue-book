@@ -4,12 +4,14 @@ date: 20210825
 author: Lyz
 ---
 
-![ ](antifa.jpeg)
+<p align="center">
+    <img src="/blue-book/img/antifa.jpeg">
+</p>
 
 Antifascism is a method of politics, a locus of individual and group
 self-indentification, it's a transnational movement that adapted preexisting
 socialist, anarchist, and communist currents to a sudden need to react to the
-fascist menace ([Mark p. 11](#references)). It's based on the idea that [any
+far right menace ([Mark p. 11](#references)). It's based on the idea that [any
 oppression form](#how-to-identify-fascism) can't be allowed, and should be
 actively fought with whatever means are necessary.
 
