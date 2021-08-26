@@ -13,7 +13,9 @@ self-indentification, it's a transnational movement that adapted preexisting
 socialist, anarchist, and communist currents to a sudden need to react to the
 far right menace ([Mark p. 11](#references)). It's based on the idea that [any
 oppression form](#how-to-identify-fascism) can't be allowed, and should be
-actively fought with whatever means are necessary.
+actively fought with whatever means are necessary. Usually sharing space and
+even blending with other politic stances that share the same principle, such as
+[intersectional feminism](https://en.wikipedia.org/wiki/Intersectionality).
 
 !!! note "Read the references"
     The articles under this section are the brushstrokes I use to learn how to
@@ -69,12 +71,12 @@ We need to make sure that we use the term well, otherwise we run into the risk
 of the word loosing meaning. But equally important is not to fall in
 a wording discussion that paralyzes us.
 
-[Pol](#references) suggests to use [Kimberlé Williams
+One way to make it measurable is to use [Kimberlé Williams
 Crenshaw](https://en.wikipedia.org/wiki/Kimberl%C3%A9_Williams_Crenshaw)
 [intersectionality theory](https://en.wikipedia.org/wiki/Intersectionality)
 , which states that individuals experience oppression or privilege based on a belonging
 to a plurality of social categories, to measure how close an action or discourse
-is from fascism.
+follows fascism principles ([Pol p.26](#references)).
 
 ![ ](axes_of_privilege.png)
 [*Source*](http://sjwiki.org/wiki/Intersectionality)
@@ -95,7 +97,10 @@ risk some social collectives, and secondly, history tells us that classic fascis
 movements didn't show their true intentions in their early phases.
 
 Fascism shifts their form and particular characteristics based on place and
-time. Waiting to see it clear is risking being late to fight it.
+time. Waiting to see it clear is risking being late to fight it. Therefore
+whenever we see a discourse that comes from a privileged person against
+a oppressed one, we should fight it immediately, once fought, you can analyze if
+it was fascist or not ([Pol p.28](#references))
 
 # References
 
