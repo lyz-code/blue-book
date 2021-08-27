@@ -11,7 +11,7 @@
     <managingEditor>Lyz</managingEditor>
 
     
-    <pubDate>2021-08-26 06:36:39+00:00</pubDate>
+    <pubDate>2021-08-27 06:35:18+00:00</pubDate>
     <ttl>1440</ttl>
 
     
@@ -25,6 +25,16 @@
     
 
     
+    
+    <item><title>26th August 2021</title>
+      <author>Lyz</author>
+      <description>&lt;article class=&#34;md-content__inner md-typeset&#34;&gt; &lt;a class=&#34;md-content__button md-icon&#34; href=&#34;https://github.com/lyz-code/blue-book/edit/master/docs/newsletter/2021_08_26.md&#34; title=&#34;Edit this page&#34;&gt; &lt;svg viewbox=&#34;0 0 24 24&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z&#34;&gt;&lt;/path&gt;&lt;/svg&gt; &lt;/a&gt;  &lt;h2 id=&#34;activism&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/antitransphobia/&#34;&gt;Activism&lt;/a&gt;&lt;/h2&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;New: Introduce Anti-transphobia.&lt;/p&gt; &lt;p&gt;Anti-transphobia being reductionist is the opposition to the collection of ideas and phenomena that encompass a range of negative attitudes, feelings or actions towards transgender people or transness in general. Transphobia can include fear, aversion, hatred, violence, anger, or discomfort felt or expressed towards people who do not conform to social gender expectations. It is often expressed alongside homophobic views and hence is often considered an aspect of homophobia.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;New: &lt;a href=&#34;https://lyz-code.github.io/blue-book/antitransphobia/#terf&#34;&gt;Introduce arguments against terf ideology.&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/TERF&#34;&gt;TERF&lt;/a&gt; is an acronym for &lt;em&gt;trans-exclusionary radical feminist&lt;/em&gt;. The term originally applied to the minority of feminists that expressed transphobic sentiments such as the rejection of the assertion that trans women are women, the exclusion of trans women from women&#39;s spaces, and opposition to transgender rights legislation. The meaning has since expanded to refer more broadly to people with trans-exclusionary views who may have no involvement with radical feminism.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;hr/&gt;  &lt;/article&gt;</description>
+      <link>https://lyz-code.github.io/blue-book/newsletter/2021_08_26/</link>
+      <pubDate>2021-08-27 06:35:18+00:00</pubDate>
+      <source url="https://lyz-code.github.io/blue-book/daily.xml">The Blue Book</source>
+      <guid isPermaLink="true">https://lyz-code.github.io/blue-book/newsletter/2021_08_26/</guid>
+      
+    </item>
     
     <item><title>25th August 2021</title>
       <author>Lyz</author>
@@ -236,16 +246,6 @@
       <pubDate>2021-06-23 06:38:50+00:00</pubDate>
       <source url="https://lyz-code.github.io/blue-book/daily.xml">The Blue Book</source>
       <guid isPermaLink="true">https://lyz-code.github.io/blue-book/newsletter/2021_06_22/</guid>
-      
-    </item>
-    
-    <item><title>16th June 2021</title>
-      <author>Lyz</author>
-      <description>&lt;article class=&#34;md-content__inner md-typeset&#34;&gt; &lt;a class=&#34;md-content__button md-icon&#34; href=&#34;https://github.com/lyz-code/blue-book/edit/master/docs/newsletter/2021_06_16.md&#34; title=&#34;Edit this page&#34;&gt; &lt;svg viewbox=&#34;0 0 24 24&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z&#34;&gt;&lt;/path&gt;&lt;/svg&gt; &lt;/a&gt;  &lt;h2 id=&#34;devops&#34;&gt;DevOps&lt;/h2&gt; &lt;h3 id=&#34;monitoring&#34;&gt;Monitoring&lt;/h3&gt; &lt;h4 id=&#34;elasticsearch-exporter&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/elasticsearch_exporter/&#34;&gt;Elasticsearch Exporter&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;Improvement: Add more elasticsearch alerts.&lt;/p&gt; &lt;p&gt;Measure the search latency, search rate and create alerts on the garbage collector, json parser and circuit breaker errors&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;hr/&gt;  &lt;/article&gt;</description>
-      <link>https://lyz-code.github.io/blue-book/newsletter/2021_06_16/</link>
-      <pubDate>2021-06-17 06:42:28+00:00</pubDate>
-      <source url="https://lyz-code.github.io/blue-book/daily.xml">The Blue Book</source>
-      <guid isPermaLink="true">https://lyz-code.github.io/blue-book/newsletter/2021_06_16/</guid>
       
     </item>
     
