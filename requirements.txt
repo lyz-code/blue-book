@@ -53,7 +53,7 @@ htmlmin==0.1.12
     # via mkdocs-minify-plugin
 idna==3.2
     # via requests
-importlib-metadata==4.8.0
+importlib-metadata==4.8.1
     # via
     #   click
     #   keyring
@@ -186,7 +186,7 @@ tqdm==4.62.2
     # via twine
 twine==3.4.2
     # via python-semantic-release
-typing-extensions==3.10.0.0
+typing-extensions==3.10.0.1
     # via
     #   gitpython
     #   importlib-metadata
