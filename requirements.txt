@@ -94,13 +94,11 @@ git+git://github.com/lyz-code/mkdocs-autolinks-plugin.git
     # via
     #   -r requirements.in
     #   mkdocs-newsletter
-mkdocs-git-revision-date-localized-plugin==0.9.2
+mkdocs-git-revision-date-localized-plugin==0.9.3
     # via -r requirements.in
 mkdocs-material==7.2.6
-    # via
-    #   -r requirements.in
-    #   mkdocs-material-extensions
-mkdocs-material-extensions==1.0.1
+    # via -r requirements.in
+mkdocs-material-extensions==1.0.3
     # via mkdocs-material
 mkdocs-minify-plugin==0.4.0
     # via -r requirements.in
@@ -116,6 +114,7 @@ packaging==21.0
     # via
     #   bleach
     #   mkdocs
+    #   setuptools-scm
 pkginfo==1.7.1
     # via twine
 proselint==0.12.0
@@ -168,7 +167,7 @@ secretstorage==3.3.1
     # via keyring
 semver==2.13.0
     # via python-semantic-release
-setuptools-scm==6.0.1
+setuptools-scm==6.3.1
     # via dotty-dict
 six==1.16.0
     # via
@@ -180,6 +179,8 @@ smmap==4.0.0
     # via gitdb
 soupsieve==2.2.1
     # via beautifulsoup4
+tomli==1.2.1
+    # via setuptools-scm
 tomlkit==0.7.0
     # via python-semantic-release
 tqdm==4.62.2
