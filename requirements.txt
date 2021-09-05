@@ -139,7 +139,7 @@ python-dateutil==2.8.2
     #   mkdocs-newsletter
 python-gitlab==2.10.1
     # via python-semantic-release
-python-semantic-release==7.19.1
+python-semantic-release==7.19.2
     # via mkdocs-newsletter
 pytz==2021.1
     # via babel
@@ -204,5 +204,5 @@ zipp==3.5.0
     # via importlib-metadata
 
 # The following packages are considered to be unsafe in a requirements file:
-setuptools==57.4.0
+setuptools==57.5.0
     # via setuptools-scm
