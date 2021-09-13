@@ -70,7 +70,7 @@ jinja2==3.0.1
     # via mkdocs
 jsmin==2.2.2
     # via mkdocs-minify-plugin
-keyring==23.2.0
+keyring==23.2.1
     # via twine
 markdown==3.3.4
     # via
