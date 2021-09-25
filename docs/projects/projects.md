@@ -372,6 +372,31 @@ This is a gathering of tools, ideas or services that I'd like to enjoy.
 If you have any lead, as smallest as it may be on how to fulfill them, please
 [contact me](contact.md).
 
+## Pomodoro command line
+
+Command line to help with the [pomodoro workflow](task_workflows.md#pomodoro), besides the basic stuff it will
+interact with the task manager, [activitywatch](activitywatch.md) and the
+notifications system so that:
+
+* If you are in focus mode, the notifications will be deactivated, once the
+    pomodoro cycle ends, the notifications will show up.
+* If you are in focus mode, and you check the notification applications,
+    a notification warning will be shown.
+* As you'll check the notification systems between pomodoro cycles, unless you
+    start the pomodoro cycle in focus mode, it's assumed that you may need to
+    interact with them, but if X amount of minutes has passed since the start of
+    the cycle and you haven't seen them, then it's assumed that you are in focus
+    mode, and therefore the notifications will be deactivated.
+* When you start a pomodoro cycle it will let you activate one of the task
+    manager tasks, so it will track the time spent in that task. If you change
+    the window manager focus to a window that is not related to the task at hand
+    it will stop recording and show you a warning.
+
+## Create an ordered list of digital gardens
+
+Use [best-of-lists](https://github.com/best-of-lists/best-of) to create an
+awesome list of digital gardens.
+
 ## Shared accounting
 
 I use [beancount](beancount.md) for my personal accounting, I'd like to have

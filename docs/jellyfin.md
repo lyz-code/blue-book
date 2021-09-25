@@ -29,28 +29,35 @@ without the hardware transcoding with:
 ffmpeg -i input.avi -c:v libx264 out.mp4
 ```
 
+## [Stuck at login page](https://github.com/jellyfin/jellyfin-web/issues/2507)
+
+Sometimes Jellyfin gets stuck at the login screen when trying to log in with an
+endlessly spinning loading wheel. It looks like it's already fixed, so first try
+to update to the latest version. If the error remains, follow the next steps:
+
+To fix it run the next snippet:
+
+```bash
+systemctl stop jellyfin.service
+mv /var/lib/jellyfin/data/jellyfin.db{,.bak}
+systemctl start jellyfin.service
+# Go to JF URL, get asked to log in even though
+# there are no Users in the JF DB now
+systemctl stop jellyfin.service
+mv /var/lib/jellyfin/data/jellyfin.db{.bak,}
+systemctl start jellyfin.service
+```
+
+If you use [jfa-go](https://github.com/hrfee/jfa-go) for the invites, you may
+[need to regenerate all the user
+profiles](https://github.com/hrfee/jfa-go/issues/101), so that the problem is
+not introduced again.
+
 # Issues
 
 * [Trailers not
     working](https://github.com/crobibero/jellyfin-plugin-tmdb-trailers/issues/8):
     No solution until it's fixed
-* [Stuck at login page](https://github.com/jellyfin/jellyfin-web/issues/2507):
-    Until it's fixed run the next snippet:
-
-    ```bash
-    systemctl stop jellyfin.service
-    mv /var/lib/jellyfin/data/jellyfin.db{,.bak}
-    systemctl start jellyfin.service
-    # Go to JF URL, get asked to log in even though
-    # there are no Users in the JF DB now
-    systemctl stop jellyfin.service
-    mv /var/lib/jellyfin/data/jellyfin.db{.bak,}
-    systemctl start jellyfin.service
-    ```
-
-    Even if you fix it, if a new user is created with
-    [jfa-go](https://github.com/hrfee/jfa-go), it [gets broken
-    again](https://github.com/hrfee/jfa-go/issues/101).
 
 * [Intel Hardware transcoding
     broken](https://github.com/linuxserver/docker-jellyfin/issues/109): Until

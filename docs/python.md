@@ -13,6 +13,8 @@ projects.
 
 # Interesting libraries to explore
 
+* [tryceratops](https://github.com/guilatrova/tryceratops): A linter of
+    exceptions.
 * [schedule](https://github.com/dbader/schedule): Python job scheduling for
     humans. Run Python functions (or any other callable) periodically using
     a friendly syntax.
