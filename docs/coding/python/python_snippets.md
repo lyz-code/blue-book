@@ -4,6 +4,43 @@ date: 20200717
 author: Lyz
 ---
 
+# [When to use `isinstance` and when to use `type`](https://towardsdatascience.com/difference-between-type-and-isinstance-in-python-47fae6fbb068)
+
+`isinstance` takes into account inheritance, while `type` doesn't. So if we have
+the next code:
+
+```python
+class Shape:
+    pass
+
+class Rectangle(Shape):
+    def __init__(self, length, width):
+        self.length = length
+        self.width = width
+        self.area = length * width
+
+    def get_area(self):
+        return self.length * self.width
+
+class Square(Rectangle):
+    def __init__(self,length):
+        Rectangle.__init__(self,length,length)
+```
+
+And we want to check if an object `a = Square(5)` is of type `Rectangle`, we could not use
+`isinstance` because it'll return `True` as it's a subclass of `Rectangle`:
+
+```python
+>>> isinstance(a, Rectangle)
+True
+```
+
+Instead, use a comparison with `type`:
+
+```python
+>>> type(a) == Rectangle
+False
+```
 # [Find a static file of a python module](https://stackoverflow.com/questions/39104/finding-a-file-in-a-python-module-distribution)
 
 Useful when you want to initialize a configuration file of a cli program when
