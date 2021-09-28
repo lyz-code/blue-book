@@ -36,7 +36,7 @@ dotty-dict==1.3.0
     # via python-semantic-release
 future==0.18.2
     # via proselint
-ghp-import==2.0.1
+ghp-import==2.0.2
     # via mkdocs
 gitdb==4.0.7
     # via
