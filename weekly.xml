@@ -11,7 +11,7 @@
     <managingEditor>Lyz</managingEditor>
 
     
-    <pubDate>2021-09-27 06:36:07+00:00</pubDate>
+    <pubDate>2021-09-27 06:37:28+00:00</pubDate>
     <ttl>10080</ttl>
 
     
@@ -30,7 +30,7 @@
       <author>Lyz</author>
       <description>&lt;article class=&#34;md-content__inner md-typeset&#34;&gt; &lt;a class=&#34;md-content__button md-icon&#34; href=&#34;https://github.com/lyz-code/blue-book/edit/master/docs/newsletter/2021_w38.md&#34; title=&#34;Edit this page&#34;&gt; &lt;svg viewbox=&#34;0 0 24 24&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z&#34;&gt;&lt;/path&gt;&lt;/svg&gt; &lt;/a&gt;  &lt;h2 id=&#34;projects&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/projects/projects/&#34;&gt;Projects&lt;/a&gt;&lt;/h2&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;New: &lt;a href=&#34;https://lyz-code.github.io/blue-book/projects/projects/#pomodoro-command-line&#34;&gt;Introduce the pomodoro command line seed project.&lt;/a&gt;&lt;/p&gt; &lt;p&gt;Command line to help with the &lt;a href=&#34;https://lyz-code.github.io/blue-book/task_workflows/#pomodoro&#34;&gt;pomodoro workflow&lt;/a&gt;, besides the basic stuff it will interact with the task manager, &lt;a href=&#34;https://lyz-code.github.io/blue-book/activitywatch/&#34;&gt;activitywatch&lt;/a&gt; and the notifications system.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;New: &lt;a href=&#34;https://lyz-code.github.io/blue-book/projects/projects/#create-an-ordered-list-of-digital-gardens&#34;&gt;Introduce the ordered list of digital gardens project.&lt;/a&gt;&lt;/p&gt; &lt;p&gt;Use &lt;a href=&#34;https://github.com/best-of-lists/best-of&#34;&gt;best-of-lists&lt;/a&gt; to create an awesome list of digital gardens.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;h2 id=&#34;coding&#34;&gt;Coding&lt;/h2&gt; &lt;h3 id=&#34;python&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/python/&#34;&gt;Python&lt;/a&gt;&lt;/h3&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;New: Add tryceratops to interesting linters to try.&lt;/p&gt; &lt;p&gt;&lt;a href=&#34;https://github.com/guilatrova/tryceratops&#34;&gt;tryceratops&lt;/a&gt; is a linter of exceptions.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;h2 id=&#34;operative-systems&#34;&gt;Operative Systems&lt;/h2&gt; &lt;h3 id=&#34;linux&#34;&gt;Linux&lt;/h3&gt; &lt;h4 id=&#34;jellyfin&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/jellyfin/&#34;&gt;Jellyfin&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;Correction: &lt;a href=&#34;https://lyz-code.github.io/blue-book/jellyfin/#stuck-at-login-page&#34;&gt;Fix the stuck at login page error.&lt;/a&gt;&lt;/p&gt; &lt;p&gt;If you use &lt;a href=&#34;https://github.com/hrfee/jfa-go&#34;&gt;jfa-go&lt;/a&gt; for the invites, you may &lt;a href=&#34;https://github.com/hrfee/jfa-go/issues/101&#34;&gt;need to regenerate all the user profiles&lt;/a&gt;, so that the problem is not introduced again.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;hr/&gt;  &lt;/article&gt;</description>
       <link>https://lyz-code.github.io/blue-book/newsletter/2021_w38/</link>
-      <pubDate>2021-09-27 06:36:07+00:00</pubDate>
+      <pubDate>2021-09-27 06:37:28+00:00</pubDate>
       <source url="https://lyz-code.github.io/blue-book/weekly.xml">The Blue Book</source>
       <guid isPermaLink="true">https://lyz-code.github.io/blue-book/newsletter/2021_w38/</guid>
       
