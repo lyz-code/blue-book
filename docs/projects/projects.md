@@ -55,12 +55,6 @@ I monthly spin up new ideas for programs, and managing the storage of the
 information is cumbersome and repeating. My idea is to refactor that common
 codebase into a generic library that anyone can use.
 
-In the latest version `0.3.1`, we added:
-
-* Add `first` and `last` methods to the repositories.
-* Make entity `id_` definition optional.
-* add `_model_name` attribute to entities.
-
 ## [Pydo](https://lyz-code.github.io/pydo)
 
 I've been using [Taskwarrior](https://taskwarrior.org) for the last five or six
@@ -197,16 +191,6 @@ a DevSecOps point of view.
 * Works from the command line.
 
 So I started building [clinv](https://github.com/lyz-code/clinv).
-
-The reasons why it is dormant are:
-
-* Since I started building it I've learnt about [domain driven
-    design](domain_driven_design.md), [type hints](type_hints.md),
-    [documentation](docstrings.md) and avoiding mocking as much as possible.
-    This project not being compliant with those concepts makes me want to fix it
-    before I develop any further feature.
-* The current state of the program covers my current needs of managing the
-    inventory of the infrastructure I maintain.
 
 ## [yamlfix](https://lyz-code.github.io/yamlfix)
 
@@ -536,9 +520,11 @@ a centralized solution that lets me extract information.
 
 There are already good solutions to start with, being the best
 [HPI](https://beepb00p.xyz/hpi.html):
+
 * [bionic](https://github.com/bionic-dev/bionic) or [their explanations on how to
 export data](https://github.com/bionic-dev/how-to-export-personal-data) can be
 useful too.
+
 * [rsarai hq](https://github.com/rsarai/hq)
 
 For the interface [adri's memex](https://github.com/adri/memex) looks awesome!
@@ -638,19 +624,11 @@ your own.
 Host a [virtual assistant](virtual_assistant.md) in my servers to help me
 automate repetitive stuff.
 
-## Migrate software bug tracker to a vendor free one
-
-Instead of relaying on Github, I could use something like
-[git-bug](https://github.com/MichaelMure/git-bug).
-
 ## Others
 
 * A tool or service to follow the updates of software, right now I subscribe to
     the releases of the github repositories, but I'd like it to be provider
     agnostic, and cleaner than the emails github sends.
-* A tool or service to automatically update the dockers of my services in an
-    intelligent way, for example telling it to be one minor versions after the
-    last to avoid instabilities.
 * Movie/serie/music rating self hosted solution that based on your ratings
   discovers new content.
 * Hiking route classifier and rating self hosted web application.
@@ -661,9 +639,6 @@ Instead of relaying on Github, I could use something like
     analysis on my relations.
 * Digital e-ink note taking system that is affordable, self hosted and performs
   character recognition.
-* A way to store music numeric ratings through the command line compatible with
-  [mpd](https://en.wikipedia.org/wiki/Music_Player_Daemon) and
-  [beets](http://beets.readthedocs.io/).
 * A git issue tracker that keeps the context of why I subscribed to them. Until
     I find one, I'll use the [issues](issues.md#vim-workflow-improvements) document.
 * An easy way of creating markdown links to other file's sections. Similar to
