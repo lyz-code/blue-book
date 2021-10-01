@@ -7,7 +7,9 @@ nav:
   - Introduction: index.md
   - Projects: projects/projects.md
   - Activism:
-      - Antifascism: antifascism.md
+      - Antifascism:
+          - antifascism.md
+          - Antifascist Actions: antifascist_actions.md
       - Anti-Transphobia: antitransphobia.md
       - Diversity, Equity and Inclusion:
           - diversity.md
