@@ -149,7 +149,7 @@ pyyaml==5.4.1
     #   pyyaml-env-tag
 pyyaml-env-tag==0.1
     # via mkdocs
-readme-renderer==29.0
+readme-renderer==30.0
     # via twine
 requests==2.26.0
     # via
@@ -174,7 +174,6 @@ six==1.16.0
     #   bleach
     #   proselint
     #   python-dateutil
-    #   readme-renderer
 smmap==4.0.0
     # via gitdb
 soupsieve==2.2.1
