@@ -141,7 +141,7 @@ python-gitlab==2.10.1
     # via python-semantic-release
 python-semantic-release==7.19.2
     # via mkdocs-newsletter
-pytz==2021.1
+pytz==2021.3
     # via babel
 pyyaml==5.4.1
     # via
@@ -193,7 +193,7 @@ typing-extensions==3.10.0.2
     #   pydantic
 urllib3==1.26.7
     # via requests
-watchdog==2.1.5
+watchdog==2.1.6
     # via mkdocs
 webencodings==0.5.1
     # via bleach
@@ -203,5 +203,5 @@ zipp==3.6.0
     # via importlib-metadata
 
 # The following packages are considered to be unsafe in a requirements file:
-setuptools==58.1.0
+setuptools==58.2.0
     # via setuptools-scm
