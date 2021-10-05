@@ -66,7 +66,7 @@ jeepney==0.7.1
     # via
     #   keyring
     #   secretstorage
-jinja2==3.0.1
+jinja2==3.0.2
     # via mkdocs
 jsmin==3.0.0
     # via mkdocs-minify-plugin
@@ -96,7 +96,7 @@ mkdocs-autolinks-plugin @ git+git://github.com/lyz-code/mkdocs-autolinks-plugin.
     #   mkdocs-newsletter
 mkdocs-git-revision-date-localized-plugin==0.10.0
     # via -r requirements.in
-mkdocs-material==7.3.0
+mkdocs-material==7.3.1
     # via -r requirements.in
 mkdocs-material-extensions==1.0.3
     # via mkdocs-material
@@ -104,7 +104,7 @@ mkdocs-minify-plugin==0.4.1
     # via -r requirements.in
 mkdocs-newsletter==0.3.1
     # via -r requirements.in
-mkdocs-section-index==0.3.1
+mkdocs-section-index==0.3.2
     # via
     #   -r requirements.in
     #   mkdocs-newsletter
@@ -141,7 +141,7 @@ python-gitlab==2.10.1
     # via python-semantic-release
 python-semantic-release==7.19.2
     # via mkdocs-newsletter
-pytz==2021.1
+pytz==2021.3
     # via babel
 pyyaml==5.4.1
     # via
@@ -193,7 +193,7 @@ typing-extensions==3.10.0.2
     #   pydantic
 urllib3==1.26.7
     # via requests
-watchdog==2.1.5
+watchdog==2.1.6
     # via mkdocs
 webencodings==0.5.1
     # via bleach
@@ -203,5 +203,5 @@ zipp==3.6.0
     # via importlib-metadata
 
 # The following packages are considered to be unsafe in a requirements file:
-setuptools==58.1.0
+setuptools==58.2.0
     # via setuptools-scm
