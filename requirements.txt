@@ -66,7 +66,7 @@ jeepney==0.7.1
     # via
     #   keyring
     #   secretstorage
-jinja2==3.0.1
+jinja2==3.0.2
     # via mkdocs
 jsmin==3.0.0
     # via mkdocs-minify-plugin
