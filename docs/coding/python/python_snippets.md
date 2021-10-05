@@ -4,6 +4,20 @@ date: 20200717
 author: Lyz
 ---
 
+# [Check if a dictionary is a subset of another](https://stackoverflow.com/questions/9323749/how-to-check-if-one-dictionary-is-a-subset-of-another-larger-dictionary)
+
+If you have two dictionaries `big = {'a': 1, 'b': 2, 'c':3}` and `small = {'c':
+3, 'a': 1}`, and want to check whether `small` is a subset of `big`, use the
+next snippet:
+
+```python
+>>> small.items() <= big.items()
+True
+```
+
+As the code is not very common or intuitive, I'd add a comment to explain what
+you're doing.
+
 # [When to use `isinstance` and when to use `type`](https://towardsdatascience.com/difference-between-type-and-isinstance-in-python-47fae6fbb068)
 
 `isinstance` takes into account inheritance, while `type` doesn't. So if we have
@@ -298,96 +312,128 @@ def int_to_ordinal(number: int) -> str:
     return f"{number}{suffix}"
 ```
 
-# [Group or sort a list of dictionaries by a specific key](https://medium.com/swlh/grouping-list-of-dictionaries-by-specific-key-s-in-python-61edafbbc0ed)
+# [Group or sort a list of dictionaries or objects by a specific key](https://docs.python.org/3/howto/sorting.html)
 
-The `itertools` function in Python provides an efficient way for looping lists,
-tuples and dictionaries. The
-[`itertools.groupby`](https://docs.python.org/3/library/itertools.html#itertools.groupby)
-function can group a list of dictionaries by a particular key.
+Python lists have a built-in `list.sort()` method that modifies the list
+in-place. There is also a `sorted()` built-in function that builds a new sorted
+list from an iterable.
 
-Given the initial data:
+## [Sorting basics](https://docs.python.org/3/howto/sorting.html#sorting-basics)
 
-````python
-data = [
-    {"name": "tobi", "class": "1", "age": "14", "gender": "m"},
-    {"name": "joke", "class": "1", "age": "18", "gender": "f"},
-    {"name": "mary", "class": "2", "age": "14", "gender": "f"},
-    {"name": "kano", "class": "2", "age": "15", "gender": "m"},
-    {"name": "ada", "class": "1", "age": "15", "gender": "f"},
-    {"name": "bola", "class": "2", "age": "10", "gender": "f"},
-    {"name": "nnamdi", "class": "1", "age": "15", "gender": "m"},
+A simple ascending sort is very easy: just call the `sorted()` function. It
+returns a new sorted list:
+
+```python
+>>> sorted([5, 2, 3, 1, 4])
+[1, 2, 3, 4, 5]
+```
+
+## [Key functions](https://docs.python.org/3/howto/sorting.html#key-functions)
+
+Both `list.sort()` and `sorted()` have a `key` parameter to specify a function
+(or other callable) to be called on each list element prior to making
+comparisons.
+
+For example, here’s a case-insensitive string comparison:
+
+```python
+>>> sorted("This is a test string from Andrew".split(), key=str.lower)
+['a', 'Andrew', 'from', 'is', 'string', 'test', 'This']
+```
+
+The value of the `key` parameter should be a function (or other callable) that
+takes a single argument and returns a key to use for sorting purposes. This
+technique is fast because the key function is called exactly once for each input
+record.
+
+A common pattern is to sort complex objects using some of the object’s indices
+as keys. For example:
+
+```python
+>>> from operator import itemgetter
+>>> student_tuples = [
+    ('john', 'A', 15),
+    ('jane', 'B', 12),
+    ('dave', 'B', 10),
 ]
-````
 
-If we want to group them by `class`.
-
-```python
-import operator
-import itertools
-
-criteria = operator.itemgetter("class")
-data = sorted(data, key=criteria)
-
-outputList=[]
-for sorted_key, element in itertools.groupby(data, key=criteria):
-     outputList.append(list(element))
+>>> sorted(student_tuples, key=itemgetter(2))   # sort by age
+[('dave', 'B', 10), ('jane', 'B', 12), ('john', 'A', 15)]
 ```
 
-The result would be:
+
+The same technique works for objects with named attributes. For example:
 
 ```python
-[
-    [
-        {"name": "tobi", "class": "1", "age": "14", "gender": "m"},
-        {"name": "joke", "class": "1", "age": "18", "gender": "f"},
-        {"name": "ada", "class": "1", "age": "15", "gender": "f"},
-        {"name": "nnamdi", "class": "1", "age": "15", "gender": "m"},
-    ],
-    [
-        {"name": "mary", "class": "2", "age": "14", "gender": "f"},
-        {"name": "kano", "class": "2", "age": "15", "gender": "m"},
-        {"name": "bola", "class": "2", "age": "10", "gender": "f"},
-    ],
+>>> from operator import attrgetter
+>>> class Student:
+    def __init__(self, name, grade, age):
+        self.name = name
+        self.grade = grade
+        self.age = age
+
+    def __repr__(self):
+        return repr((self.name, self.grade, self.age))
+
+>>> student_objects = [
+    Student('john', 'A', 15),
+    Student('jane', 'B', 12),
+    Student('dave', 'B', 10),
 ]
+
+>>> sorted(student_objects, key=attrgetter('age'))   # sort by age
+[('dave', 'B', 10), ('jane', 'B', 12), ('john', 'A', 15)]
 ```
 
-Note that the sorted function must be called before the groupby.
-
-In the case when two or more python dictionaries are to be considered for the
-grouping, simply add the remaining keys in the `itemgetter` functions. The
-following code block shows the case when the students are expected to be grouped
-by class and gender.
+The operator module functions allow multiple levels of sorting. For example, to
+sort by grade then by age:
 
 ```python
-criteria = operator.itemgetter("class", "gender")
-data = sorted(data, key=criteria)
-outputList=[]
-for sorted_key, element in itertools.groupby(data, key=criteria):
-    outputList.append(list(element))
+>>> sorted(student_tuples, key=itemgetter(1,2))
+[('john', 'A', 15), ('dave', 'B', 10), ('jane', 'B', 12)]
+
+>>> sorted(student_objects, key=attrgetter('grade', 'age'))
+[('john', 'A', 15), ('dave', 'B', 10), ('jane', 'B', 12)]
 ```
 
-The result would be:
+## [Sorts stability and complex sorts](https://docs.python.org/3/howto/sorting.html#sort-stability-and-complex-sorts)
+
+Sorts are guaranteed to be stable. That means that when multiple records have
+the same key, their original order is preserved.
 
 ```python
-[
-    [
-        {"age": "18", "class": "1", "gender": "f", "name": "joke"},
-        {"age": "15", "class": "1", "gender": "f", "name": "ada"},
-    ],
-    [
-        {"age": "14", "class": "1", "gender": "m", "name": "tobi"},
-        {"age": "15", "class": "1", "gender": "m", "name": "nnamdi"},
-    ],
-    [
-        {"age": "14", "class": "2", "gender": "f", "name": "mary"},
-        {"age": "10", "class": "2", "gender": "f", "name": "bola"},
-    ],
-    [{"age": "15", "class": "2", "gender": "m", "name": "kano"}],
-]
+>>> data = [('red', 1), ('blue', 1), ('red', 2), ('blue', 2)]
+
+>>> sorted(data, key=itemgetter(0))
+[('blue', 1), ('blue', 2), ('red', 1), ('red', 2)]
 ```
 
-`criteria` can be any function that accepts a value and returns the key which
-you want to sort the elements by.
+Notice how the two records for blue retain their original order so that
+`('blue', 1)` is guaranteed to precede `('blue', 2)`.
+
+This wonderful property lets you build complex sorts in a series of sorting
+steps. For example, to sort the student data by descending grade and then
+ascending age, do the age sort first and then sort again using grade:
+
+```python
+>>> s = sorted(student_objects, key=attrgetter('age'))     # sort on secondary key
+
+>>> sorted(s, key=attrgetter('grade'), reverse=True)       # now sort on primary key, descending
+[('dave', 'B', 10), ('jane', 'B', 12), ('john', 'A', 15)]
+```
+
+This can be abstracted out into a wrapper function that can take a list and
+tuples of field and order to sort them on multiple passes.
+
+```python
+>>> def multisort(xs, specs):
+    for key, reverse in reversed(specs):
+        xs.sort(key=attrgetter(key), reverse=reverse)
+    return xs
+
+>>> multisort(list(student_objects), (('grade', True), ('age', False)))
+[('dave', 'B', 10), ('jane', 'B', 12), ('john', 'A', 15)]
+```
 
 # [Iterate over an instance object's data attributes in Python](https://www.saltycrane.com/blog/2008/09/how-iterate-over-instance-objects-data-attributes-python/)
 

@@ -219,6 +219,17 @@ Flakehell checks can be run in:
 
     Once it's fixed, remove the patch from the maintained projects.
 
+# Troubleshooting
+
+## ['Namespace' object has no attribute 'extended_default_ignore'](https://githubmemory.com/repo/flakehell/flakehell/issues/10)
+
+Add to your `pyproject.toml`:
+
+```ini
+[tool.flakehell]
+extended_default_ignore=[]
+```
+
 # References
 
 * [Git](https://github.com/flakehell/flakehell)

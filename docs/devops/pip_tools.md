@@ -60,18 +60,29 @@ With pip-tools, the dependency management is trivial.
     !!! note "File: requirements-dev.in"
 
         ```
-        -r requirements.txt
+        -c requirements.txt
         pip-tools
         factory_boy
         pytest
         pytest-cov
         ```
 
+    The `-c` line will make `pip-compile` look at that file for compatibility,
+    but it won't duplicate those requirements in the `requirements-dev.txt`.
+
 * Compile the development requirements `requirements-dev.txt` with `pip-compile
     dev-requirements.in`.
 
 * If you have another `requirements.txt` for the mkdocs documentation, run
     `pip-compile docs/requirements.txt`.
+
+* To [sync the virtualenv libraries with the
+    files](https://m0wer.github.io/memento/computer_science/programming/python/pip/#pip-sync),
+    use `sync`:
+
+    ```python
+    python -m piptools sync requirements.txt requirements-dev.txt
+    ```
 
 * To [uninstall all pip packages](https://stackoverflow.com/questions/11248073/what-is-the-easiest-way-to-remove-all-packages-installed-by-pip) use
     ```bash
