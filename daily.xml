@@ -11,7 +11,7 @@
     <managingEditor>Lyz</managingEditor>
 
     
-    <pubDate>2021-10-06 06:35:38+00:00</pubDate>
+    <pubDate>2021-10-06 06:37:04+00:00</pubDate>
     <ttl>1440</ttl>
 
     
@@ -38,9 +38,9 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt; &lt;/li&gt; &lt;/ul&gt; &lt;h2 id=&#34;devops&#34;&gt;DevOps&lt;/h2&gt; &lt;h3 id=&#34;continuous-integration&#34;&gt;Continuous Integration&lt;/h3&gt; &lt;h4 id=&#34;flakehell&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/devops/flakehell/&#34;&gt;Flakehell&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;New: &lt;a href=&#34;https://lyz-code.github.io/blue-book/devops/flakehell/#troubleshooting&#34;&gt;Troubleshoot the &#39;Namespace&#39; object has no attribute &#39;extended_default_ignore&#39; error.&lt;/a&gt;&lt;/p&gt; &lt;p&gt;Add to your &lt;code&gt;pyproject.toml&lt;/code&gt;:&lt;/p&gt; &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class=&#34;k&#34;&gt;[tool.flakehell]&lt;/span&gt;
 &lt;span class=&#34;na&#34;&gt;extended_default_ignore&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;[]&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt; &lt;/li&gt; &lt;/ul&gt; &lt;h4 id=&#34;dependency-managers&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/devops/pip_tools/&#34;&gt;Dependency managers&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;New: Sync the virtualenv libraries with the requirements files.&lt;/p&gt; &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class=&#34;n&#34;&gt;python&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;m&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;piptools&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sync&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;requirements&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;txt&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;requirements&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dev&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;txt&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;Correction: Use &lt;code&gt;-c&lt;/code&gt; instead of &lt;code&gt;-r&lt;/code&gt; in the nested requirement files.&lt;/p&gt; &lt;p&gt;To avoid duplication of version pins.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;hr/&gt; &lt;div class=&#34;md-source-date&#34;&gt; &lt;small&gt; Last update: &lt;span class=&#34;git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago&#34;&gt;&lt;span class=&#34;timeago&#34; datetime=&#34;2021-10-06T06:35:38+00:00&#34; locale=&#34;en&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date&#34;&gt;2021-10-06&lt;/span&gt; &lt;/small&gt; &lt;/div&gt; &lt;/article&gt;</description>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;Correction: Use &lt;code&gt;-c&lt;/code&gt; instead of &lt;code&gt;-r&lt;/code&gt; in the nested requirement files.&lt;/p&gt; &lt;p&gt;To avoid duplication of version pins.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;hr/&gt; &lt;div class=&#34;md-source-date&#34;&gt; &lt;small&gt; Last update: &lt;span class=&#34;git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago&#34;&gt;&lt;span class=&#34;timeago&#34; datetime=&#34;2021-10-06T06:37:04+00:00&#34; locale=&#34;en&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date&#34;&gt;2021-10-06&lt;/span&gt; &lt;/small&gt; &lt;/div&gt; &lt;/article&gt;</description>
       <link>https://lyz-code.github.io/blue-book/newsletter/2021_10_05/</link>
-      <pubDate>2021-10-06 06:35:38+00:00</pubDate>
+      <pubDate>2021-10-06 06:37:04+00:00</pubDate>
       <source url="https://lyz-code.github.io/blue-book/daily.xml">The Blue Book</source>
       <guid isPermaLink="true">https://lyz-code.github.io/blue-book/newsletter/2021_10_05/</guid>
       
