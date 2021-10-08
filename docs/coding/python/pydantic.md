@@ -521,6 +521,12 @@ a workaround](https://github.com/samuelcolvin/pydantic/issues/1035) though.
 
 # Troubleshooting
 
+## [copy produces copy that modifies the original](https://github.com/samuelcolvin/pydantic/issues/1383)
+
+When copying a model, changing the value of an attribute on the copy updates the
+value of the attribute on the original. This only happens if `deep != True`. To
+fix it use: `model.copy(deep=True)`.
+
 ## [E0611: No name 'BaseModel' in module 'pydantic'](https://github.com/samuelcolvin/pydantic/issues/1961)
 
 Add to your pyproject.toml the following lines:

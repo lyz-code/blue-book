@@ -28,6 +28,53 @@ how various long parts of the code are executed. Using a profiling mechanism
 becomes a necessity when the codebase grows large, and you still want to
 maintain efficiency.
 
+# Tips
+
+## Minimize the relative import statements on command line tools
+
+When developing a library, it's common to expose the main objects into the
+package `__init__.py` under the variable `__all__`. The problem with command
+line programs is that each time you run the command it will load those objects,
+which can mean an increase of 0.5s or even a second for each command, which is
+unacceptable.
+
+Following this string, if you manage to minimize the relative imports, you'll
+make your code faster.
+
+[Python's
+wiki](https://wiki.python.org/moin/PythonSpeed/PerformanceTips#Import_Statement_Overhead)
+discusses different places to locate your import statements. If you put them on
+the top, the imports that you don't need for that command in particular will
+worsen your load time, if you add them inside the functions, if you run the
+function more than once, the performance drops too, and it's a common etiquete
+to have all your imports on the top.
+
+One step that you can do is to mark the imports required for type checking under
+a conditional:
+
+```python
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+   from model import Object
+```
+
+This change can be negligible, and it will force you to use `'Object'`, instead
+of `Object` in the typing information, which is not nice, so it may not be worth
+it.
+
+If you are still unable to make the loading time drop below an acceptable time,
+you can migrate to a server-client architecture, where all the logic is loaded
+by the backend (once as it's always running), and have a "silly" client that
+only does requests to the backend. Beware though, as you will add the network
+latency.
+
+## Don't dynamically install the package
+
+If you install the package with `pip install -e .` you will see an increase on
+the load time of ~0.2s. It is useful to develop the package, but when you use
+it, do so from a virtualenv that installs it directly without the `-e` flag.
+
 # References
 
 * [Satwik Kansal article on Scout APM](https://scoutapm.com/blog/identifying-bottlenecks-and-optimizing-performance-in-a-python-codebase)

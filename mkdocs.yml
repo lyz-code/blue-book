@@ -274,6 +274,7 @@ nav:
           - hypothesis: linux/hypothesis.md
           - Jellyfin: jellyfin.md
           - ffmpeg: ffmpeg.md
+          - Kitty: kitty.md
           - LUKS: linux/luks/luks.md
           - mbsync: mbsync.md
           - mkdocs: linux/mkdocs.md

@@ -555,6 +555,41 @@ bar
 @click.command(..., hidden=True)
 ```
 
+## [Invoke other commands from a command](https://click.palletsprojects.com/en/6.x/advanced/#invoking-other-commands)
+
+This is a pattern that is generally discouraged with Click, but possible
+nonetheless. For this, you can use the `Context.invoke()` or `Context.forward()` methods.
+
+They work similarly, but the difference is that `Context.invoke()` merely
+invokes another command with the arguments you provide as a caller, whereas
+`Context.forward()` fills in the arguments from the current command. Both accept
+the command as the first argument and everything else is passed onwards as you
+would expect.
+
+```python
+cli = click.Group()
+
+@cli.command()
+@click.option('--count', default=1)
+def test(count):
+    click.echo('Count: %d' % count)
+
+@cli.command()
+@click.option('--count', default=1)
+@click.pass_context
+def dist(ctx, count):
+    ctx.forward(test)
+    ctx.invoke(test, count=42)
+```
+
+And what it looks like:
+
+```bash
+$ cli dist
+Count: 1
+Count: 42
+```
+
 # References
 
 * [Homepage](https://click.palletsprojects.com/)
