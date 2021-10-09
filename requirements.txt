@@ -10,13 +10,13 @@ beautifulsoup4==4.10.0
     # via mkdocs-newsletter
 bleach==4.1.0
     # via readme-renderer
-certifi==2021.5.30
+certifi==2021.10.8
     # via requests
 cffi==1.14.6
     # via cryptography
 charset-normalizer==2.0.6
     # via requests
-click==8.0.1
+click==8.0.2
     # via
     #   click-log
     #   mkdocs
@@ -86,7 +86,6 @@ mergedeep==1.3.4
 mkdocs==1.2.2
     # via
     #   -r requirements.in
-    #   mkdocs-autolinks-plugin
     #   mkdocs-git-revision-date-localized-plugin
     #   mkdocs-material
     #   mkdocs-minify-plugin
