@@ -16,7 +16,7 @@ cffi==1.14.6
     # via cryptography
 charset-normalizer==2.0.6
     # via requests
-click==8.0.2
+click==8.0.3
     # via
     #   click-log
     #   mkdocs
