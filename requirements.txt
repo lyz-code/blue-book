@@ -28,7 +28,7 @@ colorama==0.4.4
     # via twine
 cryptography==35.0.0
     # via secretstorage
-deepdiff==5.5.0
+deepdiff==5.6.0
     # via mkdocs-newsletter
 docutils==0.17.1
     # via readme-renderer
@@ -51,7 +51,7 @@ gitpython==3.1.24
     #   python-semantic-release
 htmlmin==0.1.12
     # via mkdocs-minify-plugin
-idna==3.2
+idna==3.3
     # via requests
 importlib-metadata==4.8.1
     # via
@@ -83,7 +83,7 @@ markupsafe==2.0.1
     # via jinja2
 mergedeep==1.3.4
     # via mkdocs
-mkdocs==1.2.2
+mkdocs==1.2.3
     # via
     #   -r requirements.in
     #   mkdocs-git-revision-date-localized-plugin
