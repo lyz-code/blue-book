@@ -12,7 +12,7 @@ bleach==4.1.0
     # via readme-renderer
 certifi==2021.10.8
     # via requests
-cffi==1.14.6
+cffi==1.15.0
     # via cryptography
 charset-normalizer==2.0.7
     # via requests
@@ -144,7 +144,7 @@ python-semantic-release==7.19.2
     # via mkdocs-newsletter
 pytz==2021.3
     # via babel
-pyyaml==5.4.1
+pyyaml==6.0
     # via
     #   mkdocs
     #   pyyaml-env-tag
