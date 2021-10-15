@@ -133,6 +133,26 @@ scrollback_pager bash -c 'nvim </dev/null -u NORC -c "map q :qa!<CR>" -c "autocm
 map ctrl+v        paste_from_clipboard
 ```
 
+# Troubleshooting
+
+## [Scrollback when ssh into a machine doesn't work](https://sw.kovidgoyal.net/kitty/faq/#i-get-errors-about-the-terminal-being-unknown-or-opening-the-terminal-failing-when-sshing-into-a-different-computer)
+
+
+This happens because the kitty terminfo files are not available on the server.
+You can ssh in using the following command which will automatically copy the
+terminfo files to the server:
+
+```bash
+kitty +kitten ssh myserver
+```
+
+This ssh kitten takes all the same command line arguments as ssh, you can alias
+it to ssh in your shell’s rc files to avoid having to type it each time:
+
+```bash
+alias ssh="kitty +kitten ssh"
+```
+
 # References
 
 * [Homepage](https://sw.kovidgoyal.net/)

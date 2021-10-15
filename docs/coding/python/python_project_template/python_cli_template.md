@@ -4,8 +4,6 @@ date: 20200605
 author: Lyz
 ---
 
-
-
 * Create the tests directories
     ```bash
     mkdir -p tests/unit

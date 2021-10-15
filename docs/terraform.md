@@ -773,7 +773,17 @@ variable "database" {
   default     = null
 ```
 
-# [Do a conditional if a variable is not null](https://stackoverflow.com/questions/53200585/terraform-conditionals-if-variable-does-not-exist)
+# Conditionals
+
+## Elif
+
+```terraform
+locals {
+  test = "${ condition ? value : (elif-condition ? elif-value : else-value)}"
+}
+```
+
+## [Do a conditional if a variable is not null](https://stackoverflow.com/questions/53200585/terraform-conditionals-if-variable-does-not-exist)
 
 ```hcl
 resource "aws_db_instance" "instance" {
@@ -781,6 +791,12 @@ resource "aws_db_instance" "instance" {
   ...
 ```
 
+# [Debugging](https://www.terraform.io/docs/internals/debugging.html)
+
+You can set the `TF_LOG` environmental variable to one of the log levels
+`TRACE`, `DEBUG`, `INFO`, `WARN` or `ERROR` to change the verbosity of the logs.
+
+To remove the debug traces run `unset TF_LOG`.
 # References
 
 * [Docs](https://www.terraform.io/docs/index.html)

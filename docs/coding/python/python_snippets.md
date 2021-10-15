@@ -4,6 +4,16 @@ date: 20200717
 author: Lyz
 ---
 
+# Install default directories and files for a command line program
+
+I've been trying for a long time to configure `setup.py` to run the required
+steps to configure the required directories and files when doing `pip install`
+without success.
+
+Finally, I decided that the program itself should create the data once the
+`FileNotFoundError` exception is found. That way, you don't penalize the load
+time because if the file or directory exists, that code is not run.
+
 # [Check if a dictionary is a subset of another](https://stackoverflow.com/questions/9323749/how-to-check-if-one-dictionary-is-a-subset-of-another-larger-dictionary)
 
 If you have two dictionaries `big = {'a': 1, 'b': 2, 'c':3}` and `small = {'c':

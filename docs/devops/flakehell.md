@@ -207,6 +207,9 @@ Flakehell checks can be run in:
 
 # Issues
 
+* [ImportError: cannot import name 'MergedConfigParser' from
+    'flake8.options.config'](https://github.com/flakehell/flakehell/issues/22):
+    upgrade the pre-commit of autoimport.
 * ['Namespace' object has no attribute 'extended_default_ignore'
     error](https://github.com/flakehell/flakehell/issues/10#issuecomment-823512441):
     Until it's fixed either use a version below or equal to 3.9.0, or add to
