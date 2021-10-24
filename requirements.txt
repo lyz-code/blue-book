@@ -134,7 +134,7 @@ pymdown-extensions==9.0
     # via
     #   -r requirements.in
     #   mkdocs-material
-pyparsing==2.4.7
+pyparsing==3.0.0
     # via packaging
 python-dateutil==2.8.2
     # via
