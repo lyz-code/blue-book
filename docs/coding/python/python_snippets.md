@@ -4,6 +4,33 @@ date: 20200717
 author: Lyz
 ---
 
+# [Locate element in list](https://appdividend.com/2019/11/16/how-to-find-element-in-list-in-python/)
+
+```python
+a = ['a', 'b']
+
+index = a.index('b')
+```
+
+# [Transpose a list of lists](https://stackoverflow.com/questions/6473679/transpose-list-of-lists)
+
+```python
+>>> l=[[1,2,3],[4,5,6],[7,8,9]]
+>>> [list(i) for i in zip(*l)]
+... [[1, 4, 7], [2, 5, 8], [3, 6, 9]]
+```
+
+# [Check the type of a list of strings](https://stackoverflow.com/questions/18495098/python-check-if-an-object-is-a-list-of-strings)
+
+```python
+def _is_list_of_lists(data: Any) -> bool:
+    """Check if data is a list of strings."""
+    if data and isinstance(data, list):
+        return all(isinstance(elem, list) for elem in data)
+    else:
+        return False
+```
+
 # Install default directories and files for a command line program
 
 I've been trying for a long time to configure `setup.py` to run the required

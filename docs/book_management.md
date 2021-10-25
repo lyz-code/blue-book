@@ -121,8 +121,8 @@ tags are meant only to be attached to Authors to apply metadata profiles. I've
 opened [an issue](https://github.com/Readarr/Readarr/issues/1284) to see if they
 plan to implement tags for books.
 
-It's a pity we are not going to use `calibre-web` as it also had support to sync
-the reading stats from Kobo.
+It's a pity we are not going to use `calibre-web` as it also had support to [sync
+the reading stats from Kobo](https://github.com/janeczku/calibre-web/wiki/Kobo-Integration).
 
 In the past I used [gcstar](#gcstar) and then [polar
 bookshelf](#polar-bookshelf), but decided not to use them anymore for different

@@ -40,7 +40,7 @@ Start your drawing path with the following guidelines to make your progression s
 
     So use the wrist when drawing stiff but precise marks in areas of detail or
     texture. There are plenty of cases where the elbow will work fine, but using
-    it will get yo u in the habit of taking [the path of least
+    it will get you in the habit of taking [the path of least
     resistance](https://drawabox.com/lesson/1/3/leastresistance). So try to use
     the shoulder.
 
@@ -152,6 +152,67 @@ When using it, make sure you're not applying too much pressure, as it will
 damage the tip and reduce the flow of ink.
 
 For the paper, use the regular printer one.
+
+## Basic Shapes
+
+### [Ellipses](https://drawabox.com/lesson/1/5/video)
+
+Ellipses are the next basic shape we're going to study (after the lines). They
+are extremely important and notoriously annoying to draw. Important because
+we're going to be using ellipses in 2D space to represent circles that exist in
+3D space.
+
+How our circle (in 3D space) is rotated relative to the viewer will determine
+how wide our ellipse is going to be drawn. The degree shift (or angle) is
+measured between the minor axis and the line joining the viewer to the center of
+the circle. It will therefore be 90 degrees when it's facing directly to us, and
+0 when we only see a line.
+
+![ ](draw-a-box-ellipses-degree-shift.jpg)
+
+Keep in mind that the degree shift will change if we move the circle around even
+if we don't rotate it.
+
+![ ](draw-a-box-ellipses-moving.jpg)
+
+The minor axis is the line that passes across the ellipse's narrowest span and
+through it's center. This axis will split the ellipse into two equal symmetrical
+halves. An interesting property of the minor axis is that it coincides with and
+aligns with the normal vector of the circle.
+
+This means that we've got two ways of establishing the orientation of our circle
+in 3D space, as we draw it on our 2D page.
+
+* The degree (width) of the ellipse controlling the circle's rotation
+* The minor axis of the ellipse controlling the orientation of the circle's
+    normal vector.
+
+If we need our circle to be oriented in a specific way in a more complicated
+scene, we will actually be able to start out with a normal vector line, then use
+it as the minor axis for our ellipse.
+
+Taking it further, the minor axis can be used to build cylindrical forms because any
+section of a cylinder shares the same normal vector.
+
+#### Drawing ellipses
+
+To draw ellipses follow the next steps:
+
+* Decide on the ellipse degree, position and boundaries.
+* Ghost the ellipse
+* Draw around the ellipse two or three times before lifting your pen.
+
+    When you try to hit your ellipse in a single round, it's usually going to
+    come out uneven and wobbly (due to drawing too slowly and carefully) or
+    extremely loose (due to simply not having built up the muscle memory to nail
+    an ellipse). Drawing through your ellipses gives your arm the chance to
+    familiarize itself with what's being asked of it in that first pass, and
+    then firm it up in the second. It also helps you maintain the confidence
+    needed to achieve a smooth, even shape, without totally losing control.
+
+Check the [ellipse exercises](exercise_pool.md#ellipses) to practice your
+skills.
+
 
 # Links
 

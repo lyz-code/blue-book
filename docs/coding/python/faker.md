@@ -42,7 +42,7 @@ to set a random seed add the following to your test configuration.
     @pytest.fixture(scope="session", autouse=True)
     def faker_seed() -> int:
         """Create a random seed for the Faker library."""
-        eturn SystemRandom().randint(0, 999999)
+        return SystemRandom().randint(0, 999999)
     ```
 
 ## Generate fake number
