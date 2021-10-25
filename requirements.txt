@@ -28,6 +28,8 @@ colorama==0.4.4
     # via twine
 cryptography==35.0.0
     # via secretstorage
+csscompressor==0.9.5
+    # via mkdocs-minify-plugin
 deepdiff==5.6.0
     # via mkdocs-newsletter
 docutils==0.17.1
@@ -38,7 +40,7 @@ future==0.18.2
     # via proselint
 ghp-import==2.0.2
     # via mkdocs
-gitdb==4.0.7
+gitdb==4.0.9
     # via
     #   gitdb2
     #   gitpython
@@ -97,11 +99,11 @@ mkdocs-autolinks-plugin @ git+git://github.com/lyz-code/mkdocs-autolinks-plugin.
     #   mkdocs-newsletter
 mkdocs-git-revision-date-localized-plugin==0.10.0
     # via -r requirements.in
-mkdocs-material==7.3.3
+mkdocs-material==7.3.4
     # via -r requirements.in
 mkdocs-material-extensions==1.0.3
     # via mkdocs-material
-mkdocs-minify-plugin==0.4.1
+mkdocs-minify-plugin==0.5.0
     # via -r requirements.in
 mkdocs-newsletter==0.3.1
     # via -r requirements.in
@@ -132,7 +134,7 @@ pymdown-extensions==9.0
     # via
     #   -r requirements.in
     #   mkdocs-material
-pyparsing==2.4.7
+pyparsing==3.0.1
     # via packaging
 python-dateutil==2.8.2
     # via
@@ -175,7 +177,7 @@ six==1.16.0
     #   bleach
     #   proselint
     #   python-dateutil
-smmap==4.0.0
+smmap==5.0.0
     # via gitdb
 soupsieve==2.2.1
     # via beautifulsoup4
@@ -204,5 +206,5 @@ zipp==3.6.0
     # via importlib-metadata
 
 # The following packages are considered to be unsafe in a requirements file:
-setuptools==58.2.0
+setuptools==58.3.0
     # via setuptools-scm
