@@ -40,7 +40,7 @@ future==0.18.2
     # via proselint
 ghp-import==2.0.2
     # via mkdocs
-gitdb==4.0.8
+gitdb==4.0.9
     # via
     #   gitdb2
     #   gitpython
@@ -134,7 +134,7 @@ pymdown-extensions==9.0
     # via
     #   -r requirements.in
     #   mkdocs-material
-pyparsing==3.0.0
+pyparsing==3.0.1
     # via packaging
 python-dateutil==2.8.2
     # via
