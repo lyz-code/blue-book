@@ -126,6 +126,13 @@ snippet was:
 scrollback_pager bash -c 'nvim </dev/null -u NORC -c "map q :qa!<CR>" -c "autocmd TermOpen * normal G" -c "terminal cat /proc/$$/fd/0 -" -c "set clipboard+=unnamedplus" -c "call cursor(CURSOR_LINE, CURSOR_COLUMN)"'
 ```
 
+To make the history scrollback infinite add the next lines:
+
+```
+scrollback_lines -1
+scrollback_pager_history_size 0
+```
+
 ## Clipboard management
 
 ```

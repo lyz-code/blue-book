@@ -152,8 +152,8 @@ as the next one:
 ├── vars
 │   ├── production_secrets.yaml
 │   ├── production_values.yaml
-│   ├── staging_secrets.yaml
-│   └── staging_values.yaml
+│   ├── default_secrets.yaml
+│   └── default_values.yaml
 ├── charts
 │   ├── local_defined_chart_1
 │   └── local_defined_chart_2
@@ -170,15 +170,15 @@ as the next one:
 │   │   ├── values.yaml
 │   │   ├── production_secrets.yaml
 │   │   ├── production_values.yaml
-│   │   ├── staging_secrets.yaml
-│   │   └── staging_values.yaml
+│   │   ├── default_secrets.yaml
+│   │   └── default_values.yaml
 │   └── chart_2
 │       ├── secrets.yaml
 │       ├── values.yaml
 │       ├── production_secrets.yaml
 │       ├── production_values.yaml
-│       ├── staging_secrets.yaml
-│       └── staging_values.yaml
+│       ├── default_secrets.yaml
+│       └── default_values.yaml
 └── service_1
     ├── README.md
     ├── helmfile.yaml
@@ -189,15 +189,15 @@ as the next one:
     │   ├── values.yaml
     │   ├── production_secrets.yaml
     │   ├── production_values.yaml
-    │   ├── staging_secrets.yaml
-    │   └── staging_values.yaml
+    │   ├── default_secrets.yaml
+    │   └── default_values.yaml
     └── chart_2
         ├── secrets.yaml
         ├── values.yaml
         ├── production_secrets.yaml
         ├── production_values.yaml
-        ├── staging_secrets.yaml
-        └── staging_values.yaml
+        ├── default_secrets.yaml
+        └── default_values.yaml
 ```
 
 Where:
@@ -252,18 +252,33 @@ In the `environments` definition we'll load the values and secrets from the
 environments:
   default:
     secrets:
-      - ../vars/staging-secrets.yaml
+      - ../vars/default_secrets.yaml
     values:
-      - ../vars/staging-values.yaml
+      - ../vars/default_values.yaml
   production:
     secrets:
-      - ../vars/production-secrets.yaml
+      - ../vars/production_secrets.yaml
     values:
-      - ../vars/production-values.yaml
+      - ../vars/production_values.yaml
 ```
 
 As this snippet is going to be repeated on every `helmfile.yaml` we'll use
 a [state layering for it](#layering-the-state).
+
+To install a release only in one environment use:
+
+```yaml
+environments:
+  default:
+  production:
+
+---
+
+releases:
+- name: newrelic-agent
+  installed: {{ eq .Environment.Name "production" | toYaml }}
+  # snip
+```
 
 ### [Using environment specific variables](https://github.com/roboll/helmfile#environment-values)
 
@@ -299,6 +314,10 @@ Suppose you have three files helmfile.yaml, production.yaml and values.yaml.gotm
     domain: {{ .Values | get "domain" "dev.example.com" }}
     ```
 
+Sadly you [can't use templates in the secrets
+files](https://github.com/jkroepke/helm-secrets/issues/126), so you'll need to
+repeat the code.
+
 ### Loading the chart variables and secrets
 
 For each chart definition in the `helmfile.yaml` we need to load it's secrets
@@ -308,10 +327,10 @@ and values. We could use the next snippet:
   - name: chart_1
     values:
       - ./chart_1/values.yaml
-      - ./chart_1/{{ .Values | get "environment" }}_values.yaml
+      - ./chart_1/{{ Environment.Name }}_values.yaml
     secrets:
       - ./chart_1/secrets.yaml
-      - ./chart_1/{{ .Values | get "environment" }}_secrets.yaml
+      - ./chart_1/{{ Environment.Name }}_secrets.yaml
 ```
 
 This assumes that the `environment` variable is set, as it's going to be shared
@@ -322,15 +341,19 @@ by all the `helmfiles.yaml` you can add it to the `vars` files:
     environment: production
     ```
 
-!!! note "File: `vars/staging_values.yaml`"
+!!! note "File: `vars/default_values.yaml`"
     ```yaml
     environment: staging
     ```
 
-Instead of `.Values | get "environment"`, you could have used
-`.Environment.Name`, but then the variables and secrets of the default
+Instead of `.Environment.Name`, in theory you could have used
+`.Vars | get "environment"`, which could have prevented the variables and secrets of the default
 environment will need to be called `default_values.yaml`, and
-`default_secrets.yaml`, which is misleading.
+`default_secrets.yaml`, which is misleading. But you can't use `.Values` in the
+`helmfile.yaml` as it's not loaded when the file is parsed, and you get an
+error. A solution would be to [layer the helmfile state
+files](https://github.com/roboll/helmfile/blob/8594944f6374454e6ddea61d04b201133798cd95/docs/writing-helmfile.md#layering-state-template-files)
+but I wasn't able to make it work.
 
 # Avoiding code repetition
 

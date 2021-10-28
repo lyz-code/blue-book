@@ -4,7 +4,7 @@ date: 20200212
 author: Lyz
 ---
 
-[Helm-secrets](https://github.com/futuresimple/helm-secrets) is a helm plugin
+[Helm-secrets](https://github.com/jkroepke/helm-secrets) is a helm plugin
 that manages secrets with Git workflow and stores them anywhere. It delegates
 the cryptographic operations to [Mozilla's
 Sops](https://github.com/mozilla/sops) tool, which supports PGP, AWS KMS and GCP
@@ -21,6 +21,24 @@ creation_rules:
         {{ gpg_key_1 }},
         {{ gpg_key_2}}
 ```
+
+# [Installation](https://github.com/jkroepke/helm-secrets#installation-and-dependencies)
+
+Weirdly, `helm plugin install https://github.com/jkroepke/helm-secrets --version
+v3.9.1` asks for your github user :S so I'd rather install it by hand.
+
+```bash
+wget https://github.com/jkroepke/helm-secrets/releases/download/v3.9.1/helm-secrets.tar.gz
+tar xvzf helm-secrets.tar.gz -C "$(helm env HELM_PLUGINS)"
+rm helm-secrets.tar.gz
+```
+
+If you're going to use GPG as backend you need to install `sops`. It's in your
+distribution repositories, but probably not in the latest version, therefore
+I suggest you install the binary directly:
+
+* Grab the [latest release](https://github.com/mozilla/sops/releases)
+* Download, `chmod +x` and move it somewhere in your `$PATH`.
 
 # Prevent committing decrypted files to git
 

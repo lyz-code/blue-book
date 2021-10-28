@@ -15,7 +15,7 @@ nav:
           - diversity.md
           - Anonymous Feedback: anonymous_feedback.md
       - Feminism:
-        - Privileges: feminism/privileges.md
+          - Privileges: feminism/privileges.md
       - Free Knowledge: free_knowledge.md
   - Life Management:
       - life_management.md
@@ -92,7 +92,10 @@ nav:
               - Pandas: coding/python/pandas.md
               - Passpy: coding/python/passpy.md
               - pexpect: pexpect.md
-              - Prompt Toolkit: coding/python/prompt_toolkit.md
+              - Prompt Toolkit:
+                  - coding/python/prompt_toolkit.md
+                  - REPL: prompt_toolkit_repl.md
+                  - Full screen applications: prompt_toolkit_fullscreen_applications.md
               - Pydantic:
                   - coding/python/pydantic.md
                   - Pydantic Field Types: coding/python/pydantic_types.md
