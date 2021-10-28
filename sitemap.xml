@@ -311,6 +311,16 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/prompt_toolkit_fullscreen_applications/</loc>
+         <lastmod>2021-10-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/prompt_toolkit_repl/</loc>
+         <lastmod>2021-10-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/python/</loc>
          <lastmod>2021-10-28</lastmod>
          <changefreq>daily</changefreq>
