@@ -93,6 +93,9 @@ There are two kinds of key bindings:
     this control is focused. Both `BufferControl` and `FormattedTextControl`
     take a `key_bindings` argument.
 
+For complex keys you can always look at [the `Keys`
+class](https://github.com/prompt-toolkit/python-prompt-toolkit/blob/master/prompt_toolkit/keys.py#L10).
+
 ### [Global key
 bindings](https://python-prompt-toolkit.readthedocs.io/en/master/pages/full_screen_apps.html#global-key-bindings)
 
@@ -143,6 +146,11 @@ from prompt_toolkit.key_binding.bindings.focus import focus_next
 kb = KeyBindings()
 kb.add("tab")(focus_next)
 ```
+
+### Pass more than one key
+
+To map an action to two key presses use `kb.add('g', 'g')`.
+
 
 # [Styles](https://python-prompt-toolkit.readthedocs.io/en/master/pages/advanced_topics/styling.html#)
 
@@ -197,6 +205,9 @@ app = Application(
     # ...
 )
 ```
+
+If you want to see if a style is being applied in a component, set the style to
+`bg:#dc322f` and it will be highlighted in red.
 
 ## Dynamically changing the style
 

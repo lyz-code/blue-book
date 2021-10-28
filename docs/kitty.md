@@ -160,6 +160,12 @@ it to ssh in your shell’s rc files to avoid having to type it each time:
 alias ssh="kitty +kitten ssh"
 ```
 
+# Reasons to migrate from urxvt to kitty
+
+* It doesn't fuck up your terminal colors.
+* You can use [peek](peek.md) to record your screen.
+* Easier to extend.
+
 # References
 
 * [Homepage](https://sw.kovidgoyal.net/)

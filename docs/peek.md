@@ -19,6 +19,8 @@ install](https://github.com/phw/peek#on-i3-the-recording-area-is-all-black-how-c
 be
 clickable](https://github.com/phw/peek#why-cant-i-interact-with-the-ui-elements-inside-the-recording-area).
 
+With [kitty](kitty.md) it works though :)
+
 # References
 
 * [Git](https://github.com/phw/peek)

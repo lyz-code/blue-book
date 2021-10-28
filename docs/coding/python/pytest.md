@@ -683,10 +683,25 @@ def test_value_error_is_raised():
 
 ## [Excluding code from coverage](https://coverage.readthedocs.io/en/coverage-4.3.3/excluding.html)
 
-You may have code in your project that you know won’t be executed, and you want
+You may have code in your project that you know won't be executed, and you want
 to tell `coverage.py` to ignore it. For example, if you have some code in
 abstract classes that is going to be tested on the subclasses, you can ignore it
 with `# pragma: no cover`.
+
+If you want [other code to be
+excluded](https://github.com/nedbat/coveragepy/issues/831), for example the
+statements inside the `if TYPE_CHECKING:` add to your `pyproject.toml`:
+
+```toml
+[tool.coverage.report]
+exclude_lines = [
+    # Have to re-enable the standard pragma
+    'pragma: no cover',
+
+    # Type checking can not be tested
+    'if TYPE_CHECKING:',
+]
+```
 
 
 # [Running tests in parallel](https://pypi.org/project/pytest-xdist/)
