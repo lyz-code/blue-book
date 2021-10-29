@@ -11,7 +11,7 @@
     <managingEditor>Lyz</managingEditor>
 
     
-    <pubDate>2021-10-26 06:37:12+00:00</pubDate>
+    <pubDate>2021-10-29 06:36:50+00:00</pubDate>
     <ttl>1440</ttl>
 
     
@@ -25,6 +25,28 @@
     
 
     
+    
+    <item><title>28th October 2021</title>
+      <author>Lyz</author>
+      <description>&lt;article class=&#34;md-content__inner md-typeset&#34;&gt; &lt;a class=&#34;md-content__button md-icon&#34; href=&#34;https://github.com/lyz-code/blue-book/edit/master/docs/newsletter/2021_10_28.md&#34; title=&#34;Edit this page&#34;&gt; &lt;svg viewbox=&#34;0 0 24 24&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z&#34;&gt;&lt;/path&gt;&lt;/svg&gt; &lt;/a&gt;  &lt;h2 id=&#34;coding&#34;&gt;Coding&lt;/h2&gt; &lt;h3 id=&#34;python&#34;&gt;Python&lt;/h3&gt; &lt;h4 id=&#34;full-screen-applications&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/prompt_toolkit_fullscreen_applications/&#34;&gt;Full screen applications&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt;New: &lt;a href=&#34;https://lyz-code.github.io/blue-book/prompt_toolkit_fullscreen_applications/#testing&#34;&gt;Testing full screen applications.&lt;/a&gt;&lt;/li&gt; &lt;li&gt; &lt;p&gt;New: &lt;a href=&#34;https://lyz-code.github.io/blue-book/prompt_toolkit_fullscreen_applications/#pass-more-than-one-key&#34;&gt;Pass more than one key.&lt;/a&gt;&lt;/p&gt; &lt;p&gt;To map an action to two key presses use &lt;code&gt;kb.add(&#39;g&#39;, &#39;g&#39;)&lt;/code&gt;.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;New: &lt;a href=&#34;https://lyz-code.github.io/blue-book/prompt_toolkit_fullscreen_applications/#styles&#34;&gt;Add note on how to debug the styles of the components.&lt;/a&gt;&lt;/p&gt; &lt;p&gt;Set the style to &lt;code&gt;bg:#dc322f&lt;/code&gt; and it will be highlighted in red.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;h4 id=&#34;pytest&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/coding/python/pytest/&#34;&gt;Pytest&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;New: &lt;a href=&#34;https://lyz-code.github.io/blue-book/coding/python/pytest/#excluding-code-from-coverage&#34;&gt;Exclude the &lt;code&gt;if TYPE_CHECKING&lt;/code&gt; code from the coverage.&lt;/a&gt;&lt;/p&gt; &lt;p&gt;If you want &lt;a href=&#34;https://github.com/nedbat/coveragepy/issues/831&#34;&gt;other code to be excluded&lt;/a&gt;, for example the statements inside the &lt;code&gt;if TYPE_CHECKING:&lt;/code&gt; add to your &lt;code&gt;pyproject.toml&lt;/code&gt;:&lt;/p&gt;  &lt;/li&gt; &lt;/ul&gt; &lt;h2 id=&#34;devops&#34;&gt;DevOps&lt;/h2&gt; &lt;h3 id=&#34;infrastructure-as-code&#34;&gt;Infrastructure as Code&lt;/h3&gt; &lt;h4 id=&#34;helmfile&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/devops/helmfile/&#34;&gt;Helmfile&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;Correction: Use environment name instead of get values.&lt;/p&gt; &lt;p&gt;Instead of &lt;code&gt;.Environment.Name&lt;/code&gt;, in theory you could have used &lt;code&gt;.Vars | get &#34;environment&#34;&lt;/code&gt;, which could have prevented the variables and secrets of the default environment will need to be called &lt;code&gt;default_values.yaml&lt;/code&gt;, and &lt;code&gt;default_secrets.yaml&lt;/code&gt;, which is misleading. But you can&#39;t use &lt;code&gt;.Values&lt;/code&gt; in the &lt;code&gt;helmfile.yaml&lt;/code&gt; as it&#39;s not loaded when the file is parsed, and you get an error. A solution would be to &lt;a href=&#34;https://github.com/roboll/helmfile/blob/8594944f6374454e6ddea61d04b201133798cd95/docs/writing-helmfile.md#layering-state-template-files&#34;&gt;layer the helmfile state files&lt;/a&gt; but I wasn&#39;t able to make it work.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;New: How to install a chart only in one environment.&lt;/p&gt; &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class=&#34;nt&#34;&gt;environments&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+  &lt;span class=&#34;nt&#34;&gt;default&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+  &lt;span class=&#34;nt&#34;&gt;production&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+
+&lt;span class=&#34;nn&#34;&gt;---&lt;/span&gt;
+
+&lt;span class=&#34;nt&#34;&gt;releases&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+&lt;span class=&#34;p p-Indicator&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;l l-Scalar l-Scalar-Plain&#34;&gt;newrelic-agent&lt;/span&gt;
+  &lt;span class=&#34;nt&#34;&gt;installed&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p p-Indicator&#34;&gt;{{&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;eq .Environment.Name &#34;production&#34; | toYaml&lt;/span&gt; &lt;span class=&#34;p p-Indicator&#34;&gt;}}&lt;/span&gt;
+  &lt;span class=&#34;c1&#34;&gt;# snip&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;New: Add note that templates can&#39;t be used inside the secrets.&lt;/p&gt; &lt;p&gt;See &lt;a href=&#34;https://github.com/jkroepke/helm-secrets/issues/126&#34;&gt;this issue&lt;/a&gt;&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;h4 id=&#34;helm-secrets&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/devops/helm/helm_secrets/&#34;&gt;Helm Secrets&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;Correction: Update the repository url.&lt;/p&gt; &lt;p&gt;The last fork is dead, long live the &lt;a href=&#34;https://github.com/jkroepke/helm-secrets&#34;&gt;fork&lt;/a&gt;&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;New: How to install the plugin.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;h2 id=&#34;operative-systems&#34;&gt;Operative Systems&lt;/h2&gt; &lt;h3 id=&#34;linux&#34;&gt;Linux&lt;/h3&gt; &lt;h4 id=&#34;kitty&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/kitty/&#34;&gt;Kitty&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;New: Enable infinite scrollback history.&lt;/p&gt; &lt;p&gt;To make the history scrollback infinite add the next lines:&lt;/p&gt; &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;scrollback_lines -1
+scrollback_pager_history_size 0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;New: &lt;a href=&#34;https://lyz-code.github.io/blue-book/kitty/#reasons-to-migrate-from-urxvt-to-kitty&#34;&gt;Reasons to migrate from urxvt to kitty.&lt;/a&gt;&lt;/p&gt; &lt;ul&gt; &lt;li&gt;It doesn&#39;t fuck up your terminal colors.&lt;/li&gt; &lt;li&gt;You can use &lt;a href=&#34;https://lyz-code.github.io/blue-book/peek/&#34;&gt;peek&lt;/a&gt; to record your screen.&lt;/li&gt; &lt;li&gt;Easier to extend.&lt;/li&gt; &lt;/ul&gt; &lt;/li&gt; &lt;/ul&gt; &lt;h4 id=&#34;peek&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/peek/&#34;&gt;Peek&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt;Correction: Add note that it works with kitty.&lt;/li&gt; &lt;/ul&gt; &lt;hr/&gt; &lt;div class=&#34;md-source-date&#34;&gt; &lt;small&gt; Last update: &lt;span class=&#34;git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago&#34;&gt;&lt;span class=&#34;timeago&#34; datetime=&#34;2021-10-29T06:36:50+00:00&#34; locale=&#34;en&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date&#34;&gt;2021-10-29&lt;/span&gt; &lt;/small&gt; &lt;/div&gt; &lt;/article&gt;</description>
+      <link>https://lyz-code.github.io/blue-book/newsletter/2021_10_28/</link>
+      <pubDate>2021-10-29 06:36:50+00:00</pubDate>
+      <source url="https://lyz-code.github.io/blue-book/daily.xml">The Blue Book</source>
+      <guid isPermaLink="true">https://lyz-code.github.io/blue-book/newsletter/2021_10_28/</guid>
+      
+    </item>
     
     <item><title>25th October 2021</title>
       <author>Lyz</author>
@@ -253,16 +275,6 @@
       <pubDate>2021-08-05 06:39:37+00:00</pubDate>
       <source url="https://lyz-code.github.io/blue-book/daily.xml">The Blue Book</source>
       <guid isPermaLink="true">https://lyz-code.github.io/blue-book/newsletter/2021_08_04/</guid>
-      
-    </item>
-    
-    <item><title>30th July 2021</title>
-      <author>Lyz</author>
-      <description>&lt;article class=&#34;md-content__inner md-typeset&#34;&gt; &lt;a class=&#34;md-content__button md-icon&#34; href=&#34;https://github.com/lyz-code/blue-book/edit/master/docs/newsletter/2021_07_30.md&#34; title=&#34;Edit this page&#34;&gt; &lt;svg viewbox=&#34;0 0 24 24&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z&#34;&gt;&lt;/path&gt;&lt;/svg&gt; &lt;/a&gt;  &lt;h2 id=&#34;coding&#34;&gt;Coding&lt;/h2&gt; &lt;h3 id=&#34;python&#34;&gt;Python&lt;/h3&gt; &lt;h4 id=&#34;questionary&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/questionary/&#34;&gt;questionary&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt;Correction: Correct the link to the examples.&lt;/li&gt; &lt;/ul&gt; &lt;h2 id=&#34;operative-systems&#34;&gt;Operative Systems&lt;/h2&gt; &lt;h3 id=&#34;linux&#34;&gt;Linux&lt;/h3&gt; &lt;h4 id=&#34;luks&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/linux/luks/luks/&#34;&gt;LUKS&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;New: &lt;a href=&#34;https://lyz-code.github.io/blue-book/linux/luks/luks/#change-a-key&#34;&gt;Explain how to change a LUKS key.&lt;/a&gt;&lt;/p&gt;  &lt;/li&gt; &lt;/ul&gt; &lt;h4 id=&#34;oracle-database&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/oracle_database/&#34;&gt;Oracle Database&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt;New: Explain how to build an oracle database docker while feeling dirty inside.&lt;/li&gt; &lt;/ul&gt; &lt;hr/&gt; &lt;div class=&#34;md-source-date&#34;&gt; &lt;small&gt; Last update: &lt;span class=&#34;git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago&#34;&gt;&lt;span class=&#34;timeago&#34; datetime=&#34;2021-07-31T06:38:37+00:00&#34; locale=&#34;en&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date&#34;&gt;2021-07-31&lt;/span&gt; &lt;/small&gt; &lt;/div&gt; &lt;/article&gt;</description>
-      <link>https://lyz-code.github.io/blue-book/newsletter/2021_07_30/</link>
-      <pubDate>2021-07-31 06:38:37+00:00</pubDate>
-      <source url="https://lyz-code.github.io/blue-book/daily.xml">The Blue Book</source>
-      <guid isPermaLink="true">https://lyz-code.github.io/blue-book/newsletter/2021_07_30/</guid>
       
     </item>
     
