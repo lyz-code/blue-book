@@ -99,7 +99,7 @@ mkdocs-autolinks-plugin @ git+git://github.com/lyz-code/mkdocs-autolinks-plugin.
     #   mkdocs-newsletter
 mkdocs-git-revision-date-localized-plugin==0.10.0
     # via -r requirements.in
-mkdocs-material==7.3.5
+mkdocs-material==7.3.6
     # via -r requirements.in
 mkdocs-material-extensions==1.0.3
     # via mkdocs-material
