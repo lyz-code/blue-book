@@ -97,7 +97,7 @@ mkdocs-autolinks-plugin @ git+git://github.com/lyz-code/mkdocs-autolinks-plugin.
     # via
     #   -r requirements.in
     #   mkdocs-newsletter
-mkdocs-git-revision-date-localized-plugin==0.10.0
+mkdocs-git-revision-date-localized-plugin==0.10.1
     # via -r requirements.in
 mkdocs-material==7.3.6
     # via -r requirements.in
@@ -179,7 +179,7 @@ six==1.16.0
     #   python-dateutil
 smmap==5.0.0
     # via gitdb
-soupsieve==2.2.1
+soupsieve==2.3
     # via beautifulsoup4
 tomli==1.2.2
     # via setuptools-scm
@@ -187,7 +187,7 @@ tomlkit==0.7.0
     # via python-semantic-release
 tqdm==4.62.3
     # via twine
-twine==3.4.2
+twine==3.5.0
     # via python-semantic-release
 typing-extensions==3.10.0.2
     # via
@@ -206,5 +206,5 @@ zipp==3.6.0
     # via importlib-metadata
 
 # The following packages are considered to be unsafe in a requirements file:
-setuptools==58.4.0
+setuptools==58.5.2
     # via setuptools-scm
