@@ -356,6 +356,11 @@ This is a gathering of tools, ideas or services that I'd like to enjoy.
 If you have any lead, as smallest as it may be on how to fulfill them, please
 [contact me](contact.md).
 
+## Self host a routing web application
+
+Host and play around with [brouter](https://github.com/abrensch/brouter) and
+[brouter-web](https://github.com/nrenner/brouter-web).
+
 ## Pomodoro command line
 
 Command line to help with the [pomodoro workflow](task_workflows.md#pomodoro), besides the basic stuff it will

@@ -35,6 +35,7 @@ nav:
           - email_management.md
           - Email Automation: email_automation.md
       - Book Management: book_management.md
+      - Map Management: map_management.md
       - Instant Messages Management: instant_messages_management.md
       - Process Automation:
           - process_automation.md

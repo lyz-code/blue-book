@@ -4,6 +4,12 @@ date: 20200717
 author: Lyz
 ---
 
+# [Replace all characters of a string with another character](https://stackoverflow.com/questions/48995979/how-to-replace-all-characters-in-a-string-with-one-character/48996018)
+
+```python
+mystring = '_'*len(mystring)
+```
+
 # [Locate element in list](https://appdividend.com/2019/11/16/how-to-find-element-in-list-in-python/)
 
 ```python

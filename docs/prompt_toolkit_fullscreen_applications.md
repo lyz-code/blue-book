@@ -37,8 +37,7 @@ An application consists of several components. The most important are:
     everywhere.
 * A set of key bindings.
 
-# [The
-layout](https://python-prompt-toolkit.readthedocs.io/en/master/pages/full_screen_apps.html#the-layout)
+# [The layout](https://python-prompt-toolkit.readthedocs.io/en/master/pages/full_screen_apps.html#the-layout)
 
 With the `Layout` object you define the graphical structure of the application,
 it accepts as argument a nested structure of `Container` objects, these arrange
@@ -51,6 +50,27 @@ Some of the `Container`s you can use are: `HSplit`, `Vsplit`, `FloatContainer`,
 a `Container` that can contain a `UIControl`. Thus, it’s the adapter between the
 two. The `Window` class also takes care of scrolling the content and wrapping the
 lines if needed.
+
+## [Conditional Containers](https://python-prompt-toolkit.readthedocs.io/en/master/pages/reference.html?highlight=ConditionalContainer#prompt_toolkit.layout.ConditionalContainer)
+
+Sometimes you only want to show containers when a condition is met,
+`ConditionalContainers` are meant to fulfill this case. They accept other
+containers, and a `filter` condition.
+
+You can read more about filters
+[here](https://python-prompt-toolkit.readthedocs.io/en/master/pages/advanced_topics/filters.html),
+the simplest use case is if you have a boolean variable and you use the
+`to_filter` function.
+
+```python
+from prompt_toolkit.layout import ConditionalContainer
+from prompt_toolkit.filters.utils import to_filter
+
+show_header = True
+ConditionalContainer(
+    Label('This is an optional text'), filter=to_filter(show_header)
+)
+```
 
 ## [Tables](https://github.com/prompt-toolkit/python-prompt-toolkit/issues/305)
 

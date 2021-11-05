@@ -55,6 +55,13 @@ not introduced again.
 
 # Issues
 
+* Subtitles get delayed from the video on some devices:
+    [1](https://github.com/jellyfin/jellyfin/issues/2547),
+    [2](https://github.com/jellyfin/jellyfin-expo/issues/54),
+    [3](https://github.com/jellyfin/jellyfin-web/issues/879). There is
+    a [feature](https://features.jellyfin.org/posts/687/burn-in-srt-subtitles-when-transcoding-happens)
+    request for a fix. Once it's solved notify the users
+    once it's solved.
 * [Trailers not
     working](https://github.com/crobibero/jellyfin-plugin-tmdb-trailers/issues/8):
     No solution until it's fixed
