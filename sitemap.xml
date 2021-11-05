@@ -226,6 +226,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/map_management/</loc>
+         <lastmod>2021-11-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/mbsync/</loc>
          <lastmod>2021-11-05</lastmod>
          <changefreq>daily</changefreq>
