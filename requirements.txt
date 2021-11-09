@@ -55,7 +55,7 @@ htmlmin==0.1.12
     # via mkdocs-minify-plugin
 idna==3.3
     # via requests
-importlib-metadata==4.8.1
+importlib-metadata==4.8.2
     # via
     #   click
     #   keyring
