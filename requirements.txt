@@ -179,7 +179,7 @@ six==1.16.0
     #   python-dateutil
 smmap==5.0.0
     # via gitdb
-soupsieve==2.3
+soupsieve==2.3.1
     # via beautifulsoup4
 tomli==1.2.2
     # via setuptools-scm
