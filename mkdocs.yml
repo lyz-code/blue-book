@@ -278,6 +278,7 @@ nav:
           - elasticsearch: linux/elasticsearch.md
           - fail2ban: linux/fail2ban.md
           - Gajim: gajim.md
+          - Github cli: gh.md
           - google chrome: linux/google_chrome.md
           - HAProxy: linux/haproxy.md
           - Hard drive health: docs/linux/hard_drive_health.md
