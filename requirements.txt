@@ -206,5 +206,5 @@ zipp==3.6.0
     # via importlib-metadata
 
 # The following packages are considered to be unsafe in a requirements file:
-setuptools==59.0.1
+setuptools==59.1.1
     # via setuptools-scm
