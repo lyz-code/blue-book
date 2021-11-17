@@ -346,7 +346,7 @@ The `freezer` fixture and `freeze_time` mark can be used together, and they work
 def current_date():
     return date.today()
 
-@pytest.mark.freeze_time
+@pytest.mark.freeze_time()
 def test_changing_date(current_date, freezer):
     freezer.move_to('2017-05-20')
     assert current_date == date(2017, 5, 20)

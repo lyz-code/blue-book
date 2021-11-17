@@ -241,6 +241,15 @@ class ContentFactory(factory.alchemy.SQLAlchemyModelFactory):
         sqlalchemy_session_persistence = 'commit'
 ```
 
+# Automatically generate a factory from a pydantic model
+
+Sadly [it's not yet
+supported](https://github.com/FactoryBoy/factory_boy/issues/869), [it will at
+some point though](https://github.com/FactoryBoy/factory_boy/issues/836). If
+you're interested in following this path, you can start with [mgaitan
+snippet](https://gist.github.com/mgaitan/dcbe08bf44a5af696f2af752624ac11b) for
+dataclasses.
+
 # References
 
 * [Docs](https://factoryboy.readthedocs.io/en/latest/)

@@ -68,6 +68,13 @@ kubectl get job "your-job" -o json \
     | kubectl replace --force -f -
 ```
 
+## [Manually creating a job from a cronjob](https://github.com/kubernetes/kubernetes/issues/47538)
+
+```bash
+kubectl create job {{ job_name }} -n {{ namespace }} \
+    --from=cronjobs/{{ cronjob_name}}
+```
+
 # [Monitorization of cronjobs](https://medium.com/@tristan_96324/prometheus-k8s-cronjob-alerts-94bee7b90511)
 
 Alerting of traditional Unix cronjobs meant sending an email if the job failed.

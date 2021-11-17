@@ -217,6 +217,7 @@ nav:
           - Formatters:
               - Black: devops/black.md
               - Yamlfix: yamlfix.md
+              - Pyment: pyment.md
           - Type Checkers:
               - Mypy: devops/mypy.md
           - Security Checkers:

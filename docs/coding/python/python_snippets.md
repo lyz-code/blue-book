@@ -4,6 +4,15 @@ date: 20200717
 author: Lyz
 ---
 
+# [Make a flat list of lists with a list comprehension](https://stackoverflow.com/questions/952914/how-to-make-a-flat-list-out-of-a-list-of-lists)
+
+There is no nice way to do it :(. The best I've found is:
+
+```python
+t = [[1, 2, 3], [4, 5, 6], [7], [8, 9]]
+flat_list = [item for sublist in t for item in sublist]
+```
+
 # [Replace all characters of a string with another character](https://stackoverflow.com/questions/48995979/how-to-replace-all-characters-in-a-string-with-one-character/48996018)
 
 ```python
@@ -227,7 +236,7 @@ setup(
     Last time I used this solution, when I added the library on a `setup.py` the
     direct dependencies weren't installed :S
 
-# Check directories and files
+# Check or test directories and files
 
 ```python
 def test_dir(directory):
@@ -287,8 +296,6 @@ from pathlib import Path
 
 Path('path/to/file.txt').touch()
 ```
-
-
 
 # [Get the first day of next month](https://stackoverflow.com/questions/4130922/how-to-increment-datetime-by-custom-months-in-python-without-using-library)
 
