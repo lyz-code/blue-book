@@ -76,7 +76,7 @@ jsmin==3.0.0
     # via mkdocs-minify-plugin
 keyring==23.2.1
     # via twine
-markdown==3.3.4
+markdown==3.3.5
     # via
     #   mkdocs
     #   mkdocs-material
