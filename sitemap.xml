@@ -331,6 +331,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/pyment/</loc>
+         <lastmod>2021-11-17</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/python/</loc>
          <lastmod>2021-11-17</lastmod>
          <changefreq>daily</changefreq>
