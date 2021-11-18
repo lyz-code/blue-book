@@ -11,7 +11,7 @@
     <managingEditor>Lyz</managingEditor>
 
     
-    <pubDate>2021-11-16 06:35:07+00:00</pubDate>
+    <pubDate>2021-11-18 06:35:25+00:00</pubDate>
     <ttl>1440</ttl>
 
     
@@ -25,6 +25,18 @@
     
 
     
+    
+    <item><title>17th November 2021</title>
+      <author>Lyz</author>
+      <description>&lt;article class=&#34;md-content__inner md-typeset&#34;&gt; &lt;a class=&#34;md-content__button md-icon&#34; href=&#34;https://github.com/lyz-code/blue-book/edit/master/docs/newsletter/2021_11_17.md&#34; title=&#34;Edit this page&#34;&gt; &lt;svg viewbox=&#34;0 0 24 24&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z&#34;&gt;&lt;/path&gt;&lt;/svg&gt; &lt;/a&gt;  &lt;h2 id=&#34;coding&#34;&gt;Coding&lt;/h2&gt; &lt;h3 id=&#34;python&#34;&gt;Python&lt;/h3&gt; &lt;h4 id=&#34;factoryboy&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/coding/python/factoryboy/&#34;&gt;FactoryBoy&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;New: &lt;a href=&#34;https://lyz-code.github.io/blue-book/coding/python/factoryboy/#automatically-generate-a-factory-from-a-pydantic-model&#34;&gt;Automatically generate a factory from a pydantic model.&lt;/a&gt;&lt;/p&gt; &lt;p&gt;Sadly &lt;a href=&#34;https://github.com/FactoryBoy/factory_boy/issues/869&#34;&gt;it&#39;s not yet supported&lt;/a&gt;, &lt;a href=&#34;https://github.com/FactoryBoy/factory_boy/issues/836&#34;&gt;it will at some point though&lt;/a&gt;. If you&#39;re interested in following this path, you can start with &lt;a href=&#34;https://gist.github.com/mgaitan/dcbe08bf44a5af696f2af752624ac11b&#34;&gt;mgaitan snippet&lt;/a&gt; for dataclasses.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;h4 id=&#34;python-snippets&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/coding/python/python_snippets/&#34;&gt;Python Snippets&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;New: &lt;a href=&#34;https://lyz-code.github.io/blue-book/coding/python/python_snippets/#make-a-flat-list-of-lists-with-a-list-comprehension&#34;&gt;Make a flat list of lists with a list comprehension.&lt;/a&gt;&lt;/p&gt; &lt;p&gt;There is no nice way to do it :(. The best I&#39;ve found is:&lt;/p&gt;  &lt;/li&gt; &lt;/ul&gt; &lt;h2 id=&#34;devops&#34;&gt;DevOps&lt;/h2&gt; &lt;h3 id=&#34;infrastructure-solutions&#34;&gt;Infrastructure Solutions&lt;/h3&gt; &lt;h4 id=&#34;jobs&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/devops/kubernetes/kubernetes_jobs/&#34;&gt;Jobs&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;New: &lt;a href=&#34;https://lyz-code.github.io/blue-book/devops/kubernetes/kubernetes_jobs/#manually-creating-a-job-from-a-cronjob&#34;&gt;Manually creating a job from a cronjob.&lt;/a&gt;&lt;/p&gt; &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;kubectl create job &lt;span class=&#34;o&#34;&gt;{{&lt;/span&gt; job_name &lt;span class=&#34;o&#34;&gt;}}&lt;/span&gt; -n &lt;span class=&#34;o&#34;&gt;{{&lt;/span&gt; namespace &lt;span class=&#34;o&#34;&gt;}}&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\&lt;/span&gt;
+    --from&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;cronjobs/&lt;span class=&#34;o&#34;&gt;{{&lt;/span&gt; cronjob_name&lt;span class=&#34;o&#34;&gt;}}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt; &lt;/li&gt; &lt;/ul&gt; &lt;h3 id=&#34;continuous-integration&#34;&gt;Continuous Integration&lt;/h3&gt; &lt;h4 id=&#34;pyment&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/pyment/&#34;&gt;Pyment&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;New: Introduce Pyment.&lt;/p&gt; &lt;p&gt;&lt;a href=&#34;https://github.com/dadadel/pyment&#34;&gt;Pyment&lt;/a&gt; is a python3 program to automatically create, update or convert docstrings in existing Python files, managing several styles.&lt;/p&gt; &lt;p&gt;As of 2021-11-17, the program is not production ready yet for me, I&#39;ve tested it in one of my projects and found some bugs that needed to be fixed before it&#39;s usable. Despite the number of stars, it looks like the development pace has dropped dramatically, so it needs our help to get better :).&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;hr/&gt; &lt;div class=&#34;md-source-date&#34;&gt; &lt;small&gt; Last update: &lt;span class=&#34;git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago&#34;&gt;&lt;span class=&#34;timeago&#34; datetime=&#34;2021-11-18T06:35:25+00:00&#34; locale=&#34;en&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date&#34;&gt;2021-11-18&lt;/span&gt; &lt;/small&gt; &lt;/div&gt; &lt;/article&gt;</description>
+      <link>https://lyz-code.github.io/blue-book/newsletter/2021_11_17/</link>
+      <pubDate>2021-11-18 06:35:25+00:00</pubDate>
+      <source url="https://lyz-code.github.io/blue-book/daily.xml">The Blue Book</source>
+      <guid isPermaLink="true">https://lyz-code.github.io/blue-book/newsletter/2021_11_17/</guid>
+      
+    </item>
     
     <item><title>15th November 2021</title>
       <author>Lyz</author>
@@ -228,54 +240,6 @@ scrollback_pager_history_size 0
       <pubDate>2021-08-14 06:37:29+00:00</pubDate>
       <source url="https://lyz-code.github.io/blue-book/daily.xml">The Blue Book</source>
       <guid isPermaLink="true">https://lyz-code.github.io/blue-book/newsletter/2021_08_13/</guid>
-      
-    </item>
-    
-    <item><title>12th August 2021</title>
-      <author>Lyz</author>
-      <description>&lt;article class=&#34;md-content__inner md-typeset&#34;&gt; &lt;a class=&#34;md-content__button md-icon&#34; href=&#34;https://github.com/lyz-code/blue-book/edit/master/docs/newsletter/2021_08_12.md&#34; title=&#34;Edit this page&#34;&gt; &lt;svg viewbox=&#34;0 0 24 24&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z&#34;&gt;&lt;/path&gt;&lt;/svg&gt; &lt;/a&gt;  &lt;h2 id=&#34;coding&#34;&gt;Coding&lt;/h2&gt; &lt;h3 id=&#34;python&#34;&gt;Python&lt;/h3&gt; &lt;h4 id=&#34;python-snippets&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/coding/python/python_snippets/&#34;&gt;Python Snippets&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;New: &lt;a href=&#34;https://lyz-code.github.io/blue-book/coding/python/python_snippets/#find-a-static-file-of-a-python-module&#34;&gt;Explain how to find a static file of a python module.&lt;/a&gt;&lt;/p&gt;  &lt;/li&gt; &lt;li&gt; &lt;p&gt;New: &lt;a href=&#34;https://lyz-code.github.io/blue-book/coding/python/python_snippets/#delete-a-file&#34;&gt;Explain how to delete a file.&lt;/a&gt;&lt;/p&gt; &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;os&lt;/span&gt;
-&lt;span class=&#34;n&#34;&gt;os&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;remove&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&#39;demofile.txt&#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;New: &lt;a href=&#34;https://lyz-code.github.io/blue-book/coding/python/python_snippets/#measure-elapsed-time-between-lines-of-code&#34;&gt;Explain how to measure elapsed time between lines of code.&lt;/a&gt;&lt;/p&gt; &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;time&lt;/span&gt;
-
-&lt;span class=&#34;n&#34;&gt;start&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;time&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;time&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
-&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&#34;hello&#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;span class=&#34;n&#34;&gt;end&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;time&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;time&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
-&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;end&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;start&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt; &lt;/li&gt; &lt;/ul&gt; &lt;h4 id=&#34;pexpect&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/pexpect/&#34;&gt;pexpect&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;New: &lt;a href=&#34;https://lyz-code.github.io/blue-book/pexpect/#read-output-of-command&#34;&gt;Explain how to read the output of a command run by pexpect.&lt;/a&gt;&lt;/p&gt; &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;sys&lt;/span&gt;
-&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;pexpect&lt;/span&gt;
-&lt;span class=&#34;n&#34;&gt;child&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;pexpect&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;spawn&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&#39;ls&#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;span class=&#34;n&#34;&gt;child&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;logfile&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sys&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;stdout&lt;/span&gt;
-&lt;span class=&#34;n&#34;&gt;child&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;expect&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pexpect&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;EOF&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt; &lt;/li&gt; &lt;/ul&gt; &lt;h2 id=&#34;devops&#34;&gt;DevOps&lt;/h2&gt; &lt;h3 id=&#34;infrastructure-as-code&#34;&gt;Infrastructure as Code&lt;/h3&gt; &lt;h4 id=&#34;terraform&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/terraform/&#34;&gt;Terraform&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;New: &lt;a href=&#34;https://lyz-code.github.io/blue-book/terraform/#ignore-the-change-of-an-attribute&#34;&gt;Explain how to ignore the change of an attribute.&lt;/a&gt;&lt;/p&gt; &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;resource &#34;aws_instance&#34; &#34;example&#34; {
-  # ...
-
-  lifecycle {
-    ignore_changes = [
-      # Ignore changes to tags, e.g. because a management agent
-      # updates these based on some ruleset managed elsewhere.
-      tags,
-    ]
-  }
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;New: &lt;a href=&#34;https://lyz-code.github.io/blue-book/terraform/#define-the-default-value-of-an-variable-that-contains-an-object-as-empty&#34;&gt;Explain how to define the default value of an variable that contains an object as empty.&lt;/a&gt;&lt;/p&gt; &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;variable &#34;database&#34; {
-  type = object({
-    size                 = number
-    instance_type        = string
-    storage_type         = string
-    engine               = string
-    engine_version       = string
-    parameter_group_name = string
-    multi_az             = bool
-  })
-  default     = null
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;New: &lt;a href=&#34;https://lyz-code.github.io/blue-book/terraform/#do-a-conditional-if-a-variable-is-not-null&#34;&gt;Explain how to do a conditional if a variable is not null.&lt;/a&gt;&lt;/p&gt; &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;resource &#34;aws_db_instance&#34; &#34;instance&#34; {
-  count                = var.database == null ? 0 : 1
-  ...
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt; &lt;/li&gt; &lt;/ul&gt; &lt;hr/&gt; &lt;div class=&#34;md-source-date&#34;&gt; &lt;small&gt; Last update: &lt;span class=&#34;git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago&#34;&gt;&lt;span class=&#34;timeago&#34; datetime=&#34;2021-08-13T06:38:19+00:00&#34; locale=&#34;en&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date&#34;&gt;2021-08-13&lt;/span&gt; &lt;/small&gt; &lt;/div&gt; &lt;/article&gt;</description>
-      <link>https://lyz-code.github.io/blue-book/newsletter/2021_08_12/</link>
-      <pubDate>2021-08-13 06:38:19+00:00</pubDate>
-      <source url="https://lyz-code.github.io/blue-book/daily.xml">The Blue Book</source>
-      <guid isPermaLink="true">https://lyz-code.github.io/blue-book/newsletter/2021_08_12/</guid>
       
     </item>
     
