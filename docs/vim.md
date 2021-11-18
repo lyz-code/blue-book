@@ -228,8 +228,8 @@ the following snippet to your vimrc file
 ```Vim
 augroup remember_folds
   autocmd!
-  autocmd BufWinLeave * mkview
-  autocmd BufWinEnter * silent! loadview
+  autocmd BufLeave * mkview
+  autocmd BufEnter * silent! loadview
 augroup END
 ```
 

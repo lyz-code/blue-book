@@ -125,6 +125,7 @@ nav:
           - Logging: python_logging.md
           - Code Styling: coding/python/python_code_styling.md
           - Docstrings: coding/python/docstrings.md
+          - Properties: python_properties.md
           - Lazy loading: lazy_loading.md
           - Plugin System: python_plugin_system.md
           - Profiling: python_profiling.md

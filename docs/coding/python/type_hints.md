@@ -328,6 +328,89 @@ def new_users(user_class: UserTypes[UserType]) -> UserType: # OK!
     pass
 ```
 
+## [Define a TypeVar with restrictions](https://mypy.readthedocs.io/en/stable/generics.html#type-variables-with-value-restriction)
+
+By default, a type variable can be replaced with any type. However, sometimes
+it’s useful to have a type variable that can only have some specific types as
+its value. A typical example is a type variable that can only have values `str`
+and `bytes`:
+
+```python
+from typing import TypeVar
+
+AnyStr = TypeVar('AnyStr', str, bytes)
+```
+This is actually such a common type variable that `AnyStr` is defined in typing
+and we don’t need to define it ourselves.
+
+
+We can use `AnyStr` to define a function that can concatenate two strings or
+bytes objects, but it can’t be called with other argument types:
+
+```python
+from typing import AnyStr
+
+def concat(x: AnyStr, y: AnyStr) -> AnyStr:
+    return x + y
+
+concat('a', 'b')    # Okay
+concat(b'a', b'b')  # Okay
+concat(1, 2)        # Error!
+```
+
+Note that this is different from a union type, since combinations of `str` and
+`bytes` are not accepted:
+
+```python
+concat('string', b'bytes')   # Error!
+```
+
+In this case, this is exactly what we want, since it’s not possible to
+concatenate a string and a bytes object! The type checker will reject this
+function:
+
+```python
+def union_concat(x: Union[str, bytes], y: Union[str, bytes]) -> Union[str, bytes]:
+    return x + y  # Error: can't concatenate str and bytes
+```
+
+### Use a constrained TypeVar in the definition of a class attributes.
+
+If you try to use a `TypeVar` in the definition of a class attribute:
+
+```python
+class File:
+    """Model a computer file."""
+
+    path: str
+    content: Optional[AnyStr] = None # mypy error!
+```
+
+[mypy](mypy.md) will complain with `Type variable AnyStr is unbound
+[valid-type]`, to solve it, you need to make the class inherit from the
+`Generic[AnyStr]`.
+
+```python
+class File(Generic[AnyStr]):
+    """Model a computer file."""
+
+    path: str
+    content: Optional[AnyStr] = None
+```
+
+Why you ask? I have absolutely no clue. I've asked that question in the
+[gitter python typing channel](https://gitter.im/python/typing#) but the kind
+answer that @ktbarrett gave me sounded like Chinese.
+
+> You can't just use a type variable for attributes or variables, you have to
+> create some generic context, whether that be a function or a class, so that
+> you can instantiate the generic context (or the analyzer can infer it) (i.e.
+> context[var]). That's not possible if you don't specify that the class is
+> a generic context. It also ensure than all uses of that variable in the
+> context resolve to the same type.
+
+If you don't mind helping me understand it, please [contact me](contact.md).
+
 ## [Specify the type of the class in it's method and attributes](https://stackoverflow.com/questions/33533148/how-do-i-specify-that-the-return-type-of-a-method-is-the-same-as-the-class-itsel)
 
 If you are using Python 3.10 or later, it just works.

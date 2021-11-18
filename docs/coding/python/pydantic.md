@@ -495,6 +495,42 @@ print(m._secret_value)
 #> 5
 ```
 
+### Define fields to exclude from exporting at config level
+
+This won't be necessary once they release the version 1.9 because you can [define
+the fields to exclude in the `Config` of the
+model](https://github.com/samuelcolvin/pydantic/issues/660) using something
+like:
+
+```python
+class User(BaseModel):
+    id: int
+    username: str
+    password: str
+
+class Transaction(BaseModel):
+    id: str
+    user: User
+    value: int
+
+    class Config:
+        fields = {
+            'value': {
+                'alias': 'Amount',
+                'exclude': ...,
+            },
+            'user': {
+                'exclude': {'username', 'password'}
+            },
+            'id': {
+                'dump_alias': 'external_id'
+            }
+        }
+```
+
+The release it's taking its time because [the developer's gremlin and salaried
+work are sucking his time off](https://github.com/samuelcolvin/pydantic/discussions/3228).
+
 ## [Update entity attributes with a dictionary](https://pydantic-docs.helpmanual.io/usage/exporting_models/#modelcopy)
 
 To update a model with the data of a dictionary you can create a new object with
