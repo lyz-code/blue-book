@@ -371,6 +371,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/python_properties/</loc>
+         <lastmod>2021-11-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/questionary/</loc>
          <lastmod>2021-11-18</lastmod>
          <changefreq>daily</changefreq>
