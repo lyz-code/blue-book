@@ -364,6 +364,59 @@ print(f'{m1.updated} != {m2.updated}')
     Moreover if you want to validate default values with `validate_all`,
     *pydantic* will need to call the `default_factory`, which could lead to side effects!
 
+## [Field customization](https://pydantic-docs.helpmanual.io/usage/schema/#field-customisation)
+
+Optionally, the `Field` function can be used to provide extra information about
+the field and validations. It has the following arguments:
+
+* `default`: (a positional argument) the default value of the field. Since the
+    `Field` replaces the field's default, this first argument can be used to set
+    the default. Use ellipsis (`...`) to indicate the field is required.
+* `default_factory`: a zero-argument callable that will be called when a default
+    value is needed for this field. Among other purposes, this can be used to
+    set dynamic default values. It is forbidden to set both `default` and
+    `default_factory`.
+* `alias`: the public name of the field.
+* `title`: if omitted, `field_name.title()` is used.
+* `description`: if omitted and the annotation is a sub-model, the docstring of
+    the sub-model will be used.
+* `const`: this argument must be the same as the field's default value if
+    present.
+* `gt`: for numeric values (`int`, `float`, `Decimal`), adds a validation of "greater
+    than" and an annotation of `exclusiveMinimum` to the JSON Schema.
+* `ge`: for numeric values, this adds a validation of "greater than or equal"
+    and an annotation of minimum to the JSON Schema.
+* `lt`: for numeric values, this adds a validation of "less than" and an
+    annotation of `exclusiveMaximum` to the JSON Schema.
+* `le`: for numeric values, this adds a validation of "less than or equal" and
+    an annotation of maximum to the JSON Schema.
+* `multiple_of`: for numeric values, this adds a validation of "a multiple of"
+    and an annotation of `multipleOf` to the JSON Schema.
+* `min_items`: for list values, this adds a corresponding validation and an
+    annotation of `minItems` to the JSON Schema.
+* `max_items`: for list values, this adds a corresponding validation and an
+    annotation of `maxItems` to the JSON Schema.
+* `min_length`: for string values, this adds a corresponding validation and an
+    annotation of `minLength` to the JSON Schema.
+* `max_length`: for string values, this adds a corresponding validation and an
+    annotation of `maxLength` to the JSON Schema.
+* `allow_mutation`: a boolean which defaults to `True`. When `False`, the field
+    raises a `TypeError` if the field is assigned on an instance. The model config
+    must set `validate_assignment` to `True` for this check to be performed.
+* `regex`: for string values, this adds a Regular Expression validation
+    generated from the passed string and an annotation of pattern to the JSON
+    Schema.
+* `**`: any other keyword arguments (e.g. `examples`) will be added verbatim to
+    the field's schema.
+
+!!! note pydantic validates strings using `re.match`, which treats regular
+expressions as implicitly anchored at the beginning. On the contrary, JSON
+Schema validators treat the pattern keyword as implicitly unanchored, more like
+what `re.search` does.
+
+Instead of using `Field`, the `fields` property of the `Config` class can be
+used to set all of the arguments above except default.
+
 ## [Parsing data into a specified type](https://pydantic-docs.helpmanual.io/usage/models/#parsing-data-into-a-specified-type)
 
 Pydantic includes a standalone utility function `parse_obj_as` that can be used

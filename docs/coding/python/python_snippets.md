@@ -4,6 +4,33 @@ date: 20200717
 author: Lyz
 ---
 
+# [Remove a substring from the end of a string](https://stackoverflow.com/questions/1038824/how-do-i-remove-a-substring-from-the-end-of-a-string)
+
+On Python 3.9 and newer you can use the `removeprefix` and `removesuffix` methods to
+remove an entire substring from either side of the string:
+
+```python
+url = 'abcdc.com'
+url.removesuffix('.com')    # Returns 'abcdc'
+url.removeprefix('abcdc.')  # Returns 'com'
+```
+
+On Python 3.8 and older you can use `endswith` and slicing:
+
+```python
+url = 'abcdc.com'
+if url.endswith('.com'):
+    url = url[:-4]
+```
+
+Or a regular expression:
+
+```python
+import re
+url = 'abcdc.com'
+url = re.sub('\.com$', '', url)
+```
+
 # [Make a flat list of lists with a list comprehension](https://stackoverflow.com/questions/952914/how-to-make-a-flat-list-out-of-a-list-of-lists)
 
 There is no nice way to do it :(. The best I've found is:

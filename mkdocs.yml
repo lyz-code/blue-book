@@ -119,6 +119,7 @@ nav:
               - Rq: coding/python/rq.md
               - sh: coding/python/sh.md
               - Talkey: talkey.md
+              - Tenacity: tenacity.md
               - TinyDB: coding/python/tinydb.md
               - Yoyo: coding/python/yoyo.md
           - Type Hints: coding/python/type_hints.md
