@@ -14,7 +14,7 @@ certifi==2021.10.8
     # via requests
 cffi==1.15.0
     # via cryptography
-charset-normalizer==2.0.7
+charset-normalizer==2.0.8
     # via requests
 click==8.0.3
     # via
@@ -74,7 +74,7 @@ jinja2==3.0.3
     #   mkdocs-material
 jsmin==3.0.0
     # via mkdocs-minify-plugin
-keyring==23.2.1
+keyring==23.3.0
     # via twine
 markdown==3.3.6
     # via
