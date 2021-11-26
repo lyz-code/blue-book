@@ -187,13 +187,13 @@ pay off as you develop your programs. In the end, if you don't expect to use
 this knowledge in the future, you may better use pandas to your small project
 than a SQL solution.
 
-Query builders should be used when:
+Raw SQL should be used when:
 
 * You don't mind spending some time learning SQL.
 * You plan to develop and maintain complex or different projects that use SQL to
     store data.
 
-Raw SQL should be used when:
+Query builders should be used when:
 
 * You don't want to learn SQL and need to create a small script that needs to
     perform a specific task.
