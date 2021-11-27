@@ -283,6 +283,7 @@ nav:
           - Gajim: gajim.md
           - Github cli: gh.md
           - google chrome: linux/google_chrome.md
+          - Graylog: graylog.md
           - HAProxy: linux/haproxy.md
           - Hard drive health: docs/linux/hard_drive_health.md
           - Hushboard: husboard.md
@@ -344,6 +345,8 @@ nav:
               - Loyalist: wesnoth_loyalist.md
               - Rebels: wesnoth_rebels.md
               - Northeners: wesnoth_northerners.md
+      - Board Gaming:
+          - Regicide: regicide.md
       - Drawing:
           - drawing/drawing.md
           - Exercise Pool: drawing/exercise_pool.md

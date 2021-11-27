@@ -78,6 +78,21 @@ fake.date_time()
 faker.pystr()
 ```
 
+## [Create a random string with a defined format](https://faker.readthedocs.io/en/master/providers/faker.providers.python.html#faker.providers.python.Provider.pystr_format)
+
+```python
+faker.pystr_format("id-#######{{random_letter}}")
+'id-6443059M'
+```
+
+## [Create an IP address](https://faker.readthedocs.io/en/master/providers/faker.providers.internet.html#faker.providers.internet.Provider.ipv4)
+
+```python
+faker.ipv4()
+```
+
+If you want a CIDR, use `network=True`.
+
 ## [Create a random choice from an Enum](https://github.com/NazarioJL/faker_enum)
 
 [pydantic](pydantic.md) uses `Enum` objects to define [the choices of
