@@ -181,6 +181,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/graylog/</loc>
+         <lastmod>2021-11-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/helm_git/</loc>
          <lastmod>2021-11-27</lastmod>
          <changefreq>daily</changefreq>
@@ -382,6 +387,11 @@
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/refinement_template/</loc>
+         <lastmod>2021-11-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/regicide/</loc>
          <lastmod>2021-11-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
