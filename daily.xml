@@ -11,7 +11,7 @@
     <managingEditor>Lyz</managingEditor>
 
     
-    <pubDate>2021-11-20 06:37:45+00:00</pubDate>
+    <pubDate>2021-11-28 06:36:11+00:00</pubDate>
     <ttl>1440</ttl>
 
     
@@ -25,6 +25,17 @@
     
 
     
+    
+    <item><title>27th November 2021</title>
+      <author>Lyz</author>
+      <description>&lt;article class=&#34;md-content__inner md-typeset&#34;&gt; &lt;a class=&#34;md-content__button md-icon&#34; href=&#34;https://github.com/lyz-code/blue-book/edit/master/docs/newsletter/2021_11_27.md&#34; title=&#34;Edit this page&#34;&gt; &lt;svg viewbox=&#34;0 0 24 24&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z&#34;&gt;&lt;/path&gt;&lt;/svg&gt; &lt;/a&gt;  &lt;h2 id=&#34;coding&#34;&gt;Coding&lt;/h2&gt; &lt;h3 id=&#34;python&#34;&gt;Python&lt;/h3&gt; &lt;h4 id=&#34;dash&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/coding/python/dash/&#34;&gt;Dash&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;New: &lt;a href=&#34;https://lyz-code.github.io/blue-book/coding/python/dash/#testing&#34;&gt;Testing Dash applications.&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&lt;code&gt;dash.testing&lt;/code&gt; provides some off-the-rack pytest fixtures and a minimal set of testing APIs with our internal crafted best practices at the integration level. The commit includes a simple example and some guides on how to test Dash application.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;h4 id=&#34;faker&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/coding/python/faker/&#34;&gt;Faker&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;New: &lt;a href=&#34;https://lyz-code.github.io/blue-book/coding/python/faker/#create-a-random-string-with-a-defined-format&#34;&gt;Create a random string with a defined format.&lt;/a&gt;&lt;/p&gt;  &lt;/li&gt; &lt;li&gt; &lt;p&gt;New: &lt;a href=&#34;https://lyz-code.github.io/blue-book/coding/python/faker/#create-an-ip-address&#34;&gt;Create an IP address.&lt;/a&gt;&lt;/p&gt; &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class=&#34;n&#34;&gt;faker&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ipv4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt; &lt;p&gt;If you want a CIDR, use &lt;code&gt;network=True&lt;/code&gt;.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;h2 id=&#34;operative-systems&#34;&gt;Operative Systems&lt;/h2&gt; &lt;h3 id=&#34;linux&#34;&gt;Linux&lt;/h3&gt; &lt;h4 id=&#34;graylog&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/graylog/&#34;&gt;Graylog&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;New: Introduce Graylog.&lt;/p&gt; &lt;p&gt;&lt;a href=&#34;https://www.graylog.org/&#34;&gt;Graylog&lt;/a&gt; is a log management tool. The commit includes some tips like how to send a test message to check an input.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;h2 id=&#34;arts&#34;&gt;Arts&lt;/h2&gt; &lt;h3 id=&#34;board-gaming&#34;&gt;Board Gaming&lt;/h3&gt; &lt;h4 id=&#34;regicide&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/regicide/&#34;&gt;Regicide&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;New: Introduce the awesome Regicide card game.&lt;/p&gt; &lt;p&gt;&lt;a href=&#34;https://www.badgersfrommars.com/&#34;&gt;Regicide&lt;/a&gt; is a wonderful cooperative card game for 1 to 4 players. It&#39;s awesome how they&#39;ve built such a rich game dynamic with a normal deck of cards. Even if you can play it with any deck, I suggest to buy &lt;a href=&#34;https://www.badgersfrommars.com/buy-regicide&#34;&gt;the deck they sell&lt;/a&gt; because their cards are magnificent and they deserve the money for their impressive game. Another thing I love about them is that even if you can&#39;t or don&#39;t want to pay for the game, they give the &lt;a href=&#34;https://www.badgersfrommars.com/assets/RegicideRulesA4.pdf?v=2&#34;&gt;rules for free&lt;/a&gt;.&lt;/p&gt; &lt;p&gt;If you don&#39;t like reading the rules directly from their pdf (although it&#39;s quite short), they explain them in &lt;a href=&#34;https://www.badgersfrommars.com/regicide&#34;&gt;this video&lt;/a&gt;.&lt;/p&gt; &lt;p&gt;I&#39;ve loved the game so much, that I&#39;ve created some variations of the rules to make each game more different and changeling.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;hr/&gt; &lt;div class=&#34;md-source-date&#34;&gt; &lt;small&gt; Last update: &lt;span class=&#34;git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago&#34;&gt;&lt;span class=&#34;timeago&#34; datetime=&#34;2021-11-28T06:36:11+00:00&#34; locale=&#34;en&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date&#34;&gt;2021-11-28&lt;/span&gt; &lt;/small&gt; &lt;/div&gt; &lt;/article&gt;</description>
+      <link>https://lyz-code.github.io/blue-book/newsletter/2021_11_27/</link>
+      <pubDate>2021-11-28 06:36:11+00:00</pubDate>
+      <source url="https://lyz-code.github.io/blue-book/daily.xml">The Blue Book</source>
+      <guid isPermaLink="true">https://lyz-code.github.io/blue-book/newsletter/2021_11_27/</guid>
+      
+    </item>
     
     <item><title>19th November 2021</title>
       <author>Lyz</author>
@@ -247,16 +258,6 @@ scrollback_pager_history_size 0
       <pubDate>2021-08-26 06:36:39+00:00</pubDate>
       <source url="https://lyz-code.github.io/blue-book/daily.xml">The Blue Book</source>
       <guid isPermaLink="true">https://lyz-code.github.io/blue-book/newsletter/2021_08_25/</guid>
-      
-    </item>
-    
-    <item><title>23rd August 2021</title>
-      <author>Lyz</author>
-      <description>&lt;article class=&#34;md-content__inner md-typeset&#34;&gt; &lt;a class=&#34;md-content__button md-icon&#34; href=&#34;https://github.com/lyz-code/blue-book/edit/master/docs/newsletter/2021_08_23.md&#34; title=&#34;Edit this page&#34;&gt; &lt;svg viewbox=&#34;0 0 24 24&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z&#34;&gt;&lt;/path&gt;&lt;/svg&gt; &lt;/a&gt;  &lt;h2 id=&#34;coding&#34;&gt;Coding&lt;/h2&gt; &lt;h3 id=&#34;python&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/python/&#34;&gt;Python&lt;/a&gt;&lt;/h3&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;New: Add schedule to interesting libraries to explore.&lt;/p&gt; &lt;p&gt;&lt;a href=&#34;https://github.com/dbader/schedule&#34;&gt;schedule&lt;/a&gt; is a Python job scheduling for humans. Run Python functions (or any other callable) periodically using a friendly syntax.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;h2 id=&#34;contact&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/contact/&#34;&gt;Contact&lt;/a&gt;&lt;/h2&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;Correction: Update the XMPP address.&lt;/p&gt; &lt;p&gt;Riseup has stopped giving support for XMPP :(&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;hr/&gt;  &lt;/article&gt;</description>
-      <link>https://lyz-code.github.io/blue-book/newsletter/2021_08_23/</link>
-      <pubDate>2021-08-24 06:36:02+00:00</pubDate>
-      <source url="https://lyz-code.github.io/blue-book/daily.xml">The Blue Book</source>
-      <guid isPermaLink="true">https://lyz-code.github.io/blue-book/newsletter/2021_08_23/</guid>
       
     </item>
     
