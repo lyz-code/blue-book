@@ -87,12 +87,16 @@ nav:
               - Folium: coding/python/folium.md
               - Feedparser: coding/python/feedparser.md
               - GitPython: coding/python/gitpython.md
+              - Goodconf: goodconf.md
               - Jinja2: python_jinja2.md
               - mkdocstrings: coding/python/mkdocstrings.md
               - NetworkX: networkx.md
               - Pandas: coding/python/pandas.md
               - Passpy: coding/python/passpy.md
+              - pdm: pdm.md
               - pexpect: pexpect.md
+              - Pipenv: pipenv.md
+              - Poetry: python_poetry.md
               - Prompt Toolkit:
                   - coding/python/prompt_toolkit.md
                   - REPL: prompt_toolkit_repl.md
@@ -103,6 +107,7 @@ nav:
                   - Pydantic Validators: coding/python/pydantic_validators.md
                   - Pydantic Exporting Models: coding/python/pydantic_exporting.md
                   - Pydantic Validating Functions: coding/python/pydantic_functions.md
+                  - Pydantic Factories: pydantic_factories.md
                   - Pydantic Mypy Plugin: coding/python/pydantic_mypy_plugin.md
               - Pypika: coding/python/pypika.md
               - Python Mysql: python_mysql.md
@@ -127,6 +132,7 @@ nav:
           - Code Styling: coding/python/python_code_styling.md
           - Docstrings: coding/python/docstrings.md
           - Properties: python_properties.md
+          - Package Management: python_package_management.md
           - Lazy loading: lazy_loading.md
           - Plugin System: python_plugin_system.md
           - Profiling: python_profiling.md
@@ -390,7 +396,8 @@ markdown_extensions:
   - pymdownx.smartsymbols
   - pymdownx.snippets
   - pymdownx.superfences
-  - pymdownx.tabbed
+  - pymdownx.tabbed:
+      alternate_style: true
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
@@ -401,6 +408,8 @@ theme:
   features:
     - navigation.instant
     - navigation.top
+    - content.code.annotate
+
   palette:
     # Light mode
     - media: '(prefers-color-scheme: light)'

@@ -9,6 +9,8 @@ replacement library to generate fake data for your program. As it's designed to
 work well with different ORMs (Django, [SQLAlchemy](sqlalchemy.md), Mongo) it
 serves the purpose of building real objects for your tests.
 
+!!! note "If you use pydantic, [`pydantic-factories`](pydantic_factories.md) does all this automatically for you!"
+
 # Install
 
 ```bash

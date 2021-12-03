@@ -651,8 +651,6 @@ automate repetitive stuff.
     functionality. I tried using it but it didn't work for me, and I don't know
     if it works for other files.
 * A markdown formatter that fixes the indentation of lists.
-* A python library to automatically create [factoryboy](factoryboy.md) factories
-    using the schema of [pydantic](pydantic.md) models.
 * An e-reader support that could be fixed to the wall.
 
 # Dying plants

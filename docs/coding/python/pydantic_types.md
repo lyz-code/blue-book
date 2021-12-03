@@ -711,6 +711,94 @@ except ValidationError as e:
     """
 ```
 
+# [Using constrained strings in list attributes](https://stackoverflow.com/questions/66924001/conflict-between-pydantic-constr-and-mypy-checking)
+
+If you try to use:
+
+```python
+from pydantic import constr
+
+Regexp = constr(regex="^i-.*")
+
+class Data(pydantic.BaseModel):
+    regex: List[Regex]
+```
+
+You'll encounter the `Variable "Regexp" is not valid as a type [valid-type]`
+mypy error.
+
+There are a few ways to achieve this:
+
+## Using `typing.Annotated` with `pydantic.Field`
+
+Instead of using `constr` to specify the `regex` constraint, you can specify it
+as an argument to `Field` and then use it in combination with `typing.Annotated`:
+
+!!! warning "Until this [open
+issue](https://github.com/samuelcolvin/pydantic/issues/2551) is not solved, this
+won't work."
+
+!!! note "`typing.Annotated` is only available since Python 3.9. For older
+Python versions `typing_extensions.Annotated` can be used."
+
+```python
+import pydantic
+from pydantic import Field
+from typing import Annotated
+
+Regex = Annotated[str, Field(regex="^[0-9a-z_]*$")]
+
+class DataNotList(pydantic.BaseModel):
+    regex: Regex
+
+data = DataNotList(**{"regex": "abc"})
+print(data)
+# regex='abc'
+print(data.json())
+# {"regex": "abc"}
+```
+
+Mypy treats `Annotated[str, Field(regex="^[0-9a-z_]*$")]` as a type alias of
+`str`. But it also tells pydantic to do validation. This is described in the
+[pydantic
+docs](https://pydantic-docs.helpmanual.io/usage/schema/#typingannotated-fields).
+
+Unfortunately it does not currently work with the following:
+
+```python
+class Data(pydantic.BaseModel):
+    regex: List[Regex]
+```
+
+## Inheriting from pydantic.ConstrainedStr
+
+Instead of using `constr` to specify the regex constraint (which uses
+`pydantic.ConstrainedStr` internally), you can inherit from
+`pydantic.ConstrainedStr` directly:
+
+```python
+import re
+import pydantic
+from pydantic import Field
+from typing import List
+
+class Regex(pydantic.ConstrainedStr):
+    regex = re.compile("^[0-9a-z_]*$")
+
+class Data(pydantic.BaseModel):
+    regex: List[Regex]
+
+data = Data(**{"regex": ["abc", "123", "asdf"]})
+print(data)
+# regex=['abc', '123', 'asdf']
+print(data.json())
+# {"regex": ["abc", "123", "asdf"]}
+```
+
+Mypy accepts this happily and pydantic does correct validation. The type of
+`data.regex[i]` is `Regex`, but as `pydantic.ConstrainedStr` itself inherits
+from `str`, it can be used as a string in most places.
+
 # References
 
 * [Field types](https://pydantic-docs.helpmanual.io/usage/types)
