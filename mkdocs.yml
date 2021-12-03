@@ -93,7 +93,6 @@ nav:
               - NetworkX: networkx.md
               - Pandas: coding/python/pandas.md
               - Passpy: coding/python/passpy.md
-              - pdm: pdm.md
               - pexpect: pexpect.md
               - Pipenv: pipenv.md
               - Poetry: python_poetry.md
