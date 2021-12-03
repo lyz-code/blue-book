@@ -74,7 +74,7 @@ jinja2==3.0.3
     #   mkdocs-material
 jsmin==3.0.0
     # via mkdocs-minify-plugin
-keyring==23.3.0
+keyring==23.4.0
     # via twine
 markdown==3.3.6
     # via
@@ -99,7 +99,7 @@ mkdocs-autolinks-plugin @ git+git://github.com/lyz-code/mkdocs-autolinks-plugin.
     #   mkdocs-newsletter
 mkdocs-git-revision-date-localized-plugin==0.10.3
     # via -r requirements.in
-mkdocs-material==7.3.6
+mkdocs-material==8.0.3
     # via -r requirements.in
 mkdocs-material-extensions==1.0.3
     # via mkdocs-material
@@ -118,7 +118,7 @@ packaging==21.3
     #   bleach
     #   mkdocs
     #   setuptools-scm
-pkginfo==1.8.1
+pkginfo==1.8.2
     # via twine
 proselint==0.13.0
     # via -r requirements.in
@@ -142,7 +142,7 @@ python-dateutil==2.8.2
     #   mkdocs-newsletter
 python-gitlab==2.10.1
     # via python-semantic-release
-python-semantic-release==7.22.0
+python-semantic-release==7.23.0
     # via mkdocs-newsletter
 pytz==2021.3
     # via babel
@@ -187,9 +187,9 @@ tomlkit==0.7.0
     # via python-semantic-release
 tqdm==4.62.3
     # via twine
-twine==3.6.0
+twine==3.7.0
     # via python-semantic-release
-typing-extensions==4.0.0
+typing-extensions==4.0.1
     # via
     #   gitpython
     #   importlib-metadata
@@ -206,5 +206,5 @@ zipp==3.6.0
     # via importlib-metadata
 
 # The following packages are considered to be unsafe in a requirements file:
-setuptools==59.3.0
+setuptools==59.4.0
     # via setuptools-scm
