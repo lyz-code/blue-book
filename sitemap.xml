@@ -181,6 +181,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/goodconf/</loc>
+         <lastmod>2021-12-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/graylog/</loc>
          <lastmod>2021-12-03</lastmod>
          <changefreq>daily</changefreq>
@@ -321,6 +326,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/pipenv/</loc>
+         <lastmod>2021-12-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/process_automation/</loc>
          <lastmod>2021-12-03</lastmod>
          <changefreq>daily</changefreq>
@@ -332,6 +342,11 @@
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/prompt_toolkit_repl/</loc>
+         <lastmod>2021-12-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/pydantic_factories/</loc>
          <lastmod>2021-12-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -366,7 +381,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/python_package_management/</loc>
+         <lastmod>2021-12-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/python_plugin_system/</loc>
+         <lastmod>2021-12-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/python_poetry/</loc>
          <lastmod>2021-12-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
