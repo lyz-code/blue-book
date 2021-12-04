@@ -1,6 +1,9 @@
 /* 
- * timeago output is dynamic, which breaks when you print a page.
- * This ensures fallback to type "iso_date" when printing.
+ timeago output is dynamic, which breaks when you print a page.
+
+ This CSS is only included when type: timeago 
+ and ensures fallback to type "iso_date" when printing.
+ 
  */
 
 .git-revision-date-localized-plugin-iso_date { display: none }
