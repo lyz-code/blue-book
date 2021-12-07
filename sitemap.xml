@@ -276,6 +276,16 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/music_management/</loc>
+         <lastmod>2021-12-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/musicbrainz/</loc>
+         <lastmod>2021-12-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/networkx/</loc>
          <lastmod>2021-12-07</lastmod>
          <changefreq>daily</changefreq>
