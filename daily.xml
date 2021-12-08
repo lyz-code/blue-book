@@ -11,7 +11,7 @@
     <managingEditor>Lyz</managingEditor>
 
     
-    <pubDate>2021-12-04 06:37:59+00:00</pubDate>
+    <pubDate>2021-12-08 06:37:27+00:00</pubDate>
     <ttl>1440</ttl>
 
     
@@ -25,6 +25,16 @@
     
 
     
+    
+    <item><title>7th December 2021</title>
+      <author>Lyz</author>
+      <description>&lt;article class=&#34;md-content__inner md-typeset&#34;&gt; &lt;a class=&#34;md-content__button md-icon&#34; href=&#34;https://github.com/lyz-code/blue-book/edit/master/docs/newsletter/2021_12_07.md&#34; title=&#34;Edit this page&#34;&gt; &lt;svg viewbox=&#34;0 0 24 24&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z&#34;&gt;&lt;/path&gt;&lt;/svg&gt; &lt;/a&gt;  &lt;h2 id=&#34;life-management&#34;&gt;Life Management&lt;/h2&gt; &lt;h3 id=&#34;music-management&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/music_management/&#34;&gt;Music Management&lt;/a&gt;&lt;/h3&gt; &lt;ul&gt; &lt;li&gt;New: Introduce how I manage my music library.&lt;/li&gt; &lt;/ul&gt; &lt;h4 id=&#34;musicbrainz&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/musicbrainz/&#34;&gt;MusicBrainz&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;New: How to contribute to MusicBrainz.&lt;/p&gt; &lt;p&gt;&lt;a href=&#34;https://musicbrainz.org&#34;&gt;MusicBrainz&lt;/a&gt; is an open music encyclopedia that collects music metadata and makes it available to the public.&lt;/p&gt; &lt;p&gt;MusicBrainz aims to be:&lt;/p&gt; &lt;ul&gt; &lt;li&gt;The ultimate source of music information by allowing anyone to contribute and releasing the data under open licenses.&lt;/li&gt; &lt;li&gt;The universal lingua franca for music by providing a reliable and unambiguous form of music identification, enabling both people and machines to have meaningful conversations about music.&lt;/li&gt; &lt;/ul&gt; &lt;p&gt;Like Wikipedia, MusicBrainz is maintained by a global community of users and we want everyone — including you — to &lt;a href=&#34;https://musicbrainz.org/doc/How_to_Contribute&#34;&gt;participate and contribute&lt;/a&gt;.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;hr/&gt;  &lt;/article&gt;</description>
+      <link>https://lyz-code.github.io/blue-book/newsletter/2021_12_07/</link>
+      <pubDate>2021-12-08 06:37:27+00:00</pubDate>
+      <source url="https://lyz-code.github.io/blue-book/daily.xml">The Blue Book</source>
+      <guid isPermaLink="true">https://lyz-code.github.io/blue-book/newsletter/2021_12_07/</guid>
+      
+    </item>
     
     <item><title>3rd December 2021</title>
       <author>Lyz</author>
@@ -266,16 +276,6 @@ scrollback_pager_history_size 0
       <pubDate>2021-09-26 06:35:21+00:00</pubDate>
       <source url="https://lyz-code.github.io/blue-book/daily.xml">The Blue Book</source>
       <guid isPermaLink="true">https://lyz-code.github.io/blue-book/newsletter/2021_09_25/</guid>
-      
-    </item>
-    
-    <item><title>26th August 2021</title>
-      <author>Lyz</author>
-      <description>&lt;article class=&#34;md-content__inner md-typeset&#34;&gt; &lt;a class=&#34;md-content__button md-icon&#34; href=&#34;https://github.com/lyz-code/blue-book/edit/master/docs/newsletter/2021_08_26.md&#34; title=&#34;Edit this page&#34;&gt; &lt;svg viewbox=&#34;0 0 24 24&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z&#34;&gt;&lt;/path&gt;&lt;/svg&gt; &lt;/a&gt;  &lt;h2 id=&#34;activism&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/antitransphobia/&#34;&gt;Activism&lt;/a&gt;&lt;/h2&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;New: Introduce Anti-transphobia.&lt;/p&gt; &lt;p&gt;Anti-transphobia being reductionist is the opposition to the collection of ideas and phenomena that encompass a range of negative attitudes, feelings or actions towards transgender people or transness in general. Transphobia can include fear, aversion, hatred, violence, anger, or discomfort felt or expressed towards people who do not conform to social gender expectations. It is often expressed alongside homophobic views and hence is often considered an aspect of homophobia.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;New: &lt;a href=&#34;https://lyz-code.github.io/blue-book/antitransphobia/#terf&#34;&gt;Introduce arguments against terf ideology.&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/TERF&#34;&gt;TERF&lt;/a&gt; is an acronym for &lt;em&gt;trans-exclusionary radical feminist&lt;/em&gt;. The term originally applied to the minority of feminists that expressed transphobic sentiments such as the rejection of the assertion that trans women are women, the exclusion of trans women from women&#39;s spaces, and opposition to transgender rights legislation. The meaning has since expanded to refer more broadly to people with trans-exclusionary views who may have no involvement with radical feminism.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;hr/&gt;  &lt;/article&gt;</description>
-      <link>https://lyz-code.github.io/blue-book/newsletter/2021_08_26/</link>
-      <pubDate>2021-08-27 06:36:30+00:00</pubDate>
-      <source url="https://lyz-code.github.io/blue-book/daily.xml">The Blue Book</source>
-      <guid isPermaLink="true">https://lyz-code.github.io/blue-book/newsletter/2021_08_26/</guid>
       
     </item>
     
