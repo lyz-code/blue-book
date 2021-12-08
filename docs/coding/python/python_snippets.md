@@ -4,6 +4,48 @@ date: 20200717
 author: Lyz
 ---
 
+# [Capture the stdout of a function](https://stackoverflow.com/questions/16571150/how-to-capture-stdout-output-from-a-python-function-call)
+
+```python
+import io
+from contextlib import redirect_stdout
+
+f = io.StringIO()
+with redirect_stdout(f):
+    do_something(my_object)
+out = f.getvalue()
+```
+
+# [Make temporal
+directory](https://stackoverflow.com/questions/3223604/how-to-create-a-temporary-directory-and-get-its-path-file-name)
+
+```python
+import tempfile
+
+dirpath = tempfile.mkdtemp()
+```
+
+# [Change the working directory of
+a test](https://stackoverflow.com/questions/52900441/run-python-unittest-in-context-of-specific-directory)
+
+```python
+import unittest
+import os
+
+from src.main import get_cwd
+
+
+class TestMain(unittest.TestCase):
+
+    def test_get_cwd(self):
+        os.chdir('src')
+        print('testing get_cwd()')
+        current_dir = get_cwd()
+        self.assertIsNotNone(current_dir)
+        self.assertEqual(current_dir, 'src')
+```
+
+
 # [Remove a substring from the end of a string](https://stackoverflow.com/questions/1038824/how-do-i-remove-a-substring-from-the-end-of-a-string)
 
 On Python 3.9 and newer you can use the `removeprefix` and `removesuffix` methods to

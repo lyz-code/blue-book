@@ -4,6 +4,8 @@ date: 20201016
 author: Lyz
 ---
 
+!!! warning "Deprecated: Use [poetry](poetry.md) instead."
+
 [Pip-tools](https://github.com/jazzband/pip-tools) is a set of command line
 tools to help you keep your pip-based packages fresh, even when you've pinned
 them.

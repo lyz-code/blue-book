@@ -44,6 +44,15 @@ from git import Repo
 repo = Repo('existing/git/repo/path')
 ```
 
+## [Clone
+a repository](https://stackoverflow.com/questions/2472552/python-way-to-clone-a-git-repository)
+
+```python
+from git import Repo
+
+Repo.clone_from(git_url, repo_dir)
+```
+
 ## [Make a commit](https://gitpython.readthedocs.io/en/stable/tutorial.html#the-index-object)
 
 Given a `repo` object:

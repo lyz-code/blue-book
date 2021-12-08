@@ -130,13 +130,31 @@ your `pyproject.toml` file) and update the lock file with the new versions.
 (This is equivalent to deleting the `poetry.lock` file and running `install`
 again.)
 
-There is currently no way of updating your `pyproject.toml` dependency
-definitions so they match the latest version beyond your constrains. So if you
-have constrained a package to be `<2.0.0` and `3.0.0` is out there, you will
-have to manually edit the `pyproject.toml` so that it accepts that new version.
-There is no automatic process that does this. At least you can use `poetry show
---outdated` and it will tell you which is the new version, and if the output is
-zero, you're sure you're on the last versions.
+There is currently no way of [updating your `pyproject.toml` dependency
+definitions](https://github.com/python-poetry/poetry/issues/461) so they match
+the latest version beyond your constrains. So if you have constrained a package
+to be `<2.0.0` and `3.0.0` is out there, you will have to manually edit the
+`pyproject.toml` so that it accepts that new version.  There is no automatic
+process that does this. At least you can use `poetry show --outdated` and it
+will tell you which is the new version, and if the output is zero, you're sure
+you're on the last versions.
+
+Some workarounds exists though, if you run `poetry add dependency@latest` it
+will update the lock to the latest. MousaZeidBaker made
+[poetryup](https://github.com/MousaZeidBaker/poetryup), a tool that is able to
+update the requirements to the latest version.
+
+### Debugging why a package is not updated to the latest version
+
+Sometimes packages are not updated with `poetry update` or `poetryup`, to debug
+why, you need to understand if some package is setting a constrain that prevents
+the upgrade. To do that, first check the outdated packages with `poetry show -o`
+and for each of them:
+
+* [Check what packages are using the
+    dependency](#checking-what-package-is-using-a-dependency).
+* Search if there is an issue asking the maintainers to update their
+    dependencies, if it doesn't exist, create it.
 
 ## [Removing a dependency](https://python-poetry.org/docs/cli/#remove)
 
@@ -494,6 +512,65 @@ poetry-demo
 
 If you want to use the `src` project structure, pass the `--src` flag.
 
+## [Checking what package is using a dependency](https://github.com/python-poetry/poetry/pull/2086)
+
+Even though `poetry` [is supposed to
+show](https://github.com/python-poetry/poetry/issues/1906) the information of
+which packages depend on a specific package with `poetry show package`, I don't
+see it.
+
+Luckily [snejus made a small script that shows the
+information](https://github.com/python-poetry/poetry/pull/2086). Save it
+somewhere in your `PATH`.
+
+```bash
+_RED='\\\\e[1;31m&\\\\e[0m'
+_GREEN='\\\\e[1;32m&\\\\e[0m'
+_YELLOW='\\\\e[1;33m&\\\\e[0m'
+_format () {
+    tr -d '"' |
+        sed "s/ \+>[^ ]* \+<.*/$_YELLOW/" | # ~ / ^ / < >= ~ a window
+        sed "s/ \+>[^ ]* *$/$_GREEN/" |     # >= no upper limit
+        sed "/>/ !s/<.*$/$_RED/" |          # < ~ upper limit
+        sed "/>\|</ !s/ .*/  $_RED/"        # == ~ locked version
+}
+
+_requires () {
+    sed -n "/^name = \"$1\"/I,/\[\[package\]\]/{
+                /\[package.dep/,/^$/{
+                    /^[^[]/ {
+                        s/= {version = \(\"[^\"]*\"\).*/, \1/p;
+                        s/ =/,/gp
+             }}}" poetry.lock |
+        sed "/,.*,/!s/</,</; s/^[^<]\+$/&,/" |
+        column -t -s , | _format
+}
+
+_required_by () {
+    sed -n "/\[metadata\]/,//d;
+            /\[package\]\|\[package\.depen/,/^$/H;
+            /^name\|^$1 = /Ip" poetry.lock |
+        sed -n "/^$1/I{x;G;p};h" |
+        sed 's/.*"\(.*\)".*/\1/' |
+        sed '$!N;s/\n/ /' |
+        column -t | _format
+}
+
+deps() {
+    echo
+    echo -e "\e[1mREQUIRES\e[0m"
+    _requires "$1" | xargs -i echo -e "\t{}"
+    echo
+    echo -e "\e[1mREQUIRED BY\e[0m"
+    _required_by "$1" | xargs -i echo -e "\t{}"
+    echo
+}
+
+deps $1
+```
+
+
+
 # [Configuration](https://python-poetry.org/docs/configuration/)
 
 Poetry can be configured via the `config` command (see more about its usage here)
@@ -595,6 +672,43 @@ export POETRY_PYPI_TOKEN_PYPI=my-token
 export POETRY_HTTP_BASIC_PYPI_USERNAME=username
 export POETRY_HTTP_BASIC_PYPI_PASSWORD=password
 ```
+
+I've tried setting up the keyring but I get the next error:
+
+```python
+  UploadError
+
+  HTTP Error 403: Invalid or non-existent authentication information. See https://pypi.org/help/#invalid-auth for more information.
+
+  at ~/.venvs/autodev/lib/python3.9/site-packages/poetry/publishing/uploader.py:216 in _upload
+      212│                     self._register(session, url)
+      213│                 except HTTPError as e:
+      214│                     raise UploadError(e)
+      215│
+    → 216│             raise UploadError(e)
+      217│
+      218│     def _do_upload(
+      219│         self, session, url, dry_run=False
+      220│     ):  # type: (requests.Session, str, Optional[bool]) -> None
+```
+
+The keyring was configured with:
+
+```bash
+poetry config pypi-token.pypi internet/pypi.token
+```
+
+And I'm sure that the keyring works because `python -m keyring get internet
+pypi.token` works.
+
+I've also tried with the environmental variable `POETRY_PYPI_TOKEN_PYPI` but [it
+didn't work either](https://github.com/python-poetry/poetry/issues/2359). And
+setting the configuration as `poetry config http-basic.pypi __token__
+internet/pypi.token`.
+
+Finally I had to hardcode the token with `poetry config pypi-token.pypi "$(pass
+show internet/pypi.token)`. Although I can't find where it's storing the value
+:S.
 
 # References
 
