@@ -121,6 +121,14 @@ cruft exit with a non-0 code should any diff is found. You can combine this flag
 with the `skip` section of your `.cruft.json` to make stricter CI checks that
 ensures any improvement to the template is always submitted upstream.
 
+# Issues
+
+* [Save config in the
+    pyproject.toml](https://github.com/cruft/cruft/issues/140): Update the
+    template once it's supported.
+
 # References
 
 * [Docs](https://cruft.github.io/cruft/)
+* [Git](https://github.com/cruft/cruft/)
+* [Issues](https://github.com/cruft/cruft/issues)

@@ -4,6 +4,15 @@ date: 20200717
 author: Lyz
 ---
 
+# [Copy a directory](https://stackoverflow.com/questions/1868714/how-do-i-copy-an-entire-directory-of-files-into-an-existing-directory-using-pyth/22331852)
+
+```python
+import shutil
+
+shutil.copytree('bar', 'foo')
+```
+
+
 # [Capture the stdout of a function](https://stackoverflow.com/questions/16571150/how-to-capture-stdout-output-from-a-python-function-call)
 
 ```python
@@ -25,26 +34,29 @@ import tempfile
 dirpath = tempfile.mkdtemp()
 ```
 
-# [Change the working directory of
-a test](https://stackoverflow.com/questions/52900441/run-python-unittest-in-context-of-specific-directory)
+# [Change the working directory of a test](https://stackoverflow.com/questions/62044541/change-pytest-working-directory-to-test-case-directory)
+The following function-level fixture will change to the test case directory, run
+the test (`yield`), then change back to the calling directory to avoid
+side-effects.
 
 ```python
-import unittest
-import os
-
-from src.main import get_cwd
-
-
-class TestMain(unittest.TestCase):
-
-    def test_get_cwd(self):
-        os.chdir('src')
-        print('testing get_cwd()')
-        current_dir = get_cwd()
-        self.assertIsNotNone(current_dir)
-        self.assertEqual(current_dir, 'src')
+@pytest.fixture(name="change_test_dir")
+def change_test_dir_(request: SubRequest) -> Any:
+    os.chdir(request.fspath.dirname)
+    yield
+    os.chdir(request.config.invocation_dir)
 ```
 
+* `request` is a built-in pytest fixture
+* `fspath` is the `LocalPath` to the test module being executed
+* `dirname` is the directory of the test module
+* `request.config.invocationdir` is the folder from which pytest was executed
+* `request.config.rootdir` is the pytest root, doesn't change based on where you
+    run pytest. Not used here, but could be useful.
+
+Any processes that are kicked off by the test will use the test case folder as
+their working directory and copy their logs, outputs, etc. there, regardless of
+where the test suite was executed.
 
 # [Remove a substring from the end of a string](https://stackoverflow.com/questions/1038824/how-do-i-remove-a-substring-from-the-end-of-a-string)
 

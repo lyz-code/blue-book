@@ -99,7 +99,6 @@ for more information.
                 os.unlink(path)
     ```
 
-
 ## Add some text to a file if a condition is met
 
 Use jinja2 conditionals. Note the `-` at the end of the conditional opening,

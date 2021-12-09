@@ -122,6 +122,22 @@ Inspect it with the `repo.head.reference.log()`, which contains a list of
     `datetime.datetime.fromtimestamp` method
 * `message`: Message as a string.
 
+## [Create
+a branch](https://gitpython.readthedocs.io/en/stable/tutorial.html#advanced-repo-usage)
+
+```python
+new_branch = repo.create_head('new_branch')
+assert repo.active_branch != new_branch # It's not checked out yet
+repo.head.reference = new_branch
+assert not repo.head.is_detached
+```
+
+## Get the latest commit of a repository
+
+```python
+repo.head.object.hexsha
+```
+
 # Testing
 
 There is no testing functionality, you need to either Mock, build fake data or
