@@ -99,7 +99,7 @@ mkdocs-autolinks-plugin @ git+git://github.com/lyz-code/mkdocs-autolinks-plugin.
     #   mkdocs-newsletter
 mkdocs-git-revision-date-localized-plugin==0.11
     # via -r requirements.in
-mkdocs-material==8.1.0
+mkdocs-material==8.1.1
     # via -r requirements.in
 mkdocs-material-extensions==1.0.3
     # via mkdocs-material
@@ -152,7 +152,7 @@ pyyaml==6.0
     #   pyyaml-env-tag
 pyyaml-env-tag==0.1
     # via mkdocs
-readme-renderer==31.0
+readme-renderer==32.0
     # via twine
 requests==2.26.0
     # via
@@ -181,7 +181,7 @@ smmap==5.0.0
     # via gitdb
 soupsieve==2.3.1
     # via beautifulsoup4
-tomli==1.2.2
+tomli==2.0.0
     # via setuptools-scm
 tomlkit==0.7.0
     # via python-semantic-release
