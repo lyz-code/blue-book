@@ -26,7 +26,7 @@ click-log==0.3.2
     # via python-semantic-release
 colorama==0.4.4
     # via twine
-cryptography==36.0.0
+cryptography==36.0.1
     # via secretstorage
 csscompressor==0.9.5
     # via mkdocs-minify-plugin
@@ -97,7 +97,7 @@ mkdocs-autolinks-plugin @ git+git://github.com/lyz-code/mkdocs-autolinks-plugin.
     # via
     #   -r requirements.in
     #   mkdocs-newsletter
-mkdocs-git-revision-date-localized-plugin==0.11
+mkdocs-git-revision-date-localized-plugin==0.11.1
     # via -r requirements.in
 mkdocs-material==8.1.1
     # via -r requirements.in
