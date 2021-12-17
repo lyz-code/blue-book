@@ -55,6 +55,7 @@ Curated list of emojis to copy paste.
 
 ```
 (╥﹏╥)
+(ಥ﹏ಥ)
 ```
 
 # Excited

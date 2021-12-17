@@ -35,6 +35,28 @@ simplifies creating a package, managing its dependencies, and publishing it.
 Compared to Pipenv, Poetry's separate add and install commands are more
 explicit, and it's faster for everything except for a full dependency install.
 
+# [Solver](https://iscinumpy.dev/post/bound-version-constraints/#solver)
+
+A Solver tries to find a working set of dependencies that all agree with each
+other. By looking back in time, it’s happy to solve very old versions of
+packages if newer ones are supposed to be incompatible. This can be helpful, but
+is slow, and also means you can easily get a very ancient set of packages when
+you thought you were getting the latest versions.
+
+Pip’s solver changed in version 20.3 to become significantly smarter. The old
+solver would ignore incompatible transitive requirements much more often than
+the new solver does. This means that an upper cap in a library might have been
+ignored before, but is much more likely to break things or change the solve
+now.
+
+Poetry has a unique and very strict (and slower) solver that goes even farther
+hunting for solutions. It *forces* you to cap Python if a dependency does. One
+key difference is that Poetry has the original environment specification to work
+with every time, while pip does not know what the original environment
+constraints were. This enables Poetry to roll back a dependency on a subsequent
+solve, while pip does not know what the original requirements were and so does
+not know if an older package is valid when it encounters a new cap.
+
 # Poetry
 
 Features I like:
@@ -60,6 +82,18 @@ Features I like:
 * Nice dependency view with `poetry show`.
 * Nice dependency search interface with `poetry search`.
 
+Things I don't like that much:
+
+* It does upper version capping by default, which is becoming [a big
+    problem](versioning.md#upper-version-pinning) in the Python environment.
+
+    This is specially useless when you add dependencies that follow
+    [CalVer](calendar_versioning.md). `poetry add` packaging will still do
+    `^21` for the version it adds. You shouldn’t be capping versions, but you
+    really shouldn’t be capping CalVer.
+
+    It's equally troublesome that it upper pins [the python
+    version](versioning.md#pinning-the-python-version-is-special).
 
 # References
 

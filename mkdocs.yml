@@ -54,6 +54,14 @@ nav:
           - fitness_band.md
           - Amazfit Band 5: amazfit_band_5.md
   - Coding:
+      - Generic Coding Practices:
+          - Program Versioning:
+              - versioning.md
+              - Semantic Versioning: semantic_versioning.md
+              - Calendar Versioning: calendar_versioning.md
+          - Keep a Changelog: changelog.md
+          - Writing good documentation: documentation.md
+          - TDD: coding/tdd.md
       - Python:
           - python.md
           - Project Template:
@@ -146,8 +154,6 @@ nav:
               - Parametrized testing: coding/python/pytest_parametrized_testing.md
               - Pytest-cases: coding/python/pytest_cases.md
           - Python Snippets: coding/python/python_snippets.md
-      - Writing good documentation: documentation.md
-      - TDD: coding/tdd.md
       - JSON: coding/json/json.md
       - SQL: coding/sql/sql.md
       - SQLite: sqlite.md
@@ -359,6 +365,7 @@ nav:
           - drawing/drawing.md
           - Exercise Pool: drawing/exercise_pool.md
       - Origami: origami.md
+      - Fun: fun.md
   - Psychology:
       - The XY Problem: psychology/the_xy_problem.md
   - Botany:

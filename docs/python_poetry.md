@@ -130,6 +130,10 @@ your `pyproject.toml` file) and update the lock file with the new versions.
 (This is equivalent to deleting the `poetry.lock` file and running `install`
 again.)
 
+The main problem is that `poetry add` does [upper pinning of
+dependencies](versioning.md#upper-version-pinning) by default, which is
+a **really bad idea**.
+
 There is currently no way of [updating your `pyproject.toml` dependency
 definitions](https://github.com/python-poetry/poetry/issues/461) so they match
 the latest version beyond your constrains. So if you have constrained a package
@@ -142,7 +146,12 @@ you're on the last versions.
 Some workarounds exists though, if you run `poetry add dependency@latest` it
 will update the lock to the latest. MousaZeidBaker made
 [poetryup](https://github.com/MousaZeidBaker/poetryup), a tool that is able to
-update the requirements to the latest version.
+update the requirements to the latest version with `poetryup --latest` (although
+it [still has some bugs](https://github.com/MousaZeidBaker/poetryup/issues/21)).
+
+Again, you should not be trying to do this, it's better to improve
+[how you manage your
+dependencies](versioning.md#deciding-how-to-manage-the-versions-of-your-dependencies).
 
 ### Debugging why a package is not updated to the latest version
 

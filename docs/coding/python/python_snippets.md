@@ -4,6 +4,28 @@ date: 20200717
 author: Lyz
 ---
 
+# [IPv4 regular expression](https://stackoverflow.com/questions/55928637/regex-for-matching-ipv4-addresses)
+
+```python
+regex = re.compile(
+    r"(?<![-\.\d])(?:0{0,2}?[0-9]\.|1\d?\d?\.|2[0-5]?[0-5]?\.){3}"
+    r'(?:0{0,2}?[0-9]|1\d?\d?|2[0-5]?[0-5]?)(?![\.\d])"^[0-9]{1,3}*$'
+)
+```
+
+# [Remove the elements of a list from
+another](https://stackoverflow.com/questions/4211209/remove-all-the-elements-that-occur-in-one-list-from-another)
+
+```python
+>>> set([1,2,6,8]) - set([2,3,5,8])
+set([1, 6])
+```
+
+Note, however, that sets do not preserve the order of elements, and cause any
+duplicated elements to be removed. The elements also need to be hashable. If
+these restrictions are tolerable, this may often be the simplest and highest
+performance option.
+
 # [Copy a directory](https://stackoverflow.com/questions/1868714/how-do-i-copy-an-entire-directory-of-files-into-an-existing-directory-using-pyth/22331852)
 
 ```python

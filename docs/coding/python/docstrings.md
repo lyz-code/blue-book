@@ -147,6 +147,73 @@ Raises
     (because this would paradoxically make behavior under violation of the API
     part of the API).
 
+# Tests docstrings
+
+## Without template
+
+[jml has very good tips on writing test's
+docstrings](https://jml.io/pages/test-docstrings.html):
+
+If you’re struggling to write docstrings for your tests, here’s a handy five-step guide:
+
+* Write the first docstring that comes to mind. It will almost certainly be:
+
+    ```python
+    """Test that input is parsed correctly."""
+    ```
+
+* Get rid of “Test that” or “Check that”. We know it’s a test.
+
+    ```python
+    """Input should be parsed correctly."""
+    ```
+
+* Seriously?! Why’d you have to go and add “should”? It’s a test, it’s all about “should”.
+
+    ```python
+    """Input is parsed correctly."""
+    ```
+
+* “Correctly”, “properly”, and “as we expect” are all redundant. Axe them too.
+
+    ```python
+    """Input is parsed."""
+    ```
+
+* Look at what’s left. Is it saying anything at all? If so, great. If not,
+    consider adding something specific about the test behaviour and perhaps even
+    why it’s desirable behaviour to have.
+
+    ```python
+    """
+    Input is parsed into an immutable dict according to the config
+    schema, so we get config info without worrying about input
+    validation all the time.
+    """
+    ```
+
+## [Given When Then](https://martinfowler.com/bliki/GivenWhenThen.html)
+
+Given-When-Then is a style of representing test. It's an approach developed as
+part of Behavior-Driven Development (BDD).  It appears as a structuring approach
+for many testing frameworks such as Cucumber. You can also look at it as
+a reformulation of the Four-Phase Test pattern.
+
+The essential idea is to break down writing a scenario (or test) into three
+sections:
+
+* The *given* part describes the state of the world before you begin the
+    behavior you're specifying in this scenario. You can think of it as the
+    pre-conditions to the test.
+* The *when* section is that behavior that you're specifying.
+* Finally the *then* section describes the changes you expect due to the
+    specified behavior.
+
+I already implement this test structure with the [Arrange, Act,
+Assert](https://xp123.com/articles/3a-arrange-act-assert/) structure, so it made
+sense to use it in the docstring too. The side effects is that you repeat a lot
+of prose where a single line would suffice.
+
 # Automatic documentation generation
 
 Use the [mkdocstrings](mkdocstrings.md) plugin to automatically generate the

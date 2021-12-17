@@ -801,6 +801,111 @@ def test_example():
     assert random.choice([True, False])
 ```
 
+# [Capture deprecation warnings](https://docs.pytest.org/en/latest/how-to/capture-warnings.html)
+
+Python and its ecosystem does not have an assumption of strict SemVer, and has
+a tradition of providing deprecation warnings. If you have good CI, you should
+be able to catch warnings even before your users see them. Try the following
+pytest configuration:
+
+```toml
+[tool.pytest.ini_options]
+filterwarnings = ["error"]
+```
+
+This will turn warnings into errors and allow your CI to break before users break.
+
+You can ignore specific warnings as well. For example, the configuration below
+will ignore all user warnings and specific deprecation warnings matching
+a regex, but will transform all other warnings into errors.
+
+```toml
+[tool.pytest.ini_options]
+filterwarnings = [
+    "error",
+    "ignore::UserWarning",
+    # note the use of single quote below to denote "raw" strings in TOML
+    'ignore:function ham\(\) is deprecated:DeprecationWarning',
+]
+```
+
+When a warning matches more than one option in the list, the action for the last
+matching option is performed.
+
+## [Ensuring code triggers a deprecation warning](https://docs.pytest.org/en/latest/how-to/capture-warnings.html#ensuring-code-triggers-a-deprecation-warning)
+
+You can also use pytest.deprecated_call() for checking that a certain function
+call triggers a `DeprecationWarning` or `PendingDeprecationWarning`:
+
+```python
+import pytest
+
+def test_myfunction_deprecated():
+    with pytest.deprecated_call():
+        myfunction(17)
+```
+
+## [Asserting warnings with the warns function](https://docs.pytest.org/en/latest/how-to/capture-warnings.html#warns)
+
+You can check that code raises a particular warning using pytest.warns(), which
+works in a similar manner to raises:
+
+```python
+import warnings
+import pytest
+
+def test_warning():
+    with pytest.warns(UserWarning):
+        warnings.warn("my warning", UserWarning)
+```
+
+The test will fail if the warning in question is not raised. The keyword
+argument match to assert that the exception matches a text or regex:
+
+```python
+>>> with pytest.warns(UserWarning, match='must be 0 or None'):
+...     warnings.warn("value must be 0 or None", UserWarning)
+```
+
+## [Recording warnings](https://docs.pytest.org/en/latest/how-to/capture-warnings.html#recwarn)
+
+You can record raised warnings either using `pytest.warns()` or with the
+`recwarn` fixture.
+
+To record with `pytest.warns()` without asserting anything about the warnings,
+pass no arguments as the expected warning type and it will default to a generic
+Warning:
+
+```python
+with pytest.warns() as record:
+    warnings.warn("user", UserWarning)
+    warnings.warn("runtime", RuntimeWarning)
+
+assert len(record) == 2
+assert str(record[0].message) == "user"
+assert str(record[1].message) == "runtime"
+```
+
+The `recwarn` fixture will record warnings for the whole function:
+
+```python
+import warnings
+
+def test_hello(recwarn):
+    warnings.warn("hello", UserWarning)
+    assert len(recwarn) == 1
+    w = recwarn.pop(UserWarning)
+    assert issubclass(w.category, UserWarning)
+    assert str(w.message) == "hello"
+    assert w.filename
+    assert w.lineno
+```
+
+Both `recwarn` and `pytest.warns()` return the same interface for recorded
+warnings: a `WarningsRecorder` instance. To view the recorded warnings, you can
+iterate over this instance, call `len` on it to get the number of recorded
+warnings, or index into it to get a particular recorded warning.
+
 # pytest integration with Vim
 
 Integrating pytest into your Vim workflow enhances your productivity while
