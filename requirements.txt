@@ -30,7 +30,7 @@ cryptography==36.0.1
     # via secretstorage
 csscompressor==0.9.5
     # via mkdocs-minify-plugin
-deepdiff==5.6.0
+deepdiff==5.7.0
     # via mkdocs-newsletter
 docutils==0.18.1
     # via readme-renderer
@@ -206,5 +206,5 @@ zipp==3.6.0
     # via importlib-metadata
 
 # The following packages are considered to be unsafe in a requirements file:
-setuptools==59.6.0
+setuptools==59.7.0
     # via setuptools-scm
