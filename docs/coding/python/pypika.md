@@ -598,5 +598,5 @@ Query.from_(table).delete().where(table.id == id)
 
 # References
 
-* [Docs](http://pypika.readthedocs.io/en/latest/)
+* [Docs](https://pypika.readthedocs.io/en/latest/)
 * [Source](https://github.com/kayak/pypika)

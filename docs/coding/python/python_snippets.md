@@ -4,6 +4,29 @@ date: 20200717
 author: Lyz
 ---
 
+# Change the logging level of a library
+
+For example to change the logging level of the library `sh` use:
+
+```python
+sh_logger = logging.getLogger("sh")
+sh_logger.setLevel(logging.WARN)
+```
+
+# [Get all subdirectories of a directory](https://stackoverflow.com/questions/973473/getting-a-list-of-all-subdirectories-in-the-current-directory)
+
+```python
+[x[0] for x in os.walk(directory)]
+```
+
+# [Move a file](https://stackoverflow.com/questions/8858008/how-to-move-a-file-in-python)
+
+```python
+import os
+
+os.rename("path/to/current/file.foo", "path/to/new/destination/for/file.foo")
+```
+
 # [IPv4 regular expression](https://stackoverflow.com/questions/55928637/regex-for-matching-ipv4-addresses)
 
 ```python
@@ -34,6 +57,13 @@ import shutil
 shutil.copytree('bar', 'foo')
 ```
 
+# [Copy a file](https://stackabuse.com/how-to-copy-a-file-in-python/)
+
+```python
+import shutil
+
+shutil.copyfile(src_file, dest_file)
+```
 
 # [Capture the stdout of a function](https://stackoverflow.com/questions/16571150/how-to-capture-stdout-output-from-a-python-function-call)
 

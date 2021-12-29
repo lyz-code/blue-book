@@ -91,6 +91,10 @@ sh.ifconfig(_out="/tmp/interfaces")
 
 ## Interacting with programs that ask input from the user
 
+!!! note
+    Check [this issue](https://github.com/amoffat/sh/issues/543), as it
+    looks like a cleaner solution
+
 `sh` allows you to interact with programs that asks for user input. The
 documentation is not clear on how to do it, but between the [function
 callbacks](https://amoffat.github.io/sh/sections/redirection.html#function-callback)
@@ -162,6 +166,46 @@ regular expression matches what we want, sh will inject the desired value.
 
 If the output never matches the regular expression, you'll enter an endless
 loop, so you need to know before hand all the possible user input prompts.
+
+# [Testing](https://amoffat.github.io/sh/sections/faq.html#how-do-i-patch-sh-in-my-tests)
+
+`sh` can be patched in your tests the typical way, with `unittest.mock.patch()`:
+
+```python
+from unittest.mock import patch
+import sh
+
+def get_something():
+    return sh.pwd()
+
+@patch("sh.pwd", create=True)
+def test_something(pwd):
+    pwd.return_value = "/"
+    assert get_something() == "/"
+```
+
+The important thing to note here is that `create=True` is set. This is required
+because `sh` is a bit magical and patch will fail to find the `pwd` command as an
+attribute on the `sh` module.
+
+You may also patch the `Command` class:
+
+```python
+from unittest.mock import patch
+import sh
+
+def get_something():
+    pwd = sh.Command("pwd")
+    return pwd()
+
+@patch("sh.Command")
+def test_something(Command):
+    Command().return_value = "/"
+    assert get_something() == "/"
+```
+
+Notice here we do not need `create=True`, because `Command` is not an
+automatically generated object on the `sh` module (it actually exists).
 
 # References
 

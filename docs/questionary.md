@@ -77,6 +77,23 @@ questions = [
 questionary.prompt(questions)
 ```
 
+### [Conditionally skip questions](https://questionary.readthedocs.io/en/stable/pages/advanced.html#conditionally-skip-questions)
+
+Sometimes it is helpful to be able to skip a question based on a condition. To
+avoid the need for an if around the question, you can pass the condition when
+you create the question:
+
+```python
+import questionary
+
+DISABLED = True
+response = questionary.confirm("Are you amazed?").skip_if(DISABLED, default=True).ask()
+```
+
+If the condition (in this case `DISABLED`) is `True`, the question will be
+skipped and the default value gets returned, otherwise the user will be prompted
+as usual and the default value will be ignored.
+
 ## [Question types](https://questionary.readthedocs.io/en/stable/pages/types.html)
 
 
@@ -111,6 +128,24 @@ question types:
 
 Check the [examples](https://github.com/tmbo/questionary/tree/master/examples) to see them
 in action and how to use them.
+
+# Styling
+
+## [Don't highlight the selected option by default](https://github.com/tmbo/questionary/issues/195)
+
+If you don't want to highlight the default choice in the `select` question use
+the next style:
+
+```python
+from questionary import Style
+
+choice = select(
+    "Question title: ",
+    choices=['a', 'b', 'c'],
+    default='a',
+    style=Style([("selected", "noreverse")]),
+).ask()
+```
 
 # Testing
 

@@ -182,8 +182,7 @@ ON books.id = reviews.book_id
 
 It will return many lines.
 
-## [Many to many
-join](https://lornajane.net/posts/2011/inner-vs-outer-joins-on-a-many-to-many-relationship)
+## [Many to many join](https://lornajane.net/posts/2011/inner-vs-outer-joins-on-a-many-to-many-relationship)
 
 ```sql
 SELECT users.id, books.id

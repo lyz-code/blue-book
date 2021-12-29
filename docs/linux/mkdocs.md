@@ -534,6 +534,9 @@ You can see a full example
 
 Once they are closed:
 
+* [Mkdocs material 8.1.3 broke mkdocs-newsletter nav section
+    building](https://github.com/oprypin/mkdocs-section-index/issues/10), pin it
+    to `mkdocs-material<8.1.3` in your requirements until it's solved.
 * MermaidJS material theme support. Once it's released we need to:
     * Migrate the projects that are using mkdocs-mermaid2-plugin
     * Update the [mermaidjs](#mermaidjs) docs.
