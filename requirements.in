@@ -3,8 +3,7 @@ proselint
 gitdb2
 mkdocs-git-revision-date-localized-plugin
 mkdocs-minify-plugin
-# Until https://github.com/oprypin/mkdocs-section-index/issues/10 is solved
-mkdocs-material<8.1.3
+mkdocs-material
 mkdocs-section-index
 pymdown-extensions
 git+git://github.com/lyz-code/mkdocs-autolinks-plugin.git
