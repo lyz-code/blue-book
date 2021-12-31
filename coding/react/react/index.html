@@ -15,8 +15,8 @@ rm src/*
 <span class=nd>@app</span><span class=o>.</span><span class=n>route</span><span class=p>(</span><span class=s1>&#39;/api/time&#39;</span><span class=p>)</span>
 <span class=k>def</span> <span class=nf>get_current_time</span><span class=p>():</span>
     <span class=k>return</span> <span class=p>{</span><span class=s1>&#39;time&#39;</span><span class=p>:</span> <span class=n>time</span><span class=o>.</span><span class=n>time</span><span class=p>()}</span>
-</code></pre></div></p> </li> <li> <p>Create the <code>.flaskenv</code> file. <div class=highlight><pre><span></span><code><span class=na>FLASK_APP</span><span class=o>=</span><span class=s>api/api.py</span>
-<span class=na>FLASK_ENV</span><span class=o>=</span><span class=s>development</span>
+</code></pre></div></p> </li> <li> <p>Create the <code>.flaskenv</code> file. <div class=highlight><pre><span></span><code><span class=na>FLASK_APP</span><span class=o>=</span><span class=s>api/api.py</span><span class=w></span>
+<span class=na>FLASK_ENV</span><span class=o>=</span><span class=s>development</span><span class=w></span>
 </code></pre></div></p> </li> <li>Make sure everything is alright. <div class=highlight><pre><span></span><code>flask run
 </code></pre></div></li> </ul> <h2 id=the-basics>The basics<a class=headerlink href=#the-basics title="Permanent link">⚑</a></h2> <p>Components tell React what to show on the screen. When the data changes, React will efficiently update and re-render the components.</p> <div class=highlight><pre><span></span><code><span class=kd>class</span> <span class=nx>ShoppingList</span> <span class=k>extends</span> <span class=nx>React</span><span class=p>.</span><span class=nx>Component</span> <span class=p>{</span>
   <span class=nx>render</span><span class=p>()</span> <span class=p>{</span>

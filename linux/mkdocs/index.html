@@ -6,147 +6,147 @@
     pymdown-extensions <span class=se>\</span>
     mkdocs-git-revision-date-localized-plugin
 </code></pre></div> </li> <li> <p>Create the <code>docs</code> repository.</p> <div class=highlight><pre><span></span><code>mkdocs new docs
-</code></pre></div> </li> <li> <p>Although there are <a href=https://www.mkdocs.org/user-guide/styling-your-docs/ >several themes</a>, I usually use the <a href=https://squidfunk.github.io/mkdocs-material>material</a> one. I won't dive into the different options, just show a working template of the <code>mkdocs.yaml</code> file.</p> <div class=highlight><pre><span></span><code><span class=nt>site_name</span><span class=p>:</span> <span class="p p-Indicator">{{</span> <span class=nv>site_name</span> <span class="p p-Indicator">}}</span>
-<span class=nt>site_author</span><span class=p>:</span> <span class="p p-Indicator">{{</span> <span class=nv>your_name</span> <span class="p p-Indicator">}}</span>
-<span class=nt>site_url</span><span class=p>:</span> <span class="p p-Indicator">{{</span> <span class=nv>site_url</span> <span class="p p-Indicator">}}</span>
-<span class=nt>nav</span><span class=p>:</span>
-  <span class="p p-Indicator">-</span> <span class=nt>Introduction</span><span class=p>:</span> <span class=s>&#39;index.md&#39;</span>
-  <span class="p p-Indicator">-</span> <span class=nt>Basic Usage</span><span class=p>:</span> <span class=s>&#39;basic_usage.md&#39;</span>
-  <span class="p p-Indicator">-</span> <span class=nt>Configuration</span><span class=p>:</span> <span class=s>&#39;configuration.md&#39;</span>
-  <span class="p p-Indicator">-</span> <span class=nt>Update</span><span class=p>:</span> <span class=s>&#39;update.md&#39;</span>
-  <span class="p p-Indicator">-</span> <span class=nt>Advanced Usage</span><span class=p>:</span>
-    <span class="p p-Indicator">-</span> <span class=nt>Projects</span><span class=p>:</span> <span class=s>&quot;projects.md&quot;</span>
-    <span class="p p-Indicator">-</span> <span class=nt>Tags</span><span class=p>:</span> <span class=s>&quot;tags.md&quot;</span>
+</code></pre></div> </li> <li> <p>Although there are <a href=https://www.mkdocs.org/user-guide/styling-your-docs/ >several themes</a>, I usually use the <a href=https://squidfunk.github.io/mkdocs-material>material</a> one. I won't dive into the different options, just show a working template of the <code>mkdocs.yaml</code> file.</p> <div class=highlight><pre><span></span><code><span class=nt>site_name</span><span class=p>:</span><span class=w> </span><span class="p p-Indicator">{{</span><span class=w> </span><span class=nv>site_name</span><span class=w> </span><span class="p p-Indicator">}}</span><span class=w></span>
+<span class=nt>site_author</span><span class=p>:</span><span class=w> </span><span class="p p-Indicator">{{</span><span class=w> </span><span class=nv>your_name</span><span class=w> </span><span class="p p-Indicator">}}</span><span class=w></span>
+<span class=nt>site_url</span><span class=p>:</span><span class=w> </span><span class="p p-Indicator">{{</span><span class=w> </span><span class=nv>site_url</span><span class=w> </span><span class="p p-Indicator">}}</span><span class=w></span>
+<span class=nt>nav</span><span class=p>:</span><span class=w></span>
+<span class=w>  </span><span class="p p-Indicator">-</span><span class=w> </span><span class=nt>Introduction</span><span class=p>:</span><span class=w> </span><span class=s>&#39;index.md&#39;</span><span class=w></span>
+<span class=w>  </span><span class="p p-Indicator">-</span><span class=w> </span><span class=nt>Basic Usage</span><span class=p>:</span><span class=w> </span><span class=s>&#39;basic_usage.md&#39;</span><span class=w></span>
+<span class=w>  </span><span class="p p-Indicator">-</span><span class=w> </span><span class=nt>Configuration</span><span class=p>:</span><span class=w> </span><span class=s>&#39;configuration.md&#39;</span><span class=w></span>
+<span class=w>  </span><span class="p p-Indicator">-</span><span class=w> </span><span class=nt>Update</span><span class=p>:</span><span class=w> </span><span class=s>&#39;update.md&#39;</span><span class=w></span>
+<span class=w>  </span><span class="p p-Indicator">-</span><span class=w> </span><span class=nt>Advanced Usage</span><span class=p>:</span><span class=w></span>
+<span class=w>    </span><span class="p p-Indicator">-</span><span class=w> </span><span class=nt>Projects</span><span class=p>:</span><span class=w> </span><span class=s>&quot;projects.md&quot;</span><span class=w></span>
+<span class=w>    </span><span class="p p-Indicator">-</span><span class=w> </span><span class=nt>Tags</span><span class=p>:</span><span class=w> </span><span class=s>&quot;tags.md&quot;</span><span class=w></span>
 
-<span class=nt>plugins</span><span class=p>:</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">search</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">autolinks</span>
-  <span class="p p-Indicator">-</span> <span class=nt>git-revision-date-localized</span><span class=p>:</span>
-      <span class=nt>type</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">timeago</span>
-  <span class="p p-Indicator">-</span> <span class=nt>minify</span><span class=p>:</span>
-      <span class=nt>minify_html</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class=nt>plugins</span><span class=p>:</span><span class=w></span>
+<span class=w>  </span><span class="p p-Indicator">-</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">search</span><span class=w></span>
+<span class=w>  </span><span class="p p-Indicator">-</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">autolinks</span><span class=w></span>
+<span class=w>  </span><span class="p p-Indicator">-</span><span class=w> </span><span class=nt>git-revision-date-localized</span><span class=p>:</span><span class=w></span>
+<span class=w>      </span><span class=nt>type</span><span class=p>:</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">timeago</span><span class=w></span>
+<span class=w>  </span><span class="p p-Indicator">-</span><span class=w> </span><span class=nt>minify</span><span class=p>:</span><span class=w></span>
+<span class=w>      </span><span class=nt>minify_html</span><span class=p>:</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class=w></span>
 
-<span class=nt>markdown_extensions</span><span class=p>:</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">admonition</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">meta</span>
-  <span class="p p-Indicator">-</span> <span class=nt>toc</span><span class=p>:</span>
-      <span class=nt>permalink</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-      <span class=nt>baselevel</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pymdownx.arithmatex</span>
-  <span class="p p-Indicator">-</span> <span class=nt>pymdownx.betterem</span><span class=p>:</span>
-      <span class=nt>smart_enable</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">all</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pymdownx.caret</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pymdownx.critic</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pymdownx.details</span>
-  <span class="p p-Indicator">-</span> <span class=nt>pymdownx.emoji</span><span class=p>:</span>
-      <span class=nt>emoji_generator</span><span class=p>:</span> <span class=kt>!!python/name:pymdownx.emoji.to_svg</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pymdownx.inlinehilite</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pymdownx.magiclink</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pymdownx.mark</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pymdownx.smartsymbols</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pymdownx.superfences</span>
-  <span class="p p-Indicator">-</span> <span class=nt>pymdownx.tasklist</span><span class=p>:</span>
-      <span class=nt>custom_checkbox</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pymdownx.tilde</span>
+<span class=nt>markdown_extensions</span><span class=p>:</span><span class=w></span>
+<span class=w>  </span><span class="p p-Indicator">-</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">admonition</span><span class=w></span>
+<span class=w>  </span><span class="p p-Indicator">-</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">meta</span><span class=w></span>
+<span class=w>  </span><span class="p p-Indicator">-</span><span class=w> </span><span class=nt>toc</span><span class=p>:</span><span class=w></span>
+<span class=w>      </span><span class=nt>permalink</span><span class=p>:</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class=w></span>
+<span class=w>      </span><span class=nt>baselevel</span><span class=p>:</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">2</span><span class=w></span>
+<span class=w>  </span><span class="p p-Indicator">-</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">pymdownx.arithmatex</span><span class=w></span>
+<span class=w>  </span><span class="p p-Indicator">-</span><span class=w> </span><span class=nt>pymdownx.betterem</span><span class=p>:</span><span class=w></span>
+<span class=w>      </span><span class=nt>smart_enable</span><span class=p>:</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">all</span><span class=w></span>
+<span class=w>  </span><span class="p p-Indicator">-</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">pymdownx.caret</span><span class=w></span>
+<span class=w>  </span><span class="p p-Indicator">-</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">pymdownx.critic</span><span class=w></span>
+<span class=w>  </span><span class="p p-Indicator">-</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">pymdownx.details</span><span class=w></span>
+<span class=w>  </span><span class="p p-Indicator">-</span><span class=w> </span><span class=nt>pymdownx.emoji</span><span class=p>:</span><span class=w></span>
+<span class=w>      </span><span class=nt>emoji_generator</span><span class=p>:</span><span class=w> </span><span class=kt>!!python/name:pymdownx.emoji.to_svg</span><span class=w></span>
+<span class=w>  </span><span class="p p-Indicator">-</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">pymdownx.inlinehilite</span><span class=w></span>
+<span class=w>  </span><span class="p p-Indicator">-</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">pymdownx.magiclink</span><span class=w></span>
+<span class=w>  </span><span class="p p-Indicator">-</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">pymdownx.mark</span><span class=w></span>
+<span class=w>  </span><span class="p p-Indicator">-</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">pymdownx.smartsymbols</span><span class=w></span>
+<span class=w>  </span><span class="p p-Indicator">-</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">pymdownx.superfences</span><span class=w></span>
+<span class=w>  </span><span class="p p-Indicator">-</span><span class=w> </span><span class=nt>pymdownx.tasklist</span><span class=p>:</span><span class=w></span>
+<span class=w>      </span><span class=nt>custom_checkbox</span><span class=p>:</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class=w></span>
+<span class=w>  </span><span class="p p-Indicator">-</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">pymdownx.tilde</span><span class=w></span>
 
-<span class=nt>theme</span><span class=p>:</span>
-  <span class=nt>name</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">material</span>
-  <span class=nt>custom_dir</span><span class=p>:</span> <span class=s>&quot;theme&quot;</span>
-  <span class=nt>logo</span><span class=p>:</span> <span class=s>&quot;images/logo.png&quot;</span>
-  <span class=nt>palette</span><span class=p>:</span>
-    <span class=nt>primary</span><span class=p>:</span> <span class=s>&#39;blue</span><span class=nv> </span><span class=s>grey&#39;</span>
-    <span class=nt>accent</span><span class=p>:</span> <span class=s>&#39;light</span><span class=nv> </span><span class=s>blue&#39;</span>
+<span class=nt>theme</span><span class=p>:</span><span class=w></span>
+<span class=w>  </span><span class=nt>name</span><span class=p>:</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">material</span><span class=w></span>
+<span class=w>  </span><span class=nt>custom_dir</span><span class=p>:</span><span class=w> </span><span class=s>&quot;theme&quot;</span><span class=w></span>
+<span class=w>  </span><span class=nt>logo</span><span class=p>:</span><span class=w> </span><span class=s>&quot;images/logo.png&quot;</span><span class=w></span>
+<span class=w>  </span><span class=nt>palette</span><span class=p>:</span><span class=w></span>
+<span class=w>    </span><span class=nt>primary</span><span class=p>:</span><span class=w> </span><span class=s>&#39;blue</span><span class=nv> </span><span class=s>grey&#39;</span><span class=w></span>
+<span class=w>    </span><span class=nt>accent</span><span class=p>:</span><span class=w> </span><span class=s>&#39;light</span><span class=nv> </span><span class=s>blue&#39;</span><span class=w></span>
 
-<span class=nt>extra_css</span><span class=p>:</span>
-  <span class="p p-Indicator">-</span> <span class=s>&#39;stylesheets/extra.css&#39;</span>
-  <span class="p p-Indicator">-</span> <span class=s>&#39;stylesheets/links.css&#39;</span>
+<span class=nt>extra_css</span><span class=p>:</span><span class=w></span>
+<span class=w>  </span><span class="p p-Indicator">-</span><span class=w> </span><span class=s>&#39;stylesheets/extra.css&#39;</span><span class=w></span>
+<span class=w>  </span><span class="p p-Indicator">-</span><span class=w> </span><span class=s>&#39;stylesheets/links.css&#39;</span><span class=w></span>
 
-<span class=nt>repo_name</span><span class=p>:</span> <span class="p p-Indicator">{{</span> <span class=nv>repository_name</span> <span class="p p-Indicator">}}</span> <span class=c1># for example: &#39;lyz-code/pydo&#39;</span>
-<span class=nt>repo_url</span><span class=p>:</span> <span class="p p-Indicator">{{</span> <span class=nv>repository_url</span> <span class="p p-Indicator">}}</span> <span class=c1># for example: &#39;https://github.com/lyz-code/pydo&#39;</span>
+<span class=nt>repo_name</span><span class=p>:</span><span class=w> </span><span class="p p-Indicator">{{</span><span class=w> </span><span class=nv>repository_name</span><span class=w> </span><span class="p p-Indicator">}}</span><span class=w> </span><span class=c1># for example: &#39;lyz-code/pydo&#39;</span><span class=w></span>
+<span class=nt>repo_url</span><span class=p>:</span><span class=w> </span><span class="p p-Indicator">{{</span><span class=w> </span><span class=nv>repository_url</span><span class=w> </span><span class="p p-Indicator">}}</span><span class=w> </span><span class=c1># for example: &#39;https://github.com/lyz-code/pydo&#39;</span><span class=w></span>
 </code></pre></div> </li> <li> <p><a href=https://squidfunk.github.io/mkdocs-material/getting-started/#logo>Configure your logo</a> by saving it into <code>docs/images/logo.png</code>.</p> </li> <li> <p>I like to show a small image above each link so you know where is it pointing to. To do so add the content of <a href=https://github.com/lyz-code/pydo/tree/master/docs/theme>this directory</a> to <code>theme</code>. and <a href=https://github.com/lyz-code/pydo/tree/master/docs/docs/stylesheets>these</a> files under <code>docs/stylesheets</code>.</p> </li> <li>Initialize the git repository and create the first commit.</li> <li> <p>Start the server to see everything is alright.</p> <div class=highlight><pre><span></span><code>mkdocs serve
-</code></pre></div> </li> </ul> <h3 id=material-theme-customizations>Material theme customizations<a class=headerlink href=#material-theme-customizations title="Permanent link">⚑</a></h3> <h4 id=color-palette-toggle><a href=https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/#color-palette-toggle>Color palette toggle</a><a class=headerlink href=#color-palette-toggle title="Permanent link">⚑</a></h4> <p>Since 7.1.0, you can have a light-dark mode on the site using a toggle in the upper bar.</p> <p>To enable it add to your <code>mkdocs.yml</code>:</p> <div class=highlight><pre><span></span><code><span class=nt>theme</span><span class=p>:</span>
-  <span class=nt>palette</span><span class=p>:</span>
+</code></pre></div> </li> </ul> <h3 id=material-theme-customizations>Material theme customizations<a class=headerlink href=#material-theme-customizations title="Permanent link">⚑</a></h3> <h4 id=color-palette-toggle><a href=https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/#color-palette-toggle>Color palette toggle</a><a class=headerlink href=#color-palette-toggle title="Permanent link">⚑</a></h4> <p>Since 7.1.0, you can have a light-dark mode on the site using a toggle in the upper bar.</p> <p>To enable it add to your <code>mkdocs.yml</code>:</p> <div class=highlight><pre><span></span><code><span class=nt>theme</span><span class=p>:</span><span class=w></span>
+<span class=w>  </span><span class=nt>palette</span><span class=p>:</span><span class=w></span>
 
-    <span class=c1># Light mode</span>
-    <span class="p p-Indicator">-</span> <span class=nt>media</span><span class=p>:</span> <span class=s>&quot;(prefers-color-scheme:</span><span class=nv> </span><span class=s>light)&quot;</span>
-      <span class=nt>scheme</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">default</span>
-      <span class=nt>primary</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">blue grey</span>
-      <span class=nt>accent</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">light blue</span>
-      <span class=nt>toggle</span><span class=p>:</span>
-        <span class=nt>icon</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">material/toggle-switch-off-outline</span>
-        <span class=nt>name</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">Switch to dark mode</span>
+<span class=w>    </span><span class=c1># Light mode</span><span class=w></span>
+<span class=w>    </span><span class="p p-Indicator">-</span><span class=w> </span><span class=nt>media</span><span class=p>:</span><span class=w> </span><span class=s>&quot;(prefers-color-scheme:</span><span class=nv> </span><span class=s>light)&quot;</span><span class=w></span>
+<span class=w>      </span><span class=nt>scheme</span><span class=p>:</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">default</span><span class=w></span>
+<span class=w>      </span><span class=nt>primary</span><span class=p>:</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">blue grey</span><span class=w></span>
+<span class=w>      </span><span class=nt>accent</span><span class=p>:</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">light blue</span><span class=w></span>
+<span class=w>      </span><span class=nt>toggle</span><span class=p>:</span><span class=w></span>
+<span class=w>        </span><span class=nt>icon</span><span class=p>:</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">material/toggle-switch-off-outline</span><span class=w></span>
+<span class=w>        </span><span class=nt>name</span><span class=p>:</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">Switch to dark mode</span><span class=w></span>
 
-    <span class=c1># Dark mode</span>
-    <span class="p p-Indicator">-</span> <span class=nt>media</span><span class=p>:</span> <span class=s>&quot;(prefers-color-scheme:</span><span class=nv> </span><span class=s>dark)&quot;</span>
-      <span class=nt>scheme</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">slate</span>
-      <span class=nt>primary</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">blue grey</span>
-      <span class=nt>accent</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">light blue</span>
-      <span class=nt>toggle</span><span class=p>:</span>
-        <span class=nt>icon</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">material/toggle-switch</span>
-        <span class=nt>name</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">Switch to light mode</span>
-</code></pre></div> <p>Changing your desired colors for each mode</p> <h4 id=back-to-top-button><a href=https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/#back-to-top-button>Back to top button</a><a class=headerlink href=#back-to-top-button title="Permanent link">⚑</a></h4> <p>Since 7.1.0, a back-to-top button can be shown when the user, after scrolling down, starts to scroll up again. It's rendered in the lower right corner of the viewport. Add the following lines to mkdocs.yml:</p> <div class=highlight><pre><span></span><code><span class=nt>theme</span><span class=p>:</span>
-  <span class=nt>features</span><span class=p>:</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">navigation.top</span>
+<span class=w>    </span><span class=c1># Dark mode</span><span class=w></span>
+<span class=w>    </span><span class="p p-Indicator">-</span><span class=w> </span><span class=nt>media</span><span class=p>:</span><span class=w> </span><span class=s>&quot;(prefers-color-scheme:</span><span class=nv> </span><span class=s>dark)&quot;</span><span class=w></span>
+<span class=w>      </span><span class=nt>scheme</span><span class=p>:</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">slate</span><span class=w></span>
+<span class=w>      </span><span class=nt>primary</span><span class=p>:</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">blue grey</span><span class=w></span>
+<span class=w>      </span><span class=nt>accent</span><span class=p>:</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">light blue</span><span class=w></span>
+<span class=w>      </span><span class=nt>toggle</span><span class=p>:</span><span class=w></span>
+<span class=w>        </span><span class=nt>icon</span><span class=p>:</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">material/toggle-switch</span><span class=w></span>
+<span class=w>        </span><span class=nt>name</span><span class=p>:</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">Switch to light mode</span><span class=w></span>
+</code></pre></div> <p>Changing your desired colors for each mode</p> <h4 id=back-to-top-button><a href=https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/#back-to-top-button>Back to top button</a><a class=headerlink href=#back-to-top-button title="Permanent link">⚑</a></h4> <p>Since 7.1.0, a back-to-top button can be shown when the user, after scrolling down, starts to scroll up again. It's rendered in the lower right corner of the viewport. Add the following lines to mkdocs.yml:</p> <div class=highlight><pre><span></span><code><span class=nt>theme</span><span class=p>:</span><span class=w></span>
+<span class=w>  </span><span class=nt>features</span><span class=p>:</span><span class=w></span>
+<span class=w>    </span><span class="p p-Indicator">-</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">navigation.top</span><span class=w></span>
 </code></pre></div> <h3 id=add-a-github-pages-hook>Add a github pages hook.<a class=headerlink href=#add-a-github-pages-hook title="Permanent link">⚑</a></h3> <ul> <li> <p>Save your <code>requirements.txt</code>.</p> <div class=highlight><pre><span></span><code>pip freeze &gt; requirements.txt
-</code></pre></div> </li> <li> <p>Create the <code>.github/workflows/gh-pages.yml</code> file with the following contents.</p> <div class=highlight><pre><span></span><code><span class=nt>name</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">Github pages</span>
+</code></pre></div> </li> <li> <p>Create the <code>.github/workflows/gh-pages.yml</code> file with the following contents.</p> <div class=highlight><pre><span></span><code><span class=nt>name</span><span class=p>:</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">Github pages</span><span class=w></span>
 
-<span class=nt>on</span><span class=p>:</span>
-  <span class=nt>push</span><span class=p>:</span>
-    <span class=nt>branches</span><span class=p>:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">master</span>
+<span class=nt>on</span><span class=p>:</span><span class=w></span>
+<span class=w>  </span><span class=nt>push</span><span class=p>:</span><span class=w></span>
+<span class=w>    </span><span class=nt>branches</span><span class=p>:</span><span class=w></span>
+<span class=w>      </span><span class="p p-Indicator">-</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">master</span><span class=w></span>
 
-<span class=nt>jobs</span><span class=p>:</span>
-  <span class=nt>deploy</span><span class=p>:</span>
-    <span class=nt>runs-on</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">ubuntu-18.04</span>
-    <span class=nt>steps</span><span class=p>:</span>
-      <span class="p p-Indicator">-</span> <span class=nt>uses</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">actions/checkout@v2</span>
-        <span class=nt>with</span><span class=p>:</span>
-          <span class=c1># Number of commits to fetch. 0 indicates all history.</span>
-          <span class=c1># Default: 1</span>
-          <span class=nt>fetch-depth</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
+<span class=nt>jobs</span><span class=p>:</span><span class=w></span>
+<span class=w>  </span><span class=nt>deploy</span><span class=p>:</span><span class=w></span>
+<span class=w>    </span><span class=nt>runs-on</span><span class=p>:</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-18.04</span><span class=w></span>
+<span class=w>    </span><span class=nt>steps</span><span class=p>:</span><span class=w></span>
+<span class=w>      </span><span class="p p-Indicator">-</span><span class=w> </span><span class=nt>uses</span><span class=p>:</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v2</span><span class=w></span>
+<span class=w>        </span><span class=nt>with</span><span class=p>:</span><span class=w></span>
+<span class=w>          </span><span class=c1># Number of commits to fetch. 0 indicates all history.</span><span class=w></span>
+<span class=w>          </span><span class=c1># Default: 1</span><span class=w></span>
+<span class=w>          </span><span class=nt>fetch-depth</span><span class=p>:</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">0</span><span class=w></span>
 
-      <span class="p p-Indicator">-</span> <span class=nt>name</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">Setup Python</span>
-        <span class=nt>uses</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">actions/setup-python@v1</span>
-        <span class=nt>with</span><span class=p>:</span>
-          <span class=nt>python-version</span><span class=p>:</span> <span class=s>&#39;3.7&#39;</span>
-          <span class=nt>architecture</span><span class=p>:</span> <span class=s>&#39;x64&#39;</span>
+<span class=w>      </span><span class="p p-Indicator">-</span><span class=w> </span><span class=nt>name</span><span class=p>:</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">Setup Python</span><span class=w></span>
+<span class=w>        </span><span class=nt>uses</span><span class=p>:</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-python@v1</span><span class=w></span>
+<span class=w>        </span><span class=nt>with</span><span class=p>:</span><span class=w></span>
+<span class=w>          </span><span class=nt>python-version</span><span class=p>:</span><span class=w> </span><span class=s>&#39;3.7&#39;</span><span class=w></span>
+<span class=w>          </span><span class=nt>architecture</span><span class=p>:</span><span class=w> </span><span class=s>&#39;x64&#39;</span><span class=w></span>
 
-      <span class="p p-Indicator">-</span> <span class=nt>name</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">Cache dependencies</span>
-        <span class=nt>uses</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">actions/cache@v1</span>
-        <span class=nt>with</span><span class=p>:</span>
-          <span class=nt>path</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">~/.cache/pip</span>
-          <span class=nt>key</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">${{ runner.os }}-pip-${{ hashFiles(&#39;**/requirements.txt&#39;) }}</span>
-          <span class=nt>restore-keys</span><span class=p>:</span> <span class="p p-Indicator">|</span>
-            <span class=no>${{ runner.os }}-pip-</span>
+<span class=w>      </span><span class="p p-Indicator">-</span><span class=w> </span><span class=nt>name</span><span class=p>:</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">Cache dependencies</span><span class=w></span>
+<span class=w>        </span><span class=nt>uses</span><span class=p>:</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">actions/cache@v1</span><span class=w></span>
+<span class=w>        </span><span class=nt>with</span><span class=p>:</span><span class=w></span>
+<span class=w>          </span><span class=nt>path</span><span class=p>:</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">~/.cache/pip</span><span class=w></span>
+<span class=w>          </span><span class=nt>key</span><span class=p>:</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">${{ runner.os }}-pip-${{ hashFiles(&#39;**/requirements.txt&#39;) }}</span><span class=w></span>
+<span class=w>          </span><span class=nt>restore-keys</span><span class=p>:</span><span class=w> </span><span class="p p-Indicator">|</span><span class=w></span>
+<span class=w>            </span><span class=no>${{ runner.os }}-pip-</span><span class=w></span>
 
-      <span class="p p-Indicator">-</span> <span class=nt>name</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">Install dependencies</span>
-        <span class=nt>run</span><span class=p>:</span> <span class="p p-Indicator">|</span>
-          <span class=no>python3 -m pip install --upgrade pip</span>
-          <span class=no>python3 -m pip install -r ./requirements.txt</span>
+<span class=w>      </span><span class="p p-Indicator">-</span><span class=w> </span><span class=nt>name</span><span class=p>:</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">Install dependencies</span><span class=w></span>
+<span class=w>        </span><span class=nt>run</span><span class=p>:</span><span class=w> </span><span class="p p-Indicator">|</span><span class=w></span>
+<span class=w>          </span><span class=no>python3 -m pip install --upgrade pip</span><span class=w></span>
+<span class=w>          </span><span class=no>python3 -m pip install -r ./requirements.txt</span><span class=w></span>
 
-      <span class="p p-Indicator">-</span> <span class=nt>run</span><span class=p>:</span> <span class="p p-Indicator">|</span>
-          <span class=no>cd docs</span>
-          <span class=no>mkdocs build</span>
+<span class=w>      </span><span class="p p-Indicator">-</span><span class=w> </span><span class=nt>run</span><span class=p>:</span><span class=w> </span><span class="p p-Indicator">|</span><span class=w></span>
+<span class=w>          </span><span class=no>cd docs</span><span class=w></span>
+<span class=w>          </span><span class=no>mkdocs build</span><span class=w></span>
 
-      <span class="p p-Indicator">-</span> <span class=nt>name</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">Deploy</span>
-        <span class=nt>uses</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">peaceiris/actions-gh-pages@v3</span>
-        <span class=nt>with</span><span class=p>:</span>
-          <span class=nt>deploy_key</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">${{ secrets.ACTIONS_DEPLOY_KEY }}</span>
-          <span class=nt>publish_dir</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">./docs/site</span>
-</code></pre></div> </li> <li> <p>Create an <a href=https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-create-ssh-deploy-key>SSH deploy key</a></p> </li> <li>Activate <code>GitHub Pages</code> repository configuration with <code>gh-pages branch</code>.</li> <li>Make a new commit and push to check it's working.</li> </ul> <h3 id=create-mermaidjs-diagrams>Create MermaidJS diagrams<a class=headerlink href=#create-mermaidjs-diagrams title="Permanent link">⚑</a></h3> <p>Even though the Material theme <a href=https://squidfunk.github.io/mkdocs-material/reference/diagrams/#fn:2>supports mermaid diagrams</a> it's only giving it for the paid users. The <a href=https://squidfunk.github.io/mkdocs-material/insiders/#funding>funding needs to reach 5000$</a> so it's released to the general public.</p> <p>The alternative is to use the <a href=https://github.com/fralau/mkdocs-mermaid2-plugin>mkdocs-mermaid2-plugin</a> plugin, which can't be used with <code>mkdocs-minify-plugin</code> and doesn't adapt to dark mode.</p> <p>To <a href=https://github.com/fralau/mkdocs-mermaid2-plugin#installation>install it</a>:</p> <ul> <li>Download the package: <code>pip install mkdocs-mermaid2-plugin</code>.</li> <li> <p>Enable the plugin in <code>mkdocs.yml</code>.</p> <div class=highlight><pre><span></span><code><span class=nt>plugins</span><span class=p>:</span>
-  <span class=c1># Not compatible with mermaid2</span>
-  <span class=c1># - minify:</span>
-  <span class=c1>#    minify_html: true</span>
-  <span class="p p-Indicator">-</span> <span class=nt>mermaid2</span><span class=p>:</span>
-      <span class=nt>arguments</span><span class=p>:</span>
-        <span class=nt>securityLevel</span><span class=p>:</span> <span class=s>&#39;loose&#39;</span>
-<span class=nt>markdown_extensions</span><span class=p>:</span>
-  <span class="p p-Indicator">-</span> <span class=nt>pymdownx.superfences</span><span class=p>:</span>
-      <span class=c1># make exceptions to highlighting of code:</span>
-      <span class=nt>custom_fences</span><span class=p>:</span>
-        <span class="p p-Indicator">-</span> <span class=nt>name</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">mermaid</span>
-          <span class=nt>class</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">mermaid</span>
-          <span class=nt>format</span><span class=p>:</span> <span class=kt>!!python/name:mermaid2.fence_mermaid</span>
+<span class=w>      </span><span class="p p-Indicator">-</span><span class=w> </span><span class=nt>name</span><span class=p>:</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">Deploy</span><span class=w></span>
+<span class=w>        </span><span class=nt>uses</span><span class=p>:</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">peaceiris/actions-gh-pages@v3</span><span class=w></span>
+<span class=w>        </span><span class=nt>with</span><span class=p>:</span><span class=w></span>
+<span class=w>          </span><span class=nt>deploy_key</span><span class=p>:</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.ACTIONS_DEPLOY_KEY }}</span><span class=w></span>
+<span class=w>          </span><span class=nt>publish_dir</span><span class=p>:</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">./docs/site</span><span class=w></span>
+</code></pre></div> </li> <li> <p>Create an <a href=https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-create-ssh-deploy-key>SSH deploy key</a></p> </li> <li>Activate <code>GitHub Pages</code> repository configuration with <code>gh-pages branch</code>.</li> <li>Make a new commit and push to check it's working.</li> </ul> <h3 id=create-mermaidjs-diagrams>Create MermaidJS diagrams<a class=headerlink href=#create-mermaidjs-diagrams title="Permanent link">⚑</a></h3> <p>Even though the Material theme <a href=https://squidfunk.github.io/mkdocs-material/reference/diagrams/#fn:2>supports mermaid diagrams</a> it's only giving it for the paid users. The <a href=https://squidfunk.github.io/mkdocs-material/insiders/#funding>funding needs to reach 5000$</a> so it's released to the general public.</p> <p>The alternative is to use the <a href=https://github.com/fralau/mkdocs-mermaid2-plugin>mkdocs-mermaid2-plugin</a> plugin, which can't be used with <code>mkdocs-minify-plugin</code> and doesn't adapt to dark mode.</p> <p>To <a href=https://github.com/fralau/mkdocs-mermaid2-plugin#installation>install it</a>:</p> <ul> <li>Download the package: <code>pip install mkdocs-mermaid2-plugin</code>.</li> <li> <p>Enable the plugin in <code>mkdocs.yml</code>.</p> <div class=highlight><pre><span></span><code><span class=nt>plugins</span><span class=p>:</span><span class=w></span>
+<span class=w>  </span><span class=c1># Not compatible with mermaid2</span><span class=w></span>
+<span class=w>  </span><span class=c1># - minify:</span><span class=w></span>
+<span class=w>  </span><span class=c1>#    minify_html: true</span><span class=w></span>
+<span class=w>  </span><span class="p p-Indicator">-</span><span class=w> </span><span class=nt>mermaid2</span><span class=p>:</span><span class=w></span>
+<span class=w>      </span><span class=nt>arguments</span><span class=p>:</span><span class=w></span>
+<span class=w>        </span><span class=nt>securityLevel</span><span class=p>:</span><span class=w> </span><span class=s>&#39;loose&#39;</span><span class=w></span>
+<span class=nt>markdown_extensions</span><span class=p>:</span><span class=w></span>
+<span class=w>  </span><span class="p p-Indicator">-</span><span class=w> </span><span class=nt>pymdownx.superfences</span><span class=p>:</span><span class=w></span>
+<span class=w>      </span><span class=c1># make exceptions to highlighting of code:</span><span class=w></span>
+<span class=w>      </span><span class=nt>custom_fences</span><span class=p>:</span><span class=w></span>
+<span class=w>        </span><span class="p p-Indicator">-</span><span class=w> </span><span class=nt>name</span><span class=p>:</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">mermaid</span><span class=w></span>
+<span class=w>          </span><span class=nt>class</span><span class=p>:</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">mermaid</span><span class=w></span>
+<span class=w>          </span><span class=nt>format</span><span class=p>:</span><span class=w> </span><span class=kt>!!python/name:mermaid2.fence_mermaid</span><span class=w></span>
 </code></pre></div> </li> </ul> <p>Check the <a href=../../mermaidjs/ >MermaidJS</a> article to see how to create the diagrams.</p> <h2 id=plugin-development><a href=https://www.mkdocs.org/user-guide/plugins/ >Plugin development</a><a class=headerlink href=#plugin-development title="Permanent link">⚑</a></h2> <p>Like MkDocs, plugins must be written in Python. It is expected that each plugin would be distributed as a separate Python module. At a minimum, a MkDocs Plugin must consist of a <a href=https://www.mkdocs.org/user-guide/plugins/#baseplugin>BasePlugin</a> subclass and an <a href=https://www.mkdocs.org/user-guide/plugins/#entry-point>entry point</a> which points to it.</p> <p>The BasePlugin class is meant to have <code>on_&lt;event_name&gt;</code> methods that run actions on the MkDocs defined <a href=#events>events</a>.</p> <p>The same object is called at the different events, so you can save objects from one event to the other in the object attributes.</p> <p>Keep in mind that the order of execution of the plugins follows the ordering of the list of the <code>mkdocs.yml</code> file where they are defined.</p> <h3 id=interesting-objects>Interesting objects<a class=headerlink href=#interesting-objects title="Permanent link">⚑</a></h3> <h4 id=files><a href=https://github.com/mkdocs/mkdocs/blob/master/mkdocs/structure/files.py#L14>Files</a><a class=headerlink href=#files title="Permanent link">⚑</a></h4> <p><code>mkdocs.structure.files.Files</code> contains a list of <a href=#file>File</a> objects under the <code>._files</code> attribute and allows you to <code>append</code> files to the collection. As well as extracting the different file types:</p> <ul> <li><code>documentation_pages</code>: Iterable of markdown page file objects.</li> <li><code>static_pages</code>: Iterable of static page file objects.</li> <li><code>media_files</code>: Iterable of all files that are not documentation or static pages.</li> <li><code>javascript_files</code>: Iterable of javascript files.</li> <li><code>css_files</code>: Iterable of css files.</li> </ul> <p>It is initialized with a list of <a href=#file><code>File</code></a> objects.</p> <h4 id=file><a href=https://github.com/mkdocs/mkdocs/blob/master/mkdocs/structure/files.py#L92>File</a><a class=headerlink href=#file title="Permanent link">⚑</a></h4> <p><a href=https://github.com/mkdocs/mkdocs/blob/master/mkdocs/structure/files.py#L92><code>mkdocs.structure.files.File</code></a> objects points to the source and destination locations of a file. It has the following interesting attributes:</p> <ul> <li><code>name</code>: Name of the file without the extension.</li> <li><code>src_path</code> or <code>abs_src_path</code>: Relative or absolute path to the original path, for example the markdown file.</li> <li><code>dest_path</code> or <code>abs_dest_path</code>: Relative or absolute path to the destination path, for example the html file generated from the markdown one.</li> <li><code>url</code>: Url where the file is going to be exposed.</li> </ul> <p>It is initialized with the arguments:</p> <ul> <li><code>path</code>: Must be a path that exists relative to <code>src_dir</code>.</li> <li><code>src_dir</code>: Absolute path on the local file system to the directory where the docs are.</li> <li><code>dest_dir</code>: Absolute path on the local file system to the directory where the site is going to be built.</li> <li><code>use_directory_urls</code>: If <code>False</code>, a Markdown file is mapped to an HTML file of the same name (the file extension is changed to <code>.html</code>). If True, a Markdown file is mapped to an HTML index file (<code>index.html</code>) nested in a directory using the "name" of the file in <code>path</code>. The <code>use_directory_urls</code> argument has no effect on non-Markdown files. By default MkDocs uses <code>True</code>.</li> </ul> <h4 id=navigation><a href=https://github.com/mkdocs/mkdocs/blob/master/mkdocs/structure/nav.py#L11>Navigation</a><a class=headerlink href=#navigation title="Permanent link">⚑</a></h4> <p><a href=https://github.com/mkdocs/mkdocs/blob/master/mkdocs/structure/nav.py#L11><code>mkdocs.structure.nav.Navigation</code></a> objects hold the information to build the navigation of the site. It has the following interesting attributes:</p> <ul> <li><code>items</code>: Nested List with full navigation of Sections, SectionPages, Pages, and Links.</li> <li><code>pages</code>: Flat List of subset of Pages in nav, in order.</li> </ul> <p>The <code>Navigation</code> object has no <code>__eq__</code> method, so when testing, instead of trying to build a similar <code>Navigation</code> object and compare them, you need to assert that the contents of the object are what you expect.</p> <h4 id=page><a href=https://github.com/mkdocs/mkdocs/blob/master/mkdocs/structure/pages.py#L18>Page</a><a class=headerlink href=#page title="Permanent link">⚑</a></h4> <p><a href=https://github.com/mkdocs/mkdocs/blob/master/mkdocs/structure/pages.py#L18><code>mkdocs.structure.pages.Page</code></a> models each page of the site.</p> <p>To initialize it you need the <code>title</code>, the <a href=#file><code>File</code></a> object of the page, and the MkDocs <code>config</code> object.</p> <h4 id=section><a href=https://github.com/mkdocs/mkdocs/blob/master/mkdocs/structure/nav.py#L32>Section</a><a class=headerlink href=#section title="Permanent link">⚑</a></h4> <p><a href=https://github.com/mkdocs/mkdocs/blob/master/mkdocs/structure/nav.py#L32><code>mkdocs.structure.nav.Section</code></a> object models a section of the navigation of a MkDocs site.</p> <p>To initialize it you need the <code>title</code> of the section and the <code>children</code> which are the elements that belong to the section. If you don't yet know the children, pass an empty list <code>[]</code>.</p> <h4 id=sectionpage><a href=https://github.com/oprypin/mkdocs-section-index/blob/master/mkdocs_section_index/__init__.py#L11>SectionPage</a><a class=headerlink href=#sectionpage title="Permanent link">⚑</a></h4> <p><a href=https://github.com/oprypin/mkdocs-section-index/blob/master/mkdocs_section_index/__init__.py#L11><code>mkdocs_section_index.SectionPage</code></a> , part of the <a href=https://github.com/oprypin/mkdocs-section-index/ >mkdocs-section-index</a> plugin, models <a href=#section>Section</a> objects that have an associated <a href=#page>Page</a>, allowing you to have nav sections that when clicked, load the Page and not only opens the menu for the children elements.</p> <p>To initialize it you need the <code>title</code> of the section, the <a href=#file><code>File</code></a> object of the page, , the MkDocs <code>config</code> object, and the <code>children</code> which are the elements that belong to the section. If you don't yet know the children, pass an empty list <code>[]</code>.</p> <h3 id=events><a href=https://www.mkdocs.org/user-guide/plugins/#events>Events</a><a class=headerlink href=#events title="Permanent link">⚑</a></h3> <h4 id=on_config><a href=https://www.mkdocs.org/user-guide/plugins/#on_config>on_config</a><a class=headerlink href=#on_config title="Permanent link">⚑</a></h4> <p>The config event is the first event called on build and is run immediately after the user configuration is loaded and validated. Any alterations to the config should be made here.</p> <p>Parameters:</p> <ul> <li><code>config</code>: global configuration object</li> </ul> <p>Returns:</p> <ul> <li>global configuration object</li> </ul> <h4 id=on_files><a href=https://www.mkdocs.org/user-guide/plugins/#on_files>on_files</a><a class=headerlink href=#on_files title="Permanent link">⚑</a></h4> <p>The <code>files</code> event is called after the files collection is populated from the <code>docs_dir</code>. Use this event to add, remove, or alter files in the collection. Note that Page objects have not yet been associated with the file objects in the collection. Use Page Events to manipulate page specific data.</p> <p>Parameters:</p> <ul> <li><code>files</code>: global <a href=#files>files collection</a></li> <li><code>config</code>: global configuration object</li> </ul> <p>Returns:</p> <ul> <li>global <a href=#files>files collection</a></li> </ul> <h4 id=on_nav><a href=https://www.mkdocs.org/user-guide/plugins/#on_nav>on_nav</a><a class=headerlink href=#on_nav title="Permanent link">⚑</a></h4> <p>The <code>nav</code> event is called after the site navigation is created and can be used to alter the site navigation.</p> <div class="admonition warning"> <p>Read the following section if you want to <a href=#adding-new-files>add new files</a>.</p> </div> <p>Parameters:</p> <ul> <li><code>nav</code>: global <a href=#navigation>navigation object</a>.</li> <li><code>config</code>: global configuration object.</li> <li><code>files</code>: global <a href=#files>files collection</a>.</li> </ul> <p>Returns:</p> <ul> <li>global navigation object</li> </ul> <h3 id=adding-new-files>Adding new files<a class=headerlink href=#adding-new-files title="Permanent link">⚑</a></h3> <div class="admonition note"> <p class=admonition-title>TL;DR: Add them in the <code>on_config</code> event.</p> </div> <p>To add new files to the repository you will need two phases:</p> <ul> <li>Create the markdown article pages.</li> <li>Add them to the navigation.</li> </ul> <p>My first idea as a MkDocs user, and newborn plugin developer was to add the navigation items to the <code>nav</code> key in the <code>config</code> object, as it's more easy to add items to a dictionary I'm used to work with than to dive into the code and understand how MkDocs creates the navigation. As I understood from the docs, the files should be created in the <code>on_files</code> event. the problem with this approach is that the only event that allows you to change the <code>config</code> is the <code>on_config</code> event, which is before the <code>on_files</code> one, so you can't build the navigation this way after you've created the files.</p> <p>Next idea was to add the items in the <code>on_nav</code> event, that means creating yourself the <a href=#section><code>Section</code></a>, <a href=#page><code>Pages</code></a>, <a href=#sectionpage><code>SectionPages</code></a> or <code>Link</code> objects and append them to the <code>nav.items</code>. <a href=https://github.com/mkdocs/mkdocs/issues/2324>The problem</a> is that MkDocs initializes and processes the <code>Navigation</code> object in the <a href=https://github.com/mkdocs/mkdocs/blob/master/mkdocs/structure/nav.py#L99><code>get_navigation</code></a> function. If you want to add items with a plugin in the <code>on_nav</code> event, you need to manually run all the post processing functions such as building the <code>pages</code> attribute, by running the <code>_get_by_type</code>, <code>_add_previous_and_next_links</code> or <code>_add_parent_links</code> yourself. Additionally, when building the site you'll get the <code>The following pages exist in the docs directory, but are not included in the "nav" configuration</code> error, because that check is done <em>before</em> all plugins change the navigation in the <code>on_nav</code> object.</p> <p>The last approach is to build the files and tweak the navigation in the <code>on_config</code> event. This approach has the next advantages:</p> <ul> <li>You need less knowledge of how MkDocs works.</li> <li>You don't need to create the <code>File</code> or <code>Files</code> objects.</li> <li>You don't need to create the <code>Page</code>, <code>Section</code>, <code>SectionPage</code> objects.</li> <li>More robust as you rely on existent MkDocs functionality.</li> </ul> <h2 id=testing>Testing<a class=headerlink href=#testing title="Permanent link">⚑</a></h2> <p>I haven't found any official documentation on how to test MkDocs plugins, in the <a href=https://github.com/mkdocs/mkdocs/issues/1528>issues</a> they suggest you look at how they test it in the <a href=https://github.com/mkdocs/mkdocs/blob/master/mkdocs/tests/search_tests.py>search plugin</a>. I've looked at other plugins such as <a href=https://github.com/andyoakley/mkdocs-blog>mkdocs_blog</a> and used the next way to test <a href=https://github.com/lyz-code/mkdocs-newsletter>mkdocs-newsletter</a>.</p> <p>I see the plugin definition as an entrypoint to the functionality of our program, that's why I feel the definition should be in <code>src/mkdocs_newsletter/entrypoints/mkdocs_plugin.py</code>. As any entrypoint, the best way to test them are in end-to-end tests.</p> <p>You need to have a <a href=https://github.com/lyz-code/mkdocs-newsletter/tree/master/tests/assets/test_data>working test site</a> in <code>tests/assets/test_data</code>, with it's <code>mkdocs.yml</code> file that loads your plugin and some fake articles.</p> <p>To prepare the test we can define the next <a href=../../coding/python/pytest/#fixtures>fixture</a> that prepares the building of the site:</p> <div class="admonition note"> <p class=admonition-title>File: <code>tests/conftest.py</code></p> <div class=highlight><pre><span></span><code><span class=kn>import</span> <span class=nn>os</span>
 <span class=kn>import</span> <span class=nn>shutil</span>
 

@@ -69,31 +69,31 @@
 <span class=n>steps</span> <span class=o>=</span> <span class=p>[</span>
   <span class=n>step</span><span class=p>(</span><span class=n>apply_step</span><span class=p>,</span> <span class=n>rollback_step</span><span class=p>)</span>
 <span class=p>]</span>
-</code></pre></div> <h5 id=post-apply-hook><a href=https://ollycope.com/software/yoyo/latest/#post-apply-hook>Post-apply hook</a><a class=headerlink href=#post-apply-hook title="Permanent link">⚑</a></h5> <p>It can be useful to have a script that is run after every successful migration. For example you could use this to update database permissions or re-create views.</p> <p>To do this, create a special migration file called <code>post-apply.py</code>.</p> <h3 id=configuration-file><a href=https://ollycope.com/software/yoyo/latest/#configuration-file>Configuration file</a><a class=headerlink href=#configuration-file title="Permanent link">⚑</a></h3> <p>Yoyo looks for a configuration file named <code>yoyo.ini</code> in the current working directory or any ancestor directory.</p> <p>The configuration file may contain the following options:</p> <div class=highlight><pre><span></span><code><span class=k>[DEFAULT]</span>
+</code></pre></div> <h5 id=post-apply-hook><a href=https://ollycope.com/software/yoyo/latest/#post-apply-hook>Post-apply hook</a><a class=headerlink href=#post-apply-hook title="Permanent link">⚑</a></h5> <p>It can be useful to have a script that is run after every successful migration. For example you could use this to update database permissions or re-create views.</p> <p>To do this, create a special migration file called <code>post-apply.py</code>.</p> <h3 id=configuration-file><a href=https://ollycope.com/software/yoyo/latest/#configuration-file>Configuration file</a><a class=headerlink href=#configuration-file title="Permanent link">⚑</a></h3> <p>Yoyo looks for a configuration file named <code>yoyo.ini</code> in the current working directory or any ancestor directory.</p> <p>The configuration file may contain the following options:</p> <div class=highlight><pre><span></span><code><span class=k>[DEFAULT]</span><span class=w></span>
 
-<span class=c1># List of migration source directories. &quot;%(here)s&quot; is expanded to the</span>
-<span class=c1># full path of the directory containing this ini file.</span>
-<span class=na>sources</span> <span class=o>=</span> <span class=s>%(here)s/migrations %(here)s/lib/module/migrations</span>
+<span class=c1># List of migration source directories. &quot;%(here)s&quot; is expanded to the</span><span class=w></span>
+<span class=c1># full path of the directory containing this ini file.</span><span class=w></span>
+<span class=na>sources</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>%(here)s/migrations %(here)s/lib/module/migrations</span><span class=w></span>
 
-<span class=c1># Target database</span>
-<span class=na>database</span> <span class=o>=</span> <span class=s>postgresql://scott:tiger@localhost/mydb</span>
+<span class=c1># Target database</span><span class=w></span>
+<span class=na>database</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>postgresql://scott:tiger@localhost/mydb</span><span class=w></span>
 
-<span class=c1># Verbosity level. Goes from 0 (least verbose) to 3 (most verbose)</span>
-<span class=na>verbosity</span> <span class=o>=</span> <span class=s>3</span>
+<span class=c1># Verbosity level. Goes from 0 (least verbose) to 3 (most verbose)</span><span class=w></span>
+<span class=na>verbosity</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>3</span><span class=w></span>
 
-<span class=c1># Disable interactive features</span>
-<span class=na>batch_mode</span> <span class=o>=</span> <span class=s>on</span>
+<span class=c1># Disable interactive features</span><span class=w></span>
+<span class=na>batch_mode</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>on</span><span class=w></span>
 
-<span class=c1># Editor to use when starting new migrations</span>
-<span class=c1># &quot;{}&quot; is expanded to the filename of the new migration</span>
-<span class=na>editor</span> <span class=o>=</span> <span class=s>/usr/local/bin/vim -f {}</span>
+<span class=c1># Editor to use when starting new migrations</span><span class=w></span>
+<span class=c1># &quot;{}&quot; is expanded to the filename of the new migration</span><span class=w></span>
+<span class=na>editor</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>/usr/local/bin/vim -f {}</span><span class=w></span>
 
-<span class=c1># An arbitrary command to run after a migration has been created</span>
-<span class=c1># &quot;{}&quot; is expanded to the filename of the new migration</span>
-<span class=na>post_create_command</span> <span class=o>=</span> <span class=s>hg add {}</span>
+<span class=c1># An arbitrary command to run after a migration has been created</span><span class=w></span>
+<span class=c1># &quot;{}&quot; is expanded to the filename of the new migration</span><span class=w></span>
+<span class=na>post_create_command</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>hg add {}</span><span class=w></span>
 
-<span class=c1># A prefix to use for generated migration filenames</span>
-<span class=na>prefix</span> <span class=o>=</span> <span class=s>myproject_</span>
+<span class=c1># A prefix to use for generated migration filenames</span><span class=w></span>
+<span class=na>prefix</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>myproject_</span><span class=w></span>
 </code></pre></div> <h3 id=calling-yoyo-from-python-code><a href=https://ollycope.com/software/yoyo/latest/#calling-yoyo-from-python-code>Calling Yoyo from Python code</a><a class=headerlink href=#calling-yoyo-from-python-code title="Permanent link">⚑</a></h3> <p>The following example shows how to apply migrations from inside python code:</p> <div class=highlight><pre><span></span><code><span class=kn>from</span> <span class=nn>yoyo</span> <span class=kn>import</span> <span class=n>read_migrations</span>
 <span class=kn>from</span> <span class=nn>yoyo</span> <span class=kn>import</span> <span class=n>get_backend</span>
 

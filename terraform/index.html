@@ -86,53 +86,53 @@ pre-commit install
 pre-commit run terraform_fmt
 pre-commit run terraform_validate --file dynamo.tf
 pre-commit run -a
-</code></pre></div> <h3 id=tests>Tests<a class=headerlink href=#tests title="Permanent link">⚑</a></h3> <p><a href=https://www.contino.io/insights/top-3-terraform-testing-strategies-for-ultra-reliable-infrastructure-as-code>Motivation</a></p> <h4 id=static-analysis>Static analysis<a class=headerlink href=#static-analysis title="Permanent link">⚑</a></h4> <h5 id=linters>Linters<a class=headerlink href=#linters title="Permanent link">⚑</a></h5> <ul> <li>conftest</li> <li>tflint</li> <li><code>terraform validate</code></li> </ul> <h5 id=dry-run>Dry run<a class=headerlink href=#dry-run title="Permanent link">⚑</a></h5> <ul> <li><code>terraform plan</code></li> <li>hashicorp sentinel</li> <li>terraform-compliance</li> </ul> <h4 id=unit-tests>Unit tests<a class=headerlink href=#unit-tests title="Permanent link">⚑</a></h4> <p>There is no real unit testing in infrastructure code as you need to deploy it in a real environment</p> <ul> <li> <p><code>terratest</code> (works for k8s and terraform)</p> <p>Some sample code in:</p> <ul> <li>github.com/gruntwork-io/infrastructure-as-code-testing-talk</li> <li>gruntwork.io</li> </ul> </li> </ul> <h4 id=e2e-test>E2E test<a class=headerlink href=#e2e-test title="Permanent link">⚑</a></h4> <ul> <li>Too slow and too brittle to be worth it</li> <li>Use incremental e2e testing</li> </ul> <h2 id=variables><a href=https://www.terraform.io/intro/getting-started/variables.html>Variables</a><a class=headerlink href=#variables title="Permanent link">⚑</a></h2> <p>It's a good practice to name the resource before the particularization of the resource, so you can search all the elements of that resource, for example, instead of <code>client_cidr</code> and <code>operations_cidr</code> use <code>cidr_operations</code> and <code>cidr_client</code></p> <div class=highlight><pre><span></span><code><span class=kr>variable</span> <span class=err>&quot;list_example&quot;{</span>
-  <span class=na>description</span> <span class=o>=</span> <span class=s2>&quot;An example of a list&quot;</span>
-  <span class=na>type</span> <span class=o>=</span> <span class=s2>&quot;list&quot;</span>
-  <span class=na>default</span> <span class=o>=</span> <span class=p>[</span><span class=m>1</span><span class=p>,</span> <span class=m>2</span><span class=p>,</span> <span class=m>3</span><span class=p>]</span>
-<span class=p>}</span>
+</code></pre></div> <h3 id=tests>Tests<a class=headerlink href=#tests title="Permanent link">⚑</a></h3> <p><a href=https://www.contino.io/insights/top-3-terraform-testing-strategies-for-ultra-reliable-infrastructure-as-code>Motivation</a></p> <h4 id=static-analysis>Static analysis<a class=headerlink href=#static-analysis title="Permanent link">⚑</a></h4> <h5 id=linters>Linters<a class=headerlink href=#linters title="Permanent link">⚑</a></h5> <ul> <li>conftest</li> <li>tflint</li> <li><code>terraform validate</code></li> </ul> <h5 id=dry-run>Dry run<a class=headerlink href=#dry-run title="Permanent link">⚑</a></h5> <ul> <li><code>terraform plan</code></li> <li>hashicorp sentinel</li> <li>terraform-compliance</li> </ul> <h4 id=unit-tests>Unit tests<a class=headerlink href=#unit-tests title="Permanent link">⚑</a></h4> <p>There is no real unit testing in infrastructure code as you need to deploy it in a real environment</p> <ul> <li> <p><code>terratest</code> (works for k8s and terraform)</p> <p>Some sample code in:</p> <ul> <li>github.com/gruntwork-io/infrastructure-as-code-testing-talk</li> <li>gruntwork.io</li> </ul> </li> </ul> <h4 id=e2e-test>E2E test<a class=headerlink href=#e2e-test title="Permanent link">⚑</a></h4> <ul> <li>Too slow and too brittle to be worth it</li> <li>Use incremental e2e testing</li> </ul> <h2 id=variables><a href=https://www.terraform.io/intro/getting-started/variables.html>Variables</a><a class=headerlink href=#variables title="Permanent link">⚑</a></h2> <p>It's a good practice to name the resource before the particularization of the resource, so you can search all the elements of that resource, for example, instead of <code>client_cidr</code> and <code>operations_cidr</code> use <code>cidr_operations</code> and <code>cidr_client</code></p> <div class=highlight><pre><span></span><code><span class=kr>variable</span><span class=w> </span><span class=err>&quot;list_example&quot;{</span>
+<span class=w>  </span><span class=na>description</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s2>&quot;An example of a list&quot;</span><span class=w></span>
+<span class=w>  </span><span class=na>type</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s2>&quot;list&quot;</span><span class=w></span>
+<span class=w>  </span><span class=na>default</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=p>[</span><span class=m>1</span><span class=p>,</span><span class=w> </span><span class=m>2</span><span class=p>,</span><span class=w> </span><span class=m>3</span><span class=p>]</span><span class=w></span>
+<span class=p>}</span><span class=w></span>
 
-<span class=kr>variable</span> <span class=err>&quot;map_example&quot;{</span>
-  <span class=na>description</span> <span class=o>=</span> <span class=s2>&quot;An example of a dictionary&quot;</span>
-  <span class=na>type</span> <span class=o>=</span> <span class=s2>&quot;map&quot;</span>
-  <span class=nb>default</span> <span class=o>=</span> <span class=p>{</span>
-    <span class=na>key1</span> <span class=o>=</span> <span class=s2>&quot;value1&quot;</span>
-    <span class=na>key2</span> <span class=o>=</span> <span class=s2>&quot;value2&quot;</span>
-  <span class=p>}</span>
-<span class=p>}</span>
-</code></pre></div> <p>For the use of maps inside maps or lists investigate <code>zipmap</code></p> <p>To access you have to use <code>"${var.list_example}"</code></p> <p>For secret variables we use: <div class=highlight><pre><span></span><code><span class=kr>variable</span> <span class=nv>&quot;db_password&quot;</span> <span class=p>{</span>
-  <span class=na>description</span> <span class=o>=</span> <span class=s2>&quot;The password for the database&quot;</span>
-<span class=p>}</span>
+<span class=kr>variable</span><span class=w> </span><span class=err>&quot;map_example&quot;{</span>
+<span class=w>  </span><span class=na>description</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s2>&quot;An example of a dictionary&quot;</span><span class=w></span>
+<span class=w>  </span><span class=na>type</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s2>&quot;map&quot;</span><span class=w></span>
+<span class=w>  </span><span class=nb>default</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=p>{</span><span class=w></span>
+<span class=w>    </span><span class=na>key1</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s2>&quot;value1&quot;</span><span class=w></span>
+<span class=w>    </span><span class=na>key2</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s2>&quot;value2&quot;</span><span class=w></span>
+<span class=w>  </span><span class=p>}</span><span class=w></span>
+<span class=p>}</span><span class=w></span>
+</code></pre></div> <p>For the use of maps inside maps or lists investigate <code>zipmap</code></p> <p>To access you have to use <code>"${var.list_example}"</code></p> <p>For secret variables we use: <div class=highlight><pre><span></span><code><span class=kr>variable</span><span class=w> </span><span class=nv>&quot;db_password&quot;</span><span class=w> </span><span class=p>{</span>
+<span class=w>  </span><span class=na>description</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s2>&quot;The password for the database&quot;</span><span class=w></span>
+<span class=p>}</span><span class=w></span>
 </code></pre></div></p> <p>Which has no default value, we save that password in our keystore and pass it as environmental variable <div class=highlight><pre><span></span><code><span class=nb>export</span> <span class=nv>TF_VAR_db_password</span><span class=o>=</span><span class=s2>&quot;{{ your password }}&quot;</span>
 terragrunt plan
-</code></pre></div></p> <p>As a reminder, Terraform stores all variables in its state file in plain text, including this database password, which is why your terragrunt config should always enable encryption for remote state storage in S3</p> <h3 id=interpolation-of-variables><a href=https://github.com/hashicorp/terraform/issues/4084>Interpolation of variables</a><a class=headerlink href=#interpolation-of-variables title="Permanent link">⚑</a></h3> <p>You can't interpolate in variables, so instead of <div class=highlight><pre><span></span><code><span class=kr>variable</span> <span class=nv>&quot;sistemas_gpg&quot;</span> <span class=p>{</span>
-  <span class=na>description</span> <span class=o>=</span> <span class=s2>&quot;Sistemas public GPG key for Zena&quot;</span>
-  <span class=na>type</span> <span class=o>=</span> <span class=s2>&quot;string&quot;</span>
-  <span class=na>default</span> <span class=o>=</span> <span class=s2>&quot;${file(&quot;sistemas_zena.pub&quot;)}&quot;</span>
-<span class=p>}</span>
-</code></pre></div> You have to use locals</p> <div class=highlight><pre><span></span><code><span class=nb>locals</span> <span class=p>{</span>
-  <span class=na>sistemas_gpg</span> <span class=o>=</span> <span class=s2>&quot;${file(&quot;sistemas_zena.pub&quot;)}&quot;</span>
-<span class=p>}</span>
+</code></pre></div></p> <p>As a reminder, Terraform stores all variables in its state file in plain text, including this database password, which is why your terragrunt config should always enable encryption for remote state storage in S3</p> <h3 id=interpolation-of-variables><a href=https://github.com/hashicorp/terraform/issues/4084>Interpolation of variables</a><a class=headerlink href=#interpolation-of-variables title="Permanent link">⚑</a></h3> <p>You can't interpolate in variables, so instead of <div class=highlight><pre><span></span><code><span class=kr>variable</span><span class=w> </span><span class=nv>&quot;sistemas_gpg&quot;</span><span class=w> </span><span class=p>{</span>
+<span class=w>  </span><span class=na>description</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s2>&quot;Sistemas public GPG key for Zena&quot;</span><span class=w></span>
+<span class=w>  </span><span class=na>type</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s2>&quot;string&quot;</span><span class=w></span>
+<span class=w>  </span><span class=na>default</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s2>&quot;${file(&quot;sistemas_zena.pub&quot;)}&quot;</span><span class=w></span>
+<span class=p>}</span><span class=w></span>
+</code></pre></div> You have to use locals</p> <div class=highlight><pre><span></span><code><span class=nb>locals</span><span class=w> </span><span class=p>{</span><span class=w></span>
+<span class=w>  </span><span class=na>sistemas_gpg</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s2>&quot;${file(&quot;sistemas_zena.pub&quot;)}&quot;</span><span class=w></span>
+<span class=p>}</span><span class=w></span>
 
-<span class=s2>&quot;${local.sistemas_gpg}&quot;</span>
-</code></pre></div> <h2 id=show-information-of-the-resources>Show information of the resources<a class=headerlink href=#show-information-of-the-resources title="Permanent link">⚑</a></h2> <p>Get information of the infrastructure. Output variables show up in the console after you run <code>terraform apply</code>, you can also use <code>terraform output [{{ output_name }}]</code> to see the value of a specific output without applying any changes</p> <div class=highlight><pre><span></span><code><span class=kr>output</span> <span class=nv>&quot;public_ip&quot;</span> <span class=p>{</span>
-  <span class=na>value</span> <span class=o>=</span> <span class=s2>&quot;${aws_instance.example.public_ip}&quot;</span>
-<span class=p>}</span>
+<span class=s2>&quot;${local.sistemas_gpg}&quot;</span><span class=w></span>
+</code></pre></div> <h2 id=show-information-of-the-resources>Show information of the resources<a class=headerlink href=#show-information-of-the-resources title="Permanent link">⚑</a></h2> <p>Get information of the infrastructure. Output variables show up in the console after you run <code>terraform apply</code>, you can also use <code>terraform output [{{ output_name }}]</code> to see the value of a specific output without applying any changes</p> <div class=highlight><pre><span></span><code><span class=kr>output</span><span class=w> </span><span class=nv>&quot;public_ip&quot;</span><span class=w> </span><span class=p>{</span>
+<span class=w>  </span><span class=na>value</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s2>&quot;${aws_instance.example.public_ip}&quot;</span><span class=w></span>
+<span class=p>}</span><span class=w></span>
 </code></pre></div> <div class=highlight><pre><span></span><code>&gt; terraform apply
 aws_security_group.instance: Refreshing state... <span class=o>(</span>ID: sg-db91dba1<span class=o>)</span>
 aws_instance.example: Refreshing state... <span class=o>(</span>ID: i-61744350<span class=o>)</span>
 Apply complete! Resources: <span class=m>0</span> added, <span class=m>0</span> changed, <span class=m>0</span> destroyed.
 Outputs:
 <span class=nv>public_ip</span> <span class=o>=</span> <span class=m>54</span>.174.13.5
-</code></pre></div> <h2 id=data-source>Data source<a class=headerlink href=#data-source title="Permanent link">⚑</a></h2> <p>A <em>data source</em> represents a piece of read-only information that is fetched from the provider every time you run Terraform. It does not create anything new</p> <div class=highlight><pre><span></span><code><span class=kr>data</span> <span class=nc>&quot;aws_availability_zones&quot;</span> <span class=nv>&quot;all&quot;</span> <span class=p>{</span><span class=err>}</span>
-</code></pre></div> <p>And you reference it with <code>"${data.aws_availability_zones.all.names}"</code></p> <h2 id=read-only-state-source>Read-only state source<a class=headerlink href=#read-only-state-source title="Permanent link">⚑</a></h2> <p>With <code>terraform_remote_state</code> you an fetch the Terraform state file stored by another set of templates in a completely read-only manner.</p> <p>From an app template we can read the info of the ddbb with <div class=highlight><pre><span></span><code><span class=kr>data</span> <span class=nc>&quot;terraform_remote_state&quot;</span> <span class=nv>&quot;db&quot;</span> <span class=p>{</span>
-  <span class=na>backend</span> <span class=o>=</span> <span class=s2>&quot;s3&quot;</span>
-  <span class=nb>config</span> <span class=p>{</span>
-    <span class=na>bucket</span> <span class=o>=</span> <span class=s2>&quot;(YOUR_BUCKET_NAME)&quot;</span>
-    <span class=na>key</span> <span class=o>=</span> <span class=s2>&quot;stage/data-stores/mysql/terraform.tfstate&quot;</span>
-    <span class=na>region</span> <span class=o>=</span> <span class=s2>&quot;us-east-1&quot;</span>
-  <span class=p>}</span>
-<span class=p>}</span>
+</code></pre></div> <h2 id=data-source>Data source<a class=headerlink href=#data-source title="Permanent link">⚑</a></h2> <p>A <em>data source</em> represents a piece of read-only information that is fetched from the provider every time you run Terraform. It does not create anything new</p> <div class=highlight><pre><span></span><code><span class=kr>data</span><span class=w> </span><span class=nc>&quot;aws_availability_zones&quot;</span><span class=w> </span><span class=nv>&quot;all&quot;</span><span class=w> </span><span class=p>{</span><span class=err>}</span>
+</code></pre></div> <p>And you reference it with <code>"${data.aws_availability_zones.all.names}"</code></p> <h2 id=read-only-state-source>Read-only state source<a class=headerlink href=#read-only-state-source title="Permanent link">⚑</a></h2> <p>With <code>terraform_remote_state</code> you an fetch the Terraform state file stored by another set of templates in a completely read-only manner.</p> <p>From an app template we can read the info of the ddbb with <div class=highlight><pre><span></span><code><span class=kr>data</span><span class=w> </span><span class=nc>&quot;terraform_remote_state&quot;</span><span class=w> </span><span class=nv>&quot;db&quot;</span><span class=w> </span><span class=p>{</span>
+<span class=w>  </span><span class=na>backend</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s2>&quot;s3&quot;</span><span class=w></span>
+<span class=w>  </span><span class=nb>config</span><span class=w> </span><span class=p>{</span><span class=w></span>
+<span class=w>    </span><span class=na>bucket</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s2>&quot;(YOUR_BUCKET_NAME)&quot;</span><span class=w></span>
+<span class=w>    </span><span class=na>key</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s2>&quot;stage/data-stores/mysql/terraform.tfstate&quot;</span><span class=w></span>
+<span class=w>    </span><span class=na>region</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s2>&quot;us-east-1&quot;</span><span class=w></span>
+<span class=w>  </span><span class=p>}</span><span class=w></span>
+<span class=p>}</span><span class=w></span>
 </code></pre></div></p> <p>And you would access the variables inside the database terraform file with <code>data.terraform_remote_state.db.outputs.port</code></p> <p>To share variables from state, you need to to set them in the <code>outputs.tf</code> file.</p> <h2 id=template_file-source>Template_file source<a class=headerlink href=#template_file-source title="Permanent link">⚑</a></h2> <p>It is used to load templates, it has two parameters, <code>template</code> which is a string and <code>vars</code> which is a map of variables. it has one output attribute called <code>rendered</code>, which is the result of rendering template. For example</p> <div class=highlight><pre><span></span><code><span class=c1># File: user-data.sh</span>
 <span class=c1>#!/bin/bash</span>
 cat &gt; index.html <span class=s>&lt;&lt;EOF</span>
@@ -141,93 +141,93 @@ cat &gt; index.html <span class=s>&lt;&lt;EOF</span>
 <span class=s>&lt;p&gt;DB port: ${db_port}&lt;/p&gt;</span>
 <span class=s>EOF</span>
 nohup busybox httpd -f -p <span class=s2>&quot;</span><span class=si>${</span><span class=nv>server_port</span><span class=si>}</span><span class=s2>&quot;</span> <span class=p>&amp;</span>
-</code></pre></div> <div class=highlight><pre><span></span><code><span class=kr>data</span> <span class=nc>&quot;template_file&quot;</span> <span class=nv>&quot;user_data&quot;</span> <span class=p>{</span>
-  <span class=na>template</span> <span class=o>=</span> <span class=s2>&quot;${file(&quot;user-data.sh&quot;)}&quot;</span>
-  <span class=nb>vars</span> <span class=p>{</span>
-    <span class=na>server_port</span> <span class=o>=</span> <span class=s2>&quot;${var.server_port}&quot;</span>
-    <span class=na>db_address</span> <span class=o>=</span> <span class=s2>&quot;${data.terraform_remote_state.db.address}&quot;</span>
-    <span class=na>db_port</span> <span class=o>=</span> <span class=s2>&quot;${data.terraform_remote_state.db.port}&quot;</span>
-  <span class=p>}</span>
-<span class=p>}</span>
-</code></pre></div> <h2 id=resource-lifecycle>Resource lifecycle<a class=headerlink href=#resource-lifecycle title="Permanent link">⚑</a></h2> <p>The <code>lifecycle</code> parameter is a <em>meta-parameter</em>, it exist on about every resource in Terraform. You can add a <code>lifecycle</code> block to any resource to configure how that resource should be created, updated or destroyed.</p> <p>The available options are: * <code>create_before_destroy</code>: Which if set to true will create a replacement resource before destroying hte original resource * <code>prevent_destroy</code>: If set to true, any attempt to delete that resource (<code>terraform destroy</code>), will fail, to delete it you have to first remove the <code>prevent_destroy</code></p> <div class=highlight><pre><span></span><code><span class=kr>resource</span> <span class=nc>&quot;aws_launch_configuration&quot;</span> <span class=nv>&quot;example&quot;</span> <span class=p>{</span>
-  <span class=na>image_id</span> <span class=o>=</span> <span class=s2>&quot;ami-40d28157&quot;</span>
-  <span class=na>instance_type</span> <span class=o>=</span> <span class=s2>&quot;t2.micro&quot;</span>
-  <span class=na>security_groups</span> <span class=o>=</span> <span class=p>[</span><span class=s2>&quot;${aws_security_group.instance.id}&quot;</span><span class=p>]</span>
-  <span class=na>user_data</span> <span class=o>=</span> <span class=err>&lt;&lt;-EOF</span><span class=c1></span>
-<span class=c1>              #!/bin/bash</span>
-              <span class=err>echo</span> <span class=s2>&quot;Hello, World&quot;</span> <span class=err>&gt;</span> <span class=nv>index.html</span>
-              <span class=err>nohup</span> <span class=err>busybox</span> <span class=err>httpd</span> <span class=err>-f</span> <span class=err>-p</span> <span class=s2>&quot;${var.server_port}&quot;</span> <span class=err>&amp;</span>
-              <span class=err>EOF</span>
-  <span class=nb>lifecycle</span> <span class=p>{</span>
-    <span class=na>create_before_destroy</span> <span class=o>=</span> <span class=no>true</span>
-  <span class=p>}</span>
-<span class=p>}</span>
-</code></pre></div> <p>If you set the <code>create_before_destroy</code> on a resource, you also have to set it on every resource that X depends on (if you forget, you'll get errors about cyclical dependencies). In the case of the launch configuration, that means you need to set <code>create_before_destroy</code> to true on the security group:</p> <div class=highlight><pre><span></span><code><span class=kr>resource</span> <span class=nc>&quot;aws_security_group&quot;</span> <span class=nv>&quot;instance&quot;</span> <span class=p>{</span>
-  <span class=na>name</span> <span class=o>=</span> <span class=s2>&quot;terraform-example-instance&quot;</span>
-  <span class=nb>ingress</span> <span class=p>{</span>
-    <span class=na>from_port</span> <span class=o>=</span> <span class=s2>&quot;${var.server_port}&quot;</span>
-    <span class=na>to_port</span> <span class=o>=</span> <span class=s2>&quot;${var.server_port}&quot;</span>
-    <span class=na>protocol</span> <span class=o>=</span> <span class=s2>&quot;tcp&quot;</span>
-    <span class=na>cidr_blocks</span> <span class=o>=</span> <span class=p>[</span><span class=s2>&quot;0.0.0.0/0&quot;</span><span class=p>]</span>
-  <span class=p>}</span>
-  <span class=nb>lifecycle</span> <span class=p>{</span>
-    <span class=na>create_before_destroy</span> <span class=o>=</span> <span class=no>true</span>
-  <span class=p>}</span>
-<span class=p>}</span>
-</code></pre></div> <h2 id=use-collaboratively>Use collaboratively<a class=headerlink href=#use-collaboratively title="Permanent link">⚑</a></h2> <h3 id=share-state>Share state<a class=headerlink href=#share-state title="Permanent link">⚑</a></h3> <p>The best option is to use S3 as bucket of the config.</p> <p>First create it <div class=highlight><pre><span></span><code><span class=kr>resource</span> <span class=nc>&quot;aws_s3_bucket&quot;</span> <span class=nv>&quot;terraform_state&quot;</span> <span class=p>{</span>
-  <span class=na>bucket</span> <span class=o>=</span> <span class=s2>&quot;terraform-up-and-running-state&quot;</span>
-  <span class=nb>versioning</span> <span class=p>{</span>
-    <span class=na>enabled</span> <span class=o>=</span> <span class=no>true</span>
-  <span class=p>}</span>
-  <span class=nb>lifecycle</span> <span class=p>{</span>
-    <span class=na>prevent_destroy</span> <span class=o>=</span> <span class=no>true</span>
-  <span class=p>}</span>
-<span class=p>}</span>
+</code></pre></div> <div class=highlight><pre><span></span><code><span class=kr>data</span><span class=w> </span><span class=nc>&quot;template_file&quot;</span><span class=w> </span><span class=nv>&quot;user_data&quot;</span><span class=w> </span><span class=p>{</span>
+<span class=w>  </span><span class=na>template</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s2>&quot;${file(&quot;user-data.sh&quot;)}&quot;</span><span class=w></span>
+<span class=w>  </span><span class=nb>vars</span><span class=w> </span><span class=p>{</span><span class=w></span>
+<span class=w>    </span><span class=na>server_port</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s2>&quot;${var.server_port}&quot;</span><span class=w></span>
+<span class=w>    </span><span class=na>db_address</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s2>&quot;${data.terraform_remote_state.db.address}&quot;</span><span class=w></span>
+<span class=w>    </span><span class=na>db_port</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s2>&quot;${data.terraform_remote_state.db.port}&quot;</span><span class=w></span>
+<span class=w>  </span><span class=p>}</span><span class=w></span>
+<span class=p>}</span><span class=w></span>
+</code></pre></div> <h2 id=resource-lifecycle>Resource lifecycle<a class=headerlink href=#resource-lifecycle title="Permanent link">⚑</a></h2> <p>The <code>lifecycle</code> parameter is a <em>meta-parameter</em>, it exist on about every resource in Terraform. You can add a <code>lifecycle</code> block to any resource to configure how that resource should be created, updated or destroyed.</p> <p>The available options are: * <code>create_before_destroy</code>: Which if set to true will create a replacement resource before destroying hte original resource * <code>prevent_destroy</code>: If set to true, any attempt to delete that resource (<code>terraform destroy</code>), will fail, to delete it you have to first remove the <code>prevent_destroy</code></p> <div class=highlight><pre><span></span><code><span class=kr>resource</span><span class=w> </span><span class=nc>&quot;aws_launch_configuration&quot;</span><span class=w> </span><span class=nv>&quot;example&quot;</span><span class=w> </span><span class=p>{</span>
+<span class=w>  </span><span class=na>image_id</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s2>&quot;ami-40d28157&quot;</span><span class=w></span>
+<span class=w>  </span><span class=na>instance_type</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s2>&quot;t2.micro&quot;</span><span class=w></span>
+<span class=w>  </span><span class=na>security_groups</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=p>[</span><span class=s2>&quot;${aws_security_group.instance.id}&quot;</span><span class=p>]</span><span class=w></span>
+<span class=w>  </span><span class=na>user_data</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=o>&lt;&lt;-</span><span class=dl>EOF</span><span class=sh></span>
+<span class=sh>              #!/bin/bash</span>
+<span class=sh>              echo &quot;Hello, World&quot; &gt; index.html</span>
+<span class=sh>              nohup busybox httpd -f -p &quot;${var.server_port}&quot; &amp;</span>
+<span class=dl>              EOF</span>
+<span class=w>  </span><span class=nb>lifecycle</span><span class=w> </span><span class=p>{</span><span class=w></span>
+<span class=w>    </span><span class=na>create_before_destroy</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=no>true</span><span class=w></span>
+<span class=w>  </span><span class=p>}</span><span class=w></span>
+<span class=p>}</span><span class=w></span>
+</code></pre></div> <p>If you set the <code>create_before_destroy</code> on a resource, you also have to set it on every resource that X depends on (if you forget, you'll get errors about cyclical dependencies). In the case of the launch configuration, that means you need to set <code>create_before_destroy</code> to true on the security group:</p> <div class=highlight><pre><span></span><code><span class=kr>resource</span><span class=w> </span><span class=nc>&quot;aws_security_group&quot;</span><span class=w> </span><span class=nv>&quot;instance&quot;</span><span class=w> </span><span class=p>{</span>
+<span class=w>  </span><span class=na>name</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s2>&quot;terraform-example-instance&quot;</span><span class=w></span>
+<span class=w>  </span><span class=nb>ingress</span><span class=w> </span><span class=p>{</span><span class=w></span>
+<span class=w>    </span><span class=na>from_port</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s2>&quot;${var.server_port}&quot;</span><span class=w></span>
+<span class=w>    </span><span class=na>to_port</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s2>&quot;${var.server_port}&quot;</span><span class=w></span>
+<span class=w>    </span><span class=na>protocol</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s2>&quot;tcp&quot;</span><span class=w></span>
+<span class=w>    </span><span class=na>cidr_blocks</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=p>[</span><span class=s2>&quot;0.0.0.0/0&quot;</span><span class=p>]</span><span class=w></span>
+<span class=w>  </span><span class=p>}</span><span class=w></span>
+<span class=w>  </span><span class=nb>lifecycle</span><span class=w> </span><span class=p>{</span><span class=w></span>
+<span class=w>    </span><span class=na>create_before_destroy</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=no>true</span><span class=w></span>
+<span class=w>  </span><span class=p>}</span><span class=w></span>
+<span class=p>}</span><span class=w></span>
+</code></pre></div> <h2 id=use-collaboratively>Use collaboratively<a class=headerlink href=#use-collaboratively title="Permanent link">⚑</a></h2> <h3 id=share-state>Share state<a class=headerlink href=#share-state title="Permanent link">⚑</a></h3> <p>The best option is to use S3 as bucket of the config.</p> <p>First create it <div class=highlight><pre><span></span><code><span class=kr>resource</span><span class=w> </span><span class=nc>&quot;aws_s3_bucket&quot;</span><span class=w> </span><span class=nv>&quot;terraform_state&quot;</span><span class=w> </span><span class=p>{</span>
+<span class=w>  </span><span class=na>bucket</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s2>&quot;terraform-up-and-running-state&quot;</span><span class=w></span>
+<span class=w>  </span><span class=nb>versioning</span><span class=w> </span><span class=p>{</span><span class=w></span>
+<span class=w>    </span><span class=na>enabled</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=no>true</span><span class=w></span>
+<span class=w>  </span><span class=p>}</span><span class=w></span>
+<span class=w>  </span><span class=nb>lifecycle</span><span class=w> </span><span class=p>{</span><span class=w></span>
+<span class=w>    </span><span class=na>prevent_destroy</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=no>true</span><span class=w></span>
+<span class=w>  </span><span class=p>}</span><span class=w></span>
+<span class=p>}</span><span class=w></span>
 </code></pre></div></p> <p>And then configure terraform <div class=highlight><pre><span></span><code>terraform remote config <span class=se>\</span>
           -backend<span class=o>=</span>s3 <span class=se>\</span>
           -backend-config<span class=o>=</span><span class=s2>&quot;bucket=(YOUR_BUCKET_NAME)&quot;</span> <span class=se>\</span>
           -backend-config<span class=o>=</span><span class=s2>&quot;key=global/s3/terraform.tfstate&quot;</span> <span class=se>\</span>
           -backend-config<span class=o>=</span><span class=s2>&quot;region=us-east-1&quot;</span> <span class=se>\</span>
           -backend-config<span class=o>=</span><span class=s2>&quot;encrypt=true&quot;</span>
-</code></pre></div></p> <p>In this way terraform will automatically pull the latest state from this bucked and push the latest state after running a command</p> <h3 id=lock-terraform>Lock terraform<a class=headerlink href=#lock-terraform title="Permanent link">⚑</a></h3> <p>To avoid several people running terraform at the same time, we'd use <code>terragrunt</code> a wrapper for terraform that manages remote state for you automatically and provies locking by using DynamoDB (in the free tier)</p> <p>Inside the <code>terraform_config.tf</code> you create the dynamodb table and then configure your <code>s3</code> backend to use it</p> <div class=highlight><pre><span></span><code><span class=kr>resource</span> <span class=nc>&quot;aws_dynamodb_table&quot;</span> <span class=nv>&quot;terraform_statelock&quot;</span> <span class=p>{</span>
-  <span class=na>name</span>           <span class=o>=</span> <span class=s2>&quot;global-s3&quot;</span>
-  <span class=na>read_capacity</span>  <span class=o>=</span> <span class=m>20</span>
-  <span class=na>write_capacity</span> <span class=o>=</span> <span class=m>20</span>
-  <span class=na>hash_key</span>       <span class=o>=</span> <span class=s2>&quot;LockID&quot;</span>
+</code></pre></div></p> <p>In this way terraform will automatically pull the latest state from this bucked and push the latest state after running a command</p> <h3 id=lock-terraform>Lock terraform<a class=headerlink href=#lock-terraform title="Permanent link">⚑</a></h3> <p>To avoid several people running terraform at the same time, we'd use <code>terragrunt</code> a wrapper for terraform that manages remote state for you automatically and provies locking by using DynamoDB (in the free tier)</p> <p>Inside the <code>terraform_config.tf</code> you create the dynamodb table and then configure your <code>s3</code> backend to use it</p> <div class=highlight><pre><span></span><code><span class=kr>resource</span><span class=w> </span><span class=nc>&quot;aws_dynamodb_table&quot;</span><span class=w> </span><span class=nv>&quot;terraform_statelock&quot;</span><span class=w> </span><span class=p>{</span>
+<span class=w>  </span><span class=na>name</span><span class=w>           </span><span class=o>=</span><span class=w> </span><span class=s2>&quot;global-s3&quot;</span><span class=w></span>
+<span class=w>  </span><span class=na>read_capacity</span><span class=w>  </span><span class=o>=</span><span class=w> </span><span class=m>20</span><span class=w></span>
+<span class=w>  </span><span class=na>write_capacity</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=m>20</span><span class=w></span>
+<span class=w>  </span><span class=na>hash_key</span><span class=w>       </span><span class=o>=</span><span class=w> </span><span class=s2>&quot;LockID&quot;</span><span class=w></span>
 
-  <span class=nb>attribute</span> <span class=p>{</span>
-    <span class=na>name</span> <span class=o>=</span> <span class=s2>&quot;LockID&quot;</span>
-    <span class=na>type</span> <span class=o>=</span> <span class=s2>&quot;S&quot;</span>
-  <span class=p>}</span>
-<span class=p>}</span>
+<span class=w>  </span><span class=nb>attribute</span><span class=w> </span><span class=p>{</span><span class=w></span>
+<span class=w>    </span><span class=na>name</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s2>&quot;LockID&quot;</span><span class=w></span>
+<span class=w>    </span><span class=na>type</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s2>&quot;S&quot;</span><span class=w></span>
+<span class=w>  </span><span class=p>}</span><span class=w></span>
+<span class=p>}</span><span class=w></span>
 
-<span class=nb>terraform</span> <span class=p>{</span>
-  <span class=kr>backend</span> <span class=nv>&quot;s3&quot;</span> <span class=p>{</span>
-    <span class=na>bucket</span> <span class=o>=</span> <span class=s2>&quot;grupo-zena-tfstate&quot;</span>
-    <span class=na>key</span>    <span class=o>=</span> <span class=s2>&quot;global/s3/terraform.tfstate&quot;</span>
-    <span class=na>region</span> <span class=o>=</span> <span class=s2>&quot;eu-west-1&quot;</span>
-    <span class=na>encrypt</span> <span class=o>=</span> <span class=s2>&quot;true&quot;</span>
-    <span class=na>dynamodb_table</span> <span class=o>=</span> <span class=s2>&quot;global-s3&quot;</span>
-  <span class=p>}</span>
-<span class=p>}</span>
+<span class=nb>terraform</span><span class=w> </span><span class=p>{</span><span class=w></span>
+<span class=w>  </span><span class=kr>backend</span><span class=w> </span><span class=nv>&quot;s3&quot;</span><span class=w> </span><span class=p>{</span>
+<span class=w>    </span><span class=na>bucket</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s2>&quot;grupo-zena-tfstate&quot;</span><span class=w></span>
+<span class=w>    </span><span class=na>key</span><span class=w>    </span><span class=o>=</span><span class=w> </span><span class=s2>&quot;global/s3/terraform.tfstate&quot;</span><span class=w></span>
+<span class=w>    </span><span class=na>region</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s2>&quot;eu-west-1&quot;</span><span class=w></span>
+<span class=w>    </span><span class=na>encrypt</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s2>&quot;true&quot;</span><span class=w></span>
+<span class=w>    </span><span class=na>dynamodb_table</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s2>&quot;global-s3&quot;</span><span class=w></span>
+<span class=w>  </span><span class=p>}</span><span class=w></span>
+<span class=p>}</span><span class=w></span>
 </code></pre></div> <p>You'll probably need to execute an <code>terraform apply</code> with the <code>dynamodb_table</code> line commented</p> <p>If you want to unforce a lock, execute:</p> <div class=highlight><pre><span></span><code>terraform force-unlock <span class=o>{{</span> unlock_id <span class=o>}}</span>
 </code></pre></div> <p>You get the <code>unlock_id</code> from an error trying to execute any <code>terraform</code> command</p> <h2 id=modules>Modules<a class=headerlink href=#modules title="Permanent link">⚑</a></h2> <p>In terraform you can put code inside of a <code>module</code> and reuse in multiple places throughout your code.</p> <p>The provider resource should be specified by the user and not in the modules</p> <p>Whenever you add a module to your terraform template or modify its source parameter you need to run a get command before you run <code>plan</code> or <code>apply</code></p> <div class=highlight><pre><span></span><code>terraform get
-</code></pre></div> <p>To extract output variables of a module to the parent tf file you should use</p> <p><code>${module.{{module.name}}.{{output_name}}}</code></p> <h3 id=basics>Basics<a class=headerlink href=#basics title="Permanent link">⚑</a></h3> <p>Any set of Terraform templates in a directory is a module.</p> <p>The good practice is to have a directory called <code>modules</code> in your parent project directory. There you git clone the desired modules. and for example inside <code>pro/services/bastion/main.tf</code> you'd call it with:</p> <div class=highlight><pre><span></span><code><span class=kr>provider</span> <span class=nv>&quot;aws&quot;</span> <span class=p>{</span>
-  <span class=na>region</span> <span class=o>=</span> <span class=s2>&quot;eu-west-1&quot;</span>
-<span class=p>}</span>
+</code></pre></div> <p>To extract output variables of a module to the parent tf file you should use</p> <p><code>${module.{{module.name}}.{{output_name}}}</code></p> <h3 id=basics>Basics<a class=headerlink href=#basics title="Permanent link">⚑</a></h3> <p>Any set of Terraform templates in a directory is a module.</p> <p>The good practice is to have a directory called <code>modules</code> in your parent project directory. There you git clone the desired modules. and for example inside <code>pro/services/bastion/main.tf</code> you'd call it with:</p> <div class=highlight><pre><span></span><code><span class=kr>provider</span><span class=w> </span><span class=nv>&quot;aws&quot;</span><span class=w> </span><span class=p>{</span>
+<span class=w>  </span><span class=na>region</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s2>&quot;eu-west-1&quot;</span><span class=w></span>
+<span class=p>}</span><span class=w></span>
 
-<span class=kr>module</span> <span class=nv>&quot;bastion&quot;</span> <span class=p>{</span>
-  <span class=na>source</span> <span class=o>=</span> <span class=s2>&quot;../../../modules/services/bastion/&quot;</span>
-<span class=p>}</span>
-</code></pre></div> <h3 id=outputs>Outputs<a class=headerlink href=#outputs title="Permanent link">⚑</a></h3> <p>Modules encapsulate their resources. A resource in one module cannot directly depend on resources or attributes in other modules, unless those are exported through outputs. These outputs can be referenced in other places in your configuration, for example:</p> <div class=highlight><pre><span></span><code><span class=kr>resource</span> <span class=nc>&quot;aws_instance&quot;</span> <span class=nv>&quot;client&quot;</span> <span class=p>{</span>
-  <span class=na>ami</span>               <span class=o>=</span> <span class=s2>&quot;ami-408c7f28&quot;</span>
-  <span class=na>instance_type</span>     <span class=o>=</span> <span class=s2>&quot;t1.micro&quot;</span>
-  <span class=na>availability_zone</span> <span class=o>=</span> <span class=s2>&quot;${module.consul.server_availability_zone}&quot;</span>
-<span class=p>}</span>
-</code></pre></div> <h2 id=import>Import<a class=headerlink href=#import title="Permanent link">⚑</a></h2> <p>You can import the different parts with <code>terraform import {{resource_type}}.{{resource_name}} {{ resource_id }}</code></p> <p>For examples see the documentation of the desired resource.</p> <h3 id=bulk-import>Bulk import<a class=headerlink href=#bulk-import title="Permanent link">⚑</a></h3> <p>But if you want to bulk import sources, I suggest using <a href=terraforming/docs.adoc>terraforming</a></p> <h2 id=bad-points>Bad points<a class=headerlink href=#bad-points title="Permanent link">⚑</a></h2> <ul> <li>Manually added resources wont be managed by terraform, therefore you can't use it to enforce as shown in this <a href=https://github.com/hashicorp/terraform/issues/4728>bug</a>.</li> <li>If you modify the LC of an ASG, the instances don't get rolling updated, you have to do it manually.</li> <li>They call the dictionaries <code>map</code>... (/ﾟДﾟ)/</li> <li>The conditionals are really ugly. You need to use <code>count</code>.</li> <li>You <a href=https://github.com/hashicorp/hcl/issues/211>can't split long strings</a> xD</li> </ul> <h2 id=best-practices>Best practices<a class=headerlink href=#best-practices title="Permanent link">⚑</a></h2> <p>Name the resources with <code>_</code> instead of <code>-</code> so the editor's completion work :)</p> <h3 id=vpc>VPC<a class=headerlink href=#vpc title="Permanent link">⚑</a></h3> <p>Don't use the default vpc</p> <h3 id=security-groups>Security groups<a class=headerlink href=#security-groups title="Permanent link">⚑</a></h3> <p>Instead of using <code>aws_security_group</code> to define the ingress and egress rules, use it only to create the empty security group and use <code>aws_security_group_rule</code> to add the rules, otherwise you'll get into a cycle loop</p> <p>The sintaxis of an egress security group must be <code>egress_from_{{source}}_to_destination</code>. The sintaxis of an ingress security group must be <code>ingress_to_{{destination}}_from_{{source}}</code></p> <p>Also set the order of the arguments, so they look like the name.</p> <p>For ingress rule:</p> <div class=highlight><pre><span></span><code><span class=na>security_group_id</span> <span class=o>=</span> <span class=p>...</span>
-<span class=na>cidr_blocks</span> <span class=o>=</span> <span class=p>...</span>
-</code></pre></div> <p>And in egress should look like:</p> <div class=highlight><pre><span></span><code><span class=na>security_group_id</span> <span class=o>=</span> <span class=p>...</span>
-<span class=na>cidr_blocks</span> <span class=o>=</span> <span class=p>...</span>
+<span class=kr>module</span><span class=w> </span><span class=nv>&quot;bastion&quot;</span><span class=w> </span><span class=p>{</span>
+<span class=w>  </span><span class=na>source</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s2>&quot;../../../modules/services/bastion/&quot;</span><span class=w></span>
+<span class=p>}</span><span class=w></span>
+</code></pre></div> <h3 id=outputs>Outputs<a class=headerlink href=#outputs title="Permanent link">⚑</a></h3> <p>Modules encapsulate their resources. A resource in one module cannot directly depend on resources or attributes in other modules, unless those are exported through outputs. These outputs can be referenced in other places in your configuration, for example:</p> <div class=highlight><pre><span></span><code><span class=kr>resource</span><span class=w> </span><span class=nc>&quot;aws_instance&quot;</span><span class=w> </span><span class=nv>&quot;client&quot;</span><span class=w> </span><span class=p>{</span>
+<span class=w>  </span><span class=na>ami</span><span class=w>               </span><span class=o>=</span><span class=w> </span><span class=s2>&quot;ami-408c7f28&quot;</span><span class=w></span>
+<span class=w>  </span><span class=na>instance_type</span><span class=w>     </span><span class=o>=</span><span class=w> </span><span class=s2>&quot;t1.micro&quot;</span><span class=w></span>
+<span class=w>  </span><span class=na>availability_zone</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s2>&quot;${module.consul.server_availability_zone}&quot;</span><span class=w></span>
+<span class=p>}</span><span class=w></span>
+</code></pre></div> <h2 id=import>Import<a class=headerlink href=#import title="Permanent link">⚑</a></h2> <p>You can import the different parts with <code>terraform import {{resource_type}}.{{resource_name}} {{ resource_id }}</code></p> <p>For examples see the documentation of the desired resource.</p> <h3 id=bulk-import>Bulk import<a class=headerlink href=#bulk-import title="Permanent link">⚑</a></h3> <p>But if you want to bulk import sources, I suggest using <a href=terraforming/docs.adoc>terraforming</a></p> <h2 id=bad-points>Bad points<a class=headerlink href=#bad-points title="Permanent link">⚑</a></h2> <ul> <li>Manually added resources wont be managed by terraform, therefore you can't use it to enforce as shown in this <a href=https://github.com/hashicorp/terraform/issues/4728>bug</a>.</li> <li>If you modify the LC of an ASG, the instances don't get rolling updated, you have to do it manually.</li> <li>They call the dictionaries <code>map</code>... (/ﾟДﾟ)/</li> <li>The conditionals are really ugly. You need to use <code>count</code>.</li> <li>You <a href=https://github.com/hashicorp/hcl/issues/211>can't split long strings</a> xD</li> </ul> <h2 id=best-practices>Best practices<a class=headerlink href=#best-practices title="Permanent link">⚑</a></h2> <p>Name the resources with <code>_</code> instead of <code>-</code> so the editor's completion work :)</p> <h3 id=vpc>VPC<a class=headerlink href=#vpc title="Permanent link">⚑</a></h3> <p>Don't use the default vpc</p> <h3 id=security-groups>Security groups<a class=headerlink href=#security-groups title="Permanent link">⚑</a></h3> <p>Instead of using <code>aws_security_group</code> to define the ingress and egress rules, use it only to create the empty security group and use <code>aws_security_group_rule</code> to add the rules, otherwise you'll get into a cycle loop</p> <p>The sintaxis of an egress security group must be <code>egress_from_{{source}}_to_destination</code>. The sintaxis of an ingress security group must be <code>ingress_to_{{destination}}_from_{{source}}</code></p> <p>Also set the order of the arguments, so they look like the name.</p> <p>For ingress rule:</p> <div class=highlight><pre><span></span><code><span class=na>security_group_id</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=p>...</span><span class=w></span>
+<span class=na>cidr_blocks</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=p>...</span><span class=w></span>
+</code></pre></div> <p>And in egress should look like:</p> <div class=highlight><pre><span></span><code><span class=na>security_group_id</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=p>...</span><span class=w></span>
+<span class=na>cidr_blocks</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=p>...</span><span class=w></span>
 </code></pre></div> <p>Imagine you want to filter the traffic from A -&gt; B, the egress rule from A to B should go besides the ingress rule from B to A.</p> <h4 id=default-security-group>Default security group<a class=headerlink href=#default-security-group title="Permanent link">⚑</a></h4> <p>You can't manage the default security group of an vpc, therefore you have to adopt it and set it to no rules at all with <code>aws_default_security_group</code> resource</p> <h2 id=iam>IAM<a class=headerlink href=#iam title="Permanent link">⚑</a></h2> <p>You have to generate an gpg key and export it in base64</p> <div class=highlight><pre><span></span><code>gpg --export <span class=o>{{</span> gpg_id <span class=o>}}</span> <span class=p>|</span> base64
 </code></pre></div> <p>To see the secrets you have to decrypt it <div class=highlight><pre><span></span><code>terraform output secret <span class=p>|</span> base64 --decode <span class=p>|</span> gpg -d
 </code></pre></div></p> <h2 id=sensitive-information>Sensitive information<a class=headerlink href=#sensitive-information title="Permanent link">⚑</a></h2> <p>There are several approaches here.</p> <p>First rely on the S3 encryption to protect the information in your state file</p> <p>Second use <a href=https://www.terraform.io/docs/providers/vault/index.html>Vault provider</a> to protect the state file.</p> <p>Third (but I won't use it) would be to use <a href=https://github.com/opencredo/terrahelp>terrahelp</a></p> <h3 id=rds-credentials>RDS credentials<a class=headerlink href=#rds-credentials title="Permanent link">⚑</a></h3> <p>The RDS credentials are saved in plaintext both in the definition and in the state file, see <a href=https://github.com/hashicorp/terraform/issues/516>this</a> bug for more information. The value of <code>password</code> is not compared against the value of the password in the cloud, so as long as the string in the code and the state file remains the same, it won't try to change it.</p> <p>As a workaround, you can create the RDS with a fake password <code>changeme</code>, and once the resource is created, run an <code>aws</code> command to change it. That way, the value in your code and the state is not the real one, but it won't try to change it.</p> <p>Inspired in <a href=https://gist.github.com/mattupstate/27f2bf26d3712b6b7973>this gist</a> and the <a href=https://www.terraform.io/docs/language/resources/provisioners/local-exec.html><code>local-exec</code></a> docs, you could do:</p> <div class=highlight><pre><span></span><code>resource &quot;aws_db_instance&quot; &quot;main&quot; {
@@ -263,12 +263,12 @@ resource &quot;aws_security_group_rule&quot; &quot;ingress_tcp_from_ops_to_vpn_i
   security_group_id = &quot;${aws_security_group.pro_ins_vpn.id}&quot;
 }
 </code></pre></div> <h2 id=refactoring>Refactoring<a class=headerlink href=#refactoring title="Permanent link">⚑</a></h2> <p>Refactoring in terraform is <strong>ugly business</strong></p> <h3 id=refactoring-in-modules>Refactoring in modules<a class=headerlink href=#refactoring-in-modules title="Permanent link">⚑</a></h3> <p>If you try to refactor your terraform state into modules it will try to destroy and recreate all the elements of the module...</p> <h3 id=refactoring-the-state-file><a href=https://www.terraform.io/docs/commands/state/mv.html>Refactoring the state file</a><a class=headerlink href=#refactoring-the-state-file title="Permanent link">⚑</a></h3> <div class=highlight><pre><span></span><code>terraform state mv -state-out<span class=o>=</span>other.tfstate module.web module.web
-</code></pre></div> <h2 id=google-cloud-integration><a href=https://www.terraform.io/docs/providers/google/index.html>Google cloud integration</a><a class=headerlink href=#google-cloud-integration title="Permanent link">⚑</a></h2> <p>You configure it in the terraform directory <div class=highlight><pre><span></span><code><span class=err>//</span> <span class=err>Configure</span> <span class=err>the</span> <span class=err>Google</span> <span class=err>Cloud</span> <span class=kr>provider</span>
-<span class=err>provider</span> <span class=nv>&quot;google&quot;</span> <span class=p>{</span>
-  <span class=na>credentials</span> <span class=o>=</span> <span class=s2>&quot;${file(&quot;account.json&quot;)}&quot;</span>
-  <span class=na>project</span>     <span class=o>=</span> <span class=s2>&quot;my-gce-project&quot;</span>
-  <span class=na>region</span>      <span class=o>=</span> <span class=s2>&quot;us-central1&quot;</span>
-<span class=p>}</span>
+</code></pre></div> <h2 id=google-cloud-integration><a href=https://www.terraform.io/docs/providers/google/index.html>Google cloud integration</a><a class=headerlink href=#google-cloud-integration title="Permanent link">⚑</a></h2> <p>You configure it in the terraform directory <div class=highlight><pre><span></span><code><span class=err>//</span><span class=w> </span><span class=err>Configure</span><span class=w> </span><span class=err>the</span><span class=w> </span><span class=err>Google</span><span class=w> </span><span class=err>Cloud</span><span class=w> </span><span class=kr>provider</span><span class=w></span>
+<span class=err>provider</span><span class=w> </span><span class=nv>&quot;google&quot;</span><span class=w> </span><span class=p>{</span>
+<span class=w>  </span><span class=na>credentials</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s2>&quot;${file(&quot;account.json&quot;)}&quot;</span><span class=w></span>
+<span class=w>  </span><span class=na>project</span><span class=w>     </span><span class=o>=</span><span class=w> </span><span class=s2>&quot;my-gce-project&quot;</span><span class=w></span>
+<span class=w>  </span><span class=na>region</span><span class=w>      </span><span class=o>=</span><span class=w> </span><span class=s2>&quot;us-central1&quot;</span><span class=w></span>
+<span class=p>}</span><span class=w></span>
 </code></pre></div></p> <p>To download the json go to the <a href=https://console.developers.google.com/ >Google Developers Console</a>. Go to <code>Credentials</code> then <code>Create credentials</code> and finally <code>Service account key</code>.</p> <p>Select <code>Compute engine default service account</code> and select <code>JSON</code> as the key type.</p> <h2 id=ignore-the-change-of-an-attribute><a href=https://www.terraform.io/docs/language/meta-arguments/lifecycle.html#syntax-and-arguments>Ignore the change of an attribute</a><a class=headerlink href=#ignore-the-change-of-an-attribute title="Permanent link">⚑</a></h2> <p>Sometimes you don't care whether some attributes of a resource change, if that's the case use the <code>lifecycle</code> statement:</p> <div class=highlight><pre><span></span><code>resource &quot;aws_instance&quot; &quot;example&quot; {
   # ...
 
@@ -291,9 +291,9 @@ resource &quot;aws_security_group_rule&quot; &quot;ingress_tcp_from_ops_to_vpn_i
     multi_az             = bool
   })
   default     = null
-</code></pre></div> <h2 id=conditionals>Conditionals<a class=headerlink href=#conditionals title="Permanent link">⚑</a></h2> <h3 id=elif>Elif<a class=headerlink href=#elif title="Permanent link">⚑</a></h3> <div class=highlight><pre><span></span><code><span class=nb>locals</span> <span class=p>{</span>
-  <span class=na>test</span> <span class=o>=</span> <span class=s2>&quot;${ condition ? value : (elif-condition ? elif-value : else-value)}&quot;</span>
-<span class=p>}</span>
+</code></pre></div> <h2 id=conditionals>Conditionals<a class=headerlink href=#conditionals title="Permanent link">⚑</a></h2> <h3 id=elif>Elif<a class=headerlink href=#elif title="Permanent link">⚑</a></h3> <div class=highlight><pre><span></span><code><span class=nb>locals</span><span class=w> </span><span class=p>{</span><span class=w></span>
+<span class=w>  </span><span class=na>test</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s2>&quot;${ condition ? value : (elif-condition ? elif-value : else-value)}&quot;</span><span class=w></span>
+<span class=p>}</span><span class=w></span>
 </code></pre></div> <h3 id=do-a-conditional-if-a-variable-is-not-null><a href=https://stackoverflow.com/questions/53200585/terraform-conditionals-if-variable-does-not-exist>Do a conditional if a variable is not null</a><a class=headerlink href=#do-a-conditional-if-a-variable-is-not-null title="Permanent link">⚑</a></h3> <div class=highlight><pre><span></span><code>resource &quot;aws_db_instance&quot; &quot;instance&quot; {
   count                = var.database == null ? 0 : 1
   ...
