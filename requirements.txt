@@ -124,9 +124,9 @@ proselint==0.13.0
     # via -r requirements.in
 pycparser==2.21
     # via cffi
-pydantic==1.8.2
+pydantic==1.9.0
     # via mkdocs-newsletter
-pygments==2.11.0
+pygments==2.11.1
     # via
     #   mkdocs-material
     #   readme-renderer
