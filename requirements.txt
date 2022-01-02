@@ -74,7 +74,7 @@ jinja2==3.0.3
     #   mkdocs-material
 jsmin==3.0.0
     # via mkdocs-minify-plugin
-keyring==23.4.0
+keyring==23.5.0
     # via twine
 markdown==3.3.6
     # via
