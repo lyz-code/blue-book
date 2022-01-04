@@ -154,7 +154,7 @@ pyyaml-env-tag==0.1
     # via mkdocs
 readme-renderer==32.0
     # via twine
-requests==2.26.0
+requests==2.27.0
     # via
     #   python-gitlab
     #   python-semantic-release
