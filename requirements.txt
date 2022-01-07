@@ -46,7 +46,7 @@ gitdb==4.0.9
     #   gitpython
 gitdb2==4.0.2
     # via -r requirements.in
-gitpython==3.1.24
+gitpython==3.1.25
     # via
     #   mkdocs-git-revision-date-localized-plugin
     #   mkdocs-newsletter
@@ -126,7 +126,7 @@ pycparser==2.21
     # via cffi
 pydantic==1.9.0
     # via mkdocs-newsletter
-pygments==2.11.1
+pygments==2.11.2
     # via
     #   mkdocs-material
     #   readme-renderer
@@ -206,5 +206,5 @@ zipp==3.7.0
     # via importlib-metadata
 
 # The following packages are considered to be unsafe in a requirements file:
-setuptools==60.2.0
+setuptools==60.3.1
     # via setuptools-scm
