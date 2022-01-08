@@ -194,7 +194,7 @@ typing-extensions==4.0.1
     #   gitpython
     #   importlib-metadata
     #   pydantic
-urllib3==1.26.7
+urllib3==1.26.8
     # via requests
 watchdog==2.1.6
     # via mkdocs
