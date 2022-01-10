@@ -99,7 +99,7 @@ mkdocs-autolinks-plugin @ git+git://github.com/lyz-code/mkdocs-autolinks-plugin.
     #   mkdocs-newsletter
 mkdocs-git-revision-date-localized-plugin==0.11.1
     # via -r requirements.in
-mkdocs-material==8.1.4
+mkdocs-material==8.1.5
     # via -r requirements.in
 mkdocs-material-extensions==1.0.3
     # via mkdocs-material
@@ -164,7 +164,7 @@ requests-toolbelt==0.9.1
     # via
     #   python-gitlab
     #   twine
-rfc3986==1.5.0
+rfc3986==2.0.0
     # via twine
 secretstorage==3.3.1
     # via keyring
