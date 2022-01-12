@@ -46,7 +46,7 @@ gitdb==4.0.9
     #   gitpython
 gitdb2==4.0.2
     # via -r requirements.in
-gitpython==3.1.25
+gitpython==3.1.26
     # via
     #   mkdocs-git-revision-date-localized-plugin
     #   mkdocs-newsletter
@@ -99,7 +99,7 @@ mkdocs-autolinks-plugin @ git+git://github.com/lyz-code/mkdocs-autolinks-plugin.
     #   mkdocs-newsletter
 mkdocs-git-revision-date-localized-plugin==0.11.1
     # via -r requirements.in
-mkdocs-material==8.1.5
+mkdocs-material==8.1.6
     # via -r requirements.in
 mkdocs-material-extensions==1.0.3
     # via mkdocs-material
