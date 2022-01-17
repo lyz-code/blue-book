@@ -55,7 +55,7 @@ htmlmin==0.1.12
     # via mkdocs-minify-plugin
 idna==3.3
     # via requests
-importlib-metadata==4.10.0
+importlib-metadata==4.10.1
     # via
     #   click
     #   keyring
@@ -72,7 +72,7 @@ jinja2==3.0.3
     # via
     #   mkdocs
     #   mkdocs-material
-jsmin==3.0.0
+jsmin==3.0.1
     # via mkdocs-minify-plugin
 keyring==23.5.0
     # via twine
@@ -99,7 +99,7 @@ mkdocs-autolinks-plugin @ git+git://github.com/lyz-code/mkdocs-autolinks-plugin.
     #   mkdocs-newsletter
 mkdocs-git-revision-date-localized-plugin==0.11.1
     # via -r requirements.in
-mkdocs-material==8.1.6
+mkdocs-material==8.1.7
     # via -r requirements.in
 mkdocs-material-extensions==1.0.3
     # via mkdocs-material
