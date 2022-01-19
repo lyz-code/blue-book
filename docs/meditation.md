@@ -119,6 +119,7 @@ even 5 or 10 minutes, and grow from there.
 # References
 
 * [healthline article on types of meditation](https://www.healthline.com/health/mental-health/types-of-meditation#focused-meditation)
+* [NonCompete video on meditation for anti-capitalists](https://invidious.osi.kr/watch?v=xSHXHHblin0)
 
 ## To review
 
@@ -128,3 +129,7 @@ even 5 or 10 minutes, and grow from there.
 * https://quietkit.com/box-breathing/
 * https://www.healthline.com/health/mental-health/best-mindfulness-blogs#8
 * https://www.mindful.org/how-to-meditate/
+
+### Books
+
+* [The Mind Illuminated: A Complete Meditation Guide Integrating Buddhist Wisdom and Brain Science by Culadasa (John Yates)](https://www.goodreads.com/en/book/show/25942786-the-mind-illuminated)

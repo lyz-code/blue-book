@@ -629,6 +629,10 @@ your own.
 Host a [virtual assistant](virtual_assistant.md) in my servers to help me
 automate repetitive stuff.
 
+For offline voice recognition, [vosk-api](https://github.com/alphacep/vosk-api)
+can be used. Or [voiceliner](https://github.com/maxkrieger/voiceliner/issues/37)
+once it supports offline voice recognition.
+
 ## Others
 
 * A tool or service to follow the updates of software, right now I subscribe to

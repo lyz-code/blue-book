@@ -264,4 +264,3 @@ some bias, it's not as great because it's assumed that the default behavior.
 ## Awesome recommender systems
 
 * [Grahamjenson](https://github.com/grahamjenson/list_of_recommender_systems)
-

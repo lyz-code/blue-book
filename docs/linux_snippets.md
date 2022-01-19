@@ -4,6 +4,44 @@ date: 20200826
 author: Lyz
 ---
 
+# [Clean up system space](https://ownyourbits.com/2017/02/18/squeeze-disk-space-on-a-debian-system/)
+
+There is a couple of things to do when we want to free space in a no-brainer
+way. First, we want to remove those deb packages that get cached every time we
+do `apt-get install`.
+
+```bash
+apt-get clean
+```
+
+Also, the system might keep packages that were downloaded as dependencies but
+are not needed anymore. We can get rid of them with
+
+```bash
+apt-get autoremove
+```
+
+If we want things tidy, we must know that whenever we apt-get remove  a package,
+the configuration will be kept in case we want to install it again. In most
+cases we want to use apt-get purge. To clean those configurations from removed
+packages, we can use
+
+```bash
+dpkg --list | grep "^rc" | cut -d " " -f 3 | xargs --no-run-if-empty sudo dpkg --purge
+```
+
+So far we have not uninstalled anything. If now we want to inspect what packages
+are consuming the most space, we can type
+
+```bash
+dpkg-query -Wf '${Installed-Size}\t${Package}\n' | sort -n
+```
+
+# [Replace a string with sed recursively](https://victoria.dev/blog/how-to-replace-a-string-with-sed-in-current-and-recursive-subdirectories/)
+
+```bash
+find . -type f -exec sed -i 's/foo/bar/g' {} +
+```
 # Bypass client SSL certificate with cli tool
 
 Websites that require clients to authorize with an TLS certificate are difficult

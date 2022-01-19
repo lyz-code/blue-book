@@ -132,7 +132,8 @@ again.)
 
 The main problem is that `poetry add` does [upper pinning of
 dependencies](versioning.md#upper-version-pinning) by default, which is
-a **really bad idea**.
+a **really bad idea**. [And they don't plan to
+change](https://github.com/python-poetry/poetry/issues/3747).
 
 There is currently no way of [updating your `pyproject.toml` dependency
 definitions](https://github.com/python-poetry/poetry/issues/461) so they match
@@ -148,6 +149,10 @@ will update the lock to the latest. MousaZeidBaker made
 [poetryup](https://github.com/MousaZeidBaker/poetryup), a tool that is able to
 update the requirements to the latest version with `poetryup --latest` (although
 it [still has some bugs](https://github.com/MousaZeidBaker/poetryup/issues/21)).
+Given that it uses `poetry add <package>@latest` behind the scenes, it will
+[change your version pin to
+ `^<new_version>`](https://github.com/python-poetry/poetry/issues/3503), which
+ as we've seen it's awful.
 
 Again, you should not be trying to do this, it's better to improve
 [how you manage your
@@ -271,6 +276,9 @@ so I'd keep on using `pip-compile`.
 Dependencies for a project can be specified in various forms, which depend on
 the type of the dependency and on the optional constraints that might be needed
 for it to be installed.
+
+!!! warning "They don't follow Python's specification [PEP508](https://www.python.org/dev/peps/pep-0508/)"
+
 
 ### [Caret Requirements](https://python-poetry.org/docs/dependency-specification/#caret-requirements)
 

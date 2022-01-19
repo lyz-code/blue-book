@@ -150,7 +150,7 @@ choice = select(
 # Testing
 
 To test questionary code, follow the guidelines of [testing
-prompt_toolkit](prompt_toolkit.md#testing).
+prompt_toolkit](prompt_toolkit_repl.md#testing).
 
 # References
 

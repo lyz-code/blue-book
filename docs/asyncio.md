@@ -27,7 +27,12 @@ async with sem:
 ```
 
 Note that this method is not thread-safe.
+
 # References
 
 * [Docs](https://docs.python.org/3/library/asyncio.html#module-asyncio)
 * [Awesome Asyncio](https://github.com/timofurrer/awesome-asyncio)
+
+## Libraries to explore
+
+* [Asyncer](https://github.com/tiangolo/asyncer)

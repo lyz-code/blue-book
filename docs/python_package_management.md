@@ -70,22 +70,20 @@ Features I like:
     * Installable packages with git dependencies???
     * Easy to specify local directory dependencies, even in editable mode.
     * Specify different dependencies for different python versions
-* No automatic process to update the dependencies constrains to match the latest
-    version available.  So if you have constrained a package to be `<2.0.0` and
-    `3.0.0` is out there, you will have to manually edit the `pyproject.toml` so
-    that it accepts that new version. At least you can use `poetry show
-    --outdated` and it will tell you which is the new version, and if the output
-    is zero, you're sure you're on the last versions.
 
 * It manage the building of your package, you don't need to manually configure
     `sdist` and `wheel`.
 * Nice dependency view with `poetry show`.
 * Nice dependency search interface with `poetry search`.
+* Sync your environment packages with the lock file.
 
 Things I don't like that much:
 
-* It does upper version capping by default, which is becoming [a big
-    problem](versioning.md#upper-version-pinning) in the Python environment.
+* It does upper version capping by default, it even ignores your pins and [adds
+    the `^<new_version` pin if you run `poetry add
+    <package>@latest`]()https://github.com/python-poetry/poetry/issues/3503.
+    Given that upper version capping is becoming [a big problem](versioning.md#upper-version-pinning) in
+    the Python environment I'd stay away from `poetry`.
 
     This is specially useless when you add dependencies that follow
     [CalVer](calendar_versioning.md). `poetry add` packaging will still do
@@ -95,10 +93,70 @@ Things I don't like that much:
     It's equally troublesome that it upper pins [the python
     version](versioning.md#pinning-the-python-version-is-special).
 
+* Have their own dependency specification format similar to `npm` and
+    incompatible with Python's
+    [PEP508](https://www.python.org/dev/peps/pep-0508/).
+
+* No automatic process to update the dependencies constrains to match the latest
+    version available.  So if you have constrained a package to be `<2.0.0` and
+    `3.0.0` is out there, you will have to manually edit the `pyproject.toml` so
+    that it accepts that new version. At least you can use `poetry show
+    --outdated` and it will tell you which is the new version, and if the output
+    is zero, you're sure you're on the last versions.
+
+# PDM
+
+Features I like:
+
+* The pin strategy defaults to only add [lower
+    pins](versioning.md#lower-versioning-pinning) helping preventing the [upper
+    capping](versioning.md#upper-versioning-pinning) problem.
+* It can't achieve dependency isolation without virtualenvs.
+* Follows the Python's dependency specification format
+    [PEP508](https://www.python.org/dev/peps/pep-0508/).
+* Supports different strategies to add and update dependencies.
+* Command to update your requirements constrains when updating your packages.
+* Sync your environment packages with the lock file.
+* Easy to install package in editable mode.
+* Easy to install local dependencies.
+* You can force the installation of a package at your own risk even if it breaks
+    the version constrains. (Useful if you're blocked by a third party upper
+    bound)
+* Changing the python version is as simple as running `python use
+    <python_version>`.
+* Plugin system where adding functionality is feasible (like the `publish`
+    subcommand).
+* Both global and local configuration.
+* Nice interface to change the configuration.
+* Automatic management of dependencies cache, where you only have one instance
+    of each package version, and if no project needs it, it will be removed.
+* Has a nice interface to see the cache usage
+* Has the possibility of managing the global packages too.
+* Allows the definition of scripts possibly removing the need of a makefile
+* It's able to read the version of the program from a file, avoiding the
+    duplication of the information.
+* You can group your development dependencies in groups.
+* Easy to define extra dependencies for your program.
+* It has sensible defaults for `includes` and `excludes` when packaging.
+* It's [the fastest ](https://frostming.com/2021/03-26/pm-review-2021/#result)
+    and most
+    [correct](https://frostming.com/2021/03-26/pm-review-2021/#correctness)
+    one.
+
+Downsides:
+
+* They don't say how to configure your environment to work with
+    [vim](https://github.com/pdm-project/pdm/issues/804).
+
+# Summary
+
+PDM offers the same features as Poetry with the additions of the possibility of
+selecting your version capping strategy, and doesn’t cap as badly, and follows
+more PEP standards.
+
 # References
 
-* [John Franey comparison](https://johnfraney.ca/posts/2019/03/06/pipenv-poetry-benchmarks-ergonomics/)
-
-# To add
-
 * [PDM developer comparison](https://dev.to/frostming/a-review-pipenv-vs-poetry-vs-pdm-39b4)
+* [John Franey comparison](https://johnfraney.ca/posts/2019/03/06/pipenv-poetry-benchmarks-ergonomics/)
+* [Frost Ming comparison (developer of PDM)](https://frostming.com/2021/03-26/pm-review-2021/#result)
+* [Henry Schreiner analysis on Poetry](https://iscinumpy.dev/post/poetry-versions/)

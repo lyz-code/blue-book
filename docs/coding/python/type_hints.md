@@ -444,6 +444,11 @@ def generate() -> Generator[int, None, None]:
 
 Where the first argument of `Generator` is the type of the yielded value.
 
+## [Usage of ellipsis on `Tuple` type hints](https://stackoverflow.com/questions/772124/what-does-the-ellipsis-object-do)
+
+The ellipsis is used to specify an arbitrary-length homogeneous tuples, for
+example `Tuple[int, ...]`.
+
 # [Using mypy with an existing codebase](https://mypy.readthedocs.io/en/latest/existing_code.html)
 
 These steps will get you started with `mypy` on an existing codebase:

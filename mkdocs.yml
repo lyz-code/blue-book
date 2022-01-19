@@ -31,6 +31,7 @@ nav:
       - Week Management: week_management.md
       - Relationship Management: relationship_management.md
       - Money Management: money_management.md
+      - News Management: news_management.md
       - Email Management:
           - email_management.md
           - Email Automation: email_automation.md
@@ -316,6 +317,7 @@ nav:
           - nodejs: linux/nodejs.md
           - Oracle Database: oracle_database.md
           - Peek: peek.md
+          - Profanity: profanity.md
           - rm: linux/rm.md
           - Syncthing: linux/syncthing.md
           - Tahoe-LAFS: tahoe.md
@@ -325,6 +327,7 @@ nav:
               - Vim Plugins: linux/vim/vim_plugins.md
               - Write Neovim Plugins: write_neovim_plugins.md
           - Wake on Lan: wake_on_lan.md
+          - Wallabag: wallabag.md
           - Wireguard: linux/wireguard.md
           - ZFS: linux/zfs.md
           - zip: linux/zip.md
