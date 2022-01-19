@@ -306,6 +306,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/news_management/</loc>
+         <lastmod>2022-01-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/notmuch/</loc>
          <lastmod>2022-01-19</lastmod>
          <changefreq>daily</changefreq>
@@ -357,6 +362,11 @@
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/process_automation/</loc>
+         <lastmod>2022-01-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/profanity/</loc>
          <lastmod>2022-01-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -587,6 +597,11 @@
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/wake_on_lan/</loc>
+         <lastmod>2022-01-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/wallabag/</loc>
          <lastmod>2022-01-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
