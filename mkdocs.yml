@@ -156,6 +156,7 @@ nav:
               - coding/python/pytest.md
               - Parametrized testing: coding/python/pytest_parametrized_testing.md
               - Pytest-cases: coding/python/pytest_cases.md
+              - Pytest-HttpServer: pytest_httpserver.md
           - Python Snippets: coding/python/python_snippets.md
       - JSON: coding/json/json.md
       - SQL: coding/sql/sql.md
@@ -179,6 +180,7 @@ nav:
               - Helm Git: helm_git.md
           - Helmfile: devops/helmfile.md
           - Terraform: terraform.md
+          - Ansible Snippets: ansible_snippets.md
       - Infrastructure Solutions:
           - Kubernetes:
               - devops/kubernetes/kubernetes.md
@@ -299,6 +301,7 @@ nav:
           - fail2ban: linux/fail2ban.md
           - Gajim: gajim.md
           - Github cli: gh.md
+          - goaccess: goaccess.md
           - google chrome: linux/google_chrome.md
           - Graylog: graylog.md
           - HAProxy: linux/haproxy.md

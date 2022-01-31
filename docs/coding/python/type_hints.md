@@ -340,6 +340,7 @@ from typing import TypeVar
 
 AnyStr = TypeVar('AnyStr', str, bytes)
 ```
+
 This is actually such a common type variable that `AnyStr` is defined in typing
 and we don’t need to define it ourselves.
 

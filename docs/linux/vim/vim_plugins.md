@@ -111,7 +111,8 @@ Where:
 If you feel that it's too heavy, use `ale_lint_on_enter` or increase the
 `ale_lint_delay`.
 
-Use `:ALEInfo` to see the ALE configuration for the specific buffer.
+Use `:ALEInfo` to see the ALE configuration and any errors when running
+`:ALEFix` for the specific buffer.
 
 ### Flakehell
 

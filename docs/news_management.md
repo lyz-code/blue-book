@@ -15,7 +15,62 @@ The problem to solve is to:
 * Don't invest too much time on it.
 * Don't loose time reading articles you're not interested on.
 
-Some key features are:
+# Workflow
+
+I've found three information types to explore:
+
+* Written content: articles, blogs, newspapers...
+* Listened content: mainly podcasts.
+* Viewed content: youtube, twich channels.
+
+Each has it's advantages and disadvantages. I like the written content as it
+lets me decide the pace of information ingestion, it's compatible with
+incremental reading, and it's the best medium to learn by making annotations and
+summaries, it requires your full attention though. Listened content is best to
+keep updated while you do brainless tasks such as cooking or cleaning, but it
+makes difficult to save references or ideas. Viewed content is as attention
+demanding as reading unless you don't care about the visual content and take it
+as a podcast.
+
+## Written content
+
+To process the written content I use an RSS reader
+([Feeder](https://f-droid.org/en/packages/com.nononsenseapps.feeder/)) to gather
+all written content in one place. I skim through the elements without reading
+them, and I send the ones that catch my attention to
+[wallabag](https://www.wallabag.it/en) for later reading. Then I go to wallabag
+and read the elements that feels more attractive at that moment.
+
+Before starting to read, I define the amount of time I want to spend on getting
+updated. Half of that time goes to skimming through, and the other to deep
+reading the selected content. You'll probably won't be able to process either
+the whole content on your RSS reader nor the selected content, that's why
+a recommender system would be awesome.
+
+Finding the reading devices is very important. I prefer to browse it on a tablet
+as it's much more pleasant than a mobile or a computer, an e-reader would be
+better, although wallabag is supported on some e-readers, I haven't tried it
+yet. I can't wait for the [PineNote](https://www.pine64.org/pinenote/) to be
+released.
+
+The moments I've found suitable for reading content are while eating breakfast
+or dinner when I'm alone.
+
+## Listened content
+
+I've selected a small number of podcasts that I listen with
+[AntennaPod](https://f-droid.org/en/packages/de.danoeh.antennapod/) while
+cooking or cleaning, instead of listening directly from the mobile, I use
+a bluetooth loudspeaker that I carry everywhere I go (at home! use headphones
+when you are outside. people with loudspeakers on the public transport or
+streets are hateful), if there is a reference I want to save, I write it down in
+the mobile [inbox](task_tools.md#inbox) and process it later with
+[pynbox](projects.md#pynbox).
+
+# The perfect software solution
+
+My current workflow could be improved by software, currently the key features
+I'd want are:
 
 * One place for all sources: It's useless to go to `n` different websites to see
     if there is new information. RSS has been with us for too long to fall on
@@ -27,7 +82,7 @@ Some key features are:
     you choose your sources, there's always going to be content that is not
     interesting for you. So there needs to be a powerful filtering system.
 
-# Content filtering
+## Content filtering
 
 Filtering content is a subsection of the [recommender
 systems](recommener_systems.md#basic-models-of-recommender-systems), of all the
@@ -40,7 +95,7 @@ basic models, the ones that apply are:
     filtering](recommender_systems.md#content-based-recommender-systems): Where
     the data of the user on past items is used to filter new elements.
 
-## Collaborative filtering
+### Collaborative filtering
 
 External users give information on how they see the items, and the algorithm can
 use that data to decide which ones are relevant for a desired user. It's how
@@ -95,7 +150,7 @@ But for any of these solutions to work, you'll need to convince the people to
 tweak how they browse the internet in order to contribute to the system, which
 it's kind of difficult :(.
 
-## Content based filtering
+### Content based filtering
 
 If you don't manage to convince the people to use collaborative filtering,
 you're on your own. Your best bet then is to deduce which elements are
@@ -109,7 +164,3 @@ a nightmare](https://github.com/samuelclay/NewsBlur/blob/master/docker-compose.y
 
 Intermediate solutions between the sources and the reader aren't a viable option
 either, as you need to interact with that middleware outside the RSS reader.
-
-# Phases
-
-## Immediate solution
