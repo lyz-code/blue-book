@@ -807,3 +807,5 @@ To remove the debug traces run `unset TF_LOG`.
 * [GCloud examples](https://github.com/mjuenema/Terraform-Up-and-Running-Code-Samples-Translated/)
 * [Good and bad sides of terraform](https://charity.wtf/2016/02/23/two-weeks-with-terraform/)
 * [Awesome Terraform](https://github.com/shuaibiyy/awesome-terraform)
+* [Importing Existing Infrastructure into Terraform – step by step](https://spacelift.io/blog/importing-exisiting-infrastructure-into-terraform)
+* [Terraform Data Sources – How They Are Utilised](https://spacelift.io/blog/terraform-data-sources-how-they-are-utilised)
