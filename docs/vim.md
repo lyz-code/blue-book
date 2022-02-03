@@ -240,6 +240,22 @@ by default and after fighting with it for 2 hours...
 
 SimpylFold does the trick just fine.
 
+# [Delete a file inside vim](https://vim.fandom.com/wiki/Delete_files_with_a_Vim_command)
+
+```vim
+:call delete(expand('%')) | bdelete!
+```
+
+You can make a function so it's easier to remember
+
+```vim
+function! Rm()
+  call delete(expand('%')) | bdelete!
+endfunction
+```
+
+Now you need to run `:call Rm()`.
+
 # Resources
 
 * [Nvim news](https://neovim.io/news/)

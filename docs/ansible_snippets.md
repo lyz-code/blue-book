@@ -4,6 +4,23 @@ date: 20220119
 author: Lyz
 ---
 
+# [Speed up the stat module](https://justinmontgomery.com/speed-up-stat-command-in-ansible)
+
+The `stat` module calculates the checksum and the md5 of the file in order to
+get the required data. If you just want to check if the file exists use:
+
+```yaml
+- name: Verify swapfile status
+  stat:
+    path: "{{ common_swapfile_location }}"
+    get_checksum: no
+    get_md5: no
+    get_mime: no
+    get_attributes: no
+  register: swap_status
+  changed_when: not swap_status.stat.exists
+```
+
 # [Stop running docker containers](https://stackoverflow.com/questions/61680945/stopping-all-existing-docker-containers-with-ansible)
 
 ```yaml
