@@ -180,7 +180,7 @@ smmap==5.0.0
     # via gitdb
 soupsieve==2.3.1
     # via beautifulsoup4
-tomli==2.0.0
+tomli==2.0.1
     # via setuptools-scm
 tomlkit==0.7.0
     # via python-semantic-release
