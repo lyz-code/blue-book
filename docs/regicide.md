@@ -101,8 +101,28 @@ the last.
 
 ## Player modifiers
 
-TBD
-♠♥♣♦
+At the start of the game players can decide their suit, they will get a bonus on
+the played cards of their suit, and a penalization on the opposite suit. The
+opposite suits are:
+
+* ♠ opposite of ♥
+* ♣ opposite of ♦
+
+The bonus depends on the level of the enemy being:
+
+* J: +1 or -1
+* Q: +2 or -2
+* K: +3 or -3
+
+Imagine that I've chosen ♦ as my suit, if I were to play:
+
+* The 8♦ against a J♥, I'd draw 8+1 cards from the deck, and deal 8+1 damage
+* The 7♣ against a Q♠, I'd deal 10 of damage `(7-2) * 2`.
+* The 4♦4♥ against a K♣, I'd heal and draw 11 cards (4+4+3).
+* The 4♦4♣ against a K♠, I'd draw 8 cards (4+4+3-3) and deal 16 of damage.
+
+I haven't decide yet if the bonus should apply at the time of receiving damage,
+we played one without counting and it was playable, will test the other soon.
 
 ## Player classes
 

@@ -78,6 +78,11 @@ to the [Michael Kimmel book](https://www.goodreads.com/book/show/7400069-privile
     articles](https://www.nationalseedproject.org/about-us/white-privilege)
 * [How to talk to your white friends and family about
     privilege](https://i-d.vice.com/en_uk/article/ep4zaw/how-to-talk-to-your-white-friends-and-family-about-privilege)
+* [How to reduce online racism by Mark
+    Holden](https://www.websiteplanet.com/blog/how-to-reduce-online-racism),
+    a long essay with interesting tips and a lot of useful visualizations,
+    I haven't checked the sources but it looks legit. (Thanks for the
+    recommendation Laurie `:)`)
 
 ## Books
 

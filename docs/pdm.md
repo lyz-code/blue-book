@@ -205,6 +205,17 @@ pdm update -d
 pdm update -dG test pytest
 ```
 
+Keep in mind that `pdm update` [doesn't touch the constrains in
+`pyproject.toml`](https://github.com/pdm-project/pdm/issues/884), if you want to
+update them you'd need to use the `--unconstrained` flag which will ignore all
+the constrains of downstream packages and update them to the latest version
+setting the pin accordingly to your [update strategy](#about-update-strategy).
+
+Updating the `pyproject.toml` constrains to match the `pdm.lock` as close as
+possible makes sense to avoid unexpected errors when users use other version of
+the libraries, as the tests are run only against the versions specified in
+`pdm.lock`.
+
 ### [About update strategy](https://pdm.fming.dev/usage/dependency/#about-update-strategy)
 
 Similarly, PDM also provides 2 different behaviors of updating dependencies and sub-dependencies，

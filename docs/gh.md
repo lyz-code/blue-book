@@ -55,6 +55,20 @@ function checks(){
 }
 ```
 
+## Trigger a workflow run
+
+To manually trigger a workflow you need to first configure it to allow
+[`workflow_dispatch`
+events](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#workflow_dispatch).
+
+```yaml
+on:
+    workflow_dispatch:
+```
+
+Then you can trigger the workflow with `gh workflow run {{ workflow_name }}`,
+where you can get the `workflow_name` with `gh workflow list`
+
 # References
 
 * [Git](https://github.com/cli/cli)
