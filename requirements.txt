@@ -188,7 +188,7 @@ tqdm==4.62.3
     # via twine
 twine==3.8.0
     # via python-semantic-release
-typing-extensions==4.1.0
+typing-extensions==4.1.1
     # via pydantic
 urllib3==1.26.8
     # via
@@ -204,5 +204,5 @@ zipp==3.7.0
     # via importlib-metadata
 
 # The following packages are considered to be unsafe in a requirements file:
-setuptools==60.8.2
+setuptools==60.9.0
     # via setuptools-scm
