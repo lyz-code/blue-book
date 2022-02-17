@@ -311,13 +311,13 @@ forcely resolve `asgiref` to a specific version by adding the following lines to
 
 ```toml
 [tool.pdm.overrides]
-asgiref = "3.2.10"
+asgiref = ">=3.2.10"
 ```
 
 Each entry of that table is a package name with the wanted version. The value
 can also be a URL to a file or a VCS repository like `git+https://...`.
-On reading this, PDM will pin `asgiref@3.2.10` in the lock file no matter
-whether there is any other resolution available.
+On reading this, PDM will pin `asgiref@3.2.10` or the greater version in the
+lock file no matter whether there is any other resolution available.
 
 !!! note
     By using `[tool.pdm.overrides]` setting, you are at your own risk of any
@@ -746,6 +746,12 @@ pdm install
 
 For more CLI usage, please refer to [Manage Dependencies](/usage/dependency/)
 
+
+### [Show outdated packages](https://github.com/pdm-project/pdm/issues/358)
+
+```bash
+pdm update --dry-run --unconstrained
+```
 
 ## [Console scripts](https://pdm.fming.dev/pyproject/pep621/#console-scripts)
 

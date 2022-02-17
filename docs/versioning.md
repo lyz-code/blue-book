@@ -141,6 +141,9 @@ dependencies*](#upper-version-pinning).
 You should only specify the minimum version you need to pull in newer versions
 freely if they exist.
 
+Check the [snippet on how to raise
+a warning](python_snippets.md#how-to-raise-a-warning).
+
 ### Communicate with your users
 
 You should warn your users not to blindly trust that any version change is not

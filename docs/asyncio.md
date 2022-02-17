@@ -32,6 +32,7 @@ Note that this method is not thread-safe.
 
 * [Docs](https://docs.python.org/3/library/asyncio.html#module-asyncio)
 * [Awesome Asyncio](https://github.com/timofurrer/awesome-asyncio)
+* [Roguelynn tutorial](https://www.roguelynn.com/words/asyncio-we-did-it-wrong/)
 
 ## Libraries to explore
 

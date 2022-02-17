@@ -79,12 +79,6 @@ only want to share the starred articles, add to your nginx config:
     }
 ```
 
-# Issues
-
-* Rss feeds link to the wallabag instance instead to the referenced article.
-    It's [already been fixed](https://github.com/wallabag/wallabag/pull/4883)
-    and will be released under `2.5.0`.
-
 # References
 
 * [Docs](https://doc.wallabag.org)

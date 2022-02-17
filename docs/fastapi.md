@@ -718,6 +718,11 @@ uvicorn program_name:app --reload
     package, look at the [deploy section](#other-project-structures) if you feel
     lost.
 
+## Resolve the 307 error
+
+Probably you've introduced an ending `/` to the endpoint, so instead of asking
+for `/my/endpoint` you tried to do `/my/endpoint/`.
+
 # Logging
 
 By default the [application log messages are not shown in the uvicorn

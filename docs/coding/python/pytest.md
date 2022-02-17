@@ -191,9 +191,10 @@ directory. Instead use the `tmpdir_factory` fixture.
 
 
 ```python
-from _pytest.tmpdir import TempdirFactory
+from _pytest.tmpdir import TempPathFactory
+
 @pytest.fixture(scope="session")
-def image_file(tmpdir_factory: TempdirFactory):
+def image_file(tmpdir_factory: TempPathFactory):
     img = compute_expensive_image()
     fn = tmpdir_factory.mktemp("data").join("img.png")
     img.save(str(fn))
@@ -308,7 +309,28 @@ pip install pytest-freezegun
 
 #### [Usage](https://github.com/ktosiek/pytest-freezegun#usage)
 
+##### Global usage
+
+[Most of the
+tests](https://medium.com/@boxed/flaky-tests-part-3-freeze-the-world-e4929a0da00e)
+work with frozen time, so it's better to freeze it by default and unfreeze it on
+the ones that actually need time to move.
+
+To do that set in your `tests/conftest.py` a globally used fixture:
+
+```python
+if TYPE_CHECKING:
+    from freezegun.api import FrozenDateTimeFactory
+
+@pytest.fixture(autouse=True)
+def frozen_time() -> Generator[FrozenDateTimeFactory, None, None]:
+    """Freeze all tests time"""
+    with freezegun.freeze_time() as freeze:
+        yield freeze
+```
 Freeze time by using the freezer fixture:
+
+##### Manual use
 
 ```python
 if TYPE_CHECKING:
@@ -831,6 +853,17 @@ filterwarnings = [
 
 When a warning matches more than one option in the list, the action for the last
 matching option is performed.
+
+If you want to ignore the warning of a specific package use:
+
+```toml
+filterwarnings = [
+  "error",
+  # Until https://github.com/ktosiek/pytest-freezegun/issues/35 is merged
+  "ignore::DeprecationWarning:pytest_freezegun.*"
+]
+```
+
 
 ## [Ensuring code triggers a deprecation warning](https://docs.pytest.org/en/latest/how-to/capture-warnings.html#ensuring-code-triggers-a-deprecation-warning)
 

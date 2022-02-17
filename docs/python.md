@@ -11,6 +11,27 @@ significant indentation. Its language constructs and object-oriented approach
 aim to help programmers write clear, logical code for small and large-scale
 projects.
 
+# Install
+
+```bash
+apt-get install python
+```
+
+## [Install a specific version](https://bobcares.com/blog/how-to-install-python-3-9-on-debian-10/)
+
+* Install dependencies
+    ```bash
+    sudo apt install wget software-properties-common build-essential libnss3-dev zlib1g-dev libgdbm-dev libncurses5-dev libssl-dev libffi-dev libreadline-dev libsqlite3-dev libbz2-dev
+    ```
+
+* Select the version in https://www.python.org/ftp/python/ and download it
+    ```bash
+    wget https://www.python.org/ftp/python/3.9.2/Python-3.9.2.tgz
+    cd Python-3.9.2/
+    ./configure --enable-optimizations
+    sudo make altinstall
+    ```
+
 # Interesting libraries to explore
 
 * [di](https://www.adriangb.com/di/0.36.0/): a modern dependency injection

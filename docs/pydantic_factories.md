@@ -28,7 +28,7 @@ class Person(BaseModel):
     birthday: Union[datetime, date]
 
 
-class PersonFactory(ModelFactory):
+class PersonFactory(ModelFactory[Any]):
     __model__ = Person
 
 
@@ -231,6 +231,11 @@ class ArticleProxyFactory(ModelFactory):
 If we call `factory.build()` without passing a value for `article_id`, an error
 will be raised.
 
+# Issues
+
+* [Use pydantic-factories with pytest-freezegun](https://github.com/Goldziher/pydantic-factories/issues/29)
+
 # References
 
 * [Git](https://github.com/Goldziher/pydantic-factories)
+    ```

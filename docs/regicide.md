@@ -19,7 +19,7 @@ video](https://www.badgersfrommars.com/regicide).
 
 # Variations
 
-Each game is different and changeling despite your experience, even so, I've thought
+Each game is different and challenging despite your experience, even so, I've thought
 that to make it even more varied and rich, the players can use one or many of
 the next expansions:
 
@@ -116,10 +116,10 @@ The bonus depends on the level of the enemy being:
 
 Imagine that I've chosen ♦ as my suit, if I were to play:
 
-* The 8♦ against a J♥, I'd draw 8+1 cards from the deck, and deal 8+1 damage
+* The 8♦ against a J♥, I'd draw `8+1` cards from the deck, and deal `8+1` damage
 * The 7♣ against a Q♠, I'd deal 10 of damage `(7-2) * 2`.
-* The 4♦4♥ against a K♣, I'd heal and draw 11 cards (4+4+3).
-* The 4♦4♣ against a K♠, I'd draw 8 cards (4+4+3-3) and deal 16 of damage.
+* The 4♦4♥ against a K♣, I'd heal and draw 11 cards `(4+4+3)`.
+* The 4♦4♣ against a K♠, I'd draw 8 cards `(4+4+3-3)` and deal 16 of damage.
 
 I haven't decide yet if the bonus should apply at the time of receiving damage,
 we played one without counting and it was playable, will test the other soon.

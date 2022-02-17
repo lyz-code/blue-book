@@ -4,6 +4,71 @@ date: 20200717
 author: Lyz
 ---
 
+# [How to raise a warning](https://docs.python.org/3/library/warnings.html)
+
+Warning messages are typically issued in situations where it is useful to alert
+the user of some condition in a program, where that condition (normally) doesn’t
+warrant raising an exception and terminating the program. For example, one might
+want to issue a warning when a program uses an obsolete module.
+
+```python
+import warnings
+
+def f():
+    warnings.warn('Message', DeprecationWarning)
+```
+
+To test the function with pytest you can use
+[`pytest.warns`](https://docs.pytest.org/en/stable/how-to/capture-warnings.html#warns):
+
+```python
+import warnings
+import pytest
+
+
+def test_warning():
+    with pytest.warns(UserWarning, match='my warning'):
+        warnings.warn("my warning", UserWarning)
+```
+
+For the `DeprecationWarnings` you can use [`deprecated_call`](https://docs.pytest.org/en/stable/how-to/capture-warnings.html#ensuring-code-triggers-a-deprecation-warning):
+
+Or you can use
+[`deprecated`](https://deprecated.readthedocs.io/en/latest/index.html):
+
+```python
+def test_myfunction_deprecated():
+    with pytest.deprecated_call():
+        f()
+```
+
+
+```python
+@deprecated(version='1.2.0', reason="You should use another function")
+def some_old_function(x, y):
+    return x + y
+```
+
+But it adds a dependency to your program, although they don't have any
+downstream dependencies.
+
+# [Parse XML file with beautifulsoup](https://linuxhint.com/parse_xml_python_beautifulsoup/)
+
+You need both `beautifulsoup4` and `lxml`:
+
+```python
+bs = BeautifulSoup(requests.get(url), "lxml")
+```
+
+# [Get a traceback from an exception](https://stackoverflow.com/questions/11414894/extract-traceback-info-from-an-exception-object)
+
+```python
+import traceback
+
+# `e` is an exception object that you get from somewhere
+traceback_str = ''.join(traceback.format_tb(e.__traceback__))
+```
+
 # Change the logging level of a library
 
 For example to change the logging level of the library `sh` use:

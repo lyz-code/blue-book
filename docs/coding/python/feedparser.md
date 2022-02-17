@@ -114,6 +114,12 @@ u'Sample feed'
 It is possible to interact with feeds that are [protected with
 credentials](https://pythonhosted.org/feedparser/http-authentication.html).
 
+# Issues
+
+* [Deprecation warning when using
+    `updated_parsed`](https://github.com/kurtmckee/feedparser/issues/151), once
+    solved tweak the `airss/adapters/extractor.py#RSS.get` at `updated_at`.
+
 # Links
 
 * [Git](https://github.com/kurtmckee/feedparser)

@@ -229,7 +229,7 @@ nav:
           - devops/ci.md
           - Linters:
               - Alex: devops/alex.md
-              - Flakehell: devops/flakehell.md
+              - Flakeheaven: devops/flakeheaven.md
               - Flake8: devops/flake8.md
               - Markdownlint: devops/markdownlint.md
               - Proselint: devops/proselint.md
