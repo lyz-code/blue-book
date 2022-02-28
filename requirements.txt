@@ -55,7 +55,7 @@ htmlmin==0.1.12
     # via mkdocs-minify-plugin
 idna==3.3
     # via requests
-importlib-metadata==4.11.1
+importlib-metadata==4.11.2
     # via
     #   keyring
     #   markdown
@@ -98,7 +98,7 @@ mkdocs-autolinks-plugin @ git+git://github.com/lyz-code/mkdocs-autolinks-plugin.
     #   mkdocs-newsletter
 mkdocs-git-revision-date-localized-plugin==1.0.0
     # via -r requirements.in
-mkdocs-material==8.2.2
+mkdocs-material==8.2.3
     # via -r requirements.in
 mkdocs-material-extensions==1.0.3
     # via mkdocs-material
@@ -184,7 +184,7 @@ tomli==2.0.1
     # via setuptools-scm
 tomlkit==0.7.0
     # via python-semantic-release
-tqdm==4.62.3
+tqdm==4.63.0
     # via twine
 twine==3.8.0
     # via python-semantic-release
