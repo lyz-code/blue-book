@@ -231,9 +231,58 @@ class ArticleProxyFactory(ModelFactory):
 If we call `factory.build()` without passing a value for `article_id`, an error
 will be raised.
 
-# Issues
+# Creating your custom factories
 
-* [Use pydantic-factories with pytest-freezegun](https://github.com/Goldziher/pydantic-factories/issues/29)
+If your model has an attribute that is not supported by `pydantic-factories` and
+it depends on third party libraries, you can create your custom extension
+subclassing the `ModelFactory`, and overriding the `get_mock_value` method to
+add your logic.
+
+
+```
+from pydantic_factories import ModelFactory
+
+class CustomFactory(ModelFactory[Any]):
+    """Tweak the ModelFactory to add our custom mocks."""
+
+    @classmethod
+    def get_mock_value(cls, field_type: Any) -> Any:
+        """Add our custom mock value."""
+        if str(field_type) == "my_super_rare_datetime_field":
+            return cls._get_faker().date_time_between()
+
+        return super().get_mock_value(field_type)
+```
+
+Where `cls._get_faker()` is a `faker` instance that you can use to build your
+returned value.
+
+
+
+# Troubleshooting
+
+## Use pydantic-factories with pytest-freezegun
+
+As `pytest-freezegun` overrides the `datetime.datetime` class,
+`pydantic-factories` is not able to find the correct generator for the datetime
+fields. It's solved by creating a [custom factory](#creating-your-custom-factories)
+
+```python
+from typing import Any
+from pydantic_factories import ModelFactory
+
+
+class CustomFactory(ModelFactory[Any]):
+    """Tweak the ModelFactory to add our custom mocks."""
+
+    @classmethod
+    def get_mock_value(cls, field_type: Any) -> Any:
+        """Add our custom mock value."""
+        if str(field_type) == "<class 'datetime.datetime'>":
+            return cls._get_faker().date_time_between()
+
+        return super().get_mock_value(field_type)
+```
 
 # References
 

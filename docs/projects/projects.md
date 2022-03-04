@@ -487,7 +487,8 @@ relevance in future searches. That rating can also influence the order of the
 different sources.
 
 It will archive the rated websites to avoid [link
-rot](https://www.gwern.net/Archiving-URLs#link-rot).
+rot](https://www.gwern.net/Archiving-URLs#link-rot) maybe with
+[ipwb](https://github.com/oduwsdl/ipwb).
 
 If we use a knowledge graph, we could federate to ask other nodes and help
 discover or prioritize content.

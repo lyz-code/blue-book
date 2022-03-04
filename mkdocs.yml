@@ -218,6 +218,7 @@ nav:
               - Tools: devops/kubernetes/kubernetes_tools.md
           - AWS:
               - devops/aws/aws.md
+              - AWS Snippets: aws_snippets.md
               - Security groups workflow: devops/aws/security_groups.md
               - EKS: devops/aws/eks.md
               - IAM:
@@ -225,6 +226,7 @@ nav:
                   - IAM Commands: devops/aws/iam/iam_commands.md
                   - IAM Debugging: devops/aws/iam/iam_debug.md
               - S3: devops/aws/s3.md
+              - WAF: aws_waf.md
       - Continuous Integration:
           - devops/ci.md
           - Linters:
@@ -322,6 +324,7 @@ nav:
           - Peek: peek.md
           - Profanity: profanity.md
           - rm: linux/rm.md
+          - Rtorrent: rtorrent.md
           - Syncthing: linux/syncthing.md
           - Tahoe-LAFS: tahoe.md
           - Vim:
@@ -332,6 +335,7 @@ nav:
           - Wake on Lan: wake_on_lan.md
           - Wallabag: wallabag.md
           - Wireguard: linux/wireguard.md
+          - Wireshark: wireshark.md
           - ZFS: linux/zfs.md
           - zip: linux/zip.md
       - Android:
@@ -353,6 +357,7 @@ nav:
           - Cooking Basics: cooking_basics.md
       - Pilates:
           - pilates.md
+      - Aerial Silk: aerial_silk.md
       - Dancing:
           - Rave Dances: dancing/rave_dances.md
           - Shuffle:

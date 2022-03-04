@@ -723,6 +723,24 @@ uvicorn program_name:app --reload
 Probably you've introduced an ending `/` to the endpoint, so instead of asking
 for `/my/endpoint` you tried to do `/my/endpoint/`.
 
+## Resolve the 422 error
+
+You're probably passing the wrong arguments to the POST request, to solve it see
+the `text` attribute of the result. For example:
+
+```python
+# client: TestClient
+result = client.post(
+    "/source/add",
+    json={"body": body},
+)
+
+result.text
+# '{"detail":[{"loc":["query","url"],"msg":"field required","type":"value_error.missing"}]}'
+```
+
+The error is telling us that the required `url` parameter is missing.
+
 # Logging
 
 By default the [application log messages are not shown in the uvicorn

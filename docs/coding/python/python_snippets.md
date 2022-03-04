@@ -18,6 +18,24 @@ def f():
     warnings.warn('Message', DeprecationWarning)
 ```
 
+## [Warning categories](https://docs.python.org/3/library/warnings.html#warning-categories)
+
+| Class                     | Description                                                                     |
+| ---                       | ---                                                                             |
+| Warning                   | This is the base class of all warning category classes.                         |
+| UserWarning               | The default category for warn().                                                |
+| DeprecationWarning        | Warn other developers about deprecated features.                                |
+| FutureWarning             | Warn other end users of applications about deprecated features.                 |
+| SyntaxWarning             | Warn about dubious syntactic features.                                          |
+| RuntimeWarning            | Warn about dubious runtime features.                                            |
+| PendingDeprecationWarning | Warn about features that will be deprecated in the future (ignored by default). |
+| ImportWarning             | Warn triggered during the process of importing a module (ignored by default).   |
+| UnicodeWarning            | Warn related to Unicode.                                                        |
+| BytesWarning              | Warn related to bytes and bytearray.                                            |
+| ResourceWarning           | Warn related to resource usage (ignored by default).                            |
+
+## Testing warnings
+
 To test the function with pytest you can use
 [`pytest.warns`](https://docs.pytest.org/en/stable/how-to/capture-warnings.html#warns):
 

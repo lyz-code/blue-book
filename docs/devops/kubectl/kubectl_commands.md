@@ -44,6 +44,12 @@ kubectl config use-context {{ context_name }}
 kubectl create -f {{ resource.definition.yaml | dir.where.yamls.live | url.to.yaml }} --record
 ```
 
+## [Create a configmap from a file](https://phoenixnap.com/kb/kubernetes-configmap-create-and-use)
+
+```bash
+kubectl create configmap {{ configmap_name }} --from-file {{ path/to/file }}
+```
+
 # Deleting resources
 
 ## Delete the pod using the type and name specified in a file
@@ -93,6 +99,12 @@ kubectl config view --minify
 ```
 
 ## Deployments
+
+### [Restart pods without taking the service down](https://pet2cattle.com/2021/03/kubectl-rolling-pod-restart)
+
+```bash
+kubectl rollout deployment {{ deployment_name }}
+```
 
 ### View status of deployments
 

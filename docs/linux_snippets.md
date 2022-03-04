@@ -4,6 +4,89 @@ date: 20200826
 author: Lyz
 ---
 
+# [Install one package from Debian unstable](https://linuxaria.com/howto/how-to-install-a-single-package-from-debian-sid-or-debian-testing)
+
+* Add the `unstable` repository to your `/etc/apt/sources.list`
+
+    ```bash
+    # Unstable
+    deb http://deb.debian.org/debian/ unstable main contrib non-free
+    deb-src http://deb.debian.org/debian/ unstable main contrib non-free
+    ```
+
+* Configure `apt` to only use `unstable` when specified
+
+!!! note "File: `/etc/apt/preferences`"
+    ```
+    Package: *
+    Pin: release  a=stable
+    Pin-Priority: 700
+
+    Package: *
+    Pin: release  a=testing
+    Pin-Priority: 600
+
+    Package: *
+    Pin: release a=unstable
+    Pin-Priority: 100
+    ```
+* Update the package data with `apt-get update`.
+* See that the new versions are available with `apt-cache policy
+    <package_name>`
+* To install a package from unstable you can run `apt-get install -t unstable
+    <package_name>`.
+
+# [Fix the following packages have been kept back](https://askubuntu.com/questions/601/the-following-packages-have-been-kept-back-why-and-how-do-i-solve-it)
+
+```bash
+sudo apt-get --with-new-pkgs upgrade
+```
+
+# [Monitor outgoing traffic](https://fedingo.com/how-to-monitor-outgoing-http-requests-in-linux/)
+
+## Easy and quick way watch & lsof
+
+You can simply use a combination of `watch` & `lsof` command in Linux to get an idea
+of outgoing traffic on specific ports. Here is an example of outgoing traffic on
+ports `80` and `443`.
+
+```bash
+$ watch -n1 lsof -i TCP:80,443
+```
+
+Here is a sample output.
+
+```bash
+dropbox    2280 saml   23u  IPv4 56015285      0t0  TCP www.example.local:56003->snt-re3-6c.sjc.dropbox.com:http (ESTABLISHED)
+thunderbi  2306 saml   60u  IPv4 56093767      0t0  TCP www.example.local:34788->ord08s09-in-f20.1e100.net:https (ESTABLISHED)
+mono       2322 saml   15u  IPv4 56012349      0t0  TCP www.example.local:54018->204-62-14-135.static.6sync.net:https (ESTABLISHED)
+chrome    4068 saml  175u  IPv4 56021419      0t0  TCP www.example.local:42182->stackoverflow.com:http (ESTABLISHED)
+```
+
+You'll miss the short lived connections though.
+
+## Fine grained with tcpdump
+
+You can also use `tcpdump` command to capture all raw packets, on all interfaces, on all ports, and write them to file.
+
+```bash
+sudo tcpdump -tttt -i any -w /tmp/http.log
+```
+
+Or you can limit it to a specific port adding the arguments `port 443 or 80`.
+The `-tttt` flag is used to capture the packets with a human readable timestamp.
+
+To read the recorded information, run the `tcpdump` command with `-A` option. It
+will print ASCII text in recorded packets, that you can browse using page
+up/down keys.
+
+```bash
+tcpdump -A -r /tmp/http.log | less
+```
+
+However, `tcpdump` cannot decrypt information, so you cannot view information
+about HTTPS requests in it.
+
 # [Clean up system space](https://ownyourbits.com/2017/02/18/squeeze-disk-space-on-a-debian-system/)
 
 There is a couple of things to do when we want to free space in a no-brainer
