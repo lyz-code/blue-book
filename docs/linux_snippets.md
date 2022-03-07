@@ -89,6 +89,8 @@ about HTTPS requests in it.
 
 # [Clean up system space](https://ownyourbits.com/2017/02/18/squeeze-disk-space-on-a-debian-system/)
 
+## Clean package data
+
 There is a couple of things to do when we want to free space in a no-brainer
 way. First, we want to remove those deb packages that get cached every time we
 do `apt-get install`.
@@ -119,6 +121,42 @@ are consuming the most space, we can type
 ```bash
 dpkg-query -Wf '${Installed-Size}\t${Package}\n' | sort -n
 ```
+
+## [Clean snap data](https://www.debugpoint.com/2021/03/clean-up-snap/)
+
+If you're using `snap` you can clean space by:
+
+* Reduce the number of versions kept of a package with `snap set system
+    refresh.retain=2`
+* Remove the old versions with `clean_snap.sh`
+
+    ```bash
+    #!/bin/bash
+    #Removes old revisions of snaps
+    #CLOSE ALL SNAPS BEFORE RUNNING THIS
+    set -eu
+    LANG=en_US.UTF-8 snap list --all | awk '/disabled/{print $1, $3}' |
+        while read snapname revision; do
+            snap remove "$snapname" --revision="$revision"
+        done)
+    ```
+
+## [Clean journalctl data](https://linuxhandbook.com/clear-systemd-journal-logs/)
+
+* Check how much space it's using: `journalctl --disk-usage`
+* Rotate the logs: `journalctl --rotate`
+
+Then you have three ways to reduce the data:
+
+1. Clear journal log older than X days: `journalctl --vacuum-time=2d`
+1. Restrict logs to a certain size: `journalctl --vacuum-size=100M`
+1. Restrict number of log files: `journactl --vacuum-files=5`.
+
+The operations above will affect the logs you have right now, but it won't solve
+the problem in the future. To let `journalctl` know the space you want to use
+open the `/etc/systemd/journald.conf` file and set the `SystemMaxUse` to the
+amount you want (for example `1000M` for a gigabyte). Once edited restart the
+service with `sudo systemctl restart systemd-journald`.
 
 # [Replace a string with sed recursively](https://victoria.dev/blog/how-to-replace-a-string-with-sed-in-current-and-recursive-subdirectories/)
 

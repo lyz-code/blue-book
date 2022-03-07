@@ -117,6 +117,7 @@ now](https://github.com/ramitsurana/awesome-kubernetes#starting-point):
 * [Networking](kubernetes_networking.md)
 * [Helm](helm.md)
 * [Tools](kubernetes_tools.md)
+* [Debugging](kubernetes_debugging.md)
 
 ## Reference
 

@@ -4,6 +4,74 @@ date: 20200717
 author: Lyz
 ---
 
+# [How to Find Duplicates in a List in Python](https://datagy.io/python-list-duplicates/)
+
+```python
+numbers = [1, 2, 3, 2, 5, 3, 3, 5, 6, 3, 4, 5, 7]
+
+duplicates = [number for number in numbers if numbers.count(number) > 1]
+unique_duplicates = list(set(duplicates))
+
+# Returns: [2, 3, 5]
+```
+
+If you want to count the number of occurrences of each duplicate, you can use:
+
+```python
+from collections import Counter
+numbers = [1, 2, 3, 2, 5, 3, 3, 5, 6, 3, 4, 5, 7]
+
+counts = dict(Counter(numbers))
+duplicates = {key:value for key, value in counts.items() if value > 1}
+
+# Returns: {2: 2, 3: 4, 5: 3}
+```
+
+To remove the duplicates use a combination of `list` and `set`:
+
+```python
+unique = list(set(numbers))
+
+# Returns: [1, 2, 3, 4, 5, 6, 7]
+```
+
+# [How to decompress a gz file](https://stackoverflow.com/questions/31028815/how-to-unzip-gz-file-using-python)
+
+```python
+import gzip
+import shutil
+with gzip.open('file.txt.gz', 'rb') as f_in:
+    with open('file.txt', 'wb') as f_out:
+        shutil.copyfileobj(f_in, f_out)
+```
+
+# [How to compress/decompress a tar file](https://www.thepythoncode.com/article/compress-decompress-files-tarfile-python)
+
+```python
+def compress(tar_file, members):
+    """
+    Adds files (`members`) to a tar_file and compress it
+    """
+    tar = tarfile.open(tar_file, mode="w:gz")
+
+    for member in members:
+        tar.add(member)
+
+    tar.close()
+
+def decompress(tar_file, path, members=None):
+    """
+    Extracts `tar_file` and puts the `members` to `path`.
+    If members is None, all members on `tar_file` will be extracted.
+    """
+    tar = tarfile.open(tar_file, mode="r:gz")
+    if members is None:
+        members = tar.getmembers()
+    for member in members:
+        tar.extract(member, path=path)
+    tar.close()
+```
+
 # [How to raise a warning](https://docs.python.org/3/library/warnings.html)
 
 Warning messages are typically issued in situations where it is useful to alert

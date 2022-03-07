@@ -18,6 +18,45 @@ pip install boto3
 
 # Usage
 
+## S3
+
+### [List the files of a bucket](https://stackoverflow.com/questions/53143521/listing-all-objects-in-an-s3-bucket-using-boto3)
+
+```python
+def list_s3_by_prefix(
+    bucket: str, key_prefix: str, max_results: int = 100
+) -> List[str]:
+    next_token = ""
+    all_keys = []
+    while True:
+        if next_token:
+            res = s3.list_objects_v2(
+                Bucket=bucket, ContinuationToken=next_token, Prefix=key_prefix
+            )
+        else:
+            res = s3.list_objects_v2(Bucket=bucket, Prefix=key_prefix)
+
+        if "Contents" not in res:
+            break
+
+        if res["IsTruncated"]:
+            next_token = res["NextContinuationToken"]
+        else:
+            next_token = ""
+
+        keys = [item["Key"] for item in res["Contents"]]
+
+        all_keys.extend(keys)
+
+        if not next_token:
+            break
+    return all_keys[-1 * max_results :]
+```
+
+The `boto3` doesn't have any way to sort the outputs of the bucket, you need to
+do them [once you've loaded all the
+objects](https://github.com/boto/boto3/issues/2248) :S.
+
 ## Run EC2 instance
 
 Use the

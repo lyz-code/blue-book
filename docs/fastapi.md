@@ -723,6 +723,11 @@ uvicorn program_name:app --reload
 Probably you've introduced an ending `/` to the endpoint, so instead of asking
 for `/my/endpoint` you tried to do `/my/endpoint/`.
 
+## Resolve the 409 error
+
+Probably an exception was raised in the backend, use `pdb` to follow the trace
+and catch where it happened.
+
 ## Resolve the 422 error
 
 You're probably passing the wrong arguments to the POST request, to solve it see
