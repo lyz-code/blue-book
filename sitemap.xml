@@ -16,6 +16,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/aerial_silk/</loc>
+         <lastmod>2022-03-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/afew/</loc>
          <lastmod>2022-03-07</lastmod>
          <changefreq>daily</changefreq>
@@ -57,6 +62,16 @@
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/asyncio/</loc>
+         <lastmod>2022-03-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/aws_snippets/</loc>
+         <lastmod>2022-03-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/aws_waf/</loc>
          <lastmod>2022-03-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -171,6 +186,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/flakeheaven/</loc>
+         <lastmod>2022-03-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/forking_this_wiki/</loc>
          <lastmod>2022-03-07</lastmod>
          <changefreq>daily</changefreq>
@@ -251,6 +271,21 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/krew/</loc>
+         <lastmod>2022-03-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/ksniff/</loc>
+         <lastmod>2022-03-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/kubernetes_debugging/</loc>
+         <lastmod>2022-03-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/lazy_loading/</loc>
          <lastmod>2022-03-07</lastmod>
          <changefreq>daily</changefreq>
@@ -282,6 +317,11 @@
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/mermaidjs/</loc>
+         <lastmod>2022-03-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/mizu/</loc>
          <lastmod>2022-03-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -496,6 +536,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/rtorrent/</loc>
+         <lastmod>2022-03-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/scrum/</loc>
          <lastmod>2022-03-07</lastmod>
          <changefreq>daily</changefreq>
@@ -647,6 +692,11 @@
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/wesnoth_rebels/</loc>
+         <lastmod>2022-03-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/wireshark/</loc>
          <lastmod>2022-03-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -2681,6 +2731,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/newsletter/2022_03_04/</loc>
+         <lastmod>2022-03-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/newsletter/2022_w03/</loc>
          <lastmod>2022-03-07</lastmod>
          <changefreq>daily</changefreq>
@@ -2697,6 +2752,11 @@
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/newsletter/2022_w07/</loc>
+         <lastmod>2022-03-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/newsletter/2022_w09/</loc>
          <lastmod>2022-03-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
