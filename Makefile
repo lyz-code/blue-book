@@ -6,11 +6,8 @@ update:
 	@echo "- Updating dependencies -"
 	@echo "-------------------------"
 
-	rm requirements.txt
-	touch requirements.txt
-	pip-compile -Ur requirements.in --allow-unsafe
-
-	pip install -r requirements.txt
+	pdm update --no-sync
+	pdm sync --clean
 
 	@echo ""
 
@@ -23,13 +20,13 @@ clean:
 	rm -rf `find . -name __pycache__`
 	rm -f `find . -type f -name '*.py[co]' `
 	rm -f `find . -type f -name '*.rej' `
+	rm -rf `find . -type d -name '*.egg-info' `
 	rm -f `find . -type f -name '*~' `
 	rm -f `find . -type f -name '.*~' `
 	rm -rf .cache
 	rm -rf .pytest_cache
 	rm -rf .mypy_cache
 	rm -rf htmlcov
-	rm -rf *.egg-info
 	rm -f .coverage
 	rm -f .coverage.*
 	rm -rf build
@@ -49,21 +46,7 @@ docs:
 	@echo "- Serving documentation -"
 	@echo "-------------------------"
 
-	mkdocs serve
-
-	@echo ""
-
-.PHONY: bump
-bump: pull-master bump-version clean
-
-.PHONY: pull-master
-pull-master:
-	@echo "------------------------"
-	@echo "- Updating repository  -"
-	@echo "------------------------"
-
-	git checkout master
-	git pull
+	pdm run mkdocs serve
 
 	@echo ""
 
@@ -73,18 +56,6 @@ build-docs:
 	@echo "- Building documentation -"
 	@echo "--------------------------"
 
-	mkdocs build
-
-	@echo ""
-
-.PHONY: bump-version
-bump-version:
-	@echo "---------------------------"
-	@echo "- Bumping program version -"
-	@echo "---------------------------"
-
-	cz bump --changelog --no-verify
-	git push
-	git push --tags
+	pdm run mkdocs build
 
 	@echo ""

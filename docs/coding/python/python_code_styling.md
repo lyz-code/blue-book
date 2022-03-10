@@ -129,6 +129,12 @@ of using f-strings far outweigh them.
 
 They just don't support it they suggest to use normal for loops.
 
+## [W1514 set encoding on open](https://peps.python.org/pep-0597/)
+
+```python
+with open('file.txt', 'r', encoding='utf-8'):
+```
+
 ## [SIM105 Use
 'contextlib.suppress(Exception)'](https://docs.python.org/3/library/contextlib.html#contextlib.suppress)
 

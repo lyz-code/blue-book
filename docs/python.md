@@ -36,6 +36,10 @@ apt-get install python
 
 * [di](https://www.adriangb.com/di/0.36.0/): a modern dependency injection
     system, modeled around the simplicity of FastAPI's dependency injection.
+* [humanize](https://github.com/python-humanize/humanize): This modest package
+    contains various common humanization utilities, like turning a number into
+    a fuzzy human-readable duration ("3 minutes ago") or into a human-readable
+    size or throughput.
 * [tryceratops](https://github.com/guilatrova/tryceratops): A linter of
     exceptions.
 * [schedule](https://github.com/dbader/schedule): Python job scheduling for

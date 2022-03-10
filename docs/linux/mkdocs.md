@@ -534,12 +534,12 @@ You can see a full example
 
 Once they are closed:
 
-* [Mkdocs material 8.1.3 broke mkdocs-newsletter nav section
-    building](https://github.com/oprypin/mkdocs-section-index/issues/10), pin it
-    to `mkdocs-material<8.1.3` in your requirements until it's solved.
-* MermaidJS material theme support. Once it's released we need to:
-    * Migrate the projects that are using mkdocs-mermaid2-plugin
-    * Update the [mermaidjs](#mermaidjs) docs.
+* [Mkdocs Deprecation warning](https://github.com/mkdocs/mkdocs/issues/2794),
+    once it's solved remove the warning filter on mkdocs-newsletter
+    `pyproject.toml`.
+* [Mkdocs-Material Deprecation warning](https://github.com/squidfunk/mkdocs-material/issues/3695),
+    once it's solved remove the warning filter on mkdocs-newsletter
+    `pyproject.toml`.
 
 # References
 
