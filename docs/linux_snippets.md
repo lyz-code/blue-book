@@ -158,6 +158,33 @@ open the `/etc/systemd/journald.conf` file and set the `SystemMaxUse` to the
 amount you want (for example `1000M` for a gigabyte). Once edited restart the
 service with `sudo systemctl restart systemd-journald`.
 
+## [Set up docker logs rotation](https://medium.com/free-code-camp/how-to-setup-log-rotation-for-a-docker-container-a508093912b2)
+
+By default, the stdout and stderr of the container are written in a JSON file
+located in `/var/lib/docker/containers/[container-id]/[container-id]-json.log`. If
+you leave it unattended, it can take up a large amount of disk space.
+
+If this JSON log file takes up a significant amount of the disk, we can purge it
+using the next command.
+
+```bash
+truncate -s 0 <logfile>
+```
+
+We could setup a cronjob to purge these JSON log files regularly. But for the
+long term, it would be better to setup log rotation. This can be done by adding
+the following values in `/etc/docker/daemon.json`.
+
+```json
+{
+  "log-driver": "json-file",
+  "log-opts": {
+    "max-size": "10m",
+    "max-file": "10"
+  }
+}
+```
+
 # [Replace a string with sed recursively](https://victoria.dev/blog/how-to-replace-a-string-with-sed-in-current-and-recursive-subdirectories/)
 
 ```bash

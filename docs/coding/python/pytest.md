@@ -864,6 +864,10 @@ filterwarnings = [
 ]
 ```
 
+!!! note
+    It's better to suppress a warning instead of disabling it for the
+    whole code, check how [here](use_warnings.md#suppressing-a-warning).
+
 
 ## [Ensuring code triggers a deprecation warning](https://docs.pytest.org/en/latest/how-to/capture-warnings.html#ensuring-code-triggers-a-deprecation-warning)
 

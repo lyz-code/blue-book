@@ -60,6 +60,7 @@ nav:
               - versioning.md
               - Semantic Versioning: semantic_versioning.md
               - Calendar Versioning: calendar_versioning.md
+          - Use warnings to evolve your code: use_warnings.md
           - Keep a Changelog: changelog.md
           - Writing good documentation: documentation.md
           - TDD: coding/tdd.md

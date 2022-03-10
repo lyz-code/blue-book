@@ -101,6 +101,7 @@ Assuming you're using Semantic Versioning you can improve your code evolution
 by:
 
 * [Avoid becoming a ZeroVer package](#avoid-becoming-a-zerover-package).
+* [Use Warnings to avoid major changes](#use-warnings-to-avoid-major-changes)
 
 ### Avoid becoming a ZeroVer package
 
@@ -111,38 +112,14 @@ example you can use one of the next indicators:
 * If you're frequently using it and haven't done any breaking change in 3 months.
 * If 30 users are depending on it. For example counting the project stars.
 
-### [Use DeprecationWarnings to avoid major changes](https://bernat.tech/posts/version-numbers/#a-better-way-to-handle-api-evolution)
+### [Use Warnings to avoid major changes](use_warnings.md)
 
 Semantic versioning uses the major version to defend against breaking changes,
 and at the same offers maintainers the freedom to evolve the library without
 breaking users. Nevertheless, this does [not seem to work that
 well](semantic_vesioning.md#semantic-versioning-system-problems).
 
-Once you release `1.0.0`, whenever you want to introduce a breaking change
-release the it under a new interface, and in parallel, start emitting
-`DeprecationWarning` messages whenever someone invokes the old one. Maintain
-this state for a migration period of a year, and communicate explicitly in the
-warning message the timeline for when users have to migrate (calculate this by
-adding one year to your release date).
-
-This gives everyone a year to move to the new interface without breaking their
-system, and then the library may remove the change and get rid of the old design
-chains forever. As an added benefit, only people using the old interface will
-ever see the warning, as opposed to affecting everyone (as seen with the
-semantic versioning major version bump).
-
-You'd do this change in a `minor` release, and you'll
-finally remove the functionality in another `minor` release. As you've given
-your users enough time to adequate to the new version of the code, it's not
-understood as a breaking change.
-
-One caveat for this to work is that one should [*stop upper-pinning
-dependencies*](#upper-version-pinning).
-You should only specify the minimum version you need to pull in newer versions
-freely if they exist.
-
-Check the [snippet on how to raise
-a warning](python_snippets.md#how-to-raise-a-warning).
+So it's better to [use Warnings to avoid major changes](use_warnings.md).
 
 ### Communicate with your users
 
