@@ -298,7 +298,7 @@ dependencies = [
 
 [[package]]
 name = "mkdocs-newsletter"
-version = "1.0.0"
+version = "1.0.1"
 requires_python = ">=3.7"
 summary = "Automatically create newsletters from the changes in a mkdocs repository"
 dependencies = [
@@ -306,6 +306,8 @@ dependencies = [
     "deepdiff>=5.7.0",
     "gitpython>=3.1.27",
     "mkdocs-autolinks-plugin>=0.4.0",
+    "mkdocs-git-revision-date-localized-plugin>=1.0.0",
+    "mkdocs-material>=8.2.5",
     "mkdocs-section-index>=0.3.3",
     "mkdocs>=1.2.3",
     "pydantic>=1.9.0",
@@ -857,9 +859,9 @@ content_hash = "sha256:1e4ac77b3400f490583169ac9627bca7a6a88fb9428f82a00b26e2017
     {file = "mkdocs_minify_plugin-0.5.0-py2-none-any.whl", hash = "sha256:487c31ae6b8b3230f56910ce6bcf5c7e6ad9a8c4f51c720a4b989f30c2b0233f"},
     {file = "mkdocs-minify-plugin-0.5.0.tar.gz", hash = "sha256:32d9e8fbd89327a0f4f648f517297aad344c1bad64cfde110d059bd2f2780a6d"},
 ]
-"mkdocs-newsletter 1.0.0" = [
-    {file = "mkdocs_newsletter-1.0.0-py3-none-any.whl", hash = "sha256:7a022a987d7616a2d2db78863dd7c3571b1c9cbb5d8d12303f51ab0e65d81d1f"},
-    {file = "mkdocs-newsletter-1.0.0.tar.gz", hash = "sha256:368f6f08ad5989ebd95e6ffcb18c35420e38440b2a1e2a4c761276e7cdc46758"},
+"mkdocs-newsletter 1.0.1" = [
+    {file = "mkdocs_newsletter-1.0.1-py3-none-any.whl", hash = "sha256:6802851abbf0bae86b9a3622375e732054023cfa775d4e0db89d6aaa5690d880"},
+    {file = "mkdocs-newsletter-1.0.1.tar.gz", hash = "sha256:67ed079bc1db50cf04b657d310f0ae5c5ad6d765e1f8053a38fcb041190215ae"},
 ]
 "mkdocs-section-index 0.3.3" = [
     {file = "mkdocs_section_index-0.3.3-py3-none-any.whl", hash = "sha256:a79d8b6e21b5d9d4edf056246ea1d1d4f6c8705469c20bbe06e3ecd5b30fc4e7"},
