@@ -36,7 +36,7 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add requirements.txt
+          git add pdm.lock
           git add docs/newsletter
           git diff-index --quiet HEAD \
             || git commit -m "chore: update dependency and publish newsletters"
