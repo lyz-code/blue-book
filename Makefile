@@ -1,5 +1,9 @@
 .DEFAULT_GOAL := docs
 
+.PHONY: install
+install:
+	pdm install
+
 .PHONY: update
 update:
 	@echo "-------------------------"
