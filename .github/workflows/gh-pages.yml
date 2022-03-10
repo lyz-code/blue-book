@@ -12,33 +12,19 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
         with:
-          persist-credentials: false
           # Number of commits to fetch. 0 indicates all history.
           # Default: 1
           fetch-depth: 0
-
-      - name: Setup Python
-        # https://github.com/actions/virtual-environments/issues/1202
-        # uses: actions/setup-python@v1
-        # with:
-        #   python-version: '3.7'
-        uses: actions/setup-python@v2
+      - uses: pdm-project/setup-pdm@main
+        name: Setup Python and PDM
         with:
           python-version: 3.9
-          architecture: x64
-
-      - name: Cache dependencies
-        uses: actions/cache@v1
-        with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
-          restore-keys: |
-            ${{ runner.os }}-pip-
 
       - name: Install dependencies
-        run: pip install pip-tools
+        run: make install
 
       - name: Update requirements
         run: make update
