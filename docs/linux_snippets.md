@@ -126,8 +126,7 @@ dpkg-query -Wf '${Installed-Size}\t${Package}\n' | sort -n
 
 If you're using `snap` you can clean space by:
 
-* Reduce the number of versions kept of a package with `snap set system
-    refresh.retain=2`
+* Reduce the number of versions kept of a package with `snap set system refresh.retain=2`
 * Remove the old versions with `clean_snap.sh`
 
     ```bash
@@ -184,6 +183,22 @@ the following values in `/etc/docker/daemon.json`.
   }
 }
 ```
+
+## [Clean old kernels](https://tuxtweaks.com/2010/10/remove-old-kernels-in-ubuntu-with-one-command/)
+
+The full command is
+
+```bash
+dpkg -l linux-* | awk '/^ii/{ print $2}' | grep -v -e `uname -r | cut -f1,2 -d"-"` | grep -e [0-9] | grep -E "(image|headers)" | xargs sudo apt-get -y purge
+```
+
+To test what packages will it remove use:
+
+```bash
+dpkg -l linux-* | awk '/^ii/{ print $2}' | grep -v -e `uname -r | cut -f1,2 -d"-"` | grep -e [0-9] | grep -E "(image|headers)" | xargs sudo apt-get --dry-run remove
+```
+
+Remember that your running kernel can be obtained by `uname -r`.
 
 # [Replace a string with sed recursively](https://victoria.dev/blog/how-to-replace-a-string-with-sed-in-current-and-recursive-subdirectories/)
 

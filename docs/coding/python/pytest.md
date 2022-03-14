@@ -823,6 +823,17 @@ def test_example():
     assert random.choice([True, False])
 ```
 
+# [Run tests in a random order](https://github.com/jbasko/pytest-random-order)
+
+`pytest-random-order` is a pytest plugin that randomises the order of tests.
+This can be useful to detect a test that passes just because it happens to run
+after an unrelated test that leaves the system in a favourable state.
+
+To use it add the `--random-order` to your pytest run.
+
+It [can't yet be used](https://github.com/jbasko/pytest-random-order/issues/46)
+with `pytest-xdist` though :(.
+
 # [Capture deprecation warnings](https://docs.pytest.org/en/latest/how-to/capture-warnings.html)
 
 Python and its ecosystem does not have an assumption of strict SemVer, and has
