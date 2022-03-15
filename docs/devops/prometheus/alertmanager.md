@@ -279,6 +279,11 @@ Other examples of rules are:
 
 * [Blackbox Exporter rules](blackbox_exporter.md#blackbox-exporter-alerts)
 
-# Links
+# Silences
+
+To silence an alert with a regular expression use the matcher
+`alertname=~".*Condition"`.
+
+# References
 
 * [Awesome prometheus alert rules](https://awesome-prometheus-alerts.grep.to/rules)
