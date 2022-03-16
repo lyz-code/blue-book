@@ -5,7 +5,18 @@ description = ""
 authors = [
     {name = "Lyz", email = "lyz@riseup.net"},
 ]
-dependencies = ["mkdocs", "proselint", "gitdb2", "mkdocs-git-revision-date-localized-plugin", "mkdocs-minify-plugin", "mkdocs-material", "mkdocs-section-index", "pymdown-extensions", "mkdocs-autolinks-plugin@ git+git://github.com/lyz-code/mkdocs-autolinks-plugin.git", "mkdocs-newsletter"]
+dependencies = [
+    "mkdocs",
+    "proselint",
+    "gitdb2",
+    "mkdocs-git-revision-date-localized-plugin",
+    "mkdocs-minify-plugin",
+    "mkdocs-material",
+    "mkdocs-section-index",
+    "pymdown-extensions",
+    "mkdocs-newsletter",
+    "mkdocs-autolinks-plugin>=0.5.0",
+]
 requires-python = ">=3.9"
 license = {text = "MIT"}
 
