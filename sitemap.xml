@@ -126,6 +126,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/css/</loc>
+         <lastmod>2022-03-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/digital_garden/</loc>
          <lastmod>2022-03-16</lastmod>
          <changefreq>daily</changefreq>
@@ -237,6 +242,11 @@
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/helm_git/</loc>
+         <lastmod>2022-03-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/html/</loc>
          <lastmod>2022-03-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
