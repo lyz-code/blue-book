@@ -18,6 +18,23 @@ Define how data should be in pure, canonical python; check it with pydantic.
 pip install pydantic
 ```
 
+If you use [mypy](mypy.md) I highly recommend you to [activate the pydantic
+plugin](https://pydantic-docs.helpmanual.io/mypy_plugin/#configuring-the-plugin)
+by adding to your `pyproject.toml`:
+
+```toml
+[tool.mypy]
+plugins = [
+  "pydantic.mypy"
+]
+
+[tool.pydantic-mypy]
+init_forbid_extra = true
+init_typed = true
+warn_required_dynamic_aliases = true
+warn_untyped_fields = true
+```
+
 # Advantages and disadvantages
 
 Advantages:

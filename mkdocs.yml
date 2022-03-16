@@ -165,6 +165,8 @@ nav:
       - YAML: coding/yaml/yaml.md
       - Promql: coding/promql/promql.md
       - Vue.js: vuejs.md
+      - HTML: html.md
+      - CSS: css.md
       - Javascript:
           - coding/javascript/javascript.md
           - MermaidJS: mermaidjs.md
