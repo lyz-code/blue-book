@@ -375,7 +375,7 @@ summary = "Pygments is a syntax highlighting package written in Python."
 
 [[package]]
 name = "pymdown-extensions"
-version = "9.2"
+version = "9.3"
 requires_python = ">=3.7"
 summary = "Extension pack for Python Markdown."
 dependencies = [
@@ -427,7 +427,7 @@ dependencies = [
 
 [[package]]
 name = "pytz"
-version = "2021.3"
+version = "2022.1"
 summary = "World timezone definitions, modern and historical"
 
 [[package]]
@@ -928,9 +928,9 @@ content_hash = "sha256:a9d5ca5f0c7340f7fde779be2c17717d84bcc0008f4b9c9f717926723
     {file = "Pygments-2.11.2-py3-none-any.whl", hash = "sha256:44238f1b60a76d78fc8ca0528ee429702aae011c265fe6a8dd8b63049ae41c65"},
     {file = "Pygments-2.11.2.tar.gz", hash = "sha256:4e426f72023d88d03b2fa258de560726ce890ff3b630f88c21cbb8b2503b8c6a"},
 ]
-"pymdown-extensions 9.2" = [
-    {file = "pymdown_extensions-9.2-py3-none-any.whl", hash = "sha256:f2fa7d9317c672a419868c893c20a28fb7ed7fc60d4ec4774c35e01398ab330c"},
-    {file = "pymdown-extensions-9.2.tar.gz", hash = "sha256:ed8f69a18bc158f00cbf03abc536b88b6e541b7e699156501e767c48f81d8850"},
+"pymdown-extensions 9.3" = [
+    {file = "pymdown_extensions-9.3-py3-none-any.whl", hash = "sha256:b37461a181c1c8103cfe1660081726a0361a8294cbfda88e5b02cefe976f0546"},
+    {file = "pymdown-extensions-9.3.tar.gz", hash = "sha256:a80553b243d3ed2d6c27723bcd64ca9887e560e6f4808baa96f36e93061eaf90"},
 ]
 "pyparsing 3.0.7" = [
     {file = "pyparsing-3.0.7-py3-none-any.whl", hash = "sha256:a6c06a88f252e6c322f65faf8f418b16213b51bdfaece0524c1c1bc30c63c484"},
@@ -948,9 +948,9 @@ content_hash = "sha256:a9d5ca5f0c7340f7fde779be2c17717d84bcc0008f4b9c9f717926723
     {file = "python_semantic_release-7.27.0-py3-none-any.whl", hash = "sha256:dd95785719b5c04fc63c29c2e363735d4d622b713b2b99b41bb0c6ded57311de"},
     {file = "python-semantic-release-7.27.0.tar.gz", hash = "sha256:d115360703cc66a757f650f795fc1d8cd7fdf7688cb8645a36a713f5144b01ce"},
 ]
-"pytz 2021.3" = [
-    {file = "pytz-2021.3-py2.py3-none-any.whl", hash = "sha256:3672058bc3453457b622aab7a1c3bfd5ab0bdae451512f6cf25f64ed37f5b87c"},
-    {file = "pytz-2021.3.tar.gz", hash = "sha256:acad2d8b20a1af07d4e4c9d2e9285c5ed9104354062f275f3fcd88dcef4f1326"},
+"pytz 2022.1" = [
+    {file = "pytz-2022.1-py2.py3-none-any.whl", hash = "sha256:e68985985296d9a66a881eb3193b0906246245294a881e7c8afe623866ac6a5c"},
+    {file = "pytz-2022.1.tar.gz", hash = "sha256:1e760e2fe6a8163bc0b3d9a19c4f84342afa0a2affebfaa84b01b978a02ecaa7"},
 ]
 "pywin32-ctypes 0.2.0" = [
     {file = "pywin32_ctypes-0.2.0-py2.py3-none-any.whl", hash = "sha256:9dc2d991b3479cc2df15930958b674a48a227d5361d413827a4cfd0b5876fc98"},
