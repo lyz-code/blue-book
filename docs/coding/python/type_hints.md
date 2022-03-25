@@ -108,7 +108,45 @@ For example to define the hint types of list, dictionaries and tuples:
 ```
 
 If your function expects some kind of sequence but don't care whether it's
-a list or a tuple, use the `typing.Sequence` object.
+a list or a tuple, use the `typing.Sequence` object. In fact, try to use
+`Sequence` if you can because using `List` could lead to some unexpected errors
+when combined with type inference. For example:
+
+```python
+class A: ...
+class B(A): ...
+
+lst = [A(), A()]  # Inferred type is List[A]
+new_lst = [B(), B()]  # inferred type is List[B]
+lst = new_lst  # mypy will complain about this, because List is invariant
+```
+
+Possible strategies in such situations are:
+
+* Use an explicit type annotation:
+
+    ```python
+    new_lst: List[A] = [B(), B()]
+    lst = new_lst  # OK
+    ```
+
+* Make a copy of the right hand side:
+
+    ```python
+    lst = list(new_lst) # Also OK
+    ```
+
+* Use immutable collections as annotations whenever possible:
+
+    ```python
+    def f_bad(x: List[A]) -> A:
+        return x[0]
+    f_bad(new_lst) # Fails
+
+    def f_good(x: Sequence[A]) -> A:
+        return x[0]
+    f_good(new_lst) # OK
+    ```
 
 ### [Dictionaries with different value types per key](https://stackoverflow.com/questions/53409117/what-are-the-main-differences-of-namedtuple-and-typeddict-in-python-mypy).
 
@@ -374,6 +412,63 @@ function:
 def union_concat(x: Union[str, bytes], y: Union[str, bytes]) -> Union[str, bytes]:
     return x + y  # Error: can't concatenate str and bytes
 ```
+
+### [Overloading the methods](https://adamj.eu/tech/2021/05/29/python-type-hints-how-to-use-overload/)
+
+Sometimes the types of several variables are related, such as “if x is type A,
+y is type B, else y is type C”. Basic type hints cannot describe such
+relationships, making type checking cumbersome or inaccurate. We can instead use
+`@typing.overload` to represent type relationships properly.
+
+```python
+from __future__ import annotations
+
+from collections.abc import Sequence
+from typing import overload
+
+
+@overload
+def double(input_: int) -> int:
+    ...
+
+
+@overload
+def double(input_: Sequence[int]) -> list[int]:
+    ...
+
+
+def double(input_: int | Sequence[int]) -> int | list[int]:
+    if isinstance(input_, Sequence):
+        return [i * 2 for i in input_]
+    return input_ * 2
+```
+
+This looks a bit weird at first glance—we are defining double three times! Let’s
+take it apart.
+
+The first two `@overload` definitions exist only for their type hints. Each
+definition represents an allowed combination of types. These definitions never
+run, so their bodies could contain anything, but it’s idiomatic to use Python’s
+`...` (ellipsis) literal.
+
+The third definition is the actual implementation. In this case, we need to
+provide type hints that union all the possible types for each variable. Without
+such hints, Mypy will skip type checking the function body.
+
+When Mypy checks the file, it collects the `@overload` definitions as type
+hints. It then uses the first non-`@overload` definition as the implementation.
+All `@overload` definitions must come before the implementation, and multiple
+implementations are not allowed.
+
+When Python imports the file, the `@overload` definitions create temporary
+double functions, but each is overridden by the next definition. After
+importing, only the implementation exists. As a protection against accidentally
+missing implementations, attempting to call an `@overload` definition will raise
+a `NotImplementedError`.
+
+`@overload` can represent arbitrarily complex scenarios. For a couple more
+examples, see the function overloading section of the [Mypy
+docs](https://mypy.readthedocs.io/en/stable/more_types.html#function-overloading).
 
 ### Use a constrained TypeVar in the definition of a class attributes.
 

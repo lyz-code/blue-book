@@ -199,4 +199,5 @@ you Docker `-.-`.
 
 ## [Start request repeated too quickly](https://askubuntu.com/questions/1222440/why-wont-the-docker-service-start)
 
-Shutdown the VPN and it will work.
+Shutdown the VPN and it will work. If it doesn't inspect the output of
+`journalctl -eu docker`.

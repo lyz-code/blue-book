@@ -127,6 +127,11 @@ ensures any improvement to the template is always submitted upstream.
     pyproject.toml](https://github.com/cruft/cruft/issues/140): Update the
     template once it's supported.
 
+## Error: Unable to interpret changes between current project and cookiecutter template as unicode.
+
+Typically a result of hidden binary files in project folder. Maybe you have
+a hook that initializes the `.git` directory, don't do that.
+
 # References
 
 * [Docs](https://cruft.github.io/cruft/)

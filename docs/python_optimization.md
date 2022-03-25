@@ -28,7 +28,23 @@ how various long parts of the code are executed. Using a profiling mechanism
 becomes a necessity when the codebase grows large, and you still want to
 maintain efficiency.
 
-# Tips
+# [Making Python command line fast](https://files.bemusement.org/talks/OSDC2008-FastPython/)
+
+People like using software that feels fast, and Python programs tend to be slow
+to start running. What qualifies as *fast* is subjective, and varies by the type
+of tool and by the user's expectations.
+
+Roughly speaking, for a command line program, people expect results almost
+instantaneously. For a tool that appears to be doing a simple task a sub-second
+result is enough, but under 200ms is even better.
+
+Obviously to achieve this, your program actually has to be fast at doing its
+work. But what if you've written your code in Python, and it can take 800ms just
+to import your code, let alone start running it.
+
+## [How fast can a Python program be?](https://files.bemusement.org/talks/OSDC2008-FastPython/)
+
+TBC
 
 ## Minimize the relative import statements on command line tools
 

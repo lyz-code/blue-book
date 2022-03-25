@@ -186,6 +186,9 @@ the following values in `/etc/docker/daemon.json`.
 
 ## [Clean old kernels](https://tuxtweaks.com/2010/10/remove-old-kernels-in-ubuntu-with-one-command/)
 
+!!! warning "I don't recommend using this step, rely on `apt-get autoremove`,
+it' safer"
+
 The full command is
 
 ```bash
@@ -195,7 +198,7 @@ dpkg -l linux-* | awk '/^ii/{ print $2}' | grep -v -e `uname -r | cut -f1,2 -d"-
 To test what packages will it remove use:
 
 ```bash
-dpkg -l linux-* | awk '/^ii/{ print $2}' | grep -v -e `uname -r | cut -f1,2 -d"-"` | grep -e [0-9] | grep -E "(image|headers)" | xargs sudo apt-get --dry-run remove
+dpkg -l linux-* | awk '/^ii/{ print $2}' | grep -v -e `uname -r | cut -f1,2 -d"-"` | grep -e [0-9] | grep -e "(image|headers)" | xargs sudo apt-get --dry-run remove
 ```
 
 Remember that your running kernel can be obtained by `uname -r`.

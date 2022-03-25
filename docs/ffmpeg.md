@@ -115,6 +115,40 @@ done
 * `"$i.ts"` Saves the output to .ts format, this is useful so as not to
     overwrite your source files.
 
+### [Convert VOB to mkv](https://www.internalpointers.com/post/convert-vob-files-mkv-ffmpeg)
+
+* Unify your VOBs
+    ```bash
+    cat *.VOB > output.vob
+    ```
+
+* Identify the streams
+
+    ```bash
+    ffmpeg -analyzeduration 100M -probesize 100M -i output.vob
+    ```
+
+    Select the streams that you are interested in, imagine that is 1, 3, 4,
+    5 and 6.
+
+* Encoding
+
+    ```bash
+    ffmpeg \
+      -analyzeduration 100M -probesize 100M \
+      -i output.vob \
+      -map 0:1 -map 0:3 -map 0:4 -map 0:5 -map 0:6 \
+      -metadata:s:a:0 language=ita -metadata:s:a:0 title="Italian stereo" \
+      -metadata:s:a:1 language=eng -metadata:s:a:1 title="English stereo" \
+      -metadata:s:s:0 language=ita -metadata:s:s:0 title="Italian" \
+      -metadata:s:s:1 language=eng -metadata:s:s:1 title="English" \
+      -codec:v libx264 -crf 21 \
+      -codec:a libmp3lame -qscale:a 2 \
+      -codec:s copy \
+      output.mkv
+    ```
+
+
 ## [Convert a video into animated GIF](https://superuser.com/questions/556029/how-do-i-convert-a-video-to-gif-using-ffmpeg-with-reasonable-quality)
 
 ```bash
