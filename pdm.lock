@@ -264,11 +264,11 @@ dependencies = [
 
 [[package]]
 name = "mkdocs-material"
-version = "8.2.6"
+version = "8.2.7"
 requires_python = ">=3.6"
 summary = "A Material Design theme for MkDocs"
 dependencies = [
-    "jinja2>=2.11.1",
+    "jinja2<3.1,>=2.11.1",
     "markdown>=3.2",
     "mkdocs-material-extensions>=1.0",
     "mkdocs>=1.2.3",
@@ -505,7 +505,7 @@ summary = "Python helper for Semantic Versioning (http://semver.org/)"
 
 [[package]]
 name = "setuptools"
-version = "60.10.0"
+version = "61.0.0"
 requires_python = ">=3.7"
 summary = "Easily download, build, install, upgrade, and uninstall Python packages"
 
@@ -848,9 +848,9 @@ content_hash = "sha256:a9d5ca5f0c7340f7fde779be2c17717d84bcc0008f4b9c9f717926723
     {file = "mkdocs_git_revision_date_localized_plugin-1.0.0-py3-none-any.whl", hash = "sha256:15086eb25129347e63da7c109c6f9834a2937a1e1c91fb850be13645e6a21dbe"},
     {file = "mkdocs-git-revision-date-localized-plugin-1.0.0.tar.gz", hash = "sha256:67ca2ebf19d7571e83c7f887ba4205f56bc45a34e70879f84797ac57e9ef7220"},
 ]
-"mkdocs-material 8.2.6" = [
-    {file = "mkdocs_material-8.2.6-py2.py3-none-any.whl", hash = "sha256:b30b4cfe5b0a74cccf2c75b7127c22cd8d816e6260c9a8708c3baf08c59e6714"},
-    {file = "mkdocs-material-8.2.6.tar.gz", hash = "sha256:be76ba3e0c0d4482159fc2c00d060dbf22cfb29f25276ebd0db9a0eaf6a18712"},
+"mkdocs-material 8.2.7" = [
+    {file = "mkdocs_material-8.2.7-py2.py3-none-any.whl", hash = "sha256:20c13aa0a54841e1f1c080edb0e3573407884e4abea51ee25573061189bec83e"},
+    {file = "mkdocs-material-8.2.7.tar.gz", hash = "sha256:3314d94ccc11481b1a3aa4f7babb4fb2bc47daa2fa8ace2463665952116f409b"},
 ]
 "mkdocs-material-extensions 1.0.3" = [
     {file = "mkdocs_material_extensions-1.0.3-py3-none-any.whl", hash = "sha256:a82b70e533ce060b2a5d9eb2bc2e1be201cf61f901f93704b4acf6e3d5983a44"},
@@ -1019,9 +1019,9 @@ content_hash = "sha256:a9d5ca5f0c7340f7fde779be2c17717d84bcc0008f4b9c9f717926723
     {file = "semver-2.13.0-py2.py3-none-any.whl", hash = "sha256:ced8b23dceb22134307c1b8abfa523da14198793d9787ac838e70e29e77458d4"},
     {file = "semver-2.13.0.tar.gz", hash = "sha256:fa0fe2722ee1c3f57eac478820c3a5ae2f624af8264cbdf9000c980ff7f75e3f"},
 ]
-"setuptools 60.10.0" = [
-    {file = "setuptools-60.10.0-py3-none-any.whl", hash = "sha256:782ef48d58982ddb49920c11a0c5c9c0b02e7d7d1c2ad0aa44e1a1e133051c96"},
-    {file = "setuptools-60.10.0.tar.gz", hash = "sha256:6599055eeb23bfef457d5605d33a4d68804266e6cb430b0fb12417c5efeae36c"},
+"setuptools 61.0.0" = [
+    {file = "setuptools-61.0.0-py3-none-any.whl", hash = "sha256:ad88b13f3dc60420259c9877486908ddad12c7befaff0d624c7190f742abd64f"},
+    {file = "setuptools-61.0.0.tar.gz", hash = "sha256:6221e37dc86fcdc9dad9d9eb2002e9f9798fe4aca1bf18f280e66e50c0eb7fca"},
 ]
 "setuptools-scm 6.4.2" = [
     {file = "setuptools_scm-6.4.2-py3-none-any.whl", hash = "sha256:acea13255093849de7ccb11af9e1fb8bde7067783450cee9ef7a93139bddf6d4"},
