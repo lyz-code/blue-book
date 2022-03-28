@@ -32,7 +32,7 @@ Configure your editor to:
 
 There are some checks that I wasn't able to adopt:
 
-* Try to use less tan 30 words per sentence.
+* Try to use less than 30 words per sentence.
 * Check that every sentence is ended with a dot.
 * Be consistent across document structures, use *References* instead of *Links*, or
     *Installation* instead of *Install*.
