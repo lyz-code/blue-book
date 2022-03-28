@@ -86,6 +86,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/book_binding/</loc>
+         <lastmod>2022-03-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/book_management/</loc>
          <lastmod>2022-03-28</lastmod>
          <changefreq>daily</changefreq>
