@@ -249,7 +249,6 @@ HTML elements can belong to more than one class. To define multiple classes,
 separate the class names with a space, e.g. `<div class="city main">`. The element
 will be styled according to all the classes specified.
 
-
 ## [Javascript](https://www.w3schools.com/html/html_scripts.asp)
 
 The HTML `<script>` tag is used to define a client-side script (JavaScript).

@@ -11,9 +11,8 @@ Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine.
 The debian base repositories are really outdated, so add the NodeSource repository
 
 ```bash
-curl -sL https://deb.nodesource.com/setup_12.x | sudo bash -
-sudo apt-get update
-sudo apt-get install nodejs npm
+curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
+apt-get install -y nodejs npm
 nodejs --version
 ```
 
