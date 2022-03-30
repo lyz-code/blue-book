@@ -39,8 +39,10 @@ level we have:
 * Task plan.
 * Day plan.
 * Week plan.
+* Fortnight plan.
 * Month plan.
-* Semester plan.
+* Trimester plan.
+* Year plan.
 
 If you're starting your task management career, start with the first level. Once
 you're comfortable, move one step up until you reach the sweet spot between time
@@ -72,9 +74,10 @@ The next steps define a Pomodoro cycle:
     the personal attribute that is preventing you to be able to work.
 * Start the timer.
 * Work uninterruptedly on what you've decided until the timer goes off.
-* Update your [task plan](#task-plan):
+* Update your [task](#task-plan) and [day](#day-plan) plans:
     * Tick off the done task steps.
     * Refine the task steps that can be addressed in the next cycle.
+    * Check if you can still meet the day's plan.
 * Check the [interruption channels that need to be checked each 20
     minutes](interruption_management.md#define-your-interruption-events).
 
@@ -151,10 +154,13 @@ Then create the day schedule:
 * Add the calendar events.
 * Add the [interruption
     events](interruption_management.md#define-your-interruption-events).
-* Decide the tasks to be worked on and assign them uninterrupted time slots.
 * Setup an alert for the closest calendar event.
 
-Follow it throughout the day, and when it's coming to an end:
+And the day tasks plan:
+
+* Decide the tasks to be worked on and think when you want to do them.
+
+To follow it throughout the day and when it's coming to an end:
 
 * Update your [week](#week-plan) or/and [task](#task-plan) plans to meet the time
     constrains.
@@ -181,14 +187,28 @@ yourself.
 You can make your plan at the start of the week, similar to the [day
 plan](#day-plan), start by getting an idea of:
 
-* What do you need to do by checking:
-    * The last week's plan.
-    * Calendar events.
+* What do you need to do by:
+    * Closing the last week's plan.
+    * Checking upcoming calendar events.
     * The month's plan if you have it, or the prioritized list of
         tasks to do, identifying the task dependencies that may block the task
         development.
 * How much uninterrupted time you have between calendar events.
 * Your state of mind.
+
+To close the last week's plan:
+
+* Mark the plan items as done
+* Get an idea of what percent of objectives you actually met. With the mindset
+    of seeing how much you can commit on the next one, not to think how bad you
+    performed, you did the best you could, and nothing else could be done.
+* Clean the active tasks. Throughout the week, there will be tasks that you left
+    unfinished. For each of them:
+
+    * Decide if the task still makes sense and if it's actionable
+    * Check if you can merge it with other tasks
+    * Check if it belongs to an active objective
+    * Remove the rest.
 
 Then create the week schedule:
 
@@ -202,8 +222,29 @@ Follow it throughout the week, and when it's coming to an end:
 
 * Update your month or/and [task](#task-plan) plans to meet the time
     constrains.
-* Optionally sketch the next week's plan.
-* Update your team of possible plan drifts.
+* Update the people that may depend on you of possible plan drifts.
+
+## Fortnight, month, trimester plan
+
+From the [week plan](#week-plan) you can increasingly think your roadmap, start
+with a fortnight plan, when you're comfortable go up to month and trimester
+plans. The idea is similar to the week plan but with less definition. You deal
+with bigger tasks that help shape your life in the long run.
+
+The process of planning and reviewing each of these should be as short as
+possible, otherwise you'll soon get tired of it. For example, for the month plan you can:
+
+* Do the week plan review
+* Do the fortnight plan review
+* Do the month plan review:
+    * Check the objectives you had and how many you meet, adding notes on your
+        progress.
+    * Analyze what to do with the new objectives, adding them to the year plan
+* Do the month's planning:
+    * Review the yearly plan if you have it.
+    * Decide which big tasks you want to work on
+* Do the fortnight plan
+* Do the week plan
 
 # References
 

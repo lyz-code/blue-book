@@ -327,13 +327,13 @@ This can be solved using [Type variables with upper
 bounds](https://mypy.readthedocs.io/en/stable/generics.html#type-variable-upper-bound).
 
 ```python
-UserType = TypeVar('UserType', bound=User)
+UserT = TypeVar('UserT', bound=User)
 
-def new_user(user_class: Type[UserType]) -> UserType:
+def new_user(user_class: Type[UserT]) -> UserT:
     # Same  implementation as before
 ```
 
-We're creating a new type `UserType` that is linked to the class or subclasses
+We're creating a new type `UserT` that is linked to the class or subclasses
 of `User`. That way, mypy knows that the return value is an object created from
 the class given in the argument `user_class`.
 
@@ -341,6 +341,11 @@ the class given in the argument `user_class`.
 beginner = new_user(BasicUser)  # Inferred type is BasicUser
 beginner.upgrade()  # OK
 ```
+
+!!! note
+        "Using `UserT` is [not supported by
+        pylint](https://github.com/PyCQA/pylint/issues/6003), use `UserT`
+        instead."
 
 Keep in mind that the `TypeVar` is a [Generic
 type](https://mypy.readthedocs.io/en/stable/generics.html), as such, they take
@@ -350,19 +355,19 @@ That means that when you create type aliases, you'll need to give the type
 parameter. So:
 
 ```python
-UserType = TypeVar("UserType", bound=User)
-UserTypes = List[Type[UserType]]
+UserT = TypeVar("UserT", bound=User)
+UserTs = List[Type[UserT]]
 
 
-def new_users(user_class: UserTypes) -> UserType: # Type error!
+def new_users(user_class: UserTs) -> UserT: # Type error!
     pass
 ```
 
-Will give a `Missing type parameters for generic type "UserTypes"` error. To
+Will give a `Missing type parameters for generic type "UserTs"` error. To
 solve it use:
 
 ```python
-def new_users(user_class: UserTypes[UserType]) -> UserType: # OK!
+def new_users(user_class: UserTs[UserT]) -> UserT: # OK!
     pass
 ```
 

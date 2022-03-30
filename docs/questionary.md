@@ -94,6 +94,11 @@ If the condition (in this case `DISABLED`) is `True`, the question will be
 skipped and the default value gets returned, otherwise the user will be prompted
 as usual and the default value will be ignored.
 
+### [Exit when using control + c](https://github.com/tmbo/questionary/issues/122)
+
+If you want the question to exit when it receives a `KeyboardInterrupt` event,
+use `unsafe_ask` instead of `ask`.
+
 ## [Question types](https://questionary.readthedocs.io/en/stable/pages/types.html)
 
 
