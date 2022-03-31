@@ -48,7 +48,7 @@ summary = "The Real First Universal Charset Detector. Open, modern and actively 
 
 [[package]]
 name = "click"
-version = "8.1.0"
+version = "8.1.1"
 requires_python = ">=3.7"
 summary = "Composable command line interface toolkit"
 dependencies = [
@@ -253,7 +253,7 @@ dependencies = [
 
 [[package]]
 name = "mkdocs-git-revision-date-localized-plugin"
-version = "1.0.0"
+version = "1.0.1"
 requires_python = ">=3.6"
 summary = "Mkdocs plugin that enables displaying the localized date of the last git modification of a markdown file."
 dependencies = [
@@ -314,7 +314,7 @@ dependencies = [
 
 [[package]]
 name = "mkdocs-section-index"
-version = "0.3.3"
+version = "0.3.4"
 requires_python = ">=3.6,<4.0"
 summary = "MkDocs plugin to allow clickable sections that lead to an index page"
 dependencies = [
@@ -689,9 +689,9 @@ content_hash = "sha256:a9d5ca5f0c7340f7fde779be2c17717d84bcc0008f4b9c9f717926723
     {file = "charset_normalizer-2.0.12-py3-none-any.whl", hash = "sha256:6881edbebdb17b39b4eaaa821b438bf6eddffb4468cf344f09f89def34a8b1df"},
     {file = "charset-normalizer-2.0.12.tar.gz", hash = "sha256:2857e29ff0d34db842cd7ca3230549d1a697f96ee6d3fb071cfa6c7393832597"},
 ]
-"click 8.1.0" = [
-    {file = "click-8.1.0-py3-none-any.whl", hash = "sha256:19a4baa64da924c5e0cd889aba8e947f280309f1a2ce0947a3e3a7bcb7cc72d6"},
-    {file = "click-8.1.0.tar.gz", hash = "sha256:977c213473c7665d3aa092b41ff12063227751c41d7b17165013e10069cc5cd2"},
+"click 8.1.1" = [
+    {file = "click-8.1.1-py3-none-any.whl", hash = "sha256:5e0d195c2067da3136efb897449ec1e9e6c98282fbf30d7f9e164af9be901a6b"},
+    {file = "click-8.1.1.tar.gz", hash = "sha256:7ab900e38149c9872376e8f9b5986ddcaf68c0f413cf73678a0bca5547e6f976"},
 ]
 "click-log 0.4.0" = [
     {file = "click_log-0.4.0-py2.py3-none-any.whl", hash = "sha256:a43e394b528d52112af599f2fc9e4b7cf3c15f94e53581f74fa6867e68c91756"},
@@ -844,9 +844,9 @@ content_hash = "sha256:a9d5ca5f0c7340f7fde779be2c17717d84bcc0008f4b9c9f717926723
     {file = "mkdocs_autolinks_plugin-0.5.0-py3-none-any.whl", hash = "sha256:6072c10cbec716c8a46cec7cf6f1e8c7dd52576fce59915e219a7911d457e72f"},
     {file = "mkdocs-autolinks-plugin-0.5.0.tar.gz", hash = "sha256:cdfc8909c3756ab0531c0bfec33f11ae87d60ea2d89df46742daf28d389b6a3f"},
 ]
-"mkdocs-git-revision-date-localized-plugin 1.0.0" = [
-    {file = "mkdocs_git_revision_date_localized_plugin-1.0.0-py3-none-any.whl", hash = "sha256:15086eb25129347e63da7c109c6f9834a2937a1e1c91fb850be13645e6a21dbe"},
-    {file = "mkdocs-git-revision-date-localized-plugin-1.0.0.tar.gz", hash = "sha256:67ca2ebf19d7571e83c7f887ba4205f56bc45a34e70879f84797ac57e9ef7220"},
+"mkdocs-git-revision-date-localized-plugin 1.0.1" = [
+    {file = "mkdocs_git_revision_date_localized_plugin-1.0.1-py3-none-any.whl", hash = "sha256:ffcf206b5108d9f729af6cd42377d2e0e25c080817fdad0119549ac924b526f3"},
+    {file = "mkdocs-git-revision-date-localized-plugin-1.0.1.tar.gz", hash = "sha256:f3e020b445e7b4fb4e58ccd46b07adecbca0f85ac1659e1a63e38b8779c81ba7"},
 ]
 "mkdocs-material 8.2.8" = [
     {file = "mkdocs_material-8.2.8-py2.py3-none-any.whl", hash = "sha256:16ccd382431d5148a4bdbc37c949d0ea5f80e3e9bcce3bd0d774716e5aad9dff"},
@@ -864,9 +864,9 @@ content_hash = "sha256:a9d5ca5f0c7340f7fde779be2c17717d84bcc0008f4b9c9f717926723
     {file = "mkdocs_newsletter-1.0.1-py3-none-any.whl", hash = "sha256:6802851abbf0bae86b9a3622375e732054023cfa775d4e0db89d6aaa5690d880"},
     {file = "mkdocs-newsletter-1.0.1.tar.gz", hash = "sha256:67ed079bc1db50cf04b657d310f0ae5c5ad6d765e1f8053a38fcb041190215ae"},
 ]
-"mkdocs-section-index 0.3.3" = [
-    {file = "mkdocs_section_index-0.3.3-py3-none-any.whl", hash = "sha256:a79d8b6e21b5d9d4edf056246ea1d1d4f6c8705469c20bbe06e3ecd5b30fc4e7"},
-    {file = "mkdocs-section-index-0.3.3.tar.gz", hash = "sha256:434c7c2378a7c2a7ce15f642fcb0cd04af741a7d157eab47e6c02c3eb8a52a98"},
+"mkdocs-section-index 0.3.4" = [
+    {file = "mkdocs_section_index-0.3.4-py3-none-any.whl", hash = "sha256:214f7a6df9d35a5772e9577f3899ff3edd90044064589e6dd4d84615b72a8024"},
+    {file = "mkdocs-section-index-0.3.4.tar.gz", hash = "sha256:050151bfe7c0e374f197335e0ecb19c45b53dbafc0f817aa203f0cc24bcf7d10"},
 ]
 "ordered-set 4.0.2" = [
     {file = "ordered-set-4.0.2.tar.gz", hash = "sha256:ba93b2df055bca202116ec44b9bead3df33ea63a7d5827ff8e16738b97f33a95"},
