@@ -11,7 +11,7 @@
     <managingEditor>Lyz</managingEditor>
 
     
-    <pubDate>2022-03-29 06:40:02+00:00</pubDate>
+    <pubDate>2022-03-31 06:37:36+00:00</pubDate>
     <ttl>1440</ttl>
 
     
@@ -25,6 +25,16 @@
     
 
     
+    
+    <item><title>30th March 2022</title>
+      <author>Lyz</author>
+      <description>&lt;article class=&#34;md-content__inner md-typeset&#34;&gt; &lt;a class=&#34;md-content__button md-icon&#34; href=&#34;https://github.com/lyz-code/blue-book/edit/master/docs/newsletter/2022_03_30.md&#34; title=&#34;Edit this page&#34;&gt; &lt;svg viewbox=&#34;0 0 24 24&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z&#34;&gt;&lt;/path&gt;&lt;/svg&gt; &lt;/a&gt;  &lt;h2 id=&#34;life-management&#34;&gt;Life Management&lt;/h2&gt; &lt;h3 id=&#34;task-management&#34;&gt;Task Management&lt;/h3&gt; &lt;h4 id=&#34;task-management-workflows&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/task_workflows/&#34;&gt;Task Management Workflows&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt;Correction: Update the task workflow of the month, and week plannings.&lt;/li&gt; &lt;/ul&gt; &lt;h2 id=&#34;coding&#34;&gt;Coding&lt;/h2&gt; &lt;h3 id=&#34;python&#34;&gt;Python&lt;/h3&gt; &lt;h4 id=&#34;type-hints&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/coding/python/type_hints/&#34;&gt;Type Hints&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;Correction: Update TypeVars nomenclature.&lt;/p&gt; &lt;p&gt;Using &lt;code&gt;UserT&lt;/code&gt; is &lt;a href=&#34;https://github.com/PyCQA/pylint/issues/6003&#34;&gt;not supported by pylint&lt;/a&gt;, use &lt;code&gt;UserT&lt;/code&gt; instead.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;h4 id=&#34;questionary&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/questionary/&#34;&gt;questionary&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;New: &lt;a href=&#34;https://lyz-code.github.io/blue-book/questionary/#exit-when-using-control-+-c&#34;&gt;Exit when using control + c.&lt;/a&gt;&lt;/p&gt; &lt;p&gt;If you want the question to exit when it receives a &lt;code&gt;KeyboardInterrupt&lt;/code&gt; event, use &lt;code&gt;unsafe_ask&lt;/code&gt; instead of &lt;code&gt;ask&lt;/code&gt;.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;hr/&gt;  &lt;/article&gt;</description>
+      <link>https://lyz-code.github.io/blue-book/newsletter/2022_03_30/</link>
+      <pubDate>2022-03-31 06:37:36+00:00</pubDate>
+      <source url="https://lyz-code.github.io/blue-book/daily.xml">The Blue Book</source>
+      <guid isPermaLink="true">https://lyz-code.github.io/blue-book/newsletter/2022_03_30/</guid>
+      
+    </item>
     
     <item><title>28th March 2022</title>
       <author>Lyz</author>
@@ -338,25 +348,6 @@
       <pubDate>2021-12-18 06:39:39+00:00</pubDate>
       <source url="https://lyz-code.github.io/blue-book/daily.xml">The Blue Book</source>
       <guid isPermaLink="true">https://lyz-code.github.io/blue-book/newsletter/2021_12_17/</guid>
-      
-    </item>
-    
-    <item><title>9th December 2021</title>
-      <author>Lyz</author>
-      <description>&lt;article class=&#34;md-content__inner md-typeset&#34;&gt; &lt;a class=&#34;md-content__button md-icon&#34; href=&#34;https://github.com/lyz-code/blue-book/edit/master/docs/newsletter/2021_12_09.md&#34; title=&#34;Edit this page&#34;&gt; &lt;svg viewbox=&#34;0 0 24 24&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z&#34;&gt;&lt;/path&gt;&lt;/svg&gt; &lt;/a&gt;  &lt;h2 id=&#34;coding&#34;&gt;Coding&lt;/h2&gt; &lt;h3 id=&#34;python&#34;&gt;Python&lt;/h3&gt; &lt;h4 id=&#34;gitpython&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/coding/python/gitpython/&#34;&gt;GitPython&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;New: &lt;a href=&#34;https://lyz-code.github.io/blue-book/coding/python/gitpython/#create-a-branch&#34;&gt;Create a branch.&lt;/a&gt;&lt;/p&gt;  &lt;/li&gt; &lt;li&gt; &lt;p&gt;New: &lt;a href=&#34;https://lyz-code.github.io/blue-book/coding/python/gitpython/#get-the-latest-commit-of-a-repository&#34;&gt;Get the latest commit of a repository.&lt;/a&gt;&lt;/p&gt; &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class=&#34;n&#34;&gt;repo&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;head&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;object&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;hexsha&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt; &lt;/li&gt; &lt;/ul&gt; &lt;h4 id=&#34;python-snippets&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/coding/python/python_snippets/&#34;&gt;Python Snippets&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;New: &lt;a href=&#34;https://lyz-code.github.io/blue-book/coding/python/python_snippets/#copy-a-directory&#34;&gt;Copy a directory.&lt;/a&gt;&lt;/p&gt; &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;shutil&lt;/span&gt;
-
-&lt;span class=&#34;n&#34;&gt;shutil&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;copytree&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&#39;bar&#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&#39;foo&#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;Correction: &lt;a href=&#34;https://lyz-code.github.io/blue-book/coding/python/python_snippets/#change-the-working-directory-of-a-test&#34;&gt;Use fixture to change the working directory of a test.&lt;/a&gt;&lt;/p&gt; &lt;p&gt;The previous code didn&#39;t work, instead use the next fixture:&lt;/p&gt; &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class=&#34;nd&#34;&gt;@pytest&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;fixture&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&#34;change_test_dir&#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;change_test_dir_&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;request&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;SubRequest&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Any&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
-    &lt;span class=&#34;n&#34;&gt;os&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;chdir&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;request&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;fspath&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dirname&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-    &lt;span class=&#34;k&#34;&gt;yield&lt;/span&gt;
-    &lt;span class=&#34;n&#34;&gt;os&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;chdir&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;request&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;config&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;invocation_dir&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt; &lt;/li&gt; &lt;/ul&gt; &lt;h2 id=&#34;devops&#34;&gt;DevOps&lt;/h2&gt; &lt;h3 id=&#34;automating-processes&#34;&gt;Automating Processes&lt;/h3&gt; &lt;h4 id=&#34;cruft&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/linux/cruft/&#34;&gt;cruft&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt;New: &lt;a href=&#34;https://lyz-code.github.io/blue-book/linux/cruft/#issues&#34;&gt;Monitor the issue to save the cruft config in &lt;code&gt;pyproject.toml&lt;/code&gt;.&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt; &lt;hr/&gt; &lt;div class=&#34;md-source-file&#34;&gt; &lt;small&gt; Last update: &lt;span class=&#34;git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago&#34;&gt;&lt;span class=&#34;timeago&#34; datetime=&#34;2021-12-10T00:24:58+00:00&#34; locale=&#34;en&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date&#34;&gt;2021-12-10&lt;/span&gt; &lt;/small&gt; &lt;/div&gt; &lt;/article&gt;</description>
-      <link>https://lyz-code.github.io/blue-book/newsletter/2021_12_09/</link>
-      <pubDate>2021-12-10 00:24:58+00:00</pubDate>
-      <source url="https://lyz-code.github.io/blue-book/daily.xml">The Blue Book</source>
-      <guid isPermaLink="true">https://lyz-code.github.io/blue-book/newsletter/2021_12_09/</guid>
       
     </item>
     
