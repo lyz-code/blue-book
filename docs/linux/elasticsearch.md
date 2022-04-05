@@ -64,6 +64,12 @@ curl -X POST "{{ url }}/_snapshot/{{ backup_path }}/{{ snapshot_name }}/_restore
 curl -XDELETE {{ url }}/_snapshot/{{ backup_path }}/{{ snapshot_name }}
 ```
 
+## Delete snapshot repository
+
+```bash
+curl -XDELETE {{ url }}/_snapshot/{{ backup_path }}
+```
+
 ## [Delete snapshots older than X](https://discuss.elastic.co/t/deleting-old-snapshots/134085/4)
 
 !!! note "File: curator.yml"

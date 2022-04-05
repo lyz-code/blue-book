@@ -4,6 +4,15 @@ date: 20200826
 author: Lyz
 ---
 
+# [Create Basic Auth header](https://majgis.github.io/2017/09/13/Create-Authorization-Basic-Header/)
+
+```bash
+$ echo -n user:password | base64
+dXNlcjpwYXNzd29yZA==
+```
+
+Without the `-n` it won't work well.
+
 # [Install one package from Debian unstable](https://linuxaria.com/howto/how-to-install-a-single-package-from-debian-sid-or-debian-testing)
 
 * Add the `unstable` repository to your `/etc/apt/sources.list`

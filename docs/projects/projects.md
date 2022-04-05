@@ -127,12 +127,7 @@ Gets introduced in the "inbox system" as a task, a TV suggestion and an idea.
 
 # Dormant Plants
 
-## [faker-optional](https://lyz-code.github.io/faker-optional/)
-
-Wrapper over other Faker providers to return their value or `None`. Useful to
-create data of type `Optional[Any]`.
-
-## [mkdocs-newsletter](https://github.com/lyz-code/mkdocs-newsletter)
+## [mkdocs-newsletter](https://lyz-code.github.io/mkdocs-newsletter/)
 
 MkDocs plugin to show the changes of documentation repositories in a user
 friendly format, at the same time that it's easy for the authors to maintain.
@@ -282,9 +277,9 @@ effort that should be avoided.
 
 So I've integrated [Grocy](https://grocy.info/) in my life.
 
-## [Drode](https://github.com/lyz-code/drode)
+## [Drode](https://lyz-code.github.io/drode/)
 
-[drode](https://github.com/lyz-code/drode) is a wrapper over the Drone and AWS
+[drode](https://lyz-code.github.io/drode/) is a wrapper over the Drone and AWS
 APIs to make deployments more user friendly.
 
 It assumes that the projects are configured to continuous deliver all master
@@ -677,3 +672,10 @@ tests at all, but hey, the functions have docstrings! `(ｏ・_・)ノ”(ᴗ_ �
 The thing is that it works, so I everyday close my eyes and open my ears,
 waiting for a solution that gives me the same features with
 [mpd](https://en.wikipedia.org/wiki/Music_Player_Daemon).
+
+## [faker-optional](https://lyz-code.github.io/faker-optional/)
+
+Wrapper over other Faker providers to return their value or `None`. Useful to
+create data of type `Optional[Any]`.
+
+Not needed anymore as I use [pydantic factories](pydantic_factories.md) now.
