@@ -4,6 +4,19 @@ date: 20200826
 author: Lyz
 ---
 
+# Check vulnerabilities in Node.js applications
+
+With `yarn audit` you'll see the vulnerabilities, with `yarn outdated` you can
+see the packages that you need to update.
+
+# [Check vulnerabilities in rails dependencies](https://github.com/rubysec/bundler-audit)
+
+```bash
+gem install bundler-audit
+cd project_with_gem_lock
+bundler-audit
+```
+
 # [Create Basic Auth header](https://majgis.github.io/2017/09/13/Create-Authorization-Basic-Header/)
 
 ```bash
