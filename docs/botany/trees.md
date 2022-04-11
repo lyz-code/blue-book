@@ -25,19 +25,16 @@ triangular and edible, with a bitter, astringent, or in some cases, mild and
 nut-like taste. They have a high enough fat content that they can be pressed for
 edible oil.
 
-The leaves of beech trees are entire or sparsely toothed, from 5–15 cm (2–6 in)
-long and 4–10 cm (2–4 in) broad. Beeches are monoecious, bearing both male and
-female flowers on the same plant. The small flowers are unisexual, the female
-flowers borne in pairs, the male flowers wind-pollinating catkins. They are
-produced in spring shortly after the new leaves appear.
+The leaves of beech trees are entire or sparsely toothed, from 5-15 cm long and
+4-10 cm broad.
 
 The bark is smooth and light grey. The fruit is a small, sharply three-angled
-nut 10–15 mm (3⁄8–5⁄8 in) long, borne singly or in pairs in soft-spined husks
-1.5–2.5 cm (5⁄8–1 in) long, known as cupules. The husk can have a variety of
-spine- to scale-like appendages, the character of which is, in addition to leaf
-shape, one of the primary ways beeches are differentiated.[3] The nuts are
-edible, though bitter (though not nearly as bitter as acorns) with a high tannin
-content, and are called beechnuts or beechmast.
+nut 10-15 mm long, borne singly or in pairs in soft-spined husks 1.5-2.5 cm
+long, known as cupules. The husk can have a variety of spine- to scale-like
+appendages, the character of which is, in addition to leaf shape, one of the
+primary ways beeches are differentiated. The nuts are edible, though bitter
+(though not nearly as bitter as acorns) with a high tannin content, and are
+called beechnuts or beechmast.
 
 # [Birch](https://en.wikipedia.org/wiki/Birch)
 
