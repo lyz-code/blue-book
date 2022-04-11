@@ -343,6 +343,8 @@ maybe with [Leaflet Routing
 Machine](http://www.liedman.net/leaflet-routing-machine/#getting-started), which
 will probably need a [self-hosted OSRM
 server](https://github.com/Project-OSRM/osrm-backend/wiki/Running-OSRM).
+Meanwhile I'm using the [brouter-web](http://brouter.de/brouter-web/) that uses
+[brouter](https://github.com/abrensch/brouter) behind the scenes.
 
 # Seeds
 
@@ -351,10 +353,41 @@ This is a gathering of tools, ideas or services that I'd like to enjoy.
 If you have any lead, as smallest as it may be on how to fulfill them, please
 [contact me](contact.md).
 
-## Self host a routing web application
+## Life warnings
 
-Host and play around with [brouter](https://github.com/abrensch/brouter) and
-[brouter-web](https://github.com/nrenner/brouter-web).
+I've always tackled the pursuit of the peace of mind by improving in task
+management, for example trying to predict when I have to do something in order
+to avoid a nuisance. Maybe it's more interesting to monitor and visibilice the
+warnings that are affecting you.
+
+Once a warning is active you need to keep track of its evolve throughout time
+maybe with a simple [questionary](questionary.md). This track could be both
+quantitative (bother level from 1 to 10), and qualitative (a description of the
+state and evolution).
+
+The user will have a view (probably command line interface) of the active
+warnings, their priority, bother level, bother level change, last update, number
+of days it's been active, predicted end. Another interesting view can be the
+evolution of solved warnings and new warnings.
+
+Warnings are not completely solved, as they can happen again. That way we can
+see how often do they reactivate, and maybe we can get an estimate of the next
+occurrence. It can also be interesting to see how long did the last warnings
+last and the effectiveness of the different actions taken to solve it.
+
+We'll need an easy way to filter and merge warnings so as not to repeat similar
+ones. I think it's better to prioritize tags over categories to avoid hierarchy
+problems. For example, we can track a headache with the tags `health` and
+`head`.
+
+The activation/deactivation of warnings will change with the warning type:
+
+* Manual: User triggers the state change through the program's command line
+* Script: A python or bash script that automatically gathers the data and
+    decides if the warning is still active or inactive.
+
+    This method can give a huge boost in the motivation of self logging through
+    [quantified self](#quantified-self).
 
 ## Pomodoro command line
 
