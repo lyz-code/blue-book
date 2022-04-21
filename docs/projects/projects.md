@@ -292,6 +292,11 @@ It has the following features:
 * Promote jobs with less arguments than the drone command line.
 * Wait for a drone build to end, then raise the terminal bell.
 
+## [Create an ordered list of digital gardens](https://github.com/lyz-code/best-of-digital-gardens)
+
+A [best-of-lists](https://github.com/best-of-lists/best-of) compilation of
+awesome list of digital gardens.
+
 # Seedlings
 
 ## [Learn about antifascism](antifascism.md)
@@ -408,11 +413,6 @@ notifications system so that:
     manager tasks, so it will track the time spent in that task. If you change
     the window manager focus to a window that is not related to the task at hand
     it will stop recording and show you a warning.
-
-## Create an ordered list of digital gardens
-
-Use [best-of-lists](https://github.com/best-of-lists/best-of) to create an
-awesome list of digital gardens.
 
 ## Shared accounting
 

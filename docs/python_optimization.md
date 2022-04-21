@@ -44,7 +44,13 @@ to import your code, let alone start running it.
 
 ## [How fast can a Python program be?](https://files.bemusement.org/talks/OSDC2008-FastPython/)
 
-TBC
+TBC with the next sources
+
+* https://files.bemusement.org/talks/OSDC2008-FastPython/
+* https://files.bemusement.org/talks/OSDC2008-FastPython/
+* https://stackoverflow.com/questions/4177735/best-practice-for-lazy-loading-python-modules
+* https://snarky.ca/lazy-importing-in-python-3-7/
+* https://levelup.gitconnected.com/python-trick-lazy-module-loading-df9b9dc111af
 
 ## Minimize the relative import statements on command line tools
 

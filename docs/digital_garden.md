@@ -42,6 +42,7 @@ If you look for inspiration check my favourite digital gardens:
 
 Or browse the following lists:
 
+* [Best-of Digital gardens](https://github.com/lyz-code/best-of-digital-gardens)
 * [Maggie Appleton's compilation](https://github.com/MaggieAppleton/digital-gardeners)
 * [Nikita's
     compilation](https://wiki.nikitavoloboev.xyz/other/wiki-workflow#similar-wikis-i-liked)

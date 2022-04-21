@@ -176,11 +176,19 @@ nav:
       - SQLite: sqlite.md
       - YAML: coding/yaml/yaml.md
       - Promql: coding/promql/promql.md
-      - Vue.js: vuejs.md
+      - Vue.js:
+          - vuejs.md
+          - Vue snippets: vue_snippets.md
+          - Vuetify: vuetify.md
+          - Development tools:
+              - Vitest: vitest.md
+              - Cypress: cypress.md
+              - Vite: vite.md
       - HTML: html.md
       - CSS: css.md
       - Javascript:
           - coding/javascript/javascript.md
+          - Javascript snippets: javascript_snippets.md
           - MermaidJS: mermaidjs.md
       - React: coding/react/react.md
       - Issues: issues.md
@@ -423,10 +431,10 @@ markdown_extensions:
   - pymdownx.details
   - pymdownx.emoji:
       emoji_generator: '!!python/name:pymdownx.emoji.to_svg'
-  - pymdownx.inlinehilite
   - pymdownx.magiclink
   - pymdownx.mark
   - pymdownx.smartsymbols
+  - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
   - pymdownx.tabbed:

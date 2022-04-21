@@ -526,6 +526,26 @@ p {
 ```
 
 
+# CSS Layouts
+
+## [Flexbox layout](https://css-tricks.com/snippets/css/a-guide-to-flexbox/#flexbox-background)
+
+The Flexbox Layout aims at providing a more efficient way to lay out, align and
+distribute space among items in a container, even when their size is unknown
+and/or dynamic.
+
+The main idea behind the flex layout is to give the container the ability to
+alter its items’ width/height (and order) to best fill the available space
+(mostly to accommodate to all kind of display devices and screen sizes). A flex
+container expands items to fill available free space or shrinks them to prevent
+overflow.
+
+Flexbox layout is most appropriate to the components of an application, and
+small-scale layouts, while the Grid layout is intended for larger scale
+layouts.
+
+You can play around in the [Flexbox playground](https://flexbox.netlify.app/)
+
 # References
 
 * [W3 Tutorial](https://www.w3schools.com/css/default.asp)

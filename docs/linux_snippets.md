@@ -4,6 +4,26 @@ date: 20200826
 author: Lyz
 ---
 
+# [Trim silences of sound files](https://digitalcardboard.com/blog/2009/08/25/the-sox-of-silence/)
+
+To trim all silence longer than 2 seconds down to only 2 seconds long.
+
+```bash
+sox in.wav out6.wav silence -l 1 0.1 1% -1 2.0 1%
+```
+
+Note that SoX does nothing to bits of silence shorter than 2 seconds.
+
+If you encounter the `sox FAIL formats: no handler for file extension 'mp3'`
+error  you'll need to install the `libsox-fmt-all` package.
+
+# [Adjust the replay gain of many sound files](https://askubuntu.com/questions/246242/how-to-normalize-sound-in-mp3-files)
+
+```bash
+sudo apt-get install python-rgain
+replaygain -f *.mp3
+```
+
 # Check vulnerabilities in Node.js applications
 
 With `yarn audit` you'll see the vulnerabilities, with `yarn outdated` you can
@@ -128,9 +148,9 @@ are not needed anymore. We can get rid of them with
 apt-get autoremove
 ```
 
-If we want things tidy, we must know that whenever we apt-get remove  a package,
+If we want things tidy, we must know that whenever we `apt-get remove` a package,
 the configuration will be kept in case we want to install it again. In most
-cases we want to use apt-get purge. To clean those configurations from removed
+cases we want to use `apt-get purge`. To clean those configurations from removed
 packages, we can use
 
 ```bash
@@ -159,7 +179,7 @@ If you're using `snap` you can clean space by:
     LANG=en_US.UTF-8 snap list --all | awk '/disabled/{print $1, $3}' |
         while read snapname revision; do
             snap remove "$snapname" --revision="$revision"
-        done)
+        done
     ```
 
 ## [Clean journalctl data](https://linuxhandbook.com/clear-systemd-journal-logs/)
