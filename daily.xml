@@ -11,7 +11,7 @@
     <managingEditor>Lyz</managingEditor>
 
     
-    <pubDate>2022-04-22 06:39:00+00:00</pubDate>
+    <pubDate>2022-04-22 06:40:34+00:00</pubDate>
     <ttl>1440</ttl>
 
     
@@ -33,9 +33,9 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt; &lt;/li&gt; &lt;/ul&gt; &lt;h2 id=&#34;operating-systems&#34;&gt;Operating Systems&lt;/h2&gt; &lt;h3 id=&#34;linux&#34;&gt;Linux&lt;/h3&gt; &lt;h4 id=&#34;linux-snippets&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/linux_snippets/&#34;&gt;Linux Snippets&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;New: &lt;a href=&#34;https://lyz-code.github.io/blue-book/linux_snippets/#trim-silences-of-sound-files&#34;&gt;Trim silences of sound files.&lt;/a&gt;&lt;/p&gt; &lt;p&gt;To trim all silence longer than 2 seconds down to only 2 seconds long.&lt;/p&gt; &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sox &lt;span class=&#34;k&#34;&gt;in&lt;/span&gt;.wav out6.wav silence -l &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;.1 &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;% -1 &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt;.0 &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;%
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt; &lt;p&gt;Note that SoX does nothing to bits of silence shorter than 2 seconds.&lt;/p&gt; &lt;p&gt;If you encounter the &lt;code&gt;sox FAIL formats: no handler for file extension &#39;mp3&#39;&lt;/code&gt; error you&#39;ll need to install the &lt;code&gt;libsox-fmt-all&lt;/code&gt; package.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;New: &lt;a href=&#34;https://lyz-code.github.io/blue-book/linux_snippets/#adjust-the-replay-gain-of-many-sound-files&#34;&gt;Adjust the replay gain of many sound files.&lt;/a&gt;&lt;/p&gt; &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sudo apt-get install python-rgain
 replaygain -f *.mp3
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt; &lt;/li&gt; &lt;/ul&gt; &lt;h2 id=&#34;other&#34;&gt;Other&lt;/h2&gt; &lt;ul&gt; &lt;li&gt;New: Sum up all the VueJS documentation.&lt;/li&gt; &lt;/ul&gt; &lt;hr/&gt; &lt;div class=&#34;md-source-file&#34;&gt; &lt;small&gt; Last update: &lt;span class=&#34;git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago&#34;&gt;&lt;span class=&#34;timeago&#34; datetime=&#34;2022-04-22T06:39:00+00:00&#34; locale=&#34;en&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date&#34;&gt;2022-04-22&lt;/span&gt; &lt;/small&gt; &lt;/div&gt; &lt;/article&gt;</description>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt; &lt;/li&gt; &lt;/ul&gt; &lt;h2 id=&#34;other&#34;&gt;Other&lt;/h2&gt; &lt;ul&gt; &lt;li&gt;New: Sum up all the VueJS documentation.&lt;/li&gt; &lt;/ul&gt; &lt;hr/&gt; &lt;div class=&#34;md-source-file&#34;&gt; &lt;small&gt; Last update: &lt;span class=&#34;git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago&#34;&gt;&lt;span class=&#34;timeago&#34; datetime=&#34;2022-04-22T06:40:34+00:00&#34; locale=&#34;en&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date&#34;&gt;2022-04-22&lt;/span&gt; &lt;/small&gt; &lt;/div&gt; &lt;/article&gt;</description>
       <link>https://lyz-code.github.io/blue-book/newsletter/2022_04_21/</link>
-      <pubDate>2022-04-22 06:39:00+00:00</pubDate>
+      <pubDate>2022-04-22 06:40:34+00:00</pubDate>
       <source url="https://lyz-code.github.io/blue-book/daily.xml">The Blue Book</source>
       <guid isPermaLink="true">https://lyz-code.github.io/blue-book/newsletter/2022_04_21/</guid>
       
