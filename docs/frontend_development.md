@@ -54,8 +54,9 @@ on the environment two different things will happen:
     If you are doing E2E tests, your test runner will probably understand your
     development configuration and forward the requests to the backend service.
 
-* In production you'll have an SSL proxy that will forward `/api` to the backend
-    and the rest to the frontend.
+* In production you'll have an SSL proxy, for example linuxserver's
+    [swag](https://docs.linuxserver.io/general/swag), that will forward `/api`
+    to the backend and the rest to the frontend.
 
 # Testing
 
