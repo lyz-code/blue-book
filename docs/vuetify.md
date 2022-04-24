@@ -176,7 +176,16 @@ export default createVuetify({
 </template>
 ```
 
+# Testing
+
+I tried doing component tests with Jest, [Vitest](vitest.md) and [Cypress](cypress.md) and found no
+way of making component tests, they all fail one way or the other.
+
+E2E tests worked with Cypress however, that's going to be my way of action till
+this is solved.
+
 # References
 
 * [Home](https://vuetifyjs.com/en/)
+* [Git](https://github.com/vuetifyjs/vuetify)
 * [Discord](https://community.vuetifyjs.com/)

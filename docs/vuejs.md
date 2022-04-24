@@ -277,6 +277,8 @@ app.component('TodoDeleteButton', TodoDeleteButton)
 
 This makes the `TodoDeleteButton` available for use anywhere in our app.
 
+You can use also [environment variables](#environment-variables)
+
 ## [Declarative rendering](https://vuejs.org/tutorial/#step-2)
 
 The core feature of Vue is declarative rendering: using a template syntax that
@@ -1311,6 +1313,43 @@ export default {
 }
 ```
 
+## Environment variables
+
+If you're using Vue 3 and Vite you can use [the environment
+variables](https://vitejs.dev/guide/env-and-mode.html) by defining them in
+`.env` files.
+
+You can specify environment variables by placing the following files in your
+project root:
+
+* `.env`: Loaded in all cases.
+* `.env.local`: Loaded in all cases, ignored by git.
+* `.env.[mode]`: Only loaded in specified mode.
+* `.env.[mode].local`: Only loaded in specified mode, ignored by git.
+
+An env file simply contains `key=value` pairs of environment variables, by
+default only variables that start with `VITE_` will be exposed.:
+
+```
+DB_PASSWORD=foobar
+VITE_SOME_KEY=123
+```
+
+Only `VITE_SOME_KEY` will be exposed as `import.meta.env.VITE_SOME_KEY` to your
+client source code, but `DB_PASSWORD` will not. So for example in a component
+you can use:
+
+```vue
+export default {
+  props: {},
+  mounted() {
+    console.log(import.meta.env.VITE_SOME_KEY)
+  },
+  data: () => ({
+  }),
+}
+```
+
 # [Components](https://vuejs.org/guide/essentials/component-basics.html)
 
 Components allow us to split the UI into independent and reusable pieces, and
@@ -2035,175 +2074,11 @@ simpler.
     written to provide users access to Vue specific APIs. It's also the
     lower-level library `@testing-library/vue` is built on top of.
 
-We recommend using `@testing-library/vue` for testing components in
-applications, as its focus aligns better with the testing priorities of
-applications. Use `@vue/test-utils` only if you are building advanced components
-that require testing Vue-specific internals.
+I recommend using [cypress](cypress.md) so that you can use the same language
+either you are doing E2E tests or unit tests.
 
-### Writing component tests
-
-Tests live in `spec` files under the `__tests__` directory. You usually have
-a test file for each component with the next structure. For example
-
-```html
-<template>
-  <div>
-    <p>Times clicked: {{ count }}</p>
-    <button @click="increment">increment</button>
-  </div>
-</template>
-
-<script>
-  export default {
-    data: () => ({
-      count: 0,
-    }),
-
-    methods: {
-      increment() {
-        this.count++
-      },
-    },
-  }
-</script>
-```
-
-```javascript
-import {test} from 'vitest'
-import {render, fireEvent} from '@testing-library/vue'
-import Component from './Component.vue'
-
-test('increments value on click', async () => {
-  // The render method returns a collection of utilities to query your component.
-  const {getByText} = render(Component)
-
-  // getByText returns the first matching node for the provided text, and
-  // throws an error if no elements match or if more than one match is found.
-  getByText('Times clicked: 0')
-
-  const button = getByText('increment')
-
-  // Dispatch a native click event to our button element.
-  await fireEvent.click(button)
-  await fireEvent.click(button)
-
-  getByText('Times clicked: 2')
-})
-```
-
-#### [Testing queries](https://testing-library.com/docs/queries/about)
-
-Queries are the methods that Testing Library gives you to find elements on the
-page. Depending on what page content you are selecting, different queries may be
-more or less appropriate.
-
-After selecting an element, you can use the Events API or user-event to fire
-events and simulate user interactions with the page.
-
-As elements appear and disappear in response to actions, Async APIs like
-`waitFor` or `findBy` queries can be used to await the changes in the DOM. To find only
-elements that are children of a specific element, you can use `within`.
-
-##### Types of queries
-
-The different types of queries are:
-
-* Single Elements
-    * `getBy...`: Returns the matching node for a query, and throw a descriptive
-        error if no elements match or if more than one match is found.
-    * `queryBy...`: Returns the matching node for a query, and return `null` if no
-        elements match. This is useful for asserting an element that is not
-        present. Throws an error if more than one match is found (use
-        `queryAllBy` instead if this is OK).
-    * `findBy...`: Returns a `Promise` which resolves when an element is found
-        which matches the given query. The promise is rejected if no element is
-        found or if more than one element is found after a default timeout of
-        1000ms. If you need to find more than one element, use `findAllBy`.
-
-* Multiple Elements
-    * `getAllBy...`: Returns an array of all matching nodes for a query, and
-        throws an error if no elements match.
-    * `queryAllBy...`: Returns an array of all matching nodes for a query, and
-        return an empty array ([]) if no elements match.
-    * `findAllBy...`: Returns a promise which resolves to an array of elements
-        when any elements are found which match the given query. The promise is
-        rejected if no elements are found after a default timeout of 1000ms.
-
-        `findBy` method`s are a combination of `getBy*` queries and `waitFor`. They
-        accept the `waitFor` options as the last argument (i.e. `await
-        screen.findByText('text', queryOptions, waitForOptions)`)
-
-Your test should resemble how users interact with your code (component, page,
-etc.) as much as possible. With this in mind, we recommend this order of
-priority:
-
-1. *Queries Accessible to Everyone* Queries that reflect the experience of
-   visual/mouse users as well as those that use assistive technology.
-    * `getByRole`: This can be used to query every element that is exposed in
-        the accessibility tree. With the name option you can filter the returned
-        elements by their accessible name. This should be your top preference
-        for just about everything. There's not much you can't get with this (if
-        you can't, it's possible your UI is inaccessible). Most often, this will
-        be used with the name option like so: `getByRole('button', {name:
-        /submit/i})`. Check the [list of roles](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques#roles).
-    * `getByLabelText`: This method is really good for form fields. When
-        navigating through a website form, users find elements using label text.
-        This method emulates that behavior, so it should be your top preference.
-    * `getByPlaceholderText`: A placeholder is not a substitute for a label. But
-        if that's all you have, then it's better than alternatives.
-    * `getByText`: Outside of forms, text content is the main way users find
-        elements. This method can be used to find non-interactive elements (like
-        divs, spans, and paragraphs).
-    * `getByDisplayValue`: The current value of a form element can be useful
-        when navigating a page with filled-in values.
-
-2. *Semantic Queries* HTML5 and ARIA compliant selectors. Note that the user
-   experience of interacting with these attributes varies greatly across
-   browsers and assistive technology.
-    * `getByAltText`: If your element is one which supports alt text (`img`,
-        `area`, `input`, and any custom element), then you can use this to find that
-        element.
-    * `getByTitle`: The title attribute is not consistently read by
-        screenreaders, and is not visible by default for sighted users
-
-3. *Test IDs*
-    * `getByTestId`: The user cannot see (or hear) these, so this is only
-        recommended for cases where you can't match by role or text or it
-        doesn't make sense (e.g. the text is dynamic).
-
-##### [Using queries](https://testing-library.com/docs/queries/about#using-queries)
-
-The base queries from DOM Testing Library require you to pass a container as the
-first argument, which is a `TextMatch` element that can be a string, regular
-expression, or function. Given the following HTML:
-
-```html
-<div>Hello World</div>
-```
-
-Will find the div:
-
-```javascript
-// Matching a string:
-getByText('Hello World') // full string match
-getByText('llo Worl', {exact: false}) // substring match
-getByText('hello world', {exact: false}) // ignore case
-
-// Matching a regex:
-getByText(/World/) // substring match
-getByText(/world/i) // substring match, ignore case
-getByText(/^hello world$/i) // full string match, ignore case
-getByText(/Hello W?oRlD/i) // substring match, ignore case, searches for "hello world" or "hello orld"
-
-// Matching with a custom function:
-getByText((content, element) => content.startsWith('Hello'))
-```
-
-If you want some help knowing how to define the Query, you can install the
-[Testing
-Playground](https://addons.mozilla.org/en-US/firefox/addon/testing-playground/)
-addon, which adds a tab in the developer tools to help you choose the best
-selector.
+If you're using [Vuetify](vuetify.md) don't try to do component testing, I've
+tried for days and [was unable to make it work](vuetify.md#testing).
 
 ## E2E Testing
 
@@ -2233,7 +2108,7 @@ environment. Testing against your Staging environment not only includes your
 frontend code and static server, but all associated backend services and
 infrastructure.
 
-### E2E tests decissions
+### E2E tests decisions
 
 When doing E2E tests keep in mind:
 
@@ -2333,6 +2208,193 @@ Finally, update `package.json` to add the test script and run it:
 ```bash
 npm test
 ```
+
+# [Deploying](https://medium.com/js-dojo/vue-js-runtime-environment-variables-807fa8f68665)
+
+It is common these days to run front-end and back-end services inside Docker
+containers. The front-end service usually talks using a API with the back-end
+service.
+
+```dockerfile
+FROM node as ui-builder
+RUN mkdir /usr/src/app
+WORKDIR /usr/src/app
+ENV PATH /usr/src/app/node_modules/.bin:$PATH
+COPY package.json /usr/src/app/package.json
+RUN npm install
+RUN npm install -g @vue/cli
+COPY . /usr/src/app
+RUN npm run build
+
+FROM nginx
+COPY  --from=ui-builder /usr/src/app/dist /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
+```
+
+The above makes use of the multi-stage build feature of Docker. The first half
+of the Dockerfile build the artifacts and second half use those artifacts and
+create a new image from them.
+
+To build the production image, run:
+
+```bash
+docker build -t myapp .
+```
+
+You can run the container by executing the following command:
+
+```bash
+docker run -it -p 80:80 --rm myapp-prod
+```
+
+The application will now be accessible at `http://localhost`.
+
+## Configuration through environmental variables
+
+In production you want to be able to scale up or down the frontend and the
+backend independently, to be able to do that you usually have one or many docker
+for each role. Usually there is an SSL Proxy that acts as gate keeper and is the
+only component exposed to the public.
+
+If the user requests for `/api` it will forward the requests to the backend, if
+it asks for any other url it will forward it to the frontend.
+
+!!! note
+        "You probably don't need to configure the backend api url as an environment
+        variable see
+        [here](frontend_development.md#your-frontend-probably-doesn't-talk-to-your-backend)
+        why."
+
+For the frontend, we need to configure the application. This is usually done
+through [environmental
+variables](#configuration-through-environmental-variables), such as
+`EXTERNAL_BACKEND_URL`. The problem is that these environment variables are set at build
+time, and can't be changed at runtime by default, so you can't offer a generic
+fronted Docker and particularize for the different cases. I've literally cried
+for hours trying to find a solution for this until [José Silva came to my
+rescue](https://medium.com/js-dojo/vue-js-runtime-environment-variables-807fa8f68665).
+The tweak is to use a docker entrypoint to inject the values we want. To do so
+you need to:
+
+* Edit the site main `index.html` (if you use Vite is in `/index.html` otherwise
+    it might be at `public/index.html` to add a placeholder that will be
+    replaced by the dynamic configurations.
+
+    ```html
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <script>
+          // CONFIGURATIONS_PLACEHOLDER
+        </script>
+        ...
+    ```
+
+* Create an executable file named `entrypoint.sh` in the root of the project.
+
+    ```bash
+    #!/bin/sh
+
+    JSON_STRING='window.configs = { \
+      "VITE_APP_VARIABLE_1":"'"${VITE_APP_VARIABLE_1}"'", \
+      "VITE_APP_VARIABLE_2":"'"${VITE_APP_VARIABLE_2}"'" \
+    }'
+
+    sed -i "s@// CONFIGURATIONS_PLACEHOLDER@${JSON_STRING}@" /usr/share/nginx/html/index.html
+
+    exec "$@"
+    ```
+
+    Its function is to replace the placeholder in the index.html by the
+    configurations, injecting them in the browser window.
+
+* Create a file named `src/utils/env.js` with the following utility function:
+
+    ```javascript
+    export default function getEnv(name) {
+      return window?.configs?.[name] || process.env[name]
+    }
+    ```
+
+    Which allows us to easily get the value of the configuration. If it exists
+    in `window.configs` (used in remote environments like staging or production)
+    it will have priority over the `process.env` (used for development).
+
+* Replace the content of the `App.vue` file with the following:
+
+    ```html
+    <template>
+      <div id="app">
+        <img alt="Vue logo" src="./assets/logo.png">
+        <div>{{ variable1 }}</div>
+        <div>{{ variable2 }}</div>
+      </div>
+    </template>
+
+    <script>
+    import getEnv from '@/utils/env'export default {
+      name: 'App',
+      data() {
+        return {
+          variable1: getEnv('VITE_APP_VARIABLE_1'),
+          variable2: getEnv('VITE_APP_VARIABLE_2')
+        }
+      }
+    }
+    </script>
+    ```
+
+    At this point, if you create the `.env.local` file, in the root of the project,
+    with the values for the printed variables:
+
+    ```
+    VITE_APP_VARIABLE_1='I am the develoment variable 1'
+    VITE_APP_VARIABLE_2='I am the develoment variable 2'
+    ```
+
+    And run the development server `npm run dev` you should see those values printed
+    in the application (http://localhost:8080).
+
+* Update the `Dockerfile` to load the `entrypoint.sh`.
+
+    ```dockerfile
+    FROM node as ui-builder
+    RUN mkdir /usr/src/app
+    WORKDIR /usr/src/app
+    ENV PATH /usr/src/app/node_modules/.bin:$PATH
+    COPY package.json /usr/src/app/package.json
+    RUN npm install
+    RUN npm install -g @vue/cli
+    COPY . /usr/src/app
+    ARG VUE_APP_API_URL
+    ENV VUE_APP_API_URL $VUE_APP_API_URL
+    RUN npm run build
+
+    FROM nginx
+    COPY  --from=ui-builder /usr/src/app/dist /usr/share/nginx/html
+    COPY entrypoint.sh /usr/share/nginx/
+    ENTRYPOINT ["/usr/share/nginx/entrypoint.sh"]
+    EXPOSE 80
+    CMD ["nginx", "-g", "daemon off;"]
+    ```
+
+* Build the docker
+
+    ```bash
+    docker build -t my-app .
+    ```
+
+Now if you have a `.env.production.local` file with the next contents:
+
+```
+VITE_APP_VARIABLE_1='I am the production variable 1'
+VITE_APP_VARIABLE_2='I am the production variable 2'
+```
+
+And run `docker run -it -p 80:80 --env-file=.env.production.local --rm my-app`,
+you'll see the values of the production variables. You can also pass the
+variables directly with `-e VITE_APP_VARIABLE_1="Overriden variable"`.
 
 # References
 

@@ -171,11 +171,7 @@ nav:
               - Pytest-cases: coding/python/pytest_cases.md
               - Pytest-HttpServer: pytest_httpserver.md
           - Python Snippets: coding/python/python_snippets.md
-      - JSON: coding/json/json.md
-      - SQL: coding/sql/sql.md
-      - SQLite: sqlite.md
-      - YAML: coding/yaml/yaml.md
-      - Promql: coding/promql/promql.md
+      - Frontend Development: fronted_development.md
       - Vue.js:
           - vuejs.md
           - Vue snippets: vue_snippets.md
@@ -184,6 +180,11 @@ nav:
               - Vitest: vitest.md
               - Cypress: cypress.md
               - Vite: vite.md
+      - JSON: coding/json/json.md
+      - SQL: coding/sql/sql.md
+      - SQLite: sqlite.md
+      - YAML: coding/yaml/yaml.md
+      - Promql: coding/promql/promql.md
       - HTML: html.md
       - CSS: css.md
       - Javascript:
