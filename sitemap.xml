@@ -216,6 +216,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/frontend_development/</loc>
+         <lastmod>2022-04-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/fun/</loc>
          <lastmod>2022-04-24</lastmod>
          <changefreq>daily</changefreq>
