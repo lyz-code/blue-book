@@ -310,7 +310,7 @@ def new_user(user_class) -> User:
 
 Where:
 
-* `ProUser` doesn’t inherit from `BasicUser`.
+* `ProUser` doesn't inherit from `BasicUser`.
 * `new_user` creates an instance of one of these classes if you pass
     it the right class object.
 
@@ -343,7 +343,7 @@ beginner.upgrade()  # OK
 ```
 
 !!! note
-        "Using `UserT` is [not supported by
+        "Using `UserType` is [not supported by
         pylint](https://github.com/PyCQA/pylint/issues/6003), use `UserT`
         instead."
 

@@ -197,6 +197,28 @@ the `data-cy` element.
 cy.get('[data-cy=submit]')
 ```
 
+You'll probably write that a lot, that's why it's useful to define the next
+commands in `/cypress/support/commands.ts`.
+
+```javascript
+Cypress.Commands.add('getById', (selector, ...args) => {
+  return cy.get(`[data-cy=${selector}]`, ...args)
+})
+
+Cypress.Commands.add('getByIdLike', (selector, ...args) => {
+  return cy.get(`[data-cy*=${selector}]`, ...args)
+})
+
+Cypress.Commands.add('findById', {prevSubject: true}, (subject, selector, ...args) => {
+  return subject.find(`[data-cy=${selector}]`, ...args)
+})
+```
+
+So you can now do
+```javascript
+cy.getById('submit')
+```
+
 ### Query by content
 
 Another way to locate things -- a more human way -- is to look them up by their
@@ -224,6 +246,65 @@ timeout.
 ```javascript
 // Give this element 10 seconds to appear
 cy.get('.my-slow-selector', { timeout: 10000 })
+```
+
+### Select by position in list
+
+Inside our list, we can select elements based on their position in the list,
+using `.first()`, `.last()` or `.eq()` selector.
+
+```javascript
+cy
+  .get('li')
+  .first(); // select "red"
+
+cy
+  .get('li')
+  .last(); // select "violet"
+
+cy
+  .get('li')
+  .eq(2); // select "yellow"
+```
+
+You can also use `.next()` and `.prev()` to navigate through the elements.
+
+### Select elements by filtering
+
+Once you select multiple elements, you can filter within these based on another selector.
+
+```javascript
+cy
+  .get('li')
+  .filter('.primary') // select all elements with the class .primary
+```
+
+To do the exact opposite, you can use `.not()` command.
+
+cy
+  .get('li')
+  .not('.primary') // select all elements without the class .primary
+
+### Finding elements
+
+You can specify your selector by first selecting an element you want to search
+within, and then look down the DOM structure to find a specific element you are
+looking for.
+
+```javascript
+cy
+  .get('.list')
+  .find('.violet') // finds an element with class .violet inside .list element
+```
+
+Instead of looking down the DOM structure and finding an element within another
+element, we can look up. In this example, we first select our list item, and
+then try to find an element with a `.list` class.
+
+```javascript
+cy
+  .get('.violet')
+  .parent('.list') // finds an element with class .list that is above our .violet element
 ```
 
 ## Interacting with elements
@@ -333,8 +414,6 @@ it('utilize users in some way', function () {
 })
 ```
 
-
-
 ## [Asserting about elements](https://docs.cypress.io/guides/core-concepts/introduction-to-cypress#Assertions)
 
 Assertions let you do things like ensuring an element is visible or has
@@ -440,6 +519,14 @@ expect(true).to.be.true
     cy.get('li.selected').should('have.length', 3)
     ```
 
+* *Attribute*:
+    ```javascript
+    // check the content of an attribute
+    cy
+      .get('a')
+      .invoke('attr', 'href')
+      .should('eq', 'https://docs.cypress.io')
+    ```
 * *Class*:
 
     ```javascript
@@ -725,7 +812,6 @@ The purpose of a test fixture is to ensure that there is a well known and fixed
 environment in which tests are run so that results are repeatable. Fixtures are
 accessed within tests by calling the `cy.fixture()` command.
 
-
 When stubbing a response, you typically need to manage potentially large and
 complex JSON objects. Cypress allows you to integrate fixture syntax directly
 into responses.
@@ -751,6 +837,32 @@ your `cy.fixture()` command.
 ```javascript
 cy.fixture('images/dogs.png') // yields dogs.png as Base64
 ```
+
+#### [Use the content of a fixture set in a hook in a test](https://docs.cypress.io/api/commands/fixture#Encoding)
+
+
+If you store and access the fixture data using this test context object, make
+sure to use `function () { ... }` callbacks both for the hook and the test.
+Otherwise the test engine will NOT have this pointing at the test context.
+
+```javascript
+describe('User page', () => {
+  beforeEach(function () {
+    // "this" points at the test context object
+    cy.fixture('user').then((user) => {
+      // "this" is still the test context object
+      this.user = user
+    })
+  })
+
+  // the test callback is in "function () { ... }" form
+  it('has user', function () {
+    // this.user exists
+    expect(this.user.firstName).to.equal('Jane')
+  })
+})
+```
+
 
 ### Logging in
 
@@ -1082,6 +1194,65 @@ describe('Logo', () => {
     })
   })
 })
+```
+
+### Use functions
+
+Sometimes, the piece of code is redundant and we don't we don't require it in
+all the test cases. We can create utility functions and move such code there.
+
+We can create a separate folder as utils in support folder and store our
+functions in a file in that folder.
+
+Consider the following example of utility function for login.
+
+```javascript
+//cypress/support/utils/common.js
+
+export const loginViaUI = (username, password) => {
+  cy.get("[data-cy='login-email-field']").type(username);
+  cy.get("[data-cy='login-password-field']").type(password);
+  cy.get("[data-cy='submit-button']").submit()
+}
+```
+
+This is how we can use utility function in our test case:
+
+```javascript
+import {
+  loginViaUI
+} from '../support/utils/common.js';
+
+describe("Login", () => {
+  it('should allow user to log in', () => {
+    cy.visit('/login');
+    loginViaUI('username', 'password');
+  });
+});
+```
+
+Utility functions are similar to Cypress commands. If the code being used in
+almost every test suite, we can create a custom command for it. The benefit of
+this is that we don't have to import the js file to use the command, it is
+available directly on cy object i.e. `cy.loginViaUI()`.
+
+But, this doesn't mean that we should use commands for everything. If the code
+is used in only some of the test suite, we can create a utility function and
+import it whenever needed.
+
+## [Setting up time of the tests](https://docs.cypress.io/api/commands/clock#No-Args)
+
+Specify a `now` timestamp
+
+```javascript
+// your app code
+$('#date').text(new Date().toJSON())
+
+const now = new Date(2017, 3, 14).getTime() // April 14, 2017 timestamp
+
+cy.clock(now)
+cy.visit('/index.html')
+cy.get('#date').contains('2017-04-14')
 ```
 
 ## [Component testing](https://docs.cypress.io/guides/component-testing/introduction)
@@ -1419,6 +1590,12 @@ it('adds items', () => {
 
 This allows you to inspect the web application, the DOM, the network, and any
 storage after each command to make sure everything happens as expected.
+
+# Issues
+
+* [Allow rerun only failed
+    tests](https://github.com/cypress-io/cypress/issues/4886): Until it's ready
+    use `it.only` on the test you want to run.
 
 # References
 

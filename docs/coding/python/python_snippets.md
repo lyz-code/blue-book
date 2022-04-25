@@ -703,6 +703,21 @@ tuples of field and order to sort them on multiple passes.
 [('dave', 'B', 10), ('jane', 'B', 12), ('john', 'A', 15)]
 ```
 
+## [Get the attribute of an attribute](https://stackoverflow.com/questions/403421/how-to-sort-a-list-of-objects-based-on-an-attribute-of-the-objects)
+
+To sort the list in place:
+
+```python
+ut.sort(key=lambda x: x.count, reverse=True)
+```
+
+To return a new list, use the `sorted()` built-in function:
+
+```python
+newlist = sorted(ut, key=lambda x: x.body.id_, reverse=True)
+```
+
+
 # [Iterate over an instance object's data attributes in Python](https://www.saltycrane.com/blog/2008/09/how-iterate-over-instance-objects-data-attributes-python/)
 
 ```python

@@ -376,8 +376,8 @@ for (var i = 0; i < a.length; i++) {
 
 ### Append an item to an array
 
-Although `push()` could be used, is better to use `concat()` as it doesn't
-mutate the original array.
+If you want to alter the original array use `push()` although, it's better to
+use `concat()` as it doesn't mutate the original array.
 
 ```javascript
 a.concat(item);

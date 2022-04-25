@@ -1350,6 +1350,549 @@ export default {
 }
 ```
 
+## [Make HTTP requests](https://blog.bitsrc.io/requests-in-vuejs-fetch-api-and-axios-a-comparison-a0c13f241888)
+
+There are many ways to do requests to external services:
+
+* [Fetch API](#fetch-api)
+* [Axios](#axios)
+
+### Fetch API
+
+The Fetch API is a standard API for making HTTP requests on the browser.
+
+It a great alternative to the old `XMLHttpRequestconstructor` for making
+requests.
+
+It supports all kinds of requests, including GET, POST, PUT, PATCH, DELETE, and
+OPTIONS, which is what most people need.
+
+To make a request with the Fetch API, we don’t have to do anything. All we have
+to do is to make the request directly with the `fetch` object. For instance, you
+can write:
+
+```html
+<template>
+  <div id="app">
+    {{data}}
+  </div>
+</template><script>export default {
+  name: "App",
+  data() {
+    return {
+      data: {}
+    }
+  },
+  beforeMount(){
+    this.getName();
+  },
+  methods: {
+    async getName(){
+      const res = await fetch('https://api.agify.io/?name=michael');
+      const data = await res.json();
+      this.data = data;
+    }
+  }
+};
+</script>
+```
+
+In the code above, we made a simple GET request from an API and then convert the
+data from JSON to a JavaScript object with the `json()` method.
+
+#### Adding headers
+
+Like most HTTP clients, we can send request headers and bodies with the Fetch API.
+
+To send a request with HTTP headers, we can write:
+
+```html
+<template>
+  <div id="app">
+    <img :src="data.src.tiny">
+  </div>
+</template><script>
+export default {
+  name: "App",
+  data() {
+    return {
+      data: {
+        src: {}
+      }
+    };
+  },
+  beforeMount() {
+    this.getPhoto();
+  },
+  methods: {
+    async getPhoto() {
+      const headers = new Headers();
+      headers.append(
+        "Authorization",
+        "api_key"
+      );
+      const request = new Request(
+        "https://api.pexels.com/v1/curated?per_page=11&page=1",
+        {
+          method: "GET",
+          headers,
+          mode: "cors",
+          cache: "default"
+        }
+      );      const res = await fetch(request);
+      const { photos } = await res.json();
+      this.data = photos[0];
+    }
+  }
+};
+</script>
+```
+
+In the code above, we used the `Headers` constructor, which is used to add
+requests headers to Fetch API requests.
+
+The append method appends our 'Authorization' header to the request.
+
+We’ve to set the mode to 'cors' for a cross-domain request and headers is set to
+the headers object returned by the `Headers` constructor.
+
+#### Adding body to a request
+
+To make a request body, we can write the following:
+
+```html
+<template>
+  <div id="app">
+    <form @submit.prevent="createPost">
+      <input placeholder="name" v-model="post.name">
+      <input placeholder="title" v-model="post.title">
+      <br>
+      <button type="submit">Create</button>
+    </form>
+    {{data}}
+  </div>
+</template><script>
+export default {
+  name: "App",
+  data() {
+    return {
+      post: {},
+      data: {}
+    };
+  },
+  methods: {
+    async createPost() {
+      const request = new Request(
+        "https://jsonplaceholder.typicode.com/posts",
+        {
+          method: "POST",
+          mode: "cors",
+          cache: "default",
+          body: JSON.stringify(this.post)
+        }
+      );      const res = await fetch(request);
+      const data = await res.json();
+      this.data = data;
+    }
+  }
+};
+</script>
+```
+
+In the code above, we made the request by stringifying the this.post object and
+then sending it with a POST request.
+
+### [Axios](https://axios-http.com/)
+
+Axios is a popular HTTP client that works on both browser and Node.js apps.
+
+We can install it by running:
+
+```bash
+npm i axios
+```
+
+Then we can use it to make requests a simple GET request as follows:
+
+```html
+<template>
+  <div id="app">{{data}}</div>
+</template><script>
+
+import axios from 'axios'
+
+export default {
+  name: "App",
+  data() {
+    return {
+      data: {}
+    };
+  },
+  beforeMount(){
+    this.getName();
+  },
+  methods: {
+    async getName(){
+      const { data } = await axios.get("https://api.agify.io/?name=michael");
+      this.data = data;
+    }
+  }
+};
+</script>
+```
+
+In the code above, we call the `axios.get` method with the URL to make the request.
+
+Then we assign the response data to an object.
+
+#### Adding headers
+
+If we want to make a request with headers, we can write:
+
+```html
+<template>
+  <div id="app">
+    <img :src="data.src.tiny">
+  </div>
+</template><script>
+
+import axios from 'axios'
+
+export default {
+  name: "App",
+  data() {
+    return {
+      data: {}
+    };
+  },
+  beforeMount() {
+    this.getPhoto();
+  },
+  methods: {
+    async getPhoto() {
+      const {
+        data: { photos }
+      } = await axios({
+        url: "https://api.pexels.com/v1/curated?per_page=11&page=1",
+        headers: {
+          Authorization: "api_key"
+        }
+      });
+      this.data = photos[0];
+    }
+  }
+};
+</script>
+```
+
+In the code above, we made a GET request with our Pexels API key with the axios
+method, which can be used for making any kind of request.
+
+If no request verb is specified, then it’ll be a GET request.
+
+As we can see, the code is a bit shorter since we don’t have to create an object
+with the `Headers` constructor.
+
+If we want to set the same header in multiple requests, we can use a request
+interceptor to set the header or other config for all requests.
+
+For instance, we can rewrite the above example as follows:
+
+```javascript
+// main.js:
+
+import Vue from "vue";
+import App from "./App.vue";
+import axios from 'axios'
+
+axios.interceptors.request.use(
+  config => {
+    return {
+      ...config,
+      headers: {
+        Authorization: "api_key"
+      }
+    };
+  },
+  error => Promise.reject(error)
+);
+
+Vue.config.productionTip = false;
+
+new Vue({
+  render: h => h(App)
+}).$mount("#app");
+```
+
+```html
+<template>
+  <div id="app">
+    <img :src="data.src.tiny">
+  </div>
+</template><script>
+
+import axios from 'axios'
+
+export default {
+  name: "App",
+  data() {
+    return {
+      data: {}
+    };
+  },
+  beforeMount() {
+    this.getPhoto();
+  },
+  methods: {
+    async getPhoto() {
+      const {
+        data: { photos }
+      } = await axios({
+        url: "https://api.pexels.com/v1/curated?per_page=11&page=1"
+      });
+      this.data = photos[0];
+    }
+  }
+};
+</script>
+
+We moved the header to `main.js` inside the code for our interceptor.
+
+The first argument that’s passed into `axios.interceptors.request.use` is
+a function for modifying the request config for all requests.
+
+And the 2nd argument is an error handler for handling error of all requests.
+
+Likewise, we can configure interceptors for responses as well.
+
+#### Adding body to a request
+
+To make a POST request with a request body, we can use the `axios.post` method.
+
+```html
+<template>
+  <div id="app">
+    <form @submit.prevent="createPost">
+      <input placeholder="name" v-model="post.name">
+      <input placeholder="title" v-model="post.title">
+      <br>
+      <button type="submit">Create</button>
+    </form>
+    {{data}}
+  </div>
+</template><script>
+
+import axios from 'axios'
+
+export default {
+  name: "App",
+  data() {
+    return {
+      post: {},
+      data: {}
+    };
+  },
+  methods: {
+    async createPost() {
+      const { data } = await axios.post(
+        "https://jsonplaceholder.typicode.com/posts",
+        this.post
+      );
+      this.data = data;
+    }
+  }
+};
+</script>
+```
+
+We make the POST request with the `axios.post` method with the request body in
+the second argument. Axios also sets the Content-Type header to
+application/json. This enables web frameworks to automatically parse the data.
+
+Then we get back the response data by getting the data property from the resulting response.
+
+#### [Shorthand methods for Axios HTTP requests](https://blog.logrocket.com/how-to-make-http-requests-like-a-pro-with-axios/#shorthand)
+
+Axios also provides a set of shorthand methods for performing different types of
+requests. The methods are as follows:
+
+* `axios.request(config)`
+* `axios.get(url[, config])`
+* `axios.delete(url[, config])`
+* `axios.head(url[, config])`
+* `axios.options(url[, config])`
+* `axios.post(url[, data[, config]])`
+* `axios.put(url[, data[, config]])`
+* `axios.patch(url[, data[, config]])`
+
+For instance, the following code shows how the previous example could be written
+using the `axios.post()` method:
+
+```javascript
+axios.post('/login', {
+  firstName: 'Finn',
+  lastName: 'Williams'
+})
+.then((response) => {
+  console.log(response);
+}, (error) => {
+  console.log(error);
+});
+```
+
+Once an HTTP POST request is made, Axios returns a promise that is either
+fulfilled or rejected, depending on the response from the backend service.
+
+To handle the result, you can use the `then()`. method. If the promise is
+fulfilled, the first argument of `then()` will be called; if the promise is
+rejected, the second argument will be called. According to the documentation,
+the fulfillment value is an object containing the following information:
+
+```javascript
+{
+  // `data` is the response that was provided by the server
+  data: {},
+
+  // `status` is the HTTP status code from the server response
+  status: 200,
+
+  // `statusText` is the HTTP status message from the server response
+  statusText: 'OK',
+
+  // `headers` the headers that the server responded with
+  // All header names are lower cased
+  headers: {},
+
+  // `config` is the config that was provided to `axios` for the request
+  config: {},
+
+  // `request` is the request that generated this response
+  // It is the last ClientRequest instance in node.js (in redirects)
+  // and an XMLHttpRequest instance the browser
+  request: {}
+}
+```
+
+#### Using interceptors
+
+One of the key features of Axios is its ability to intercept HTTP requests. HTTP
+interceptors come in handy when you need to examine or change HTTP requests from
+your application to the server or vice versa (e.g., logging, authentication, or
+retrying a failed HTTP request).
+
+With interceptors, you won’t have to write separate code for each HTTP request.
+HTTP interceptors are helpful when you want to set a global strategy for how you
+handle request and response.
+
+```javascript
+axios.interceptors.request.use(config => {
+  // log a message before any HTTP request is sent
+  console.log('Request was sent');
+
+  return config;
+});
+
+// sent a GET request
+axios.get('https://api.github.com/users/sideshowbarker')
+  .then(response => {
+    console.log(response.data);
+  });
+```
+
+In this code, the `axios.interceptors.request.use()` method is used to define
+code to be run before an HTTP request is sent. Also,
+`axios.interceptors.response.use()` can be used to intercept the response from the
+server. Let’s say there is a network error; using the response interceptors, you
+can retry that same request using interceptors.
+
+#### Sending multiple requests
+
+One of Axios’ more interesting features is its ability to make multiple requests
+in parallel by passing an array of arguments to the `axios.all()` method. This
+method returns a single promise object that resolves only when all arguments
+passed as an array have resolved.
+
+Here’s a simple example of how to use `axios.all` to make simultaneous HTTP requests:
+
+```javascript
+// execute simultaneous requests
+axios.all([
+  axios.get('https://api.github.com/users/mapbox'),
+  axios.get('https://api.github.com/users/phantomjs')
+])
+.then(responseArr => {
+  //this will be executed only when all requests are complete
+  console.log('Date created: ', responseArr[0].data.created_at);
+  console.log('Date created: ', responseArr[1].data.created_at);
+});
+
+// logs:
+// => Date created:  2011-02-04T19:02:13Z
+// => Date created:  2017-04-03T17:25:46Z
+```
+
+This code makes two requests to the GitHub API and then logs the value of the
+`created_at` property of each response to the console. Keep in mind that if any of
+the arguments rejects then the promise will immediately reject with the reason
+of the first promise that rejects.
+
+For convenience, Axios also provides a method called `axios.spread()` to assign
+the properties of the response array to separate variables. Here’s how you could
+use this method:
+
+```javascript
+axios.all([
+  axios.get('https://api.github.com/users/mapbox'),
+  axios.get('https://api.github.com/users/phantomjs')
+])
+.then(axios.spread((user1, user2) => {
+  console.log('Date created: ', user1.data.created_at);
+  console.log('Date created: ', user2.data.created_at);
+}));
+
+// logs:
+// => Date created:  2011-02-04T19:02:13Z
+// => Date created:  2017-04-03T17:25:46Z
+```
+
+The output of this code is the same as the previous example. The only difference
+is that the `axios.spread()` method is used to unpack values from the response
+array.
+
+### Veredict
+
+If you’re working on multiple requests, you’ll find that Fetch requires you to
+write more code than Axios, even when taking into consideration the setup needed
+for it. Therefore, for simple requests, Fetch API and Axios are quite the same.
+However, for more complex requests, Axios is better as it allows you to
+configure multiple requests in one place.
+
+If you're making a simple request use the Fetch API, for the other cases use axios because:
+
+* It allows you to configure multiple requests in one place
+* Code is shorter.
+* It allows you to [place all the API calls under services so that these can be
+    reused across components wherever they are
+    needed](https://medium.com/bb-tutorials-and-thoughts/how-to-make-api-calls-in-vue-js-applications-43e017d4dc86).
+* It's easy to set a timeout of the request.
+* It supports HTTP interceptors by befault
+* It does automatic JSON data transformation.
+* It's supported by old browsers, although you can bypass the problem with fetch
+    too.
+* It has a progress indicator for large files.
+* Supports simultaneous requests by default.
+
+Axios provides an easy-to-use API in a compact package for most of your HTTP
+communication needs. However, if you prefer to stick with native APIs, nothing
+stops you from implementing Axios features.
+
+For more information read:
+
+* [How To Make API calls in Vue.JS Applications by Bhargav Bachina](https://medium.com/bb-tutorials-and-thoughts/how-to-make-api-calls-in-vue-js-applications-43e017d4dc86)
+* [Axios vs. fetch(): Which is best for making HTTP requests? by Faraz
+    Kelhini](https://blog.logrocket.com/axios-vs-fetch-best-http-requests/)
+
+
 # [Components](https://vuejs.org/guide/essentials/component-basics.html)
 
 Components allow us to split the UI into independent and reusable pieces, and
@@ -2401,3 +2944,9 @@ variables directly with `-e VITE_APP_VARIABLE_1="Overriden variable"`.
 * [Homepage](https://vuejs.org)
 * [Tutorial](https://vuejs.org/tutorial/#step-1)
 * [Examples](https://vuejs.org/examples/#hello-world)
+
+## Axios
+
+* [Docs](https://axios-http.com/docs/intro)
+* [Git](https://github.com/axios/axios)
+* [Homepage](https://axios-http.com/)
