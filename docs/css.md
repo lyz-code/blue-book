@@ -544,7 +544,8 @@ Flexbox layout is most appropriate to the components of an application, and
 small-scale layouts, while the Grid layout is intended for larger scale
 layouts.
 
-You can play around in the [Flexbox playground](https://flexbox.netlify.app/)
+You can play around in the [Flexbox playground](https://flexbox.netlify.app/).
+To see how to use it read the [Vuetify Flexbox section](vuetify.md#flex).
 
 # References
 

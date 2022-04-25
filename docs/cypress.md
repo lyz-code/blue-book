@@ -1255,6 +1255,69 @@ cy.visit('/index.html')
 cy.get('#date').contains('2017-04-14')
 ```
 
+## [Simulate errors](https://dev.to/walmyrlimaesilv/how-to-simulate-errors-with-cypress-3o3l)
+
+End-to-end tests are excellent for testing “happy path” scenarios and the most
+important application features.
+
+However, there are unexpected situations, and when they occur, the application
+cannot completely "break".
+
+Such situations can occur due to errors on the server or the network, to name
+a few.
+
+With Cypress, we can easily simulate error situations.
+
+Below are examples of tests for server and network errors.
+
+```javascript
+context('Errors', () => {
+  const errorMsg = 'Oops! Try again later'
+
+  it('simulates a server error', () => {
+    cy.intercept(
+      'GET',
+      '**/search?query=cypress',
+      { statusCode: 500 }
+    ).as('getServerFailure')
+
+    cy.visit('https://example.com/search')
+
+    cy.get('[data-cy="search-field"]')
+      .should('be.visible')
+      .type('cypress{enter}')
+    cy.wait('@getServerFailure')
+
+    cy.contains(errorMsg)
+      .should('be.visible')
+  })
+
+  it('simulates a network failure', () => {
+    cy.intercept(
+      'GET',
+      '**/search?query=cypressio',
+      { forceNetworkError: true }
+    ).as('getNetworkFailure')
+
+    cy.visit('https://example.com/search')
+
+    cy.get('[data-cy="search-field"]')
+      .should('be.visible')
+      .type('cypressio{enter}')
+    cy.wait('@getNetworkFailure')
+
+    cy.contais(errorMsg)
+      .should('be.visible')
+  })
+})
+```
+
+In the above tests, the HTTP request of type GET to the search endpoint is
+intercepted. In the first test, we use the `statusCode` option with the value
+`500`. In the second test, we use the `forceNewtworkError` option with the value
+of `true`. After that, you can test that the correct message is visible to the
+user.
+
 ## [Component testing](https://docs.cypress.io/guides/component-testing/introduction)
 
 Component testing in Cypress is similar to end-to-end testing. The notable differences are:

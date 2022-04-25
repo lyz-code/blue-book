@@ -1805,6 +1805,52 @@ code to be run before an HTTP request is sent. Also,
 server. Let’s say there is a network error; using the response interceptors, you
 can retry that same request using interceptors.
 
+#### [Handling errors](https://stackabuse.com/handling-errors-with-axios/)
+
+To catch errors when doing requests you could use:
+
+```javascript
+try {
+    let res = await axios.get('/my-api-route');
+
+    // Work with the response...
+} catch (error) {
+    if (error.response) {
+        // The client was given an error response (5xx, 4xx)
+        console.log(err.response.data);
+        console.log(err.response.status);
+        console.log(err.response.headers);
+    } else if (error.request) {
+        // The client never received a response, and the request was never left
+        console.log(err.request);
+    } else {
+        // Anything else
+        console.log('Error', err.message);
+    }
+}
+```
+
+The differences in the `error` object, indicate where the request encountered the issue.
+
+* `error.response`: If your `error` object has a `response` property, it means
+    that your server returned a 4xx/5xx error. This will assist you choose what
+    sort of message to return to users.
+
+* `error.request`: This error is caused by a network error, a hanging backend
+    that does not respond instantly to each request, unauthorized or
+    cross-domain requests, and lastly if the backend API returns an error.
+
+    This occurs when the browser was able to initiate a request but did not
+    receive a valid answer for any reason.
+
+* Other errors: It's possible that the `error` object does not have either
+    a `response` or `request` object attached to it. In this case it is implied that
+    there was an issue in setting up the request, which eventually triggered an
+    error.
+
+    For example, this could be the case if you omit the URL parameter from the
+    `.get()` call, and thus no request was ever made.
+
 #### Sending multiple requests
 
 One of Axios’ more interesting features is its ability to make multiple requests
@@ -2938,6 +2984,22 @@ VITE_APP_VARIABLE_2='I am the production variable 2'
 And run `docker run -it -p 80:80 --env-file=.env.production.local --rm my-app`,
 you'll see the values of the production variables. You can also pass the
 variables directly with `-e VITE_APP_VARIABLE_1="Overriden variable"`.
+
+# Troubleshooting
+
+## Failed to resolve component: X
+
+If you've already imported the component with `import X from './X.vue` you may
+have forgotten to add the component to the `components` property of the module:
+
+```javascript
+export default {
+  name: 'Inbox',
+  components: {
+    X
+  }
+}
+```
 
 # References
 
