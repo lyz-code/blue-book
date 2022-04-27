@@ -519,14 +519,16 @@ expect(true).to.be.true
     cy.get('li.selected').should('have.length', 3)
     ```
 
-* *Attribute*:
+* *Attribute*: For example to test links
     ```javascript
     // check the content of an attribute
     cy
       .get('a')
-      .invoke('attr', 'href')
-      .should('eq', 'https://docs.cypress.io')
+      .should('have.attr', 'href', 'https://docs.cypress.io')
+      .and('have.attr', 'target', '_blank') // Test it's meant to be opened
+      // another tab
     ```
+
 * *Class*:
 
     ```javascript
@@ -1317,6 +1319,20 @@ intercepted. In the first test, we use the `statusCode` option with the value
 `500`. In the second test, we use the `forceNewtworkError` option with the value
 of `true`. After that, you can test that the correct message is visible to the
 user.
+
+## [Sending different responses](https://glebbahmutov.com/blog/cypress-intercept-problems/#sending-different-responses)
+
+To return different responses from a single `GET /todos` intercept, you can
+place all prepared responses into an array, and then use Array.prototype.shift
+to return and remove the first item.
+
+```javascript
+it('returns list with more items on page reload', () => {
+  const replies = [{ fixture: 'articles.json' }, { statusCode: 404 }]
+  cy.intercept('GET', '/api/inbox', req => req.reply(replies.shift()))
+})
+```
+
 
 ## [Component testing](https://docs.cypress.io/guides/component-testing/introduction)
 

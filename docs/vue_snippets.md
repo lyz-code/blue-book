@@ -4,6 +4,48 @@ date: 20220419
 author: Lyz
 ---
 
+# [Run function in background](https://renatello.com/vue-js-polling-using-setinterval/)
+
+To achieve that you need to use [the javascript method called
+`setInterval()`](javascript.md#timing-events). It’s a simple function that would
+repeat the same task over and over again. Here’s an example:
+
+```javascript
+function myFunction() {
+	setInterval(function(){ alert("Hello world"); }, 3000);
+}
+```
+
+If you add a call to this method for any button and click on it, it will print
+Hello world every 3 seconds (3000 milliseconds) until you close the page.
+
+In Vue you could do something like:
+
+```vue
+
+<script>
+export default {
+  data: () => ({
+    inbox_retry: undefined
+  }),
+  methods: {
+    retryGetInbox() {
+      this.inbox_retry = setInterval(() => {
+        if (this.showError) {
+          console.log('Retrying the fetch of the inbox')
+          // Add your code here.
+        } else {
+          clearInterval(this.inbox_retry)
+        }
+      }, 30000)
+    }
+  },
+```
+
+You can call `this.retryGetInbox()` whenever you want to start running the
+function periodically. Once `this.showError` is `false`, we stop running the
+function with `clearInterval(this.inbox_retry)`.
+
 # [Truncate text given a height](https://vue-clamp.vercel.app/)
 
 By default css is able to truncate text with the size of the screen but only on
