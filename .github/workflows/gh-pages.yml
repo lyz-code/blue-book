@@ -4,7 +4,7 @@ name: github pages
 on:
   push:
     branches:
-      - master
+      - main
   schedule:
     - cron: 11 06 * * *
 
@@ -45,7 +45,7 @@ jobs:
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: master
+          branch: main
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
