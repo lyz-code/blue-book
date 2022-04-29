@@ -111,6 +111,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/code_learning/</loc>
+         <lastmod>2022-04-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/cone/</loc>
          <lastmod>2022-04-29</lastmod>
          <changefreq>daily</changefreq>
@@ -217,6 +222,11 @@
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/frontend_development/</loc>
+         <lastmod>2022-04-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/frontend_learning/</loc>
          <lastmod>2022-04-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -346,6 +356,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/mentoring/</loc>
+         <lastmod>2022-04-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/mermaidjs/</loc>
          <lastmod>2022-04-29</lastmod>
          <changefreq>daily</changefreq>
@@ -412,6 +427,11 @@
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/outrun/</loc>
+         <lastmod>2022-04-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/park_programming/</loc>
          <lastmod>2022-04-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -1497,11 +1517,6 @@
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/linux/haproxy/</loc>
-         <lastmod>2022-04-29</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://lyz-code.github.io/blue-book/linux/hard_drive_health/</loc>
          <lastmod>2022-04-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
