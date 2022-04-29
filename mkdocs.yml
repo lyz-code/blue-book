@@ -58,7 +58,7 @@ nav:
   - Coding:
       - Learning to code:
           - code_learning.md
-          - Frontend developer: front_learning.md
+          - Frontend developer: frontend_learning.md
       - Generic Coding Practices:
           - Program Versioning:
               - versioning.md
@@ -175,7 +175,7 @@ nav:
               - Pytest-cases: coding/python/pytest_cases.md
               - Pytest-HttpServer: pytest_httpserver.md
           - Python Snippets: coding/python/python_snippets.md
-      - Frontend Development: fronted_development.md
+      - Frontend Development: frontend_development.md
       - Vue.js:
           - vuejs.md
           - Vue snippets: vue_snippets.md
@@ -267,7 +267,7 @@ nav:
           - devops/ci.md
           - Linters:
               - Alex: devops/alex.md
-              - Flakeheaven: devops/flakeheaven.md
+              - Flakeheaven: flakeheaven.md
               - Flake8: devops/flake8.md
               - Markdownlint: devops/markdownlint.md
               - Proselint: devops/proselint.md
