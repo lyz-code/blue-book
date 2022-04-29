@@ -6,7 +6,7 @@ author: Lyz
 
 [Cone](https://cone.tangential.info/) is a mobile ledger application compatible
 with [beancount](beancount.md). I use it as part of my [accounting automation
-workflow](accounting_automation.md).
+workflow](money_management.md).
 
 # Installation
 

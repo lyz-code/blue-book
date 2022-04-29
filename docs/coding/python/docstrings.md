@@ -39,7 +39,7 @@ summary. All multi-lined docstrings have the following parts:
 * Another blank line
 
 To ensure your docstrings follow these practices, configure
-[flakehell](flakehell.md) with the `flake8-docstrings` extension.
+[flakeheaven](flakeheaven.md) with the `flake8-docstrings` extension.
 
 # Docstring types
 

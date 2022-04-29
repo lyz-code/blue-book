@@ -6,7 +6,7 @@ author: Lyz
 This is my personal [digital garden](digital_garden.md) where I share everything
 I learn about a huge variety of topics, from [antifascism](antifascism.md)
 and other forms of [activism](diversity.md), to [life
-management](life_automation.md), [health](sleep.md), [Python](python.md),
+management](life_management.md), [health](sleep.md), [Python](python.md),
 [DevOps](devops.md), [software architecture](adr.md), [writing](writing.md),
 [dancing](rave_dances.md), or [data analysis](recommender_systems.md).
 

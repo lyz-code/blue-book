@@ -116,7 +116,7 @@ Use `:ALEInfo` to see the ALE configuration and any errors when running
 
 ### Flakehell
 
-[Flakehell](flakehell.md) is not [supported
+[Flakehell](flakeheaven.md) is not [supported
 yet](https://github.com/dense-analysis/ale/issues/3295). Until that issue is
 closed we need the following configuration:
 

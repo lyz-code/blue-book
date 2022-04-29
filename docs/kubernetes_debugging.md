@@ -14,7 +14,7 @@ solve an issue. There are different ways to see it:
 * [Using ksniff](ksniff.md)
 * [Using ephemeral debug containers](#using-ephemeral-debug-containers)
 
-Of all the solutions, the cleaner and easier is to use [Mizu](mizu.md.)
+Of all the solutions, the cleaner and easier is to use [Mizu](mizu.md).
 
 ## [Running tcpdump against a running container](https://dev.to/downey/capturing-network-traffic-from-a-kubernetes-pod-with-ephemeral-debug-containers-57md)
 

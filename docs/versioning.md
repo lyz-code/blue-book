@@ -117,7 +117,7 @@ example you can use one of the next indicators:
 Semantic versioning uses the major version to defend against breaking changes,
 and at the same offers maintainers the freedom to evolve the library without
 breaking users. Nevertheless, this does [not seem to work that
-well](semantic_vesioning.md#semantic-versioning-system-problems).
+well](semantic_versioning.md#semantic-versioning-system-problems).
 
 So it's better to [use Warnings to avoid major changes](use_warnings.md).
 

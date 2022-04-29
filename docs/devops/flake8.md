@@ -4,10 +4,10 @@ date: 20201016
 author: Lyz
 ---
 
-!!! warning "DEPRECATION: Use [Flakehell](flakehell.md) instead"
+!!! warning "DEPRECATION: Use [Flakehell](flakeheaven.md) instead"
     Flake8 [doesn't support
     `pyproject.toml`](https://gitlab.com/pycqa/flake8/-/issues/428), which is
-    becoming the standard, so I suggest using [Flakehell](flakehell.md) instead.
+    becoming the standard, so I suggest using [Flakehell](flakeheaven.md) instead.
 
 [Flake8](https://flake8.pycqa.org/en/latest/) is a style guide enforcement tool.
 Its [configuration](https://flake8.pycqa.org/en/latest/user/configuration.html)

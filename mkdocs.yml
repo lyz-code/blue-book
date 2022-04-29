@@ -328,7 +328,7 @@ nav:
           - google chrome: linux/google_chrome.md
           - Graylog: graylog.md
           - HAProxy: linux/haproxy.md
-          - Hard drive health: docs/linux/hard_drive_health.md
+          - Hard drive health: hard_drive_health.md
           - Hushboard: husboard.md
           - hypothesis: linux/hypothesis.md
           - Jellyfin: jellyfin.md
@@ -337,7 +337,7 @@ nav:
           - LUKS: linux/luks/luks.md
           - mbsync: mbsync.md
           - mkdocs: linux/mkdocs.md
-          - Modipy: modipy.md
+          - Mopidy: mopidy.md
           - monica: linux/monica.md
           - notmuch: notmuch.md
           - nodejs: linux/nodejs.md

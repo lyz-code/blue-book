@@ -62,7 +62,7 @@ C language source code.
 
 * [alex](alex.md) to find gender favoring, polarizing, race related, religion
     inconsiderate, or other unequal phrasing in text.
-* [Flake8](flakehell.md): A python style guide checker tool.
+* [Flake8](flakeheaven.md): A python style guide checker tool.
 * [markdownlint](markdownlint.md): A linter for Markdown files.
 * [proselint](proselint.md): Is another linter for prose.
 * [Yamllint](yamllint.md): A linter for YAML files.
