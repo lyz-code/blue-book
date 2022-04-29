@@ -226,7 +226,7 @@ We might still ask you to clean up your commits at the very end for the sake of
 a more readable history, but don't do this until asked: typically at the point
 where the PR would otherwise be tagged `LGTM`.
 
-Each commit should have a good title line (<70 characters) and include an
+Each commit should have a good title line (`<70` characters) and include an
 additional description paragraph describing in more detail the change intended.
 
 **General squashing guidelines:**
