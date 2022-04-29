@@ -5,7 +5,7 @@ site_author: Lyz
 site_url: https://lyz-code.github.io/blue-book
 nav:
   - Introduction: index.md
-  - Projects: projects/projects.md
+  - Projects: projects.md
   - Activism:
       - Antifascism:
           - antifascism.md
