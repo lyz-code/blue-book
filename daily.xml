@@ -11,7 +11,7 @@
     <managingEditor>Lyz</managingEditor>
 
     
-    <pubDate>2022-04-28 06:43:08+00:00</pubDate>
+    <pubDate>2022-04-28 06:44:31+00:00</pubDate>
     <ttl>1440</ttl>
 
     
@@ -63,9 +63,9 @@
       &lt;span class=&#34;p&#34;&gt;},&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;30000&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
     &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
   &lt;span class=&#34;p&#34;&gt;},&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt; &lt;p&gt;You can call &lt;code&gt;this.retryGetInbox()&lt;/code&gt; whenever you want to start running the function periodically. Once &lt;code&gt;this.showError&lt;/code&gt; is &lt;code&gt;false&lt;/code&gt;, we stop running the function with &lt;code&gt;clearInterval(this.inbox_retry)&lt;/code&gt;.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;hr/&gt; &lt;div class=&#34;md-source-file&#34;&gt; &lt;small&gt; Last update: &lt;span class=&#34;git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago&#34;&gt;&lt;span class=&#34;timeago&#34; datetime=&#34;2022-04-28T06:43:08+00:00&#34; locale=&#34;en&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date&#34;&gt;2022-04-28&lt;/span&gt; &lt;/small&gt; &lt;/div&gt; &lt;/article&gt;</description>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt; &lt;p&gt;You can call &lt;code&gt;this.retryGetInbox()&lt;/code&gt; whenever you want to start running the function periodically. Once &lt;code&gt;this.showError&lt;/code&gt; is &lt;code&gt;false&lt;/code&gt;, we stop running the function with &lt;code&gt;clearInterval(this.inbox_retry)&lt;/code&gt;.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;hr/&gt; &lt;div class=&#34;md-source-file&#34;&gt; &lt;small&gt; Last update: &lt;span class=&#34;git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago&#34;&gt;&lt;span class=&#34;timeago&#34; datetime=&#34;2022-04-28T06:44:31+00:00&#34; locale=&#34;en&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date&#34;&gt;2022-04-28&lt;/span&gt; &lt;/small&gt; &lt;/div&gt; &lt;/article&gt;</description>
       <link>https://lyz-code.github.io/blue-book/newsletter/2022_04_27/</link>
-      <pubDate>2022-04-28 06:43:08+00:00</pubDate>
+      <pubDate>2022-04-28 06:44:31+00:00</pubDate>
       <source url="https://lyz-code.github.io/blue-book/daily.xml">The Blue Book</source>
       <guid isPermaLink="true">https://lyz-code.github.io/blue-book/newsletter/2022_04_27/</guid>
       
