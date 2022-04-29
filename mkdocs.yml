@@ -16,6 +16,7 @@ nav:
           - Anonymous Feedback: anonymous_feedback.md
       - Feminism:
           - Privileges: feminism/privileges.md
+      - Mentoring: mentoring.md
       - Free Knowledge: free_knowledge.md
   - Life Management:
       - life_management.md
@@ -55,6 +56,9 @@ nav:
           - fitness_band.md
           - Amazfit Band 5: amazfit_band_5.md
   - Coding:
+      - Learning to code:
+          - code_learning.md
+          - Frontend developer: front_learning.md
       - Generic Coding Practices:
           - Program Versioning:
               - versioning.md
@@ -177,9 +181,11 @@ nav:
           - Vue snippets: vue_snippets.md
           - Vuetify: vuetify.md
           - Development tools:
-              - Vitest: vitest.md
               - Cypress: cypress.md
               - Vite: vite.md
+              - Vitest: vitest.md
+      - Git: git.md
+      - Park programming: park_programming.md
       - JSON: coding/json/json.md
       - SQL: coding/sql/sql.md
       - SQLite: sqlite.md
