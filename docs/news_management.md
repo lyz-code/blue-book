@@ -85,7 +85,7 @@ I'd want are:
 ## Content filtering
 
 Filtering content is a subsection of the [recommender
-systems](recommener_systems.md#basic-models-of-recommender-systems), of all the
+systems](recommender_systems.md#basic-models-of-recommender-systems), of all the
 basic models, the ones that apply are:
 
 * [Collaborative

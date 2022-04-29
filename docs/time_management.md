@@ -103,15 +103,15 @@ caused by a long running process or waiting for someone to do something.
 When a block comes, I first try to switch back to processes that I was already
 working on. Try to have as less processes as possible, less than three if
 possible. If there is only one active process, look at the [task
-plan](task_workflow.md#task-plan) for the next step that could be done in
+plan](task_workflows.md#task-plan) for the next step that could be done in
 parallel. As both processes work on the same task, they share most of the
 context, so the switch is cheap. If there is none, go to the [day
-plan](task_workflow.md#day-plan) to start the first step of the next task in the
+plan](task_workflows.md#day-plan) to start the first step of the next task in the
 plan.
 
 ## Improve the way you do the tasks
 
-Improve how you [manage your tasks](taks_management.md) to:
+Improve how you [manage your tasks](task_management.md) to:
 
 * Reduce your mental load, so you can use those resources doing productive
     work.

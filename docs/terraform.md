@@ -554,8 +554,7 @@ For examples see the documentation of the desired resource.
 
 ## Bulk import
 
-But if you want to bulk import sources, I suggest using
-[terraforming](terraforming/docs.adoc)
+But if you want to bulk import sources, I suggest using `terraforming`.
 
 # Bad points
 

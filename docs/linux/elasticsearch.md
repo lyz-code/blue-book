@@ -373,7 +373,7 @@ request](https://opendistro.github.io/for-elasticsearch-docs/docs/knn/performanc
 
 ## Fix Circuit breakers triggers
 
-The [`elasticsearch_exporter`](elastichsearch_exporter.md) has
+The [`elasticsearch_exporter`](elasticsearch_exporter.md) has
 a `elasticsearch_breakers_tripped` metric, which counts then number of Circuit
 Breakers triggered of the different kinds. The Grafana dashboard paints a count
 of all the triggers with a big red number, which may scare you at first.

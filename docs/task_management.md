@@ -43,5 +43,5 @@ find. Forget about instant solutions, this is a never ending marathon. Make sure
 that each step is small and easy, otherwise you will get tired too soon.
 
 I haven't written a guide yet on how to give your first steps, but you could
-start by following [a simple workflow](task_workflow.md) with [simple
+start by following [a simple workflow](task_workflows.md) with [simple
 tools](task_tools.md).
