@@ -113,7 +113,7 @@ summary = "Clean single-source support for Python 3 and 2"
 
 [[package]]
 name = "ghp-import"
-version = "2.0.2"
+version = "2.1.0"
 summary = "Copy your docs directly to the gh-pages branch."
 dependencies = [
     "python-dateutil>=2.8.1",
@@ -263,8 +263,8 @@ dependencies = [
 
 [[package]]
 name = "mkdocs-material"
-version = "8.2.12"
-requires_python = ">=3.6"
+version = "8.2.13"
+requires_python = ">=3.7"
 summary = "Documentation that simply works"
 dependencies = [
     "jinja2>=2.11.1",
@@ -741,9 +741,9 @@ content_hash = "sha256:a9d5ca5f0c7340f7fde779be2c17717d84bcc0008f4b9c9f717926723
 "future 0.18.2" = [
     {file = "future-0.18.2.tar.gz", hash = "sha256:b1bead90b70cf6ec3f0710ae53a525360fa360d306a86583adc6bf83a4db537d"},
 ]
-"ghp-import 2.0.2" = [
-    {file = "ghp_import-2.0.2-py3-none-any.whl", hash = "sha256:5f8962b30b20652cdffa9c5a9812f7de6bcb56ec475acac579807719bf242c46"},
-    {file = "ghp-import-2.0.2.tar.gz", hash = "sha256:947b3771f11be850c852c64b561c600fdddf794bab363060854c1ee7ad05e071"},
+"ghp-import 2.1.0" = [
+    {file = "ghp_import-2.1.0-py3-none-any.whl", hash = "sha256:8337dd7b50877f163d4c0289bc1f1c7f127550241988d568c1db512c4324a619"},
+    {file = "ghp-import-2.1.0.tar.gz", hash = "sha256:9c535c4c61193c2df8871222567d7fd7e5014d835f97dc7b7439069e2413d343"},
 ]
 "gitdb 4.0.9" = [
     {file = "gitdb-4.0.9-py3-none-any.whl", hash = "sha256:8033ad4e853066ba6ca92050b9df2f89301b8fc8bf7e9324d412a63f8bf1a8fd"},
@@ -849,9 +849,9 @@ content_hash = "sha256:a9d5ca5f0c7340f7fde779be2c17717d84bcc0008f4b9c9f717926723
     {file = "mkdocs_git_revision_date_localized_plugin-1.0.1-py3-none-any.whl", hash = "sha256:ffcf206b5108d9f729af6cd42377d2e0e25c080817fdad0119549ac924b526f3"},
     {file = "mkdocs-git-revision-date-localized-plugin-1.0.1.tar.gz", hash = "sha256:f3e020b445e7b4fb4e58ccd46b07adecbca0f85ac1659e1a63e38b8779c81ba7"},
 ]
-"mkdocs-material 8.2.12" = [
-    {file = "mkdocs_material-8.2.12-py2.py3-none-any.whl", hash = "sha256:7489f1ccce97a806be6bba659e21f7d404c2f85a7ff72abbac6d47d0836f5952"},
-    {file = "mkdocs-material-8.2.12.tar.gz", hash = "sha256:a569868c7c17bd1c87efa4dea7cb0cd20c4eac52ed5589750cec9dfcd3e3c7d5"},
+"mkdocs-material 8.2.13" = [
+    {file = "mkdocs_material-8.2.13-py2.py3-none-any.whl", hash = "sha256:2666f1d7d6a8dc28dda1e777f77add12799e66bd00250de99914a33525763816"},
+    {file = "mkdocs-material-8.2.13.tar.gz", hash = "sha256:505408fe001d668543236f5db5a88771460ad83ef7b58826630cc1f8b7e63099"},
 ]
 "mkdocs-material-extensions 1.0.3" = [
     {file = "mkdocs_material_extensions-1.0.3-py3-none-any.whl", hash = "sha256:a82b70e533ce060b2a5d9eb2bc2e1be201cf61f901f93704b4acf6e3d5983a44"},
