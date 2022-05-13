@@ -211,6 +211,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/food_management/</loc>
+         <lastmod>2022-05-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/forking_this_wiki/</loc>
          <lastmod>2022-05-13</lastmod>
          <changefreq>daily</changefreq>
@@ -271,6 +276,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/grocy_management/</loc>
+         <lastmod>2022-05-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/hard_drive_health/</loc>
          <lastmod>2022-05-13</lastmod>
          <changefreq>daily</changefreq>
@@ -312,6 +322,11 @@
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/jellyfin/</loc>
+         <lastmod>2022-05-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/kag/</loc>
          <lastmod>2022-05-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -566,6 +581,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/python_vlc/</loc>
+         <lastmod>2022-05-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/questionary/</loc>
          <lastmod>2022-05-13</lastmod>
          <changefreq>daily</changefreq>
@@ -642,6 +662,11 @@
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/strategy/</loc>
+         <lastmod>2022-05-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/sudokus/</loc>
          <lastmod>2022-05-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -1212,6 +1237,11 @@
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/devops/helmfile/</loc>
+         <lastmod>2022-05-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/devops/jwt/</loc>
          <lastmod>2022-05-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -2982,6 +3012,11 @@
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/self_hosted/dynamicdns/</loc>
+         <lastmod>2022-05-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/self_hosted/libreelec/</loc>
          <lastmod>2022-05-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
