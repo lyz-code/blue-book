@@ -239,7 +239,7 @@ possible, otherwise you'll soon get tired of it. For example, for the month plan
 * Do the month plan review:
     * Check the objectives you had and how many you meet, adding notes on your
         progress.
-    * Analyze what to do with the new objectives, adding them to the year plan
+    * Analyze what to do with the new objectives, adding them to the trimester plan
 * Do the month's planning:
     * Review the yearly plan if you have it.
     * Decide which big tasks you want to work on

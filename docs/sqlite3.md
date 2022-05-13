@@ -50,6 +50,16 @@ cursor = connection.execute('select * from bar')
 names = [description[0] for description in cursor.description]
 ```
 
+### [Get a list of the tables](https://www.geeksforgeeks.org/how-to-list-tables-using-sqlite3-in-python/)
+
+```python
+sql_query = """SELECT name FROM sqlite_master
+  WHERE type='table';"""
+cursor = sqliteConnection.cursor()
+cursor.execute(sql_query)
+print(cursor.fetchall())
+```
+
 # [Regexp](https://stackoverflow.com/questions/5365451/problem-with-regexp-python-and-sqlite/5365533#5365533)
 
 [SQLite](sqlite.md) needs the user to define a [regexp](sqlite.md#regexp)

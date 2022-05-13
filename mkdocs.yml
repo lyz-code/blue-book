@@ -41,6 +41,8 @@ nav:
           - MusicBrainz: musicbrainz.md
       - Book Management: book_management.md
       - Map Management: map_management.md
+      - Food Management: food_management.md
+      - Grocy Management: grocy_management.md
       - Instant Messages Management: instant_messages_management.md
       - Process Automation:
           - process_automation.md
@@ -137,6 +139,7 @@ nav:
                   - Pydantic Mypy Plugin: coding/python/pydantic_mypy_plugin.md
               - Pypika: coding/python/pypika.md
               - Python Mysql: python_mysql.md
+              - Python VLC: python_vlc.md
               - Plotly: coding/python/plotly.md
               - questionary: questionary.md
               - rich: rich.md
@@ -197,6 +200,7 @@ nav:
           - coding/javascript/javascript.md
           - Javascript snippets: javascript_snippets.md
           - MermaidJS: mermaidjs.md
+      - JWT: devops/jwt.md
       - React: coding/react/react.md
       - Issues: issues.md
   - DevOps:
@@ -345,6 +349,7 @@ nav:
           - Peek: peek.md
           - Profanity: profanity.md
           - rm: linux/rm.md
+          - Libreelec: libreelec.md
           - Rtorrent: rtorrent.md
           - Syncthing: linux/syncthing.md
           - Tahoe-LAFS: tahoe.md
@@ -388,6 +393,7 @@ nav:
           - Cutting Shapes: dancing/cutting_shapes_basics.md
       - Meditation: meditation.md
       - Video Gaming:
+          - King Arthur Gold: kag.md
           - The Battle for Wesnoth:
               - The Battle for Wesnoth: wesnoth.md
               - Loyalist: wesnoth_loyalist.md
@@ -395,6 +401,7 @@ nav:
               - Northeners: wesnoth_northerners.md
       - Board Gaming:
           - Regicide: regicide.md
+      - Sudokus: sudokus.md
       - Drawing:
           - drawing/drawing.md
           - Exercise Pool: drawing/exercise_pool.md

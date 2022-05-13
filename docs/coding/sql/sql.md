@@ -52,6 +52,26 @@ Date and time data types:
     Adding `DEFAULT` and `ON UPDATE` in the column definition to get automatic
     initialization and updating to the current date and time.
 
+# [List all tables](https://www.sqltutorial.org/sql-list-all-tables/)
+
+Mysql:
+
+```sql
+show tables;
+```
+
+Postgresql:
+
+```sql
+\dt
+```
+
+Sqlite:
+
+```sql
+.tables
+```
+
 # [Table relationships](https://launchschool.com/books/sql/read/table_relationships)
 
 ## [One to One](https://launchschool.com/books/sql/read/table_relationships#onetoone)

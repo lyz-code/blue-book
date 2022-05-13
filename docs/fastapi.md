@@ -680,6 +680,67 @@ def client_(db_tinydb: str) -> TestClient:
     return TestClient(app)
 ```
 
+## [Add endpoints only on testing environment](https://github.com/tiangolo/fastapi/issues/552)
+
+Sometimes you want to have some API endpoints to populate the database for end
+to end testing the frontend. If your `app` config has the `environment`
+attribute, you could try to do:
+
+```python
+app = FastAPI()
+
+@lru_cache()
+def get_config() -> Config:
+    """Configure the program settings."""
+    # no cover: the dependency are injected in the tests
+    log.info("Loading the config")
+    return Config()  # pragma: no cover
+
+if get_config().environment == "testing":
+
+    @app.get("/seed", status_code=201)
+    def seed_data(
+        repo: Repository = Depends(get_repo),
+        empty: bool = True,
+        num_articles: int = 3,
+        num_sources: int = 2,
+    ) -> None:
+        """Add seed data for the end to end tests.
+
+        Args:
+            repo: Repository to store the data.
+        """
+        services.seed(
+            repo=repo, empty=empty, num_articles=num_articles, num_sources=num_sources
+        )
+        repo.close()
+```
+
+But the injection of the dependencies is only done inside the functions, so
+`get_config().environment` will always be the default value. I ended up doing
+that check inside the endpoint, which is not ideal.
+
+```python
+
+@app.get("/seed", status_code=201)
+def seed_data(
+    config: Config = Depends(get_config),
+    repo: Repository = Depends(get_repo),
+    empty: bool = True,
+    num_articles: int = 3,
+    num_sources: int = 2,
+) -> None:
+    """Add seed data for the end to end tests.
+
+    Args:
+        repo: Repository to store the data.
+    """
+    if config.environment != "testing":
+        repo.close()
+        raise HTTPException(status_code=404)
+    ...
+```
+
 # Tips and tricks
 
 ## [Create redirections](https://fastapi.tiangolo.com/advanced/custom-response/#redirectresponse)
