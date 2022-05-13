@@ -36,6 +36,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/anki/</loc>
+         <lastmod>2022-05-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/anonymous_feedback/</loc>
          <lastmod>2022-05-13</lastmod>
          <changefreq>daily</changefreq>
@@ -247,6 +252,11 @@
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/gajim/</loc>
+         <lastmod>2022-05-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/gettext/</loc>
          <lastmod>2022-05-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -532,6 +542,11 @@
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/python/</loc>
+         <lastmod>2022-05-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/python_internationalization/</loc>
          <lastmod>2022-05-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
