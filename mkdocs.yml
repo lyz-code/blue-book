@@ -171,13 +171,14 @@ nav:
           - Profiling: python_profiling.md
           - Optimization: python_optimization.md
           - Anti-Patterns: coding/python/python_anti_patterns.md
-          - Data Classes: coding/python/data_classes.md
           - Pytest:
               - coding/python/pytest.md
               - Parametrized testing: coding/python/pytest_parametrized_testing.md
               - Pytest-cases: coding/python/pytest_cases.md
               - Pytest-HttpServer: pytest_httpserver.md
+          - Internationalization: python_internationalization.md
           - Python Snippets: coding/python/python_snippets.md
+          - Data Classes: coding/python/data_classes.md
       - Frontend Development: frontend_development.md
       - Vue.js:
           - vuejs.md
@@ -317,6 +318,7 @@ nav:
           - Linux Snippets: linux_snippets.md
           - afew: afew.md
           - alot: alot.md
+          - Anki: anki.md
           - ActivityWatch: activitywatch.md
           - beancount: beancount.md
           - Beets: beets.md

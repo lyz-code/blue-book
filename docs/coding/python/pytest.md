@@ -754,6 +754,65 @@ minversion = "6.0"
 addopts = "-vv --tb=short -n auto"
 ```
 
+### [Enforce serial execution of related tests](https://github.com/pytest-dev/pytest-xdist/issues/84)
+
+#### Use a lock
+
+Implement a `serial` fixture with a session-scoped file `lock` fixture using the
+`filelock` package. You can add this to your `conftest.py`:
+
+```python
+import contextlib
+import os
+
+import filelock
+
+
+@pytest.fixture(scope='session')
+def lock(tmp_path_factory):
+    base_temp = tmp_path_factory.getbasetemp()
+    lock_file = base_temp.parent / 'serial.lock'
+    yield filelock.FileLock(lock_file=str(lock_file))
+    with contextlib.suppress(OSError):
+        os.remove(path=lock_file)
+
+
+@pytest.fixture()
+def serial(lock):
+    with lock.acquire(poll_intervall=0.1):
+        yield
+```
+
+Then inject the `serial` fixture in any test that requires serial execution. All
+tests that use the serial fixture are executed serially while any tests that do
+not use the fixture are executed in parallel.
+
+#### Mark them and run separately
+
+Mark the tests you want to execute serially with a special mark, say serial:
+
+```python
+@pytest.mark.serial
+class Test:
+    ...
+
+@pytest.mark.serial
+def test_foo():
+    ...
+```
+
+Execute your parallel tests, excluding those with the serial mark:
+
+```bash
+$ py.test -n auto -m "not serial"
+```
+
+Next, execute your serial tests in a separate session:
+
+```bash
+$ py.test -n0 -m "serial"
+```
+
 # [Setting a timeout for your tests](https://pypi.org/project/pytest-timeout/)
 
 To make your tests fail if they don't end in less than X seconds, use
