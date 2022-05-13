@@ -117,6 +117,7 @@ nav:
               - Flask Restplus: coding/python/flask_restplus.md
               - Folium: coding/python/folium.md
               - Feedparser: coding/python/feedparser.md
+              - Gettext: gettext.md
               - GitPython: coding/python/gitpython.md
               - Goodconf: goodconf.md
               - Jinja2: python_jinja2.md
