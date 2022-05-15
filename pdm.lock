@@ -263,7 +263,7 @@ dependencies = [
 
 [[package]]
 name = "mkdocs-material"
-version = "8.2.14"
+version = "8.2.15"
 requires_python = ">=3.7"
 summary = "Documentation that simply works"
 dependencies = [
@@ -849,9 +849,9 @@ content_hash = "sha256:a9d5ca5f0c7340f7fde779be2c17717d84bcc0008f4b9c9f717926723
     {file = "mkdocs_git_revision_date_localized_plugin-1.0.1-py3-none-any.whl", hash = "sha256:ffcf206b5108d9f729af6cd42377d2e0e25c080817fdad0119549ac924b526f3"},
     {file = "mkdocs-git-revision-date-localized-plugin-1.0.1.tar.gz", hash = "sha256:f3e020b445e7b4fb4e58ccd46b07adecbca0f85ac1659e1a63e38b8779c81ba7"},
 ]
-"mkdocs-material 8.2.14" = [
-    {file = "mkdocs_material-8.2.14-py2.py3-none-any.whl", hash = "sha256:072cbba38f95b1989118b76ad6e3b61f56c4a6215622c960adf2f2c65a613dba"},
-    {file = "mkdocs-material-8.2.14.tar.gz", hash = "sha256:413c349ef531ffe9f2eab6c8a71203fb0a7ebdc301ab9a2529ddd90c173673de"},
+"mkdocs-material 8.2.15" = [
+    {file = "mkdocs_material-8.2.15-py2.py3-none-any.whl", hash = "sha256:9d6c4ca1ceecc00b2e38c214665ed7605d275321dcaa22f38b9d1175edc58955"},
+    {file = "mkdocs-material-8.2.15.tar.gz", hash = "sha256:93b57e53733051431cc83216446e774bdf08bf516a6251ff2f24974f45f98149"},
 ]
 "mkdocs-material-extensions 1.0.3" = [
     {file = "mkdocs_material_extensions-1.0.3-py3-none-any.whl", hash = "sha256:a82b70e533ce060b2a5d9eb2bc2e1be201cf61f901f93704b4acf6e3d5983a44"},
