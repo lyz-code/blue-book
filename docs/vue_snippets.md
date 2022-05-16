@@ -4,6 +4,34 @@ date: 20220419
 author: Lyz
 ---
 
+# Get assets url
+
+If you're using Vite, you can save the assets such as images or audios in the
+`src/assets` directory, and you can get the url with:
+
+```javascript
+
+getImage() {
+  return new URL(`../assets/pictures/${this.active_id}.jpg`, import.meta.url).href
+},
+```
+
+This way it will give you the correct url whether you're in the development
+environment or in production.
+
+# [Play audio files](https://www.w3schools.com/jsref/dom_obj_audio.asp)
+
+You can get the file and save it into a `data` element with:
+
+```javascript
+getAudio() {
+  this.audio = new Audio(new URL(`../assets/audio/${this.active_id}.mp3`, import.meta.url).href)
+},
+```
+
+You can start playing with `this.audio.play()`, and stop with
+`this.audio.pause()`.
+
 # [Run function in background](https://renatello.com/vue-js-polling-using-setinterval/)
 
 To achieve that you need to use [the javascript method called

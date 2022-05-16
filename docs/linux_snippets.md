@@ -4,6 +4,12 @@ date: 20200826
 author: Lyz
 ---
 
+# [Create QR code](https://www.linux-magazine.com/Online/Features/Generating-QR-Codes-in-Linux)
+
+```bash
+qrencode -o qrcode.png 'Hello World!'
+```
+
 # [Trim silences of sound files](https://digitalcardboard.com/blog/2009/08/25/the-sox-of-silence/)
 
 To trim all silence longer than 2 seconds down to only 2 seconds long.

@@ -761,6 +761,10 @@ addopts = "-vv --tb=short -n auto"
 Implement a `serial` fixture with a session-scoped file `lock` fixture using the
 `filelock` package. You can add this to your `conftest.py`:
 
+```bash
+pip install filelock
+```
+
 ```python
 import contextlib
 import os

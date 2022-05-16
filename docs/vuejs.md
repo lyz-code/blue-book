@@ -1938,6 +1938,179 @@ For more information read:
 * [Axios vs. fetch(): Which is best for making HTTP requests? by Faraz
     Kelhini](https://blog.logrocket.com/axios-vs-fetch-best-http-requests/)
 
+## [Vue Router](https://router.vuejs.org/guide/)
+
+Creating a Single-page Application with Vue + Vue Router feels natural, all we
+need to do is map our components to the routes and let Vue Router know where to
+render them. Here's a basic example:
+
+```html
+<script src="https://unpkg.com/vue@3"></script>
+<script src="https://unpkg.com/vue-router@4"></script>
+
+<div id="app">
+  <h1>Hello App!</h1>
+  <p>
+    <!-- use the router-link component for navigation. -->
+    <!-- specify the link by passing the `to` prop. -->
+    <!-- `<router-link>` will render an `<a>` tag with the correct `href` attribute -->
+    <router-link to="/">Go to Home</router-link>
+    <router-link to="/about">Go to About</router-link>
+  </p>
+  <!-- route outlet -->
+  <!-- component matched by the route will render here -->
+  <router-view></router-view>
+</div>
+```
+
+Note how instead of using regular `a` tags, we use a custom component
+`router-link` to create links. This allows Vue Router to change the URL without reloading the
+page, handle URL generation as well as its encoding.
+
+`router-view` will display the component that corresponds to the url. You can
+put it anywhere to adapt it to your layout.
+
+```javascript
+// 1. Define route components.
+// These can be imported from other files
+const Home = { template: '<div>Home</div>' }
+const About = { template: '<div>About</div>' }
+
+// 2. Define some routes
+// Each route should map to a component.
+// We'll talk about nested routes later.
+const routes = [
+  { path: '/', component: Home },
+  { path: '/about', component: About },
+]
+
+// 3. Create the router instance and pass the `routes` option
+// You can pass in additional options here, but let's
+// keep it simple for now.
+const router = VueRouter.createRouter({
+  // 4. Provide the history implementation to use. We are using the hash history for simplicity here.
+  history: VueRouter.createWebHashHistory(),
+  routes, // short for `routes: routes`
+})
+
+// 5. Create and mount the root instance.
+const app = Vue.createApp({})
+// Make sure to _use_ the router instance to make the
+// whole app router-aware.
+app.use(router)
+
+app.mount('#app')
+
+// Now the app has started!
+```
+
+By calling `app.use(router)`, we get access to it as `this.$router` as well as
+the current route as `this.$route` inside of any component:
+
+```vue
+// Home.vue
+export default {
+  computed: {
+    username() {
+      // We will see what `params` is shortly
+      return this.$route.params.username
+    },
+  },
+  methods: {
+    goToDashboard() {
+      if (isAuthenticated) {
+        this.$router.push('/dashboard')
+      } else {
+        this.$router.push('/login')
+      }
+    },
+  },
+}
+```
+
+To access the router or the route inside the `setup` function, call the
+`useRouter` or `useRoute` functions.
+
+### [Dynamic route matching with params](https://router.vuejs.org/guide/essentials/dynamic-matching.html)
+
+Very often we will need to map routes with the given pattern to the same
+component. For example we may have a User component which should be rendered for
+all users but with different user IDs. In Vue Router we can use a dynamic
+segment in the path to achieve that, we call that a `param`:
+
+```javascript
+const User = {
+  template: '<div>User</div>',
+}
+
+// these are passed to `createRouter`
+const routes = [
+  // dynamic segments start with a colon
+  { path: '/users/:id', component: User },
+]
+```
+
+Now URLs like `/users/johnny` and `/users/jolyne` will both map to the same
+route.
+
+A `param` is denoted by a colon `:.` When a route is matched, the value of its
+params will be exposed as `this.$route.params` in every component. Therefore, we
+can render the current user ID by updating User's template to this:
+
+```html
+const User = {
+  template: '<div>User {{ $route.params.id }}</div>',
+}
+```
+
+You can have multiple `params` in the same route, and they will map to
+corresponding fields on `$route.params`. Examples:
+
+| pattern                        | matched path             | $route.params                          |
+| ---                            | ---                      | ---                                    |
+| /users/:username               | /users/eduardo           | { username: 'eduardo' }                |
+| /users/:username/posts/:postId | /users/eduardo/posts/123 | { username: 'eduardo', postId: '123' } |
+
+In addition to `$route.params`, the `$route` object also exposes other useful
+information such as `$route.query` (if there is a query in the URL),
+`$route.hash`, etc.
+
+#### Reacting to params changes
+
+One thing to note when using routes with params is that when the user navigates
+from `/users/johnny` to `/users/jolyne`, the same component instance will be reused.
+Since both routes render the same component, this is more efficient than
+destroying the old instance and then creating a new one. However, this also
+means that the lifecycle hooks of the component will not be called.
+
+To react to `params` changes in the same component, you can simply `watch`
+anything on the `$route` object, in this scenario, the `$route.params`:
+
+```javascript
+const User = {
+  template: '...',
+  created() {
+    this.$watch(
+      () => this.$route.params,
+      (toParams, previousParams) => {
+        // react to route changes...
+      }
+    )
+  },
+}
+```
+
+Or, use the `beforeRouteUpdate` navigation guard, which also allows to cancel the navigation:
+
+```javascript
+const User = {
+  template: '...',
+  async beforeRouteUpdate(to, from) {
+    // react to route changes...
+    this.userData = await fetchUser(to.params.id)
+  },
+}
+```
 
 # [Components](https://vuejs.org/guide/essentials/component-basics.html)
 
@@ -2985,6 +3158,100 @@ And run `docker run -it -p 80:80 --env-file=.env.production.local --rm my-app`,
 you'll see the values of the production variables. You can also pass the
 variables directly with `-e VITE_APP_VARIABLE_1="Overriden variable"`.
 
+## [Deploy static site on github pages](https://github.com/sitek94/vite-deploy-demo)
+
+Sites in Github pages have the url structure of
+`https://github_user.github.io/repo_name/` we need to tell vite that the base
+url is `/repo_name/`, otherwise the application will try to load the assets in
+`https://github_user.github.io/assets/` instead of
+`https://github_user.github.io/rpeo_name/assets/`.
+
+To change it, add in the `vite.config.js` file:
+
+```javascript
+export default defineConfig({
+  base: '/repo_name/'
+})
+```
+
+Now you need to configure the deployment workflow, to do so, create a new file:
+`.github/workflows/deploy.yml` and paste the following code:
+
+```yaml
+---
+name: Deploy
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16
+
+      - name: Install dependencies
+        uses: bahmutov/npm-install@v1
+
+      - name: Build project
+        run: npm run build
+
+      - name: Upload production-ready build files
+        uses: actions/upload-artifact@v2
+        with:
+          name: production-files
+          path: ./dist
+
+  deploy:
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: production-files
+          path: ./dist
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+```
+
+You'd probably need to change your repository settings under *Actions/General*
+and set the *Workflow permissions* to *Read and write permissions*.
+
+Once the workflow has been successful, in the repository settings under *Pages*
+you need to enable Github Pages to use the `gh-pages` branch as source.
+
+### [Tip Handling Vue Router with a Custom 404 Page](https://learnvue.co/2020/09/how-to-deploy-your-vue-app-to-github-pages/#tip-handling-vue-router-with-a-custom-404-page)
+
+One thing to keep in mind when setting up the Github Pages site, is that working with Vue Router gets a little tricky.
+
+If you’re using history mode in Vue router, you’ll notice that if you try to go
+directly to a page other than `/` you’ll get a 404 error. This is because Github
+Pages does not automatically redirect all requests to serve `index.html`.
+
+Luckily, there is an easy little workaround. All you have to do is duplicate
+your `index.html` file and name the copy `404.html`.
+
+What this does is make your 404 page serve the same content as your
+`index.html`, which means your Vue router will be able to display the right
+page.
+
 # Troubleshooting
 
 ## Failed to resolve component: X
@@ -3003,6 +3270,7 @@ export default {
 
 # References
 
+* [Docs](https://vuejs.org/guide/introduction.html)
 * [Homepage](https://vuejs.org)
 * [Tutorial](https://vuejs.org/tutorial/#step-1)
 * [Examples](https://vuejs.org/examples/#hello-world)

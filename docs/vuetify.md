@@ -491,6 +491,10 @@ hidden, the rest would move around to fill up the remaining space.
 
 # Elements
 
+## [Buttons](https://next.vuetifyjs.com/en/api/v-btn/)
+
+The `sizes` can be: `x-small`, `small`, `default`, `large`, `x-large`.
+
 ## Illustrations
 
 You can get nice illustrations for your web on [Drawkit](https://drawkit.com),
@@ -570,7 +574,6 @@ instead you can install the fonts directly. For example for the Roboto font:
     </style>
     ```
 
-
 # Testing
 
 I tried doing component tests with Jest, [Vitest](vitest.md) and [Cypress](cypress.md) and found no
@@ -581,6 +584,7 @@ this is solved.
 
 # References
 
+* [Docs](https://vuetifyjs.com/en/getting-started/installation/)
 * [Home](https://vuetifyjs.com/en/)
 * [Git](https://github.com/vuetifyjs/vuetify)
 * [Discord](https://community.vuetifyjs.com/)
