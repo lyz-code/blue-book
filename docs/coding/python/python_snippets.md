@@ -4,6 +4,12 @@ date: 20200717
 author: Lyz
 ---
 
+# [How to extend a dictionary](https://stackoverflow.com/questions/577234/python-extend-for-a-dictionary)
+
+```python
+a.update(b)
+```
+
 # [How to Find Duplicates in a List in Python](https://datagy.io/python-list-duplicates/)
 
 ```python
