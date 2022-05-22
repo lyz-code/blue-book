@@ -159,7 +159,7 @@ summary = "Internationalized Domain Names in Applications (IDNA)"
 
 [[package]]
 name = "importlib-metadata"
-version = "4.11.3"
+version = "4.11.4"
 requires_python = ">=3.7"
 summary = "Read metadata from Python packages"
 dependencies = [
@@ -765,9 +765,9 @@ content_hash = "sha256:a9d5ca5f0c7340f7fde779be2c17717d84bcc0008f4b9c9f717926723
     {file = "idna-3.3-py3-none-any.whl", hash = "sha256:84d9dd047ffa80596e0f246e2eab0b391788b0503584e8945f2368256d2735ff"},
     {file = "idna-3.3.tar.gz", hash = "sha256:9d643ff0a55b762d5cdb124b8eaa99c66322e2157b69160bc32796e824360e6d"},
 ]
-"importlib-metadata 4.11.3" = [
-    {file = "importlib_metadata-4.11.3-py3-none-any.whl", hash = "sha256:1208431ca90a8cca1a6b8af391bb53c1a2db74e5d1cef6ddced95d4b2062edc6"},
-    {file = "importlib_metadata-4.11.3.tar.gz", hash = "sha256:ea4c597ebf37142f827b8f39299579e31685c31d3a438b59f469406afd0f2539"},
+"importlib-metadata 4.11.4" = [
+    {file = "importlib_metadata-4.11.4-py3-none-any.whl", hash = "sha256:c58c8eb8a762858f49e18436ff552e83914778e50e9d2f1660535ffb364552ec"},
+    {file = "importlib_metadata-4.11.4.tar.gz", hash = "sha256:5d26852efe48c0a32b0509ffbc583fda1a2266545a78d104a6f4aff3db17d700"},
 ]
 "invoke 1.7.1" = [
     {file = "invoke-1.7.1-py3-none-any.whl", hash = "sha256:2dc975b4f92be0c0a174ad2d063010c8a1fdb5e9389d69871001118b4fcac4fb"},
