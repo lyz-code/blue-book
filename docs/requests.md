@@ -74,7 +74,6 @@ s.headers.update({'x-test': 'true'})
 s.get('https://httpbin.org/headers', headers={'x-test2': 'true'})
 ```
 
-
 # References
 
 * [Docs](https://requests.readthedocs.io)

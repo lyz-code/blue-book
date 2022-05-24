@@ -105,6 +105,7 @@ nav:
           - Libraries:
               - Alembic: coding/python/alembic.md
               - asyncio: asyncio.md
+              - BeautifulSoup: beautifulsoup.md
               - Boto3: boto3.md
               - Click: coding/python/click.md
               - Dash: coding/python/dash.md

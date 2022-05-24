@@ -164,6 +164,27 @@ Here’s a rundown of each scope value:
 * `scope='module'`: Run once per module, regardless of how many test functions or methods or other fixtures in the module use it.
 * `scope='session'` Run once per session. All test methods and functions using a fixture of session scope share one setup and teardown call.
 
+## [Using fixtures at class level](https://docs.pytest.org/en/7.1.x/how-to/fixtures.html#use-fixtures-in-classes-and-modules-with-usefixtures)
+
+Sometimes test functions do not directly need access to a fixture object. For
+example, tests may require to operate with an empty directory as the current
+working directory but otherwise do not care for the concrete directory.
+
+```python
+@pytest.mark.usefixtures("cleandir")
+class TestDirectoryInit:
+    ...
+```
+Due to the `usefixtures` marker, the `cleandir` fixture will be required for the
+execution of each test method, just as if you specified a `cleandir` function
+argument to each of them.
+
+You can specify multiple fixtures like this:
+
+```python
+@pytest.mark.usefixtures("cleandir", "anotherfixture")
+```
+
 ## Useful Fixtures
 
 ### [The tmpdir fixture](https://docs.pytest.org/en/stable/tmpdir.html)
@@ -770,20 +791,27 @@ import contextlib
 import os
 
 import filelock
+import pytest
+from filelock import BaseFileLock
 
-
-@pytest.fixture(scope='session')
-def lock(tmp_path_factory):
+@pytest.fixture(name="lock", scope="session")
+def lock_(
+    tmp_path_factory: pytest.TempPathFactory,
+) -> Generator[BaseFileLock, None, None]:
+    """Create lock file."""
     base_temp = tmp_path_factory.getbasetemp()
-    lock_file = base_temp.parent / 'serial.lock'
-    yield filelock.FileLock(lock_file=str(lock_file))
+    lock_file = base_temp.parent / "serial.lock"
+
+    yield FileLock(lock_file=str(lock_file))
+
     with contextlib.suppress(OSError):
         os.remove(path=lock_file)
 
 
-@pytest.fixture()
-def serial(lock):
-    with lock.acquire(poll_intervall=0.1):
+@pytest.fixture(name="serial")
+def _serial(lock: BaseFileLock) -> Generator[None, None, None]:
+    """Fixture to run tests in serial."""
+    with lock.acquire(poll_interval=0.1):
         yield
 ```
 

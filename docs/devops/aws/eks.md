@@ -9,6 +9,30 @@ EKS)](https://docs.aws.amazon.com/eks/latest/userguide/what-is-eks.html) is
 a managed service that makes it easy for you to run [Kubernetes](kubernetes.md) on AWS without
 needing to stand up or maintain your own Kubernetes control plane.
 
+# [Pod limit per node](https://www.linkedin.com/pulse/aws-eks-maximum-number-pods-per-ec2-node-instance-george-tsopouridis)
+
+AWS EKS supports native VPC networking with the Amazon VPC Container Network
+Interface (CNI) plugin for Kubernetes. Using this plugin allows Kubernetes Pods
+to have the same IP address inside the pod as they do on the VPC network.
+
+This is a great feature but it introduces a limitation in the number of Pods per
+EC2 Node instance. Whenever you deploy a Pod in the EKS worker Node, EKS creates
+a new IP address from VPC subnet and attach to the instance.
+
+The formula for defining the maximum number of pods per instance is as follows:
+
+```
+N * (M-1) + 2
+```
+
+Where:
+
+* `N` is the number of Elastic Network Interfaces (ENI) of the instance type.
+* `M` is the number of IP addresses of a single ENI.
+
+So, for `t3.small`, this calculation is `3 * (4-1) + 2 = 11`. For a list of all
+the instance types and their limits see [this document](https://github.com/awslabs/amazon-eks-ami/blob/master/files/eni-max-pods.txt)
+
 # [Upgrade an EKS cluster](https://docs.aws.amazon.com/eks/latest/userguide/update-cluster.html)
 
 New Kubernetes versions introduce significant changes, so it's recommended that

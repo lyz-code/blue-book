@@ -15,6 +15,8 @@ markup (via LaTeX), the possibilities are endless.
 
 # Interacting with python
 
+## Configuration
+
 Although there are some python libraries:
 
 * [genanki](https://github.com/kerrickstaley/genanki)
@@ -36,12 +38,88 @@ be able to use Anki-Connect. You can verify that Anki-Connect is running at any
 time by accessing `localhost:8765` in your browser. If the server is running, you
 will see the message Anki-Connect displayed in your browser window.
 
-## Get all decks
+## Usage
 
-Curl:
+Every request consists of a JSON-encoded object containing an `action`,
+a `version`, contextual `params`, and a `key` value used for authentication (which is optional
+and can be omitted by default). Anki-Connect will respond with an object
+containing two fields: `result` and `error`. The `result` field contains the return
+value of the executed API, and the `error` field is a description of any exception
+thrown during API execution (the value `null` is used if execution completed
+successfully).
+
+Sample successful response:
+
+```json
+{"result": ["Default", "Filtered Deck 1"], "error": null}
+```
+
+Samples of failed responses:
+
+```json
+{"result": null, "error": "unsupported action"}
+
+{"result": null, "error": "guiBrowse() got an unexpected keyword argument 'foobar'"}
+```
+
+For compatibility with clients designed to work with older versions of
+Anki-Connect, failing to provide a version field in the request will make the
+version default to 4.
+
+To make the interaction with the API easier, I'm using the next adapter:
+
+```python
+class Anki:
+    """Define the Anki adapter."""
+
+    def __init__(self, url: str = "http://localhost:8765") -> None:
+        """Initialize the adapter."""
+        self.url = url
+
+    def requests(
+        self, action: str, params: Optional[Dict[str, str]] = None
+    ) -> Response:
+        """Do a request to the server."""
+        if params is None:
+            params = {}
+
+        response = requests.post(
+            self.url, json={"action": action, "params": params, "version": 6}
+        ).json()
+        if len(response) != 2:
+            raise Exception("response has an unexpected number of fields")
+        if "error" not in response:
+            raise Exception("response is missing required error field")
+        if "result" not in response:
+            raise Exception("response is missing required result field")
+        if response["error"] is not None:
+            raise Exception(response["error"])
+        return response["result"]
+```
+
+You can find the full adapter in the [fala](https://github.com/lyz-code/fala)
+project.
+
+### Decks
+
+#### Get all decks
+
+With the adapter:
+
+```python
+self.requests("deckNames")
+```
+
+Or with `curl`:
 
 ```bash
 curl localhost:8765 -X POST -d '{"action": "deckNames", "version": 6}'
+```
+
+#### Create a new deck
+
+```python
+self.requests("createDeck", {"deck": deck})
 ```
 
 # References

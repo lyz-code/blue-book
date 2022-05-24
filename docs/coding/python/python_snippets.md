@@ -4,6 +4,12 @@ date: 20200717
 author: Lyz
 ---
 
+# [How to close a subprocess process](https://stackoverflow.com/questions/62172227/how-to-close-subprocess-in-python)
+
+```python
+subprocess.terminate()
+```
+
 # [How to extend a dictionary](https://stackoverflow.com/questions/577234/python-extend-for-a-dictionary)
 
 ```python

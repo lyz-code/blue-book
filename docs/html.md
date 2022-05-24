@@ -658,6 +658,13 @@ screens and stacked vertically on small screens:
 * Set the character encoding: `<meta charset="UTF-8">`
 * [Set the viewport](#setting-the-viewport).
 
+# Tips
+
+## HTML beautifier
+
+If you encounter html code that it's not well indented  you can use [html
+beautify](https://htmlbeautify.com).
+
 # References
 
 * [W3 tutorial](https://www.w3schools.com/html/default.asp)
