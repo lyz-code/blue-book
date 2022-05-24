@@ -11,7 +11,7 @@
     <managingEditor>Lyz</managingEditor>
 
     
-    <pubDate>2022-05-23 06:45:25+00:00</pubDate>
+    <pubDate>2022-05-23 06:47:38+00:00</pubDate>
     <ttl>10080</ttl>
 
     
@@ -33,9 +33,9 @@
 &lt;span class=&#34;p&#34;&gt;},&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt; &lt;p&gt;You can start playing with &lt;code&gt;this.audio.play()&lt;/code&gt;, and stop with &lt;code&gt;this.audio.pause()&lt;/code&gt;.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;New: &lt;a href=&#34;https://lyz-code.github.io/blue-book/vuejs/#vue-router&#34;&gt;Vue Router.&lt;/a&gt;&lt;/p&gt; &lt;p&gt;Creating a Single-page Application with Vue + Vue Router feels natural, all we need to do is map our components to the routes and let Vue Router know where to render them.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;New: &lt;a href=&#34;https://lyz-code.github.io/blue-book/vuejs/#deploy-static-site-on-github-pages&#34;&gt;Deploy static site on github pages.&lt;/a&gt;&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;h3 id=&#34;python&#34;&gt;Python&lt;/h3&gt; &lt;h4 id=&#34;python-snippets&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/coding/python/python_snippets/&#34;&gt;Python Snippets&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;New: &lt;a href=&#34;https://lyz-code.github.io/blue-book/coding/python/python_snippets/#how-to-extend-a-dictionary&#34;&gt;How to extend a dictionary.&lt;/a&gt;&lt;/p&gt; &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;update&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt; &lt;/li&gt; &lt;/ul&gt; &lt;h2 id=&#34;operating-systems&#34;&gt;Operating Systems&lt;/h2&gt; &lt;h3 id=&#34;linux&#34;&gt;Linux&lt;/h3&gt; &lt;h4 id=&#34;linux-snippets&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/linux_snippets/&#34;&gt;Linux Snippets&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;New: &lt;a href=&#34;https://lyz-code.github.io/blue-book/linux_snippets/#create-qr-code&#34;&gt;Create QR code.&lt;/a&gt;&lt;/p&gt; &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;qrencode -o qrcode.png &lt;span class=&#34;s1&#34;&gt;&#39;Hello World!&#39;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt; &lt;/li&gt; &lt;/ul&gt; &lt;hr/&gt; &lt;div class=&#34;md-source-file&#34;&gt; &lt;small&gt; Last update: &lt;span class=&#34;git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago&#34;&gt;&lt;span class=&#34;timeago&#34; datetime=&#34;2022-05-23T06:45:25+00:00&#34; locale=&#34;en&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date&#34;&gt;2022-05-23&lt;/span&gt; &lt;/small&gt; &lt;/div&gt; &lt;/article&gt;</description>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt; &lt;/li&gt; &lt;/ul&gt; &lt;hr/&gt; &lt;div class=&#34;md-source-file&#34;&gt; &lt;small&gt; Last update: &lt;span class=&#34;git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago&#34;&gt;&lt;span class=&#34;timeago&#34; datetime=&#34;2022-05-23T06:47:38+00:00&#34; locale=&#34;en&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date&#34;&gt;2022-05-23&lt;/span&gt; &lt;/small&gt; &lt;/div&gt; &lt;/article&gt;</description>
       <link>https://lyz-code.github.io/blue-book/newsletter/2022_w20/</link>
-      <pubDate>2022-05-23 06:45:25+00:00</pubDate>
+      <pubDate>2022-05-23 06:47:38+00:00</pubDate>
       <source url="https://lyz-code.github.io/blue-book/weekly.xml">The Blue Book</source>
       <guid isPermaLink="true">https://lyz-code.github.io/blue-book/newsletter/2022_w20/</guid>
       
