@@ -409,7 +409,7 @@ dependencies = [
 
 [[package]]
 name = "python-semantic-release"
-version = "7.28.1"
+version = "7.29.0"
 summary = "Automatic Semantic Versioning for Python projects"
 dependencies = [
     "click-log<1,>=0.3",
@@ -947,9 +947,9 @@ content_hash = "sha256:a9d5ca5f0c7340f7fde779be2c17717d84bcc0008f4b9c9f717926723
     {file = "python_gitlab-3.4.0-py3-none-any.whl", hash = "sha256:251b63f0589d51f854516948c84e9eb8df26e1e9dea595cf86b43f17c43007dd"},
     {file = "python-gitlab-3.4.0.tar.gz", hash = "sha256:6180b81ee2f265ad8d8412956a1740b4d3ceca7b28ae2f707dfe62375fed0082"},
 ]
-"python-semantic-release 7.28.1" = [
-    {file = "python_semantic_release-7.28.1-py3-none-any.whl", hash = "sha256:319c3e811d6e10bc3f0e967419eae0e5e9ba1e6745aa2fd94dd24e3995541ca2"},
-    {file = "python-semantic-release-7.28.1.tar.gz", hash = "sha256:d7f82b3d4c06b304d07689b8a1c7d0d448ff07c2ab81cd810c4f2f900f24c599"},
+"python-semantic-release 7.29.0" = [
+    {file = "python_semantic_release-7.29.0-py3-none-any.whl", hash = "sha256:c8f45390caaa1c32886bd0af498bdbf4c5d6c8b8c947d67fce821f1689c132b1"},
+    {file = "python-semantic-release-7.29.0.tar.gz", hash = "sha256:63bc4f92e23442b87df87ca98a8b585efaa15bd4bd7a2caf028452cc01acda8f"},
 ]
 "pytz 2022.1" = [
     {file = "pytz-2022.1-py2.py3-none-any.whl", hash = "sha256:e68985985296d9a66a881eb3193b0906246245294a881e7c8afe623866ac6a5c"},
