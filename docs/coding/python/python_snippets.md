@@ -4,6 +4,52 @@ date: 20200717
 author: Lyz
 ---
 
+# [Define a property of a class](https://stackoverflow.com/questions/128573/using-property-on-classmethods/64738850#64738850)
+
+If you're using Python 3.9 or above you can directly use the decorators:
+
+```python
+class G:
+    @classmethod
+    @property
+    def __doc__(cls):
+        return f'A doc for {cls.__name__!r}'
+```
+
+If you're not, you can define the decorator `classproperty`:
+
+```python
+# N801: class name 'classproperty' should use CapWords convention, but it's a decorator.
+# C0103: Class name "classproperty" doesn't conform to PascalCase naming style but it's
+# a decorator.
+class classproperty:  # noqa: N801, C0103
+    """Define a class property.
+
+    From Python 3.9 you can directly use the decorators directly.
+
+    class G:
+        @classmethod
+        @property
+        def __doc__(cls):
+            return f'A doc for {cls.__name__!r}'
+    """
+
+    def __init__(self, function: Callable[..., Any]) -> None:
+        """Initialize the decorator."""
+        self.function = function
+
+    # ANN401: Any not allowed in typings, but I don't know how to narrow the hints in
+    # this case.
+    def __get__(self, owner_self: Any, owner_cls: Any) -> Any:  # noqa: ANN401
+        """Return the desired value."""
+        return self.function(owner_self)
+```
+
+But you'll run into the `W0143: Comparing against a callable, did you omit the
+parenthesis? (comparison-with-callable)` mypy error when using it to compare the
+result of the property with anything, as it doesn't detect it's a property
+instead of a method.
+
 # [How to close a subprocess process](https://stackoverflow.com/questions/62172227/how-to-close-subprocess-in-python)
 
 ```python
