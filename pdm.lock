@@ -198,7 +198,7 @@ requires_python = ">=3.7"
 summary = "Store and access your passwords safely."
 dependencies = [
     "SecretStorage>=3.2; sys_platform == \"linux\"",
-    "importlib-metadata>=3.6",
+    "importlib-metadata>=3.6; python_version < \"3.10\"",
     "jeepney>=0.4.2; sys_platform == \"linux\"",
     "pywin32-ctypes!=0.1.0,!=0.1.1; sys_platform == \"win32\"",
 ]
@@ -339,6 +339,7 @@ dependencies = [
 [[package]]
 name = "pkginfo"
 version = "1.8.2"
+requires_python = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, !=3.5.*"
 summary = "Query metadatdata from sdists / bdists / installed packages."
 
 [[package]]
