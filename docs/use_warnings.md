@@ -100,7 +100,12 @@ class MyClass:
         # my_method code goes here
 ```
 
-You can add an argument `deprecate_my_method` that defaults to `False`.
+You can add an argument `deprecate_my_method` that defaults to `False`, or you
+can take the chance to change the signature of the function, so that if the user
+is using the old argument, it uses the old behaviour and gets the warning, and
+if it's using the new argument, it uses the new. The advantage of changing the
+signature is that you don't need to do another deprecation for the temporal
+argument flag.
 
 ```python
 class MyClass:

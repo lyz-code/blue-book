@@ -130,7 +130,27 @@ ensures any improvement to the template is always submitted upstream.
 ## Error: Unable to interpret changes between current project and cookiecutter template as unicode.
 
 Typically a result of hidden binary files in project folder. Maybe you have
-a hook that initializes the `.git` directory, don't do that.
+a hook that initializes the `.git` directory. Since `2.10.0` you can add
+a `skip` category inside the `.cruft.json`, so that it doesn't check that
+directory:
+
+```json
+{
+  "template": "xxx",
+  "commit": "xxx",
+  "checkout": null,
+  "context": {
+    "cookiecutter": {
+       ...
+    }
+  },
+  "directory": null,
+  "skip": [
+    ".git"
+  ]
+}
+```
+
 
 # References
 

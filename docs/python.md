@@ -45,6 +45,7 @@ apt-get install python
 * [schedule](https://github.com/dbader/schedule): Python job scheduling for
     humans. Run Python functions (or any other callable) periodically using
     a friendly syntax.
+* [huey](https://github.com/coleifer/huey): a little task queue for python.
 * [textual](https://github.com/willmcgugan/textual): Textual is a TUI (Text User
     Interface) framework for Python using Rich as a renderer.
 * [parso](https://github.com/davidhalter/parso): Parses Python code.

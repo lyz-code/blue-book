@@ -101,6 +101,8 @@ the next steps in order so as not to break production.
     It will show you all the changed lines with the 20 previous and next ones.
 * Once you agree on them, run `helmfile --environment=staging apply` to apply
     them.
+* Check that all the helm deployments are well deployed with `helm list -A
+    | grep -v deployed`
 * Wait 20 minutes to see if the monitoring system or your fellow partners start
     yelling at you.
 * If something breaks up, try to fix it up, if you see it's going to delay you
@@ -110,11 +112,14 @@ the next steps in order so as not to break production.
     the last of the steps of this *long* process, the team is blocked by you.
     So prioritize to commit the next stable version to the version control
     repository.
-* Once you've checked that all the desired upgrades are working, run `helmfile
+* Once you've checked that all the desired upgrades are working, change the
+    context to the production cluster and run `helmfile
     --environment=production diff`. This review should be quick, as it should be
     the same as the *staging* one.
 * Now upgrade the production environment with `helmfile --environment=production
     apply`.
+* Check that all the helm deployments are well deployed with `helm list -A
+    | grep -v deployed`
 * Wait another 20 minutes and check that everything is working.
 * Make a commit with the new lockfile and upload it to the version control repository.
 
@@ -548,6 +553,21 @@ to use `helm delete --purge {{ release-name }}` and then `apply` again.
 
 I had this issue if `verify: true` in the helmfile.yaml file. Comment it or set
 it to false.
+
+## Cannot patch X field is immutable
+
+You may think that deleting the resource, usually a deployment or daemonset will
+fix it, but `helmfile apply` will end without any error, the resource won't be recreated
+, and if you do a `helm list`, the deployment will be marked as failed.
+
+The solution we've found is disabling the resource in the chart's values so that
+it's uninstalled an install it again.
+
+This can be a problem with the resources that have persistence. To patch it,
+edit the volume resource with `kubectl edit pv -n namespace volume_pvc`, change
+the `persistentVolumeReclaimPolicy` to `Retain`, apply the changes to uninstall,
+and when reinstalling configure the chart to use that volume (easier said than
+done).
 
 # Links
 
