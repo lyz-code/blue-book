@@ -14,7 +14,9 @@ pip install feedparser
 
 # Basic Usage
 
-## [Parse a feed from a remote URL](https://pythonhosted.org/feedparser/introduction.html#parsing-a-feed-from-a-remote-url)
+## Parsing content
+
+### [Parse a feed from a remote URL](https://pythonhosted.org/feedparser/introduction.html#parsing-a-feed-from-a-remote-url)
 
 ```python
 >>> import feedparser
@@ -22,6 +24,21 @@ pip install feedparser
 >>> d['feed']['title']
 u'Sample Feed'
 ```
+
+### [Parse a feed from a string](https://pythonhosted.org/feedparser/introduction.html#parsing-a-feed-from-a-string)
+
+```python
+>>> import feedparser
+>>> rawdata = """<rss version="2.0">
+<channel>
+<title>Sample Feed</title>
+</channel>
+</rss>"""
+>>> d = feedparser.parse(rawdata)
+>>> d['feed']['title']
+u'Sample Feed'
+```
+
 
 ## Access common elements
 

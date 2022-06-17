@@ -468,6 +468,8 @@ theme:
     - navigation.instant
     - navigation.top
     - content.code.annotate
+    - search.suggest
+    - search.highlight
 
   palette:
     # Light mode

@@ -32,6 +32,62 @@ apt-get install python
     sudo make altinstall
     ```
 
+# [Generators](https://realpython.com/introduction-to-python-generators/)
+
+Generator functions are a special kind of function that return a lazy iterator.
+These are objects that you can loop over like a list. However, unlike lists,
+lazy iterators do not store their contents in memory.
+
+An example would be an infinite sequence generator
+
+```python
+def infinite_sequence():
+    num = 0
+    while True:
+        yield num
+        num += 1
+```
+
+You can use it as a list:
+
+```python
+for i in infinite_sequence():
+...     print(i, end=" ")
+...
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29
+30 31 32 33 34 35 36 37 38 39 40 41 42
+[...]
+```
+
+Instead of using a `for` loop, you can also call `next()` on the generator object
+directly. This is especially useful for testing a generator in the console:.
+
+```python
+>>> gen = infinite_sequence()
+>>> next(gen)
+0
+>>> next(gen)
+1
+>>> next(gen)
+2
+>>> next(gen)
+3
+```
+
+## [Understanding Generators](https://realpython.com/introduction-to-python-generators/#understanding-generators)
+
+Generator functions look and act just like regular functions, but with one
+defining characteristic. Generator functions use the Python `yield` keyword
+instead of `return`.
+
+`yield` indicates where a value is sent back to the caller, but unlike `return`,
+you don’t exit the function afterward.Instead, the state of the function is
+remembered. That way, when `next()` is called on a generator object (either
+explicitly or implicitly within a for loop), the previously yielded variable
+`num` is incremented, and then yielded again.
+
+
+
 # Interesting libraries to explore
 
 * [di](https://www.adriangb.com/di/0.36.0/): a modern dependency injection

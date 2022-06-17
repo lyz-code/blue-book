@@ -4,6 +4,22 @@ date: 20200717
 author: Lyz
 ---
 
+# [Fix SIM113 Use enumerate](https://github.com/MartinThoma/flake8-simplify/issues/18)
+
+Use `enumerate` to get a running number over an iterable.
+
+```python
+# Bad
+idx = 0
+for el in iterable:
+    ...
+    idx += 1
+
+# Good
+for idx, el in enumerate(iterable):
+    ...
+```
+
 # [Define a property of a class](https://stackoverflow.com/questions/128573/using-property-on-classmethods/64738850#64738850)
 
 If you're using Python 3.9 or above you can directly use the decorators:

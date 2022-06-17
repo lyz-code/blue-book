@@ -57,7 +57,9 @@ The `boto3` doesn't have any way to sort the outputs of the bucket, you need to
 do them [once you've loaded all the
 objects](https://github.com/boto/boto3/issues/2248) :S.
 
-## Run EC2 instance
+## EC2
+
+### Run EC2 instance
 
 Use the
 [`run_instances`](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Client.run_instances)
@@ -69,6 +71,131 @@ import boto3
 
 ec2 = boto3.client('ec2')
 instance = ec2.run_instances(MinCount=1, MaxCount=1)
+```
+
+### Get instance types
+
+```python
+from pydantic import BaseModel
+import boto3
+
+class InstanceType(BaseModel):
+    """Define model of the instance type.
+
+    Args:
+        id_: instance type name
+        cpu_vcores: Number of virtual cpus (cores * threads)
+        cpu_speed: Sustained clock speed in Ghz
+        ram: RAM memory in MiB
+        network_performance:
+        price: Hourly cost
+    """
+
+    id_: str
+    cpu_vcores: int
+    cpu_speed: Optional[int] = None
+    ram: int
+    network_performance: str
+    price: Optional[float] = None
+
+    @property
+    def cpu(self) -> int:
+        """Calculate the total Ghz available."""
+        if self.cpu_speed is None:
+            return self.cpu_vcores
+        return self.cpu_vcores * self.cpu_speed
+
+
+
+def get_instance_types() -> InstanceTypes:
+    """Get the available instance types."""
+    log.info("Retrieving instance types")
+    instance_types: InstanceTypes = {}
+    for type_ in _ec2_instance_types(cpu_arch="x86_64"):
+        instance = InstanceType(
+            id_=instance_type,
+            cpu_vcores=type_["VCpuInfo"]["DefaultVCpus"],
+            ram=type_["MemoryInfo"]["SizeInMiB"],
+            network_performance=type_["NetworkInfo"]["NetworkPerformance"],
+            price=_ec2_price(instance_type),
+        )
+
+        with suppress(KeyError):
+            instance.cpu_speed = type_["ProcessorInfo"]["SustainedClockSpeedInGhz"]
+
+        instance_types[type_["InstanceType"]] = instance
+
+    return instance_types
+```
+
+
+### [Get instance prices](https://www.saisci.com/aws/how-to-get-the-on-demand-price-of-ec2-instances-using-boto3-and-python/)
+
+```python
+import json
+import boto3
+from pkg_resources import resource_filename
+
+def _ec2_price(
+    instance_type: str,
+    region_code: str = "us-east-1",
+    operating_system: str = "Linux",
+    preinstalled_software: str = "NA",
+    tenancy: str = "Shared",
+    is_byol: bool = False,
+) -> Optional[float]:
+    """Get the price of an EC2 instance type."""
+    log.debug(f"Retrieving price of {instance_type}")
+    region_name = _get_region_name(region_code)
+
+    if is_byol:
+        license_model = "Bring your own license"
+    else:
+        license_model = "No License required"
+
+    if tenancy == "Host":
+        capacity_status = "AllocatedHost"
+    else:
+        capacity_status = "Used"
+
+    filters = [
+        {"Type": "TERM_MATCH", "Field": "termType", "Value": "OnDemand"},
+        {"Type": "TERM_MATCH", "Field": "capacitystatus", "Value": capacity_status},
+        {"Type": "TERM_MATCH", "Field": "location", "Value": region_name},
+        {"Type": "TERM_MATCH", "Field": "instanceType", "Value": instance_type},
+        {"Type": "TERM_MATCH", "Field": "tenancy", "Value": tenancy},
+        {"Type": "TERM_MATCH", "Field": "operatingSystem", "Value": operating_system},
+        {
+            "Type": "TERM_MATCH",
+            "Field": "preInstalledSw",
+            "Value": preinstalled_software,
+        },
+        {"Type": "TERM_MATCH", "Field": "licenseModel", "Value": license_model},
+    ]
+
+    pricing_client = boto3.client("pricing", region_name="us-east-1")
+    response = pricing_client.get_products(ServiceCode="AmazonEC2", Filters=filters)
+
+    for price in response["PriceList"]:
+        price = json.loads(price)
+
+        for on_demand in price["terms"]["OnDemand"].values():
+            for price_dimensions in on_demand["priceDimensions"].values():
+                price_value = price_dimensions["pricePerUnit"]["USD"]
+
+        return float(price_value)
+    return None
+
+
+def _get_region_name(region_code: str) -> str:
+    """Extract the region name from it's code."""
+    endpoint_file = resource_filename("botocore", "data/endpoints.json")
+
+    with open(endpoint_file, "r", encoding="UTF8") as f:
+        endpoint_data = json.load(f)
+
+    region_name = endpoint_data["partitions"][0]["regions"][region_code]["description"]
+    return region_name.replace("Europe", "EU")
 ```
 
 # Type hints

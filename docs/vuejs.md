@@ -3275,6 +3275,9 @@ export default {
 * [Tutorial](https://vuejs.org/tutorial/#step-1)
 * [Examples](https://vuejs.org/examples/#hello-world)
 
+* [Awesome Vue
+    Components](https://next.awesome-vue.js.org/components-and-libraries/ui-components.html)
+
 ## Axios
 
 * [Docs](https://axios-http.com/docs/intro)

@@ -99,7 +99,7 @@ keyword parameters in a list.
 
 ```python
 requests_mock.get(
-    'mock://test.com/4',
+    'https://test.com/4',
     [
         {'text': 'resp1', 'status_code': 300},
         {'text': 'resp2', 'status_code': 200}

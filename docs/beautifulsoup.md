@@ -706,6 +706,33 @@ first_link.find_next_siblings("a")
 To go in the other direction you can use `find_previous_siblings()` and
 `find_previous_sibling()`
 
+## [Modifying the tree](https://beautiful-soup-4.readthedocs.io/en/latest/#modifying-the-tree)
+
+### [`replace_with`](https://beautiful-soup-4.readthedocs.io/en/latest/#replace-with)
+
+`PageElement.replace_with()` removes a tag or string from the tree, and replaces
+it with the tag or string of your choice:
+
+```python
+markup = '<a href="http://example.com/">I linked to <i>example.com</i></a>'
+soup = BeautifulSoup(markup)
+a_tag = soup.a
+
+new_tag = soup.new_tag("b")
+new_tag.string = "example.net"
+a_tag.i.replace_with(new_tag)
+
+a_tag
+# <a href="http://example.com/">I linked to <b>example.net</b></a>
+```
+
+Sometimes it doesn't work. If it doesn't use:
+
+```python
+a_tag.clear()
+a_tag.append(new_tag)
+```
+
 # Tips
 
 ## Show content beautified / prettified

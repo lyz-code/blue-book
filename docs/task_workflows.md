@@ -234,14 +234,16 @@ with bigger tasks that help shape your life in the long run.
 The process of planning and reviewing each of these should be as short as
 possible, otherwise you'll soon get tired of it. For example, for the month plan you can:
 
-* Do the week plan review
+* Do the week plan review: Where you transfer the non planned tasks to the
+    month plan.
 * Do the fortnight plan review
 * Do the month plan review:
     * Check the objectives you had and how many you meet, adding notes on your
         progress.
     * Analyze what to do with the new objectives, adding them to the trimester plan
+    * Transfer the non planned elements to the semester plan.
 * Do the month's planning:
-    * Review the yearly plan if you have it.
+    * Review the semester plan if you have it.
     * Decide which big tasks you want to work on
 * Do the fortnight plan
 * Do the week plan

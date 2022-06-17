@@ -489,7 +489,106 @@ hidden, the rest would move around to fill up the remaining space.
 </v-row>
 ```
 
+## [Themes](https://next.vuetifyjs.com/en/features/theme/)
+
+Vuetify comes with two themes pre-installed, light and dark. To set the default
+theme of your application, use the `defaultTheme` option.
+
+!!! note "File: `src/plugins/vuetify.js`"
+    ```javascript
+    import { createApp } from 'vue'
+    import { createVuetify } from 'vuetify'
+
+    export default createVuetify({
+      theme: {
+        defaultTheme: 'dark'
+      }
+    })
+    ```
+Adding new themes is as easy as defining a new property in the `theme.themes`
+object. A theme is a collection of colors and options that change the overall
+look and feel of your application. One of these options designates the theme as
+being either a light or dark variation. This makes it possible for Vuetify to
+implement Material Design concepts such as elevated surfaces having a lighter
+overlay color the higher up they are.
+
+!!! note "File: `src/plugins/vuetify.js`"
+
+    ```javascript
+    import { createApp } from 'vue'
+    import { createVuetify, ThemeDefinition } from 'vuetify'
+
+    export default createVuetify({
+      theme: {
+        defaultTheme: 'myCustomLightTheme',
+        themes: {
+          myCustomLightTheme: {
+            dark: false,
+            colors: {
+              background: '#FFFFFF',
+              surface: '#FFFFFF',
+              primary: '#510560',
+              'primary-darken-1': '#3700B3',
+              secondary: '#03DAC6',
+              'secondary-darken-1': '#018786',
+              error: '#B00020',
+              info: '#2196F3',
+              success: '#4CAF50',
+              warning: '#FB8C00',
+            }
+          }
+        }
+      }
+    })
+    ```
+
+To dynamically change theme during runtime.
+
+```javascript
+<template>
+  <v-app>
+    <v-btn @click="toggleTheme">toggle theme</v-btn>
+    ...
+  </v-app>
+</template>
+
+<script>
+import { useTheme } from 'vuetify'
+
+export default {
+  setup () {
+    const theme = useTheme()
+
+    return {
+      theme,
+      toggleTheme: () => theme.global.name.value = theme.global.current.value.dark ? 'light' : 'dark'
+    }
+  }
+}
+</script>
+```
+
+Most components support the `theme` prop. When used, a new context is created
+for that specific component and all of its children. In the following example,
+the `v-btn` uses the dark theme applied by its parent `v-card`.
+
+```javascript
+<template>
+  <v-app>
+    <v-card theme="dark">
+      <!-- button uses dark theme -->
+      <v-btn>foo</v-btn>
+    </v-card>
+  </v-app>
+</template>
+```
+
 # Elements
+
+## [Cards](https://next.vuetifyjs.com/en/components/cards/)
+
+The [`v-card`](https://next.vuetifyjs.com/en/api/v-card/) can be used to place
+any kind of text on your site, in this case use the `variant=text`.
 
 ## [Buttons](https://next.vuetifyjs.com/en/api/v-btn/)
 
@@ -573,6 +672,64 @@ instead you can install the fonts directly. For example for the Roboto font:
       @import '../node_modules/typeface-roboto/index.css'
     </style>
     ```
+
+## Carousels
+
+Vuetify has their own
+[carousel](https://dev.vuetifyjs.com/en/components/carousels/#custom-transition)
+component, [here's it's API](https://next.vuetifyjs.com/en/api/v-carousel/). In
+the [Awesome Vue.js
+compilation](https://next.awesome-vue.js.org/components-and-libraries/ui-components.html#carousel)
+there are other suggestions. As some users say, it looks like [Vuetify's doesn't
+have the best responsive
+behaviour](https://stackoverflow.com/questions/67532319/how-do-i-make-vuetify-carousel-images-responsive-especially-on-mobile-screens).
+
+The best looking alternatives I've seen are:
+
+* [vue-agile](#vue-agile):
+    [Demo](https://lukaszflorczak.github.io/vue-agile/).
+* [vue-picture-swipe](https://github.com/rap2hpoutre/vue-picture-swipe)
+* [vue-slick-carousel](https://github.com/gs-shop/vue-slick-carousel):
+    [Demo](https://gs-shop.github.io/vue-slick-carousel/#/example/simple). It
+    doesn't yet support Vue3
+* [swiper](https://github.com/nolimits4web/swiper): [Demo](https://swiperjs.com/demos)
+* [vue-splide](https://github.com/Splidejs/vue-splide): [Demo](https://splidejs.com/)
+
+### Vuetify component
+
+I tried binding the model with `v-model` but when I click on the arrows, the
+image doesn't change and the binded property doesn't change. If I change the
+property with other component, the image does change
+
+### [vue-agile](https://github.com/lukaszflorczak/vue-agile)
+
+If you encounter the `modules have no default` error, [add this to your
+`vite.config.js`](https://github.com/lukaszflorczak/vue-agile/issues/237):
+
+```javascript
+export default defineConfig({
+  ...
+  optimizeDeps: { include: [ 'lodash.throttle', 'lodash.orderby' ] },
+  ...
+})
+```
+
+### Small vertical carousel
+
+If you want to do a vertical carousel for example the one shown in the video
+playlists, you can't yet use
+[`v-slide-group`](https://github.com/vuetifyjs/vuetify/issues/11006).
+[vue-agile](#vue-agile) doesn't either yet have [vertical
+option](https://github.com/lukaszflorczak/vue-agile/issues/96).
+
+## Audio
+
+* [vuejs-sound-player](https://github.com/shershen08/vuejs-sound-player?ref=madewithvuejs.com)
+* [vue-audio-visual](https://github.com/staskobzar/vue-audio-visual): [Demo](https://staskobzar.github.io/vue-audio-visual/)
+* [vue3-audio-player](https://github.com/RealCoolSnow/vue3-audio-player?ref=vuejsexamples.com):
+    [Demo](http://vue3-audio-player.joy666.cn/)
+* [vuetify-audio](https://github.com/wilsonwu/vuetify-audio?ref=madewithvuejs.com):
+    [Demo](https://wilsonwu.github.io/dist/index.html#/vuetifyaudio)
 
 # Testing
 
