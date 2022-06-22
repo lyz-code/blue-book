@@ -71,7 +71,7 @@ summary = "Cross-platform colored terminal text."
 
 [[package]]
 name = "cryptography"
-version = "37.0.2"
+version = "37.0.3"
 requires_python = ">=3.6"
 summary = "cryptography is a package which provides cryptographic recipes and primitives to Python developers."
 dependencies = [
@@ -419,7 +419,7 @@ dependencies = [
 
 [[package]]
 name = "python-semantic-release"
-version = "7.29.1"
+version = "7.29.2"
 summary = "Automatic Semantic Versioning for Python projects"
 dependencies = [
     "click-log<1,>=0.3",
@@ -515,13 +515,13 @@ summary = "Python helper for Semantic Versioning (http://semver.org/)"
 
 [[package]]
 name = "setuptools"
-version = "62.4.0"
+version = "62.6.0"
 requires_python = ">=3.7"
 summary = "Easily download, build, install, upgrade, and uninstall Python packages"
 
 [[package]]
 name = "setuptools-scm"
-version = "6.4.2"
+version = "7.0.1"
 requires_python = ">=3.7"
 summary = "the blessed package to manage your versions by scm tags"
 dependencies = [
@@ -712,29 +712,29 @@ content_hash = "sha256:a0f9e668edb122c5384093dcee6011a6f154efeab678753b258e6cd2a
     {file = "colorama-0.4.5-py2.py3-none-any.whl", hash = "sha256:854bf444933e37f5824ae7bfc1e98d5bce2ebe4160d46b5edf346a89358e99da"},
     {file = "colorama-0.4.5.tar.gz", hash = "sha256:e6c6b4334fc50988a639d9b98aa429a0b57da6e17b9a44f0451f930b6967b7a4"},
 ]
-"cryptography 37.0.2" = [
-    {file = "cryptography-37.0.2-cp36-abi3-macosx_10_10_universal2.whl", hash = "sha256:ef15c2df7656763b4ff20a9bc4381d8352e6640cfeb95c2972c38ef508e75181"},
-    {file = "cryptography-37.0.2-cp36-abi3-macosx_10_10_x86_64.whl", hash = "sha256:3c81599befb4d4f3d7648ed3217e00d21a9341a9a688ecdd615ff72ffbed7336"},
-    {file = "cryptography-37.0.2-cp36-abi3-manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:2bd1096476aaac820426239ab534b636c77d71af66c547b9ddcd76eb9c79e004"},
-    {file = "cryptography-37.0.2-cp36-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.manylinux_2_24_aarch64.whl", hash = "sha256:31fe38d14d2e5f787e0aecef831457da6cec68e0bb09a35835b0b44ae8b988fe"},
-    {file = "cryptography-37.0.2-cp36-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:093cb351031656d3ee2f4fa1be579a8c69c754cf874206be1d4cf3b542042804"},
-    {file = "cryptography-37.0.2-cp36-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:59b281eab51e1b6b6afa525af2bd93c16d49358404f814fe2c2410058623928c"},
-    {file = "cryptography-37.0.2-cp36-abi3-manylinux_2_24_x86_64.whl", hash = "sha256:0cc20f655157d4cfc7bada909dc5cc228211b075ba8407c46467f63597c78178"},
-    {file = "cryptography-37.0.2-cp36-abi3-musllinux_1_1_aarch64.whl", hash = "sha256:f8ec91983e638a9bcd75b39f1396e5c0dc2330cbd9ce4accefe68717e6779e0a"},
-    {file = "cryptography-37.0.2-cp36-abi3-musllinux_1_1_x86_64.whl", hash = "sha256:46f4c544f6557a2fefa7ac8ac7d1b17bf9b647bd20b16decc8fbcab7117fbc15"},
-    {file = "cryptography-37.0.2-cp36-abi3-win32.whl", hash = "sha256:731c8abd27693323b348518ed0e0705713a36d79fdbd969ad968fbef0979a7e0"},
-    {file = "cryptography-37.0.2-cp36-abi3-win_amd64.whl", hash = "sha256:471e0d70201c069f74c837983189949aa0d24bb2d751b57e26e3761f2f782b8d"},
-    {file = "cryptography-37.0.2-pp37-pypy37_pp73-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:a68254dd88021f24a68b613d8c51d5c5e74d735878b9e32cc0adf19d1f10aaf9"},
-    {file = "cryptography-37.0.2-pp37-pypy37_pp73-manylinux_2_24_x86_64.whl", hash = "sha256:a7d5137e556cc0ea418dca6186deabe9129cee318618eb1ffecbd35bee55ddc1"},
-    {file = "cryptography-37.0.2-pp38-pypy38_pp73-macosx_10_10_x86_64.whl", hash = "sha256:aeaba7b5e756ea52c8861c133c596afe93dd716cbcacae23b80bc238202dc023"},
-    {file = "cryptography-37.0.2-pp38-pypy38_pp73-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:95e590dd70642eb2079d280420a888190aa040ad20f19ec8c6e097e38aa29e06"},
-    {file = "cryptography-37.0.2-pp38-pypy38_pp73-manylinux_2_24_x86_64.whl", hash = "sha256:1b9362d34363f2c71b7853f6251219298124aa4cc2075ae2932e64c91a3e2717"},
-    {file = "cryptography-37.0.2-pp38-pypy38_pp73-win_amd64.whl", hash = "sha256:e53258e69874a306fcecb88b7534d61820db8a98655662a3dd2ec7f1afd9132f"},
-    {file = "cryptography-37.0.2-pp39-pypy39_pp73-macosx_10_10_x86_64.whl", hash = "sha256:1f3bfbd611db5cb58ca82f3deb35e83af34bb8cf06043fa61500157d50a70982"},
-    {file = "cryptography-37.0.2-pp39-pypy39_pp73-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:419c57d7b63f5ec38b1199a9521d77d7d1754eb97827bbb773162073ccd8c8d4"},
-    {file = "cryptography-37.0.2-pp39-pypy39_pp73-manylinux_2_24_x86_64.whl", hash = "sha256:dc26bb134452081859aa21d4990474ddb7e863aa39e60d1592800a8865a702de"},
-    {file = "cryptography-37.0.2-pp39-pypy39_pp73-win_amd64.whl", hash = "sha256:3b8398b3d0efc420e777c40c16764d6870bcef2eb383df9c6dbb9ffe12c64452"},
-    {file = "cryptography-37.0.2.tar.gz", hash = "sha256:f224ad253cc9cea7568f49077007d2263efa57396a2f2f78114066fd54b5c68e"},
+"cryptography 37.0.3" = [
+    {file = "cryptography-37.0.3-cp36-abi3-macosx_10_10_universal2.whl", hash = "sha256:d10413d493e98075060d3e62e5826de372912ea653ccc948f3c41b21ddca087f"},
+    {file = "cryptography-37.0.3-cp36-abi3-macosx_10_10_x86_64.whl", hash = "sha256:cd64147ff16506632893ceb2569624b48c84daa3ba4d89695f7c7bc24188eee9"},
+    {file = "cryptography-37.0.3-cp36-abi3-manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:17c74f7d9e9e9bb7e84521243695c1b4bdc3a0e44ca764e6bcf8f05f3de3d0df"},
+    {file = "cryptography-37.0.3-cp36-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.manylinux_2_24_aarch64.whl", hash = "sha256:0713bee6c8077786c56bdec9c5d3f099d40d2c862ff3200416f6862e9dd63156"},
+    {file = "cryptography-37.0.3-cp36-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:b9c2008417741cdfbe945ef2d16b7b7ba0790886a0b49e1de533acf93eb66ed6"},
+    {file = "cryptography-37.0.3-cp36-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:646905ff7a712e415bf0d0f214e0eb669dd2257c4d7a27db1e8baec5d2a1d55f"},
+    {file = "cryptography-37.0.3-cp36-abi3-manylinux_2_24_x86_64.whl", hash = "sha256:dcafadb5a06cb7a6bb49fb4c1de7414ee2f8c8e12b047606d97c3175d690f582"},
+    {file = "cryptography-37.0.3-cp36-abi3-musllinux_1_1_aarch64.whl", hash = "sha256:0b4bfc5ccfe4e5c7de535670680398fed4a0bbc5dfd52b3a295baad42230abdf"},
+    {file = "cryptography-37.0.3-cp36-abi3-musllinux_1_1_x86_64.whl", hash = "sha256:a03dbc0d8ce8c1146c177cd0e3a66ea106f36733fb1b997ea4d051f8a68539ff"},
+    {file = "cryptography-37.0.3-cp36-abi3-win32.whl", hash = "sha256:190a24c14e91c1fa3101069aac7e77d11c5a73911c3904128367f52946bbb6fd"},
+    {file = "cryptography-37.0.3-cp36-abi3-win_amd64.whl", hash = "sha256:b05c5478524deb7a019e240f2a970040c4b0f01f58f0425e6262c96b126c6a3e"},
+    {file = "cryptography-37.0.3-pp37-pypy37_pp73-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:891ed8312840fd43e0696468a6520a582a033c0109f7b14b96067bfe1123226b"},
+    {file = "cryptography-37.0.3-pp37-pypy37_pp73-manylinux_2_24_x86_64.whl", hash = "sha256:30d6aabf623a01affc7c0824936c3dde6590076b61f5dd299df3cc2c75fc5915"},
+    {file = "cryptography-37.0.3-pp38-pypy38_pp73-macosx_10_10_x86_64.whl", hash = "sha256:31a7c1f1c2551f013d4294d06e22848e2ccd77825f0987cba3239df6ebf7b020"},
+    {file = "cryptography-37.0.3-pp38-pypy38_pp73-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:a94fd1ff80001cb97add71d07f596d8b865b716f25ef501183e0e199390e50d3"},
+    {file = "cryptography-37.0.3-pp38-pypy38_pp73-manylinux_2_24_x86_64.whl", hash = "sha256:8a85dbcc770256918b40c2f40bd3ffd3b2ae45b0cf19068b561db8f8d61bf492"},
+    {file = "cryptography-37.0.3-pp38-pypy38_pp73-win_amd64.whl", hash = "sha256:773d5b5f2e2bd2c7cbb1bd24902ad41283c88b9dd463a0f82adc9a2870d9d066"},
+    {file = "cryptography-37.0.3-pp39-pypy39_pp73-macosx_10_10_x86_64.whl", hash = "sha256:0f9193428a55a4347af2d4fd8141a2002dedbcc26487e67fd2ae19f977ee8afc"},
+    {file = "cryptography-37.0.3-pp39-pypy39_pp73-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:7bf652c73e8f7c32a3f92f7184bf7f9106dacdf5ef59c3c3683d7dae2c4972fb"},
+    {file = "cryptography-37.0.3-pp39-pypy39_pp73-manylinux_2_24_x86_64.whl", hash = "sha256:c3c8b1ad2c266fdf7adc041cc4156d6a3d14db93de2f81b26a5af97ef3f209e5"},
+    {file = "cryptography-37.0.3-pp39-pypy39_pp73-win_amd64.whl", hash = "sha256:2383d6c3088e863304c37c65cd2ea404b7fbb4886823eab1d74137cc27f3d2ee"},
+    {file = "cryptography-37.0.3.tar.gz", hash = "sha256:ae430d51c67ac638dfbb42edf56c669ca9c74744f4d225ad11c6f3d355858187"},
 ]
 "csscompressor 0.9.5" = [
     {file = "csscompressor-0.9.5.tar.gz", hash = "sha256:afa22badbcf3120a4f392e4d22f9fff485c044a1feda4a950ecc5eba9dd31a05"},
@@ -962,9 +962,9 @@ content_hash = "sha256:a0f9e668edb122c5384093dcee6011a6f154efeab678753b258e6cd2a
     {file = "python_gitlab-3.5.0-py3-none-any.whl", hash = "sha256:73b5aa6502efa557ee1a51227cceb0243fac5529627da34f08c5f265bf50417c"},
     {file = "python-gitlab-3.5.0.tar.gz", hash = "sha256:29ae7fb9b8c9aeb2e6e19bd2fd04867e93ecd7af719978ce68fac0cf116ab30d"},
 ]
-"python-semantic-release 7.29.1" = [
-    {file = "python_semantic_release-7.29.1-py3-none-any.whl", hash = "sha256:459ed4c09b4aa9ea94b5ceb240211cb7967069d635b1dd9b97b44a9893ec73fb"},
-    {file = "python-semantic-release-7.29.1.tar.gz", hash = "sha256:9bf10e1f9593259d9c139fb3dd2f54b7c61e8abdce62e4aada5b50253dd60dec"},
+"python-semantic-release 7.29.2" = [
+    {file = "python_semantic_release-7.29.2-py3-none-any.whl", hash = "sha256:7d6d99f94bf2856b0260f88631e974fe8ed2f3999b440793106852d1da9d9d8c"},
+    {file = "python-semantic-release-7.29.2.tar.gz", hash = "sha256:487311a5b2d6574e819deee35a462a7cf31d818ab19e03adf6b21a57f8734ef4"},
 ]
 "pytz 2022.1" = [
     {file = "pytz-2022.1-py2.py3-none-any.whl", hash = "sha256:e68985985296d9a66a881eb3193b0906246245294a881e7c8afe623866ac6a5c"},
@@ -1037,13 +1037,13 @@ content_hash = "sha256:a0f9e668edb122c5384093dcee6011a6f154efeab678753b258e6cd2a
     {file = "semver-2.13.0-py2.py3-none-any.whl", hash = "sha256:ced8b23dceb22134307c1b8abfa523da14198793d9787ac838e70e29e77458d4"},
     {file = "semver-2.13.0.tar.gz", hash = "sha256:fa0fe2722ee1c3f57eac478820c3a5ae2f624af8264cbdf9000c980ff7f75e3f"},
 ]
-"setuptools 62.4.0" = [
-    {file = "setuptools-62.4.0-py3-none-any.whl", hash = "sha256:5a844ad6e190dccc67d6d7411d119c5152ce01f7c76be4d8a1eaa314501bba77"},
-    {file = "setuptools-62.4.0.tar.gz", hash = "sha256:bf8a748ac98b09d32c9a64a995a6b25921c96cc5743c1efa82763ba80ff54e91"},
+"setuptools 62.6.0" = [
+    {file = "setuptools-62.6.0-py3-none-any.whl", hash = "sha256:c1848f654aea2e3526d17fc3ce6aeaa5e7e24e66e645b5be2171f3f6b4e5a178"},
+    {file = "setuptools-62.6.0.tar.gz", hash = "sha256:990a4f7861b31532871ab72331e755b5f14efbe52d336ea7f6118144dd478741"},
 ]
-"setuptools-scm 6.4.2" = [
-    {file = "setuptools_scm-6.4.2-py3-none-any.whl", hash = "sha256:acea13255093849de7ccb11af9e1fb8bde7067783450cee9ef7a93139bddf6d4"},
-    {file = "setuptools_scm-6.4.2.tar.gz", hash = "sha256:6833ac65c6ed9711a4d5d2266f8024cfa07c533a0e55f4c12f6eff280a5a9e30"},
+"setuptools-scm 7.0.1" = [
+    {file = "setuptools_scm-7.0.1-py3-none-any.whl", hash = "sha256:23b2e561fd3db49d168f282384af4730092a8c8c6db6d3451ce93a5813c14509"},
+    {file = "setuptools_scm-7.0.1.tar.gz", hash = "sha256:d1c631fc3a4281754274155ef4a40de24b1d1c718df00ead147b08ab690615b2"},
 ]
 "six 1.16.0" = [
     {file = "six-1.16.0-py2.py3-none-any.whl", hash = "sha256:8abb2f1d86890a2dfb989f9a77cfcfd3e47c2a354b01111771326f8aa26e0254"},
