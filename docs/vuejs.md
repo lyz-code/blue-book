@@ -3252,6 +3252,14 @@ What this does is make your 404 page serve the same content as your
 `index.html`, which means your Vue router will be able to display the right
 page.
 
+# Testing
+
+## Debug Jest tests
+
+If you're not developing in Visual code, running a debugger is not easy in the
+middle of the tests, so to debug one you can use `console.log()` statements and
+when you run them with `yarn test:unit` you'll see the traces.
+
 # Troubleshooting
 
 ## Failed to resolve component: X

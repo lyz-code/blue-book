@@ -612,6 +612,31 @@ semicolons.
   }
 ```
 
+## [Coalescent operator](https://www.joshwcomeau.com/operator-lookup?match=nullish-coalescing)
+
+Is similar to the Logical `OR` operator (`||`), except instead of relying on
+truthy/falsy values, it relies on "nullish" values (there are only 2 nullish
+values, `null` and `undefined`).
+
+This means it's safer to use when you treat falsy values like `0` as valid.
+
+Similar to Logical `OR`, it functions as a control-flow operator; it evaluates to the first not-nullish value.
+
+It was introduced in Chrome 80 / Firefox 72 / Safari 13.1. It has no IE support.
+
+```js
+console.log(4 ?? 5);
+// 4, since neither value is nullish
+console.log(null ?? 10);
+// 10, since 'null' is nullish
+console.log(undefined ?? 0);
+// 0, since 'undefined' is nullish
+// Here's a case where it differs from
+// Logical OR (||):
+console.log(0 ?? 5); // 0
+console.log(0 || 5); // 5
+```
+
 # [Interacting with HTML](https://www.w3schools.com/js/default.asp)
 
 You can find HTML elements with the next `document` properties:
@@ -1773,6 +1798,7 @@ document.getElementById("demo").innerHTML = x;
 # References
 
 * [W3 JavaScript tutorial](https://www.w3schools.com/js/default.asp)
+* [John Comeau operator explainer](https://www.joshwcomeau.com/operator-lookup)
 * [Re-introduction to JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript)
 * [Chikwekwe's articles on cookies vs LocalStorage](https://medium.com/swlh/cookies-vs-localstorage-whats-the-difference-d99f0eb09b44)
 * [Jeff's post on xmlhttprequest vs Fetch API](https://jeffdevslife.com/p/xmlhttprequest-vs-fetch-api/)

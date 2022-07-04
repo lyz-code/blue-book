@@ -550,6 +550,120 @@ Where the first argument of `Generator` is the type of the yielded value.
 The ellipsis is used to specify an arbitrary-length homogeneous tuples, for
 example `Tuple[int, ...]`.
 
+## [Using `typing.cast`](https://adamj.eu/tech/2021/07/06/python-type-hints-how-to-use-typing-cast/)
+
+Sometimes the type hints of your program don't work as you expect, if you've
+given up on fixing the issue you can `# type: ignore` it, but if you know what
+type you want to enforce, you can use
+[`typing.cast()`](https://docs.python.org/3/library/typing.html#typing.cast)
+explicitly or implicitly from `Any` with type hints. With casting we can force
+the type checker to treat a variable as a given type.
+
+!!! warning "This is an ugly patch, always try to fix your types"
+
+### The simplest `cast()`
+
+When we call `cast()`, we pass it two arguments: a type, and a value. `cast()`
+returns `value` unchanged, but type checkers will treat the return value as the
+given type instead of the input type. For example, we can make Mypy treat an
+integer as a string:
+
+```python
+from typing import cast
+
+x = 1
+reveal_type(x)
+y = cast(str, x)
+reveal_type(y)
+y.upper()
+```
+
+Checking this program with Mypy, it doesn't report any errors, but it does debug
+the types of `x` and `y` for us:
+
+```bash
+$ mypy example.py
+
+example.py:6: note: Revealed type is "builtins.int"
+example.py:8: note: Revealed type is "builtins.str"
+```
+
+But, if we remove the `reveal_type()` calls and run the code, it crashes:
+
+```bash
+$ python example.py
+Traceback (most recent call last):
+  File "/.../example.py", line 7, in <module>
+    y.upper()
+AttributeError: 'int' object has no attribute 'upper'
+```
+
+Usually Mypy would detect this bug, as it knows `int` objects do not have an
+`upper()` method. But our `cast()` forced Mypy to treat `y` as a `str`, so it
+assumed the call would succeed.
+
+### Use cases
+
+The main case to reach for `cast()` are when the type hints for a module are
+either missing, incomplete, or incorrect. This may be the case for third party
+packages, or occasionally for things in the standard library.
+
+Take this example:
+
+```python
+import datetime as dt
+from typing import cast
+
+from third_party import get_data
+
+data = get_data()
+last_import_time = cast(dt.datetime, data["last_import_time"])
+```
+
+Imagine `get_data()` has a return type of `dict[str, Any]`, rather than using
+stricter per-key types with a `TypedDict`. From reading the documentation or
+source we might find that the `last_import_time` key always contains
+a `datetime` object. Therefore, when we access it, we can wrap it in a `cast()`,
+to tell our type checker the real type rather than continuing with `Any`.
+
+When we encounter missing, incomplete, or incorrect type hints, we can
+contribute back a fix. This may be in the package itself, its related stubs
+package, or separate stubs in Python’s typeshed. But until such a fix is
+released, we will need to use `cast()` to make our code pass type checking.
+
+### Implicit Casting From Any
+
+It’s worth noting that `Any` has special treatment: when we store a variable
+with type `Any` in a variable with a specific type, type checkers treat this as
+an implicit cast. We can thus write our previous example without `cast()`:
+
+```python
+import datetime as dt
+
+from third_party import get_data
+
+data = get_data()
+last_import_time: dt.datetime = data["last_import_time"]
+```
+
+This kind of implicit casting is the first tool we should reach for when
+interacting with libraries that return `Any`. It also applies when we pass
+a variable typed `Any` as a specifically typed function argument or return
+value.
+
+Calling `cast()` directly is often more useful when dealing with incorrect types
+other than `Any`.
+
+### Mypy’s `warn_redundant_casts` option
+
+When we use `cast()` to override a third party function’s type, that type be
+corrected in a later version (perhaps from our own PR!). After such an update,
+the `cast()` is unnecessary clutter that may confuse readers.
+
+We can detect such unnecessary casts by activating Mypy’s `warn_redundant_casts`
+option. With this flag turned on, Mypy will log an error for each use of
+`cast()` that casts a variable to the type it already has.
+
 # [Using mypy with an existing codebase](https://mypy.readthedocs.io/en/latest/existing_code.html)
 
 These steps will get you started with `mypy` on an existing codebase:

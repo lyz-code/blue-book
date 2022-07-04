@@ -4,6 +4,22 @@ date: 20220419
 author: Lyz
 ---
 
+# Apply a style to a component given a condition
+
+if you use `:class` you can write javascript code in the value, for example:
+
+```html
+<b-form-radio
+  class="user-retrieve-language p-2"
+  :class="{'font-weight-bold': selected === language.key}"
+  v-for="language in languages"
+  v-model="selected"
+  :id="language.key"
+  :checked="selected === language.key"
+  :value="language.key"
+>
+```
+
 # Get assets url
 
 If you're using Vite, you can save the assets such as images or audios in the

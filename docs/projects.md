@@ -358,6 +358,17 @@ This is a gathering of tools, ideas or services that I'd like to enjoy.
 If you have any lead, as smallest as it may be on how to fulfill them, please
 [contact me](contact.md).
 
+## Beancount forecast
+
+I'd like to see a forecast of the evolution of my accounts given an amount of
+time. Maybe by doing seasonality analysis and forecast in time series as stated
+[here](https://medium.com/swlh/seasonality-analysis-and-forecast-in-time-series-b8fbba820327)
+and
+[here](https://towardsdatascience.com/finding-seasonal-trends-in-time-series-data-with-python-ce10c37aa861).
+
+It will also be interesting to see for a given account the evolution of the
+subaccounts.
+
 ## Life warnings
 
 I've always tackled the pursuit of the peace of mind by improving in task

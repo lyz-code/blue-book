@@ -4,6 +4,17 @@ date: 20200826
 author: Lyz
 ---
 
+# [Git checkout to main with master as a fallback](https://stackoverflow.com/questions/66232497/git-alias-which-works-for-main-or-master-or-other)
+
+I usually use the alias `gcm` to change to the main branch of the repository,
+given the change from [main to master](git.md#renaming-from-master-to-main) now
+I have some repos that use one or the other, but I still want `gcm` to go to the
+correct one. The solution is to use:
+
+```bash
+alias gcm='git checkout "$(git symbolic-ref refs/remotes/origin/HEAD | cut -d'/' -f4)"'
+```
+
 # [Create QR code](https://www.linux-magazine.com/Online/Features/Generating-QR-Codes-in-Linux)
 
 ```bash
