@@ -4,6 +4,49 @@ date: 20200717
 author: Lyz
 ---
 
+# [Parse an RFC2822 date](https://stackoverflow.com/questions/1568856/how-do-i-convert-rfc822-to-a-python-datetime-object)
+
+Interesting to test the accepted format of [RSS
+dates](https://www.rssboard.org/rss-validator/docs/error/InvalidRFC2822Date.html).
+
+```python
+>>> from email.utils import parsedate_to_datetime
+>>> datestr = 'Sun, 09 Mar 1997 13:45:00 -0500'
+>>> parsedate_to_datetime(datestr)
+datetime.datetime(1997, 3, 9, 13, 45, tzinfo=datetime.timezone(datetime.timedelta(-1, 68400)))
+```
+
+# [Convert a datetime to RFC2822](https://stackoverflow.com/questions/3453177/convert-python-datetime-to-rfc-2822)
+
+Interesting as it's the accepted format of [RSS
+dates](https://www.rssboard.org/rss-validator/docs/error/InvalidRFC2822Date.html).
+
+```python
+>>> import datetime
+>>> from email import utils
+>>> nowdt = datetime.datetime.now()
+>>> utils.format_datetime(nowdt)
+'Tue, 10 Feb 2020 10:06:53 -0000'
+```
+
+
+# [Encode url](https://www.urlencoder.io/python/)
+
+```python
+import urllib.parse
+from pydantic import AnyHttpUrl
+
+def _normalize_url(url: str) -> AnyHttpUrl:
+    """Encode url to make it compatible with AnyHttpUrl."""
+    return typing.cast(
+        AnyHttpUrl,
+        urllib.parse.quote(url, ":/"),
+    )
+```
+
+The `:/` is needed when you try to parse urls that have the protocol, otherwise
+`https://www.` gets transformed into `https%3A//www.`.
+
 # [Fix SIM113 Use enumerate](https://github.com/MartinThoma/flake8-simplify/issues/18)
 
 Use `enumerate` to get a running number over an iterable.

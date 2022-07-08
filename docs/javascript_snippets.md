@@ -4,6 +4,12 @@ date: 20220419
 author: Lyz
 ---
 
+# [Set variable if it's undefined](https://stackoverflow.com/questions/5409641/set-a-variable-if-undefined-in-javascript)
+
+```javascript
+var x = (x === undefined) ? your_default_value : x;
+```
+
 # [Concatenate two arrays](https://www.w3schools.com/jsref/jsref_concat_array.asp)
 
 ```javascript

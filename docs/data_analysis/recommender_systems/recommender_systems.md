@@ -206,6 +206,9 @@ some bias, it's not as great because it's assumed that the default behavior.
 
 # Interesting resources
 
+[Bookworm](https://bookwyrm.social) looks to be a promising source to build
+book recommender systems.
+
 ## Content indexers
 
 * [Open Library](https://openlibrary.org/): Open, editable library catalog,

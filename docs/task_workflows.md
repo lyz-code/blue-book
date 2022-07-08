@@ -35,8 +35,8 @@ different ways to reduce the mental load, each also gives you extra benefits
 that can't be gained by the others. Going from lowest to highest abstraction
 level we have:
 
-* Pomodoro.
 * Task plan.
+* Pomodoro.
 * Day plan.
 * Week plan.
 * Fortnight plan.
@@ -47,6 +47,38 @@ level we have:
 If you're starting your task management career, start with the first level. Once
 you're comfortable, move one step up until you reach the sweet spot between time
 invested in management and the profit it returns.
+
+## Task plan
+
+The task plan defines the steps required to finish a task. It's your most basic
+roadmap to address a task, and a good starting point if you feel
+overwhelmed when faced with an assignment.
+
+When done well, you'll better understand what you need to do, it will prevent
+you from wasting time at dead ends as you'll think before acting, and you'll
+develop the invaluable skill of breaking big problems into smaller ones.
+
+To define a task plan, follow the next steps:
+
+* Decide what do you want to achieve when the task is finished.
+* Analyze the possible ways to arrive to that goal. Try to assess different
+    solutions before choosing one.
+* Once you have it, split it into steps small enough to be comfortable
+    following them without further analysis.
+
+Some people define the task plan whenever they add the task to their task
+manager. Others prefer to save some time each month to refine the plans of the
+tasks to be done the next one.
+
+The plan is an alive document that changes each [Pomodoro cycle](#pomodoro) and
+that you'll need to check often. It has to be accessible and it should be easy
+for you to edit. If you don't know where to start, use the [simplest task
+manager](task_tools.md#divide-a-task-in-small-steps).
+
+Try not to overplan though, if at the middle of a task you realize that the rest
+of the steps don't make sense, all the time invested in their definition will be
+lost. That's why it's a good idea to have a great detail for the first steps and
+gradually move to rougher definitions on later ones.
 
 ## Pomodoro
 
@@ -94,38 +126,6 @@ end of the iteration:
 
 If you're super focused at the end of a Pomodoro cycle, you can skip the task
 plan update until the end of the iteration.
-
-## Task plan
-
-The task plan defines the steps required to finish a task. It's your most basic
-roadmap to address a task, and a good starting point if you feel
-overwhelmed when faced with an assignment.
-
-When done well, you'll better understand what you need to do, it will prevent
-you from wasting time at dead ends as you'll think before acting, and you'll
-develop the invaluable skill of breaking big problems into smaller ones.
-
-To define a task plan, follow the next steps:
-
-* Decide what do you want to achieve when the task is finished.
-* Analyze the possible ways to arrive to that goal. Try to assess different
-    solutions before choosing one.
-* Once you have it, split it into steps small enough to be comfortable
-    following them without further analysis.
-
-Some people define the task plan whenever they add the task to their task
-manager. Others prefer to save some time each month to refine the plans of the
-tasks to be done the next one.
-
-The plan is an alive document that changes each [Pomodoro cycle](#pomodoro) and
-that you'll need to check often. It has to be accessible and it should be easy
-for you to edit. If you don't know where to start, use the [simplest task
-manager](task_tools.md#divide-a-task-in-small-steps).
-
-Try not to overplan though, if at the middle of a task you realize that the rest
-of the steps don't make sense, all the time invested in their definition will be
-lost. That's why it's a good idea to have a great detail for the first steps and
-gradually move to rougher definitions on later ones.
 
 ## Day plan
 
