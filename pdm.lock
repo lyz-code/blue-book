@@ -242,7 +242,7 @@ dependencies = [
 
 [[package]]
 name = "mkdocs-autolinks-plugin"
-version = "0.5.0"
+version = "0.6.0"
 requires_python = ">=2.7"
 summary = "An MkDocs plugin"
 dependencies = [
@@ -827,9 +827,9 @@ content_hash = "sha256:a0f9e668edb122c5384093dcee6011a6f154efeab678753b258e6cd2a
     {file = "mkdocs-1.3.0-py3-none-any.whl", hash = "sha256:26bd2b03d739ac57a3e6eed0b7bcc86168703b719c27b99ad6ca91dc439aacde"},
     {file = "mkdocs-1.3.0.tar.gz", hash = "sha256:b504405b04da38795fec9b2e5e28f6aa3a73bb0960cb6d5d27ead28952bd35ea"},
 ]
-"mkdocs-autolinks-plugin 0.5.0" = [
-    {file = "mkdocs_autolinks_plugin-0.5.0-py3-none-any.whl", hash = "sha256:6072c10cbec716c8a46cec7cf6f1e8c7dd52576fce59915e219a7911d457e72f"},
-    {file = "mkdocs-autolinks-plugin-0.5.0.tar.gz", hash = "sha256:cdfc8909c3756ab0531c0bfec33f11ae87d60ea2d89df46742daf28d389b6a3f"},
+"mkdocs-autolinks-plugin 0.6.0" = [
+    {file = "mkdocs_autolinks_plugin-0.6.0-py3-none-any.whl", hash = "sha256:db967582a5d3bd282d197730cd9035a74b559b0febb44645e95df27d5c67cad9"},
+    {file = "mkdocs-autolinks-plugin-0.6.0.tar.gz", hash = "sha256:7bddb5bfb06f003fa7f139a4373ffc433e9ad761a297c7fe6ee205a4d7d913b6"},
 ]
 "mkdocs-exclude-search 0.6.4" = [
     {file = "mkdocs_exclude_search-0.6.4-py3-none-any.whl", hash = "sha256:ed5f93efef1b7a253856a040f5f23e6b9b8e6e4c9f8f0413691aa29b3478ffbe"},
