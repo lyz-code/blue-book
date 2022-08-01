@@ -181,6 +181,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/dynamicdns/</loc>
+         <lastmod>2022-08-01</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/elasticsearch_exporter/</loc>
          <lastmod>2022-08-01</lastmod>
          <changefreq>daily</changefreq>
@@ -371,6 +376,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/libreelec/</loc>
+         <lastmod>2022-08-01</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/life_management/</loc>
          <lastmod>2022-08-01</lastmod>
          <changefreq>daily</changefreq>
@@ -502,6 +512,11 @@
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/pipenv/</loc>
+         <lastmod>2022-08-01</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/pipx/</loc>
          <lastmod>2022-08-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -3122,16 +3137,6 @@
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/psychology/the_xy_problem/</loc>
-         <lastmod>2022-08-01</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://lyz-code.github.io/blue-book/self_hosted/dynamicdns/</loc>
-         <lastmod>2022-08-01</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://lyz-code.github.io/blue-book/self_hosted/libreelec/</loc>
          <lastmod>2022-08-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
