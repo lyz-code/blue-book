@@ -13,7 +13,7 @@ update:
 	pdm update --no-sync
 	pdm sync --clean
 
-	@echo ""
+	@echo "\a"
 
 .PHONY: clean
 clean:
@@ -62,4 +62,4 @@ build-docs:
 
 	pdm run mkdocs build --strict
 
-	@echo ""
+	@echo "\a"
