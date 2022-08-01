@@ -4,6 +4,10 @@ date: 20200826
 author: Lyz
 ---
 
+# Scan a physical page in Linux
+
+Install `xsane` and run it.
+
 # [Git checkout to main with master as a fallback](https://stackoverflow.com/questions/66232497/git-alias-which-works-for-main-or-master-or-other)
 
 I usually use the alias `gcm` to change to the main branch of the repository,

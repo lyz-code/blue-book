@@ -351,6 +351,7 @@ nav:
           - nodejs: linux/nodejs.md
           - Oracle Database: oracle_database.md
           - Peek: peek.md
+          - Pipx: pipx.md
           - Profanity: profanity.md
           - rm: linux/rm.md
           - Libreelec: libreelec.md

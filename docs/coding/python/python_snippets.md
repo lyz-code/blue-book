@@ -4,6 +4,63 @@ date: 20200717
 author: Lyz
 ---
 
+# [Initialize a dataclass with kwargs](https://stackoverflow.com/questions/55099243/python3-dataclass-with-kwargsasterisk)
+
+If you care about accessing attributes by name, or if you can't distinguish
+between known and unknown arguments during initialisation, then your last resort
+without rewriting `__init__` (which pretty much defeats the purpose of using
+dataclasses in the first place) is writing a `@classmethod`:
+
+```python
+from dataclasses import dataclass
+from inspect import signature
+
+
+@dataclass
+class Container:
+    user_id: int
+    body: str
+
+    @classmethod
+    def from_kwargs(cls, **kwargs):
+        # fetch the constructor's signature
+        cls_fields = {field for field in signature(cls).parameters}
+
+        # split the kwargs into native ones and new ones
+        native_args, new_args = {}, {}
+        for key, value in kwargs.items():
+            if key in cls_fields:
+                native_args[key] = value
+            else:
+                new_args[key] = value
+
+        # use the native ones to create the class ...
+        ret = cls(**native_args)
+
+        # ... and add the new ones by hand
+        for new_key, new_value in new_args.items():
+            setattr(ret, new_key, new_value)
+        return ret
+```
+
+Usage:
+
+```python
+params = {'user_id': 1, 'body': 'foo', 'bar': 'baz', 'amount': 10}
+Container(**params)  # still doesn't work, raises a TypeError
+c = Container.from_kwargs(**params)
+print(c.bar)  # prints: 'baz'
+```
+
+# [Replace a substring of a string](https://www.w3schools.com/python/ref_string_replace.asp)
+
+```python
+txt = "I like bananas"
+
+x = txt.replace("bananas", "apples")
+```
+
+
 # [Parse an RFC2822 date](https://stackoverflow.com/questions/1568856/how-do-i-convert-rfc822-to-a-python-datetime-object)
 
 Interesting to test the accepted format of [RSS
