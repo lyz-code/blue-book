@@ -17,7 +17,7 @@ writing these lines.
 [grocy](https://grocy.info/) is a web-based self-hosted groceries & household
 management solution for your home.
 
-It is really [easy to deploy](grocy_deploy.md) if you know how to use
+My chosen way to deploy grocy has been using
 [Docker](https://en.wikipedia.org/wiki/Docker_%28software%29). The hard part
 comes when you do the initial load, as you have to add all the:
 

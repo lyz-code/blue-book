@@ -20,7 +20,7 @@ app](https://play.google.com/store/apps/details?id=kalliope.project), but then
 I'll probably install a Raspberry pi zero with [Pirate
 Audio](https://shop.pimoroni.com/collections/pirate-audio) and an [akaso
 external mic](https://www.akasotech.com/externalmic) in the kitchen to speed up
-the [grocy](grocy.md) inventory management.
+the [grocy](grocy_management.md) inventory management.
 
 # STT
 

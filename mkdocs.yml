@@ -48,6 +48,7 @@ nav:
           - process_automation.md
           - Virtual Assistant: virtual_assistant.md
       - Strategy: strategy.md
+      - Tool Management: tool_management.md
   - Health:
       - Sleep: sleep.md
       - Teeth:
@@ -327,7 +328,7 @@ nav:
           - brew: linux/brew.md
           - Docker: docker.md
           - dunst: dunst.md
-          - Dynamic DNS: self_hosted/dynamicdns.md
+          - Dynamic DNS: dynamicdns.md
           - elasticsearch: linux/elasticsearch.md
           - fail2ban: linux/fail2ban.md
           - Gajim: gajim.md
@@ -350,6 +351,7 @@ nav:
           - notmuch: notmuch.md
           - nodejs: linux/nodejs.md
           - Oracle Database: oracle_database.md
+          - Outrun: outrun.md
           - Peek: peek.md
           - Pipx: pipx.md
           - Profanity: profanity.md
