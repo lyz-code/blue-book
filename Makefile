@@ -63,3 +63,15 @@ build-docs:
 	pdm run mkdocs build --strict
 
 	@echo "\a"
+
+# We can't build --strict because the newsletters are not yet added to the git index,
+# and the --strict fails.
+.PHONY: build-newsletters
+build-newsletters:
+	@echo "--------------------------"
+	@echo "- Building newsletters -"
+	@echo "--------------------------"
+
+	pdm run mkdocs build
+
+	@echo ""

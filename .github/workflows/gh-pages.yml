@@ -29,8 +29,8 @@ jobs:
       - name: Update requirements
         run: make update
 
-      - name: Make the site
-        run: make build-docs
+      - name: Make the newsletters
+        run: make build-newsletters
 
       - name: Commit files
         run: |
@@ -40,6 +40,9 @@ jobs:
           git add docs/newsletter
           git diff-index --quiet HEAD \
             || git commit -m "chore: update dependency and publish newsletters"
+
+      - name: Make the site
+        run: make build-docs
 
       - name: Push changes
         uses: ad-m/github-push-action@master
