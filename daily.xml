@@ -11,7 +11,7 @@
     <managingEditor>Lyz</managingEditor>
 
     
-    <pubDate>2022-08-02 13:42:14+00:00</pubDate>
+    <pubDate>2022-08-03 06:40:07+00:00</pubDate>
     <ttl>1440</ttl>
 
     
@@ -25,6 +25,16 @@
     
 
     
+    
+    <item><title>2nd August 2022</title>
+      <author>Lyz</author>
+      <description>&lt;article class=&#34;md-content__inner md-typeset&#34;&gt; &lt;a class=&#34;md-content__button md-icon&#34; href=&#34;https://github.com/lyz-code/blue-book/edit/master/docs/newsletter/2022_08_02.md&#34; title=&#34;Edit this page&#34;&gt; &lt;svg viewbox=&#34;0 0 24 24&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z&#34;&gt;&lt;/path&gt;&lt;/svg&gt; &lt;/a&gt;  &lt;h2 id=&#34;projects&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/projects/&#34;&gt;Projects&lt;/a&gt;&lt;/h2&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;New: &lt;a href=&#34;https://lyz-code.github.io/blue-book/projects/#version-update-manager&#34;&gt;Version Update Manager.&lt;/a&gt;&lt;/p&gt; &lt;p&gt;Keeping software updated is not easy because:&lt;/p&gt; &lt;ul&gt; &lt;li&gt;There are many technologies involved: package managers (apt, yum, pip, yarn, npm, ...), programming languages (python, java, ruby, ...), operative systems (Debian, Ubuntu, ...), deployment technologies (OS install, Docker, Kubernetes, Ansible, Helm), template software (cruft).&lt;/li&gt; &lt;li&gt;Each software maintainers use a different version system.&lt;/li&gt; &lt;li&gt;Even a small increase in a version may break everything.&lt;/li&gt; &lt;li&gt;Sometimes only the latest version is the supported version.&lt;/li&gt; &lt;li&gt;It&#39;s not easy to check if the update went well.&lt;/li&gt; &lt;li&gt;You not only need the desired package to be updated, but also it&#39;s dependencies.&lt;/li&gt; &lt;/ul&gt; &lt;p&gt;I&#39;d like to find a solution that:&lt;/p&gt; &lt;ul&gt; &lt;li&gt;Gives an overall insight of the update status of a system.&lt;/li&gt; &lt;li&gt;Automates the update process.&lt;/li&gt; &lt;li&gt;Support both single system installation or aggregator of multiple systems.&lt;/li&gt; &lt;/ul&gt; &lt;/li&gt; &lt;/ul&gt; &lt;hr/&gt;  &lt;/article&gt;</description>
+      <link>https://lyz-code.github.io/blue-book/newsletter/2022_08_02/</link>
+      <pubDate>2022-08-03 06:40:07+00:00</pubDate>
+      <source url="https://lyz-code.github.io/blue-book/daily.xml">The Blue Book</source>
+      <guid isPermaLink="true">https://lyz-code.github.io/blue-book/newsletter/2022_08_02/</guid>
+      
+    </item>
     
     <item><title>1st August 2022</title>
       <author>Lyz</author>
@@ -546,16 +556,6 @@ replaygain -f *.mp3
       <pubDate>2022-04-22 06:40:34+00:00</pubDate>
       <source url="https://lyz-code.github.io/blue-book/daily.xml">The Blue Book</source>
       <guid isPermaLink="true">https://lyz-code.github.io/blue-book/newsletter/2022_04_21/</guid>
-      
-    </item>
-    
-    <item><title>11th April 2022</title>
-      <author>Lyz</author>
-      <description>&lt;article class=&#34;md-content__inner md-typeset&#34;&gt; &lt;a class=&#34;md-content__button md-icon&#34; href=&#34;https://github.com/lyz-code/blue-book/edit/master/docs/newsletter/2022_04_11.md&#34; title=&#34;Edit this page&#34;&gt; &lt;svg viewbox=&#34;0 0 24 24&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z&#34;&gt;&lt;/path&gt;&lt;/svg&gt; &lt;/a&gt;  &lt;h2 id=&#34;projects&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/projects/&#34;&gt;Projects&lt;/a&gt;&lt;/h2&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;New: &lt;a href=&#34;https://lyz-code.github.io/blue-book/projects/#life-warnings&#34;&gt;Create the Life Warnings seed.&lt;/a&gt;&lt;/p&gt; &lt;p&gt;I&#39;ve always tackled the pursuit of the peace of mind by improving in task management, for example trying to predict when I have to do something in order to avoid a nuisance. Maybe it&#39;s more interesting to monitor and visibilice the warnings that are affecting you.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;Reorganization: Merge Self host a routing web application seed with host my own map seedling.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;h2 id=&#34;other&#34;&gt;Other&lt;/h2&gt; &lt;ul&gt; &lt;li&gt;Reorganization: Reorder the blue book navigation panel.&lt;/li&gt; &lt;/ul&gt; &lt;hr/&gt;  &lt;/article&gt;</description>
-      <link>https://lyz-code.github.io/blue-book/newsletter/2022_04_11/</link>
-      <pubDate>2022-04-12 06:39:59+00:00</pubDate>
-      <source url="https://lyz-code.github.io/blue-book/daily.xml">The Blue Book</source>
-      <guid isPermaLink="true">https://lyz-code.github.io/blue-book/newsletter/2022_04_11/</guid>
       
     </item>
     
