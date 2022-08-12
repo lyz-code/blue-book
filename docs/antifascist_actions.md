@@ -6,6 +6,16 @@ author: Lyz
 
 Collection of amazing and inspiring antifa actions.
 
+# 2022
+
+## An open data initiative to map spanish fascist icons
+
+The project [DeberíaDesaparecer](https://deberiadesaparecer.com) have created an
+open database of the remains of the spanish fascist regime icons. The
+visualization they've created is astonishing, and they've provided
+a [form](https://docs.google.com/forms/d/e/1FAIpQLSc8jY6y0vcjQKNJBougQG_gTOUSfZGBhponOiwij9xVIwIafA/viewform?embedded=true)
+so that anyone can contribute to the dataset.
+
 # 2021
 
 ## A fake company and five million recycled flyers

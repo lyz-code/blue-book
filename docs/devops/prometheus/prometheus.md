@@ -181,6 +181,17 @@ groups:
 You can use `{__name__=~".*deploy.*"}` to find the metrics that have `deploy`
 somewhere in the name.
 
+# [Accessing Prometheus metrics through python](https://stackoverflow.com/questions/60050507/reading-prometheus-metric-using-python)
+
+```python
+import requests
+
+response = requests.get(
+    "http://127.0.0.1:9090/api/v1/query",
+    params={"query": "container_cpu_user_seconds_total"},
+)
+```
+
 # Links
 
 * [Homepage](https://prometheus.io/).

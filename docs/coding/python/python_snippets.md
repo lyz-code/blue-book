@@ -4,6 +4,30 @@ date: 20200717
 author: Lyz
 ---
 
+# [Create random number](https://www.pythoncentral.io/how-to-generate-a-random-number-in-python/)
+
+```python
+import random
+a=random.randint(1,10)
+```
+
+
+# [Check if local port is available or in use](https://stackoverflow.com/questions/43270868/verify-if-a-local-port-is-available-in-python)
+
+Create a temporary socket and then try to bind to the port to see if it's
+available. Close the socket after validating that the port is available.
+
+```python
+def port_in_use(port):
+    """Test if a local port is used."""
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    with suppress(OSError):
+        sock.bind(("0.0.0.0", port))
+        return True
+    sock.close()
+    return False
+```
+
 # [Initialize a dataclass with kwargs](https://stackoverflow.com/questions/55099243/python3-dataclass-with-kwargsasterisk)
 
 If you care about accessing attributes by name, or if you can't distinguish

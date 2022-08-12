@@ -89,11 +89,108 @@ except sh.ErrorReturnCode as error:
 sh.ifconfig(_out="/tmp/interfaces")
 ```
 
+## [Running in background](https://amoffat.github.io/sh/sections/asynchronous_execution.html?highlight=background#background-processes)
+
+By default, each running command blocks until completion. If you have
+a long-running command, you can put it in the background with the `_bg=True`
+special kwarg:
+
+```python
+# blocks
+sleep(3)
+print("...3 seconds later")
+
+# doesn't block
+p = sleep(3, _bg=True)
+print("prints immediately!")
+p.wait()
+print("...and 3 seconds later")
+```
+
+You’ll notice that you need to call `RunningCommand.wait()` in order to exit
+after your command exits.
+
+Commands launched in the background ignore `SIGHUP`, meaning that when their
+controlling process (the session leader, if there is a controlling terminal)
+exits, they will not be signalled by the kernel. But because `sh` commands launch
+their processes in their own sessions by default, meaning they are their own
+session leaders, ignoring `SIGHUP` will normally have no impact. So the only time
+ignoring `SIGHUP` will do anything is if you use `_new_session=False`, in which case
+the controlling process will probably be the shell from which you launched
+python, and exiting that shell would normally send a `SIGHUP` to all child
+processes.
+
+If you want to terminate the process use `p.kill()`.
+
+### [Output callbacks](https://amoffat.github.io/sh/sections/asynchronous_execution.html?highlight=background#output-callbacks)
+
+In combination with `_bg=True`, `sh` can use callbacks to process output
+incrementally by passing a callable function to `_out` and/or `_err`. This callable
+will be called for each line (or chunk) of data that your command outputs:
+
+```python
+from sh import tail
+
+def process_output(line):
+    print(line)
+
+p = tail("-f", "/var/log/some_log_file.log", _out=process_output, _bg=True)
+p.wait()
+```
+
+To “quit” your callback, simply `return True`. This tells the command not to call
+your callback anymore. This does not kill the process though see [Interactive
+callbacks](#interactive-callbacks) for how to kill a process from a callback.
+
+The line or chunk received by the callback can either be of type str or bytes. If the output could be decoded using the provided encoding, a str will be passed to the callback, otherwise it would be raw bytes.
+
+### [Interactive callbacks](https://amoffat.github.io/sh/sections/asynchronous_execution.html?highlight=background#interactive-callbacks)
+
+Commands may communicate with the underlying process interactively through
+a specific callback signature. Each command launched through `sh` has an internal
+STDIN `queue.Queue` that can be used from callbacks:
+
+```python
+    def interact(line, stdin):
+        if line == "What... is the air-speed velocity of an unladen swallow?":
+            stdin.put("What do you mean? An African or European swallow?")
+
+        elif line == "Huh? I... I don't know that....AAAAGHHHHHH":
+            cross_bridge()
+            return True
+
+        else:
+            stdin.put("I don't know....AAGGHHHHH")
+            return True
+
+    p = sh.bridgekeeper(_out=interact, _bg=True)
+p.wait()
+```
+
+You can also kill or terminate your process (or send any signal, really) from
+your callback by adding a third argument to receive the process object:
+
+```python
+def process_output(line, stdin, process):
+    print(line)
+    if "ERROR" in line:
+        process.kill()
+        return True
+
+p = tail("-f", "/var/log/some_log_file.log", _out=process_output, _bg=True)
+```
+
+The above code will run, printing lines from `some_log_file.log` until the word
+`ERROR` appears in a line, at which point the tail process will be killed and
+the script will end.
+
 ## Interacting with programs that ask input from the user
 
 !!! note
-    Check [this issue](https://github.com/amoffat/sh/issues/543), as it
-    looks like a cleaner solution
+    Check [the interactive
+    callbacks](https://amoffat.github.io/sh/sections/asynchronous_execution.html?highlight=background#interactive-callbacks)
+    or [this issue](https://github.com/amoffat/sh/issues/543), as it
+    looks like a cleaner solution.
 
 `sh` allows you to interact with programs that asks for user input. The
 documentation is not clear on how to do it, but between the [function

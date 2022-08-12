@@ -4,6 +4,9 @@ date: 20201107
 author: Lyz
 ---
 
+!!! note
+        "Use [Streamlit](https://docs.streamlit.io/) instead!"
+
 [Dash](https://dash.plotly.com/) is a productive Python framework for building
 web analytic applications.
 

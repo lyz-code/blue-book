@@ -270,7 +270,7 @@ certain messages have been logged under a given logger name with a given
 severity and message:
 
 ```python
-def test_foo(caplog):
+def test_foo(caplog: LogCaptureFixture):
     logging.getLogger().info("boo %s", "arg")
 
     assert  ("root", logging.INFO, "boo arg") in caplog.record_tuples
@@ -284,9 +284,15 @@ Inside tests it's possible to change the log level for the captured log
 messages.
 
 ```python
-def test_foo(caplog):
+def test_foo(caplog: LogCaptureFixture):
     caplog.set_level(logging.INFO)
     pass
+```
+
+If you just want to change the log level of a dependency you can use:
+
+```python
+caplog.set_level(logging.WARNING, logger="urllib3")
 ```
 
 ### The capsys fixture
@@ -1045,7 +1051,23 @@ warnings: a `WarningsRecorder` instance. To view the recorded warnings, you can
 iterate over this instance, call `len` on it to get the number of recorded
 warnings, or index into it to get a particular recorded warning.
 
-# pytest integration with Vim
+# [Show logging messages on the test run](https://stackoverflow.com/questions/51466586/pytest-how-to-show-messages-from-logging-debug-in-the-function-under-test)
+
+Add to your `pyproject.toml`:
+
+```toml
+[tool.pytest.ini_options]
+   log_cli = true
+   log_cli_level = 10
+```
+
+Or run it in the command itself `pytest -o log_cli=true --log-cli-level=10
+func.py`.
+
+Remember you can [change the log level](#change-the-log-level) of the different
+components in case it's too verbose.
+
+# Pytest integration with Vim
 
 Integrating pytest into your Vim workflow enhances your productivity while
 writing code, thus making it easier to code using TDD.

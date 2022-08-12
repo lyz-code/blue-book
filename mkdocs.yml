@@ -204,6 +204,7 @@ nav:
           - coding/javascript/javascript.md
           - Javascript snippets: javascript_snippets.md
           - MermaidJS: mermaidjs.md
+      - Qwik: qwik.md
       - JWT: devops/jwt.md
       - React: coding/react/react.md
       - Issues: issues.md
