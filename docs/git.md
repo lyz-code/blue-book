@@ -98,13 +98,13 @@ or two go by. This is horrible.
 
 Let's talk about best practices so your PR gets reviewed quickly.
 
-### 0. Familiarize yourself with project conventions
+### Familiarize yourself with project conventions
 
 * Search for the Development guide
 * Search for the Coding conventions
 * Search for the API conventions
 
-### 1. Is the feature wanted? Make a Design Doc or Sketch PR
+### Is the feature wanted? Make a Design Doc or Sketch PR
 
 Are you sure Feature-X is something the project team wants or will accept? Is
 it implemented to fit with other changes in flight? Are you willing to bet a few
@@ -126,7 +126,7 @@ a proposal doc or sketch PR.
 
 Now, if we ask you to change the design, you won't have to re-write it all.
 
-### 2. Smaller Is Better: Small Commits, Small PRs
+### Smaller Is Better: Small Commits, Small PRs
 
 Small commits and small PRs get reviewed faster and are more likely to be
 correct than big ones.
@@ -173,7 +173,7 @@ value independently of Feature-X, try it as a PR. (Do not link pull requests by
 `#` in a commit description, because GitHub creates lots of spam. Instead,
 reference other PRs via the PR your commit is in.)
 
-### 3. Open a Different PR for Fixes and Generic Features
+### Open a Different PR for Fixes and Generic Features
 
 **Put changes that are unrelated to your feature into a different PR.**
 
@@ -197,7 +197,7 @@ month, and you're duplicating some tricky stuff from Feature-W, consider
 prefactoring the core logic out and using it in both Feature-W and Feature-X.
 (Do that in its own commit or PR, please.)
 
-### 4. Comments Matter
+### Comments Matter
 
 In your code, if someone might not understand why you did something (or you
 won't remember why later), comment it. Many code-review comments are about this
@@ -206,7 +206,7 @@ exact issue.
 If you think there's something pretty obvious that we could follow up on, add
 a TODO.
 
-### 5. Test
+### Test
 
 Nothing is more frustrating than starting a review, only to find that the tests
 are inadequate or absent. Very few PRs can touch code and NOT touch tests.
@@ -214,7 +214,7 @@ are inadequate or absent. Very few PRs can touch code and NOT touch tests.
 If you don't know how to test Feature-X, please ask!  We'll be happy to help you
 design things for easy testing or to suggest appropriate test cases.
 
-### 6. Squashing and Commit Titles
+### Squashing and Commit Titles
 
 Your reviewer has finally sent you feedback on Feature-X.
 
@@ -248,7 +248,7 @@ additional description paragraph describing in more detail the change intended.
 
 A commit, as much as possible, should be a single logical change.
 
-### 7. KISS, YAGNI, MVP, etc.
+### KISS, YAGNI, MVP, etc.
 
 Sometimes we need to remind each other of core tenets of software design - Keep
 It Simple, You Aren't Gonna Need It, Minimum Viable Product, and so on. Adding
@@ -256,7 +256,7 @@ a feature "because we might need it later" is antithetical to software that
 ships. Add the things you need NOW and (ideally) leave room for things you might
 need later - but don't implement them now.
 
-### 8. It's OK to Push Back
+### It's OK to Push Back
 
 Sometimes reviewers make mistakes. It's OK to push back on changes your reviewer
 requested. If you have a good reason for doing something a certain way, you are
@@ -274,7 +274,7 @@ becomes hard to follow. In this situation, you can ask the primary reviewer
 You don't HAVE to fix every issue raised by every person who feels like
 commenting, but you should answer reasonable comments with an explanation.
 
-### 9. Common Sense and Courtesy
+### Common Sense and Courtesy
 
 No document can take the place of common sense and good taste. Use your best
 judgment, while you put a bit of thought into how your work can be made easier
@@ -343,37 +343,35 @@ to review. If you do these things your PRs will get merged with less friction.
 
 # Git workflow
 
-If you want you can use `git-flow`, oh-my-zsh has a plugin for it. Follow
-[this](https://github.com/nvie/gitflow) resource
+There are many ways of using git, one of the most popular is [git
+flow](https://nvie.com/posts/a-successful-git-branching-model/), please read
+[this article](https://nvie.com/posts/a-successful-git-branching-model/) to
+understand it before going on.
 
-Most of the times that workflow is too mucho. For that cases I suggest to use
-a variant of the Github workflow.
-
-We are going to work using only "Master" branch following GitHub Flow.
-
-If we work with this workflow, we will avoid bugs, chaotics merges and the
-maintenance of branches
+Unless you are part of a big team that delivers software that needs to maintain
+many versions, it's not worth using git flow as it's too complex and cumbersome.
+Instead I suggest a variation of the Github workflow.
 
 To carry out a reliable continuous delivery we must work to comply with the
 following list of best practices:
 
 * Everything must be in the git server: source code, tests, pipelines, scripts,
   templates and documentation.
-* There is only a main branch (master) whose key is that everything is in this
+* There is only a main branch (main) whose key is that everything is in this
   branch must be always stable and deployable into production at any time.
-* New branches are created from master in order to develop new features that
+* New branches are created from main in order to develop new features that
   should be merged into main branch in short development cycles.
 * It is highly recommended to do small commits to have more control over what is
   being done and to avoid discarding many lines of code if a rollback has to be
   done.
 * A commit message policy should be set so that they are clear and conform the
-  same pattern.
-* Master is blocked to reject direct pushes as well as to protect it of
+  same pattern, for example [semantic versioning](semantic_versioning.md).
+* `main` is blocked to reject direct pushes as well as to protect it of
   catastrophic deletion. Only pre-validated merge requests are accepted.
 * When a feature is ready, we will open a merge request to merge changes into
-  master branch.
+  `main` branch.
 * Use webhooks to automate the execution of tests and validation tasks in the CI
-  server before/after adding changes in master.
+  server before/after adding changes in main.
 * It is not needed to discard a merge request if any of the validation tasks
   failed. We check the code and when the changes are pushed, the CI server will
   relaunch the validation tasks.
@@ -385,18 +383,18 @@ following list of best practices:
 * Each artifact must be generated once and be promoted to the different
   environments in different stages.
 
-When a developer wants to add code to master should proceed as follows:
+When a developer wants to add code to main should proceed as follows:
 
 * Wait until the pipeline execution ends if it exists. If that process fails,
   then the developer must help to other team members to fix the issue before
   requesting a new merge request.
-* Pull the changes from master and resolve the conflicts locally before pushing
+* Pull the changes from main and resolve the conflicts locally before pushing
   the code to the new feature branch.
 * Run a local script that compiles and executes the tests before committing
   changes. This task can be done executing it manually by the developer or using
   a git precommit.
 * Open a new merge request setting the feature branch as source branch and
-  master as target branch.
+  main as target branch.
 * The CI server is notified of the new merge request and executes the pipeline
   which compiles the source code, executes the tests, deploys the artifact, etc.
 * If there are errors in the previous step, the developer must fix the code and
@@ -415,81 +413,21 @@ Unit tests must be guarantee that they are completely unitary; they must be
 executed without starting the context of the application, they must not access
 to the DDBB, external systems, file system, etc.
 
-## Git branch naming conventions
+## Naming conventions
 
-| Branch name          | Description                                     | Example              |
-| -------------------- | ----------------------------------------------- | -------------------  |
-| feature/issue-id     | A new functionallity                            | feature/issue-id     |
-| bug/issue-id         | A hotfix of code not deployed on production     | bug/issue-id         |
-| hotfix/issue-id      | A hotfix of code already deployed on production | hotfix/issue-id      |
-| improvement/issue-id | Improving a feature or code                     | improvement/issue-id |
-
-## Git commit message conventions
-
-For the commit message we should include the title of the issue with it's name
-and then a list of changes
-
-For example:
-
-```
-[issue-id] - {{ description}}
-- {{ change_1 }}
-- {{ change_2 }}
-- {{ change_3 }}
-```
+The best idea is to use [Semantic Versioning](semantic_versioning.md) to define the names of the
+branches, for example: `feat/add-command-line-support` or
+`fix/correct-security-issue`, and also [for the commit
+messages](semantic_versioning.md#commit-message-guidelines).
 
 ## Tag versioning policy
 
-We will adopt a semantic versioning for agile project with the following
-conventions:
-
-```
-major.minor.patch.build
-```
-
-Given a version number MAJOR.MINOR.PATCH, increment the:
-
-* MAJOR version when you make incompatible API changes,
-* MINOR version when you add functionality in a backwards-compatible manner.
-* PATCH version when you make backwards-compatible bug fixes.
-* BUILD version when the CI server generates a new artifact build.
-
-In addition, we have to take into account the following considerations:
-
-* A normal version number MUST take the form X.Y.Z where X, Y, and Z are
-  non-negative integers, and MUST NOT contain leading zeroes. X is the major
-  version, Y is the minor version, and Z is the patch version. Each element MUST
-  increase numerically.
-* Once a versioned package has been released, the contents of that version MUST
-  NOT be modified. Any modifications MUST be released as a new version.
-* Major version zero (0.y.z) is for initial development. Anything may change at
-  any time. The public API should not be considered stable.
-* Version 1.0.0 defines the public API. The way in which the version number is
-  incremented after this release is dependent on this public API and how it
-  changes.
-* Patch version Z (x.y.Z | x > 0) MUST be incremented if only backwards
-  compatible bug fixes are introduced. A bug fix is defined as an internal
-  change that fixes incorrect behavior.
-* Minor version Y (x.Y.z | x > 0) MUST be incremented if new, backwards
-  compatible functionality is introduced to the public API. It MUST be
-  incremented if any public API functionality is marked as deprecated. It MAY be
-  incremented if substantial new functionality or improvements are introduced
-  within the private code. It MAY include patch level changes. Patch version
-  MUST be reset to 0 when minor version is incremented.
-* Major version X (X.y.z | X > 0) MUST be incremented if any backwards
-  incompatible changes are introduced to the public API. It MAY include minor
-  and patch level changes. Patch and minor version MUST be reset to 0 when major
-  version is incremented.
-
-In continuous delivery each code integration on master ends up generating
-a versioned artifact and as it is an automatic process, the assignment of a new
-version is a decision of the developer. He or she is the one who knows the type
-of change done, therefore, is responsible for indicating the appropriate version
-increase.
+We will also adopt [semantic versioning](semantic_versioning.md) policy on
+version management.
 
 ## Versioning control
 
-When a branch is merged into master, the CI server launchs a job which generates
+When a branch is merged into main, the CI server launches a job which generates
 a new artifact release as follow:
 
 * The new version number is calculated taken into account the above
@@ -503,43 +441,43 @@ a new artifact release as follow:
 ## Hotfixing
 
 Hotfix should be developed and fixed using one of the next cases, which has been
-defined by prefence order
+defined by preference order:
 
 ### Case 1
 
-In this case, we have pushed new code to "Master" branch since the last deploy
+In this case, we have pushed new code to "main" branch since the last deploy
 on production and we want to deploy the new code with the fix code.
 
 We have to follow the next steps:
 
 * Create a branch "Hotfix" from commit/tag of the last deploy
 * Fix the bug in "hotfix" branch
-* Merge the new branch to "Master"
-* Deploy master branch
+* Merge the new branch to "main"
+* Deploy main branch
 
 ### Case 2
 
-In this case, we have pushed new code to "Master" branch since the last deploy
+In this case, we have pushed new code to "main" branch since the last deploy
 on production but we  don't want to deploy the new code with the fix code.
 
 We have to follow the next steps:
 
 * Create a branch "Hotfix" from commit/tag of the last deploy
 * Fix the bug in "hotfix" branch
-* Deploy master branch
-* Merge the new branch to "Master.
+* Deploy main branch
+* Merge the new branch to "main.
 
 ### Case 3
 
-In this case, we have pushed new code to "Master" branch since the last deploy
+In this case, we have pushed new code to "main" branch since the last deploy
 on production but we don't want to deploy the new code with the fix code.
 
 We have to follow the next steps:
 
 * Create a branch "Hotfix" from commit/tag of the last deploy
 * Fix the bug in "hotfix" branch
-* Deploy master branch
-* Merge the new branch to "Master.
+* Deploy main branch
+* Merge the new branch to "main.
 
 # Git housekeeping
 

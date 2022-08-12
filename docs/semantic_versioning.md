@@ -9,7 +9,7 @@ version based on the type of changes you've introduced. It's defined as
 a three-number string (separated with a period) in the format of
 `MAJOR.MINOR.PATCH`.
 
-Usually, it starts with 0.1.0. Then depending on the type of change you make to
+Usually, it starts with 0.0.0. Then depending on the type of change you make to
 the library, you increment one of these and set subsequent numbers to zero:
 
 * `MAJOR` version if you make backward-incompatible changes.
@@ -22,6 +22,31 @@ example, if you wrote your web server against `Django 3`, you should be good to
 go with all `Django 3` releases that are at least as new as your current one.
 This allows you to express your Django dependency in the format of `Django >=
 3.0.2, <4`.
+
+In addition, we have to take into account the following considerations:
+
+* A normal version number MUST take the form X.Y.Z where X, Y, and Z are
+  non-negative integers, and MUST NOT contain leading zeroes.
+* Once a versioned package has been released, the contents of that version MUST
+  NOT be modified. Any modifications MUST be released as a new version.
+* Major version zero (0.y.z) is for initial development. Anything may change at
+  any time. The public API should not be considered stable. But don't fall into
+  using [ZeroVer](#using-zerover) instead.
+* Releasing the version 1.0.0 is a declaration of intentions to your users that
+    the code is to be considered stable.
+* Patch version Z (x.y.Z | x > 0) MUST be incremented if only backwards
+  compatible bug fixes are introduced. A bug fix is defined as an internal
+  change that fixes incorrect behavior.
+* Minor version Y (x.Y.z | x > 0) MUST be incremented if new, backwards
+  compatible functionality is introduced to the public API. It MUST be
+  incremented if any public API functionality is marked as deprecated. It MAY be
+  incremented if substantial new functionality or improvements are introduced
+  within the private code. It MAY include patch level changes. Patch version
+  MUST be reset to 0 when minor version is incremented.
+* Major version X (X.y.z | X > 0) MUST be incremented if any backwards
+  incompatible changes are introduced to the public API. It MAY include minor
+  and patch level changes. Patch and minor version MUST be reset to 0 when major
+  version is incremented.
 
 !!! note "Encoding this information in the version is just an extremely lossy, but very
 fast to parse and interpret, which may lead into
@@ -40,35 +65,6 @@ This is great because:
 * Your application will keep building and working in the future as it did today
     because the significant version pin protects you from pulling in versions
     whose API would not match.
-
-# When to do a major release
-
-Following the Semantic Versioning idea of a major update is problematic because:
-
-* You can quickly get into the [high version number](#high-version-numbers) problem.
-* The fact that [any change may break the users
-    code](#unintended-changes) makes the definition of [when a change should be major
-    blurry](#difference-in-change-categorization).
-* Often the change that triggered the major change only affects a low percentage
-    of your users (usually those using that one feature you changed in an
-    incompatible fashion).
-
-Does dropping Python 2 require a major release? Many (most) packages did this,
-but the general answer is ironically no, it is not an addition or a breaking
-change, the version solver will ensure the correct version is used (unless the
-`Requires-Python` metadata slot is empty or not updated).
-
-If you mark a feature as deprecated (almost always in a minor release), you can
-remove that feature in a future minor release. You have to define in your
-library documentation what the deprecation period is. For example, NumPy and
-Python use three minor releases. Sometimes is useful to implement deprecations
-based on a period of time. SemVer purists argue that this makes minor releases
-into major releases, but as we've seen it’s not that simple. The deprecation
-period ensures the “next” version works, which is really useful, and usually
-gives you time to adjust before the removal happens. It’s a great balance for
-projects that are well kept up using libraries that move forward at a reasonable
-pace. If you make sure you can see deprecations, you will almost always work
-with the next several versions.
 
 # [Commit message guidelines](https://github.com/angular/angular/blob/22b96b9/CONTRIBUTING.md#-commit-message-guidelines)
 
@@ -214,6 +210,35 @@ to your [pre-commit configuration](ci.md):
         - id: commitizen
           stages: [commit-msg]
     ```
+
+# When to do a major release
+
+Following the Semantic Versioning idea of a major update is problematic because:
+
+* You can quickly get into the [high version number](#high-version-numbers) problem.
+* The fact that [any change may break the users
+    code](#unintended-changes) makes the definition of [when a change should be major
+    blurry](#difference-in-change-categorization).
+* Often the change that triggered the major change only affects a low percentage
+    of your users (usually those using that one feature you changed in an
+    incompatible fashion).
+
+Does dropping Python 2 require a major release? Many (most) packages did this,
+but the general answer is ironically no, it is not an addition or a breaking
+change, the version solver will ensure the correct version is used (unless the
+`Requires-Python` metadata slot is empty or not updated).
+
+If you mark a feature as deprecated (almost always in a minor release), you can
+remove that feature in a future minor release. You have to define in your
+library documentation what the deprecation period is. For example, NumPy and
+Python use three minor releases. Sometimes is useful to implement deprecations
+based on a period of time. SemVer purists argue that this makes minor releases
+into major releases, but as we've seen it’s not that simple. The deprecation
+period ensures the “next” version works, which is really useful, and usually
+gives you time to adjust before the removal happens. It’s a great balance for
+projects that are well kept up using libraries that move forward at a reasonable
+pace. If you make sure you can see deprecations, you will almost always work
+with the next several versions.
 
 # [Semantic versioning system problems](https://bernat.tech/posts/version-numbers/#whats-the-problem-with-semantic-versioning)
 
