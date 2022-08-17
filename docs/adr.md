@@ -33,7 +33,7 @@ or construction techniques.
 There are [different
 templates](https://github.com/joelparkerhenderson/architecture_decision_record#adr-example-templates)
 you can start with, being the most popular [Michael Nygard's
-one](https://github.com/joelparkerhenderson/architecture_decision_record/blob/master/adr_template_by_michael_nygard.md).
+one](https://github.com/joelparkerhenderson/architecture-decision-record/blob/main/templates/decision-record-template-by-michael-nygard/index.md).
 
 The documents are stored in the project repository under the `doc/arch`
 directory, with a name convention of `NNN-title_with_underscores.md`, where
