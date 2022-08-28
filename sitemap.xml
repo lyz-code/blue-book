@@ -81,6 +81,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/bash_snippets/</loc>
+         <lastmod>2022-08-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/beancount/</loc>
          <lastmod>2022-08-28</lastmod>
          <changefreq>daily</changefreq>
@@ -142,6 +147,11 @@
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/cooking_basics/</loc>
+         <lastmod>2022-08-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/cooking_software/</loc>
          <lastmod>2022-08-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
