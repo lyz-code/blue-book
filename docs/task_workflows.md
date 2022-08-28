@@ -48,6 +48,13 @@ If you're starting your task management career, start with the first level. Once
 you're comfortable, move one step up until you reach the sweet spot between time
 invested in management and the profit it returns.
 
+Each of the plans defined below describe the most complete process, use them as
+a starting point to define the plan that works for you depending on your needs
+and how much time you want to invest at that particular moment. Even I don't
+follow them strictly. As they change over time, it's useful to find a way to be
+able to follow them without thinking too much on what are the specific steps,
+for example having a checklist or a script.
+
 ## Task plan
 
 The task plan defines the steps required to finish a task. It's your most basic
@@ -106,6 +113,7 @@ The next steps define a Pomodoro cycle:
     the personal attribute that is preventing you to be able to work.
 * Start the timer.
 * Work uninterruptedly on what you've decided until the timer goes off.
+* Take 20s to look away from the screen (this is good for your ejes).
 * Update your [task](#task-plan) and [day](#day-plan) plans:
     * Tick off the done task steps.
     * Refine the task steps that can be addressed in the next cycle.
@@ -126,6 +134,12 @@ end of the iteration:
 
 If you're super focused at the end of a Pomodoro cycle, you can skip the task
 plan update until the end of the iteration.
+
+To make it easy to follow the pomodoro plan I use a script that:
+
+* Uses [timer](https://github.com/pando85/timer) to show the countdown.
+* Uses [safeeyes](https://github.com/slgobinath/SafeEyes) to track the eye rests.
+* Asks me to follow the list of steps I've previously defined.
 
 ## Day plan
 
@@ -170,6 +184,13 @@ When doing the plan keep in mind to minimize the number of tasks and calendar
 events so as not to get overwhelmed, and not to schedule a new task before you
 finish what you've already started. It's better to eventually fall short on
 tasks, than never reaching your goal.
+
+To make it easy to follow I use a script that:
+
+* Asks me to check the weather forecast.
+* Uses [timer](https://github.com/pando85/timer) to show the countdown.
+* Uses [safeeyes](https://github.com/slgobinath/SafeEyes) to track the eye rests.
+* Asks me to follow the list of steps I've previously defined.
 
 ## Week plan
 
@@ -223,6 +244,10 @@ Follow it throughout the week, and when it's coming to an end:
 * Update your month or/and [task](#task-plan) plans to meet the time
     constrains.
 * Update the people that may depend on you of possible plan drifts.
+
+To make it easy to follow I use a script that:
+
+* Asks me to follow the list of steps I've previously defined.
 
 ## Fortnight, month, trimester plan
 

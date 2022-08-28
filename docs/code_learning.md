@@ -72,7 +72,24 @@ In this section you'll learn how to start walking in the development world by:
 
 #### Editor
 
-#### Git
+#### [Git](git.md)
+
+[Git](git.md) is a software for tracking changes in any set of files, usually
+used for coordinating work among programmers collaboratively developing source
+code during software development. Its goals include speed, data integrity, and
+support for distributed, non-linear workflows (thousands of parallel branches
+running on different systems).
+
+Git is a tough nut to crack, no matter how experience you are you'll frequently
+get surprised. Sadly it's one of the main tools to develop your code, so you
+must master it as soon as possible.
+
+I've listed you some resources
+[here](https://lyz-code.github.io/blue-book/git/?h=git#learning-git) on how to
+start. From that article I think it's also interesting that you read about:
+
+* [Pull Request process](https://lyz-code.github.io/blue-book/git/?h=git#pull-request-process)
+* [Git workflow](https://lyz-code.github.io/blue-book/git/?h=git#git-workflow)
 
 #### Language specific environment
 

@@ -62,6 +62,130 @@ nav:
       - Learning to code:
           - code_learning.md
           - Frontend developer: frontend_learning.md
+      - Languages:
+          - Python:
+              - python.md
+              - Project Template:
+                  - coding/python/python_project_template.md
+                  - Command-line Project Template:
+                      - coding/python/python_project_template/python_cli_template.md
+                      - Configure SQLAlchemy for projects without flask: >-
+                          coding/python/python_project_template/python_sqlalchemy_without_flask.md
+                  - Flask Project Template: >-
+                      coding/python/python_project_template/python_flask_template.md
+                  - Microservices Project Template: >-
+                      coding/python/python_project_template/python_microservices_template.md
+                  - Common configurations:
+                      - Create the documentation repository: >-
+                          coding/python/python_project_template/python_docs.md
+                      - Load config from YAML: coding/python/python_config_yaml.md
+                      - Configure SQLAlchemy to use the MariaDB/Mysql backend: >-
+                          coding/python/python_project_template/python_sqlalchemy_mariadb.md
+                      - Configure Docker to host the application: >-
+                          coding/python/python_project_template/python_docker.md
+              - Libraries:
+                  - Alembic: coding/python/alembic.md
+                  - asyncio: asyncio.md
+                  - BeautifulSoup: beautifulsoup.md
+                  - Boto3: boto3.md
+                  - Click: coding/python/click.md
+                  - Dash: coding/python/dash.md
+                  - Dash Leaflet: coding/python/dash_leaflet.md
+                  - DeepDiff: coding/python/deepdiff.md
+                  - FactoryBoy: coding/python/factoryboy.md
+                  - Faker: coding/python/faker.md
+                  - FastAPI: fastapi.md
+                  - Flask: coding/python/flask.md
+                  - Flask Restplus: coding/python/flask_restplus.md
+                  - Folium: coding/python/folium.md
+                  - Feedparser: coding/python/feedparser.md
+                  - Gettext: gettext.md
+                  - GitPython: coding/python/gitpython.md
+                  - Goodconf: goodconf.md
+                  - Jinja2: python_jinja2.md
+                  - mkdocstrings: coding/python/mkdocstrings.md
+                  - NetworkX: networkx.md
+                  - Pandas: coding/python/pandas.md
+                  - Passpy: coding/python/passpy.md
+                  - pexpect: pexpect.md
+                  - Prompt Toolkit:
+                      - coding/python/prompt_toolkit.md
+                      - REPL: prompt_toolkit_repl.md
+                      - Full screen applications: prompt_toolkit_fullscreen_applications.md
+                  - Pydantic:
+                      - coding/python/pydantic.md
+                      - Pydantic Field Types: coding/python/pydantic_types.md
+                      - Pydantic Validators: coding/python/pydantic_validators.md
+                      - Pydantic Exporting Models: coding/python/pydantic_exporting.md
+                      - Pydantic Validating Functions: coding/python/pydantic_functions.md
+                      - Pydantic Factories: pydantic_factories.md
+                      - Pydantic Mypy Plugin: coding/python/pydantic_mypy_plugin.md
+                  - Pypika: coding/python/pypika.md
+                  - Python Mysql: python_mysql.md
+                  - Python VLC: python_vlc.md
+                  - Plotly: coding/python/plotly.md
+                  - questionary: questionary.md
+                  - rich: rich.md
+                  - Ruamel YAML: coding/python/ruamel_yaml.md
+                  - Selenium: selenium.md
+                  - SQLAlchemy: coding/python/sqlalchemy.md
+                  - sqlite3: sqlite3.md
+                  - Redis-py: coding/python/redis-py.md
+                  - Requests: requests.md
+                  - Requests-mock: coding/python/requests_mock.md
+                  - Rq: coding/python/rq.md
+                  - sh: coding/python/sh.md
+                  - Talkey: talkey.md
+                  - Tenacity: tenacity.md
+                  - TinyDB: coding/python/tinydb.md
+                  - Yoyo: coding/python/yoyo.md
+              - Type Hints: coding/python/type_hints.md
+              - Logging: python_logging.md
+              - Code Styling: coding/python/python_code_styling.md
+              - Docstrings: coding/python/docstrings.md
+              - Properties: python_properties.md
+              - Package Management:
+                  - python_package_management.md
+                  - PDM: pdm.md
+                  - Pipenv: pipenv.md
+                  - Poetry: python_poetry.md
+              - Lazy loading: lazy_loading.md
+              - Plugin System: python_plugin_system.md
+              - Profiling: python_profiling.md
+              - Optimization: python_optimization.md
+              - Anti-Patterns: coding/python/python_anti_patterns.md
+              - Pytest:
+                  - coding/python/pytest.md
+                  - Parametrized testing: coding/python/pytest_parametrized_testing.md
+                  - Pytest-cases: coding/python/pytest_cases.md
+                  - Pytest-HttpServer: pytest_httpserver.md
+              - Internationalization: python_internationalization.md
+              - Python Snippets: coding/python/python_snippets.md
+              - Data Classes: coding/python/data_classes.md
+          - Vue.js:
+              - vuejs.md
+              - Vue snippets: vue_snippets.md
+              - Vuetify: vuetify.md
+              - Development tools:
+                  - Cypress: cypress.md
+                  - Vite: vite.md
+                  - Vitest: vitest.md
+          - Bash:
+              - Bash snippets: bash_snippets.md
+          - JSON: coding/json/json.md
+          - SQL: coding/sql/sql.md
+          - SQLite: sqlite.md
+          - YAML: coding/yaml/yaml.md
+          - Promql: coding/promql/promql.md
+          - HTML: html.md
+          - CSS: css.md
+          - Javascript:
+              - coding/javascript/javascript.md
+              - Javascript snippets: javascript_snippets.md
+              - MermaidJS: mermaidjs.md
+          - Qwik: qwik.md
+          - JWT: devops/jwt.md
+          - React: coding/react/react.md
       - Generic Coding Practices:
           - Program Versioning:
               - versioning.md
@@ -83,130 +207,9 @@ nav:
           - Microservices: architecture/microservices.md
           - Restful APIS: architecture/restful_apis.md
           - Redis: architecture/redis.md
-      - Python:
-          - python.md
-          - Project Template:
-              - coding/python/python_project_template.md
-              - Command-line Project Template:
-                  - coding/python/python_project_template/python_cli_template.md
-                  - Configure SQLAlchemy for projects without flask: >-
-                      coding/python/python_project_template/python_sqlalchemy_without_flask.md
-              - Flask Project Template: >-
-                  coding/python/python_project_template/python_flask_template.md
-              - Microservices Project Template: >-
-                  coding/python/python_project_template/python_microservices_template.md
-              - Common configurations:
-                  - Create the documentation repository: >-
-                      coding/python/python_project_template/python_docs.md
-                  - Load config from YAML: coding/python/python_config_yaml.md
-                  - Configure SQLAlchemy to use the MariaDB/Mysql backend: >-
-                      coding/python/python_project_template/python_sqlalchemy_mariadb.md
-                  - Configure Docker to host the application: >-
-                      coding/python/python_project_template/python_docker.md
-          - Libraries:
-              - Alembic: coding/python/alembic.md
-              - asyncio: asyncio.md
-              - BeautifulSoup: beautifulsoup.md
-              - Boto3: boto3.md
-              - Click: coding/python/click.md
-              - Dash: coding/python/dash.md
-              - Dash Leaflet: coding/python/dash_leaflet.md
-              - DeepDiff: coding/python/deepdiff.md
-              - FactoryBoy: coding/python/factoryboy.md
-              - Faker: coding/python/faker.md
-              - FastAPI: fastapi.md
-              - Flask: coding/python/flask.md
-              - Flask Restplus: coding/python/flask_restplus.md
-              - Folium: coding/python/folium.md
-              - Feedparser: coding/python/feedparser.md
-              - Gettext: gettext.md
-              - GitPython: coding/python/gitpython.md
-              - Goodconf: goodconf.md
-              - Jinja2: python_jinja2.md
-              - mkdocstrings: coding/python/mkdocstrings.md
-              - NetworkX: networkx.md
-              - Pandas: coding/python/pandas.md
-              - Passpy: coding/python/passpy.md
-              - pexpect: pexpect.md
-              - Prompt Toolkit:
-                  - coding/python/prompt_toolkit.md
-                  - REPL: prompt_toolkit_repl.md
-                  - Full screen applications: prompt_toolkit_fullscreen_applications.md
-              - Pydantic:
-                  - coding/python/pydantic.md
-                  - Pydantic Field Types: coding/python/pydantic_types.md
-                  - Pydantic Validators: coding/python/pydantic_validators.md
-                  - Pydantic Exporting Models: coding/python/pydantic_exporting.md
-                  - Pydantic Validating Functions: coding/python/pydantic_functions.md
-                  - Pydantic Factories: pydantic_factories.md
-                  - Pydantic Mypy Plugin: coding/python/pydantic_mypy_plugin.md
-              - Pypika: coding/python/pypika.md
-              - Python Mysql: python_mysql.md
-              - Python VLC: python_vlc.md
-              - Plotly: coding/python/plotly.md
-              - questionary: questionary.md
-              - rich: rich.md
-              - Ruamel YAML: coding/python/ruamel_yaml.md
-              - Selenium: selenium.md
-              - SQLAlchemy: coding/python/sqlalchemy.md
-              - sqlite3: sqlite3.md
-              - Redis-py: coding/python/redis-py.md
-              - Requests: requests.md
-              - Requests-mock: coding/python/requests_mock.md
-              - Rq: coding/python/rq.md
-              - sh: coding/python/sh.md
-              - Talkey: talkey.md
-              - Tenacity: tenacity.md
-              - TinyDB: coding/python/tinydb.md
-              - Yoyo: coding/python/yoyo.md
-          - Type Hints: coding/python/type_hints.md
-          - Logging: python_logging.md
-          - Code Styling: coding/python/python_code_styling.md
-          - Docstrings: coding/python/docstrings.md
-          - Properties: python_properties.md
-          - Package Management:
-              - python_package_management.md
-              - PDM: pdm.md
-              - Pipenv: pipenv.md
-              - Poetry: python_poetry.md
-          - Lazy loading: lazy_loading.md
-          - Plugin System: python_plugin_system.md
-          - Profiling: python_profiling.md
-          - Optimization: python_optimization.md
-          - Anti-Patterns: coding/python/python_anti_patterns.md
-          - Pytest:
-              - coding/python/pytest.md
-              - Parametrized testing: coding/python/pytest_parametrized_testing.md
-              - Pytest-cases: coding/python/pytest_cases.md
-              - Pytest-HttpServer: pytest_httpserver.md
-          - Internationalization: python_internationalization.md
-          - Python Snippets: coding/python/python_snippets.md
-          - Data Classes: coding/python/data_classes.md
       - Frontend Development: frontend_development.md
-      - Vue.js:
-          - vuejs.md
-          - Vue snippets: vue_snippets.md
-          - Vuetify: vuetify.md
-          - Development tools:
-              - Cypress: cypress.md
-              - Vite: vite.md
-              - Vitest: vitest.md
       - Git: git.md
       - Park programming: park_programming.md
-      - JSON: coding/json/json.md
-      - SQL: coding/sql/sql.md
-      - SQLite: sqlite.md
-      - YAML: coding/yaml/yaml.md
-      - Promql: coding/promql/promql.md
-      - HTML: html.md
-      - CSS: css.md
-      - Javascript:
-          - coding/javascript/javascript.md
-          - Javascript snippets: javascript_snippets.md
-          - MermaidJS: mermaidjs.md
-      - Qwik: qwik.md
-      - JWT: devops/jwt.md
-      - React: coding/react/react.md
       - Issues: issues.md
   - DevOps:
       - devops/devops.md
@@ -389,6 +392,7 @@ nav:
       - Cooking:
           - cooking.md
           - Cooking Basics: cooking_basics.md
+          - Cooking software: cooking_software.md
       - Pilates:
           - pilates.md
       - Aerial Silk: aerial_silk.md
