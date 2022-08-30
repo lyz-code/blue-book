@@ -627,7 +627,18 @@ a workaround](https://github.com/samuelcolvin/pydantic/issues/1035) though.
 
 # Troubleshooting
 
-## [copy produces copy that modifies the original](https://github.com/samuelcolvin/pydantic/issues/1383)
+## [Ignore a field when representing an object](https://stackoverflow.com/questions/68768017/how-to-ignore-field-repr-in-pydantic)
+
+Use `repr=False`. This is useful for properties that don't return a value
+quickly, for example if you save an `sh` background process.
+
+```python
+class Temp(BaseModel):
+    foo: typing.Any
+    boo: typing.Any = Field(..., repr=False)
+```
+
+## [Copy produces copy that modifies the original](https://github.com/samuelcolvin/pydantic/issues/1383)
 
 When copying a model, changing the value of an attribute on the copy updates the
 value of the attribute on the original. This only happens if `deep != True`. To

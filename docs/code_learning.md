@@ -72,6 +72,8 @@ In this section you'll learn how to start walking in the development world by:
 
 #### Editor
 
+TBD
+
 #### [Git](git.md)
 
 [Git](git.md) is a software for tracking changes in any set of files, usually

@@ -336,6 +336,17 @@ replayed at half or quarter the speed in comparison of the activity when you're
 awake. This slow neural recounting may be the reason why we have that time
 dilation.
 
+# How your brain generates sleep
+
+Brainwave activity of REM sleep looks similar to the one you have when you're
+awake. They cycle (going up and down) at a fast frequency of thirty or forty
+times per second in an unreliable pattern. This behaviour is explained by the
+fact that different parts of your waking brain are processing different pieces
+of information at different moments in time and in different ways.
+
+![ ](brainwaves.jpg)
+
+
 # References
 
 * [Why we sleep book by Matthew Walker](https://www.goodreads.com/book/show/34466963-why-we-sleep)

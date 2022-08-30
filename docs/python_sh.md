@@ -304,6 +304,25 @@ def test_something(Command):
 Notice here we do not need `create=True`, because `Command` is not an
 automatically generated object on the `sh` module (it actually exists).
 
+# Tips
+
+## [Avoid exception logging when killing a background process](https://stackoverflow.com/questions/44936743/using-the-sh-python-module-avoid-exception-logging-when-killing-a-background-pr)
+
+In order to catch this exception execute your process with `_bg_exec=False` and
+execute `p.wait()` if you want to handle the exception. Otherwise don't use the
+`p.wait()`.
+
+```python
+p = sh.sleep(100, _bg=True, _bg_exc=False)
+try:
+    p.kill()
+    p.wait()
+except sh.SignalException_SIGKILL as err:
+    print("foo")
+
+foo
+```
+
 # References
 
 * [Docs](https://amoffat.github.io/sh/index.html)

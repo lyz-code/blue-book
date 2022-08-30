@@ -134,7 +134,7 @@ nav:
                   - Requests: requests.md
                   - Requests-mock: coding/python/requests_mock.md
                   - Rq: coding/python/rq.md
-                  - sh: coding/python/sh.md
+                  - sh: python_sh.md
                   - Talkey: talkey.md
                   - Tenacity: tenacity.md
                   - TinyDB: coding/python/tinydb.md
