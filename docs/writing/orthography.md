@@ -323,6 +323,10 @@ There are two cases:
 
 Since in some cases is useful, I'm going to use them to reduce the mental load.
 
+# [Bear with me or Bare with me](https://www.grammarly.com/blog/bear-with-me/)
+
+"Bear with me" is the correct form.
+
 # References
 
 * [Julia Olech article on
