@@ -195,6 +195,7 @@ nav:
           - Keep a Changelog: changelog.md
           - Writing good documentation: documentation.md
           - TDD: coding/tdd.md
+          - Abstract Syntax Trees: abstract_syntax_trees.md
       - Software Architecture:
           - SOLID: architecture/solid.md
           - Domain Driven Design:

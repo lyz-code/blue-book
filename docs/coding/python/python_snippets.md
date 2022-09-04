@@ -4,6 +4,100 @@ date: 20200717
 author: Lyz
 ---
 
+# [Fix R1728: Consider using a generator](https://pylint.pycqa.org/en/latest/user_guide/messages/refactor/consider-using-generator.html)
+
+Removing `[]` inside calls that can use containers or generators should be
+considered for performance reasons since a generator will have an upfront cost
+to pay. The performance will be better if you are working with long lists or
+sets.
+
+Problematic code:
+
+```python
+list([0 for y in list(range(10))])  # [consider-using-generator]
+tuple([0 for y in list(range(10))])  # [consider-using-generator]
+sum([y**2 for y in list(range(10))])  # [consider-using-generator]
+max([y**2 for y in list(range(10))])  # [consider-using-generator]
+min([y**2 for y in list(range(10))])  # [consider-using-generator]
+```
+
+Correct code:
+
+```python
+list(0 for y in list(range(10)))
+tuple(0 for y in list(range(10)))
+sum(y**2 for y in list(range(10)))
+max(y**2 for y in list(range(10)))
+min(y**2 for y in list(range(10)))
+```
+
+# [Fix W1510: Using subprocess.run without explicitly set check is not recommended](https://pycodequ.al/docs/pylint-messages/w1510-subprocess-run-check.html)
+
+The `run` call in the example will succeed whether the command is successful or
+not. This is a problem because we silently ignore errors.
+
+```python
+import subprocess
+def example():
+    proc = subprocess.run("ls")
+    return proc.stdout
+```
+
+When we pass `check=True`, the behavior changes towards raising an exception
+when the return code of the command is non-zero.
+
+# [Convert bytes to string](https://pythonexamples.org/python-bytes-to-string/)
+
+```python
+byte_var.decode('utf-8')
+```
+
+# [Use pipes with subprocess](https://stackoverflow.com/questions/13332268/how-to-use-subprocess-command-with-pipes)
+
+To use pipes with subprocess you need to use the flag `check=True` which is [a
+bad idea](https://github.com/duo-labs/dlint/blob/master/docs/linters/DUO116.md).
+Instead you should use two processes and link them together in python:
+
+```python
+ps = subprocess.Popen(('ps', '-A'), stdout=subprocess.PIPE)
+output = subprocess.check_output(('grep', 'process_name'), stdin=ps.stdout)
+ps.wait()
+```
+
+# [Pass input to the stdin of a subprocess](https://stackoverflow.com/questions/8475290/how-do-i-write-to-a-python-subprocess-stdin)
+
+```python
+import subprocess
+p = subprocess.run(['myapp'], input='data_to_write', text=True)
+```
+
+# [Copy and paste from clipboard](https://stackoverflow.com/questions/11063458/python-script-to-copy-text-to-clipboard)
+
+You can use [many
+libraries](https://www.delftstack.com/howto/python/python-copy-to-clipboard/) to
+do it, but if you don't want to add any other dependencies you can use
+`subprocess run`.
+
+To copy from the `selection` clipboard, assuming you've got `xclip` installed,
+you could do:
+
+```python
+subprocess.run(
+    ['xclip', '-selection', 'clipboard', '-i'],
+    input='text to be copied',
+    text=True,
+    check=True,
+)
+```
+
+To paste it:
+
+```python
+subprocess.check_output(
+    ['xclip', '-o', '-selection', 'clipboard']
+).decode('utf-8')
+```
+
 # [Create random number](https://www.pythoncentral.io/how-to-generate-a-random-number-in-python/)
 
 ```python

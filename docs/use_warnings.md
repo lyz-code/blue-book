@@ -107,6 +107,9 @@ if it's using the new argument, it uses the new. The advantage of changing the
 signature is that you don't need to do another deprecation for the temporal
 argument flag.
 
+!!! note "Or you can [use environmental
+variables](#use-environmental-variables)"
+
 ```python
 class MyClass:
     def __init__(self, deprecate_my_method = False):
@@ -141,6 +144,27 @@ Once the deprecation date arrives you'll need to search for the date in your
 code to see where the warning is raised and used, remove the old functionality
 and update the tests. If you used a temporal argument to let the users try the
 new behaviour, issue the warning to deprecate it.
+
+## Use environmental variables
+
+A cleaner way to handle it is with environmental variables, that way you don't
+need to change the signature of the function twice. I've learned this from
+[boto](https://github.com/boto/botocore/issues/2705) where they informed their
+users this way:
+
+
+* If you wish to test the new feature we have created a new environment variable
+    `BOTO_DISABLE_COMMONNAME`. Setting this to `true` will suppress the warning and
+    use the new functionality.
+* If you are concerned about this change causing disruptions, you can pin your
+    version of `botocore` to `<1.28.0` until you are ready to migrate.
+* If you are only concerned about silencing the warning in your logs, use
+    `warnings.filterwarnings` when instantiating a new service client.
+
+    ```python
+    import warnings
+    warnings.filterwarnings('ignore', category=FutureWarning, module='botocore.client')
+    ```
 
 # Testing warnings
 

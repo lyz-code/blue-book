@@ -167,6 +167,23 @@ version that can be found for the dependency):
 - `exact`: Save the exact version specifier: `==2.21.0`.
 - `wildcard`: Don't constrain version and leave the specifier to be wildcard: `*`.
 
+### [Supporting pre-releases](https://pdm.fming.dev/latest/pyproject/tool-pdm/#allow-prereleases-in-resolution-result)
+
+To help package maintainers, you can allow pre-releases to be validate
+candidates, that way you'll get the issues sooner. It will mean more time to
+maintain the broken CIs if you update your packages daily (as you should!), but
+it's the least you can do to help your downstream library maintainers
+
+By default, `pdm`'s dependency resolver will ignore prereleases unless there are
+no stable versions for the given version range of a dependency. This behavior
+can be changed by setting allow_prereleases to true in `[tool.pdm]` table:
+
+```toml
+[tool.pdm]
+allow_prereleases = true
+```
+
+
 ## [Update existing dependencies](https://pdm.fming.dev/usage/dependency/#update-existing-dependencies)
 
 To update all dependencies in the lock file use:
@@ -325,6 +342,29 @@ lock file no matter whether there is any other resolution available.
     valid resolution for your requirements and you know the specific version
     works.  Most of the time, you can just add any transient constraints to the
     `dependencies` array.
+
+## [Solve circular dependencies](https://pdm.fming.dev/usage/dependency/#solve-the-locking-failure)
+
+Sometimes `pdm` is not able to [locate the best package
+combination](https://github.com/pdm-project/pdm/issues/1354), or it does too
+many loops, so to help it you can update your version constrains so that it has
+the minimum number of candidates.
+
+To solve circular dependencies we first need to locate what are the conflicting
+packages, [`pdm` doesn't make it easy to detect
+them](https://github.com/pdm-project/pdm/issues/1354). Locate all the outdated
+packages by doing `pdm show` on each package until [this issue is
+solved](https://github.com/pdm-project/pdm/issues/1356) and run `pdm update
+{package} --unconstrained` for each of them. If you're already on the latest
+version, update your `pyproject.toml` to match the latest state.
+
+Once you have everything to the latest compatible version, you can try to
+upgrade the rest of the packages one by one to the latest with
+`--unconstrained`.
+
+In the process of doing these steps you'll see some conflicts in the
+dependencies that can be manually solved by preventing those versions to be
+installed or maybe changing the `python-requires`.
 
 ## [Building packages](https://pdm.fming.dev/usage/project/)
 
