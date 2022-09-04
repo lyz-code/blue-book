@@ -6,6 +6,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/abstract_syntax_trees/</loc>
+         <lastmod>2022-09-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/activitywatch/</loc>
          <lastmod>2022-09-04</lastmod>
          <changefreq>daily</changefreq>
