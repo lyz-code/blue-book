@@ -54,7 +54,7 @@ byte_var.decode('utf-8')
 
 # [Use pipes with subprocess](https://stackoverflow.com/questions/13332268/how-to-use-subprocess-command-with-pipes)
 
-To use pipes with subprocess you need to use the flag `check=True` which is [a
+To use pipes with subprocess you need to use the flag `shell=True` which is [a
 bad idea](https://github.com/duo-labs/dlint/blob/master/docs/linters/DUO116.md).
 Instead you should use two processes and link them together in python:
 
