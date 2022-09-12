@@ -11,7 +11,7 @@
     <managingEditor>Lyz</managingEditor>
 
     
-    <pubDate>2022-09-05 07:02:22+00:00</pubDate>
+    <pubDate>2022-09-12 07:09:44+00:00</pubDate>
     <ttl>10080</ttl>
 
     
@@ -25,6 +25,16 @@
     
 
     
+    
+    <item><title>36th Week of 2022</title>
+      <author>Lyz</author>
+      <description>&lt;article class=&#34;md-content__inner md-typeset&#34;&gt; &lt;a class=&#34;md-content__button md-icon&#34; href=&#34;https://github.com/lyz-code/blue-book/edit/master/docs/newsletter/2022_w36.md&#34; title=&#34;Edit this page&#34;&gt; &lt;svg viewbox=&#34;0 0 24 24&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z&#34;&gt;&lt;/path&gt;&lt;/svg&gt; &lt;/a&gt;  &lt;h2 id=&#34;other&#34;&gt;Other&lt;/h2&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;Correction: Correct argument to use pipes in terminals.&lt;/p&gt; &lt;p&gt;You don&#39;t use &lt;code&gt;check=True&lt;/code&gt; but &lt;code&gt;shell=True&lt;/code&gt;, thanks &lt;a href=&#34;https://github.com/pawamoy&#34;&gt;pawamoy&lt;/a&gt;&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;hr/&gt;  &lt;/article&gt;</description>
+      <link>https://lyz-code.github.io/blue-book/newsletter/2022_w36/</link>
+      <pubDate>2022-09-12 07:09:44+00:00</pubDate>
+      <source url="https://lyz-code.github.io/blue-book/weekly.xml">The Blue Book</source>
+      <guid isPermaLink="true">https://lyz-code.github.io/blue-book/newsletter/2022_w36/</guid>
+      
+    </item>
     
     <item><title>35th Week of 2022</title>
       <author>Lyz</author>
@@ -664,22 +674,6 @@ bundler-audit
       <pubDate>2022-04-11 21:47:13+00:00</pubDate>
       <source url="https://lyz-code.github.io/blue-book/weekly.xml">The Blue Book</source>
       <guid isPermaLink="true">https://lyz-code.github.io/blue-book/newsletter/2022_w14/</guid>
-      
-    </item>
-    
-    <item><title>13th Week of 2022</title>
-      <author>Lyz</author>
-      <description>&lt;article class=&#34;md-content__inner md-typeset&#34;&gt; &lt;a class=&#34;md-content__button md-icon&#34; href=&#34;https://github.com/lyz-code/blue-book/edit/master/docs/newsletter/2022_w13.md&#34; title=&#34;Edit this page&#34;&gt; &lt;svg viewbox=&#34;0 0 24 24&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path d=&#34;M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z&#34;&gt;&lt;/path&gt;&lt;/svg&gt; &lt;/a&gt;  &lt;h2 id=&#34;life-management&#34;&gt;Life Management&lt;/h2&gt; &lt;h3 id=&#34;task-management&#34;&gt;Task Management&lt;/h3&gt; &lt;h4 id=&#34;task-management-workflows&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/task_workflows/&#34;&gt;Task Management Workflows&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt;Correction: Update the task workflow of the month, and week plannings.&lt;/li&gt; &lt;/ul&gt; &lt;h2 id=&#34;coding&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/vuejs/&#34;&gt;Coding&lt;/a&gt;&lt;/h2&gt; &lt;ul&gt; &lt;li&gt;New: Sum up the VueJS tutorial.&lt;/li&gt; &lt;/ul&gt; &lt;h3 id=&#34;python&#34;&gt;Python&lt;/h3&gt; &lt;h4 id=&#34;type-hints&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/coding/python/type_hints/&#34;&gt;Type Hints&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;Correction: Update TypeVars nomenclature.&lt;/p&gt; &lt;p&gt;Using &lt;code&gt;UserT&lt;/code&gt; is &lt;a href=&#34;https://github.com/PyCQA/pylint/issues/6003&#34;&gt;not supported by pylint&lt;/a&gt;, use &lt;code&gt;UserT&lt;/code&gt; instead.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;h4 id=&#34;questionary&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/questionary/&#34;&gt;questionary&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;New: &lt;a href=&#34;https://lyz-code.github.io/blue-book/questionary/#exit-when-using-control-+-c&#34;&gt;Exit when using control + c.&lt;/a&gt;&lt;/p&gt; &lt;p&gt;If you want the question to exit when it receives a &lt;code&gt;KeyboardInterrupt&lt;/code&gt; event, use &lt;code&gt;unsafe_ask&lt;/code&gt; instead of &lt;code&gt;ask&lt;/code&gt;.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;h3 id=&#34;javascript&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/coding/javascript/javascript/&#34;&gt;Javascript&lt;/a&gt;&lt;/h3&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;New: Use ternary conditional operator.&lt;/p&gt; &lt;p&gt;It&#39;s defined by a condition followed by a question mark &lt;code&gt;?&lt;/code&gt;, then an expression to execute if the condition is truthy followed by a colon &lt;code&gt;:&lt;/code&gt;, and finally the expression to execute if the condition is falsy.&lt;/p&gt; &lt;p&gt;&lt;code&gt;condition ? exprIfTrue : exprIfFalse&lt;/code&gt;&lt;/p&gt;  &lt;/li&gt; &lt;li&gt; &lt;p&gt;New: &lt;a href=&#34;https://lyz-code.github.io/blue-book/coding/javascript/javascript/#filter-the-contents-of-an-array&#34;&gt;Filter the contents of an array.&lt;/a&gt;&lt;/p&gt; &lt;p&gt;The &lt;code&gt;filter()&lt;/code&gt; method creates a new array filled with elements that pass a test provided by a function.&lt;/p&gt; &lt;p&gt;The &lt;code&gt;filter()&lt;/code&gt; method does not execute the function for empty elements.&lt;/p&gt; &lt;p&gt;The &lt;code&gt;filter()&lt;/code&gt; method does not change the original array.&lt;/p&gt; &lt;p&gt;For example:&lt;/p&gt; &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class=&#34;kd&#34;&gt;const&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;ages&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;32&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;33&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;16&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;40&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;];&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;
-&lt;span class=&#34;kd&#34;&gt;const&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;result&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;ages&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;filter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;checkAdult&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;
-
-&lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;checkAdult&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;age&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;
-&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;age&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;18&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;
-&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;New: &lt;a href=&#34;https://lyz-code.github.io/blue-book/coding/javascript/javascript/#interacting-with-html&#34;&gt;Interacting with HTML.&lt;/a&gt;&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;h2 id=&#34;arts&#34;&gt;Arts&lt;/h2&gt; &lt;h3 id=&#34;book-binding&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/book_binding/&#34;&gt;Book Binding&lt;/a&gt;&lt;/h3&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;New: Introduce book binding.&lt;/p&gt; &lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Bookbinding&#34;&gt;Book binding&lt;/a&gt; is the process of physically assembling a book of codex format from an ordered stack of paper sheets that are folded together into sections called signatures or sometimes left as a stack of individual sheets. Several signatures are then bound together along one edge with a thick needle and sturdy thread.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;hr/&gt; &lt;div class=&#34;md-source-file&#34;&gt; &lt;small&gt; Last update: &lt;span class=&#34;git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago&#34;&gt;&lt;span class=&#34;timeago&#34; datetime=&#34;2022-04-04T06:39:40+00:00&#34; locale=&#34;en&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date&#34;&gt;2022-04-04&lt;/span&gt; &lt;/small&gt; &lt;/div&gt; &lt;/article&gt;</description>
-      <link>https://lyz-code.github.io/blue-book/newsletter/2022_w13/</link>
-      <pubDate>2022-04-04 06:39:40+00:00</pubDate>
-      <source url="https://lyz-code.github.io/blue-book/weekly.xml">The Blue Book</source>
-      <guid isPermaLink="true">https://lyz-code.github.io/blue-book/newsletter/2022_w13/</guid>
       
     </item>
     
