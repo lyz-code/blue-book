@@ -406,6 +406,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/maison/</loc>
+         <lastmod>2022-09-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/map_management/</loc>
          <lastmod>2022-09-12</lastmod>
          <changefreq>daily</changefreq>
@@ -782,6 +787,11 @@
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/tool_management/</loc>
+         <lastmod>2022-09-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/typer/</loc>
          <lastmod>2022-09-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
