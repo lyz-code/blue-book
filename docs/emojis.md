@@ -25,6 +25,7 @@ Curated list of emojis to copy paste.
 # Annoyed
 
 ```
+(≖͞_≖̥)
 (>_<)
 ```
 

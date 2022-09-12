@@ -14,6 +14,9 @@ distributed task queues, etc.
 asyncio is often a perfect fit for IO-bound and high-level structured network
 code.
 
+!!! note
+        "[Asyncer](https://asyncer.tiangolo.com/tutorial/) looks very useful"
+
 # Tips
 
 ## [Limit concurrency](https://m0wer.github.io/memento/computer_science/programming/python/asyncio/#limit-concurrency)

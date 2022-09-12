@@ -103,6 +103,7 @@ nav:
                   - GitPython: coding/python/gitpython.md
                   - Goodconf: goodconf.md
                   - Jinja2: python_jinja2.md
+                  - Maison: maison.md
                   - mkdocstrings: coding/python/mkdocstrings.md
                   - NetworkX: networkx.md
                   - Pandas: coding/python/pandas.md
@@ -138,6 +139,7 @@ nav:
                   - Talkey: talkey.md
                   - Tenacity: tenacity.md
                   - TinyDB: coding/python/tinydb.md
+                  - Typer: typer.md
                   - Yoyo: coding/python/yoyo.md
               - Type Hints: coding/python/type_hints.md
               - Logging: python_logging.md

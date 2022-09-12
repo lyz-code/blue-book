@@ -4,6 +4,26 @@ date: 20200826
 author: Lyz
 ---
 
+# [Get the output of `docker ps` as a json](https://stackoverflow.com/questions/61586686/golang-template-to-format-docker-ps-output-as-json)
+
+To get the complete json for reference.
+
+```bash
+docker ps -a --format "{{json .}}" | jq -s
+```
+
+To get only the required columns in the output with tab separated version
+
+```bash
+docker ps -a --format "{{json .}}" | jq -r -c '[.ID, .State, .Names, .Image]'
+```
+
+To get [also the image's ID](https://stackoverflow.com/questions/54075456/docker-ps-show-image-id-instead-of-name) you can use:
+
+```bash
+docker inspect --format='{{json .}}' $(docker ps -aq) | jq -r -c '[.Id, .Name, .Config.Image, .Image]'
+```
+
 # Scan a physical page in Linux
 
 Install `xsane` and run it.
@@ -327,6 +347,8 @@ To solve it, we can use a transparent proxy that does the exchange for us.
 Remember to clean up your env afterwards.
 
 # [Allocate space for a virtual filesystem](https://askubuntu.com/questions/506910/creating-a-large-size-file-in-less-time)
+
+Also useful to simulate big files
 
 ```bash
 fallocate -l 20G /path/to/file

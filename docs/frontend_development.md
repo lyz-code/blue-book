@@ -58,6 +58,11 @@ on the environment two different things will happen:
     [swag](https://docs.linuxserver.io/general/swag), that will forward `/api`
     to the backend and the rest to the frontend.
 
+# UX design
+
+The most popular tool out there is `Figma` but it's closed sourced, the
+alternative (quite popular in github) is [`penpot`](https://penpot.app/).
+
 # Testing
 
 ## [Write testable code](https://docs.cypress.io/guides/references/best-practices#Selecting-Elements)
