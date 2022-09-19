@@ -271,7 +271,7 @@ dependencies = [
 
 [[package]]
 name = "mkdocs-material"
-version = "8.5.1"
+version = "8.5.2"
 requires_python = ">=3.7"
 summary = "Documentation that simply works"
 dependencies = [
@@ -856,9 +856,9 @@ content_hash = "sha256:a0f9e668edb122c5384093dcee6011a6f154efeab678753b258e6cd2a
     {url = "https://files.pythonhosted.org/packages/30/44/3d732ad3cb6e7875e216e0ef496939643ca46fb007806ac44e10b1b9cddb/mkdocs-git-revision-date-localized-plugin-1.1.0.tar.gz", hash = "sha256:38517e2084229da1a1b9460e846c2748d238c2d79efd405d1b9174a87bd81d79"},
     {url = "https://files.pythonhosted.org/packages/96/63/ea5d529d8a25fe68f56c199cbdc5408ff6ab5cd8b8f31f2f13f63c02e2ef/mkdocs_git_revision_date_localized_plugin-1.1.0-py3-none-any.whl", hash = "sha256:4ba0e49abea3e9f6ee26e2623ff7283873da657471c61f1d0cfbb986f403316d"},
 ]
-"mkdocs-material 8.5.1" = [
-    {url = "https://files.pythonhosted.org/packages/33/4c/c45f5ec95a27816af45951987f8d2c7f8197873def457f6bac9885300e15/mkdocs-material-8.5.1.tar.gz", hash = "sha256:2daf604d00d554d5496c02b4c4d14dfa57dd689c90f639da5020601baef4b235"},
-    {url = "https://files.pythonhosted.org/packages/6c/e7/cb7f9595c8be23ba7ca0908f0a9812b803b109edd7cf7f90611d6b357622/mkdocs_material-8.5.1-py2.py3-none-any.whl", hash = "sha256:79e9b65e481edb539eda6a3a939a0e02609a5c54afc315c3b05f57ff40db3188"},
+"mkdocs-material 8.5.2" = [
+    {url = "https://files.pythonhosted.org/packages/25/18/888329cdf2800c695c5286266b763b44104d21536ca2c02b7bc2a3ea404f/mkdocs-material-8.5.2.tar.gz", hash = "sha256:16ca1304a93b085e5dfb0dbcc681b74dad1587d8ba727c89c8fd4259dd8fe004"},
+    {url = "https://files.pythonhosted.org/packages/4b/9d/2d9176945c1c211138c22c98f74f1eb8aea8361bd65fcd7da94eb57e5368/mkdocs_material-8.5.2-py2.py3-none-any.whl", hash = "sha256:1962099d8c6eb7571896a0e7fdc52ff4fda1e906969d0e42ae3537418e807868"},
 ]
 "mkdocs-material-extensions 1.0.3" = [
     {url = "https://files.pythonhosted.org/packages/c1/6f/20b60ac8b314fd080dbab77b7a70ac3a283641a23914cb2346178875f501/mkdocs-material-extensions-1.0.3.tar.gz", hash = "sha256:bfd24dfdef7b41c312ede42648f9eb83476ea168ec163b613f9abd12bbfddba2"},
