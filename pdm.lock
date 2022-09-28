@@ -224,16 +224,16 @@ summary = "A deep merge function for 🐍."
 
 [[package]]
 name = "mkdocs"
-version = "1.3.1"
-requires_python = ">=3.6"
+version = "1.4.0"
+requires_python = ">=3.7"
 summary = "Project documentation with Markdown."
 dependencies = [
-    "Jinja2>=2.10.2",
+    "Jinja2>=2.11.1",
     "Markdown<3.4,>=3.2.1",
-    "PyYAML>=3.10",
-    "click>=3.3",
+    "PyYAML>=5.1",
+    "click>=7.0",
     "ghp-import>=1.0",
-    "importlib-metadata>=4.3",
+    "importlib-metadata>=4.3; python_version < \"3.10\"",
     "mergedeep>=1.3.4",
     "packaging>=20.5",
     "pyyaml-env-tag>=0.1",
@@ -840,9 +840,9 @@ content_hash = "sha256:a0f9e668edb122c5384093dcee6011a6f154efeab678753b258e6cd2a
     {url = "https://files.pythonhosted.org/packages/2c/19/04f9b178c2d8a15b076c8b5140708fa6ffc5601fb6f1e975537072df5b2a/mergedeep-1.3.4-py3-none-any.whl", hash = "sha256:70775750742b25c0d8f36c55aed03d24c3384d17c951b3175d898bd778ef0307"},
     {url = "https://files.pythonhosted.org/packages/3a/41/580bb4006e3ed0361b8151a01d324fb03f420815446c7def45d02f74c270/mergedeep-1.3.4.tar.gz", hash = "sha256:0096d52e9dad9939c3d975a774666af186eda617e6ca84df4c94dec30004f2a8"},
 ]
-"mkdocs 1.3.1" = [
-    {url = "https://files.pythonhosted.org/packages/52/16/2c2de8fac0437fb81d8f31558111fddcedf56eb56d90dea6ec922fcd588a/mkdocs-1.3.1.tar.gz", hash = "sha256:a41a2ff25ce3bbacc953f9844ba07d106233cd76c88bac1f59cb1564ac0d87ed"},
-    {url = "https://files.pythonhosted.org/packages/e4/96/6b9d87ee8a11e6d2483e3767999d4aeb8d5478d2059cfb3e21404beae470/mkdocs-1.3.1-py3-none-any.whl", hash = "sha256:fda92466393127d2da830bc6edc3a625a14b436316d1caf347690648e774c4f0"},
+"mkdocs 1.4.0" = [
+    {url = "https://files.pythonhosted.org/packages/50/74/8231b486bb6627c7bf819eeeeb22856c8fbf388cfee203eb13f2f1be6403/mkdocs-1.4.0-py3-none-any.whl", hash = "sha256:ce057e9992f017b8e1496b591b6c242cbd34c2d406e2f9af6a19b97dd6248faa"},
+    {url = "https://files.pythonhosted.org/packages/da/a2/6c05983e8f42213ec71900cf419a6465aeb1dc605e56ccb58ecff2f3c812/mkdocs-1.4.0.tar.gz", hash = "sha256:e5549a22d59e7cb230d6a791edd2c3d06690908454c0af82edc31b35d57e3069"},
 ]
 "mkdocs-autolinks-plugin 0.6.0" = [
     {url = "https://files.pythonhosted.org/packages/75/20/0bc8443edc404c63ab66743234d44af2746a5df7b097ba1ba7827f8b0065/mkdocs_autolinks_plugin-0.6.0-py3-none-any.whl", hash = "sha256:db967582a5d3bd282d197730cd9035a74b559b0febb44645e95df27d5c67cad9"},
