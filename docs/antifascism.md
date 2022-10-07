@@ -115,4 +115,4 @@ it was fascist or not ([Pol p.28](#references))
 
 ## Podcasts
 
-* [Hoep not Hate](https://hopenothate.org.uk/research/podcast/)
+* [Hope not Hate](https://hopenothate.org.uk/research/podcast/)

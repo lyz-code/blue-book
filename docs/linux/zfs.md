@@ -80,7 +80,7 @@ buy them from different vendors.
 
 ### Choosing the disks to hold data
 
-Check [diskprices.com](www.diskprices.com) to get an idea of the cost of disks
+Check [diskprices.com](https://www.diskprices.com) to get an idea of the cost of disks
 in the market. If you can, try to avoid buying to Amazon as it's the devil. Try
 to buy them from a local store instead, that way you interact with a human and
 promote a local commerce.
