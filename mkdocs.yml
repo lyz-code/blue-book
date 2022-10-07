@@ -33,6 +33,7 @@ nav:
       - Relationship Management: relationship_management.md
       - Money Management: money_management.md
       - News Management: news_management.md
+      - Calendar Management: calendar_management.md
       - Email Management:
           - email_management.md
           - Email Automation: email_automation.md
@@ -353,6 +354,7 @@ nav:
           - hypothesis: linux/hypothesis.md
           - Jellyfin: jellyfin.md
           - ffmpeg: ffmpeg.md
+          - Khal: khal.md
           - Kitty: kitty.md
           - LUKS: linux/luks/luks.md
           - mbsync: mbsync.md
@@ -371,6 +373,7 @@ nav:
           - Rtorrent: rtorrent.md
           - Syncthing: linux/syncthing.md
           - Tahoe-LAFS: tahoe.md
+          - vdirsyncer: vdirsyncer.md
           - Vim:
               - vim.md
               - Tabs vs Buffers: vim_tabs.md
