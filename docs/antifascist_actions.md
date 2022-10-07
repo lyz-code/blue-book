@@ -8,6 +8,11 @@ Collection of amazing and inspiring antifa actions.
 
 # 2022
 
+## An open data initiative to map spanish hate crimes
+
+The project [Crimenes de Odio](https://crimenesdeodio.info/es/) have created an
+open database of the hate crimes registered in the spanish state.
+
 ## An open data initiative to map spanish fascist icons
 
 The project [DeberíaDesaparecer](https://deberiadesaparecer.com) have created an

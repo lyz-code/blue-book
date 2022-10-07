@@ -285,8 +285,56 @@ if __name__ == "__main__":
     typer.run(main)
 ```
 
+## [Get the command line application directory](https://typer.tiangolo.com/tutorial/app-dir/)
+
+You can get the application directory where you can, for example, save
+configuration files with `typer.get_app_dir()`:
+
+```python
+from pathlib import Path
+
+import typer
+
+APP_NAME = "my-super-cli-app"
 
 
+def main() -> None:
+    """Define the main command line interface."""
+    app_dir = typer.get_app_dir(APP_NAME)
+    config_path: Path = Path(app_dir) / "config.json"
+    if not config_path.is_file():
+        print("Config file doesn't exist yet")
+
+
+if __name__ == "__main__":
+    typer.run(main)
+```
+
+It will give you a directory for storing configurations appropriate for your CLI
+program for the current user in each operating system.
+
+## [Exiting with an error code](https://typer.tiangolo.com/tutorial/terminating/#exit-with-an-error)
+
+`typer.Exit()` takes an optional code parameter. By default, code is `0`, meaning
+there was no error.
+
+You can pass a code with a number other than `0` to tell the terminal that there
+was an error in the execution of the program:
+
+```python
+import typer
+
+
+def main(username: str):
+    if username == "root":
+        print("The root user is reserved")
+        raise typer.Exit(code=1)
+    print(f"New user created: {username}")
+
+
+if __name__ == "__main__":
+    typer.run(main)
+```
 
 # References
 

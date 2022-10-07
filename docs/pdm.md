@@ -352,7 +352,12 @@ the minimum number of candidates.
 
 To solve circular dependencies we first need to locate what are the conflicting
 packages, [`pdm` doesn't make it easy to detect
-them](https://github.com/pdm-project/pdm/issues/1354). Locate all the outdated
+them](https://github.com/pdm-project/pdm/issues/1354). To do that remove from
+your `pyproject.toml` groups of dependencies until the command works and add
+back one group by group until you detect the ones that fail.
+
+Also it's useful to reduce the number of possibilities of versions of each
+dependency to make things easier to `pdm`. Locate all the outdated
 packages by doing `pdm show` on each package until [this issue is
 solved](https://github.com/pdm-project/pdm/issues/1356) and run `pdm update
 {package} --unconstrained` for each of them. If you're already on the latest

@@ -40,7 +40,8 @@ class AppConfig(GoodConf):
 config = AppConfig()
 ```
 
-To load the configuration use `config.load()`.
+To load the configuration use `config.load()`. If you don't pass any file to
+`load()`, then the `default_files` will be read in order.
 
 Remember that environment variables always take precedence over variables in the
 configuration files.

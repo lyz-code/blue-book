@@ -4,6 +4,48 @@ date: 20200717
 author: Lyz
 ---
 
+# [Get an instance of an Enum by value](https://stackoverflow.com/questions/29503339/how-to-get-all-values-from-python-enum-class)
+
+If you want to initialize a pydantic model with an `Enum` but all you have is
+the value of the `Enum` then you need to create a method to get the correct
+Enum. Otherwise `mypy` will complain that the type of the assignation is `str`
+and not `Enum`.
+
+So if the model is the next one:
+
+```python
+class ServiceStatus(BaseModel):
+    """Model the docker status of a service."""
+
+    name: str
+    environment: Environment
+```
+
+You can't do `ServiceStatus(name='test', environment='production')`. you need to
+add the `get_by_value` method to the `Enum` class:
+
+```python
+class Environment(str, Enum):
+    """Set the possible environments."""
+
+    STAGING = "staging"
+    PRODUCTION = "production"
+
+    @classmethod
+    def get_by_value(cls, value: str) -> Enum:
+        """Return the Enum element that meets a value"""
+        return [member for member in cls if member.value == value][0]
+```
+
+Now you can do:
+
+```python
+ServiceStatus(
+    name='test',
+    environment=Environment.get_by_value('production')
+)
+```
+
 # [Fix R1728: Consider using a generator](https://pylint.pycqa.org/en/latest/user_guide/messages/refactor/consider-using-generator.html)
 
 Removing `[]` inside calls that can use containers or generators should be

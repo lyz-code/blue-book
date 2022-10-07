@@ -71,6 +71,28 @@ in the `dockerhub` entry. Then you can use:
 pass show dockerhub | docker login --username foo --password-stdin
 ```
 
+# Snippets
+
+## [Get the output of `docker ps` as a json](https://stackoverflow.com/questions/61586686/golang-template-to-format-docker-ps-output-as-json)
+
+To get the complete json for reference.
+
+```bash
+docker ps -a --format "{{json .}}" | jq -s
+```
+
+To get only the required columns in the output with tab separated version
+
+```bash
+docker ps -a --format "{{json .}}" | jq -r -c '[.ID, .State, .Names, .Image]'
+```
+
+To get [also the image's ID](https://stackoverflow.com/questions/54075456/docker-ps-show-image-id-instead-of-name) you can use:
+
+```bash
+docker inspect --format='{{json .}}' $(docker ps -aq) | jq -r -c '[.Id, .Name, .Config.Image, .Image]'
+```
+
 # Troubleshooting
 
 If you are using a VPN and docker, you're going to have a hard time.

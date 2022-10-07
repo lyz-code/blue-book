@@ -302,6 +302,10 @@ nav:
       - Automating Processes:
           - cookiecutter: linux/cookiecutter.md
           - cruft: linux/cruft.md
+      - Storage:
+          - storage.md
+          - NAS: nas.md
+          - OpenZFS: linux/zfs.md
       - Monitoring:
           - Monitoring Comparison: monitoring_comparison.md
           - Prometheus:
@@ -376,7 +380,6 @@ nav:
           - Wallabag: wallabag.md
           - Wireguard: linux/wireguard.md
           - Wireshark: wireshark.md
-          - ZFS: linux/zfs.md
           - zip: linux/zip.md
       - Android:
           - cone: cone.md

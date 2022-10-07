@@ -131,3 +131,8 @@ explicitly or implicitly within a for loop), the previously yielded variable
     to scrape a user's followers, following, Tweets and more while evading most
     API limitations.
 * [tweepy](https://github.com/tweepy/tweepy): Twitter for Python.
+
+# Interesting sources
+
+* [Musa 550](https://musa-550-fall-2020.github.io/) looks like a nice way to
+    learn how to process geolocation data.

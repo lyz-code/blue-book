@@ -107,3 +107,12 @@ it was fascist or not ([Pol p.28](#references))
 * [Antifa: The anti-fascist handbook by Mark Bray](https://www.mhpbooks.com/books/antifa/)
 * [Todo el mundo puede ser Antifa: Manual practico para destruir el fascismo de Pol
     Andiñach](https://www.txalaparta.eus/es/libros/todo-el-mundo-puede-ser-antifa)
+
+## Magazines
+
+* [Hope not Hate](https://hopenothate.org.uk)
+* [Searchlight](https://www.searchlightmagazine.com/)
+
+## Podcasts
+
+* [Hoep not Hate](https://hopenothate.org.uk/research/podcast/)

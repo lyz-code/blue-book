@@ -4,26 +4,6 @@ date: 20200826
 author: Lyz
 ---
 
-# [Get the output of `docker ps` as a json](https://stackoverflow.com/questions/61586686/golang-template-to-format-docker-ps-output-as-json)
-
-To get the complete json for reference.
-
-```bash
-docker ps -a --format "{{json .}}" | jq -s
-```
-
-To get only the required columns in the output with tab separated version
-
-```bash
-docker ps -a --format "{{json .}}" | jq -r -c '[.ID, .State, .Names, .Image]'
-```
-
-To get [also the image's ID](https://stackoverflow.com/questions/54075456/docker-ps-show-image-id-instead-of-name) you can use:
-
-```bash
-docker inspect --format='{{json .}}' $(docker ps -aq) | jq -r -c '[.Id, .Name, .Config.Image, .Image]'
-```
-
 # Scan a physical page in Linux
 
 Install `xsane` and run it.

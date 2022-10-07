@@ -62,22 +62,11 @@ not introduced again.
     a [feature](https://features.jellyfin.org/posts/687/burn-in-srt-subtitles-when-transcoding-happens)
     request for a fix. Once it's solved notify the users
     once it's solved.
+
 * [Trailers not
     working](https://github.com/crobibero/jellyfin-plugin-tmdb-trailers/issues/8):
     No solution until it's fixed
 
-* [Intel Hardware transcoding
-    broken](https://github.com/linuxserver/docker-jellyfin/issues/109): Until
-    fixed run each time you restart:
-
-    ```bash
-    docker exec -it jellyfin /bin/bash
-    wget https://repo.jellyfin.org/releases/server/ubuntu/versions/jellyfin-ffmpeg/4.3.2-1/jellyfin-ffmpeg_4.3.2-1-focal_amd64.deb
-    dpkg -i jellyfin-ffmpeg_4.3.2-1-focal_amd64.deb
-    ```
-
-    Once fixed tweak the [init container script in
-    `/config/custom-cont-init.d`](https://blog.linuxserver.io/2019/09/14/customizing-our-containers/).
 * [Unnecessary transcoding](https://github.com/jellyfin/jellyfin/issues/3277):
     nothing to do
 * [Local social

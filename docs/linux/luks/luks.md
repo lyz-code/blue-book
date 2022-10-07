@@ -99,6 +99,10 @@ cryptsetup luksErase {{ device }}
   mkfs.ext4 /dev/mapper/crypt
   ```
 
+## Break a luks password
+
+You can use [`bruteforce-luks`](https://github.com/glv2/bruteforce-luks)
+
 # LUKS debugging
 
 ## Resource busy
