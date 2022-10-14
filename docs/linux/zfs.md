@@ -355,6 +355,15 @@ similar specifications to the SN700 but utilizes TLC.
 | WD Red SN700    | 1 TB   | 3430MB/s | 1 DWPD    | 5 years  | SLC  | 127$  |
 | SG IronWolf 525 | 1 TB   | 5000MB/s | 0.8 DWPD  | 5 years  | TLC  | ?     |
 
+### Choosing the cold spare disks
+
+It's good to think how much time you want to have your raids to be inconsistent
+once a drive has failed.
+
+In my case, for the data I want to restore the raid as soon as I can, therefore
+I'll buy another rotational disk. For the SSDs I have more confidence that they
+won't break so I don't feel like having a spare one.
+
 # Usage
 
 ## Mount a pool as readonly

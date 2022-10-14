@@ -74,6 +74,22 @@ text = Text.assemble(("Hello", "bold magenta"), " World!")
 console.print(text)
 ```
 
+## [Live display text](https://rich.readthedocs.io/en/latest/live.html)
+
+```python
+import time
+
+from rich.live import Live
+
+with Live("Test") as live:
+    for row in range(12):
+        live.update(f"Test {row}")
+        time.sleep(0.4)
+```
+
+If you don't want the text to have the default colors, you can embed it all in
+a `Text` object.
+
 # References
 
 * [Git](https://github.com/willmcgugan/rich)

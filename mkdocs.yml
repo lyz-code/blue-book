@@ -103,6 +103,7 @@ nav:
                   - Gettext: gettext.md
                   - GitPython: coding/python/gitpython.md
                   - Goodconf: goodconf.md
+                  - ICS: ics.md
                   - Jinja2: python_jinja2.md
                   - Maison: maison.md
                   - mkdocstrings: coding/python/mkdocstrings.md
@@ -218,6 +219,7 @@ nav:
   - DevOps:
       - devops/devops.md
       - Infrastructure as Code:
+          - Gitea: gitea.md
           - Helm:
               - devops/helm/helm.md
               - Helm Installation: devops/helm/helm_installation.md
@@ -303,6 +305,7 @@ nav:
       - Automating Processes:
           - cookiecutter: linux/cookiecutter.md
           - cruft: linux/cruft.md
+          - renovate: renovate.md
       - Storage:
           - storage.md
           - NAS: nas.md
@@ -328,6 +331,9 @@ nav:
           - scrum.md
           - Templates:
               - Refinement Template: refinement_template.md
+      - Hardware:
+          - CPU: cpu.md
+          - RAM: ram.md
   - Operating Systems:
       - Linux:
           - Linux Snippets: linux_snippets.md
@@ -352,6 +358,7 @@ nav:
           - Hard drive health: hard_drive_health.md
           - Hushboard: husboard.md
           - hypothesis: linux/hypothesis.md
+          - i3wm: i3wm.md
           - Jellyfin: jellyfin.md
           - ffmpeg: ffmpeg.md
           - Khal: khal.md

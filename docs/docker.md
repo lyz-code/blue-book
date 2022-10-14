@@ -14,6 +14,13 @@ they use fewer resources than virtual machines.
 
 # How to keep containers updated
 
+## [With Renovate](renovate.md)
+
+[Renovate](renovate.md) is a program that does automated
+dependency updates. Multi-platform and multi-language.
+
+## With Watchtower
+
 With [watchtower](https://containrrr.dev/watchtower/) you can update the running
 version of your containerized app simply by pushing a new image to the Docker
 Hub or your own image registry. Watchtower will pull down your new image,
@@ -92,6 +99,108 @@ To get [also the image's ID](https://stackoverflow.com/questions/54075456/docker
 ```bash
 docker inspect --format='{{json .}}' $(docker ps -aq) | jq -r -c '[.Id, .Name, .Config.Image, .Image]'
 ```
+
+## [Connect multiple docker compose files](https://tjtelan.com/blog/how-to-link-multiple-docker-compose-via-network/)
+
+You can connect services defined across multiple docker-compose.yml files.
+
+In order to do this you’ll need to:
+
+* Create an external network with `docker network create <network name>`
+* In each of your `docker-compose.yml` configure the default network to use your
+    externally created network with the networks top-level key.
+* You can use either the service name or container name to connect between containers.
+
+Let's do it with an example:
+
+* Creating the network
+
+    ```bash
+    $ docker network create external-example
+    2af4d92c2054e9deb86edaea8bb55ecb74f84a62aec7614c9f09fee386f248a6
+    ```
+
+* Create the first docker-compose file
+
+    ```yaml
+    version: '3'
+    services:
+      service1:
+        image: busybox
+        command: sleep infinity
+
+    networks:
+      default:
+        external:
+          name: external-example
+    ```
+
+* Bring the service up
+
+    ```bash
+    $ docker-compose up -d
+    Creating compose1_service1_1 ... done
+    ```
+
+
+* Create the second docker-compose file with network configured
+
+    ```yaml
+    version: '3'
+    services:
+      service2:
+        image: busybox
+        command: sleep infinity
+
+    networks:
+      default:
+        external:
+          name: external-example
+    ```
+
+* Bring the service up
+
+    ```bash
+    $ docker-compose up -d
+    Creating compose2_service2_1 ... done
+    ```
+
+After running `docker-compose up -d` on both docker-compose.yml files, we see
+that no new networks were created.
+
+```bash
+$ docker network ls
+NETWORK ID          NAME                DRIVER              SCOPE
+25e0c599d5e5        bridge              bridge              local
+2af4d92c2054        external-example    bridge              local
+7df4631e9cff        host                host                local
+194d4156d7ab        none                null                local
+```
+
+With the containers using the external-example network, they are able to ping
+one another.
+
+```bash
+# By service name
+$ docker exec -it compose1_service1_1 ping service2
+PING service2 (172.24.0.3): 56 data bytes
+64 bytes from 172.24.0.3: seq=0 ttl=64 time=0.054 ms
+^C
+--- service2 ping statistics ---
+1 packets transmitted, 1 packets received, 0% packet loss
+round-trip min/avg/max = 0.054/0.054/0.054 ms
+
+# By container name
+$ docker exec -it compose1_service1_1 ping compose2_service2_1
+PING compose2_service2_1 (172.24.0.2): 56 data bytes
+64 bytes from 172.24.0.2: seq=0 ttl=64 time=0.042 ms
+^C
+--- compose2_service2_1 ping statistics ---
+1 packets transmitted, 1 packets received, 0% packet loss
+round-trip min/avg/max = 0.042/0.042/0.042 ms
+```
+
+The other way around works too.
 
 # Troubleshooting
 

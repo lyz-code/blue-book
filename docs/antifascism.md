@@ -102,6 +102,17 @@ whenever we see a discourse that comes from a privileged person against
 a oppressed one, we should fight it immediately, once fought, you can analyze if
 it was fascist or not ([Pol p.28](#references))
 
+# How to fight fascism
+
+There are many ways to fight it, the book [Todo el mundo puede ser Antifa:
+Manual practico para destruir el fascismo of Pol
+Andiñach](https://www.txalaparta.eus/es/libros/todo-el-mundo-puede-ser-antifa)
+gathers some of them.
+
+One way we've seen pisses them off quite much is when they are ridiculed and
+they evocate the image of incompetence. It's a fine line to go, because if it
+falls into a pity image then it may strengthen their victim role.
+
 # References
 
 * [Antifa: The anti-fascist handbook by Mark Bray](https://www.mhpbooks.com/books/antifa/)

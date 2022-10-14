@@ -238,6 +238,66 @@ Pressing `esc` will cancel the current action and/or take you back to the
 previously shown pane (i.e. what you see when you open ikhal), if you are at the
 start pane, ikhal will quit on pressing esc again.
 
+# Tricks
+
+## Edit the events in a more pleasant way
+
+The `ikhal` event editor is not comfortable for me. I usually only change the
+title or the start date and in the default interface you need to press many
+keystrokes to make it happen.
+
+A patch solution is to pass a custom script on the `EDITOR` environmental
+variable. Assuming you have [`questionary`](questionary.md) and [`ics`](ics.md)
+installed you can save the next snippet into an `edit_event` file in your
+`PATH`:
+
+```python
+#!/usr/bin/python3
+
+"""Edit an ics calendar event."""
+
+import sys
+
+import questionary
+from ics import Calendar
+
+# Load the event
+file = sys.argv[1]
+with open(file, "r") as fd:
+    calendar = Calendar(fd.read())
+event = list(calendar.timeline)[0]
+
+# Modify the event
+event.name = questionary.text("Title: ", default=event.name).ask()
+start = questionary.text(
+    "Start: ",
+    default=f"{str(event.begin.hour).zfill(2)}:{str(event.begin.minute).zfill(2)}",
+).ask()
+event.begin = event.begin.replace(
+    hour=int(start.split(":")[0]), minute=int(start.split(":")[1])
+)
+
+# Save the event
+with open(file, "w") as fd:
+    fd.writelines(calendar.serialize_iter())
+```
+
+Now if you open `ikhal` as `EDITOR=edit_event ikhal`, whenever you edit one
+event you'll get a better interface. Add to your `.zshrc` or `.bashrc`:
+
+```bash
+alias ikhal='EDITOR=edit_event ikhal'
+```
+
+The default keybinding for the edition is not very comfortable either, add the
+next snippet on your config:
+
+```ini
+[keybindings]
+external_edit = e
+export = meta e
+```
+
 # References
 
 * [Docs](https://khal.readthedocs.io/en/latest/index.html)

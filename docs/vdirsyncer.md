@@ -262,6 +262,10 @@ To use this storage type, you need to install some additional dependencies:
 pip install vdirsyncer[google]
 ```
 
+#### Official steps
+
+!!! warning "As of 2022-10-13 these didn't work for me, see the next section"
+
 Furthermore you need to register `vdirsyncer` as an application yourself to
 obtain `client_id` and `client_secret`, as it is against Google’s Terms of Service to hardcode those into open source software:
 
@@ -290,6 +294,43 @@ client_secret = "..."
 #end_date = null
 #item_types = []
 ```
+
+#### [Use Nekr0z patch solution](https://github.com/pimutils/vdirsyncer/issues/975)
+
+!!! note "look the previous section if you have doubts on any of the steps"
+
+If the official steps failed for you, try these ones:
+
+* Go to the [Google API Manager](https://console.developers.google.com/) and
+    create a new project under any name.
+* Selected the vdirsyncer project
+* Went to Credentials -> Create Credentials -> OAuth Client ID
+* Select "Web Application"
+* Under "Authorised redirect URIs" added `http://127.0.0.1:8088` pressed "Create".
+* Edit your `vdirsyncer` `config` [storage google] section to have the new
+    client_id and client_secret ().
+* Find the location of the `vdirsyncer/storage/google.py` in your environment
+    (mine was in
+    `~/.local/pipx/venvs/vdirsyncer/lib/python3.10/site-packages/vdirsyncer/storage`) and changed line 65 from
+
+    ```python
+    redirect_uri="urn:ietf:wg:oauth:2.0:oob",
+    ```
+
+    to
+
+    ```python
+    redirect_uri="http://127.0.0.1:8088",
+    ```
+
+* Run `vdirsyncer discover my_calendar`.
+* Opened the link in my browser (on my desktop machine).
+* Proceeded with Google authentication until "Firefox can not connect to 127.0.0.1:8088." was displayed.
+    from the browser's address bar that looked like:
+
+    http://127.0.0.1:8088/?state=SOMETHING&code=HERECOMESTHECODE&scope=https://www.googleapis.com/auth/calendar
+* Copy the `HERECOMESTHECODE` part.
+* Paste the code into the session where `vdirsyncer` was running
 
 ### See differences between syncs
 

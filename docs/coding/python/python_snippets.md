@@ -4,6 +4,72 @@ date: 20200717
 author: Lyz
 ---
 
+# [Print datetime with a defined format](https://stackoverflow.com/questions/311627/how-to-print-a-date-in-a-regular-format)
+```python
+now = datetime.now()
+today.strftime('We are the %d, %b %Y')
+```
+
+Where the datetime format is a string built from [these directives](#parse-a-datetime-from-a-string).
+
+# [Print string with asciiart](https://www.askpython.com/python-modules/ascii-art)
+
+```bash
+pip install pyfiglet
+```
+
+```python
+from pyfiglet import figlet_format
+print(figlet_format('09 : 30'))
+```
+
+If you want to change the default width of 80 caracteres use:
+
+```python
+from pyfiglet import Figlet
+
+f = Figlet(font="standard", width=100)
+print(f.renderText("aaaaaaaaaaaaaaaaa"))
+```
+
+# Print specific time format
+
+```python
+datetime.datetime.now().strftime('%Y-%m-%dT%H:%M:%S')
+```
+
+Code  Meaning Example
+%a  Weekday as locale’s abbreviated name. Mon
+%A  Weekday as locale’s full name.  Monday
+%w  Weekday as a decimal number, where 0 is Sunday and 6 is Saturday. 1
+%d  Day of the month as a zero-padded decimal number. 30
+%-d Day of the month as a decimal number. (Platform specific) 30
+%b  Month as locale’s abbreviated name. Sep
+%B  Month as locale’s full name.  September
+%m  Month as a zero-padded decimal number.  09
+%-m Month as a decimal number. (Platform specific)  9
+%y  Year without century as a zero-padded decimal number. 13
+%Y  Year with century as a decimal number.  2013
+%H  Hour (24-hour clock) as a zero-padded decimal number. 07
+%-H Hour (24-hour clock) as a decimal number. (Platform specific) 7
+%I  Hour (12-hour clock) as a zero-padded decimal number. 07
+%-I Hour (12-hour clock) as a decimal number. (Platform specific) 7
+%p  Locale’s equivalent of either AM or PM. AM
+%M  Minute as a zero-padded decimal number. 06
+%-M Minute as a decimal number. (Platform specific) 6
+%S  Second as a zero-padded decimal number. 05
+%-S Second as a decimal number. (Platform specific) 5
+%f  Microsecond as a decimal number, zero-padded on the left. 000000
+%z  UTC offset in the form +HHMM or -HHMM (empty string if the the object is naive).
+%Z  Time zone name (empty string if the object is naive).
+%j  Day of the year as a zero-padded decimal number.  273
+%-j Day of the year as a decimal number. (Platform specific)  273
+%U  Week number of the year (Sunday as the first day of the week) as a zero padded decimal number. All days in a new year preceding the first Sunday are considered to be in week 0.  39
+%W  Week number of the year (Monday as the first day of the week) as a decimal number. All days in a new year preceding the first Monday are considered to be in week 0.
+%c  Locale’s appropriate date and time representation.  Mon Sep 30 07:06:05 2013
+%x  Locale’s appropriate date representation. 09/30/13
+%X  Locale’s appropriate time representation. 07:06:05
+%%  A literal '%' character.  %
 # [Get an instance of an Enum by value](https://stackoverflow.com/questions/29503339/how-to-get-all-values-from-python-enum-class)
 
 If you want to initialize a pydantic model with an `Enum` but all you have is
@@ -729,6 +795,49 @@ print(html2text.html2text(html))
 from dateutil import parser
 parser.parse("Aug 28 1999 12:00AM")  # datetime.datetime(1999, 8, 28, 0, 0)
 ```
+
+If you don't want to use `dateutil` use `datetime`
+
+```python
+datetime.datetime.strptime("2013-W26", "%Y-W%W-%w")
+```
+
+Where the datetime format is a string built from the next directives:
+
+| Directive | Meaning                                                        | Example                  |
+| ---       | ---                                                            | ---                      |
+| %a        | Abbreviated weekday name.                                      | Sun, Mon, ...            |
+| %A        | Full weekday name.                                             | Sunday, Monday, ...      |
+| %w        | Weekday as a decimal number.                                   | 0, 1, ..., 6             |
+| %d        | Day of the month as a zero-padded decimal.                     | 01, 02, ..., 31          |
+| %-d       | Day of the month as a decimal number.                          | 1, 2, ..., 30            |
+| %b        | Abbreviated month name.                                        | Jan, Feb, ..., Dec       |
+| %B        | Full month name.                                               | January, February, ...   |
+| %m        | Month as a zero-padded decimal number.                         | 01, 02, ..., 12          |
+| %-m       | Month as a decimal number.                                     | 1, 2, ..., 12            |
+| %y        | Year without century as a zero-padded decimal number.          | 00, 01, ..., 99          |
+| %-y       | Year without century as a decimal number.                      | 0, 1, ..., 99            |
+| %Y        | Year with century as a decimal number.                         | 2013, 2019 etc.          |
+| %H        | Hour (24-hour clock) as a zero-padded decimal number.          | 00, 01, ..., 23          |
+| %-H       | Hour (24-hour clock) as a decimal number.                      | 0, 1, ..., 23            |
+| %I        | Hour (12-hour clock) as a zero-padded decimal number.          | 01, 02, ..., 12          |
+| %-I       | Hour (12-hour clock) as a decimal number.                      | 1, 2, ... 12             |
+| %p        | Locale’s AM or PM.                                             | AM, PM                   |
+| %M        | Minute as a zero-padded decimal number.                        | 00, 01, ..., 59          |
+| %-M       | Minute as a decimal number.                                    | 0, 1, ..., 59            |
+| %S        | Second as a zero-padded decimal number.                        | 00, 01, ..., 59          |
+| %-S       | Second as a decimal number.                                    | 0, 1, ..., 59            |
+| %f        | Microsecond as a decimal number, zero-padded on the left.      | 000000 - 999999          |
+| %z        | UTC offset in the form +HHMM or -HHMM.                         |                          |
+| %Z        | Time zone name.                                                |                          |
+| %j        | Day of the year as a zero-padded decimal number.               | 001, 002, ..., 366       |
+| %-j       | Day of the year as a decimal number.                           | 1, 2, ..., 366           |
+| %U        | Week number of the year (Sunday as the first day of the week). | 00, 01, ..., 53          |
+| %W        | Week number of the year (Monday as the first day of the week). | 00, 01, ..., 53          |
+| %c        | Locale’s appropriate date and time representation.             | Mon Sep 30 07:06:05 2013 |
+| %x        | Locale’s appropriate date representation.                      | 09/30/13                 |
+| %X        | Locale’s appropriate time representation.                      | 07:06:05                 |
+| %%        | A literal '%' character.                                       | %                        |
 
 # Install a python dependency from a git repository
 

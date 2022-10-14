@@ -34,7 +34,7 @@ The visible part of the HTML document is between `<body>` and `</body>`.
 * Paragraphs: `<p>This is a paragraph.</p>`.
 * [Links](#links): `<a href="https://www.w3schools.com">This is a link</a>`
 * [Images](#images): `<img src="w3schools.jpg" alt="W3Schools.com" width="104" height="142">`
-* Line breaks: `<br>`
+* Line breaks: `<br>`, `<hr>`
 * Comments: `<!-- Write your comments here -->`
 * Code: `<code> x = 5</code>`
 
