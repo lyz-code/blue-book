@@ -166,6 +166,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/cpu/</loc>
+         <lastmod>2022-10-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/css/</loc>
          <lastmod>2022-10-14</lastmod>
          <changefreq>daily</changefreq>
@@ -301,6 +306,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/gitea/</loc>
+         <lastmod>2022-10-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/goaccess/</loc>
          <lastmod>2022-10-14</lastmod>
          <changefreq>daily</changefreq>
@@ -337,6 +347,16 @@
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/husboard/</loc>
+         <lastmod>2022-10-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/i3wm/</loc>
+         <lastmod>2022-10-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/ics/</loc>
          <lastmod>2022-10-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -671,6 +691,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/ram/</loc>
+         <lastmod>2022-10-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/refinement_template/</loc>
          <lastmod>2022-10-14</lastmod>
          <changefreq>daily</changefreq>
@@ -687,6 +712,11 @@
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/remote_work/</loc>
+         <lastmod>2022-10-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/renovate/</loc>
          <lastmod>2022-10-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
