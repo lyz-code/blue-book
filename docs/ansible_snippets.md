@@ -4,6 +4,14 @@ date: 20220119
 author: Lyz
 ---
 
+# [Get the hosts of a dynamic ansible inventory](https://www.educba.com/ansible-dynamic-inventory/)
+
+```bash
+ansible-inventory -i environments/production --graph
+```
+
+You can also use the `--list` flag to get more info of the hosts.
+
 # [Speed up the stat module](https://justinmontgomery.com/speed-up-stat-command-in-ansible)
 
 The `stat` module calculates the checksum and the md5 of the file in order to

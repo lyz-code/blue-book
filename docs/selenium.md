@@ -84,6 +84,25 @@ Assuming that you've got a configured `driver`, to get the url you're in after
 javascript has done it's magic use the `driver.current_url` method. To return
 the HTML of the page use `driver.page_source`.
 
+## Open a URL
+
+```python
+driver.get("https://duckduckgo.com/")
+```
+
+## Get page source
+
+```python
+driver.page_source
+```
+
+## Get current url
+
+```python
+driver.current_url
+```
+
+
 ## [Click on element](https://towardsdatascience.com/using-python-and-selenium-to-automate-filling-forms-and-mouse-clicks-f87c74ed5c0f)
 
 Once you've opened the page you want to interact with `driver.get()`, you need
@@ -199,6 +218,9 @@ import undetected_chromedriver.v2 as uc
 driver = uc.Chrome()
 driver.get('https://nowsecure.nl')  # my own test test site with max anti-bot protection
 ```
+
+If you want to specify the path to the browser use
+`uc.Chrome(browser_executable_path="/path/to/your/file")`.
 
 ### [Use Selenium Stealth](https://github.com/diprajpatra/selenium-stealth)
 
