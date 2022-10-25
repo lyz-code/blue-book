@@ -293,7 +293,7 @@ summary = "Extension pack for Python Markdown."
 
 [[package]]
 name = "mkdocs-minify-plugin"
-version = "0.6.0"
+version = "0.6.1"
 requires_python = ">=3.7"
 summary = "An MkDocs plugin to minify HTML, JS or CSS files prior to being written to disk"
 dependencies = [
@@ -865,9 +865,9 @@ content_hash = "sha256:a0f9e668edb122c5384093dcee6011a6f154efeab678753b258e6cd2a
     {url = "https://files.pythonhosted.org/packages/c1/6f/20b60ac8b314fd080dbab77b7a70ac3a283641a23914cb2346178875f501/mkdocs-material-extensions-1.0.3.tar.gz", hash = "sha256:bfd24dfdef7b41c312ede42648f9eb83476ea168ec163b613f9abd12bbfddba2"},
     {url = "https://files.pythonhosted.org/packages/cc/f5/cc42642eb7bb4f8df06c058ea9a7e45f3be141851845ee77ff8eeb16e86b/mkdocs_material_extensions-1.0.3-py3-none-any.whl", hash = "sha256:a82b70e533ce060b2a5d9eb2bc2e1be201cf61f901f93704b4acf6e3d5983a44"},
 ]
-"mkdocs-minify-plugin 0.6.0" = [
-    {url = "https://files.pythonhosted.org/packages/32/14/c59d4da59edafaaca4569d522fee310e2596fdfa11a1eeff74e744b6c2db/mkdocs_minify_plugin-0.6.0-py3-none-any.whl", hash = "sha256:ba94273ac7591d7b78aa3bdc5b1da67fc6ad23b33efc90722e0272a2bcf614b2"},
-    {url = "https://files.pythonhosted.org/packages/e0/74/e0ae50cf60a8cc1c0e89fd60d91b53db246424cf9262b1ccf24fe4125c1f/mkdocs-minify-plugin-0.6.0.tar.gz", hash = "sha256:da4c171d6b2901bf91950f56ec9db2c9016e4bfd8652aa720e8a8d836cd3cbcf"},
+"mkdocs-minify-plugin 0.6.1" = [
+    {url = "https://files.pythonhosted.org/packages/55/1b/cd7fb68473b1f4dc4d3cecf0cd8282a81ac8efcc896f4cbd832d3d4592bd/mkdocs_minify_plugin-0.6.1-py3-none-any.whl", hash = "sha256:6104f8132232da65cfe5d37c56b8ab3f5378f9fcedc341c180f62fdb25149cfe"},
+    {url = "https://files.pythonhosted.org/packages/6e/e4/7a8b4d68563a06e5ab4e622a036e932eb74871ff180606651c5861eeeea8/mkdocs-minify-plugin-0.6.1.tar.gz", hash = "sha256:29e14e4ab2d436cb05f56333c9bfbff561fc89402e04d0f1ccfe23a3e7070ba2"},
 ]
 "mkdocs-newsletter 1.0.1" = [
     {url = "https://files.pythonhosted.org/packages/06/d7/0e334bcf3297a07bc8455dab225eaae187294d2c39b1316f47e3c162aba7/mkdocs-newsletter-1.0.1.tar.gz", hash = "sha256:67ed079bc1db50cf04b657d310f0ae5c5ad6d765e1f8053a38fcb041190215ae"},
