@@ -115,60 +115,15 @@ And it gives me room enough to grow:
 
 ## CPU
 
-After doing some [basic research](cpu.md) I'm between:
-
-| Property        | Ryzen 7 5800x | Ryzen 5 5600x  | Ryzen 7 5700x | Ryzen 5 5600G  |
-| ---             | ---           | ---            | ---           | ---            |
-| Cores           | 8             | 6              | 8             | 6              |
-| Threads         | 16            | 12             | 16            | 12             |
-| Clock           | 3.8           | 3.7            | 3.4           | 3.9            |
-| Socket          | AM4           | AM4            | AM4           | AM4            |
-| PCI             | 4.0           | 4.0            | 4.0           | 3.0            |
-| Thermal         | Not included  | Wraith Stealth | Not included  | Wraith Stealth |
-| Default TDP     | 105W          | 65W            | 65W           | 65W            |
-| System Mem spec | >= 3200 MHz   | >= 3200 MHz    | >= 3200 MHz   | >= 3200 MHz    |
-| Mem type        | DDR4          | DDR4           | DDR4          | DDR4           |
-| Price           | 315           | 232            | 279           | 179            |
-
-The data was extracted from [AMD's official
-page](https://www.amd.com/en/products/specifications/compare/processors/10466,11826,10471,11176).
-
-They all support the chosen RAM and the motherboard.
-
-I'm ruling out Ryzen 7 5800x because it's too expensive both on monetary and
-power consumption terms. Also ruling out Ryzen 5 5600G because it has
-comparatively bad properties.
-
-Between Ryzen 5 5600x and Ryzen 7 5700x, after checking these comparisons
-([1](https://nanoreview.net/en/cpu-compare/amd-ryzen-7-5700x-vs-amd-ryzen-5-5600x),
-[2](https://www.amd.com/en/products/specifications/compare/processors/10466,11826,10471,11176))
-it looks like:
-
-* Single core performance is similar.
-* 7 wins when all cores are involved.
-* 7 is more power efficient.
-* 7 is better rated.
-* 7 is newer (1.5 years).
-* 7 has around 3.52 GB/s (7%) higher theoretical RAM memory bandwidth
-* They have the same cache
-* 7 has 5 degrees less of max temperature
-* They both support ECC
-* 5 has a greater market share
-* 5 is 47$ cheaper
-
-I think that for 47$ it's work the increase on cores and theoretical RAM memory
-bandwidth.
+After doing some [basic research](cpu.md) I've chosen the [Ryzen 7 5700x](https://www.amd.com/en/products/cpu/amd-ryzen-7-5700x).
 
 ## CPU cooler
 
-It looks that the [Ryzen CPUs don't require a cooler to work
-well](cpu.md#quick-shopping-tips). Usually it adds another 250W to the
-consumption. I don't plan to overclock it and I've heard that ZFS doesn't use
-too much CPU, so I'll start without it and monitor the temperature.
-
-If I were to take one, I'd go with air cooling with something like the [Dark
-Rock 4](https://www.bequiet.com/en/cpucooler/1376) but I've also read that
-Noctua are a good provider.
+After doing some [basic research](cpu.md#cpu-coolers) I've chosen the [Dark Rock
+4](https://www.bequiet.com/en/cpucooler/1376) but just because the [Enermax
+ETS-T50 AXE Silent
+Edition](https://www.enermaxeu.com/products/cpu-cooling/air-cooling/ets-t50-axe/)
+doesn't fit my case :(.
 
 ## Graphic card
 
@@ -203,13 +158,23 @@ The remaining are:
 | Price             | 115                      | 184                 |
 | Size              | 34 x 31 x 39 cm          | 35 x 28 x 21 cm     |
 
-I like the Fractal Node 804 better and it's cheaper.
+I like the [Fractal Node 804](https://www.fractal-design.com/products/cases/node/node-804/black/) better and it's cheaper.
 
 ## Power supply unit
 
 Using [PCPartPicker](https://pcpartpicker.com/list/) I've seen that with 4 disks
-it consumes approximately 254W, when I have the 8 disks, it will consume up to
-334W, so I can go with a 400W power supply unit.
+it consumes approximately 264W, when I have the 8 disks, it will consume up to
+344W, if I want to increase the ram then it will reach 373W. So in theory I can go with a 400W power supply unit.
+
+You need to make sure that it has enough wires to connect to all the disks.
+Although that usually is not a problem as there are adapters:
+
+* [Molex to
+    sata](https://www.amazon.com/CB-44SATA-Individually-Sleeved-Connector-Premium/dp/B0036ORCIA/ref=sr_1_13?ie=UTF8&qid=1409942557&sr=8-13&keywords=sleeved+molex+to+sata&tag=linus21-20)
+* [Sata to sata](https://www.amazon.com/dp/B0086OGN9E/ref=wl_it_dp_o_pd_nS_ttl?_encoding=UTF8&colid=2IW6VX45YF9B0&coliid=I1QUIF5VMSN2SG&psc=1&tag=linus21-20)
+
+After an [analysis on the different power supply units](psu.md), I've decided to
+go with [Be Quiet! Straight Power 11 450W Gold](https://www.bequiet.com/en/powersupply/1251)
 
 ## Wires
 
@@ -217,17 +182,21 @@ Usually disks come without sata wires, so you have to buy them
 
 ## Hardware conclusion
 
-| Piece                       | Purpose      | Number | Total price ($) |
-| ---                         | ---          | ---    | ---             |
-| Seagate IronWolf Pro (8TB)  | Data disk    | 3      | 762             |
-| Seagate Exos 7E8 (8TB)      | Data disk    | 2      | 554             |
-| WD Red SN700 (1TB)          | M.2 disks    | 2      | 254             |
-| Kingston Server DDR4 (16GB) | ECC RAM      | 2      | 206             |
-| AsRock X570M Pro4           | Motherboard  | 1      | 271             |
-| Ryzen 7 5700x               | CPU          | 1      | 280             |
-| Fractal Node 804            | Case         | 1      | 116             |
-| No cooler                   | CPU Cooler   | 0      | 0               |
-| No graphic card             | Graphic card | 0      | 0               |
+| Piece                       | Purpose       | Number | Total price ($) |
+| ---                         | ---           | ---    | ---             |
+| Seagate IronWolf Pro (8TB)  | Data disk     | 3      |                 |
+| Seagate Exos 7E8 (8TB)      | Data disk     | 2      | 438             |
+| WD Red SN700 (1TB)          | M.2 disks     | 2      |                 |
+| Kingston Server DDR4 (16GB) | ECC RAM       | 2      | 187             |
+| AsRock X570M Pro4           | Motherboard   | 1      | 225             |
+| Ryzen 7 5700x               | CPU           | 1      | 274             |
+| Fractal Node 804            | Case          | 1      | 137             |
+| Dark Rock 4                 | CPU Cooler    | 1      |                 |
+| Be Quiet! Straight Power 11 | PSU           | 1      |                 |
+| Sata wires                  | Sata          | 3      |                 |
+| No graphic card             | Graphic card  | 0      | 0               |
+| CPU thermal paste           | thermal paste | 0      | 0               |
+
 
 # References
 

@@ -18,3 +18,7 @@ and action of Metal Slug, brought to you by the creators of Soldat.
 
 * [Turtlebutt and Bunnie](https://deynarde.github.io/kag-archer-guide/)
 * [Coroz and RedOTheWisp](https://forum.thd.vg/threads/coroz-and-redothewisp-archer-compendium.27236/page-2)
+
+## Builder guides
+
+* [Turtlebutt and Bunnie](https://deynarde.github.io/kag-builder-guide)

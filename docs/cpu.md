@@ -74,6 +74,50 @@ The Ryzen family is broken down into four distinct branches:
 They're all great chips in their own ways, but some certainly offer more value
 than others, and for many, the most powerful chips will be complete overkill.
 
+# Market analysis
+
+| Property        | Ryzen 7 5800x | Ryzen 5 5600x  | Ryzen 7 5700x | Ryzen 5 5600G  |
+| ---             | ---           | ---            | ---           | ---            |
+| Cores           | 8             | 6              | 8             | 6              |
+| Threads         | 16            | 12             | 16            | 12             |
+| Clock           | 3.8           | 3.7            | 3.4           | 3.9            |
+| Socket          | AM4           | AM4            | AM4           | AM4            |
+| PCI             | 4.0           | 4.0            | 4.0           | 3.0            |
+| Thermal         | Not included  | Wraith Stealth | Not included  | Wraith Stealth |
+| Default TDP     | 105W          | 65W            | 65W           | 65W            |
+| System Mem spec | >= 3200 MHz   | >= 3200 MHz    | >= 3200 MHz   | >= 3200 MHz    |
+| Mem type        | DDR4          | DDR4           | DDR4          | DDR4           |
+| Price           | 315           | 232            | 279           | 179            |
+
+The data was extracted from [AMD's official
+page](https://www.amd.com/en/products/specifications/compare/processors/10466,11826,10471,11176).
+
+They all support the chosen RAM and the motherboard.
+
+I'm ruling out Ryzen 7 5800x because it's too expensive both on monetary and
+power consumption terms. Also ruling out Ryzen 5 5600G because it has
+comparatively bad properties.
+
+Between Ryzen 5 5600x and Ryzen 7 5700x, after checking these comparisons
+([1](https://nanoreview.net/en/cpu-compare/amd-ryzen-7-5700x-vs-amd-ryzen-5-5600x),
+[2](https://www.amd.com/en/products/specifications/compare/processors/10466,11826,10471,11176))
+it looks like:
+
+* Single core performance is similar.
+* 7 wins when all cores are involved.
+* 7 is more power efficient.
+* 7 is better rated.
+* 7 is newer (1.5 years).
+* 7 has around 3.52 GB/s (7%) higher theoretical RAM memory bandwidth
+* They have the same cache
+* 7 has 5 degrees less of max temperature
+* They both support ECC
+* 5 has a greater market share
+* 5 is 47$ cheaper
+
+I think that for 47$ it's work the increase on cores and theoretical RAM memory
+bandwidth. Therefore I'd go with the [Ryzen 7 5700x](https://www.amd.com/en/products/cpu/amd-ryzen-7-5700x).
+
 # [CPU coolers](https://www.tomshardware.com/reviews/cooling-buying-guide,6105.html)
 
 One of the most important decisions when building your PC, especially if you
@@ -151,14 +195,87 @@ Air Cooling Cons:
     cooler into a compatible RGB motherboard header, to turn the lights off
     without turning off the PC.
 
+## Market analysis
+
+After a quick review I'm deciding between the [Dark Rock
+4](https://www.bequiet.com/en/cpucooler/1376) and the [Enermax ETS-T50
+Axe](https://www.enermaxeu.com/products/cpu-cooling/air-cooling/ets-t50-axe/).
+The analysis is done after reading Tomshardware reviews
+([1](https://www.tomshardware.com/reviews/be-quiet-dark-rock-4-cpu-cooler,5563-2.html),
+[2](https://www.tomshardware.com/reviews/enermax-ets-t50-axe-cpu-cooler-review,5426-2.html)).
+
+They are equal in:
+
+* CPU core and motherboard temperatures.
+* Have installation videos.
+
+The Enermax has the advantages:
+
+* Is much more silent (between 2 and 4 dB).
+* It has better acoustic efficiency (Relative temperature against Relative
+    Noise) between 15% and 29%.
+* More TDP
+* Much cheaper (25 EUR)
+* If you have a Phillips screwdriver (normal cross screwdriver) you don't get
+    another one.
+
+All in all the Enermax ETS-T50 Axe is a better one, but after checking the
+sizes, my case limit on the height of the CPU cooler is 160mm and the Enermax is
+163mm... The Cooler Master Masterair ma610p has 166mm, so it's out of the
+question too. The Dark Rock 4 max height is 159mm. I don't know if I should bargain.
+
+To be in the safe side I'll go with the [Dark Rock 4](https://www.bequiet.com/en/cpucooler/1376)
+
 ## [Ryzen recommended coolers](https://www.amd.com/en/processors/ryzen-thermal-solutions)
 
-## Conclusion
+# [CPU Thermal paste](https://www.tomshardware.com/best-picks/best-thermal-paste)
 
-This section is not complete because I [decided not to use CPU cooling in my
-first approach](nas.md#cpu-cooling). Keep on reading [Tom's hardware
-guide](https://www.tomshardware.com/reviews/cooling-buying-guide,6105.html)
-before you choose a cooling system.
+Thermal paste is designed to minimize microscopic air gaps and irregularities
+between the surface of the cooler and the CPU's IHS (integrated heat spreader),
+the piece of metal which is built into the top of the processor.
+
+Good thermal paste can have a profound impact on your performance, because it
+will allow your processor to transfer more of its waste heat to your cooler,
+keeping your processor running cool.
+
+Most pastes are comprised of ceramic or metallic materials suspended within
+a proprietary binder which allows for easy application and spread as well as
+simple cleanup.
+
+These thermal pastes can be electrically conductive or non-conductive, depending
+on their specific formula. Electrically conductive thermal pastes can carry
+current between two points, meaning that if the paste squeezes out onto other
+components, it can cause damage to motherboards and CPUs when you switch on the
+power. A single drop out of place can lead to a dead PC, so extra care is
+imperative.
+
+Liquid metal compounds are almost always electrically conductive, so while these
+compounds provide better performance than their paste counterparts, they require
+more focus and attention during application. They are very hard to remove if you
+get some in the wrong place, which would fry your system.
+
+In contrast, traditional thermal paste compounds are relatively simple for every
+experience level. Most, but not all, traditional pastes are electrically
+non-conductive.
+
+Most cpu coolers come with their own thermal paste, so check yours before buying
+another one.
+
+## Market analysis
+
+| Model                 | ProlimaTech PK-3 | Thermal Grizzly Kryonaut | Cooler Master MasterGel Pro v2 |
+| ---                   | ---              | ---                      | ---                            |
+| Electrical conductive | No               | No                       | No                             |
+| Thermal Conductivity  | 11.2 W/mk        | 12.5 W/mk                | 9 W/mk                         |
+| Ease of Use           | 4.5              | 4.5                      | 4.5                            |
+| Relative Performance  | 4.0              | 4.0                      | 3.5                            |
+| Price per gram        | 6.22             | 9.48                     | 2.57                           |
+
+The best choice would be the ProlimaTech but the package sold are expensive
+because it has many grams.
+
+In my case, my cooler comes with the thermal paste so I'd start with that before
+spending 20$ more.
 
 # References
 

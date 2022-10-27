@@ -283,6 +283,7 @@ nav:
               - WAF: aws_waf.md
       - Continuous Integration:
           - devops/ci.md
+          - Drone: drone.md
           - Linters:
               - Alex: devops/alex.md
               - Flakeheaven: flakeheaven.md
@@ -334,6 +335,7 @@ nav:
       - Hardware:
           - CPU: cpu.md
           - RAM: ram.md
+          - Power Supply Unit: psu.md
   - Operating Systems:
       - Linux:
           - Linux Snippets: linux_snippets.md
