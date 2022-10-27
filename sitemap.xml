@@ -201,6 +201,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/drone/</loc>
+         <lastmod>2022-10-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/dunst/</loc>
          <lastmod>2022-10-27</lastmod>
          <changefreq>daily</changefreq>
@@ -597,6 +602,11 @@
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/prompt_toolkit_repl/</loc>
+         <lastmod>2022-10-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/psu/</loc>
          <lastmod>2022-10-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
