@@ -241,7 +241,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/ferdium/</loc>
+         <lastmod>2022-11-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/ffmpeg/</loc>
+         <lastmod>2022-11-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/finnix/</loc>
          <lastmod>2022-11-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -517,6 +527,11 @@
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/notmuch/</loc>
+         <lastmod>2022-11-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/openproject/</loc>
          <lastmod>2022-11-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
