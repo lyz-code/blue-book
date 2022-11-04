@@ -23,7 +23,9 @@ nav:
       - Time Management: time_management.md
       - Task Management:
           - task_management.md
-          - Task Management Tools: task_tools.md
+          - Task Management Tools:
+              - task_tools.md
+              - OpenProject: openproject.md
           - Task Management Workflows: task_workflows.md
       - Interruption Management:
           - interruption_management.md
@@ -351,6 +353,8 @@ nav:
           - Dynamic DNS: dynamicdns.md
           - elasticsearch: linux/elasticsearch.md
           - fail2ban: linux/fail2ban.md
+          - ferdium: ferdium.md
+          - finnix: finnix.md
           - Gajim: gajim.md
           - Github cli: gh.md
           - goaccess: goaccess.md

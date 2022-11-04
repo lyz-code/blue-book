@@ -80,6 +80,15 @@ pass show dockerhub | docker login --username foo --password-stdin
 
 # Snippets
 
+## Attach a docker to many networks
+
+You can't do it through the `docker run` command, there you can only specify one
+network. However, you can attach a docker to a network with the command:
+
+```bash
+docker network attach network-name docker-name
+```
+
 ## [Get the output of `docker ps` as a json](https://stackoverflow.com/questions/61586686/golang-template-to-format-docker-ps-output-as-json)
 
 To get the complete json for reference.

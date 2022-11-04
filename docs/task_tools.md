@@ -39,8 +39,8 @@ then a better task manager based on your needs.
 
 In the past I've used [taskwarrior](https://taskwarrior.org/), but [its
 limitations](https://lyz-code.github.io/pydo/#why-another-cli-task-manager) led
-me to start creating [pydo](https://lyz-code.github.io/pydo). I'll update this
-section once I have a stable workflow with the new program.
+me to start creating [pydo](https://lyz-code.github.io/pydo) although it's still
+not a usable project :(.
 
 ## The simplest task manager
 
@@ -89,6 +89,46 @@ also big split them further with more indentation levels.
     * Do Z
     * Do W
 ~~~
+
+## Web based task manager
+
+Life happened and the development of [pydo](https://lyz-code.github.io/pydo) has
+fallen behind in my priority list. I've also reached a point where [simplest
+one](#the-simplest-task-manager) is no longer suitable for my workflow because:
+
+* I loose a lot of time in the reviews.
+* I loose a lot of time when doing the different plannings (year, trimester,
+    month, week, day).
+* I find it hard to organize and refine the backlog.
+
+As `pydo` is not ready yet and I need a solution that works *today* better than
+the simplest task manager, I've done an analysis of the state of the art of
+[self-hosted
+applications](https://github.com/awesome-selfhosted/awesome-selfhosted#software-development---project-management)
+of all of them the two that were more promising were [Taiga](#taiga) and
+[OpenProject](#openproject).
+
+### [Taiga](https://www.taiga.io/)
+
+An Open source project with a lot of functionality. If you want to try it, you
+can create an account at [Disroot](https://disroot.org) (an awesome collective
+by the way). They have [set up an instance](https://board.disroot.org/) where
+you can check if you like it.
+
+Some facts made me finally not choose it, for example:
+
+* Subtasks can't have subtasks. Something I've found myself having quite often.
+    Specially if you refine your tasks in great detail.
+* When browsing the backlog or the boards, you can't edit a task in that window,
+    you need to open it in another tab.
+* I don't understand very well the different components, the difference between
+    tasks and issues for example.
+
+### [OpenProject](openproject.md)
+
+Check the [OpenProject](openproject.md) page to see the analysis of the tool.
+
+In the end I went with this option.
 
 # References
 

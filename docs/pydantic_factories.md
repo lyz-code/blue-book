@@ -231,7 +231,8 @@ class ArticleProxyFactory(ModelFactory):
 If we call `factory.build()` without passing a value for `article_id`, an error
 will be raised.
 
-# Creating your custom factories
+# [Creating your custom
+factories](https://starlite-api.github.io/pydantic-factories/usage/7-handling-custom-types/?h=custom)
 
 If your model has an attribute that is not supported by `pydantic-factories` and
 it depends on third party libraries, you can create your custom extension
@@ -256,8 +257,6 @@ class CustomFactory(ModelFactory[Any]):
 
 Where `cls._get_faker()` is a `faker` instance that you can use to build your
 returned value.
-
-
 
 # Troubleshooting
 
@@ -287,4 +286,4 @@ class CustomFactory(ModelFactory[Any]):
 # References
 
 * [Git](https://github.com/Goldziher/pydantic-factories)
-    ```
+* [Docs](https://starlite-api.github.io/pydantic-factories/)
