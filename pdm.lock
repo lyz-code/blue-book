@@ -272,13 +272,13 @@ dependencies = [
 
 [[package]]
 name = "mkdocs-material"
-version = "8.5.7"
+version = "8.5.8"
 requires_python = ">=3.7"
 summary = "Documentation that simply works"
 dependencies = [
     "jinja2>=3.0.2",
     "markdown>=3.2",
-    "mkdocs-material-extensions>=1.0.3",
+    "mkdocs-material-extensions>=1.1",
     "mkdocs>=1.4.0",
     "pygments>=2.12",
     "pymdown-extensions>=9.4",
@@ -287,9 +287,9 @@ dependencies = [
 
 [[package]]
 name = "mkdocs-material-extensions"
-version = "1.0.3"
-requires_python = ">=3.6"
-summary = "Extension pack for Python Markdown."
+version = "1.1"
+requires_python = ">=3.7"
+summary = "Extension pack for Python Markdown and MkDocs Material."
 
 [[package]]
 name = "mkdocs-minify-plugin"
@@ -857,13 +857,13 @@ content_hash = "sha256:a0f9e668edb122c5384093dcee6011a6f154efeab678753b258e6cd2a
     {url = "https://files.pythonhosted.org/packages/30/44/3d732ad3cb6e7875e216e0ef496939643ca46fb007806ac44e10b1b9cddb/mkdocs-git-revision-date-localized-plugin-1.1.0.tar.gz", hash = "sha256:38517e2084229da1a1b9460e846c2748d238c2d79efd405d1b9174a87bd81d79"},
     {url = "https://files.pythonhosted.org/packages/96/63/ea5d529d8a25fe68f56c199cbdc5408ff6ab5cd8b8f31f2f13f63c02e2ef/mkdocs_git_revision_date_localized_plugin-1.1.0-py3-none-any.whl", hash = "sha256:4ba0e49abea3e9f6ee26e2623ff7283873da657471c61f1d0cfbb986f403316d"},
 ]
-"mkdocs-material 8.5.7" = [
-    {url = "https://files.pythonhosted.org/packages/62/38/882effce66b5865a9890dcb9ec8ba9c2afa9d3d35b10c16089779d926f7c/mkdocs_material-8.5.7.tar.gz", hash = "sha256:ff4c7851b2e5f9a6cfa0a8b247e973ebae753b9836a53bd68742827541ab73e5"},
-    {url = "https://files.pythonhosted.org/packages/9e/c3/5c15521fe72120cdfbde99da3650bc83419f9caf5af4794a83420c2c00f6/mkdocs_material-8.5.7-py3-none-any.whl", hash = "sha256:07fc70dfa325a8019b99a124751c43e4c1c2a739ed1b0b82c00f823f31c9a1e2"},
+"mkdocs-material 8.5.8" = [
+    {url = "https://files.pythonhosted.org/packages/b7/df/beb5ce65ff31210f4b7637e93c9bc115f5531056964a7f275c619e6c39bf/mkdocs_material-8.5.8-py3-none-any.whl", hash = "sha256:7ff092299e3a63cef99cd87e4a6cc7e7d9ec31fd190d766fd147c35572e6d593"},
+    {url = "https://files.pythonhosted.org/packages/f3/5e/c8a1232141a2c0271b9159623184962fda0e429ea3948f2ce934c6cec6eb/mkdocs_material-8.5.8.tar.gz", hash = "sha256:61396251819cf7f547f70a09ce6a7edb2ff5d32e47b9199769020b2d20a83d44"},
 ]
-"mkdocs-material-extensions 1.0.3" = [
-    {url = "https://files.pythonhosted.org/packages/c1/6f/20b60ac8b314fd080dbab77b7a70ac3a283641a23914cb2346178875f501/mkdocs-material-extensions-1.0.3.tar.gz", hash = "sha256:bfd24dfdef7b41c312ede42648f9eb83476ea168ec163b613f9abd12bbfddba2"},
-    {url = "https://files.pythonhosted.org/packages/cc/f5/cc42642eb7bb4f8df06c058ea9a7e45f3be141851845ee77ff8eeb16e86b/mkdocs_material_extensions-1.0.3-py3-none-any.whl", hash = "sha256:a82b70e533ce060b2a5d9eb2bc2e1be201cf61f901f93704b4acf6e3d5983a44"},
+"mkdocs-material-extensions 1.1" = [
+    {url = "https://files.pythonhosted.org/packages/7c/60/60b7767c99e81326892c49bd80735952dab128e7bca7e903d9fa5accd00e/mkdocs_material_extensions-1.1.tar.gz", hash = "sha256:96ca979dae66d65c2099eefe189b49d5ac62f76afb59c38e069ffc7cf3c131ec"},
+    {url = "https://files.pythonhosted.org/packages/c3/2a/023d300cdbfb0993ddf356d7b02a12abd6c16fbaf72e4411d6aa6233d046/mkdocs_material_extensions-1.1-py3-none-any.whl", hash = "sha256:bcc2e5fc70c0ec50e59703ee6e639d87c7e664c0c441c014ea84461a90f1e902"},
 ]
 "mkdocs-minify-plugin 0.6.1" = [
     {url = "https://files.pythonhosted.org/packages/55/1b/cd7fb68473b1f4dc4d3cecf0cd8282a81ac8efcc896f4cbd832d3d4592bd/mkdocs_minify_plugin-0.6.1-py3-none-any.whl", hash = "sha256:6104f8132232da65cfe5d37c56b8ab3f5378f9fcedc341c180f62fdb25149cfe"},
