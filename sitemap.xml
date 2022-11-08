@@ -76,6 +76,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/aws_savings_plan/</loc>
+         <lastmod>2022-11-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/aws_snippets/</loc>
          <lastmod>2022-11-08</lastmod>
          <changefreq>daily</changefreq>
@@ -232,6 +237,11 @@
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/emojis/</loc>
+         <lastmod>2022-11-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/environmentalism/</loc>
          <lastmod>2022-11-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
