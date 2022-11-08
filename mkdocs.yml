@@ -18,6 +18,7 @@ nav:
           - Privileges: feminism/privileges.md
       - Mentoring: mentoring.md
       - Free Knowledge: free_knowledge.md
+      - Environmentalism: environmentalism.md
   - Life Management:
       - life_management.md
       - Time Management: time_management.md
@@ -275,6 +276,7 @@ nav:
           - AWS:
               - devops/aws/aws.md
               - AWS Snippets: aws_snippets.md
+              - AWS Savings plan: aws_savings_plan.md
               - Security groups workflow: devops/aws/security_groups.md
               - EKS: devops/aws/eks.md
               - IAM:

@@ -195,6 +195,9 @@ Air Cooling Cons:
     cooler into a compatible RGB motherboard header, to turn the lights off
     without turning off the PC.
 
+* Check that the CPU has GPU if you don't want to use an external graphic card.
+    Otherwise the BIOS won't start.
+
 ## Market analysis
 
 After a quick review I'm deciding between the [Dark Rock

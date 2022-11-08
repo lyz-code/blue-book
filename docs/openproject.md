@@ -24,6 +24,9 @@ are](task_tools.md#web-based-task-manager):
 
 The things I don't like are:
 
+* The task editor doesn't support markdown
+* Versions or sprints can't be used across projects even if they are subprojects
+    of a project.
 * Data can be exported as XML or CSV but it doesn't export everything. You have
     access to the database though, so if you'd like a better extraction of the
     data you in theory can do a selective dump of whatever you need.
@@ -192,7 +195,34 @@ backups](https://www.openproject.org/docs/installation-and-operations/operation/
 * [Upgrading](https://www.openproject.org/docs/installation-and-operations/operation/upgrading/#compose-based-installation)
 * [Restoring the service](https://www.openproject.org/docs/installation-and-operations/operation/restoring/#docker-based-installation)
 
+# Workflows
+
+## The plans
+
+I usually do a day, week, month, trimestre and year plans. To model this in
+OpenProjects I've created a version with each of these values. To sort them as
+I want them to appear I had to append a number so it would be:
+
+* 0. Day
+* 1. Week
+* 2. Month
+* ...
+
 # Tips
+
+## Bulk editing
+
+Select the work packages to edit holding the `Ctrl` key and then right click
+over them and select `Bulk Edit`.
+
+## Form editing
+
+Even though it looks that you can't tweak the forms of the issues you can add
+the sections on the right *grey* column to the ones on the left *blue*. You
+can't however:
+
+* Remove a section.
+* Rename a section.
 
 ## Tweaking the work package status
 
