@@ -22,7 +22,7 @@ Depending on how you like to learn I've found these options:
 
 * Written courses: [W3 git course](https://www.w3schools.com/git/default.asp)
 * Interactive tutorials: [Learngitbranching interactive
-    tutorial](https://learngitbranching.js.org/) and [katakoda](https://www.katacoda.com/courses/git)
+    tutorial](https://learngitbranching.js.org/)
 * Written article: [Freecode camp article](https://www.freecodecamp.org/news/learn-the-basics-of-git-in-under-10-minutes-da548267cc91/)
 * Video courses: [Code academy](https://www.codecademy.com/learn/learn-git) and [Udemy](https://www.udemy.com/course/learngit/)
 
