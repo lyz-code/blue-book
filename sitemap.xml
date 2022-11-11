@@ -346,6 +346,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/grapheneos/</loc>
+         <lastmod>2022-11-11</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/graylog/</loc>
          <lastmod>2022-11-11</lastmod>
          <changefreq>daily</changefreq>
@@ -472,6 +477,11 @@
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/mbsync/</loc>
+         <lastmod>2022-11-11</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/mdformat/</loc>
          <lastmod>2022-11-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -727,6 +737,11 @@
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/ram/</loc>
+         <lastmod>2022-11-11</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/redox/</loc>
          <lastmod>2022-11-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
