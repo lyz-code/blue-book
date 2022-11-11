@@ -129,7 +129,9 @@ explicitly or implicitly within a for loop), the previously yielded variable
 * [twint](https://github.com/twintproject/twint): An advanced Twitter scraping
     & OSINT tool written in Python that doesn't use Twitter's API, allowing you
     to scrape a user's followers, following, Tweets and more while evading most
-    API limitations.
+    API limitations. Maybe use `snscrape` (is below) if `twint` doesn't work.
+* [snscrape](https://github.com/JustAnotherArchivist/snscrape): A social
+    networking service scraper in Python.
 * [tweepy](https://github.com/tweepy/tweepy): Twitter for Python.
 
 # Interesting sources

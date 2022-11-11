@@ -296,10 +296,11 @@ nav:
               - Proselint: devops/proselint.md
               - Yamllint: devops/yamllint.md
               - Write Good: devops/write_good.md
-          - Formatters:
+          - Formatters/Fixers:
               - Black: devops/black.md
               - Yamlfix: yamlfix.md
               - Pyment: pyment.md
+              - mdformat: mdformat.md
           - Type Checkers:
               - Mypy: devops/mypy.md
           - Security Checkers:
@@ -400,10 +401,12 @@ nav:
           - Wireshark: wireshark.md
           - zip: linux/zip.md
       - Android:
-          - cone: cone.md
-          - GadgetBridge: gadgetbridge.md
-          - OsmAnd: osmand.md
-          - Signal: signal.md
+          - GrapheneOS: grapheneos.md
+          - Apps:
+              - cone: cone.md
+              - GadgetBridge: gadgetbridge.md
+              - OsmAnd: osmand.md
+              - Signal: signal.md
   - Arts:
       - Writing:
           - writing/writing.md
@@ -428,6 +431,8 @@ nav:
               - Spins: dancing/shuffle_spins.md
           - Cutting Shapes: dancing/cutting_shapes_basics.md
       - Meditation: meditation.md
+      - Maker:
+          - Redox: redox.md
       - Video Gaming:
           - King Arthur Gold: kag.md
           - The Battle for Wesnoth:
