@@ -31,12 +31,22 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/aleph/</loc>
+         <lastmod>2022-11-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/alot/</loc>
          <lastmod>2022-11-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/amazfit_band_5/</loc>
+         <lastmod>2022-11-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/android_tips/</loc>
          <lastmod>2022-11-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -551,6 +561,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/ombi/</loc>
+         <lastmod>2022-11-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/openproject/</loc>
          <lastmod>2022-11-16</lastmod>
          <changefreq>daily</changefreq>
@@ -582,6 +597,11 @@
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/pdm/</loc>
+         <lastmod>2022-11-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/pedal_pc/</loc>
          <lastmod>2022-11-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -932,6 +952,11 @@
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/vitest/</loc>
+         <lastmod>2022-11-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/vscodium/</loc>
          <lastmod>2022-11-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
