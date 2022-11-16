@@ -36,7 +36,7 @@ sox in.wav out6.wav silence -l 1 0.1 1% -1 2.0 1%
 Note that SoX does nothing to bits of silence shorter than 2 seconds.
 
 If you encounter the `sox FAIL formats: no handler for file extension 'mp3'`
-error  you'll need to install the `libsox-fmt-all` package.
+error you'll need to install the `libsox-fmt-all` package.
 
 # [Adjust the replay gain of many sound files](https://askubuntu.com/questions/246242/how-to-normalize-sound-in-mp3-files)
 
@@ -69,35 +69,35 @@ Without the `-n` it won't work well.
 
 # [Install one package from Debian unstable](https://linuxaria.com/howto/how-to-install-a-single-package-from-debian-sid-or-debian-testing)
 
-* Add the `unstable` repository to your `/etc/apt/sources.list`
+- Add the `unstable` repository to your `/etc/apt/sources.list`
 
-    ```bash
-    # Unstable
-    deb http://deb.debian.org/debian/ unstable main contrib non-free
-    deb-src http://deb.debian.org/debian/ unstable main contrib non-free
-    ```
+  ```bash
+  # Unstable
+  deb http://deb.debian.org/debian/ unstable main contrib non-free
+  deb-src http://deb.debian.org/debian/ unstable main contrib non-free
+  ```
 
-* Configure `apt` to only use `unstable` when specified
+- Configure `apt` to only use `unstable` when specified
 
-!!! note "File: `/etc/apt/preferences`"
-    ```
-    Package: *
-    Pin: release  a=stable
-    Pin-Priority: 700
+!!! note "File: `/etc/apt/preferences`" \`\`\` Package: * Pin: release a=stable
+Pin-Priority: 700
 
-    Package: *
-    Pin: release  a=testing
-    Pin-Priority: 600
+````
+Package: *
+Pin: release  a=testing
+Pin-Priority: 600
 
-    Package: *
-    Pin: release a=unstable
-    Pin-Priority: 100
-    ```
-* Update the package data with `apt-get update`.
-* See that the new versions are available with `apt-cache policy
-    <package_name>`
-* To install a package from unstable you can run `apt-get install -t unstable
-    <package_name>`.
+Package: *
+Pin: release a=unstable
+Pin-Priority: 100
+```
+````
+
+- Update the package data with `apt-get update`.
+- See that the new versions are available with
+  `apt-cache policy   <package_name>`
+- To install a package from unstable you can run
+  `apt-get install -t unstable   <package_name>`.
 
 # [Fix the following packages have been kept back](https://askubuntu.com/questions/601/the-following-packages-have-been-kept-back-why-and-how-do-i-solve-it)
 
@@ -109,9 +109,9 @@ sudo apt-get --with-new-pkgs upgrade
 
 ## Easy and quick way watch & lsof
 
-You can simply use a combination of `watch` & `lsof` command in Linux to get an idea
-of outgoing traffic on specific ports. Here is an example of outgoing traffic on
-ports `80` and `443`.
+You can simply use a combination of `watch` & `lsof` command in Linux to get an
+idea of outgoing traffic on specific ports. Here is an example of outgoing
+traffic on ports `80` and `443`.
 
 ```bash
 $ watch -n1 lsof -i TCP:80,443
@@ -130,7 +130,8 @@ You'll miss the short lived connections though.
 
 ## Fine grained with tcpdump
 
-You can also use `tcpdump` command to capture all raw packets, on all interfaces, on all ports, and write them to file.
+You can also use `tcpdump` command to capture all raw packets, on all
+interfaces, on all ports, and write them to file.
 
 ```bash
 sudo tcpdump -tttt -i any -w /tmp/http.log
@@ -169,10 +170,17 @@ are not needed anymore. We can get rid of them with
 apt-get autoremove
 ```
 
-If we want things tidy, we must know that whenever we `apt-get remove` a package,
-the configuration will be kept in case we want to install it again. In most
-cases we want to use `apt-get purge`. To clean those configurations from removed
-packages, we can use
+Remove
+[data of unpurged packages](https://askubuntu.com/questions/687295/how-to-purge-previously-only-removed-packages).
+
+```bash
+sudo apt-get purge $(dpkg -l | grep '^rc' | awk '{print $2}')
+```
+
+If we want things tidy, we must know that whenever we `apt-get remove` a
+package, the configuration will be kept in case we want to install it again. In
+most cases we want to use `apt-get purge`. To clean those configurations from
+removed packages, we can use
 
 ```bash
 dpkg --list | grep "^rc" | cut -d " " -f 3 | xargs --no-run-if-empty sudo dpkg --purge
@@ -189,24 +197,26 @@ dpkg-query -Wf '${Installed-Size}\t${Package}\n' | sort -n
 
 If you're using `snap` you can clean space by:
 
-* Reduce the number of versions kept of a package with `snap set system refresh.retain=2`
-* Remove the old versions with `clean_snap.sh`
+- Reduce the number of versions kept of a package with
+  `snap set system refresh.retain=2`
 
-    ```bash
-    #!/bin/bash
-    #Removes old revisions of snaps
-    #CLOSE ALL SNAPS BEFORE RUNNING THIS
-    set -eu
-    LANG=en_US.UTF-8 snap list --all | awk '/disabled/{print $1, $3}' |
-        while read snapname revision; do
-            snap remove "$snapname" --revision="$revision"
-        done
-    ```
+- Remove the old versions with `clean_snap.sh`
+
+  ```bash
+  #!/bin/bash
+  #Removes old revisions of snaps
+  #CLOSE ALL SNAPS BEFORE RUNNING THIS
+  set -eu
+  LANG=en_US.UTF-8 snap list --all | awk '/disabled/{print $1, $3}' |
+  while read snapname revision; do
+      snap remove "$snapname" --revision="$revision"
+  done
+  ```
 
 ## [Clean journalctl data](https://linuxhandbook.com/clear-systemd-journal-logs/)
 
-* Check how much space it's using: `journalctl --disk-usage`
-* Rotate the logs: `journalctl --rotate`
+- Check how much space it's using: `journalctl --disk-usage`
+- Rotate the logs: `journalctl --rotate`
 
 Then you have three ways to reduce the data:
 
@@ -223,8 +233,8 @@ service with `sudo systemctl restart systemd-journald`.
 ## [Set up docker logs rotation](https://medium.com/free-code-camp/how-to-setup-log-rotation-for-a-docker-container-a508093912b2)
 
 By default, the stdout and stderr of the container are written in a JSON file
-located in `/var/lib/docker/containers/[container-id]/[container-id]-json.log`. If
-you leave it unattended, it can take up a large amount of disk space.
+located in `/var/lib/docker/containers/[container-id]/[container-id]-json.log`.
+If you leave it unattended, it can take up a large amount of disk space.
 
 If this JSON log file takes up a significant amount of the disk, we can purge it
 using the next command.
@@ -271,6 +281,7 @@ Remember that your running kernel can be obtained by `uname -r`.
 ```bash
 find . -type f -exec sed -i 's/foo/bar/g' {} +
 ```
+
 # Bypass client SSL certificate with cli tool
 
 Websites that require clients to authorize with an TLS certificate are difficult
@@ -278,51 +289,53 @@ to interact with through command line tools that don't support this feature.
 
 To solve it, we can use a transparent proxy that does the exchange for us.
 
-* Export your certificate: If you have a `p12` certificate, you first need to
-    extract the key, crt and the ca from the certificate into the `site.pem`.
+- Export your certificate: If you have a `p12` certificate, you first need to
+  extract the key, crt and the ca from the certificate into the `site.pem`.
 
-    ```bash
-    openssl pkcs12 -in certificate.p12 -out site.key.pem -nocerts -nodes # It asks for the p12 password
-    openssl pkcs12 -in certificate.p12 -out site.crt.pem -clcerts -nokeys
-    openssl pkcs12 -cacerts -nokeys -in certificate.p12 -out site-ca-cert.ca
+  ```bash
+  openssl pkcs12 -in certificate.p12 -out site.key.pem -nocerts -nodes # It asks for the p12 password
+  openssl pkcs12 -in certificate.p12 -out site.crt.pem -clcerts -nokeys
+  openssl pkcs12 -cacerts -nokeys -in certificate.p12 -out site-ca-cert.ca
 
-    cat site.key.pem site.crt.pem site-ca-cert.ca > site.pem
-    ```
+  cat site.key.pem site.crt.pem site-ca-cert.ca > site.pem
+  ```
 
-* Build the proxy ca: Then we merge the site and the client ca's into the
-    `site-ca-file.cert` file:
+- Build the proxy ca: Then we merge the site and the client ca's into the
+  `site-ca-file.cert` file:
 
-    ```bash
-    openssl s_client -connect www.site.org:443 2>/dev/null  | openssl x509 -text > site-ca-file.cert
-    cat site-ca-cert.ca >> web-ca-file.cert
-    ```
-* Change your hosts file to redirect all requests to the proxy.
+  ```bash
+  openssl s_client -connect www.site.org:443 2>/dev/null  | openssl x509 -text > site-ca-file.cert
+  cat site-ca-cert.ca >> web-ca-file.cert
+  ```
 
-    ```vim
-    # vim /etc/hosts
-    [...]
-    0.0.0.0 www.site.org
-    ```
+- Change your hosts file to redirect all requests to the proxy.
 
-* Run the proxy
-    ```bash
-    docker run --rm \
-        -v $(pwd):/certs/ \
-        -p 3001:3001 \
-        -it ghostunnel/ghostunnel \
-            client \
-            --listen 0.0.0.0:3001 \
-            --target www.site.org:443 \
-            --keystore /certs/site.pem \
-            --cacert /certs/site-ca-file.cert \
-            --unsafe-listen
-    ```
+  ```vim
+  # vim /etc/hosts
+  [...]
+  0.0.0.0 www.site.org
+  ```
 
-* Run the command line tool using the http protocol on the port 3001:
+- Run the proxy
 
-    ```bash
-    wpscan  --url http://www.site.org:3001/ --disable-tls-checks
-    ```
+  ```bash
+  docker run --rm \
+      -v $(pwd):/certs/ \
+      -p 3001:3001 \
+      -it ghostunnel/ghostunnel \
+      client \
+      --listen 0.0.0.0:3001 \
+      --target www.site.org:443 \
+      --keystore /certs/site.pem \
+      --cacert /certs/site-ca-file.cert \
+      --unsafe-listen
+  ```
+
+- Run the command line tool using the http protocol on the port 3001:
+
+  ```bash
+  wpscan  --url http://www.site.org:3001/ --disable-tls-checks
+  ```
 
 Remember to clean up your env afterwards.
 

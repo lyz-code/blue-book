@@ -330,6 +330,8 @@ nav:
               - Instance sizing analysis: devops/prometheus/instance_sizing_analysis.md
               - Prometheus Troubleshooting: >-
                   devops/prometheus/prometheus_troubleshooting.md
+      - Self-hosted services:
+          - Ombi: ombi.md
       - API Management:
           - devops/api_management.md
           - Kong: devops/kong/kong.md
@@ -341,6 +343,7 @@ nav:
           - CPU: cpu.md
           - RAM: ram.md
           - Power Supply Unit: psu.md
+          - Pedal PC: pedal_pc.md
   - Operating Systems:
       - Linux:
           - Linux Snippets: linux_snippets.md
@@ -395,12 +398,14 @@ nav:
               - Tabs vs Buffers: vim_tabs.md
               - Vim Plugins: linux/vim/vim_plugins.md
               - Write Neovim Plugins: write_neovim_plugins.md
+          - VSCodium: vscodium.md
           - Wake on Lan: wake_on_lan.md
           - Wallabag: wallabag.md
           - Wireguard: linux/wireguard.md
           - Wireshark: wireshark.md
           - zip: linux/zip.md
       - Android:
+          - Android Tips: android_tips.md
           - GrapheneOS: grapheneos.md
           - Apps:
               - cone: cone.md
