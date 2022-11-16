@@ -348,6 +348,7 @@ nav:
       - Linux:
           - Linux Snippets: linux_snippets.md
           - afew: afew.md
+          - aleph: aleph.md
           - alot: alot.md
           - Anki: anki.md
           - ActivityWatch: activitywatch.md
