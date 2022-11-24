@@ -74,6 +74,19 @@ docker attach aleph_api_1
 You don't need to reload the page for it to load the changes, it does it
 dynamically.
 
+## Troubleshooting
+
+### Problems accessing redis locally
+
+If you're with the VPN connected, turn it off.
+
+### PDB behaves weird
+
+Sometimes you have two traces at the same time, so each time you run a PDB
+command it jumps from pdb trace. Quite confusing. Try to `c` the one you don't
+want so that you're left with the one you want. Or put the `pdb` trace in a
+conditional that only matches one of both threads.
+
 # References
 
 - [Docs](http://docs.alephdata.org/)

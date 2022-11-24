@@ -25,17 +25,26 @@ import os
 from goodconf import GoodConf, Field
 from pydantic import PostgresDsn
 
+
 class AppConfig(GoodConf):
     """Configure my application."""
-    DEBUG: bool
-    DATABASE_URL: PostgresDsn = "postgres://localhost:5432/mydb"
-    SECRET_KEY: str = Field(
+
+    debug: bool
+    database_url: PostgresDsn = "postgres://localhost:5432/mydb"
+    secret_key: str = Field(
         initial=lambda: base64.b64encode(os.urandom(60)).decode(),
         description="Used for cryptographic signing. "
-        "https://docs.djangoproject.com/en/2.0/ref/settings/#secret-key")
+        "https://docs.djangoproject.com/en/2.0/ref/settings/#secret-key",
+    )
 
     class Config:
-        default_files = ["/etc/myproject/myproject.yaml", "myproject.yaml"]
+        """Define the default files to check."""
+
+        default_files = [
+            os.path.expanduser("~/.local/share/your_program/config.yaml"),
+            "config.yaml",
+        ]
+
 
 config = AppConfig()
 ```
@@ -48,11 +57,9 @@ configuration files.
 
 For more details see Pydantic's docs for examples of loading:
 
-* [Dotenv (.env)
-    files](https://pydantic-docs.helpmanual.io/usage/settings/#dotenv-env-support).
-* [Docker
-    secrets](https://pydantic-docs.helpmanual.io/usage/settings/#secret-support).
+- [Dotenv (.env) files](https://pydantic-docs.helpmanual.io/usage/settings/#dotenv-env-support).
+- [Docker secrets](https://pydantic-docs.helpmanual.io/usage/settings/#secret-support).
 
 # References
 
-* [Git](https://github.com/lincolnloop/goodconf/)
+- [Git](https://github.com/lincolnloop/goodconf/)

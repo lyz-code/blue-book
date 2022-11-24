@@ -13,15 +13,26 @@ the ElasticSearch documentation uses cURL command line syntax. This is also the
 standard practice to describe requests made to ElasticSearch within the user
 community.
 
+## Get all documents
+
 An example HTTP request using CURL syntax looks like this:
 
 ```bash
-curl -XPOST "https://localhost:9200/_search" -d' { "query": { "match_all": {} }
-}'
+curl \
+    -H 'Content-Type: application/json' \
+    -XPOST "https://localhost:9200/_search" \
+    -d' { "query": { "match_all": {} }}'
 ```
 
-The above snippet, when executed in a console, runs the curl program with three
-arguments.
+## Get documents that match a string
+
+```bash
+curl \
+    -H 'Content-Type: application/json' \
+    -XPOST "https://localhost:9200/_search" \
+    -d' { "query": { "query_string": {"query": "test company"} }}'
+```
+
 
 # Backup
 

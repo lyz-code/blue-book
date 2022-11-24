@@ -4,13 +4,23 @@ date: 20200717
 author: Lyz
 ---
 
-# [Print datetime with a defined format](https://stackoverflow.com/questions/311627/how-to-print-a-date-in-a-regular-format)
+# [Pad integer with zeros](https://stackoverflow.com/questions/39402795/how-to-pad-a-string-with-leading-zeros-in-python-3)
+
 ```python
-now = datetime.now()
-today.strftime('We are the %d, %b %Y')
+>>> length = 1
+>>> print(f'length = {length:03}')
+length = 001
 ```
 
-Where the datetime format is a string built from [these directives](#parse-a-datetime-from-a-string).
+# [Print datetime with a defined format](https://stackoverflow.com/questions/311627/how-to-print-a-date-in-a-regular-format)
+
+```python
+now = datetime.now()
+today.strftime("We are the %d, %b %Y")
+```
+
+Where the datetime format is a string built from
+[these directives](#parse-a-datetime-from-a-string).
 
 # [Print string with asciiart](https://www.askpython.com/python-modules/ascii-art)
 
@@ -20,7 +30,8 @@ pip install pyfiglet
 
 ```python
 from pyfiglet import figlet_format
-print(figlet_format('09 : 30'))
+
+print(figlet_format("09 : 30"))
 ```
 
 If you want to change the default width of 80 caracteres use:
@@ -35,41 +46,43 @@ print(f.renderText("aaaaaaaaaaaaaaaaa"))
 # Print specific time format
 
 ```python
-datetime.datetime.now().strftime('%Y-%m-%dT%H:%M:%S')
+datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%S")
 ```
 
-Code  Meaning Example
-%a  Weekday as locale’s abbreviated name. Mon
-%A  Weekday as locale’s full name.  Monday
-%w  Weekday as a decimal number, where 0 is Sunday and 6 is Saturday. 1
-%d  Day of the month as a zero-padded decimal number. 30
-%-d Day of the month as a decimal number. (Platform specific) 30
-%b  Month as locale’s abbreviated name. Sep
-%B  Month as locale’s full name.  September
-%m  Month as a zero-padded decimal number.  09
-%-m Month as a decimal number. (Platform specific)  9
-%y  Year without century as a zero-padded decimal number. 13
-%Y  Year with century as a decimal number.  2013
-%H  Hour (24-hour clock) as a zero-padded decimal number. 07
-%-H Hour (24-hour clock) as a decimal number. (Platform specific) 7
-%I  Hour (12-hour clock) as a zero-padded decimal number. 07
-%-I Hour (12-hour clock) as a decimal number. (Platform specific) 7
-%p  Locale’s equivalent of either AM or PM. AM
-%M  Minute as a zero-padded decimal number. 06
-%-M Minute as a decimal number. (Platform specific) 6
-%S  Second as a zero-padded decimal number. 05
-%-S Second as a decimal number. (Platform specific) 5
-%f  Microsecond as a decimal number, zero-padded on the left. 000000
-%z  UTC offset in the form +HHMM or -HHMM (empty string if the the object is naive).
-%Z  Time zone name (empty string if the object is naive).
-%j  Day of the year as a zero-padded decimal number.  273
-%-j Day of the year as a decimal number. (Platform specific)  273
-%U  Week number of the year (Sunday as the first day of the week) as a zero padded decimal number. All days in a new year preceding the first Sunday are considered to be in week 0.  39
-%W  Week number of the year (Monday as the first day of the week) as a decimal number. All days in a new year preceding the first Monday are considered to be in week 0.
-%c  Locale’s appropriate date and time representation.  Mon Sep 30 07:06:05 2013
-%x  Locale’s appropriate date representation. 09/30/13
-%X  Locale’s appropriate time representation. 07:06:05
-%%  A literal '%' character.  %
+| Code | Meaning Example                                                                                                                                                                      |
+| ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| %a   | Weekday as locale’s abbreviated name. Mon                                                                                                                                            |
+| %A   | Weekday as locale’s full name.  Monday                                                                                                                                               |
+| %w   | Weekday as a decimal number, where 0 is Sunday and 6 is Saturday. 1                                                                                                                  |
+| %d   | Day of the month as a zero-padded decimal number. 30                                                                                                                                 |
+| %-d  | Day of the month as a decimal number. (Platform specific) 30                                                                                                                         |
+| %b   | Month as locale’s abbreviated name. Sep                                                                                                                                              |
+| %B   | Month as locale’s full name.  September                                                                                                                                              |
+| %m   | Month as a zero-padded decimal number.  09                                                                                                                                           |
+| %-m  | Month as a decimal number. (Platform specific)  9                                                                                                                                    |
+| %y   | Year without century as a zero-padded decimal number. 13                                                                                                                             |
+| %Y   | Year with century as a decimal number.  2013                                                                                                                                         |
+| %H   | Hour (24-hour clock) as a zero-padded decimal number. 07                                                                                                                             |
+| %-H  | Hour (24-hour clock) as a decimal number. (Platform specific) 7                                                                                                                      |
+| %I   | Hour (12-hour clock) as a zero-padded decimal number. 07                                                                                                                             |
+| %-I  | Hour (12-hour clock) as a decimal number. (Platform specific) 7                                                                                                                      |
+| %p   | Locale’s equivalent of either AM or PM. AM                                                                                                                                           |
+| %M   | Minute as a zero-padded decimal number. 06                                                                                                                                           |
+| %-M  | Minute as a decimal number. (Platform specific) 6                                                                                                                                    |
+| %S   | Second as a zero-padded decimal number. 05                                                                                                                                           |
+| %-S  | Second as a decimal number. (Platform specific) 5                                                                                                                                    |
+| %f   | Microsecond as a decimal number, zero-padded on the left. 000000                                                                                                                     |
+| %z   | UTC offset in the form +HHMM or -HHMM (empty string if the the object is naive).                                                                                                     |
+| %Z   | Time zone name (empty string if the object is naive).                                                                                                                                |
+| %j   | Day of the year as a zero-padded decimal number.  273                                                                                                                                |
+| %-j  | Day of the year as a decimal number. (Platform specific)  273                                                                                                                        |
+| %U   | Week number of the year (Sunday as the first day of the week) as a zero padded decimal number. All days in a new year preceding the first Sunday are considered to be in week 0.  39 |
+| %W   | Week number of the year (Monday as the first day of the week) as a decimal number. All days in a new year preceding the first Monday are considered to be in week 0.                 |
+| %c   | Locale’s appropriate date and time representation.  Mon Sep 30 07:06:05 2013                                                                                                         |
+| %x   | Locale’s appropriate date representation. 09/30/13                                                                                                                                   |
+| %X   | Locale’s appropriate time representation. 07:06:05                                                                                                                                   |
+| %%   | A literal '%' character.  %                                                                                                                                                          |
+
 # [Get an instance of an Enum by value](https://stackoverflow.com/questions/29503339/how-to-get-all-values-from-python-enum-class)
 
 If you want to initialize a pydantic model with an `Enum` but all you have is
@@ -106,10 +119,7 @@ class Environment(str, Enum):
 Now you can do:
 
 ```python
-ServiceStatus(
-    name='test',
-    environment=Environment.get_by_value('production')
-)
+ServiceStatus(name="test", environment=Environment.get_by_value("production"))
 ```
 
 # [Fix R1728: Consider using a generator](https://pylint.pycqa.org/en/latest/user_guide/messages/refactor/consider-using-generator.html)
@@ -146,6 +156,8 @@ not. This is a problem because we silently ignore errors.
 
 ```python
 import subprocess
+
+
 def example():
     proc = subprocess.run("ls")
     return proc.stdout
@@ -157,18 +169,18 @@ when the return code of the command is non-zero.
 # [Convert bytes to string](https://pythonexamples.org/python-bytes-to-string/)
 
 ```python
-byte_var.decode('utf-8')
+byte_var.decode("utf-8")
 ```
 
 # [Use pipes with subprocess](https://stackoverflow.com/questions/13332268/how-to-use-subprocess-command-with-pipes)
 
-To use pipes with subprocess you need to use the flag `shell=True` which is [a
-bad idea](https://github.com/duo-labs/dlint/blob/master/docs/linters/DUO116.md).
+To use pipes with subprocess you need to use the flag `shell=True` which is
+[a bad idea](https://github.com/duo-labs/dlint/blob/master/docs/linters/DUO116.md).
 Instead you should use two processes and link them together in python:
 
 ```python
-ps = subprocess.Popen(('ps', '-A'), stdout=subprocess.PIPE)
-output = subprocess.check_output(('grep', 'process_name'), stdin=ps.stdout)
+ps = subprocess.Popen(("ps", "-A"), stdout=subprocess.PIPE)
+output = subprocess.check_output(("grep", "process_name"), stdin=ps.stdout)
 ps.wait()
 ```
 
@@ -176,14 +188,15 @@ ps.wait()
 
 ```python
 import subprocess
-p = subprocess.run(['myapp'], input='data_to_write', text=True)
+
+p = subprocess.run(["myapp"], input="data_to_write", text=True)
 ```
 
 # [Copy and paste from clipboard](https://stackoverflow.com/questions/11063458/python-script-to-copy-text-to-clipboard)
 
-You can use [many
-libraries](https://www.delftstack.com/howto/python/python-copy-to-clipboard/) to
-do it, but if you don't want to add any other dependencies you can use
+You can use
+[many libraries](https://www.delftstack.com/howto/python/python-copy-to-clipboard/)
+to do it, but if you don't want to add any other dependencies you can use
 `subprocess run`.
 
 To copy from the `selection` clipboard, assuming you've got `xclip` installed,
@@ -191,8 +204,8 @@ you could do:
 
 ```python
 subprocess.run(
-    ['xclip', '-selection', 'clipboard', '-i'],
-    input='text to be copied',
+    ["xclip", "-selection", "clipboard", "-i"],
+    input="text to be copied",
     text=True,
     check=True,
 )
@@ -201,18 +214,16 @@ subprocess.run(
 To paste it:
 
 ```python
-subprocess.check_output(
-    ['xclip', '-o', '-selection', 'clipboard']
-).decode('utf-8')
+subprocess.check_output(["xclip", "-o", "-selection", "clipboard"]).decode("utf-8")
 ```
 
 # [Create random number](https://www.pythoncentral.io/how-to-generate-a-random-number-in-python/)
 
 ```python
 import random
-a=random.randint(1,10)
-```
 
+a = random.randint(1, 10)
+```
 
 # [Check if local port is available or in use](https://stackoverflow.com/questions/43270868/verify-if-a-local-port-is-available-in-python)
 
@@ -272,7 +283,7 @@ class Container:
 Usage:
 
 ```python
-params = {'user_id': 1, 'body': 'foo', 'bar': 'baz', 'amount': 10}
+params = {"user_id": 1, "body": "foo", "bar": "baz", "amount": 10}
 Container(**params)  # still doesn't work, raises a TypeError
 c = Container.from_kwargs(**params)
 print(c.bar)  # prints: 'baz'
@@ -286,11 +297,10 @@ txt = "I like bananas"
 x = txt.replace("bananas", "apples")
 ```
 
-
 # [Parse an RFC2822 date](https://stackoverflow.com/questions/1568856/how-do-i-convert-rfc822-to-a-python-datetime-object)
 
-Interesting to test the accepted format of [RSS
-dates](https://www.rssboard.org/rss-validator/docs/error/InvalidRFC2822Date.html).
+Interesting to test the accepted format of
+[RSS dates](https://www.rssboard.org/rss-validator/docs/error/InvalidRFC2822Date.html).
 
 ```python
 >>> from email.utils import parsedate_to_datetime
@@ -301,8 +311,8 @@ datetime.datetime(1997, 3, 9, 13, 45, tzinfo=datetime.timezone(datetime.timedelt
 
 # [Convert a datetime to RFC2822](https://stackoverflow.com/questions/3453177/convert-python-datetime-to-rfc-2822)
 
-Interesting as it's the accepted format of [RSS
-dates](https://www.rssboard.org/rss-validator/docs/error/InvalidRFC2822Date.html).
+Interesting as it's the accepted format of
+[RSS dates](https://www.rssboard.org/rss-validator/docs/error/InvalidRFC2822Date.html).
 
 ```python
 >>> import datetime
@@ -312,12 +322,12 @@ dates](https://www.rssboard.org/rss-validator/docs/error/InvalidRFC2822Date.html
 'Tue, 10 Feb 2020 10:06:53 -0000'
 ```
 
-
 # [Encode url](https://www.urlencoder.io/python/)
 
 ```python
 import urllib.parse
 from pydantic import AnyHttpUrl
+
 
 def _normalize_url(url: str) -> AnyHttpUrl:
     """Encode url to make it compatible with AnyHttpUrl."""
@@ -355,7 +365,7 @@ class G:
     @classmethod
     @property
     def __doc__(cls):
-        return f'A doc for {cls.__name__!r}'
+        return f"A doc for {cls.__name__!r}"
 ```
 
 If you're not, you can define the decorator `classproperty`:
@@ -387,10 +397,10 @@ class classproperty:  # noqa: N801, C0103
         return self.function(owner_self)
 ```
 
-But you'll run into the `W0143: Comparing against a callable, did you omit the
-parenthesis? (comparison-with-callable)` mypy error when using it to compare the
-result of the property with anything, as it doesn't detect it's a property
-instead of a method.
+But you'll run into the
+`W0143: Comparing against a callable, did you omit the parenthesis? (comparison-with-callable)`
+mypy error when using it to compare the result of the property with anything, as
+it doesn't detect it's a property instead of a method.
 
 # [How to close a subprocess process](https://stackoverflow.com/questions/62172227/how-to-close-subprocess-in-python)
 
@@ -419,10 +429,11 @@ If you want to count the number of occurrences of each duplicate, you can use:
 
 ```python
 from collections import Counter
+
 numbers = [1, 2, 3, 2, 5, 3, 3, 5, 6, 3, 4, 5, 7]
 
 counts = dict(Counter(numbers))
-duplicates = {key:value for key, value in counts.items() if value > 1}
+duplicates = {key: value for key, value in counts.items() if value > 1}
 
 # Returns: {2: 2, 3: 4, 5: 3}
 ```
@@ -440,8 +451,9 @@ unique = list(set(numbers))
 ```python
 import gzip
 import shutil
-with gzip.open('file.txt.gz', 'rb') as f_in:
-    with open('file.txt', 'wb') as f_out:
+
+with gzip.open("file.txt.gz", "rb") as f_in:
+    with open("file.txt", "wb") as f_out:
         shutil.copyfileobj(f_in, f_out)
 ```
 
@@ -458,6 +470,7 @@ def compress(tar_file, members):
         tar.add(member)
 
     tar.close()
+
 
 def decompress(tar_file, path, members=None):
     """
@@ -486,7 +499,7 @@ bs = BeautifulSoup(requests.get(url), "lxml")
 import traceback
 
 # `e` is an exception object that you get from somewhere
-traceback_str = ''.join(traceback.format_tb(e.__traceback__))
+traceback_str = "".join(traceback.format_tb(e.__traceback__))
 ```
 
 # Change the logging level of a library
@@ -521,8 +534,7 @@ regex = re.compile(
 )
 ```
 
-# [Remove the elements of a list from
-another](https://stackoverflow.com/questions/4211209/remove-all-the-elements-that-occur-in-one-list-from-another)
+# [Remove the elements of a list from another](https://stackoverflow.com/questions/4211209/remove-all-the-elements-that-occur-in-one-list-from-another)
 
 ```python
 >>> set([1,2,6,8]) - set([2,3,5,8])
@@ -539,7 +551,7 @@ performance option.
 ```python
 import shutil
 
-shutil.copytree('bar', 'foo')
+shutil.copytree("bar", "foo")
 ```
 
 # [Copy a file](https://stackabuse.com/how-to-copy-a-file-in-python/)
@@ -562,8 +574,7 @@ with redirect_stdout(f):
 out = f.getvalue()
 ```
 
-# [Make temporal
-directory](https://stackoverflow.com/questions/3223604/how-to-create-a-temporary-directory-and-get-its-path-file-name)
+# [Make temporal directory](https://stackoverflow.com/questions/3223604/how-to-create-a-temporary-directory-and-get-its-path-file-name)
 
 ```python
 import tempfile
@@ -572,6 +583,7 @@ dirpath = tempfile.mkdtemp()
 ```
 
 # [Change the working directory of a test](https://stackoverflow.com/questions/62044541/change-pytest-working-directory-to-test-case-directory)
+
 The following function-level fixture will change to the test case directory, run
 the test (`yield`), then change back to the calling directory to avoid
 side-effects.
@@ -584,12 +596,12 @@ def change_test_dir_(request: SubRequest) -> Any:
     os.chdir(request.config.invocation_dir)
 ```
 
-* `request` is a built-in pytest fixture
-* `fspath` is the `LocalPath` to the test module being executed
-* `dirname` is the directory of the test module
-* `request.config.invocationdir` is the folder from which pytest was executed
-* `request.config.rootdir` is the pytest root, doesn't change based on where you
-    run pytest. Not used here, but could be useful.
+- `request` is a built-in pytest fixture
+- `fspath` is the `LocalPath` to the test module being executed
+- `dirname` is the directory of the test module
+- `request.config.invocationdir` is the folder from which pytest was executed
+- `request.config.rootdir` is the pytest root, doesn't change based on where you
+  run pytest. Not used here, but could be useful.
 
 Any processes that are kicked off by the test will use the test case folder as
 their working directory and copy their logs, outputs, etc. there, regardless of
@@ -597,20 +609,20 @@ where the test suite was executed.
 
 # [Remove a substring from the end of a string](https://stackoverflow.com/questions/1038824/how-do-i-remove-a-substring-from-the-end-of-a-string)
 
-On Python 3.9 and newer you can use the `removeprefix` and `removesuffix` methods to
-remove an entire substring from either side of the string:
+On Python 3.9 and newer you can use the `removeprefix` and `removesuffix`
+methods to remove an entire substring from either side of the string:
 
 ```python
-url = 'abcdc.com'
-url.removesuffix('.com')    # Returns 'abcdc'
-url.removeprefix('abcdc.')  # Returns 'com'
+url = "abcdc.com"
+url.removesuffix(".com")  # Returns 'abcdc'
+url.removeprefix("abcdc.")  # Returns 'com'
 ```
 
 On Python 3.8 and older you can use `endswith` and slicing:
 
 ```python
-url = 'abcdc.com'
-if url.endswith('.com'):
+url = "abcdc.com"
+if url.endswith(".com"):
     url = url[:-4]
 ```
 
@@ -618,8 +630,9 @@ Or a regular expression:
 
 ```python
 import re
-url = 'abcdc.com'
-url = re.sub('\.com$', '', url)
+
+url = "abcdc.com"
+url = re.sub("\.com$", "", url)
 ```
 
 # [Make a flat list of lists with a list comprehension](https://stackoverflow.com/questions/952914/how-to-make-a-flat-list-out-of-a-list-of-lists)
@@ -634,15 +647,15 @@ flat_list = [item for sublist in t for item in sublist]
 # [Replace all characters of a string with another character](https://stackoverflow.com/questions/48995979/how-to-replace-all-characters-in-a-string-with-one-character/48996018)
 
 ```python
-mystring = '_'*len(mystring)
+mystring = "_" * len(mystring)
 ```
 
 # [Locate element in list](https://appdividend.com/2019/11/16/how-to-find-element-in-list-in-python/)
 
 ```python
-a = ['a', 'b']
+a = ["a", "b"]
 
-index = a.index('b')
+index = a.index("b")
 ```
 
 # [Transpose a list of lists](https://stackoverflow.com/questions/6473679/transpose-list-of-lists)
@@ -676,9 +689,9 @@ time because if the file or directory exists, that code is not run.
 
 # [Check if a dictionary is a subset of another](https://stackoverflow.com/questions/9323749/how-to-check-if-one-dictionary-is-a-subset-of-another-larger-dictionary)
 
-If you have two dictionaries `big = {'a': 1, 'b': 2, 'c':3}` and `small = {'c':
-3, 'a': 1}`, and want to check whether `small` is a subset of `big`, use the
-next snippet:
+If you have two dictionaries `big = {'a': 1, 'b': 2, 'c':3}` and
+`small = {'c': 3, 'a': 1}`, and want to check whether `small` is a subset of
+`big`, use the next snippet:
 
 ```python
 >>> small.items() <= big.items()
@@ -697,6 +710,7 @@ the next code:
 class Shape:
     pass
 
+
 class Rectangle(Shape):
     def __init__(self, length, width):
         self.length = length
@@ -706,13 +720,15 @@ class Rectangle(Shape):
     def get_area(self):
         return self.length * self.width
 
+
 class Square(Rectangle):
-    def __init__(self,length):
-        Rectangle.__init__(self,length,length)
+    def __init__(self, length):
+        Rectangle.__init__(self, length, length)
 ```
 
-And we want to check if an object `a = Square(5)` is of type `Rectangle`, we could not use
-`isinstance` because it'll return `True` as it's a subclass of `Rectangle`:
+And we want to check if an object `a = Square(5)` is of type `Rectangle`, we
+could not use `isinstance` because it'll return `True` as it's a subclass of
+`Rectangle`:
 
 ```python
 >>> isinstance(a, Rectangle)
@@ -725,6 +741,7 @@ Instead, use a comparison with `type`:
 >>> type(a) == Rectangle
 False
 ```
+
 # [Find a static file of a python module](https://stackoverflow.com/questions/39104/finding-a-file-in-a-python-module-distribution)
 
 Useful when you want to initialize a configuration file of a cli program when
@@ -745,14 +762,15 @@ Then you could import the data with:
 ```python
 import pkg_resources
 
-file_path = pkg_resources.resource_filename("pynbox", "assets/config.yaml"),
+file_path = (pkg_resources.resource_filename("pynbox", "assets/config.yaml"),)
 ```
 
 # [Delete a file](https://www.w3schools.com/python/python_file_remove.asp)
 
 ```python
 import os
-os.remove('demofile.txt')
+
+os.remove("demofile.txt")
 ```
 
 # [Measure elapsed time between lines of code](https://stackoverflow.com/questions/7370801/how-to-measure-elapsed-time-in-python)
@@ -785,6 +803,7 @@ pip install html2text
 
 ```python
 import html2text
+
 html = open("foobar.html").read()
 print(html2text.html2text(html))
 ```
@@ -793,6 +812,7 @@ print(html2text.html2text(html))
 
 ```python
 from dateutil import parser
+
 parser.parse("Aug 28 1999 12:00AM")  # datetime.datetime(1999, 8, 28, 0, 0)
 ```
 
@@ -805,7 +825,7 @@ datetime.datetime.strptime("2013-W26", "%Y-W%W-%w")
 Where the datetime format is a string built from the next directives:
 
 | Directive | Meaning                                                        | Example                  |
-| ---       | ---                                                            | ---                      |
+| --------- | -------------------------------------------------------------- | ------------------------ |
 | %a        | Abbreviated weekday name.                                      | Sun, Mon, ...            |
 | %A        | Full weekday name.                                             | Sunday, Monday, ...      |
 | %w        | Weekday as a decimal number.                                   | 0, 1, ..., 6             |
@@ -841,24 +861,26 @@ Where the datetime format is a string built from the next directives:
 
 # Install a python dependency from a git repository
 
-With [pip you
-can](https://stackoverflow.com/questions/16584552/how-to-state-in-requirements-txt-a-direct-github-source):
+With
+[pip you can](https://stackoverflow.com/questions/16584552/how-to-state-in-requirements-txt-a-direct-github-source):
 
 ```bash
 pip install git+git://github.com/path/to/repository@master
 ```
 
-If you want [to hard code it in your `setup.py`](https://stackoverflow.com/questions/32688688/how-to-write-setup-py-to-include-a-git-repository-as-a-dependency/54794506#54794506), you need to:
+If you want
+[to hard code it in your `setup.py`](https://stackoverflow.com/questions/32688688/how-to-write-setup-py-to-include-a-git-repository-as-a-dependency/54794506#54794506),
+you need to:
 
 ```python
 install_requires = [
-  'some-pkg @ git+ssh://git@github.com/someorgname/pkg-repo-name@v1.1#egg=some-pkg',
+    "some-pkg @ git+ssh://git@github.com/someorgname/pkg-repo-name@v1.1#egg=some-pkg",
 ]
 ```
 
-But [Pypi won't allow you to upload the
-package](https://github.com/BaderLab/saber/issues/35), as it will give you
-an error:
+But
+[Pypi won't allow you to upload the package](https://github.com/BaderLab/saber/issues/35),
+as it will give you an error:
 
 ```
 HTTPError: 400 Bad Request from https://test.pypi.org/legacy/
@@ -866,7 +888,8 @@ Invalid value for requires_dist. Error: Can't have direct dependency: 'deepdiff 
 ```
 
 It looks like this is a conscious decision on the PyPI side. Basically, they
-don't want pip to reach out to URLs outside their site when installing from PyPI.
+don't want pip to reach out to URLs outside their site when installing from
+PyPI.
 
 An ugly patch is to install the dependencies in a `PostInstall` custom script in
 the `setup.py` of your program:
@@ -888,14 +911,12 @@ class PostInstall(install):  # type: ignore
         install.run(self)
         print(getoutput("pip install git+git://github.com/lyz-code/deepdiff@master"))
 
-setup(
-    cmdclass={'install': PostInstall}
-)
+
+setup(cmdclass={"install": PostInstall})
 ```
 
-!!! warning "It may not work!"
-    Last time I used this solution, when I added the library on a `setup.py` the
-    direct dependencies weren't installed :S
+Warning: It may not work! Last time I used this solution, when I added the
+library on a `setup.py` the direct dependencies weren't installed :S
 
 # Check or test directories and files
 
@@ -903,12 +924,13 @@ setup(
 def test_dir(directory):
     from os.path import exists
     from os import makedirs
+
     if not exists(directory):
         makedirs(directory)
 
 
 def test_file(filepath, mode):
-    ''' Check if a file exist and is accessible. '''
+    """Check if a file exist and is accessible."""
 
     def check_mode(os_mode, mode):
         if os.path.isfile(filepath) and os.access(filepath, os_mode):
@@ -916,11 +938,11 @@ def test_file(filepath, mode):
         else:
             raise IOError("Can't access the file with mode " + mode)
 
-    if mode is 'r':
+    if mode is "r":
         check_mode(os.R_OK, mode)
-    elif mode is 'w':
+    elif mode is "w":
         check_mode(os.W_OK, mode)
-    elif mode is 'a':
+    elif mode is "a":
         check_mode(os.R_OK, mode)
         check_mode(os.W_OK, mode)
 ```
@@ -936,10 +958,9 @@ os.path.splitext("/path/to/some/file.txt")[0]
 ```python
 import os
 
-directory = '/path/to/directory'
+directory = "/path/to/directory"
 for entry in os.scandir(directory):
-    if (entry.path.endswith(".jpg")
-            or entry.path.endswith(".png")) and entry.is_file():
+    if (entry.path.endswith(".jpg") or entry.path.endswith(".png")) and entry.is_file():
         print(entry.path)
 ```
 
@@ -955,14 +976,16 @@ if not os.path.exists(directory):
 ```python
 from pathlib import Path
 
-Path('path/to/file.txt').touch()
+Path("path/to/file.txt").touch()
 ```
 
 # [Get the first day of next month](https://stackoverflow.com/questions/4130922/how-to-increment-datetime-by-custom-months-in-python-without-using-library)
 
 ```python
 current = datetime.datetime(mydate.year, mydate.month, 1)
-next_month = datetime.datetime(mydate.year + int(mydate.month / 12), ((mydate.month % 12) + 1), 1)
+next_month = datetime.datetime(
+    mydate.year + int(mydate.month / 12), ((mydate.month % 12) + 1), 1
+)
 ```
 
 # [Get the week number of a datetime](https://stackoverflow.com/questions/2600775/how-to-get-week-number-in-python)
@@ -981,12 +1004,14 @@ year, weeknumber and weekday in respective order for the given date instance.
 
 # [Get the monday of a week number](https://stackoverflow.com/questions/17087314/get-date-from-week-number)
 
-A week number is not enough to generate a date; you need a day of the week as well. Add a default:
+A week number is not enough to generate a date; you need a day of the week as
+well. Add a default:
 
 ```python
 import datetime
+
 d = "2013-W26"
-r = datetime.datetime.strptime(d + '-1', "%Y-W%W-%w")
+r = datetime.datetime.strptime(d + "-1", "%Y-W%W-%w")
 ```
 
 The `-1` and `-%w` pattern tells the parser to pick the Monday in that week.
@@ -1004,7 +1029,7 @@ import calendar
 
 ```python
 def int_to_ordinal(number: int) -> str:
-    '''Convert an integer into its ordinal representation.
+    """Convert an integer into its ordinal representation.
 
     make_ordinal(0)   => '0th'
     make_ordinal(3)   => '3rd'
@@ -1016,10 +1041,10 @@ def int_to_ordinal(number: int) -> str:
 
     Returns:
         ordinal representation of the number
-    '''
-    suffix = ['th', 'st', 'nd', 'rd', 'th'][min(number % 10, 4)]
+    """
+    suffix = ["th", "st", "nd", "rd", "th"][min(number % 10, 4)]
     if 11 <= (number % 100) <= 13:
-        suffix = 'th'
+        suffix = "th"
     return f"{number}{suffix}"
 ```
 
@@ -1071,7 +1096,6 @@ as keys. For example:
 >>> sorted(student_tuples, key=itemgetter(2))   # sort by age
 [('dave', 'B', 10), ('jane', 'B', 12), ('john', 'A', 15)]
 ```
-
 
 The same technique works for objects with named attributes. For example:
 
@@ -1160,7 +1184,6 @@ To return a new list, use the `sorted()` built-in function:
 newlist = sorted(ut, key=lambda x: x.body.id_, reverse=True)
 ```
 
-
 # [Iterate over an instance object's data attributes in Python](https://www.saltycrane.com/blog/2008/09/how-iterate-over-instance-objects-data-attributes-python/)
 
 ```python
@@ -1169,9 +1192,10 @@ class Search:
     center: str
     distance: str
 
-se = Search('a', 'b')
+
+se = Search("a", "b")
 for key, value in se.__dict__.items():
-   print(key, value)
+    print(key, value)
 ```
 
 # [Generate ssh key](https://stackoverflow.com/questions/2466401/how-to-generate-ssh-key-pairs-with-python)
@@ -1187,17 +1211,15 @@ from cryptography.hazmat.primitives.asymmetric import rsa
 from cryptography.hazmat.backends import default_backend as crypto_default_backend
 
 private_key = rsa.generate_private_key(
-    backend=crypto_default_backend(),
-    public_exponent=65537,
-    key_size=4096
+    backend=crypto_default_backend(), public_exponent=65537, key_size=4096
 )
 pem = private_key.private_bytes(
     encoding=serialization.Encoding.PEM,
     format=serialization.PrivateFormat.TraditionalOpenSSL,
-    encryption_algorithm=serialization.NoEncryption()
+    encryption_algorithm=serialization.NoEncryption(),
 )
 
-with open("/tmp/private.key", 'wb') as content_file:
+with open("/tmp/private.key", "wb") as content_file:
     chmod("/tmp/private.key", 0600)
     content_file.write(pem)
 
@@ -1206,9 +1228,9 @@ public_key = (
         encoding=serialization.Encoding.OpenSSH,
         format=serialization.PublicFormat.OpenSSH,
     )
-    + b' user@email.org'
+    + b" user@email.org"
 )
-with open("/tmp/public.key", 'wb') as content_file:
+with open("/tmp/public.key", "wb") as content_file:
     content_file.write(public_key)
 ```
 
@@ -1220,33 +1242,34 @@ you need to remove the indentation
 ```python
 def test():
     # end first line with \ to avoid the empty line!
-    s = '''\
+    s = """\
 hello
   world
-'''
+"""
 ```
 
 Which is inconvenient as it breaks some editor source code folding and it's ugly
 for the eye.
 
-The solution is to use [`textwrap.dedent()`](https://docs.python.org/3/library/textwrap.html)
+The solution is to use
+[`textwrap.dedent()`](https://docs.python.org/3/library/textwrap.html)
 
 ```python
 import textwrap
 
+
 def test():
     # end first line with \ to avoid the empty line!
-    s = '''\
+    s = """\
     hello
       world
-    '''
-    print(repr(s))          # prints '    hello\n      world\n    '
+    """
+    print(repr(s))  # prints '    hello\n      world\n    '
     print(repr(textwrap.dedent(s)))  # prints 'hello\n  world\n'
-
 ```
 
-If you forget to add the trailing `\` character of `s = '''\` or use `s
-= '''hello`, you're going to have a bad time with [black](black.md).
+If you forget to add the trailing `\` character of `s = '''\` or use
+`s = '''hello`, you're going to have a bad time with [black](black.md).
 
 # [Play a sound](https://linuxhint.com/play_sound_python/)
 
@@ -1256,14 +1279,16 @@ pip install playsound
 
 ```python
 from playsound import playsound
-playsound('path/to/file.wav')
+
+playsound("path/to/file.wav")
 ```
 
 # [Deep copy a dictionary](https://stackoverflow.com/questions/5105517/deep-copy-of-a-dict-in-python)
 
 ```python
 import copy
-d = { ... }
+
+d = {...}
 d2 = copy.deepcopy(d)
 ```
 
@@ -1291,7 +1316,7 @@ here()
 # [Check if an object has an attribute](https://stackoverflow.com/questions/610883/how-to-know-if-an-object-has-an-attribute-in-python)
 
 ```python
-if hasattr(a, 'property'):
+if hasattr(a, "property"):
     a.property
 ```
 
@@ -1301,9 +1326,9 @@ if hasattr(a, 'property'):
 a `break` statement.
 
 ```python
-for i in [1,2,3]:
+for i in [1, 2, 3]:
     print(i)
-    if i==3:
+    if i == 3:
         break
 else:
     print("for loop was not broken")
@@ -1324,8 +1349,8 @@ z = {**x, **y}
 ## [Create user defined exceptions](https://docs.python.org/3/tutorial/errors.html#user-defined-exceptions)
 
 Programs may name their own exceptions by creating a new exception class.
-Exceptions should typically be derived from the `Exception` class, either directly
-or indirectly.
+Exceptions should typically be derived from the `Exception` class, either
+directly or indirectly.
 
 Exception classes are meant to be kept simple, only offering a number of
 attributes that allow information about the error to be extracted by handlers
@@ -1357,19 +1382,19 @@ naming of the standard exceptions.
 ```python
 import importlib
 
-module = importlib.import_module('os')
+module = importlib.import_module("os")
 module_class = module.getcwd
 
-relative_module = importlib.import_module('.model', package='mypackage')
-class_to_extract = 'MyModel'
+relative_module = importlib.import_module(".model", package="mypackage")
+class_to_extract = "MyModel"
 extracted_class = geattr(relative_module, class_to_extract)
 ```
 
 The first argument specifies what module to import in absolute or relative terms
-(e.g. either `pkg.mod` or `..mod`). If the name is specified in relative terms, then
-the package argument must be set to the name of the package which is to act as
-the anchor for resolving the package name (e.g. `import_module('..mod',
-'pkg.subpkg')` will `import pkg.mod`).
+(e.g. either `pkg.mod` or `..mod`). If the name is specified in relative terms,
+then the package argument must be set to the name of the package which is to act
+as the anchor for resolving the package name (e.g.
+`import_module('..mod', 'pkg.subpkg')` will `import pkg.mod`).
 
 # [Get system's timezone and use it in datetime](https://stackoverflow.com/a/61124241)
 
@@ -1378,6 +1403,7 @@ To obtain timezone information in the form of a `datetime.tzinfo` object, use
 
 ```python
 from dateutil import tz
+
 myTimeZone = tz.tzlocal()
 ```
 
@@ -1386,7 +1412,8 @@ This object can be used in the `tz` parameter of `datetime.datetime.now()`:
 ```python
 from datetime import datetime
 from dateutil import tz
-localisedDatetime = datetime.now(tz = tz.tzlocal())
+
+localisedDatetime = datetime.now(tz=tz.tzlocal())
 ```
 
 # [Capitalize a sentence](https://stackoverflow.com/questions/53898070/capitalize-only-the-first-letter-of-sentences-in-python-using-split-function)
@@ -1399,8 +1426,8 @@ To change the caps of the first letter of the first word of a sentence use:
 Add funny Emojis
 ```
 
-The `.capitalize` method transforms the rest of words to lowercase.
-The `.title` transforms all sentence words to capitalize.
+The `.capitalize` method transforms the rest of words to lowercase. The `.title`
+transforms all sentence words to capitalize.
 
 # [Get the last monday datetime](https://www.pythonprogramming.in/find-the-previous-and-coming-monday-s-date-based-on-current-date.html)
 
@@ -1413,6 +1440,5 @@ last_monday = today - datetime.timedelta(days=today.weekday())
 
 # Issues
 
-* [Pypi won't allow you to upload packages with direct
-    dependencies](https://github.com/BaderLab/saber/issues/35): update the
-    section above.
+- [Pypi won't allow you to upload packages with direct dependencies](https://github.com/BaderLab/saber/issues/35):
+  update the section above.

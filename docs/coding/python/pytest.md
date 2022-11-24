@@ -10,18 +10,17 @@ applications and libraries.
 
 Pytest stands out over other test frameworks in:
 
-* Simple tests are simple to write in pytest.
-* Complex tests are still simple to write.
-* Tests are easy to read.
-* You can get started in seconds.
-* You use `assert` to fail a test, not things like `self.assertEqual()` or
-    `self.assertLessThan()`. Just `assert`.
-* You can use pytest to run tests written for unittest or nose.
+- Simple tests are simple to write in pytest.
+- Complex tests are still simple to write.
+- Tests are easy to read.
+- You can get started in seconds.
+- You use `assert` to fail a test, not things like `self.assertEqual()` or
+  `self.assertLessThan()`. Just `assert`.
+- You can use pytest to run tests written for unittest or nose.
 
-!!! note ""
-    You can use [this cookiecutter
-    template](https://github.com/lyz-code/cookiecutter-python-project) to create
-    a python project with `pytest` already configured.
+Note: You can use
+[this cookiecutter template](https://github.com/lyz-code/cookiecutter-python-project)
+to create a python project with `pytest` already configured.
 
 # Install
 
@@ -42,50 +41,51 @@ If you need more information run it with `-v`.
 Pytest automatically finds which tests to run in a phase called *test
 discovery*. It will get the tests that match one of the following conditions:
 
-* Test files that are named `test_{{ something }}.py` or `{{ something }}_test.py`.
-* Test methods and functions named `test_{{ something }}`.
-* Test classes named `Test{{ Something }}`.
+- Test files that are named `test_{{ something }}.py` or
+  `{{ something }}_test.py`.
+- Test methods and functions named `test_{{ something }}`.
+- Test classes named `Test{{ Something }}`.
 
 There are several possible outcomes of a test function:
 
-* *PASSED (.)*: The test ran successfully.
-* *FAILED (F)*: The test did not run usccessfully (or *XPASS* + strict).
-* *SKIPPED (s)*: The test was skipped. You can tell pytest to skip a test by
-    using enter the `@pytest.mark.skip()` or `pytest.mark.skipif()` decorators.
-* *xfail (x)*: The test was not supposed to pass, ran, and failed. You can tell
-    pytest that a test is expected to fail by using the `@pytest.mark.xfail()`
-    decorator.
-* *XPASS (X)*: The tests was not supposed to pass, ran, and passed.
-* *ERROR (E)*: An exception happened outside of the test function, in either
-    a fixture or a hook function.
+- *PASSED (.)*: The test ran successfully.
+- *FAILED (F)*: The test did not run usccessfully (or *XPASS* + strict).
+- *SKIPPED (s)*: The test was skipped. You can tell pytest to skip a test by
+  using enter the `@pytest.mark.skip()` or `pytest.mark.skipif()` decorators.
+- *xfail (x)*: The test was not supposed to pass, ran, and failed. You can tell
+  pytest that a test is expected to fail by using the `@pytest.mark.xfail()`
+  decorator.
+- *XPASS (X)*: The tests was not supposed to pass, ran, and passed.
+- *ERROR (E)*: An exception happened outside of the test function, in either a
+  fixture or a hook function.
 
 Pytest supports several cool flags like:
 
-* `-k EXPRESSION`: Used to select a subset of tests to run. For example `pytest
-    -k "asdict or defaults"` will run both `test_asdict()` and
-    `test_defaults()`.
-* `--lf` or `--last-failed`: Just run the tests that have failed in the previous
-    run.
-* `-x`, or `--exitfirst`: Exit on first failed test.
-* `-l` or `--showlocals`: Print out the local variables in a test if the test
-    fails.
-* `-s` Allows any output that normally would be printed to `stdout` to actually
-    be printed to `stdout`. It's an alias of `--capture=no`, so the output is
-    not captured when the tests are run, which is the default behavior. This is
-    useful to debug with `print()` statements.
-* `--durations=N`: It reports the slowest `N` number of tests/setups/teardowns
-    after the test run. If you pass in `--durations=0`, it reports everything in
-    order of slowest to fastest.
-* `--setup-show`: Show the fixtures in use.
+- `-k EXPRESSION`: Used to select a subset of tests to run. For example
+  `pytest   -k "asdict or defaults"` will run both `test_asdict()` and
+  `test_defaults()`.
+- `--lf` or `--last-failed`: Just run the tests that have failed in the previous
+  run.
+- `-x`, or `--exitfirst`: Exit on first failed test.
+- `-l` or `--showlocals`: Print out the local variables in a test if the test
+  fails.
+- `-s` Allows any output that normally would be printed to `stdout` to actually
+  be printed to `stdout`. It's an alias of `--capture=no`, so the output is not
+  captured when the tests are run, which is the default behavior. This is useful
+  to debug with `print()` statements.
+- `--durations=N`: It reports the slowest `N` number of tests/setups/teardowns
+  after the test run. If you pass in `--durations=0`, it reports everything in
+  order of slowest to fastest.
+- `--setup-show`: Show the fixtures in use.
 
 # Fixtures
 
 Fixtures are functions that are run by pytest before (and sometimes after) the
 actual test functions.
 
-You can use fixtures to get a data set for the tests to work on, or use
-them to get a system into a known state before running a test. They are
-also used to get data ready for multiple tests.
+You can use fixtures to get a data set for the tests to work on, or use them to
+get a system into a known state before running a test. They are also used to get
+data ready for multiple tests.
 
 Here's a simple fixture that returns a number:
 
@@ -102,15 +102,15 @@ def test_some_data(some_data):
     assert some_data == 42
 ```
 
-The `@pytest.fixture()` decorator is used to tell pytest that a function is
-a fixture.When you include the fixture name in the parameter list of a test
+The `@pytest.fixture()` decorator is used to tell pytest that a function is a
+fixture.When you include the fixture name in the parameter list of a test
 function,pytest knows to run it before running the test. Fixtures can do work,
 and can also return data to the test function.
 
-The test test_some_data() has the name of the fixture, some_data, as
-a parameter.pytest will see this and look for a fixture with this name. Naming
-is significant in pytest. pytest will look in the module of the test for
-a fixture of that name.
+The test test_some_data() has the name of the fixture, some_data, as a
+parameter.pytest will see this and look for a fixture with this name. Naming is
+significant in pytest. pytest will look in the module of the test for a fixture
+of that name.
 
 If the function is defined in the same file as where it's being used pylint will
 raise an `W0621: Redefining name %r from outer scope (line %s)` error. To
@@ -130,39 +130,46 @@ directory and subdirectories.
 Although `conftest.py` is a Python module, it should not be imported by test
 files. The file gets read by pytest, and is considered a local *plugin*.
 
-Another option is to save the fixtures in a file by [creating a  local pytest
-plugin](https://gist.github.com/peterhurford/09f7dcda0ab04b95c026c60fa49c2a68).
+Another option is to save the fixtures in a file by
+[creating a local pytest plugin](https://gist.github.com/peterhurford/09f7dcda0ab04b95c026c60fa49c2a68).
 
-!!! note "File: tests/unit/conftest.py"
+File: `tests/unit/conftest.py`
 
-    ```python
-    pytest_plugins = [
-       "tests.unit.fixtures.some_stuff",
-    ]
-    ```
+```python
+pytest_plugins = [
+    "tests.unit.fixtures.some_stuff",
+]
+```
 
-!!! note "File: tests/unit/fixtures/some_stuff.py"
+File: `tests/unit/fixtures/some_stuff.py`:
 
-    ```python
-    import pytest
+```python
+import pytest
 
-    @pytest.fixture
-    def foo():
-        return 'foobar'
-    ```
+
+@pytest.fixture
+def foo():
+    return "foobar"
+```
 
 ## Specifying fixture scope
 
-Fixtures include an optional parameter called scope, which controls how often
-a fixture gets set up and torn down. The scope parameter to `@pytest.fixture()`
+Fixtures include an optional parameter called scope, which controls how often a
+fixture gets set up and torn down. The scope parameter to `@pytest.fixture()`
 can have the values of function, class, module, or session.
 
 Here’s a rundown of each scope value:
 
-* `scope='function'`: Run once per test function. The setup portion is run before each test using the fixture. The teardown portion is run after each test using the fixture. This is the default scope used when no scope parameter is specified.
-* `scope='class'`: Run once per test class, regardless of how many test methods are in the class.
-* `scope='module'`: Run once per module, regardless of how many test functions or methods or other fixtures in the module use it.
-* `scope='session'` Run once per session. All test methods and functions using a fixture of session scope share one setup and teardown call.
+- `scope='function'`: Run once per test function. The setup portion is run
+  before each test using the fixture. The teardown portion is run after each
+  test using the fixture. This is the default scope used when no scope parameter
+  is specified.
+- `scope='class'`: Run once per test class, regardless of how many test methods
+  are in the class.
+- `scope='module'`: Run once per module, regardless of how many test functions
+  or methods or other fixtures in the module use it.
+- `scope='session'` Run once per session. All test methods and functions using a
+  fixture of session scope share one setup and teardown call.
 
 ## [Using fixtures at class level](https://docs.pytest.org/en/7.1.x/how-to/fixtures.html#use-fixtures-in-classes-and-modules-with-usefixtures)
 
@@ -175,6 +182,7 @@ working directory but otherwise do not care for the concrete directory.
 class TestDirectoryInit:
     ...
 ```
+
 Due to the `usefixtures` marker, the `cleandir` fixture will be required for the
 execution of each test method, just as if you specified a `cleandir` function
 argument to each of them.
@@ -187,32 +195,55 @@ You can specify multiple fixtures like this:
 
 ## Useful Fixtures
 
+### [The tmp_path fixture](https://docs.pytest.org/en/6.2.x/tmpdir.html#the-tmp-path-fixture)
+
+You can use the `tmp_path` fixture which will provide a temporary directory
+unique to the test invocation, created in the base temporary directory.
+
+`tmp_path` is a `pathlib.Path` object. Here is an example test usage:
+
+```python
+def test_create_file(tmp_path):
+    d = tmp_path / "sub"
+    d.mkdir()
+    p = d / "hello.txt"
+    p.write_text(CONTENT)
+    assert p.read_text() == CONTENT
+    assert len(list(tmp_path.iterdir())) == 1
+    assert 0
+```
+
 ### [The tmpdir fixture](https://docs.pytest.org/en/stable/tmpdir.html)
+
+Warning: Don't use `tmpdir` use `tmp_path` instead because `tmpdir` uses `py`
+which is unmaintained and has unpatched vulnerabilities.
 
 You can use the `tmpdir` fixture which will provide a temporary directory unique
 to the test invocation, created in the base temporary directory.
 
-`tmpdir` is a `py.path.local` object which offers `os.path` methods and more. Here is an example test usage:
+`tmpdir` is a `py.path.local` object which offers `os.path` methods and more.
+Here is an example test usage:
 
-!!! note "File: test_tmpdir.py"
+File: `test_tmpdir.py`:
 
-    ```python
-    from py._path.local import LocalPath
+```python
+from py._path.local import LocalPath
 
-    def test_create_file(tmpdir: LocalPath):
-        p = tmpdir.mkdir("sub").join("hello.txt")
-        p.write("content")
-        assert p.read() == "content"
-        assert len(tmpdir.listdir()) == 1
-        assert 0
-    ```
+
+def test_create_file(tmpdir: LocalPath):
+    p = tmpdir.mkdir("sub").join("hello.txt")
+    p.write("content")
+    assert p.read() == "content"
+    assert len(tmpdir.listdir()) == 1
+    assert 0
+```
 
 The `tmpdir` fixture has a scope of `function` so you can't make a session
 directory. Instead use the `tmpdir_factory` fixture.
 
-
 ```python
 from _pytest.tmpdir import TempPathFactory
+
 
 @pytest.fixture(scope="session")
 def image_file(tmpdir_factory: TempPathFactory):
@@ -241,22 +272,24 @@ captured stdout and stderr.
 
 You can change the default logging level in the pytest configuration:
 
-!!! note "File: pytest.ini"
-    ```ini
-    [pytest]
+File: `pytest.ini`:
 
-    log_level = debug
-    ```
+```ini
+[pytest]
+
+log_level = debug
+```
 
 Although it may not be a good idea in most cases. It's better to change the log
 level in the tests that need a lower level.
 
-All the logs sent to the logger during the test run are available on the
-fixture in the form of both the `logging.LogRecord` instances and the final log
-text. This is useful for when you want to assert on the contents of a message:
+All the logs sent to the logger during the test run are available on the fixture
+in the form of both the `logging.LogRecord` instances and the final log text.
+This is useful for when you want to assert on the contents of a message:
 
 ```python
 from _pytest.logging import LogCaptureFixture
+
 
 def test_baz(caplog: LogCaptureFixture):
     func_under_test()
@@ -273,7 +306,7 @@ severity and message:
 def test_foo(caplog: LogCaptureFixture):
     logging.getLogger().info("boo %s", "arg")
 
-    assert  ("root", logging.INFO, "boo arg") in caplog.record_tuples
+    assert ("root", logging.INFO, "boo arg") in caplog.record_tuples
 ```
 
 You can call `caplog.clear()` to reset the captured log records in a test.
@@ -305,7 +338,7 @@ Suppose you have a function to print a greeting to stdout:
 
 ```python
 def greeting(name):
-    print(f'Hi, {name}')
+    print(f"Hi, {name}")
 ```
 
 You can test the output by using `capsys`.
@@ -313,11 +346,12 @@ You can test the output by using `capsys`.
 ```python
 from _pytest.capture import CaptureFixture
 
+
 def test_greeting(capsys: CaptureFixture[Any]):
-    greeting('Earthling')
+    greeting("Earthling")
     out, err = capsys.readouterr()
-    assert out == 'Hi, Earthling\n'
-    assert err == ''
+    assert out == "Hi, Earthling\n"
+    assert err == ""
 ```
 
 The return value is whatever has been captured since the beginning of the
@@ -338,8 +372,7 @@ pip install pytest-freezegun
 
 ##### Global usage
 
-[Most of the
-tests](https://medium.com/@boxed/flaky-tests-part-3-freeze-the-world-e4929a0da00e)
+[Most of the tests](https://medium.com/@boxed/flaky-tests-part-3-freeze-the-world-e4929a0da00e)
 work with frozen time, so it's better to freeze it by default and unfreeze it on
 the ones that actually need time to move.
 
@@ -349,12 +382,14 @@ To do that set in your `tests/conftest.py` a globally used fixture:
 if TYPE_CHECKING:
     from freezegun.api import FrozenDateTimeFactory
 
+
 @pytest.fixture(autouse=True)
 def frozen_time() -> Generator[FrozenDateTimeFactory, None, None]:
     """Freeze all tests time"""
     with freezegun.freeze_time() as freeze:
         yield freeze
 ```
+
 Freeze time by using the freezer fixture:
 
 ##### Manual use
@@ -362,6 +397,7 @@ Freeze time by using the freezer fixture:
 ```python
 if TYPE_CHECKING:
     from freezegun.api import FrozenDateTimeFactory
+
 
 def test_frozen_date(freezer: FrozenDateTimeFactory):
     now = datetime.now()
@@ -375,7 +411,7 @@ This can then be used to move time:
 ```python
 def test_moving_date(freezer):
     now = datetime.now()
-    freezer.move_to('2017-05-20')
+    freezer.move_to("2017-05-20")
     later = datetime.now()
     assert now != later
 ```
@@ -383,23 +419,25 @@ def test_moving_date(freezer):
 You can also pass arguments to freezegun by using the `freeze_time` mark:
 
 ```python
-@pytest.mark.freeze_time('2017-05-21')
+@pytest.mark.freeze_time("2017-05-21")
 def test_current_date():
     assert date.today() == date(2017, 5, 21)
 ```
 
-The `freezer` fixture and `freeze_time` mark can be used together, and they work with other fixtures:
+The `freezer` fixture and `freeze_time` mark can be used together, and they work
+with other fixtures:
 
 ```python
 @pytest.fixture
 def current_date():
     return date.today()
 
+
 @pytest.mark.freeze_time()
 def test_changing_date(current_date, freezer):
-    freezer.move_to('2017-05-20')
+    freezer.move_to("2017-05-20")
     assert current_date == date(2017, 5, 20)
-    freezer.move_to('2017-05-21')
+    freezer.move_to("2017-05-21")
     assert current_date == date(2017, 5, 21)
 ```
 
@@ -407,12 +445,11 @@ They can also be used in class-based tests:
 
 ```python
 class TestDate:
-
     @pytest.mark.freeze_time
     def test_changing_date(self, current_date, freezer):
-        freezer.move_to('2017-05-20')
+        freezer.move_to("2017-05-20")
         assert current_date == date(2017, 5, 20)
-        freezer.move_to('2017-05-21')
+        freezer.move_to("2017-05-21")
         assert current_date == date(2017, 5, 21)
 ```
 
@@ -421,11 +458,11 @@ class TestDate:
 Sometimes you need to tweak your fixtures so they can be used in different
 tests. As usual, there are different solutions to the same problem.
 
-!!! note "TL;DR: For simple cases [parametrize your
-fixtures](#parametrize-your-fixtures) or use [parametrization to override the
-default valued
-fixture](#use-pytest-parametrization-to-override-the-default-valued-fixtures).
-As your test suite get's more complex migrate to [pytest-case](pytest_cases.md)."
+Note: "TL;DR: For simple cases
+[parametrize your fixtures](#parametrize-your-fixtures) or use
+[parametrization to override the default valued fixture](#use-pytest-parametrization-to-override-the-default-valued-fixtures).
+As your test suite get's more complex migrate to
+[pytest-case](pytest_cases.md)."
 
 Let's say you're running along merrily with some fixtures that create database
 objects for you:
@@ -463,8 +500,9 @@ your default "supplier" fixture:
 def test_US_supplier_has_total_price_equal_net_price(product):
     assert product.total_price == product.net_price
 
+
 def test_EU_supplier_has_total_price_including_VAT(supplier, product):
-    supplier.country = "FR" # oh, this doesn't work
+    supplier.country = "FR"  # oh, this doesn't work
     assert product.total_price == product.net_price * 1.2
 ```
 
@@ -482,6 +520,7 @@ def _default_supplier():
         name=random_name(),
     )
 
+
 @pytest.fixture
 def us_supplier(db):
     s = _default_supplier()
@@ -489,6 +528,7 @@ def us_supplier(db):
     db.add(s)
     yield s
     db.remove(s)
+
 
 @pytest.fixture
 def eu_supplier(db):
@@ -500,9 +540,9 @@ def eu_supplier(db):
 ```
 
 That's just one way you could do it, maybe you can figure out ways to reduce the
-duplication of the `db.add()` stuff as well, but you are going to have
-a different, named fixture for each customization of Supplier, and eventually
-you may decide that doesn't scale.
+duplication of the `db.add()` stuff as well, but you are going to have a
+different, named fixture for each customization of Supplier, and eventually you
+may decide that doesn't scale.
 
 ### Use factory fixtures
 
@@ -532,7 +572,9 @@ way, and make all of your fixture hierarchy into factory functions:
 ```python
 def test_EU_supplier_has_total_price_including_VAT(make_supplier, product):
     supplier = make_supplier(country="FR")
-    product.supplier = supplier # OH, now this doesn't work, because it's too late again
+    product.supplier = (
+        supplier  # OH, now this doesn't work, because it's too late again
+    )
     assert product.total_price == product.net_price * 1.2
 ```
 
@@ -554,6 +596,7 @@ def make_product(db):
     yield _make_product
     db.remove(p)
 
+
 def test_EU_supplier_has_total_price_including_VAT(make_supplier, make_product):
     supplier = make_supplier(country="FR")
     product = make_product(supplier=supplier)
@@ -567,17 +610,13 @@ what-depends-on-what into your tests as well as your fixtures. Ugly!
 
 ### Parametrize your fixtures
 
-You can also [parametrize your
-fixtures](pytest_parametrized_testing.md#parametrize-the-fixtures).
+You can also
+[parametrize your fixtures](pytest_parametrized_testing.md#parametrize-the-fixtures).
 
 ```python
-@pytest.fixture(params=['US', 'FR'])
+@pytest.fixture(params=["US", "FR"])
 def supplier(db, request):
-    s = Supplier(
-        ref=random_ref(),
-        name=random_name(),
-        country=request.param
-    )
+    s = Supplier(ref=random_ref(), name=random_name(), country=request.param)
     db.add(s)
     yield s
     db.remove(s)
@@ -587,15 +626,15 @@ Now any test that depends on supplier, directly or indirectly, will be run
 twice, once with `supplier.country = US` and once with `FR`.
 
 That's really cool for checking that a given piece of logic works in a variety
-of different cases, but it's not really ideal in our case. We have to build
-a bunch of if logic into our tests:
+of different cases, but it's not really ideal in our case. We have to build a
+bunch of if logic into our tests:
 
 ```python
 def test_US_supplier_has_no_VAT_but_EU_supplier_has_total_price_including_VAT(product):
     # this test is magically run twice, but:
-    if product.supplier.country == 'US':
+    if product.supplier.country == "US":
         assert product.total_price == product.net_price
-    if product.supplier.country == 'FR':
+    if product.supplier.country == "FR":
         assert product.total_price == product.net_price * 1.2
 ```
 
@@ -630,11 +669,12 @@ the default value of country, even though the country fixture isn't explicitly
 named in that test:
 
 ```python
-@pytest.mark.parametrize('country', ["US"])
+@pytest.mark.parametrize("country", ["US"])
 def test_US_supplier_has_total_price_equal_net_price(product):
     assert product.total_price == product.net_price
 
-@pytest.mark.parametrize('country', ["EU"])
+
+@pytest.mark.parametrize("country", ["EU"])
 def test_EU_supplier_has_total_price_including_VAT(product):
     assert product.total_price == product.net_price * 1.2
 ```
@@ -645,8 +685,8 @@ spelunking in conftest.py.
 
 ### Use pytest-case
 
-[pytest-case](pytest_cases.md) gives a lot of power when it comes to tweaking the
-fixtures and parameterizations.
+[pytest-case](pytest_cases.md) gives a lot of power when it comes to tweaking
+the fixtures and parameterizations.
 
 Check that file for further information.
 
@@ -689,11 +729,10 @@ def test_one_user(user):
 
 Pytest marks can be used to group tests. It can be useful to:
 
-`slow`
-: Mark the tests that are slow.
+`slow` : Mark the tests that are slow.
 
-`secondary`
-: Mart the tests that use functionality that is being tested in the same file.
+`secondary` : Mart the tests that use functionality that is being tested in the
+same file.
 
 To mark a test, use the `@pytest.mark` decorator. For example:
 
@@ -724,10 +763,9 @@ with pytest.raises(SystemExit):
 ## Testing exceptions with pytest
 
 ```python
-
 def test_value_error_is_raised():
     with pytest.raises(ValueError, match="invalid literal for int() with base 10: 'a'"):
-        int('a')
+        int("a")
 ```
 
 ## [Excluding code from coverage](https://coverage.readthedocs.io/en/coverage-4.3.3/excluding.html)
@@ -737,21 +775,15 @@ to tell `coverage.py` to ignore it. For example, if you have some code in
 abstract classes that is going to be tested on the subclasses, you can ignore it
 with `# pragma: no cover`.
 
-If you want [other code to be
-excluded](https://github.com/nedbat/coveragepy/issues/831), for example the
-statements inside the `if TYPE_CHECKING:` add to your `pyproject.toml`:
+If you want
+[other code to be excluded](https://github.com/nedbat/coveragepy/issues/831),
+for example the statements inside the `if TYPE_CHECKING:` add to your
+`pyproject.toml`:
 
 ```toml
 [tool.coverage.report]
-exclude_lines = [
-    # Have to re-enable the standard pragma
-    'pragma: no cover',
-
-    # Type checking can not be tested
-    'if TYPE_CHECKING:',
-]
+exclude_lines = [ "pragma: no cover", "if TYPE_CHECKING:",]
 ```
-
 
 # [Running tests in parallel](https://pypi.org/project/pytest-xdist/)
 
@@ -800,6 +832,7 @@ import filelock
 import pytest
 from filelock import BaseFileLock
 
+
 @pytest.fixture(name="lock", scope="session")
 def lock_(
     tmp_path_factory: pytest.TempPathFactory,
@@ -833,6 +866,7 @@ Mark the tests you want to execute serially with a special mark, say serial:
 @pytest.mark.serial
 class Test:
     ...
+
 
 @pytest.mark.serial
 def test_foo():
@@ -879,8 +913,8 @@ def test_foo():
 
 # [Rerun tests that fail sometimes](https://pypi.org/project/pytest-rerunfailures/)
 
-[pytest-rerunfailures](https://pypi.org/project/pytest-rerunfailures/) is
-a plugin for pytest that re-runs tests to eliminate intermittent failures. Using
+[pytest-rerunfailures](https://pypi.org/project/pytest-rerunfailures/) is a
+plugin for pytest that re-runs tests to eliminate intermittent failures. Using
 this plugin is generally a bad idea, it would be best to solve the reason why
 your code is not reliable. It's useful when you rely on non robust third party
 software in a way that you can't solve, or if the error is not in your code but
@@ -917,6 +951,7 @@ to run:
 @pytest.mark.flaky(reruns=5)
 def test_example():
     import random
+
     assert random.choice([True, False])
 ```
 
@@ -933,30 +968,26 @@ with `pytest-xdist` though :(.
 
 # [Capture deprecation warnings](https://docs.pytest.org/en/latest/how-to/capture-warnings.html)
 
-Python and its ecosystem does not have an assumption of strict SemVer, and has
-a tradition of providing deprecation warnings. If you have good CI, you should
-be able to catch warnings even before your users see them. Try the following
-pytest configuration:
+Python and its ecosystem does not have an assumption of strict SemVer, and has a
+tradition of providing deprecation warnings. If you have good CI, you should be
+able to catch warnings even before your users see them. Try the following pytest
+configuration:
 
 ```toml
 [tool.pytest.ini_options]
-filterwarnings = ["error"]
+filterwarnings = [ "error",]
 ```
 
-This will turn warnings into errors and allow your CI to break before users break.
+This will turn warnings into errors and allow your CI to break before users
+break.
 
 You can ignore specific warnings as well. For example, the configuration below
-will ignore all user warnings and specific deprecation warnings matching
-a regex, but will transform all other warnings into errors.
+will ignore all user warnings and specific deprecation warnings matching a
+regex, but will transform all other warnings into errors.
 
 ```toml
 [tool.pytest.ini_options]
-filterwarnings = [
-    "error",
-    "ignore::UserWarning",
-    # note the use of single quote below to denote "raw" strings in TOML
-    'ignore:function ham\(\) is deprecated:DeprecationWarning',
-]
+filterwarnings = [ "error", "ignore::UserWarning", "ignore:function ham\\(\\) is deprecated:DeprecationWarning",]
 ```
 
 When a warning matches more than one option in the list, the action for the last
@@ -965,17 +996,11 @@ matching option is performed.
 If you want to ignore the warning of a specific package use:
 
 ```toml
-filterwarnings = [
-  "error",
-  # Until https://github.com/ktosiek/pytest-freezegun/issues/35 is merged
-  "ignore::DeprecationWarning:pytest_freezegun.*"
-]
+filterwarnings = [ "error", "ignore::DeprecationWarning:pytest_freezegun.*",]
 ```
 
-!!! note
-    It's better to suppress a warning instead of disabling it for the
-    whole code, check how [here](use_warnings.md#suppressing-a-warning).
-
+Note: It's better to suppress a warning instead of disabling it for the whole
+code, check how [here](use_warnings.md#suppressing-a-warning).
 
 ## [Ensuring code triggers a deprecation warning](https://docs.pytest.org/en/latest/how-to/capture-warnings.html#ensuring-code-triggers-a-deprecation-warning)
 
@@ -984,6 +1009,7 @@ call triggers a `DeprecationWarning` or `PendingDeprecationWarning`:
 
 ```python
 import pytest
+
 
 def test_myfunction_deprecated():
     with pytest.deprecated_call():
@@ -998,6 +1024,7 @@ works in a similar manner to raises:
 ```python
 import warnings
 import pytest
+
 
 def test_warning():
     with pytest.warns(UserWarning):
@@ -1036,6 +1063,7 @@ The `recwarn` fixture will record warnings for the whole function:
 ```python
 import warnings
 
+
 def test_hello(recwarn):
     warnings.warn("hello", UserWarning)
     assert len(recwarn) == 1
@@ -1057,12 +1085,12 @@ Add to your `pyproject.toml`:
 
 ```toml
 [tool.pytest.ini_options]
-   log_cli = true
-   log_cli_level = 10
+log_cli = true
+log_cli_level = 10
 ```
 
-Or run it in the command itself `pytest -o log_cli=true --log-cli-level=10
-func.py`.
+Or run it in the command itself
+`pytest -o log_cli=true --log-cli-level=10 func.py`.
 
 Remember you can [change the log level](#change-the-log-level) of the different
 components in case it's too verbose.
@@ -1073,8 +1101,8 @@ Integrating pytest into your Vim workflow enhances your productivity while
 writing code, thus making it easier to code using TDD.
 
 I use [Janko-m's Vim-test plugin](https://github.com/janko-m/vim-test) (which
-can be installed through [Vundle](https://github.com/VundleVim/Vundle.vim)) with the
-following configuration.
+can be installed through [Vundle](https://github.com/VundleVim/Vundle.vim)) with
+the following configuration.
 
 ```vim
 nmap <silent> t :TestNearest --pdb<CR>
@@ -1101,10 +1129,11 @@ file.
 As you can see only the `t` has the `--pdb` flag, so the rest of them will run
 en parallel and any pdb trace will fail.
 
-
 # Reference
 
-* Book [Python Testing with pytest by Brian Okken](https://www.oreilly.com/library/view/python-testing-with/9781680502848/).
-* [Docs](https://docs.pytest.org/en/latest/)
+- Book
+  [Python Testing with pytest by Brian Okken](https://www.oreilly.com/library/view/python-testing-with/9781680502848/).
 
-* [Vim-test plugin](https://github.com/janko-m/vim-test)
+- [Docs](https://docs.pytest.org/en/latest/)
+
+- [Vim-test plugin](https://github.com/janko-m/vim-test)

@@ -10,20 +10,19 @@ hints.
 
 The [key features](https://fastapi.tiangolo.com/features/) are:
 
-* Fast: Very high performance, on par with NodeJS and Go (thanks to Starlette
-    and Pydantic). One of the fastest Python frameworks available.
-* Fast to code: Increase the speed to develop features by about 200% to 300%.
-* Fewer bugs: Reduce about 40% of human (developer) induced errors.
-* Intuitive: Great editor support. Completion everywhere. Less time debugging.
-* Easy: Designed to be easy to use and learn. Less time reading docs.
-* Short: Minimize code duplication. Multiple features from each parameter
-    declaration. Fewer bugs.
-* Robust: Get production-ready code. With automatic interactive documentation.
-* Standards-based: Based on (and fully compatible with) the open standards for
-    APIs: OpenAPI (previously known as Swagger) and JSON Schema.
-* [Authentication with
-    JWT](https://fastapi.tiangolo.com/tutorial/security/first-steps/): with
-    a super nice tutorial on how to set it up.
+- Fast: Very high performance, on par with NodeJS and Go (thanks to Starlette
+  and Pydantic). One of the fastest Python frameworks available.
+- Fast to code: Increase the speed to develop features by about 200% to 300%.
+- Fewer bugs: Reduce about 40% of human (developer) induced errors.
+- Intuitive: Great editor support. Completion everywhere. Less time debugging.
+- Easy: Designed to be easy to use and learn. Less time reading docs.
+- Short: Minimize code duplication. Multiple features from each parameter
+  declaration. Fewer bugs.
+- Robust: Get production-ready code. With automatic interactive documentation.
+- Standards-based: Based on (and fully compatible with) the open standards for
+  APIs: OpenAPI (previously known as Swagger) and JSON Schema.
+- [Authentication with JWT](https://fastapi.tiangolo.com/tutorial/security/first-steps/):
+  with a super nice tutorial on how to set it up.
 
 # [Installation](https://fastapi.tiangolo.com/#installation)
 
@@ -39,62 +38,67 @@ pip install uvicorn[standard]
 
 # [Simple example](https://fastapi.tiangolo.com/#installation)
 
-* Create a file `main.py` with:
+- Create a file `main.py` with:
 
-    ```python
-    from typing import Optional
+  ```python
+  from typing import Optional
 
-    from fastapi import FastAPI
+  from fastapi import FastAPI
 
-    app = FastAPI()
-
-
-    @app.get("/")
-    def read_root():
-        return {"Hello": "World"}
+  app = FastAPI()
 
 
-    @app.get("/items/{item_id}")
-    def read_item(item_id: int, q: Optional[str] = None):
-        return {"item_id": item_id, "q": q}
-    ```
+  @app.get("/")
+  def read_root():
+      return {"Hello": "World"}
 
-*  Run the server:
 
-    ```bash
-    uvicorn main:app --reload
-    ```
+  @app.get("/items/{item_id}")
+  def read_item(item_id: int, q: Optional[str] = None):
+      return {"item_id": item_id, "q": q}
+  ```
 
-* Open your browser at http://127.0.0.1:8000/items/5?q=somequery. You will see the JSON response as:
+- Run the server:
 
-    ```json
-    {"item_id": 5, "q": "somequery"}
-    ```
+  ```bash
+  uvicorn main:app --reload
+  ```
+
+- Open your browser at http://127.0.0.1:8000/items/5?q=somequery. You will see
+  the JSON response as:
+
+  ```json
+  {
+    "item_id": 5,
+    "q": "somequery"
+  }
+  ```
 
 You already created an API that:
 
-* Receives HTTP requests in the paths `/` and `/items/{item_id}`.
-* Both paths take GET operations (also known as HTTP methods).
-* The path `/items/{item_id}` has a path parameter `item_id` that should be an
-    `int`.
-* The path `/items/{item_id}` has an optional `str` query parameter `q`.
-* Has interactive API docs made for you:
-    * Swagger: http://127.0.0.1:8000/docs.
-    * Redoc: http://127.0.0.1:8000/redoc.
+- Receives HTTP requests in the paths `/` and `/items/{item_id}`.
+- Both paths take GET operations (also known as HTTP methods).
+- The path `/items/{item_id}` has a path parameter `item_id` that should be an
+  `int`.
+- The path `/items/{item_id}` has an optional `str` query parameter `q`.
+- Has interactive API docs made for you:
+  - Swagger: http://127.0.0.1:8000/docs.
+  - Redoc: http://127.0.0.1:8000/redoc.
 
-You will see the automatic interactive API documentation (provided by Swagger UI):
+You will see the automatic interactive API documentation (provided by Swagger
+UI):
 
 # Sending data to the server
 
 When you need to send data from a client (let's say, a browser) to your API, you
 have three basic options:
 
-* As [path parameters](#path-parameters) in the URL (`/items/2`).
-* As [query parameters](#query-parameters) in the URL (`/items/2?skip=true`).
-* In the [body](#body-requests) of a POST request.
+- As [path parameters](#path-parameters) in the URL (`/items/2`).
+- As [query parameters](#query-parameters) in the URL (`/items/2?skip=true`).
+- In the [body](#body-requests) of a POST request.
 
-To send simple data use the first two, to send complex or sensitive data, use the
-last.
+To send simple data use the first two, to send complex or sensitive data, use
+the last.
 
 It also supports sending data through
 [cookies](https://fastapi.tiangolo.com/tutorial/cookie-params/) and
@@ -114,8 +118,8 @@ def read_item(item_id: int):
 If you define the type hints of the function arguments, FastAPI will use
 [pydantic](pydantic.md) data validation.
 
-If you need to use a Linux path as an argument, check [this
-workaround](https://fastapi.tiangolo.com/tutorial/path-params/#path-parameters-containing-paths),
+If you need to use a Linux path as an argument, check
+[this workaround](https://fastapi.tiangolo.com/tutorial/path-params/#path-parameters-containing-paths),
 but be aware that it's not supported by OpenAPI.
 
 ### [Order matters](https://fastapi.tiangolo.com/tutorial/path-params/#order-matters)
@@ -146,10 +150,12 @@ use a standard Python `Enum`.
 ```python
 from enum import Enum
 
+
 class ModelName(str, Enum):
     alexnet = "alexnet"
     resnet = "resnet"
     lenet = "lenet"
+
 
 @app.get("/models/{model_name}")
 def get_model(model_name: ModelName):
@@ -162,8 +168,8 @@ def get_model(model_name: ModelName):
     return {"model_name": model_name, "message": "Have some residuals"}
 ```
 
-These are the basics, FastAPI supports more complex [path parameters and string
-validations](https://fastapi.tiangolo.com/tutorial/path-params-numeric-validations/).
+These are the basics, FastAPI supports more complex
+[path parameters and string validations](https://fastapi.tiangolo.com/tutorial/path-params-numeric-validations/).
 
 ## [Query Parameters](https://fastapi.tiangolo.com/tutorial/query-params/)
 
@@ -179,13 +185,13 @@ async def read_item(skip: int = 0, limit: int = 10):
     return fake_items_db[skip : skip + limit]
 ```
 
-The query is the set of key-value pairs that go after the `?` in a URL, separated
-by `&` characters.
+The query is the set of key-value pairs that go after the `?` in a URL,
+separated by `&` characters.
 
 For example, in the URL: http://127.0.0.1:8000/items/?skip=0&limit=10
 
-These are the basics, FastAPI supports more complex [query parameters and string
-validations](https://fastapi.tiangolo.com/tutorial/query-params-str-validations/).
+These are the basics, FastAPI supports more complex
+[query parameters and string validations](https://fastapi.tiangolo.com/tutorial/query-params-str-validations/).
 
 ## [Request Body](https://fastapi.tiangolo.com/tutorial/body/)
 
@@ -203,6 +209,7 @@ class Item(BaseModel):
     price: float
     tax: Optional[float] = None
 
+
 @app.post("/items/")
 async def create_item(item: Item):
     return item
@@ -210,22 +217,20 @@ async def create_item(item: Item):
 
 With just that Python type declaration, FastAPI will:
 
-* Read the body of the request as JSON.
-* Convert the corresponding types (if needed).
-* Validate the data: If the data is invalid, it will return a nice and clear
-    error, indicating exactly where and what was the incorrect data.
-* Give you the received data in the parameter `item`.
-* Generate JSON Schema definitions for your model.
-* Those schemas will be part of the generated OpenAPI schema, and used by the
-    automatic documentation UIs.
+- Read the body of the request as JSON.
+- Convert the corresponding types (if needed).
+- Validate the data: If the data is invalid, it will return a nice and clear
+  error, indicating exactly where and what was the incorrect data.
+- Give you the received data in the parameter `item`.
+- Generate JSON Schema definitions for your model.
+- Those schemas will be part of the generated OpenAPI schema, and used by the
+  automatic documentation UIs.
 
 These are the basics, FastAPI supports more complex patterns such as:
 
-* [Using multiple models in the same
-    query](https://fastapi.tiangolo.com/tutorial/body-multiple-params/).
-* [Additional validations of the pydantic
-    models](https://fastapi.tiangolo.com/tutorial/body-fields/).
-* [Nested models](https://fastapi.tiangolo.com/tutorial/body-nested-models/).
+- [Using multiple models in the same query](https://fastapi.tiangolo.com/tutorial/body-multiple-params/).
+- [Additional validations of the pydantic models](https://fastapi.tiangolo.com/tutorial/body-fields/).
+- [Nested models](https://fastapi.tiangolo.com/tutorial/body-nested-models/).
 
 # [Sending data to the client](https://fastapi.tiangolo.com/advanced/response-directly/)
 
@@ -345,76 +350,78 @@ In many cases your application could need some external settings or
 configurations, for example secret keys, database credentials, credentials for
 email services, etc.
 
-You can load these configurations through [environmental
-variables](https://fastapi.tiangolo.com/advanced/settings/#environment-variables),
-or you can use the awesome [Pydantic settings
-management](https://pydantic-docs.helpmanual.io/usage/settings/), whose
-advantages are:
+You can load these configurations through
+[environmental variables](https://fastapi.tiangolo.com/advanced/settings/#environment-variables),
+or you can use the awesome
+[Pydantic settings management](https://pydantic-docs.helpmanual.io/usage/settings/),
+whose advantages are:
 
-* Do Pydantic's type validation on the fields.
-* [Automatically reads the missing values from environmental variables](https://pydantic-docs.helpmanual.io/usage/settings/#environment-variable-names).
-* Supports reading variables from [Dotenv
-    files](https://pydantic-docs.helpmanual.io/usage/settings/#dotenv-env-support).
-* [Supports
-    secrets](https://pydantic-docs.helpmanual.io/usage/settings/#secret-support).
+- Do Pydantic's type validation on the fields.
+- [Automatically reads the missing values from environmental variables](https://pydantic-docs.helpmanual.io/usage/settings/#environment-variable-names).
+- Supports reading variables from
+  [Dotenv files](https://pydantic-docs.helpmanual.io/usage/settings/#dotenv-env-support).
+- [Supports secrets](https://pydantic-docs.helpmanual.io/usage/settings/#secret-support).
 
 First you define the `Settings` class with all the fields:
 
-!!! note "File: `config.py`"
-    ```python
-    from pydantic import BaseSettings
+File: `config.py`:
+
+```python
+from pydantic import BaseSettings
 
 
-    class Settings(BaseSettings):
-        verbose: bool = True
-        database_url: str = "tinydb://~/.local/share/pyscrobbler/database.tinydb"
-    ```
+class Settings(BaseSettings):
+    verbose: bool = True
+    database_url: str = "tinydb://~/.local/share/pyscrobbler/database.tinydb"
+```
 
-Then in the api definition, [set the
-dependency](https://fastapi.tiangolo.com/advanced/settings/#settings-in-a-dependency).
+Then in the api definition,
+[set the dependency](https://fastapi.tiangolo.com/advanced/settings/#settings-in-a-dependency).
 
-!!! note "File: `api.py`"
+File: `api.py`:
 
-    ```python
-    from functools import lru_cache
-    from fastapi import Depends, FastAPI
+```python
+from functools import lru_cache
+from fastapi import Depends, FastAPI
 
 
-    app = FastAPI()
+app = FastAPI()
 
-    @lru_cache()
-    def get_settings() -> Settings:
-        """Configure the program settings."""
-        return Settings()
 
-    @app.get("/verbose")
-    def verbose(settings: Settings = Depends(get_settings)) -> bool:
-        return settings.verbose
-    ```
+@lru_cache()
+def get_settings() -> Settings:
+    """Configure the program settings."""
+    return Settings()
+
+
+@app.get("/verbose")
+def verbose(settings: Settings = Depends(get_settings)) -> bool:
+    return settings.verbose
+```
 
 Where:
 
-* `get_settings` is the dependency function that configures the `Settings`
-    object. The endpoint `verbose` is [dependant of
-    `get_settings`](https://fastapi.tiangolo.com/tutorial/dependencies/).
-* [The `@lru_cache`
-    decorator](https://fastapi.tiangolo.com/advanced/settings/#creating-the-settings-only-once-with-lru_cache)
-    changes the function it decorates to return the same value that was
-    returned the first time, instead of computing it again, executing the code
-    of the function every time.
+- `get_settings` is the dependency function that configures the `Settings`
+  object. The endpoint `verbose` is
+  [dependant of `get_settings`](https://fastapi.tiangolo.com/tutorial/dependencies/).
 
-    So, the function will be executed once for each combination of arguments.
-    And then the values returned by each of those combinations of arguments will
-    be used again and again whenever the function is called with exactly the
-    same combination of arguments.
+- [The `@lru_cache` decorator](https://fastapi.tiangolo.com/advanced/settings/#creating-the-settings-only-once-with-lru_cache)
+  changes the function it decorates to return the same value that was returned
+  the first time, instead of computing it again, executing the code of the
+  function every time.
 
-    Creating the `Settings` object is a costly operation as it needs to check
-    the environment variables or read a file, so we want to do it just once, not
-    on each request.
+  So, the function will be executed once for each combination of arguments. And
+  then the values returned by each of those combinations of arguments will be
+  used again and again whenever the function is called with exactly the same
+  combination of arguments.
 
-This setup makes it easy to [inject testing
-configuration](#inject-testing-configuration) so as not to break production
-code.
+  Creating the `Settings` object is a costly operation as it needs to check the
+  environment variables or read a file, so we want to do it just once, not on
+  each request.
+
+This setup makes it easy to
+[inject testing configuration](#inject-testing-configuration) so as not to break
+production code.
 
 ## OpenAPI configuration
 
@@ -486,7 +493,6 @@ tags_metadata = [
 ]
 ```
 
-
 app = FastAPI(openapi_tags=tags_metadata)
 
 ### [Add a summary and description](https://fastapi.tiangolo.com/tutorial/path-operation-configuration/#summary-and-description)
@@ -529,30 +535,32 @@ async def read_elements():
 
 # [Deploy with Docker](https://fastapi.tiangolo.com/deployment/docker/).
 
-FastAPI has it's own
-optimized [docker](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker),
-which makes the deployment of your applications really easy.
+FastAPI has it's own optimized
+[docker](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker), which
+makes the deployment of your applications really easy.
 
-* In your project directory create the `Dockerfile` file:
+- In your project directory create the `Dockerfile` file:
 
-    ```dockerfile
-    FROM tiangolo/uvicorn-gunicorn-fastapi:python3.7
+  ```dockerfile
+  FROM tiangolo/uvicorn-gunicorn-fastapi:python3.7
 
-    COPY ./app /app
-    ```
+  COPY ./app /app
+  ```
 
-* Go to the project directory (in where your Dockerfile is, containing your app directory).
-* Build your FastAPI image:
+- Go to the project directory (in where your Dockerfile is, containing your app
+  directory).
 
-    ```bash
-    docker build -t myimage .
-    ```
+- Build your FastAPI image:
 
-* Run a container based on your image:
+  ```bash
+  docker build -t myimage .
+  ```
 
-    ```bash
-    docker run -d --name mycontainer -p 80:80 myimage
-    ```
+- Run a container based on your image:
+
+  ```bash
+  docker run -d --name mycontainer -p 80:80 myimage
+  ```
 
 Now you have an optimized FastAPI server in a Docker container. Auto-tuned for
 your current server (and number of CPU cores).
@@ -579,20 +587,22 @@ will be defined in the `app` variable in the
 `src/program_name/entrypoints/api.py` file.
 
 To make things simpler make the `app` variable available on the root of your
-package, so you can do `from program_name import app` instead of `from
-program_name.entrypoints.api import app`. To do that we need to add `app` to the
-`__all__` internal python variable of the `__init__.py` file of our package.
+package, so you can do `from program_name import app` instead of
+`from program_name.entrypoints.api import app`. To do that we need to add `app`
+to the `__all__` internal python variable of the `__init__.py` file of our
+package.
 
-!!! note "File: src/program_name/__init__.py"
-    ```python
-    from .entrypoints.api import app
+File: `src/program_name/__init__.py`:
 
-    __all__: List[str] = ['app']
-    ```
+```python
+from .entrypoints.ap
+import app
 
-The image is
-configured through [environmental
-variables](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker#environment-variables)
+__all__: List[str] = ['app']
+```
+
+The image is configured through
+[environmental variables](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker#environment-variables)
 
 So we will need to use:
 
@@ -627,6 +637,7 @@ def client_() -> TestClient:
     """Configure FastAPI TestClient."""
     return TestClient(app)
 
+
 def test_read_main(client: TestClient):
     response = client.get("/")
     assert response.status_code == 200
@@ -645,23 +656,23 @@ result = client.post(
 
 ## Inject testing configuration
 
-If your application follows the [application configuration
-section](#application-configuration), injecting testing configuration is easy
-with [dependency
-injection](https://fastapi.tiangolo.com/advanced/testing-dependencies/).
+If your application follows the
+[application configuration section](#application-configuration), injecting
+testing configuration is easy with
+[dependency injection](https://fastapi.tiangolo.com/advanced/testing-dependencies/).
 
 Imagine you have a `db_tinydb` [fixture](pytest.md#fixtures) that sets up the
 testing database:
 
 ```python
 @pytest.fixture(name="db_tinydb")
-def db_tinydb_(tmpdir: LocalPath) -> str:
+def db_tinydb_(tmp_path: Path) -> str:
     """Create an TinyDB database engine.
 
     Returns:
         database_url: Url used to connect to the database.
     """
-    tinydb_file_path = str(tmpdir.join("tinydb.db"))
+    tinydb_file_path = str(tmp_path / "tinydb.db")
     return f"tinydb:///{tinydb_file_path}"
 ```
 
@@ -689,12 +700,14 @@ attribute, you could try to do:
 ```python
 app = FastAPI()
 
+
 @lru_cache()
 def get_config() -> Config:
     """Configure the program settings."""
     # no cover: the dependency are injected in the tests
     log.info("Loading the config")
     return Config()  # pragma: no cover
+
 
 if get_config().environment == "testing":
 
@@ -721,7 +734,6 @@ But the injection of the dependencies is only done inside the functions, so
 that check inside the endpoint, which is not ideal.
 
 ```python
-
 @app.get("/seed", status_code=201)
 def seed_data(
     config: Config = Depends(get_config),
@@ -745,7 +757,8 @@ def seed_data(
 
 ## [Create redirections](https://fastapi.tiangolo.com/advanced/custom-response/#redirectresponse)
 
-Returns an HTTP redirect. Uses a 307 status code (Temporary Redirect) by default.
+Returns an HTTP redirect. Uses a 307 status code (Temporary Redirect) by
+default.
 
 ```python
 from fastapi import FastAPI
@@ -758,7 +771,6 @@ app = FastAPI()
 async def read_typer():
     return RedirectResponse("https://typer.tiangolo.com")
 ```
-
 
 ## Test that your application works locally
 
@@ -773,11 +785,9 @@ Instead, launch an uvicorn application directly with:
 uvicorn program_name:app --reload
 ```
 
-!!! note ""
-
-    The command is assuming that your `app` is available at the root of your
-    package, look at the [deploy section](#other-project-structures) if you feel
-    lost.
+Note: The command is assuming that your `app` is available at the root of your
+package, look at the [deploy section](#other-project-structures) if you feel
+lost.
 
 ## Resolve the 307 error
 
@@ -809,35 +819,35 @@ The error is telling us that the required `url` parameter is missing.
 
 # Logging
 
-By default the [application log messages are not shown in the uvicorn
-log](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/issues/19), you
-need to add the next lines to the file where your app is defined:
+By default the
+[application log messages are not shown in the uvicorn log](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/issues/19),
+you need to add the next lines to the file where your app is defined:
 
-!!! note "File: src/program_name/entrypoints/api.py"
+File: `src/program_name/entrypoints/api.py`:
 
-    ```python
-    from fastapi import FastAPI
-    from fastapi.logger import logger
-    import logging
+```python
+from fastapi import FastAPI
+from fastapi.logger import logger
+import logging
 
-    log = logging.getLogger("gunicorn.error")
-    logger.handlers = log.handlers
-    if __name__ != "main":
-        logger.setLevel(log.level)
-    else:
-        logger.setLevel(logging.DEBUG)
+log = logging.getLogger("gunicorn.error")
+logger.handlers = log.handlers
+if __name__ != "main":
+    logger.setLevel(log.level)
+else:
+    logger.setLevel(logging.DEBUG)
 
-    app = FastAPI()
+app = FastAPI()
 
-    # rest of the application...
-    ```
+# rest of the application...
+```
 
 ## Logging to Sentry
 
-FastAPI can [integrate with
-Sentry](https://philstories.medium.com/integrate-sentry-to-fastapi-7250603c070f)
-or similar [application loggers](python_logging.md) through the [ASGI
-middleware](https://fastapi.tiangolo.com/advanced/middleware/#other-middlewares).
+FastAPI can
+[integrate with Sentry](https://philstories.medium.com/integrate-sentry-to-fastapi-7250603c070f)
+or similar [application loggers](python_logging.md) through the
+[ASGI middleware](https://fastapi.tiangolo.com/advanced/middleware/#other-middlewares).
 
 # [Run a FastAPI server in the background for testing purposes](https://stackoverflow.com/questions/57412825/how-to-start-a-uvicorn-fastapi-in-background-when-testing-with-pytest)
 
@@ -845,80 +855,79 @@ Sometimes you want to launch a web server with a simple API to test a program
 that can't use the [testing client](#testing). First define the API to launch
 with:
 
-!!! note "File: tests/api_server.py"
+File: `tests/api_server.py`:
 
-    ```python
-    from fastapi import FastAPI, HTTPException
+```python
+from fastapi import FastAPI, HTTPException
 
-    app = FastAPI()
-
-
-    @app.get("/existent")
-    async def existent():
-        return {"msg": "exists!"}
+app = FastAPI()
 
 
-    @app.get("/inexistent")
-    async def inexistent():
-        raise HTTPException(status_code=404, detail="It doesn't exist")
-    ```
+@app.get("/existent")
+async def existent():
+    return {"msg": "exists!"}
+
+
+@app.get("/inexistent")
+async def inexistent():
+    raise HTTPException(status_code=404, detail="It doesn't exist")
+```
 
 Then create the fixture:
 
-!!! note "File: tests/conftest.py"
-    ```python
-    from multiprocessing import Process
+File: `tests/conftest.py`:
 
-    from typing import Generator
-    import pytest
-    import uvicorn
+```python
+from multiprocessing import Process
 
-    from .api_server import app
+from typing import Generator
+import pytest
+import uvicorn
 
-
-    def run_server() -> None:
-        """Command to run the fake api server."""
-        uvicorn.run(app)
+from .api_server import app
 
 
-    @pytest.fixture()
-    def _server() -> Generator[None, None, None]:
-        """Start the fake api server."""
-        proc = Process(target=run_server, args=(), daemon=True)
-        proc.start()
-        yield
-        proc.kill()  # Cleanup after test
-    ```
+def run_server() -> None:
+    """Command to run the fake api server."""
+    uvicorn.run(app)
+
+
+@pytest.fixture()
+def _server() -> Generator[None, None, None]:
+    """Start the fake api server."""
+    proc = Process(target=run_server, args=(), daemon=True)
+    proc.start()
+    yield
+    proc.kill()  # Cleanup after test
+```
 
 Now you can use the `server: None` fixture in your tests and run your queries
 against `http://localhost:8000`.
 
 # Interesting features to explore
 
-* [Structure big
-    applications](https://fastapi.tiangolo.com/tutorial/bigger-applications/).
-* [Dependency injection](https://fastapi.tiangolo.com/tutorial/dependencies/).
-* [Running background tasks after the request is
-    finished](https://fastapi.tiangolo.com/tutorial/background-tasks/).
-* [Return a different response
-    model](https://fastapi.tiangolo.com/tutorial/response-model/).
-* [Upload files](https://fastapi.tiangolo.com/tutorial/request-files/).
-* [Set
-    authentication](https://fastapi.tiangolo.com/tutorial/security/first-steps/).
-* [Host behind a proxy](https://fastapi.tiangolo.com/advanced/behind-a-proxy/).
-* [Static files](https://fastapi.tiangolo.com/tutorial/static-files/).
+- [Structure big applications](https://fastapi.tiangolo.com/tutorial/bigger-applications/).
+- [Dependency injection](https://fastapi.tiangolo.com/tutorial/dependencies/).
+- [Running background tasks after the request is finished](https://fastapi.tiangolo.com/tutorial/background-tasks/).
+- [Return a different response model](https://fastapi.tiangolo.com/tutorial/response-model/).
+- [Upload files](https://fastapi.tiangolo.com/tutorial/request-files/).
+- [Set authentication](https://fastapi.tiangolo.com/tutorial/security/first-steps/).
+- [Host behind a proxy](https://fastapi.tiangolo.com/advanced/behind-a-proxy/).
+- [Static files](https://fastapi.tiangolo.com/tutorial/static-files/).
 
 # Issues
 
-* [FastAPI does not log
-    messages](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/issues/19):
-    update `pyscrobbler` and any other maintained applications and remove the
-    snippet defined in the [logging section](#logging).
+- [FastAPI does not log messages](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/issues/19):
+  update `pyscrobbler` and any other maintained applications and remove the
+  snippet defined in the [logging section](#logging).
+
 # References
 
-* [Docs](https://fastapi.tiangolo.com/)
-* [Git](https://github.com/tiangolo/fastapi)
-* [Awesome FastAPI](https://github.com/mjhea0/awesome-fastapi)
+- [Docs](https://fastapi.tiangolo.com/)
 
-* [Testdriven.io course](https://testdriven.io/courses/tdd-fastapi/): suggested
-    by the developer.
+- [Git](https://github.com/tiangolo/fastapi)
+
+- [Awesome FastAPI](https://github.com/mjhea0/awesome-fastapi)
+
+- [Testdriven.io course](https://testdriven.io/courses/tdd-fastapi/): suggested
+  by the developer.

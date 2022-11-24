@@ -87,6 +87,15 @@ There are two kinds of plugins:
 You can see some plugin examples
 [here](https://mdformat.readthedocs.io/en/stable/users/plugins.html).
 
+# Issues
+
+- It doesn't yet
+  [support admonitions](https://github.com/executablebooks/mdformat/issues/309)
+- You can't
+  [ignore some files](https://github.com/executablebooks/mdformat/issues/359),
+  nor
+  [some part of the file](https://github.com/executablebooks/mdformat/issues/53)
+
 # References
 
 - [Docs](https://mdformat.readthedocs.io/en/stable/)

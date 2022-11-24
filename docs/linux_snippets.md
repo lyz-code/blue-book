@@ -4,6 +4,55 @@ date: 20200826
 author: Lyz
 ---
 
+# [df and du showing different results](https://www.cyberciti.biz/tips/freebsd-why-command-df-and-du-reports-different-output.html)
+
+Sometimes on a linux machine you will notice that both `df` command (display
+free disk space) and `du` command (display disk usage statistics) report
+different output. Usually, `df` will output a bigger disk usage than `du`.
+
+The `du` command estimates file space usage, and the `df` command shows file
+system disk space usage.
+
+There are many reasons why this could be happening:
+
+## Disk mounted over data
+
+If you mount a disk on a directory that already holds data, then when you run
+`du` that data won't show, but `df` knows it's there.
+
+To troubleshoot this, umount one by one of your disks, and do an `ls` to see if
+there's any remaining data in the mount point.
+
+## Used deleted files
+
+When a file is deleted under Unix/Linux, the disk space occupied by the file
+will not be released immediately in some cases. The result of the command `du`
+doesn’t include the size of the deleting file. But the impact of the command
+`df` for the deleting file’s size due to its disk space is not released
+immediately. Hence, after deleting the file, the results of `df` and `du` are
+different until the disk space is freed.
+
+Open file descriptor is main causes of such wrong information. For example, if a
+file called `/tmp/application.log` is open by a third-party application OR by a
+user and the same file is deleted, both `df` and `du` report different outputs.
+You can use the `lsof` command to verify this:
+
+```bash
+lsof | grep tmp
+```
+
+To fix it:
+
+- Use the `lsof` command as discussed above to find a deleted file opened by
+  other users and apps. See how to list all users in the system for more info.
+- Then, close those apps and log out of those Linux and Unix users.
+- As a sysadmin you restart any process or `kill` the process under Linux and
+  Unix that did not release the deleted file.
+- Flush the filesystem using the `sync` command that synchronizes cached writes
+  to persistent disk storage.
+- If everything else fails, try restarting the system using the `reboot` command
+  or `shutdown` command.
+
 # Scan a physical page in Linux
 
 Install `xsane` and run it.
@@ -230,7 +279,27 @@ open the `/etc/systemd/journald.conf` file and set the `SystemMaxUse` to the
 amount you want (for example `1000M` for a gigabyte). Once edited restart the
 service with `sudo systemctl restart systemd-journald`.
 
-## [Set up docker logs rotation](https://medium.com/free-code-camp/how-to-setup-log-rotation-for-a-docker-container-a508093912b2)
+## Clean up docker data
+
+To remove unused `docker` data you can run `docker system prune -a`. This will
+remove:
+
+- All stopped containers
+- All networks not used by at least one container
+- All images without at least one container associated to them
+- All build cache
+
+Sometimes that's not enough, and your `/var/lib/docker` directory still weights
+more than it should. In those cases:
+
+- Stop the `docker` service.
+- Remove or move the data to another directory
+- Start the `docker` service.
+
+In order not to loose your persisted data, you need to configure your dockers to
+mount the data from a directory that's not within `/var/lib/docker`.
+
+### [Set up docker logs rotation](https://medium.com/free-code-camp/how-to-setup-log-rotation-for-a-docker-container-a508093912b2)
 
 By default, the stdout and stderr of the container are written in a JSON file
 located in `/var/lib/docker/containers/[container-id]/[container-id]-json.log`.

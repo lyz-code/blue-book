@@ -54,6 +54,9 @@ The things I don't like are:
   [Proof of Concept environment yourself](#proof-of-concept) if you already know
   `docker-compose`.
 - [The status column is not showing the status color](https://community.openproject.org/projects/openproject/work_packages/44944).
+- You can't hide an element from a report for a day. For example if there is a
+  blocked task that you can't work on for today, you can't hide it till
+  tomorrow.
 - Even thought the
   [Community (free) version has many features](https://www.openproject.org/pricing/#features)
   the next aren't:
@@ -142,30 +145,14 @@ I'm going to follow the `docker-compose`:
 
 - Tweak the `docker-compose.yaml`
   [file through the `docker-compose.override.yml`](https://docs.docker.com/compose/extends/)
-  file for example if you want to override how the volumes are defined:
-
-  ```yaml
-  volumes:
-    pgdata:
-      driver: local
-      driver_opts:
-        type: none
-        o: bind
-        device: /data/openproject-postgres
-    opdata:
-      driver: local
-      driver_opts:
-        type: none
-        o: bind
-        device: /data/openproject
-
-  ```
 
 - Add the required environmental variables through a `.env` file
 
   ```
   OPENPROJECT_HOST__NAME=openproject.example.com
   OPENPROJECT_SECRET_KEY_BASE=secret
+  PGDATA=/path/to/postgres/data
+  OPDATA=/path/to/openproject/data
   ```
 
   Where `secret` is the value of
