@@ -152,7 +152,7 @@ http_2xx:
   prober: http
   timeout: 5s
   http:
-    valid_http_versions: ["HTTP/1.1", "HTTP/2"]
+    valid_http_versions: ["HTTP/1.1", "HTTP/2.0"]
     valid_status_codes: [200]
     no_follow_redirects: false
     preferred_ip_protocol: "ip4"
@@ -168,7 +168,7 @@ https_2xx:
     method: GET
     fail_if_ssl: false
     fail_if_not_ssl: true
-    valid_http_versions: ["HTTP/1.1", "HTTP/2"]
+    valid_http_versions: ["HTTP/1.1", "HTTP/2.0"]
     valid_status_codes: [200]
     no_follow_redirects: false
     preferred_ip_protocol: "ip4"
@@ -184,7 +184,7 @@ https_client_2xx:
     method: GET
     fail_if_ssl: false
     fail_if_not_ssl: true
-    valid_http_versions: ["HTTP/1.1", "HTTP/2"]
+    valid_http_versions: ["HTTP/1.1", "HTTP/2.0"]
     valid_status_codes: [200]
     no_follow_redirects: false
     preferred_ip_protocol: "ip4"
@@ -208,7 +208,7 @@ https_client_api:
     method: GET
     fail_if_ssl: false
     fail_if_not_ssl: true
-    valid_http_versions: ["HTTP/1.1", "HTTP/2"]
+    valid_http_versions: ["HTTP/1.1", "HTTP/2.0"]
     valid_status_codes: [404]
     no_follow_redirects: false
     preferred_ip_protocol: "ip4"
@@ -225,7 +225,7 @@ http_4xx:
   http:
     method: HEAD
     valid_status_codes: [404, 403]
-    valid_http_versions: ["HTTP/1.1", "HTTP/2"]
+    valid_http_versions: ["HTTP/1.1", "HTTP/2.0"]
     no_follow_redirects: false
 ```
 
@@ -239,7 +239,7 @@ https_external_2xx:
     method: GET
     fail_if_ssl: false
     fail_if_not_ssl: true
-    valid_http_versions: ["HTTP/1.0", "HTTP/1.1", "HTTP/2"]
+    valid_http_versions: ["HTTP/1.0", "HTTP/1.1", "HTTP/2.0"]
     valid_status_codes: [200]
     no_follow_redirects: false
     proxy_url: "http://{{ proxy_url }}:{{ proxy_port }}"
@@ -258,7 +258,7 @@ https_basic_auth_2xx:
         fail_if_not_ssl: true
         valid_http_versions:
         - HTTP/1.1
-        - HTTP/2
+        - HTTP/2.0
         valid_status_codes:
         - 200
         no_follow_redirects: false
@@ -280,7 +280,7 @@ https_api_2xx:
         fail_if_not_ssl: true
         valid_http_versions:
         - HTTP/1.1
-        - HTTP/2
+        - HTTP/2.0
         valid_status_codes:
         - 200
         no_follow_redirects: false
@@ -302,7 +302,7 @@ Test if the probe can upload a file.
         body: hi
         fail_if_ssl: false
         fail_if_not_ssl: true
-        valid_http_versions: ["HTTP/1.1", "HTTP/2"]
+        valid_http_versions: ["HTTP/1.1", "HTTP/2.0"]
         valid_status_codes: [200]
         no_follow_redirects: false
         preferred_ip_protocol: "ip4"
