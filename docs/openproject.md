@@ -53,13 +53,13 @@ The things I don't like are:
 - There is no demo instance where you can try it. It's easy though to launch a
   [Proof of Concept environment yourself](#proof-of-concept) if you already know
   `docker-compose`.
-- [The status column is not showing the status color](https://community.openproject.org/projects/openproject/work_packages/44944).
 - You can't hide an element from a report for a day. For example if there is a
   blocked task that you can't work on for today, you can't hide it till
   tomorrow.
 - Even thought the
   [Community (free) version has many features](https://www.openproject.org/pricing/#features)
   the next aren't:
+  - [The status column is not showing the status color](https://community.openproject.org/projects/openproject/work_packages/44944).
   - [Status boards](https://www.openproject.org/docs/user-guide/agile-boards/#status-board):
     you can't have Kanban boards that show the state of the issues as columns.
     You can make it yourself through a Basic board and with the columns as the

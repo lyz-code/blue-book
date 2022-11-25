@@ -4,6 +4,49 @@ date: 20200717
 author: Lyz
 ---
 
+# [Pathlib make parent directories if they don't exist](https://stackoverflow.com/questions/50110800/python-pathlib-make-directories-if-they-don-t-exist)
+
+```python
+pathlib.Path("/tmp/sub1/sub2").mkdir(parents=True, exist_ok=True)
+```
+
+From the
+[docs](https://docs.python.org/3/library/pathlib.html#pathlib.Path.mkdir):
+
+- If `parents` is `true`, any missing parents of this path are created as
+  needed; they are created with the default permissions without taking mode into
+  account (mimicking the POSIX `mkdir -p` command).
+
+- If `parents` is `false` (the default), a missing parent raises
+  `FileNotFoundError`.
+
+- If `exist_ok` is `false` (the default), `FileExistsError` is raised if the
+  target directory already exists.
+
+- If `exist_ok` is `true`, `FileExistsError` exceptions will be ignored (same
+  behavior as the POSIX `mkdir -p` command), but only if the last path component
+  is not an existing non-directory file.
+
+# [Pathlib touch a file](https://docs.python.org/3/library/pathlib.html#pathlib.Path.touch)
+
+Create a file at this given path.
+
+```python
+pathlib.Path("/tmp/file.txt").touch(exist_ok=True)
+```
+
+If the file already exists, the function succeeds if `exist_ok` is `true` (and
+its modification time is updated to the current time), otherwise
+`FileExistsError` is raised.
+
+If the parent directory doesn't exist you need to create it first.
+
+```python
+global_conf_path = xdg_home / "autoimport" / "config.toml"
+global_conf_path.parent.mkdir(parents=True)
+global_conf_path.touch(exist_ok=True)
+```
+
 # [Pad integer with zeros](https://stackoverflow.com/questions/39402795/how-to-pad-a-string-with-leading-zeros-in-python-3)
 
 ```python
