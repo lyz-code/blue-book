@@ -128,6 +128,7 @@ nav:
                       - Pydantic Mypy Plugin: coding/python/pydantic_mypy_plugin.md
                   - Pypika: coding/python/pypika.md
                   - Python Mysql: python_mysql.md
+                  - pythonping: pythonping.md
                   - Python VLC: python_vlc.md
                   - Plotly: coding/python/plotly.md
                   - questionary: questionary.md
@@ -218,6 +219,7 @@ nav:
       - Frontend Development: frontend_development.md
       - Git: git.md
       - Park programming: park_programming.md
+      - Sponsor: sponsor.md
       - Issues: issues.md
   - DevOps:
       - devops/devops.md

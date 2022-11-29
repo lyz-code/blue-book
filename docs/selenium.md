@@ -169,6 +169,39 @@ driver.find_element(By.XPATH, login_submit).click()
 driver.close()
 ```
 
+## Change browser configuration
+
+You can pass `options` to the initialization of the chromedriver to tweak how
+does the browser behave. To get a list of the actual `prefs` you can go to
+`chrome://prefs-internals`, there you can get the code you need to tweak.
+
+### Disable loading of images
+
+```python
+options = ChromeOptions()
+options.add_experimental_option(
+    "prefs",
+    {
+        "profile.default_content_setting_values.images": 2,
+        "profile.default_content_setting_values.cookies": 2,
+    },
+)
+```
+
+### Disable site cookies
+
+```python
+options = ChromeOptions()
+options.add_experimental_option(
+    "prefs",
+    {
+        "profile.default_content_setting_values.cookies": 2,
+    },
+)
+```
+
+
+
 ## Bypass Selenium detectors
 
 Sometimes web servers react differently if they notice that you're using
@@ -322,7 +355,6 @@ print(driver.execute_script("return navigator.userAgent;"))
     navigator.webdriver flag to prevent selenium detection](https://stackoverflow.com/questions/53039551/selenium-webdriver-modifying-navigator-webdriver-flag-to-prevent-selenium-detec/53040904#53040904)
 
 * Changing the values of navigator.plugins, navigator.languages, WebGL, hairline feature, missing image, etc.
-
     You can find a relevant detailed discussion in [Is there a version of
     selenium webdriver that is not detectable?](https://stackoverflow.com/questions/56528631/is-there-a-version-of-selenium-webdriver-that-is-not-detectable/56529616#56529616)
 

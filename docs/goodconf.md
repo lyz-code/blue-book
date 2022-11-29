@@ -26,7 +26,7 @@ from goodconf import GoodConf, Field
 from pydantic import PostgresDsn
 
 
-class AppConfig(GoodConf):
+class AppConfig(GoodConf):  # type: ignore
     """Configure my application."""
 
     debug: bool

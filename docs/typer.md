@@ -10,22 +10,36 @@ that users will love using and developers will love creating. Based on Python
 
 The key features are:
 
-* *Intuitive to write*: Great editor support. Completion everywhere. Less time
-    debugging. Designed to be easy to use and learn. Less time reading docs.
-* *Easy to use*: It's easy to use for the final users. Automatic help, and
-    automatic completion for all shells.
-* *Short*: Minimize code duplication. Multiple features from each parameter
-    declaration. Fewer bugs.
-* *Start simple*: The simplest example adds only 2 lines of code to your app:
-    1 import, 1 function call.
-* *Grow large*: Grow in complexity as much as you want, create arbitrarily
-    complex trees of commands and groups of subcommands, with options and
-    arguments.
+- *Intuitive to write*: Great editor support. Completion everywhere. Less time
+  debugging. Designed to be easy to use and learn. Less time reading docs.
+- *Easy to use*: It's easy to use for the final users. Automatic help, and
+  automatic completion for all shells.
+- *Short*: Minimize code duplication. Multiple features from each parameter
+  declaration. Fewer bugs.
+- *Start simple*: The simplest example adds only 2 lines of code to your app: 1
+  import, 1 function call.
+- *Grow large*: Grow in complexity as much as you want, create arbitrarily
+  complex trees of commands and groups of subcommands, with options and
+  arguments.
 
 # Installation
 
 ```bash
 pip install 'typer[all]'
+```
+
+# [Minimal usage](https://typer.tiangolo.com/#the-absolute-minimum)
+
+```python
+import typer
+
+
+def main(name: str):
+    print(f"Hello {name}")
+
+
+if __name__ == "__main__":
+    typer.run(main)
 ```
 
 # [Usage](https://typer.tiangolo.com/#the-absolute-minimum)
@@ -57,8 +71,8 @@ if __name__ == "__main__":
 
 ## [Using subcommands](https://typer.tiangolo.com/tutorial/subcommands/single-file/)
 
-
-In some cases, it's possible that your application code needs to live on a single file.
+In some cases, it's possible that your application code needs to live on a
+single file.
 
 ```python
 import typer
@@ -112,132 +126,133 @@ For more complex code use [nested subcommands](#nested-subcommands)
 You can split the commands in different files for clarity once the code starts
 to grow:
 
-!!! note "File: `reigns.py`"
+File: `reigns.py`:
 
-    ```python
-    import typer
+```python
+import typer
 
-    app = typer.Typer()
-
-
-    @app.command()
-    def conquer(name: str):
-        print(f"Conquering reign: {name}")
+app = typer.Typer()
 
 
-    @app.command()
-    def destroy(name: str):
-        print(f"Destroying reign: {name}")
+@app.command()
+def conquer(name: str):
+    print(f"Conquering reign: {name}")
 
 
-    if __name__ == "__main__":
-        app()
-    ```
-
-!!! note "File: `towns.py`"
-
-    ```python
-    import typer
-
-    app = typer.Typer()
+@app.command()
+def destroy(name: str):
+    print(f"Destroying reign: {name}")
 
 
-    @app.command()
-    def found(name: str):
-        print(f"Founding town: {name}")
+if __name__ == "__main__":
+    app()
+```
+
+File: `towns.py`:
+
+```python
+import typer
+
+app = typer.Typer()
 
 
-    @app.command()
-    def burn(name: str):
-        print(f"Burning town: {name}")
+@app.command()
+def found(name: str):
+    print(f"Founding town: {name}")
 
 
-    if __name__ == "__main__":
-        app()
-    ```
-
-!!! note "File: `lands.py`"
-
-    ```python
-    import typer
-
-    import reigns
-    import towns
-
-    app = typer.Typer()
-    app.add_typer(reigns.app, name="reigns")
-    app.add_typer(towns.app, name="towns")
-
-    if __name__ == "__main__":
-        app()
-    ```
-
-!!! note "File: `users.py`"
-
-    ```python
-    import typer
-
-    app = typer.Typer()
+@app.command()
+def burn(name: str):
+    print(f"Burning town: {name}")
 
 
-    @app.command()
-    def create(user_name: str):
-        print(f"Creating user: {user_name}")
+if __name__ == "__main__":
+    app()
+```
+
+File: `lands.py`:
+
+```python
+import typer
+
+import reigns
+import towns
+
+app = typer.Typer()
+app.add_typer(reigns.app, name="reigns")
+app.add_typer(towns.app, name="towns")
+
+if __name__ == "__main__":
+    app()
+```
+
+File: `users.py`:
+
+```python
+import typer
+
+app = typer.Typer()
 
 
-    @app.command()
-    def delete(user_name: str):
-        print(f"Deleting user: {user_name}")
+@app.command()
+def create(user_name: str):
+    print(f"Creating user: {user_name}")
 
 
-    if __name__ == "__main__":
-        app()
-    ```
-
-!!! note "File: `items.py`"
-
-    ```python
-    import typer
-
-    app = typer.Typer()
+@app.command()
+def delete(user_name: str):
+    print(f"Deleting user: {user_name}")
 
 
-    @app.command()
-    def create(item: str):
-        print(f"Creating item: {item}")
+if __name__ == "__main__":
+    app()
+```
+
+File: `items.py`:
+
+```python
+import typer
+
+app = typer.Typer()
 
 
-    @app.command()
-    def delete(item: str):
-        print(f"Deleting item: {item}")
+@app.command()
+def create(item: str):
+    print(f"Creating item: {item}")
 
 
-    @app.command()
-    def sell(item: str):
-        print(f"Selling item: {item}")
+@app.command()
+def delete(item: str):
+    print(f"Deleting item: {item}")
 
 
-    if __name__ == "__main__":
-        app()
-    ```
+@app.command()
+def sell(item: str):
+    print(f"Selling item: {item}")
 
-!!! note "File: `main.py`"
 
-    ```python
-    import typer
+if __name__ == "__main__":
+    app()
+```
 
-    import items
-    import lands
-    import users
+File: `main.py`:
 
-    app = typer.Typer()
-    app.add_typer(users.app, name="users")
-    app.add_typer(items.app, name="items")
-    app.add_typer(lands.app, name="lands")
+```python
+import typer
 
-    if __name__ == "__main__":
-        app()
-    ```
+import items
+import lands
+import users
+
+app = typer.Typer()
+app.add_typer(users.app, name="users")
+app.add_typer(items.app, name="items")
+app.add_typer(lands.app, name="lands")
+
+if __name__ == "__main__":
+    app()
+```
+
 ## [Using the context](https://typer.tiangolo.com/tutorial/commands/context/)
 
 When you create a Typer application it uses [`Click`](click.md) underneath. And
@@ -248,9 +263,10 @@ But you can access the context by declaring a function parameter of type
 `typer.Context`.
 
 The context is also used to store objects that you may need for all the
-commands, for example a [repository](repository_pattern.md). [Although this
-doesn't seem to be supported yet by
-`typer`](https://github.com/tiangolo/typer/issues/232).
+commands, for example a [repository](repository_pattern.md).
+
+Tiangolo (`typer`s main
+developer)[suggests to use global variables or a function with `lru_cache`](https://github.com/tiangolo/typer/issues/232).
 
 ## [Using short option names](https://typer.tiangolo.com/tutorial/options/name/)
 
@@ -266,14 +282,14 @@ if __name__ == "__main__":
     typer.run(main)
 ```
 
-The `...` as the first argument is to make the [option required](https://typer.tiangolo.com/tutorial/options/required/)
+The `...` as the first argument is to make the
+[option required](https://typer.tiangolo.com/tutorial/options/required/)
 
 ## [Create `-vvv`](https://typer.tiangolo.com/tutorial/parameter-types/number/#counter-cli-options)
 
 You can make a CLI option work as a counter with the `counter` parameter:
 
 ```python
-
 import typer
 
 
@@ -315,8 +331,8 @@ program for the current user in each operating system.
 
 ## [Exiting with an error code](https://typer.tiangolo.com/tutorial/terminating/#exit-with-an-error)
 
-`typer.Exit()` takes an optional code parameter. By default, code is `0`, meaning
-there was no error.
+`typer.Exit()` takes an optional code parameter. By default, code is `0`,
+meaning there was no error.
 
 You can pass a code with a number other than `0` to tell the terminal that there
 was an error in the execution of the program:
@@ -336,6 +352,51 @@ if __name__ == "__main__":
     typer.run(main)
 ```
 
+## [Create a `--version` command](https://typer.tiangolo.com/tutorial/options/version/)
+
+You could use a callback to implement a `--version` CLI option.
+
+It would show the version of your CLI program and then it would terminate it.
+Even before any other CLI parameter is processed.
+
+```python
+from typing import Optional
+
+import typer
+
+__version__ = "0.1.0"
+
+
+def version_callback(value: bool) -> None:
+    """Print the version of the program."""
+    if value:
+        print(f"Awesome CLI Version: {__version__}")
+        raise typer.Exit()
+
+
+def main(
+    version: Optional[bool] = typer.Option(
+        None, "--version", callback=version_callback, is_eager=True
+    ),
+) -> None:
+    ...
+
+
+if __name__ == "__main__":
+    typer.run(main)
+```
+
+# [Testing](https://typer.tiangolo.com/tutorial/testing/)
+
+Testing is similar to [`click` testing](click.md#testing-click-applications),
+but you import the `CliRunner` directly from `typer`:
+
+```python
+from typer.testing import CliRunner
+```
+
 # References
 
-* [Docs](https://typer.tiangolo.com/)
+- [Docs](https://typer.tiangolo.com/)
+- [Source](https://github.com/tiangolo/typer)
+- [Issues](https://github.com/tiangolo/typer/issues)

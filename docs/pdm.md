@@ -409,6 +409,9 @@ If none of the above works, you can override them:
 "importlib-metadata" = ">=3.10"
 ```
 
+If you get lost in understanding your dependencies, you can try using
+[`pydeps`](https://github.com/thebjorn/pydeps) to get your head around it.
+
 ## [Building packages](https://pdm.fming.dev/usage/project/)
 
 PDM can act as a PEP 517 build backend, to enable that, write the following

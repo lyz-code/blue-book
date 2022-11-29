@@ -4,6 +4,33 @@ date: 20200717
 author: Lyz
 ---
 
+# [Pad a string with spaces](https://stackoverflow.com/questions/20309255/how-to-pad-a-string-to-a-fixed-length-with-spaces-in-python)
+
+```python
+>>> name = 'John'
+>>> name.ljust(15)
+'John           '
+```
+
+
+# [Get hostname of the machine](https://stackoverflow.com/questions/4271740/how-can-i-use-python-to-get-the-system-hostname)
+
+Any of the next three options:
+
+```python
+import os
+
+os.uname()[1]
+
+import platform
+
+platform.node()
+
+import socket
+
+socket.gethostname()
+```
+
 # [Pathlib make parent directories if they don't exist](https://stackoverflow.com/questions/50110800/python-pathlib-make-directories-if-they-don-t-exist)
 
 ```python
