@@ -127,6 +127,8 @@ nav:
                       - Pydantic Factories: pydantic_factories.md
                       - Pydantic Mypy Plugin: coding/python/pydantic_mypy_plugin.md
                   - Pypika: coding/python/pypika.md
+                  - Elasticsearch: python_elasticsearch.md
+                  - python-gnupg: python_gnupg.md
                   - Python Mysql: python_mysql.md
                   - pythonping: pythonping.md
                   - Python VLC: python_vlc.md

@@ -4,6 +4,45 @@ date: 20200717
 author: Lyz
 ---
 
+# [Get common elements of two lists](https://stackoverflow.com/questions/13962781/common-elements-in-two-lists-python)
+
+```python
+>>> a = ['a', 'b']
+>>> b = ['c', 'd', 'b']
+>>> set(a) & set(b)
+{'b'}
+```
+
+# [Recursively find files](https://stackoverflow.com/questions/2186525/how-to-use-glob-to-find-files-recursively)
+
+## Using `pathlib.Path.rglob`
+
+```python
+from pathlib import Path
+
+for path in Path("src").rglob("*.c"):
+    print(path.name)
+```
+
+If you don't want to use `pathlib`, use can use `glob.glob('**/*.c')`, but don't
+forget to pass in the recursive keyword parameter and it will use inordinate
+amount of time on large directories.
+
+## os.walk
+
+For older Python versions, use `os.walk` to recursively walk a directory and
+`fnmatch.filter` to match against a simple expression:
+
+```python
+import fnmatch
+import os
+
+matches = []
+for root, dirnames, filenames in os.walk("src"):
+    for filename in fnmatch.filter(filenames, "*.c"):
+        matches.append(os.path.join(root, filename))
+```
+
 # [Pad a string with spaces](https://stackoverflow.com/questions/20309255/how-to-pad-a-string-to-a-fixed-length-with-spaces-in-python)
 
 ```python
@@ -11,7 +50,6 @@ author: Lyz
 >>> name.ljust(15)
 'John           '
 ```
-
 
 # [Get hostname of the machine](https://stackoverflow.com/questions/4271740/how-can-i-use-python-to-get-the-system-hostname)
 
