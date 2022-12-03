@@ -601,7 +601,7 @@ requires_python = ">=3.7"
 summary = "Backport of pathlib-compatible object wrapper for zip files"
 
 [metadata]
-lock_version = "4.0"
+lock_version = "4.1"
 content_hash = "sha256:a0f9e668edb122c5384093dcee6011a6f154efeab678753b258e6cd2ad49d0b2"
 
 [metadata.files]
