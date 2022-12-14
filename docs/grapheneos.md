@@ -136,6 +136,29 @@ a Google device. If you also reached this thought,
 Summing up, the Pixel's are in fact the devices that are more secure and that
 potentially respect your privacy.
 
+# [Installation](https://grapheneos.org/install/web)
+
+I was not able to follow the [web](https://grapheneos.org/install/web)
+instructions so I had to follow the [cli](https://grapheneos.org/install/cli)
+ones.
+
+Whenever I run a `fastboot` command it got stuck in `< waiting for devices >`,
+so I added the next rules on the `udev` configuration at
+`/etc/udev/rules.d/51-android.rules`
+
+```
+SUBSYSTEM=="usb", ATTR{idVendor}=="18d1", ATTR{idProduct}=="4ee7", MODE="0600", OWNER="myuser"
+```
+
+The `idProduct` and `idVendor` were deduced from `lsusb`. Then after a restart
+everything worked fine.
+
+## Setup Auditor
+
+Auditor provides attestation for GrapheneOS phones and the stock operating systems on a number of devices. It uses hardware security features to make sure that the firmware and operating system have not been downgraded or tampered with.
+
+Attestation can be done locally by pairing with another Android 8+ device or remotely using the remote attestation service. To make sure that your hardware and operating system is genuine, perform local attestation immediately after the device has been setup and prior to any internet connection.
+
 # References
 
 - [Home](https://grapheneos.org/)

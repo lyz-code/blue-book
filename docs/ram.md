@@ -21,34 +21,40 @@ They are the faster device either to read or to write your data.
 
 RAM sticks vary on:
 
-* Size: the amount of data that they can hold, measured in GB.
-* Frequency: how often the RAM is accessed per second, measured in MHz.
-* Clock latency (CL): number of cycles before the RAM responds.
-* Type: as the technology evolves there are different types, such as DDR4.
-* Form factor: There are different types of RAM in regards of the devices
-    they'll fit in:
+- Size: the amount of data that they can hold, measured in GB.
 
-    * 260-pin SO-DIMMs: laptop RAM, shorter, slower, more expensive, and won't fit in a desktop system.
-    * 288-pin DIMMs: desktop RAM - required for most desktop motherboards.
-* [ECC](#ecc): Whether it has error correction code.
+- Frequency: how often the RAM is accessed per second, measured in MHz.
+
+- Clock latency (CL): number of cycles before the RAM responds.
+
+- Type: as the technology evolves there are different types, such as DDR4.
+
+- Form factor: There are different types of RAM in regards of the devices
+  they'll fit in:
+
+  - 260-pin SO-DIMMs: laptop RAM, shorter, slower, more expensive, and won't fit
+    in a desktop system.
+  - 288-pin DIMMs: desktop RAM - required for most desktop motherboards.
+
+- [ECC](#ecc): Whether it has error correction code.
 
 ## [Speed](https://www.reddit.com/r/buildapc/comments/xuqwku/what_does_the_mhz_on_a_ram_stick_mean_and_what/)
 
 RAM's speed is measured as a combination of frequency and clock latency. More
 cycles per second means the RAM is 'faster', but you also have to consider
 latency as well. If you compare MHz and CL, you can get an idea of actual speed.
-For example, 3600 MHz CL18 and 3200 MHz CL16 are the same speed on paper
-since the faster 3600 MHz takes more clocks to respond, but there are more
-clocks per second, so the response time is actually the same.
+For example, 3600 MHz CL18 and 3200 MHz CL16 are the same speed on paper since
+the faster 3600 MHz takes more clocks to respond, but there are more clocks per
+second, so the response time is actually the same.
 
-!!! note
-    In reality, faster RAM will be a little bit faster in modern architectures.
-    Also, Ryzen specifically prefers 3600 MHz RAM because of how its FCLK works
-    it likes whole-number multipliers, so if it can run at 1800 MHz (x2 = 3600
-    MHz with the RAM), then it will run 2-3% faster than equivalent 3200 MHz
-    RAM.
+!!! note In reality, faster RAM will be a little bit faster in modern
+architectures. Also, Ryzen specifically prefers 3600 MHz RAM because of how its
+FCLK works it likes whole-number multipliers, so if it can run at 1800 MHz (x2 =
+3600 MHz with the RAM), then it will run 2-3% faster than equivalent 3200 MHz
+RAM.
 
-Summing up, the higher the speed, and the lower the CL, the better the overall performance.
+Summing up, the higher the speed, and the lower the CL, the better the overall
+performance.
 
 ```
 RAM latency (lower the better) = (CAS Latency (CL) x 2000 ) / Frequency (MHz)
@@ -67,22 +73,22 @@ corruption cannot be tolerated, for example when using [zfs](zfs.md).
 
 Depending on your CPU brand you need to take into account the next advices:
 
-* Intel: Intel CPUs aren’t massively reliant on the performance of memory while
-    running, which might explain why RAM speed support has historically been
-    rather limited outside of Intel’s enthusiast chipsets (Z-Series) and capped
-    to 2666Mhz (at least until recently).
+- Intel: Intel CPUs aren’t massively reliant on the performance of memory while
+  running, which might explain why RAM speed support has historically been
+  rather limited outside of Intel’s enthusiast chipsets (Z-Series) and capped to
+  2666Mhz (at least until recently).
 
-    If you’re the owner of an Intel CPU we certainly suggest getting a good
-    quality RAM kit, but the speed of that RAM isn’t as important. Save your
-    money for other components or a RAM capacity upgrade if required.
+  If you’re the owner of an Intel CPU we certainly suggest getting a good
+  quality RAM kit, but the speed of that RAM isn’t as important. Save your money
+  for other components or a RAM capacity upgrade if required.
 
-* AMD: In stark contrast to Intel, AMD’s more recent ‘Zen’ line of CPUs has RAM
-    speed almost baked into the architecture of the CPU.
+- AMD: In stark contrast to Intel, AMD’s more recent ‘Zen’ line of CPUs has RAM
+  speed almost baked into the architecture of the CPU.
 
-    AMD’s infinity fabric technology uses the speed of the RAM to pass
-    information across sections of the CPU. This means that better memory will
-    serve to boost the CPU performance as well as helping in those intense
-    applications we mentioned earlier.
+  AMD’s infinity fabric technology uses the speed of the RAM to pass information
+  across sections of the CPU. This means that better memory will serve to boost
+  the CPU performance as well as helping in those intense applications we
+  mentioned earlier.
 
 ## Motherboard
 
@@ -123,4 +129,4 @@ RAM fitment issues.
 
 # References
 
-* [How to choose RAM: Speed vs Capacity](https://www.cclonline.com/article/1884/Guide/Desktop-Memory/How-to-Choose-RAM-Speed-MHz-CL-vs-Capacity-GB-/?__cf_chl_f_tk=g_qEntxC5HyO6sQoJNGJGclCY0Iw3jCcjRpeVSpZbGM-1665758062-0-gaNycGzNBj0)
+- [How to choose RAM: Speed vs Capacity](https://www.cclonline.com/article/1884/Guide/Desktop-Memory/How-to-Choose-RAM-Speed-MHz-CL-vs-Capacity-GB-/?__cf_chl_f_tk=g_qEntxC5HyO6sQoJNGJGclCY0Iw3jCcjRpeVSpZbGM-1665758062-0-gaNycGzNBj0)

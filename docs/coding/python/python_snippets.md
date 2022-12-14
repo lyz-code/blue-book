@@ -4,6 +4,74 @@ date: 20200717
 author: Lyz
 ---
 
+# [Print an exception](https://stackoverflow.com/questions/1483429/how-do-i-print-an-exception-in-python)
+
+## Using the logging module
+
+Logging an exception can be done with the module-level function
+`logging.exception()` like so:
+
+```python
+import logging
+
+try:
+    1 / 0
+except BaseException:
+    logging.exception("An exception was thrown!")
+```
+
+```
+ERROR:root:An exception was thrown!
+Traceback (most recent call last):
+File ".../Desktop/test.py", line 4, in <module>
+    1/0
+ZeroDivisionError: division by zero
+```
+
+Notes
+
+- The function `logging.exception()` should only be called from an exception
+  handler.
+
+- The logging module should not be used inside a logging handler to avoid a
+  `RecursionError`.
+
+It's also possible to log the exception with another log level but still show
+the exception details by using the keyword argument `exc_info=True`, like so:
+
+```python
+logging.critical("An exception was thrown!", exc_info=True)
+logging.error("An exception was thrown!", exc_info=True)
+logging.warning("An exception was thrown!", exc_info=True)
+logging.info("An exception was thrown!", exc_info=True)
+logging.debug("An exception was thrown!", exc_info=True)
+
+# or the general form
+logging.log(level, "An exception was thrown!", exc_info=True)
+```
+
+## With the traceback module
+
+The `traceback` module provides methods for formatting and printing exceptions
+and their tracebacks, e.g. this would print exception like the default handler
+does:
+
+```python
+import traceback
+
+try:
+    1 / 0
+except Exception:
+    traceback.print_exc()
+```
+
+```python
+Traceback (most recent call last):
+  File "C:\scripts\divide_by_zero.py", line 4, in <module>
+    1/0
+ZeroDivisionError: division by zero
+```
+
 # [Get common elements of two lists](https://stackoverflow.com/questions/13962781/common-elements-in-two-lists-python)
 
 ```python

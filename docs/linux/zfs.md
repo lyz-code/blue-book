@@ -4,27 +4,27 @@ date: 20201029
 author: Lyz
 ---
 
-[OpenZFS](https://en.wikipedia.org/wiki/ZFS) is a file system with volume management
-capabilities designed specifically for storage servers.
+[OpenZFS](https://en.wikipedia.org/wiki/ZFS) is a file system with volume
+management capabilities designed specifically for storage servers.
 
 Some neat features of ZFS include:
 
-* Aggregating multiple physical disks into a single filesystem.
-* Automatically repairing data corruption.
-* Creating point-in-time snapshots of data on disk.
-* Optionally encrypting or compressing data on disk.
+- Aggregating multiple physical disks into a single filesystem.
+- Automatically repairing data corruption.
+- Creating point-in-time snapshots of data on disk.
+- Optionally encrypting or compressing data on disk.
 
 # Learning
 
 I've found that learning about ZFS was an interesting, intense and time
-consuming task. If you want a quick overview check [this
-video](https://yewtu.be/watch?v=MsY-BafQgj4). If you prefer to read, head to the
-awesome [Aaron
-Toponce](https://pthree.org/2012/04/17/install-zfs-on-debian-gnulinux/)
+consuming task. If you want a quick overview check
+[this video](https://yewtu.be/watch?v=MsY-BafQgj4). If you prefer to read, head
+to the awesome
+[Aaron Toponce](https://pthree.org/2012/04/17/install-zfs-on-debian-gnulinux/)
 articles and read all of them sequentially, each is a jewel. The
 [docs](https://openzfs.github.io/openzfs-docs/) on the other hand are not that
-pleasant to read. For further information check [JRS
-articles](https://jrs-s.net/category/open-source/zfs/).
+pleasant to read. For further information check
+[JRS articles](https://jrs-s.net/category/open-source/zfs/).
 
 ## [Storage planning](https://mtlynch.io/budget-nas/#storage-planning)
 
@@ -47,22 +47,23 @@ give you 40% more usable space.
 
 When you’re building a NAS server, you need to decide whether to use a smaller
 quantity of large disks or a larger quantity of small disks. Smaller drives are
-usually cheaper in terms of $/TB, but they’re more expensive to operate. Two
-4 TB drives require twice the electricity of a single 8 TB drive.
+usually cheaper in terms of $/TB, but they’re more expensive to operate. Two 4
+TB drives require twice the electricity of a single 8 TB drive.
 
 Also keep in mind that so far ZFS doesn't let you add a new drive to an existing
-vdev, but that [feature is under active
-development](https://github.com/openzfs/zfs/pull/12225). If you want to be safe,
-plan your vdev definition so that they don't need to change the disk numbers.
+vdev, but that
+[feature is under active development](https://github.com/openzfs/zfs/pull/12225).
+If you want to be safe, plan your vdev definition so that they don't need to
+change the disk numbers.
 
 #### [Preventing concurrent disk failures](https://mtlynch.io/budget-nas/#preventing-concurrent-disk-failures)
 
 Naively, the probability of two disks failing at once seems vanishingly small.
-Based on [Backblaze’s
-stats](https://www.backblaze.com/blog/backblaze-hard-drive-stats-for-2020/),
-high-quality disk drives fail at 0.5-4% per year.
-A 4% risk per year is a 0.08% chance in any given week. Two simultaneous
-failures would happen once every 30,000 years, so you should be fine, right?
+Based on
+[Backblaze’s stats](https://www.backblaze.com/blog/backblaze-hard-drive-stats-for-2020/),
+high-quality disk drives fail at 0.5-4% per year. A 4% risk per year is a 0.08%
+chance in any given week. Two simultaneous failures would happen once every
+30,000 years, so you should be fine, right?
 
 The problem is that disks aren’t statistically independent. If one disk fails,
 its neighbor has a substantially higher risk of dying. This is especially true
@@ -80,22 +81,22 @@ buy them from different vendors.
 
 ### Choosing the disks to hold data
 
-Check [diskprices.com](https://www.diskprices.com) to get an idea of the cost of disks
-in the market. If you can, try to avoid buying to Amazon as it's the devil. Try
-to buy them from a local store instead, that way you interact with a human and
-promote a local commerce.
+Check [diskprices.com](https://www.diskprices.com) to get an idea of the cost of
+disks in the market. If you can, try to avoid buying to Amazon as it's the
+devil. Try to buy them from a local store instead, that way you interact with a
+human and promote a local commerce.
 
-!!! note
-        "If you want a TL;DR you can jump to the [conclusion](#data-disk-conclusion)."
+Note: If you want a TL;DR you can jump to the
+[conclusion](#data-disk-conclusion).
 
 To choose your disks take into account:
 
-* [Disk speed](#data-disk-speed)
-* [Disk load](#data-disk-load)
-* [Disk type](#data-disk-type)
-* [Disk homogeneity](#data-disk-homogeneity)
-* [Disk Warranty](#data-disk-warranty)
-* [Disk Brands](#data-disk-brand)
+- [Disk speed](#data-disk-speed)
+- [Disk load](#data-disk-load)
+- [Disk type](#data-disk-type)
+- [Disk homogeneity](#data-disk-homogeneity)
+- [Disk Warranty](#data-disk-warranty)
+- [Disk Brands](#data-disk-brand)
 
 #### Data disk speed
 
@@ -118,20 +119,20 @@ and writing.
 
 #### Data disk load
 
-Disk specifications tell you the amount of TB/year they support, it gives you
-an idea of the fault tolerance. Some examples
+Disk specifications tell you the amount of TB/year they support, it gives you an
+idea of the fault tolerance. Some examples
 
 | Disk       | Fault tolerance (TB/year) |
-| ---        | ---             |
-| WD RED 8TB | 180             |
+| ---------- | ------------------------- |
+| WD RED 8TB | 180                       |
 
 #### [Data disk type](https://www.howtogeek.com/345131/how-to-select-hard-drives-for-your-home-nas/)
 
 It’s easy to think that all hard drives are equal, save for the form factor and
 connection type. However, there’s a difference between the work your hard drive
-does in your computer versus the workload of a [NAS](nas.md) hard drive. A drive in your
-computer may only read and write data for a couple hours at a time, while a NAS
-drive may read and write data for weeks on end, or even longer.
+does in your computer versus the workload of a [NAS](nas.md) hard drive. A drive
+in your computer may only read and write data for a couple hours at a time,
+while a NAS drive may read and write data for weeks on end, or even longer.
 
 The environment inside of a NAS box is much different than a typical desktop or
 laptop computer. When you pack in a handful of hard drives close together,
@@ -144,15 +145,14 @@ speeds and reduced seek noise.
 
 Most popular brands are Western Digital Red and Seagate IronWolf which use 5400
 RPM, if you want to go on the 7200 RPM speeds you can buy the Pro version of
-each. I initially tried checking [Backblaze’s hard drive
-stats](https://www.backblaze.com/blog/backblaze-drive-stats-for-q2-2022/) to
-avoid failure-prone disks, but they use drives on the pricier side.
+each. I initially tried checking
+[Backblaze’s hard drive stats](https://www.backblaze.com/blog/backblaze-drive-stats-for-q2-2022/)
+to avoid failure-prone disks, but they use drives on the pricier side.
 
 The last pitfall to avoid is shingled magnetic recording (SMR) technology. ZFS
-[performs poorly on SMR
-drives](https://www.servethehome.com/wd-red-smr-vs-cmr-tested-avoid-red-smr/),
-so if you’re building a NAS, avoid [known SMR
-drives](https://www.truenas.com/community/resources/list-of-known-smr-drives.141/).
+[performs poorly on SMR drives](https://www.servethehome.com/wd-red-smr-vs-cmr-tested-avoid-red-smr/),
+so if you’re building a NAS, avoid
+[known SMR drives](https://www.truenas.com/community/resources/list-of-known-smr-drives.141/).
 If the drive is labeled as CMR, that’s conventional magnetic recording, which is
 fine for ZFS.
 
@@ -162,16 +162,16 @@ cause severe issues during resilvering or other write-intensive operations.
 
 There are three types of SMR:
 
-* Drive Managed, DM-SMR: It's opaque to the OS. This means ZFS cannot
-    "target" writes, and is the worst type for ZFS use. As a rule of thumb,
-    avoid DM-SMR drives, unless you have a specific use case where the increased
-    resilver time (a week or longer) is acceptable, and you know the drive will
-    function for ZFS during resilver.
-* Host Aware, HA-SMR: It's designed to give ZFS insight into the SMR process.
-    Note that ZFS code to use HA-SMR does not appear to exist. Without that
-    code, a HA-SMR drive behaves like a DM-SMR drive where ZFS is concerned.
-* Host Managed, HM-SMR: It's not backwards compatible and requires ZFS to manage
-    the SMR process.
+- Drive Managed, DM-SMR: It's opaque to the OS. This means ZFS cannot "target"
+  writes, and is the worst type for ZFS use. As a rule of thumb, avoid DM-SMR
+  drives, unless you have a specific use case where the increased resilver time
+  (a week or longer) is acceptable, and you know the drive will function for ZFS
+  during resilver.
+- Host Aware, HA-SMR: It's designed to give ZFS insight into the SMR process.
+  Note that ZFS code to use HA-SMR does not appear to exist. Without that code,
+  a HA-SMR drive behaves like a DM-SMR drive where ZFS is concerned.
+- Host Managed, HM-SMR: It's not backwards compatible and requires ZFS to manage
+  the SMR process.
 
 #### Data disk homogeneity
 
@@ -191,65 +191,68 @@ offering and you should consider these if you can find them at more affordable
 prices. WD splits its NAS drives into three sub-categories, normal, Plus, and
 Pro.
 
-| Specs      | WD Red    | WD Red Plus        | WD Red Pro      |
-| ---        | ---       | ---                | ---             |
-| Technology | SMR       | CMR                | CMR             |
-| Bays       | 1-8       | 1-8                | 1-24            |
-| Capacity   | 2-6TB     | 1-14TB             | 2-18TB          |
-| Speed      | 5,400 RPM | 5,400 RPM (1-4TB)  | 7200 RPM        |
-| Speed      | 5,400 RPM | 5,640 RPM (6-8TB)  | 7200 RPM        |
-| Speed      | 5,400 RPM | 7,200 RPM (8-14TB) | 7200 RPM        |
-| Speed      | ?         | 210MB/s            | 235MB/s         |
-| Cache      | 256MB     | 16MB (1TB)         |                 |
-| Cache      | 256MB     | 64MB (1TB)         | 64MB (2TB)      |
-| Cache      | 256MB     | 128MB (2-8TB)      | 256MB (4-12TB)  |
-| Cache      | 256MB     | 256MB (8-12TB)     | 512MB (14-18TB) |
-| Cache      | 256MB     | 512MB (14TB)       |                 |
-| Workload   | 180TB/yr  | 180TB/yr           | 300TB/yr        |
-| MTBF       | 1 million | 1 million          | 1 million       |
-| Warranty   | 3 years   | 3 years            | 5 years         |
-| Price      | From $50  | From $45           | From $78        |
+| Specs                  | WD Red    | WD Red Plus        | WD Red Pro      |
+| ---------------------- | --------- | ------------------ | --------------- |
+| Technology             | SMR       | CMR                | CMR             |
+| Bays                   | 1-8       | 1-8                | 1-24            |
+| Capacity               | 2-6TB     | 1-14TB             | 2-18TB          |
+| Speed                  | 5,400 RPM | 5,400 RPM (1-4TB)  | 7200 RPM        |
+| Speed                  | 5,400 RPM | 5,640 RPM (6-8TB)  | 7200 RPM        |
+| Speed                  | 5,400 RPM | 7,200 RPM (8-14TB) | 7200 RPM        |
+| Speed                  | ?         | 210MB/s            | 235MB/s         |
+| Cache                  | 256MB     | 16MB (1TB)         |                 |
+| Cache                  | 256MB     | 64MB (1TB)         | 64MB (2TB)      |
+| Cache                  | 256MB     | 128MB (2-8TB)      | 256MB (4-12TB)  |
+| Cache                  | 256MB     | 256MB (8-12TB)     | 512MB (14-18TB) |
+| Cache                  | 256MB     | 512MB (14TB)       |                 |
+| Workload               | 180TB/yr  | 180TB/yr           | 300TB/yr        |
+| MTBF                   | 1 million | 1 million          | 1 million       |
+| Warranty               | 3 years   | 3 years            | 5 years         |
+| Power Consumption      | ?         | ?                  | 8.8 W           |
+| Power Consumption Rest | ?         | ?                  | 4.6 W           |
+| Price                  | From $50  | From $45           | From $78        |
 
 ##### Seagate
 
-Seagate's "cheap" NAS disks are the IronWolf gama, there are [two variations IronWolf and
-IronWolf
-Pro](https://www.nasmaster.com/seagate-ironwolf-vs-seagate-ironwolf-pro/).
+Seagate's "cheap" NAS disks are the IronWolf gama, there are
+[two variations IronWolf and IronWolf Pro](https://www.nasmaster.com/seagate-ironwolf-vs-seagate-ironwolf-pro/).
 Seagate Exos is a premium series of drives from the company. They’re even more
 advanced than IronWolf Pro and are best suited for server environments. They
 sport incredible levels of performance and reliability, including a workload
 rate of 550TB per year.
 
-| Specs      | IronWolf           | IronWolf Pro         | Exos 7E8 8TB |
-| ---        | ---                | ---                  | ---          |
-| Technology | CMR                | CMR                  | CMR         |
-| Bays       | 1-8                | 1-24                 | ?            |
-| Capacity   | 1-12TB             | 2-20TB               | 8TB          |
-| RPM        | 5,400 RPM (3-6TB)  | 7200 RPM             | 7200 RPM            |
-| RPM        | 5,900 RPM (1-3TB)  | 7200 RPM             | 7200 RPM            |
-| RPM        | 7,200 RPM (8-12TB) | 7200 RPM             | 7200 RPM            |
-| Speed      | 180MB/s (1-12TB)   | 214-260MB/s (4-18TB) | 249 MB/s     |
-| Cache      | 64MB (1-4TB)       | 256 MB               | 256 MB            |
-| Cache      | 256MB (3-12TB)     | 256 MB               | 256 MB            |
-| Power Consumption (8TB)      | 10.1 W     | 10.1 W               | 12.81 W            |
-| Power Consumption Rest (8TB)     | 7.8 W | 7.8 W               | 7.64 W            |
-| Workload   | 180TB/yr           | 300TB/yr             | 550TB/yr     |
-| MTBF       | 1 million          | 1 million            | 2 millions            |
-| Warranty   | 3 years            | 5 years              | 5 years      |
-| Price      | From $60           | From $83             | 249$         |
+| Specs                        | IronWolf           | IronWolf Pro         | Exos 7E8 8TB | Exos 7E10 8TB |
+| ---------------------------- | ------------------ | -------------------- | ------------ | ------------- |
+| Technology                   | CMR                | CMR                  | CMR          | SMR           |
+| Bays                         | 1-8                | 1-24                 | ?            | ?             |
+| Capacity                     | 1-12TB             | 2-20TB               | 8TB          | 8TB           |
+| RPM                          | 5,400 RPM (3-6TB)  | 7200 RPM             | 7200 RPM     | 7200 RPM      |
+| RPM                          | 5,900 RPM (1-3TB)  | 7200 RPM             | 7200 RPM     | 7200 RPM      |
+| RPM                          | 7,200 RPM (8-12TB) | 7200 RPM             | 7200 RPM     | 7200 RPM      |
+| Speed                        | 180MB/s (1-12TB)   | 214-260MB/s (4-18TB) | 249 MB/s     | 255 MB/s      |
+| Cache                        | 64MB (1-4TB)       | 256 MB               | 256 MB       | 256 MB        |
+| Cache                        | 256MB (3-12TB)     | 256 MB               | 256 MB       | 256 MB        |
+| Power Consumption (8TB)      | 10.1 W             | 10.1 W               | 12.81 W      | 11.03 W       |
+| Power Consumption Rest (8TB) | 7.8 W              | 7.8 W                | 7.64 W       | 7.06 W        |
+| Workload                     | 180TB/yr           | 300TB/yr             | 550TB/yr     | 550TB/yr      |
+| MTBF                         | 1 million          | 1 million            | 2 millions   | 2 millions    |
+| Warranty                     | 3 years            | 5 years              | 5 years      | 5 years       |
+| Price                        | From $60           | From $83             | 249$         | 249$          |
+
+Exos 7E10 is SMR so it's ruled out.
 
 Where MTBF stands for Medium Time Between Failures in hours
 
 #### Data disk conclusion
 
-I'm more interested on the 5400 RPM drives, but of all the NAS disks available to
-purchase only the WD RED of 8TB use it, and they use the SMR technology, so they
-aren't a choice.
+I'm more interested on the 5400 RPM drives, but of all the NAS disks available
+to purchase only the WD RED of 8TB use it, and they use the SMR technology, so
+they aren't a choice.
 
 The disk prices offered by my cheapest provider are:
 
 | Disk                 | Size | Price |
-| ---                  | ---  | ---   |
+| -------------------- | ---- | ----- |
 | Seagate IronWolf     | 8TB  | 225$  |
 | Seagate IronWolf Pro | 8TB  | 254$  |
 | WD Red Plus          | 8TB  | 265$  |
@@ -265,43 +268,43 @@ There are three possibilities in order to have two different brands. Imagining
 we want 4 disks:
 
 | Combination             | Total Price        |
-| ---                     | ---                |
+| ----------------------- | ------------------ |
 | IronWolf + IronWolf Pro | 958$               |
 | IronWolf + Exos 7E8     | 1004$ (+46$ +4.5%) |
 | IronWolf Pro + Exos 7E8 | 1062$ (+54$ +5.4%) |
 
 In terms of:
 
-* Consumption: both IronWolfs are equal, the Exos uses 2.7W more on
-    normal use and uses 0.2W less on rest.
-* Warranty: IronWolf has only 3 years, the others 5.
-* Speed: Ironwolf has 210MB/s, much less than the Pro (255MB/s) and Exos
-    (249MB/s), which are more similar.
-* Sostenibility: The Exos disks are much more robust (more workload, MTBF and
-    Warranty).
+- Consumption: both IronWolfs are equal, the Exos uses 2.7W more on normal use
+  and uses 0.2W less on rest.
+- Warranty: IronWolf has only 3 years, the others 5.
+- Speed: Ironwolf has 210MB/s, much less than the Pro (255MB/s) and Exos
+  (249MB/s), which are more similar.
+- Sostenibility: The Exos disks are much more robust (more workload, MTBF and
+  Warranty).
 
 I'd say that for 104$ it makes sense to go with the IronWolf Pro + Exos 7E8
 combination.
 
 ### [Choosing the disks for the cache](https://www.nasmaster.com/best-m2-nvme-ssd-nas-caching/)
 
-Using a ZLOG greatly improves the [writing
-speed](https://www.servethehome.com/exploring-best-zfs-zil-slog-ssd-intel-optane-nand/),
+Using a ZLOG greatly improves the
+[writing speed](https://www.servethehome.com/exploring-best-zfs-zil-slog-ssd-intel-optane-nand/),
 equally using an SSD disk for the L2ARC cache improves the read speeds and
 improves the health of the rotational disks.
 
 The best M.2 NVMe SSD for NAS caching are the ones that have enough capacity to
-actually make a difference to overall system performance. It also requires
-a good endurance rating for better reliability and longer lifespan, and you
-should look for a drive with a specific NAND technology if possible.
+actually make a difference to overall system performance. It also requires a
+good endurance rating for better reliability and longer lifespan, and you should
+look for a drive with a specific NAND technology if possible.
 
-!!! note
-        "If you want a TL;DR you can jump to the [conclusion](#cache-disk-conclusion)."
+Note: If you want a TL;DR you can jump to the
+[conclusion](#cache-disk-conclusion).
 
 To choose your disks take into account:
 
-* [Cache disk NAND technology](#cache-disk-nand-technology)
-* [DWPD](#dwpd)
+- [Cache disk NAND technology](#cache-disk-nand-technology)
+- [DWPD](#dwpd)
 
 #### Cache disk NAND technology
 
@@ -309,10 +312,10 @@ Not all flash-based storage drives are the same. NAND flash cells are usually
 categorised based on the number of bits that can be stored per cell. Watch out
 for the following terms when shopping around for an SSD:
 
-* Single-Level Cell (SLC): one bit per cell.
-* Multi-Level Cell (MLC): two bits per cell.
-* Triple-Level Cell (TLC): three bits per cell.
-* Quad-Level Cell (QLC): four bits per cell.
+- Single-Level Cell (SLC): one bit per cell.
+- Multi-Level Cell (MLC): two bits per cell.
+- Triple-Level Cell (TLC): three bits per cell.
+- Quad-Level Cell (QLC): four bits per cell.
 
 When looking for the best M.2 NVMe SSD for NAS data caching, it’s important to
 bear the NAND technology in mind.
@@ -334,11 +337,10 @@ issue for NVMe drives, as opposed to SATA.
 
 #### DWPD
 
-DWPD stands for drive writes per day. This is often used as a measurement of
-a drive’s endurance. The higher this number, the more writes the drive can
-perform on a daily basis, as is rated by the manufacturer. For caching,
-especially which involves writing data, you’ll want to aim for as high a DWPD
-rating as possible.
+DWPD stands for drive writes per day. This is often used as a measurement of a
+drive’s endurance. The higher this number, the more writes the drive can perform
+on a daily basis, as is rated by the manufacturer. For caching, especially which
+involves writing data, you’ll want to aim for as high a DWPD rating as possible.
 
 #### Cache disk conclusion
 
@@ -349,7 +351,7 @@ workloads. A close second place goes to the Seagate IronWolf 525, which has
 similar specifications to the SN700 but utilizes TLC.
 
 | Disk            | Size   | Speed    | Endurance | Warranty | Tech | Price |
-| ---             | ---    | ---      | ---       | ---      | ---  | ---   |
+| --------------- | ------ | -------- | --------- | -------- | ---- | ----- |
 | WD Red SN700    | 500 GB | 3430MB/s | 1 DWPD    | 5 years  | SLC  | 73$   |
 | SG IronWolf 525 | 500 GB | 5000MB/s | 0.8 DWPD  | 5 years  | TLC  | ?     |
 | WD Red SN700    | 1 TB   | 3430MB/s | 1 DWPD    | 5 years  | SLC  | 127$  |
@@ -398,8 +400,7 @@ zpool iostat {{ pool_name }} {{ refresh_time_in_seconds }}
 
 # Resources
 
-* [Docs](https://openzfs.github.io/openzfs-docs/)
-* [Aaron
-    Toponce articles](https://pthree.org/2012/04/17/install-zfs-on-debian-gnulinux/)
-* [JRS articles](https://jrs-s.net/category/open-source/zfs/)
-* [ZFS basic introduction video](https://yewtu.be/watch?v=MsY-BafQgj4)
+- [Docs](https://openzfs.github.io/openzfs-docs/)
+- [Aaron Toponce articles](https://pthree.org/2012/04/17/install-zfs-on-debian-gnulinux/)
+- [JRS articles](https://jrs-s.net/category/open-source/zfs/)
+- [ZFS basic introduction video](https://yewtu.be/watch?v=MsY-BafQgj4)

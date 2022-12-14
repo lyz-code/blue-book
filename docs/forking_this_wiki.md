@@ -14,11 +14,16 @@ On your terminal, clone this repository with:
 git clone https://github.com/lyz-code/blue-book.git
 ```
 
-!!! note "Don't fork the repository via Github"
-    If you do that, you'll have all the history of my repository, which will
-    make your repository more heavy than it should (as I have a lot of images),
-    and it will make it hard for me to make pull requests to your digital
-    garden.
+I recommend against forking the repository via Github. If you do that, you'll have all the history of my repository, which will make your repository more heavy than it should (as I have a lot of images), and it will make it hard for me to make pull requests to your digital garden.
+
+Furthermore, you'll always see a message in your repo similar to `This branch is 909 commits ahead, 1030 commits behind lyz-code:master. ` like you can see in [this fork](https://github.com/m0wer/memento). Also if you don't want to keep all the content I've made so far and want to start from scratch then the only thing that is useful for you is the skeleton I've made, and I don't need any attribution or credit for that :P.
+
+If on the other hand you do want to keep all my content, then wouldn't it be better to just make contributions to this repository instead?
+
+Therefore the best way to give credit and attribution is by building your garden (the more we are writing the merrier :) ), and then if you want to spread the word that my garden exists within your content then that would be awesome.
+
+If you end up building your own, remember to add yourself to the [digital
+garden's list](https://github.com/lyz-code/best-of-digital-gardens).
 
 ## Adaptations
 
@@ -40,6 +45,14 @@ name for your project that is meaningful to you.
 You can either use the documents of this wiki and extend them, or change the
 structure by editing the  `nav` section of the `mkdocs.yml` file. If you want to
 start from scratch, remove everything on the `docs` directory.
+
+If you're worried about giving credit to the blue-book then you can link each
+section of a document from wherever you took the information, or add a link to
+the bottom of the documents under a References section. Take for example the
+[Python snippets
+document](https://lyz-code.github.io/blue-book/coding/python/python_snippets),
+each section has a link to where I took the info from. You could do the same on
+the articles you got from my book by linking to them.
 
 ### Remove the newsletter feature
 
