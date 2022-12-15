@@ -26,8 +26,10 @@ gpg = gnupg.GPG(gnupghome="/path/to/home/directory")
 - Decrypt a file:
 
   ```python
-  gpg.decrypt("path/to/file")
+  gpg.decrypt_file("path/to/file")
   ```
+
+  Note: You can't pass `Path` arguments to `decrypt_file`.
 
 - [List private keys](https://gnupg.readthedocs.io/en/latest/index.html?highlight=list%20private#listing-keys):
 
