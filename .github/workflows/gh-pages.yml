@@ -24,7 +24,7 @@ jobs:
           python-version: 3.9
 
       - name: Install dependencies
-        run: make install
+        run: pip install packaging==21.3 make install
 
       - name: Update requirements
         run: make update
@@ -36,52 +36,10 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
+          git add pdm.lock
           git add docs/newsletter
           git diff-index --quiet HEAD \
-            || git commit -m "chore: publish newsletters"
-
-      - name: Make the site
-        run: make build-docs
-
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: main
-
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-          publish_dir: ./site
-
-  update:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          # Number of commits to fetch. 0 indicates all history.
-          # Default: 1
-          fetch-depth: 0
-      - uses: pdm-project/setup-pdm@main
-        name: Setup Python and PDM
-        with:
-          python-version: 3.9
-
-      - name: Install dependencies
-        run: make install
-
-      - name: Update requirements
-        run: make update
-
-      - name: Commit files
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add pdm.lock
-          git diff-index --quiet HEAD \
-            || git commit -m "chore: update dependencies"
+            || git commit -m "chore: update dependency and publish newsletters"
 
       - name: Make the site
         run: make build-docs
