@@ -28,6 +28,7 @@ nav:
               - task_tools.md
               - OpenProject: openproject.md
           - Task Management Workflows: task_workflows.md
+      - Life review: life_review.md
       - Interruption Management:
           - interruption_management.md
           - Work Interruption Analysis: work_interruption_analysis.md
@@ -430,8 +431,7 @@ nav:
           - cooking.md
           - Cooking Basics: cooking_basics.md
           - Cooking software: cooking_software.md
-      - Pilates:
-          - pilates.md
+      - Pilates: [pilates.md]
       - Aerial Silk: aerial_silk.md
       - Dancing:
           - Rave Dances: dancing/rave_dances.md
@@ -450,6 +450,7 @@ nav:
               - Loyalist: wesnoth_loyalist.md
               - Rebels: wesnoth_rebels.md
               - Northeners: wesnoth_northerners.md
+          - Age of Empires: age_of_empires.md
       - Board Gaming:
           - Regicide: regicide.md
       - Sudokus: sudokus.md
@@ -473,8 +474,7 @@ nav:
 plugins:
   - search
   - exclude-search:
-      exclude:
-        - newsletter/*
+      exclude: [newsletter/*]
   - autolinks
   - git-revision-date-localized:
       type: timeago
@@ -515,6 +515,7 @@ theme:
   custom_dir: theme
   logo: img/logo.bmp
   features:
+    - navigation.footer
     - navigation.instant
     - navigation.top
     - content.code.annotate
@@ -540,9 +541,7 @@ theme:
         icon: material/toggle-switch
         name: Switch to light mode
 
-extra_css:
-  - stylesheets/extra.css
-  - stylesheets/links.css
+extra_css: [stylesheets/extra.css, stylesheets/links.css]
 
 extra:
   social:

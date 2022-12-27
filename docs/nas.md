@@ -195,18 +195,20 @@ Usually disks come without sata wires, so you have to buy them
 
 | Piece                       | Purpose       | Number | Total price ($) |
 | --------------------------- | ------------- | ------ | --------------- |
-| Seagate IronWolf Pro (8TB)  | Data disk     | 3      |                 |
-| Seagate Exos 7E8 (8TB)      | Data disk     | 2      | 438             |
+| WD Red Pro (8TB)            | Data disk     | 2      | 516             |
+| Seagate Exos 7E8 (8TB)      | Data disk     | 3      | 691             |
 | WD Red SN700 (1TB)          | M.2 disks     | 2      | 246             |
-| Kingston Server DDR4 (16GB) | ECC RAM       | 2      | 187             |
+| Kingston Server DDR4 (16GB) | ECC RAM       | 4      | 336             |
 | AsRock X570M Pro4           | Motherboard   | 1      | 225             |
 | Ryzen 7 5700x               | CPU           | 1      | 274             |
 | Fractal Node 804            | Case          | 1      | 137             |
-| Dark Rock 4                 | CPU Cooler    | 1      |                 |
+| Dark Rock 4                 | CPU Cooler    | 1      | 75              |
 | Be Quiet! Straight Power 11 | PSU           | 1      | 99              |
 | Sata wires                  | Sata          | 3      | 6.5             |
 | No graphic card             | Graphic card  | 0      | 0               |
 | CPU thermal paste           | thermal paste | 0      | 0               |
+
+Total of 2605 $
 
 # References
 
