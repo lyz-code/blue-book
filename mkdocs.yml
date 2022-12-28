@@ -395,7 +395,10 @@ nav:
           - Profanity: profanity.md
           - rm: linux/rm.md
           - Libreelec: libreelec.md
-          - Rtorrent: rtorrent.md
+          - Torrents:
+              - torrents.md
+              - qBittorrent: qbittorrent.md
+              - Rtorrent: rtorrent.md
           - Syncthing: linux/syncthing.md
           - Tahoe-LAFS: tahoe.md
           - vdirsyncer: vdirsyncer.md
