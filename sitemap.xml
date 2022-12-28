@@ -771,6 +771,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/qbittorrent/</loc>
+         <lastmod>2022-12-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/questionary/</loc>
          <lastmod>2022-12-28</lastmod>
          <changefreq>daily</changefreq>
@@ -937,6 +942,11 @@
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/tool_management/</loc>
+         <lastmod>2022-12-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/torrents/</loc>
          <lastmod>2022-12-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
