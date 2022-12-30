@@ -43,6 +43,9 @@ When I have some time I'd like to monitor the next things:
 
 - No `Forbidden client` string in the tracker messages. This happens when your
   client is not whitelisted in one of the trackers.
+- No `Unregistered torrent` string in the tracker messages. This happens when
+  the tracker has removed the torrent from their site, you can safely remove it
+  then.
 - No torrent is in downloading state without receiving data for more than X
   hours. This will mean that either the torrent is dead.
 - If all downloading torrents are not receiving data for more than X hours could
@@ -68,6 +71,8 @@ be done by a program. For example:
   removal of private tracker torrents, ...).
 - For the trackers where you're building some ratio keep the interesting
   torrents for a while until you build the desired buffer.
+- [Remove unregistered torrents](https://github.com/qbittorrent/qBittorrent/issues/11469)
+- Alert or remove the directories that are not being used by any active torrent.
 
 # Client recovery
 

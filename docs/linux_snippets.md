@@ -4,6 +4,13 @@ date: 20200826
 author: Lyz
 ---
 
+# Download TS streams
+
+Some sites give stream content with small `.ts` files that you can't download
+directly. Instead open the developer tools, reload the page and search for
+a request with extension `.m3u8`, that gives you the playlist of all the chunks
+of `.ts` files. Once you have that url you can use `yt-dlp` to download it.
+
 # [df and du showing different results](https://www.cyberciti.biz/tips/freebsd-why-command-df-and-du-reports-different-output.html)
 
 Sometimes on a linux machine you will notice that both `df` command (display
