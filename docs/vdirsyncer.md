@@ -24,6 +24,7 @@ bleeding edge version with `pip`.
 
 ```bash
 pipx install vdirsyncer
+pipx inject vdirsyncer aiohttp-oauthlib
 ```
 
 If you don't have [`pipx`](pipx.md) you can use `pip`.
@@ -187,7 +188,7 @@ SHA1-, SHA256- or MD5-Fingerprints can be used.
 You can use the following command for obtaining a SHA-1 fingerprint:
 
 ```bash
-echo -n | openssl s_client -connect unterwaditzer.net:443 | openssl x509 -noout -fingerprint
+echo -n | openssl s_client -connect unterwaditzer.net:443 | openssl x509 -noout -fingerprint -sha256
 ```
 
 Note that `verify_fingerprint` doesn't suffice for `vdirsyncer` to work with
@@ -331,6 +332,8 @@ If the official steps failed for you, try these ones:
     http://127.0.0.1:8088/?state=SOMETHING&code=HERECOMESTHECODE&scope=https://www.googleapis.com/auth/calendar
 * Copy the `HERECOMESTHECODE` part.
 * Paste the code into the session where `vdirsyncer` was running
+
+If the `redirect_ui` line has changed, you need to find in the code where does it start the `wsgi` server and specify the same port as you have used in the google configuration, namely `8088`.
 
 ### See differences between syncs
 
