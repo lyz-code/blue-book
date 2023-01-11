@@ -4,8 +4,13 @@ date: 20200302
 author: Lyz
 ---
 
-Kubectl is not yet in the distribution package managers, so we'll need to
-install it manually.
+Kubectl is available in the distribution package managers, 
+
+```bash
+sudo apt-get install kubernetes-client
+```
+
+If you want the latest version you can install it manually.
 
 ```bash
 curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(\
