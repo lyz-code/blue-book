@@ -24,7 +24,7 @@ any searchable attributes.
 First install the requirements:
 
 ```bash
-sudo apt-get install notmuch python-notmuch python-dev python-setuptools
+sudo apt-get install notmuch python3-notmuch
 ```
 
 Then configure [`notmuch`](notmuch.md#installation).
