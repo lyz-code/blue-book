@@ -14,6 +14,10 @@ infrastructure providers such as Amazon Web Services, IBM Cloud
 Oracle Cloud Infrastructure, OVH, or VMware vSphere as well as
 OpenNebula and OpenStack.
 
+# Installation
+
+Go to the [releases page](https://github.com/hashicorp/terraform/releases), download the latest release, decompress it and add it to your `$PATH`.
+
 # Tools
 
 * [tfschema](https://github.com/minamijoyo/tfschema): A binary that allows you
