@@ -722,6 +722,15 @@ usually do two things, fight them as strong as I can, or embrace them, analyze
 them, and go to the root of them. Depending on how much energy I have I go with
 the easy or the hard one. I'm not saying that it's you're case, but it could be.
 
+# Configuration
+
+## [Set the upstream remote by default](https://pawelgrzybek.com/auto-setup-remote-branch-and-never-again-see-an-error-about-the-missing-upstream/)
+
+```bash
+git config --global --add push.default current
+git config --global --add push.autoSetupRemote true
+```
+
 # Snippets
 
 ## Revert a commit
