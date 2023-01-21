@@ -72,11 +72,11 @@ code and don't repeat yourself.
 !!! note ""
 
     This is my suggested workflow, I've opened [an
-    issue](https://github.com/roboll/helmfile/issues/1107) to see if the
+    issue](https://github.com/helmfile/helmfile/issues/1107) to see if the
     developers agree with it:
 
 As of today, helmfile [doesn't support lock files per
-environment](https://github.com/roboll/helmfile/issues/779), that means that the
+environment](https://github.com/helmfile/helmfile/issues/779), that means that the
 lock file needs to be shared by all of them. At a first sight this is a good
 idea, because it forces us to have the same versions of the charts in all the
 environments.
@@ -209,7 +209,7 @@ Where:
 
 * There is a general `README.md` that introduces the repository.
 * Optionally there could be a `helmfile.yaml` file at the root with a [glob
-    pattern](https://github.com/roboll/helmfile#glob-patterns) so that it's easy
+    pattern](https://github.com/helmfile/helmfile#glob-patterns) so that it's easy
     to run commands on all children helmfiles.
 
     ```yaml
@@ -233,7 +233,7 @@ Where:
 * There is a `base` service that manages all the charts required to keep the
     cluster running, such as the ingress, csi, cni or the cluster-autoscaler.
 
-## [Using helmfile environments](https://github.com/roboll/helmfile#environment)
+## [Using helmfile environments](https://github.com/helmfile/helmfile#environment)
 
 To customize the contents of a `helmfile.yaml` or `values.yaml` file per
 environment, add them under the `environments` key in the `helmfile.yaml`:
@@ -285,7 +285,7 @@ releases:
   # snip
 ```
 
-### [Using environment specific variables](https://github.com/roboll/helmfile#environment-values)
+### [Using environment specific variables](https://github.com/helmfile/helmfile#environment-values)
 
 Environment Values allows you to inject a set of values specific to the selected
 environment, into `values.yaml` templates or `helmfile.yaml` files. Use it to
@@ -357,7 +357,7 @@ environment will need to be called `default_values.yaml`, and
 `default_secrets.yaml`, which is misleading. But you can't use `.Values` in the
 `helmfile.yaml` as it's not loaded when the file is parsed, and you get an
 error. A solution would be to [layer the helmfile state
-files](https://github.com/roboll/helmfile/blob/8594944f6374454e6ddea61d04b201133798cd95/docs/writing-helmfile.md#layering-state-template-files)
+files](https://github.com/helmfile/helmfile/blob/8594944f6374454e6ddea61d04b201133798cd95/docs/writing-helmfile.md#layering-state-template-files)
 but I wasn't able to make it work.
 
 # Avoiding code repetition
@@ -365,7 +365,7 @@ but I wasn't able to make it work.
 Besides environments, `helmfile` gives other useful tricks to prevent the
 illness of code repetition.
 
-## [Using release templates](https://github.com/roboll/helmfile/blob/master/docs/writing-helmfile.md#release-template--conventional-directory-structure)
+## [Using release templates](https://github.com/helmfile/helmfile/blob/master/docs/writing-helmfile.md#release-template--conventional-directory-structure)
 
 For each chart in a `helmfile.yaml` we're going to repeat the `values` and
 `secrets` sections, to avoid it, we can use release templates:
@@ -409,7 +409,7 @@ values and secret files, but want to use the same definition for all charts.
 For more information see [this
 issue](https://github.com/roboll/helmfile/issues/428).
 
-## [Layering the state](https://github.com/roboll/helmfile/blob/master/docs/writing-helmfile.md#layering-state-files)
+## [Layering the state](https://github.com/helmfile/helmfile/blob/master/docs/writing-helmfile.md#layering-state-files)
 
 You may occasionally end up with many helmfiles that shares common parts like
 which repositories to use, and which release to be bundled by default.
@@ -571,4 +571,4 @@ done).
 
 # Links
 
-* [Git](https://github.com/roboll/helmfile)
+* [Git](https://github.com/helmfile/helmfile)

@@ -406,7 +406,7 @@ summary = "Pygments is a syntax highlighting package written in Python."
 
 [[package]]
 name = "pymdown-extensions"
-version = "9.9.1"
+version = "9.9.2"
 requires_python = ">=3.7"
 summary = "Extension pack for Python Markdown."
 dependencies = [
@@ -979,9 +979,9 @@ content_hash = "sha256:a0f9e668edb122c5384093dcee6011a6f154efeab678753b258e6cd2a
     {url = "https://files.pythonhosted.org/packages/0b/42/d9d95cc461f098f204cd20c85642ae40fbff81f74c300341b8d0e0df14e0/Pygments-2.14.0-py3-none-any.whl", hash = "sha256:fa7bd7bd2771287c0de303af8bfdfc731f51bd2c6a47ab69d117138893b82717"},
     {url = "https://files.pythonhosted.org/packages/da/6a/c427c06913204e24de28de5300d3f0e809933f376e0b7df95194b2bb3f71/Pygments-2.14.0.tar.gz", hash = "sha256:b3ed06a9e8ac9a9aae5a6f5dbe78a8a58655d17b43b93c078f094ddc476ae297"},
 ]
-"pymdown-extensions 9.9.1" = [
-    {url = "https://files.pythonhosted.org/packages/52/c8/73124eb6c23da3de1f579530625e4a6bcc0c507031b6bcdf361581f96fdf/pymdown_extensions-9.9.1-py3-none-any.whl", hash = "sha256:8a8973933ab45b6fe8f5f8da1de25766356b1f91dee107bf4a34efd158dc340b"},
-    {url = "https://files.pythonhosted.org/packages/af/a9/fc26e9bacc2a2fbdabe2b2ff384fe605ad508ad23298596f5660ad878dde/pymdown_extensions-9.9.1.tar.gz", hash = "sha256:abed29926960bbb3b40f5ed5fa6375e29724d4e3cb86ced7c2bbd37ead1afeea"},
+"pymdown-extensions 9.9.2" = [
+    {url = "https://files.pythonhosted.org/packages/b7/70/0926b40d01fd2d708798994135f50ce02459499c36a25423b55901f7a7c5/pymdown_extensions-9.9.2-py3-none-any.whl", hash = "sha256:c3d804eb4a42b85bafb5f36436342a5ad38df03878bb24db8855a4aa8b08b765"},
+    {url = "https://files.pythonhosted.org/packages/d9/6c/acf082ba18d1c91f75d38ba8fbc2dc97d782ce119739467e4529647809ed/pymdown_extensions-9.9.2.tar.gz", hash = "sha256:ebb33069bafcb64d5f5988043331d4ea4929325dc678a6bcf247ddfcf96499f8"},
 ]
 "pyparsing 3.0.9" = [
     {url = "https://files.pythonhosted.org/packages/6c/10/a7d0fa5baea8fe7b50f448ab742f26f52b80bfca85ac2be9d35cdd9a3246/pyparsing-3.0.9-py3-none-any.whl", hash = "sha256:5026bae9a10eeaefb61dab2f09052b9f4307d44aee4eda64b309723d8d206bbc"},
