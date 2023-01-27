@@ -4,7 +4,7 @@ date: 20200210
 author: Lyz
 ---
 
-[Helmfile](https://github.com/roboll/helmfile) is a declarative spec for
+[Helmfile](https://github.com/helmfile/helmfile) is a declarative spec for
 deploying Helm charts. It lets you:
 
 * Keep a directory of chart value files and maintain changes in version control.
@@ -25,7 +25,7 @@ In case we need custom yamls, we'll use
 Helmfile is not yet in the distribution package managers, so you'll need to
 install it manually.
 
-Gather [the latest release number](https://github.com/roboll/helmfile/releases).
+Gather [the latest release number](https://github.com/helmfile/helmfile/releases).
 
 ```bash
 wget {{ bin_url }} -O helmfile_linux_amd64
