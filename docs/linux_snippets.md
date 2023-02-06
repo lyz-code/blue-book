@@ -4,12 +4,37 @@ date: 20200826
 author: Lyz
 ---
 
+# [Use a `pass` password in a Makefile](https://stackoverflow.com/questions/20671511/how-do-i-get-make-to-prompt-the-user-for-a-password-and-store-it-in-a-makefile)
+
+```makefile
+TOKEN ?= $(shell bash -c '/usr/bin/pass show path/to/token')
+
+diff:
+	@AUTHENTIK_TOKEN=$(TOKEN) terraform plan
+```
+
+# [Install a new font](https://wiki.debian.org/Fonts)
+
+Install a font manually by downloading the appropriate `.ttf` or `otf` files and placing them into `/usr/local/share/fonts` (system-wide), `~/.local/share/fonts` (user-specific) or `~/.fonts` (user-specific). These files should have the permission 644 (`-rw-r--r--`), otherwise they may not be usable.
+
+# [Get VPN password from `pass`](https://stackoverflow.com/questions/38869427/openvpn-on-linux-passing-username-and-password-in-command-line)
+
+To be able to retrieve the user and password from pass you need to run the openvpn
+command with the next flags:
+
+```bash
+sudo bash -c "openvpn --config config.ovpn  --auth-user-pass <(echo -e 'user_name\n$(pass show vpn)')"
+```
+
+Assuming that `vpn` is an entry of your `pass` password store.
+
+
 # Download TS streams
 
 Some sites give stream content with small `.ts` files that you can't download
-directly. Instead open the developer tools, reload the page and search for
-a request with extension `.m3u8`, that gives you the playlist of all the chunks
-of `.ts` files. Once you have that url you can use `yt-dlp` to download it.
+directly. Instead open the developer tools, reload the page and search for a
+request with extension `.m3u8`, that gives you the playlist of all the chunks of
+`.ts` files. Once you have that url you can use `yt-dlp` to download it.
 
 # [df and du showing different results](https://www.cyberciti.biz/tips/freebsd-why-command-df-and-du-reports-different-output.html)
 

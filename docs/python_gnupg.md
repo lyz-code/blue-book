@@ -31,6 +31,14 @@ gpg = gnupg.GPG(gnupghome="/path/to/home/directory")
 
   Note: You can't pass `Path` arguments to `decrypt_file`.
 
+- [Encrypt a file](https://gnupg.readthedocs.io/en/latest/#encryption):
+
+  ```python
+  gpg.encrypt_file('path/to/file', recipients)
+  ```
+
+  Where `recipients` is a `List[str]` of gpg Key IDs.
+
 - [List private keys](https://gnupg.readthedocs.io/en/latest/index.html?highlight=list%20private#listing-keys):
 
   ```python

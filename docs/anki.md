@@ -13,6 +13,24 @@ Anyone who needs to remember things in their daily life can benefit from Anki.
 Since it is content-agnostic and supports images, audio, videos and scientific
 markup (via LaTeX), the possibilities are endless.
 
+# [Installation](https://docs.ankiweb.net/platform/linux/installing.html)
+
+Install the dependencies:
+
+```bash
+sudo apt-get install zstd
+```
+
+Download [the latest release package](https://apps.ankiweb.net/).
+
+Open a terminal and run the following commands, replacing the filename as appropriate:
+
+```bash
+tar xaf Downloads/anki-2.1.XX-linux-qt6.tar.zst
+cd anki-2.1.XX-linux-qt6
+sudo ./install.sh
+```
+
 # Interacting with python
 
 ## Configuration

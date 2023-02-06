@@ -49,9 +49,11 @@ nav:
       - Food Management: food_management.md
       - Grocy Management: grocy_management.md
       - Instant Messages Management: instant_messages_management.md
+      - Computer configuration management: configuration_management.md
       - Process Automation:
           - process_automation.md
           - Virtual Assistant: virtual_assistant.md
+      - Life logging: life_logging.md
       - Strategy: strategy.md
       - Tool Management: tool_management.md
   - Health:
@@ -194,6 +196,7 @@ nav:
               - coding/javascript/javascript.md
               - Javascript snippets: javascript_snippets.md
               - MermaidJS: mermaidjs.md
+          - Latex: latex.md
           - Qwik: qwik.md
           - JWT: devops/jwt.md
           - React: coding/react/react.md
@@ -237,6 +240,10 @@ nav:
           - Helmfile: devops/helmfile.md
           - Terraform: terraform.md
           - Ansible Snippets: ansible_snippets.md
+          - Dotfiles:
+              - dotfiles.md
+              - Chezmoi: chezmoi.md
+              - Dotdrop: dotdrop.md
       - Infrastructure Solutions:
           - Kubernetes:
               - devops/kubernetes/kubernetes.md
@@ -272,12 +279,13 @@ nav:
                       devops/kubernetes/kubernetes_vertical_pod_autoscaler.md
               - Networking: devops/kubernetes/kubernetes_networking.md
               - Debugging: kubernetes_debugging.md
+              - Backups:
+                  - Velero: velero.md
               - Tools:
                   - devops/kubernetes/kubernetes_tools.md
                   - Krew: krew.md
                   - Ksniff: ksniff.md
                   - Mizu: mizu.md
-
           - AWS:
               - devops/aws/aws.md
               - AWS Snippets: aws_snippets.md
@@ -317,6 +325,7 @@ nav:
           - cookiecutter: linux/cookiecutter.md
           - cruft: linux/cruft.md
           - renovate: renovate.md
+          - letsencrypt: letsencrypt.md
       - Storage:
           - storage.md
           - NAS: nas.md
@@ -335,6 +344,8 @@ nav:
               - Instance sizing analysis: devops/prometheus/instance_sizing_analysis.md
               - Prometheus Troubleshooting: >-
                   devops/prometheus/prometheus_troubleshooting.md
+      - Authentication:
+          - Authentik: authentik.md
       - Self-hosted services:
           - Ombi: ombi.md
       - API Management:
@@ -371,6 +382,7 @@ nav:
           - Github cli: gh.md
           - goaccess: goaccess.md
           - google chrome: linux/google_chrome.md
+          - Chromium: chromium.md
           - Graylog: graylog.md
           - HAProxy: linux/haproxy.md
           - Hard drive health: hard_drive_health.md
@@ -407,6 +419,8 @@ nav:
               - Tabs vs Buffers: vim_tabs.md
               - Vim Plugins: linux/vim/vim_plugins.md
               - Write Neovim Plugins: write_neovim_plugins.md
+              - Treesitter: treesitter.md
+              - Tridactyl: tridactyl.md
           - VSCodium: vscodium.md
           - Wake on Lan: wake_on_lan.md
           - Wallabag: wallabag.md
@@ -417,9 +431,10 @@ nav:
           - Android Tips: android_tips.md
           - GrapheneOS: grapheneos.md
           - Apps:
-              - cone: cone.md
+              - Cone: cone.md
               - GadgetBridge: gadgetbridge.md
               - OsmAnd: osmand.md
+              - Seedvault: seedvault.md
               - Signal: signal.md
   - Arts:
       - Writing:

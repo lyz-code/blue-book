@@ -386,6 +386,17 @@ if __name__ == "__main__":
     typer.run(main)
 ```
 
+## [Print to stderr](https://typer.tiangolo.com/tutorial/options-autocompletion/#printing-to-standard-error)
+
+You can print to "standard error" with a Rich `Console(stderr=True)`
+
+```python
+from rich.console import Console
+
+err_console = Console(stderr=True)
+err_console.print("error message")
+```
+
 # [Testing](https://typer.tiangolo.com/tutorial/testing/)
 
 Testing is similar to [`click` testing](click.md#testing-click-applications),

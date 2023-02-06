@@ -1,0 +1,384 @@
+
+[Authentik](https://goauthentik.io/) is an open-source Identity Provider focused on flexibility and versatility.
+
+What I like:
+
+* Is maintained and popular
+* It has a clean interface
+* They have their own [terraform provider](https://registry.terraform.io/providers/goauthentik/authentik/latest/docs/resources/application) Oo!
+
+What I don't like:
+
+* It's heavy focused on GUI interaction, but you can export the configuration to YAML files to be applied without the GUI interaction.
+
+* The documentation is oriented to developers and not users. It's a little difficult to get a grasp on how to do things in the platform without following blog posts.
+
+# [Installation](https://goauthentik.io/docs/installation)
+
+You can install it with Kubernetes or with `docker-compose`. I'm going to do the second.
+
+Download the latest `docker-compose.yml` from [here](https://goauthentik.io/docker-compose.yml). Place it in a directory of your choice.
+
+If this is a fresh authentik install run the following commands to generate a password:
+
+```bash
+# You can also use openssl instead: `openssl rand -base64 36`
+sudo apt-get install -y pwgen
+# Because of a PostgreSQL limitation, only passwords up to 99 chars are supported
+# See https://www.postgresql.org/message-id/09512C4F-8CB9-4021-B455-EF4C4F0D55A0@amazon.com
+echo "PG_PASS=$(pwgen -s 40 1)" >> .env
+echo "AUTHENTIK_SECRET_KEY=$(pwgen -s 50 1)" >> .env
+```
+
+It is also recommended to configure global email credentials. These are used by authentik to notify you about alerts and configuration issues. They can also be used by Email stages to send verification/recovery emails.
+
+Append this block to your .env file
+
+```bash
+# SMTP Host Emails are sent to
+AUTHENTIK_EMAIL__HOST=localhost
+AUTHENTIK_EMAIL__PORT=25
+# Optionally authenticate (don't add quotation marks to your password)
+AUTHENTIK_EMAIL__USERNAME=
+AUTHENTIK_EMAIL__PASSWORD=
+# Use StartTLS
+AUTHENTIK_EMAIL__USE_TLS=false
+# Use SSL
+AUTHENTIK_EMAIL__USE_SSL=false
+AUTHENTIK_EMAIL__TIMEOUT=10
+# Email address authentik will send from, should have a correct @domain
+AUTHENTIK_EMAIL__FROM=authentik@localhost
+```
+
+By default, authentik listens on port 9000 for HTTP and 9443 for HTTPS. To change this, you can set the following variables in .env:
+
+```bash
+AUTHENTIK_PORT_HTTP=80
+AUTHENTIK_PORT_HTTPS=443
+```
+
+You may need to tweak the `volumes` and the `networks` sections of the `docker-compose.yml` to your liking.
+
+Once everything is set you can run `docker-compose up` to test everything is working.
+
+In your browser, navigate to authentik’s initial setup page https://auth.home.yourdomain.com/if/flow/initial-setup/.
+
+Set the email and password for the default admin user, `akadmin`. You’re now logged in.
+
+# Usage
+
+## [Terraform](https://registry.terraform.io/providers/goauthentik/authentik/latest/docs)
+
+You can use [`terraform`](terraform.md) to configure authentik! `<3`.
+
+### [Configure the provider](https://registry.terraform.io/providers/goauthentik/authentik/latest/docs#configure-provider-with-environment-variables)
+
+To configure the provider you need to specify the url and an Authentik API token, keeping in mind that whoever gets access to this information will have access and full permissions on your Authentik instance it's critical that [you store this information well](terraform.md#sensitive-information). We'll use [`sops` to encrypt the token with GPG.](#sensitive-information-in-the-terraform-source-code).
+
+First create an Authentik user under `Admin interface/Directory/Users` with the next attributes:
+
+* Username: `terraform`
+* Name: `Terraform`
+* Path: `infra`
+* Groups: `Admin`
+
+Then create a token with name `Terraform` under `Directory/Tokens & App passwords`, copy it to your clipboard.
+
+Configure `sops` by defining the gpg keys in a `.sops.yaml` file at the top of your repository:
+
+```yaml
+---
+creation_rules:
+  - pgp: >-
+      2829BASDFHWEGWG23WDSLKGL323534J35LKWERQS,
+      2GEFDBW349YHEDOH2T0GE9RH0NEORIG342RFSLHH
+```
+
+Then create the secrets file with the command `sops secrets.enc.json` somewhere in your terraform repository. For example:
+
+```json
+{
+  "authentik_token": "paste the token here"
+}
+```
+
+```hcl
+terraform {
+  required_providers {
+    authentik = {
+      source = "goauthentik/authentik"
+      version = "~> 2023.1.1"
+    }
+    sops = {
+      source = "carlpett/sops"
+      version = "~> 0.5"
+    }
+  }
+}
+
+provider "authentik" {
+  url   = "https://oauth.your-domain.org"
+  token = data.sops_file.secrets.data["authentik_token"]
+}
+```
+
+## [Configure some common applications](https://goauthentik.io/integrations/)
+
+You have some guides to connect [some popular applications](https://goauthentik.io/integrations/)
+
+## [Gitea](https://goauthentik.io/integrations/services/gitea/)
+
+You can follow the [Authentik Gitea docs](https://goauthentik.io/integrations/services/gitea/) or you can use the next terraform snippet:
+
+```hcl
+# ----------------
+# --    Data    --
+# ----------------
+
+data "authentik_flow" "default-authorization-flow" {
+  slug = "default-provider-authorization-implicit-consent"
+}
+
+# -----------------------
+# --    Application    --
+# -----------------------
+
+resource "authentik_application" "gitea" {
+  name              = "Gitea"
+  slug              = "gitea"
+  protocol_provider = authentik_provider_oauth2.gitea.id
+  meta_icon = "application-icons/gitea.svg"
+  lifecycle {
+    ignore_changes = [
+      # The terraform provider is continuously changing the attribute even though it's set
+      meta_icon,
+    ]
+  }
+}
+
+# --------------------------
+# --    Oauth provider    --
+# --------------------------
+
+resource "authentik_provider_oauth2" "gitea" {
+  name               = "Gitea"
+  client_id = "gitea"
+  authorization_flow = data.authentik_flow.default-authorization-flow.id
+  property_mappings = [
+    authentik_scope_mapping.gitea.id,
+    data.authentik_scope_mapping.email.id,
+    data.authentik_scope_mapping.openid.id,
+    data.authentik_scope_mapping.profile.id,
+  ]
+  redirect_uris = [
+    "https://git.your-domain.org/user/oauth2/authentik/callback",
+  ]
+  signing_key = data.authentik_certificate_key_pair.default.id
+}
+
+data "authentik_certificate_key_pair" "default" {
+  name = "authentik Self-signed Certificate"
+}
+
+# -------------------------
+# --    Scope mapping    --
+# -------------------------
+
+resource "authentik_scope_mapping" "gitea" {
+  name       = "Gitea"
+  scope_name = "gitea"
+  expression = <<EOF
+gitea_claims = {}
+if request.user.ak_groups.filter(name="Users").exists():
+    gitea_claims["gitea"]= "user"
+if request.user.ak_groups.filter(name="Admins").exists():
+    gitea_claims["gitea"]= "admin"
+
+return gitea_claims
+EOF
+}
+
+data "authentik_scope_mapping" "email" {
+  managed = "goauthentik.io/providers/oauth2/scope-email"
+}
+
+data "authentik_scope_mapping" "openid" {
+  managed = "goauthentik.io/providers/oauth2/scope-openid"
+}
+
+data "authentik_scope_mapping" "profile" {
+  managed = "goauthentik.io/providers/oauth2/scope-profile"
+}
+
+# -------------------
+# --    Outputs    --
+# -------------------
+
+output "gitea_oauth_id" {
+  value = authentik_provider_oauth2.gitea.client_id
+}
+
+output "gitea_oauth_secret" {
+  value = authentik_provider_oauth2.gitea.client_secret
+}
+```
+
+It assumes that:
+
+* You've changed `git.your-domain.org` with your gitea domain.
+* The gitea logo is mounted in the docker directory `/media/application-icons/gitea.svg`.
+
+Gitea can be configured through terraform too. There is an [official provider](https://gitea.com/gitea/terraform-provider-gitea/src/branch/main) that doesn't work, there's a [fork that does though[(https://registry.terraform.io/providers/Lerentis/gitea/latest/docs). Sadly it doesn't yet support configuring Oauth Authentication sources. Be careful [`gitea_oauth2_app`](https://registry.terraform.io/providers/Lerentis/gitea/latest/docs/resources/oauth2_app) looks to be the right resource to do that, but instead it configures Gitea to be the Oauth provider, not a consumer.
+
+## [Configure the invitation flow](https://yewtu.be/watch?v=mGOTpRfulfQ)
+
+Let's assume that we have two groups (Admins and Users) created under `Directory/Groups` and that we want to configure an invitation link for a user to be added directly on the `Admins` group.
+
+Authentik works by defining Stages and Flows. Stages are the steps you need to follow to complete a procedure, and a flow is the procedure itself.
+
+You create Stages by:
+* Going to the Admin interface
+* Going to Flows & Stages/Stages
+* Click on Create
+
+To be able to complete the invitation through link we need to define the next stages:
+
+* An Invitation Stage: This stage represents the moment an admin chooses to create an invitation for a user. 
+  * Click on Create
+  * Select Invitation Stage
+  * Fill the form with the next data:
+    * Name: enrollment-invitation-admin
+    * Uncheck the `Continue flow without invitation` as we don't want users to be able to register without the invitation.
+  * Click Finish
+
+* An User Write Stage: This is when the user will be created but it won't show up as the username and password are not yet selected.
+  * Click on Create
+  * Select User Write Stage
+  * Click on Next
+  * Fill the form with the next data:
+    * Name: enrollment-invitation-admin-write
+    * Enable the `Can Create Users` flag.
+    * If you want users to validate their email leave "Create users as inactive" enabled, otherwise disable it.
+    * Select the group you want the user to be added to. I don't [yet know how to select more than one group](https://github.com/goauthentik/authentik/issues/2098)
+    * Click on Finish
+
+* Email Confirmation Stage: This is when the user gets an email to confirm that it has access to it
+  * Click on Create
+  * Select Email Stage
+  * Click on Next
+    * Name: email-account-confirmation
+    * Subject: Account confirmation
+    * Template: Account confirmation
+  * Click on Finish
+
+Create the invitation Flow:
+
+* Go to `Flows & Stages/Flows`
+* Click on Create
+* Fill the form with the next data:
+  * Name: Enrollment Invitation Admin
+  * Title: Enrollment Invitation Admin
+  * Designation: Enrollment
+  * Unfold the Behavior settings to enable the Compatibility mode
+* Click Create
+
+We need to define how the flow is going to behave by adding the different the stage bindings:
+
+* Click on the flow we just created `enrollment-invitation-admin`
+* Click on `Stage Bindings`
+* Bind the Invitation admin stage:
+  * Click on `Bind Stage`
+  * Fill the form with the next data:
+    * Stage: select `enrollment-invitation-admin`
+    * Order: 10
+  * Click Create
+* Bind the Enrollment prompt stage: This is a builtin stage where the user is asked for their login information
+  * Click on `Bind Stage`
+  * Fill the form with the next data:
+    * Stage: select `default-source-enrollment-prompt`
+    * Order: 20
+  * Click Create
+  * Click Edit Stage and configure it wit:
+    * On the fields select: 
+      * username
+      * name
+      * email
+      * password
+      * password_repeat
+    * Select the validation policy you have one
+* Bind the User write stage:
+  * Click on `Bind Stage`
+  * Fill the form with the next data:
+    * Stage: select `enrollment-invitation-admin-write`
+    * Order: 30
+  * Click Create
+* Bind the email account confirmation stage: 
+  * Click on `Bind Stage`
+  * Fill the form with the next data:
+    * Stage: select `email-account-confirmation`
+    * Order: 40
+  * Click Create
+  * Edit the stage and make sure that you have enabled:
+    * Activate pending user on success
+    * Use global settings
+  * Click Update
+* Bind the User login stage: This is a builtin stage where the user is asked to log in
+  * Click on `Bind Stage`
+  * Fill the form with the next data:
+    * Stage: select `default-source-enrollment-login`
+    * Order: 50
+  * Click Create
+
+## [Use blueprints](https://goauthentik.io/developer-docs/blueprints/)
+
+WARNING: [Use the `terraform` provider instead!!!](#terraform)
+
+Blueprints offer a new way to template, automate and distribute authentik configuration. Blueprints can be used to automatically configure instances, manage config as code without any external tools, and to distribute application configs.
+
+Blueprints are yaml files, whose format is described further in [File structure](https://goauthentik.io/developer-docs/blueprints/v1/structure) and uses [YAML tags](https://goauthentik.io/developer-docs/blueprints/v1/tags) to configure the objects. It can be complicated when you first look at it, reading [this example](https://goauthentik.io/developer-docs/blueprints/v1/example) may help.
+
+Blueprints can be applied in one of two ways:
+
+* As a Blueprint instance, which is a YAML file mounted into the authentik (worker) container. This file is read and applied every time it changes. Multiple instances can be created for a single blueprint file, and instances can be given context key:value attributes to configure the blueprint.
+* As a Flow import, which is a YAML file uploaded via the Browser/API. This file is validated and applied directly after being uploaded, but is not further monitored/applied.
+
+The authentik container by default looks for blueprints in `/blueprints`. Underneath this directory, there are a couple default subdirectories:
+
+* `/blueprints/default`: Default blueprints for default flows, tenants, etc
+* `/blueprints/example`: Example blueprints for common configurations and flows
+* `/blueprints/system`: System blueprints for authentik managed Property mappings, etc
+
+Any additional `.yaml` file in /blueprints will be discovered and automatically instantiated, depending on their labels.
+
+To disable existing blueprints, an empty file can be mounted over the existing blueprint.
+
+File-based blueprints are automatically removed once they become unavailable, however none of the objects created by those blueprints are affected by this.
+
+### [Export blueprints](https://goauthentik.io/developer-docs/blueprints/export)
+
+Exports from either method will contain a (potentially) long list of objects, all with hardcoded primary keys and no ability for templating/instantiation. This is because currently, authentik does not check which primary keys are used where. It is assumed that for most exports, there'll be some manual changes done regardless, to filter out unwanted objects, adjust properties, etc. That's why it may be better to use the [flow export](#flow-export) for the resources you've created rather than the [global export](#global-export).
+
+#### Global export
+
+To migrate existing configurations to blueprints, run `ak export_blueprint` within any authentik Worker container. This will output a blueprint for most currently created objects. Some objects will not be exported as they might have dependencies on other things.
+
+Exported blueprints don't use any of the YAML Tags, they just contain a list of entries as they are in the database.
+
+Note that fields which are write-only (for example, OAuth Provider's Secret Key) will not be added to the blueprint, as the serialisation logic from the API is used for blueprints.
+
+Additionally, default values will be skipped and not added to the blueprint.
+
+#### Flow export
+
+Instead of exporting everything from a single instance, there's also the option to export a single flow with it's attached stages, policies and other objects.
+
+This export can be triggered via the API or the Web UI by clicking the download button in the flow list.
+
+# References
+
+* [Source](https://github.com/goauthentik/authentik)
+* [Docs](https://goauthentik.io/docs/)
+* [Home](https://goauthentik.io/)
+
+* [Terraform provider docs](https://registry.terraform.io/providers/goauthentik/authentik/latest/docs)
+* [Terraform provider source code](https://github.com/goauthentik/terraform-provider-authentik)

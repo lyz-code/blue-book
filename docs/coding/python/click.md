@@ -185,6 +185,14 @@ def test_cat():
 The `runner` has the `stdout` and `stderr` attributes to test if something was
 written on those buffers.
 
+By default the `runner` is configured to mix `stdout` and `stderr`, if you wish to tell apart both sources use:
+
+```python
+def test(runner: CliRunner): 
+  ...
+  runner.mix_stderr = False
+```
+
 ## Injecting fake dependencies
 
 If you're following the [domain driven design](domain_driven_design.md)

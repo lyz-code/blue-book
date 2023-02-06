@@ -464,12 +464,11 @@ Inside the `terraform_config.tf` you create the dynamodb table and then
 configure your `s3` backend to use it
 
 ```terraform
-resource "aws_dynamodb_table" "terraform_statelock" {
-  name           = "global-s3"
-  read_capacity  = 20
-  write_capacity = 20
-  hash_key       = "LockID"
-
+# create a dynamodb table for locking the state file
+resource "aws_dynamodb_table" "dynamodb-terraform-state-lock" {
+  name         = "terraform-state-lock-dynamo"
+  hash_key     = "LockID"
+  billing_mode = "PAY_PER_REQUEST"
   attribute {
     name = "LockID"
     type = "S"
@@ -478,7 +477,7 @@ resource "aws_dynamodb_table" "terraform_statelock" {
 
 terraform {
   backend "s3" {
-    bucket = "grupo-zena-tfstate"
+    bucket = "provider-tfstate"
     key    = "global/s3/terraform.tfstate"
     region = "eu-west-1"
     encrypt = "true"
@@ -627,16 +626,120 @@ To see the secrets you have to decrypt it
 terraform output secret | base64 --decode | gpg -d
 ```
 
-# Sensitive information
+# [Sensitive information](https://blog.gruntwork.io/a-comprehensive-guide-to-managing-secrets-in-your-terraform-code-1d586955ace1)
+
+One of the most common questions we get about using Terraform to manage infrastructure as code is how to handle secrets such as passwords, API keys, and other sensitive data.
+
+Your secrets live in two places in a terraform environment:
+
+* [The Terraform state](#sensitive-information-in-the-terraform-state)
+* [The Terraform source code](#sensitive-information-in-the-terraform-source-code).
+
+## Sensitive information in the Terraform State
+
+Every time you deploy infrastructure with Terraform, it stores lots of data about that infrastructure, including all the parameters you passed in, in a state file. By default, this is a terraform.tfstate file that is automatically generated in the folder where you ran terraform apply. 
+
+That means that the secrets will end up in terraform.tfstate in plain text! This has been an [open issue](https://github.com/hashicorp/terraform/issues/516) for more than 6 years now, with no clear plans for a first-class solution. There are some workarounds out there that can scrub secrets from your state files, but these are brittle and likely to break with each new Terraform release, so I don’t recommend them.
+
+For the time being, you can:
+
+* *Store Terraform state in a backend that supports encryption*: Instead of storing your state in a local `terraform.tfstate` file, Terraform natively supports a variety of backends, such as S3, GCS, and Azure Blob Storage. Many of these backends support encryption, so that instead of your state files being in plain text, they will always be encrypted, both in transit (e.g., via TLS) and on disk (e.g., via AES-256). Most backends also support collaboration features (e.g., automatically pushing and pulling state; locking), so using a backend is a must-have both from a security and teamwork perspective.
+* *Strictly control who can access your Terraform backend*: Since Terraform state files may contain secrets, you’ll want to carefully control who has access to the backend you’re using to store your state files. For example, if you’re using S3 as a backend, you’ll want to configure an IAM policy that solely grants access to the S3 bucket for production to a small handful of trusted devs (or perhaps solely just the CI server you use to deploy to prod).
 
 There are several approaches here.
 
-First rely on the S3 encryption to protect the information in your state file
+First rely on the S3 encryption to protect the information in your state file.
 
-Second use [Vault
+Second, use [Vault
 provider](https://www.terraform.io/docs/providers/vault/index.html) to protect the state file.
 
 Third (but I won't use it) would be to use [terrahelp](https://github.com/opencredo/terrahelp)
+
+## Sensitive information in the Terraform source code
+
+To store secrets in your source code you can:
+
+* [Use Secret Stores](https://blog.gruntwork.io/a-comprehensive-guide-to-managing-secrets-in-your-terraform-code-1d586955ace1#bebe)
+* [Use environment variables](https://blog.gruntwork.io/a-comprehensive-guide-to-managing-secrets-in-your-terraform-code-1d586955ace1#4df5)
+* [Use encrypted files](https://blog.gruntwork.io/a-comprehensive-guide-to-managing-secrets-in-your-terraform-code-1d586955ace1#3073)
+
+Using Secret Stores is the best solution, but for that you'd need access and trust in a Secret Store provider which I don't have at the moment (if you want to follow this path check out Hashicorp Vault). Using environment variables is the worst solution because this technique helps you avoid storing secrets in plain text in your code, but it leaves the question of how to actually securely store and manage the secrets unanswered. So in a sense, this technique just kicks the can down the road, whereas the other techniques described later are more prescriptive. Although you could use a password manager such as `pass`. Using encrypted files is the solution that remains.
+
+If you don't want to install a secret store and are used to work with GPG, you can encrypt the secrets, store the cipher text in a file, and checking that file into the version control system. To encrypt some data, such as some secrets in a file, you need an encryption key. This key is itself a secret! This creates a bit of a conundrum: how do you securely store that key? You can’t check the key into version control as plain text, as then there’s no point of encrypting anything with it. You could encrypt the key with another key, but then you then have to figure out where to store that second key. So you’re back to the “kick the can down the road problem,” as you still have to find a secure way to store your encryption key. Although you can use external solutions such as AWS KMS or GCP KMS we don't want to store that kind of information on big companies servers. A local and more beautiful way is to rely on PGP to do the encryption.
+
+We'll use then [`sops`](https://github.com/mozilla/sops) a Mozilla tool for managing secrets that can use PGP behind the scenes. `sops` can automatically decrypt a file when you open it in your text editor, so you can edit the file in plain text, and when you go to save those files, it automatically encrypts the contents again. 
+
+Terraform does not yet have native support for decrypting files in the format used by `sops`. One solution is to install and use the custom provider for sops, [`terraform-provider-sops`](https://github.com/carlpett/terraform-provider-sops). Another option, is to use [Terragrunt](https://terragrunt.gruntwork.io/). To avoid installing more tools, it's better to use the terraform provider.
+
+First of all you may need to install `sops`, you can grab the latest release [from their downloads page](https://github.com/mozilla/sops/releases).
+
+Then in your terraform code you need to [select the `sops` provider](https://github.com/carlpett/terraform-provider-sops):
+
+```hcl
+terraform {
+  required_providers {
+    sops = {
+      source = "carlpett/sops"
+      version = "~> 0.5"
+    }
+  }
+}
+```
+
+Configure `sops` by defining the gpg keys in a `.sops.yaml` file at the top of your repository:
+
+```yaml
+---
+creation_rules:
+  - pgp: >-
+      2829BASDFHWEGWG23WDSLKGL323534J35LKWERQS,
+      2GEFDBW349YHEDOH2T0GE9RH0NEORIG342RFSLHH
+```
+
+Then create the secrets file with the command `sops secrets.enc.json` somewhere in your terraform repository. For example:
+
+```json
+{
+  "password": "foo",
+  "db": {"password": "bar"}
+}
+```
+
+You'll be able to use these secrets in your terraform code. For example:
+
+```hcl
+data "sops_file" "secrets" {
+  source_file = "secrets.enc.json"
+}
+
+output "root-value-password" {
+  # Access the password variable from the map
+  value = data.sops_file.secrets.data["password"]
+}
+
+output "mapped-nested-value" {
+  # Access the password variable that is under db via the terraform map of data
+  value = data.sops_file.secrets.data["db.password"]
+}
+
+output "nested-json-value" {
+  # Access the password variable that is under db via the terraform object
+  value = jsondecode(data.sops_file.secrets.raw).db.password
+}
+```
+
+Sops also supports encrypting the entire file when in other formats. Such files can also be used by specifying `input_type = "raw"`:
+
+```hcl
+data "sops_file" "some-file" {
+  source_file = "secret-data.txt"
+  input_type = "raw"
+}
+
+output "do-something" {
+  value = data.sops_file.some-file.raw
+}
+```
 
 ## RDS credentials
 

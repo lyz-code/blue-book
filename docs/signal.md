@@ -38,6 +38,29 @@ Cons:
 * [Not available in
     F-droid](https://community.signalusers.org/t/wiki-signal-android-app-on-f-droid-store-f-droid-status/28581).
 
+# Installation
+
+These instructions only work for 64 bit Debian-based Linux distributions such as Ubuntu, Mint etc.
+
+* Install our official public software signing key
+
+```bash
+wget -O- https://updates.signal.org/desktop/apt/keys.asc | gpg --dearmor > signal-desktop-keyring.gpg
+cat signal-desktop-keyring.gpg | sudo tee -a /usr/share/keyrings/signal-desktop-keyring.gpg > /dev/null
+```
+
+* Add our repository to your list of repositories
+
+```bash
+echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/signal-desktop-keyring.gpg] https://updates.signal.org/desktop/apt xenial main' |\
+  sudo tee -a /etc/apt/sources.list.d/signal-xenial.list
+```
+
+* Update your package database and install signal
+
+```bash
+sudo apt update && sudo apt install signal-desktop
+```
 # Backup extraction
 
 I'd first try to use [signal-black](https://github.com/xeals/signal-back).

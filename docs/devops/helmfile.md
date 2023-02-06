@@ -541,7 +541,40 @@ releases:
     chart: prometheus-community/kube-prometheus-stack
 ```
 
-# Debugging helmfile
+# Troubleshooting
+
+## Yaml templates in go templates
+
+If you are using a `values.yaml.gotmpl` file you won't be able to use `{{ whatever }}`. The solution is to extract that part to a yaml file and include it in the go template. For example:
+
+* `values.yaml.gotmpl`:
+  ```gotmpl
+  metrics:
+  serviceMonitor:
+    enabled: true
+    annotations:
+    additionalLabels:
+      release: prometheus-operator
+
+  {{ readFile "prometheus_rules.yaml" }}
+  ```
+
+* `prometheus_rules.yaml`
+
+  ```yaml
+  prometheusRule:
+    enabled: true
+    additionalLabels:
+      release: prometheus-operator
+    spec:
+      - alert: VeleroBackupPartialFailures
+        annotations:
+          message: Velero backup {{ $labels.schedule }} has {{ $value | humanizePercentage }} partialy failed backups.
+        expr: increase(velero_backup_partial_failure_total{schedule!=""}[1h]) > 0
+        for: 15m
+        labels:
+          severity: warning
+  ```
 
 ## Error: "release-name" has no deployed releases
 

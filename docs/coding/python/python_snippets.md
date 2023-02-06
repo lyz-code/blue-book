@@ -81,6 +81,16 @@ ZeroDivisionError: division by zero
 {'b'}
 ```
 
+# [Get the difference of two lists](https://stackoverflow.com/questions/2070643/subtracting-two-lists-in-python)
+
+If we want to substract the elements of one list from the other you can use:
+
+```python
+for x in b:
+  if x in a:
+    a.remove(x)
+```
+
 # [Recursively find files](https://stackoverflow.com/questions/2186525/how-to-use-glob-to-find-files-recursively)
 
 ## Using `pathlib.Path.rglob`

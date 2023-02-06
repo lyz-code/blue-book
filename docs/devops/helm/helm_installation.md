@@ -30,14 +30,8 @@ We are going to use some plugins inside [Helmfile](helmfile.md), so
 install them with:
 
 ```bash
-helm plugin install https://github.com/futuresimple/helm-secrets
+helm plugin install https://github.com/jkroepke/helm-secrets
 helm plugin install https://github.com/databus23/helm-diff
-```
-
-Finally initialize the environment
-
-```bash
-helm init
 ```
 
 Now that you've got Helm installed, you'll probably want to install

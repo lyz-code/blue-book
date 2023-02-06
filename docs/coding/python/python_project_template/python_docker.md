@@ -121,3 +121,32 @@ Remember to add the permissions to run the script:
 ```bash
 chmod +x entrypoint.sh
 ```
+
+# Troubleshooting
+
+## [Docker python not showing prints](https://stackoverflow.com/questions/29663459/python-app-does-not-print-anything-when-running-detached-in-docker)
+
+Use `CMD ["python","-u","main.py"]` instead of `CMD ["python","main.py"]`.
+
+## [Prevent `pip install -r requirements.txt` to run on each `docker build`](https://stackoverflow.com/questions/34398632/docker-how-to-run-pip-requirements-txt-only-if-there-was-a-change)
+
+I'm assuming that at some point in your build process, you're copying your entire application into the Docker image with COPY or ADD:
+
+```dockerfile
+COPY . /opt/app
+WORKDIR /opt/app
+RUN pip install -r requirements.txt
+```
+
+The problem is that you're invalidating the Docker build cache every time you're copying the entire application into the image. This will also invalidate the cache for all subsequent build steps.
+
+To prevent this, I'd suggest copying only the requirements.txt file in a separate build step before adding the entire application into the image:
+
+```dockerfile
+COPY requirements.txt /opt/app/requirements.txt
+WORKDIR /opt/app
+RUN pip install -r requirements.txt
+COPY . /opt/app
+# continue as before...
+```
+

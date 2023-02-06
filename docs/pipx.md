@@ -49,19 +49,18 @@ You can use `pipx upgrade-all` to upgrade all your installed packages. If you
 want to just upgrade one, use `pipx upgrade PACKAGE`.
 
 If the package doesn't change the requirements of their dependencies so that the
-installed don't meet them, they [won't be
-upgraded](https://github.com/pypa/pipx/issues/175) unless you use the
+installed don't meet them, they
+[won't be upgraded](https://github.com/pypa/pipx/issues/175) unless you use the
 `--pip-args '--upgrade-strategy eager'` flag.
 
 It uses the pip flag `upgrade-strategy` which can be one of:
 
-
-* `eager`: dependencies are upgraded regardless of whether the currently
-    installed version satisfies the requirements of the upgraded package(s).
-* `only-if-needed`: dependencies are upgraded only when they do not satisfy the
-    requirements of the upgraded package(s). This is the default value.
+- `eager`: dependencies are upgraded regardless of whether the currently
+  installed version satisfies the requirements of the upgraded package(s).
+- `only-if-needed`: dependencies are upgraded only when they do not satisfy the
+  requirements of the upgraded package(s). This is the default value.
 
 # References
 
-* [Docs](https://pypa.github.io/pipx/)
-* [Git](https://github.com/pypa/pipx/)
+- [Docs](https://pypa.github.io/pipx/)
+- [Git](https://github.com/pypa/pipx/)

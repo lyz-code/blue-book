@@ -140,6 +140,19 @@ scrollback_pager_history_size 0
 map ctrl+v        paste_from_clipboard
 ```
 
+## [Fonts](https://sw.kovidgoyal.net/kitty/conf/#fonts)
+
+* Add your fonts to the `~/.local/share/fonts` directory
+* Check they are available when you run `kitty +list-fonts`
+* Add them to your config:
+
+  ```
+  font_family      Operator Mono Book
+  bold_font        Operator Mono Medium
+  italic_font      Operator Mono Book Italic
+  bold_italic_font Operator Mono Medium Italic
+  ```
+
 # Troubleshooting
 
 ## [Scrollback when ssh into a machine doesn't work](https://sw.kovidgoyal.net/kitty/faq/#i-get-errors-about-the-terminal-being-unknown-or-opening-the-terminal-failing-when-sshing-into-a-different-computer)
@@ -158,6 +171,20 @@ it to ssh in your shell’s rc files to avoid having to type it each time:
 
 ```bash
 alias ssh="kitty +kitten ssh"
+```
+
+## [Screen not working on server with sudo](https://sw.kovidgoyal.net/kitty/faq/#keys-such-as-arrow-keys-backspace-delete-home-end-etc-do-not-work-when-using-su-or-sudo)
+
+Make sure you're using the ssh alias below
+
+```bash
+alias ssh="kitty +kitten ssh"
+```
+
+And then copy the `~/.terminfo` into `/root`
+
+```bash
+sudo copy -r ~/.terminfo /root
 ```
 
 # Reasons to migrate from urxvt to kitty

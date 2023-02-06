@@ -126,10 +126,8 @@ helm secrets clean .
 
 ## Add or remove keys
 
-Until [this helm-secrets
-issue](https://github.com/futuresimple/helm-secrets/issues/147) has been solved,
-if you want to add or remove PGP keys from `.sops.yaml`, you need to execute
-`sops updatekeys -y` for each `secrets.yaml` file in the repository.
+If you want to add or remove PGP keys from `.sops.yaml`, you need to execute
+`sops updatekeys -y` for each `secrets.yaml` file in the repository. [`helm-secrets` won't make this process easier for you](https://github.com/jkroepke/helm-secrets/issues/233).
 
 Check [sops
 documentation](https://github.com/mozilla/sops#adding-and-removing-keys) for

@@ -12,7 +12,19 @@ to use that service.
 
 ## [Debian](https://linuxize.com/post/how-to-install-google-chrome-web-browser-on-debian-10/)
 
-```bash
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-sudo apt install ./google-chrome-stable_current_amd64.deb
-```
+* Import the GPG key, and use the following command.
+  ```bash
+  sudo wget -O- https://dl.google.com/linux/linux_signing_key.pub | gpg --dearmor > /usr/share/keyrings/google-chrome.gpg
+  ```
+
+* Once the GPG import is complete, you will need to import the Google Chrome repository.
+
+  ```bash
+  echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/google-chrome.gpg] http://dl.google.com/linux/chrome/deb/ stable main' | sudo tee /etc/apt/sources.list.d/google-chrome.list
+  ```
+
+* Install the program:
+  ```bash
+  apt-get update
+  apt-get install google-chrome-stable
+  ```

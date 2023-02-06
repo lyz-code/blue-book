@@ -306,6 +306,27 @@ automatically generated object on the `sh` module (it actually exists).
 
 # Tips
 
+## [Passing environmental variables to commands](https://amoffat.github.io/sh/sections/envs.html?highlight=environ)
+
+The `_env` special `kwarg` allows you to pass a dictionary of environment variables and their corresponding values:
+
+```python
+import sh
+sh.google_chrome(_env={"SOCKS_SERVER": "localhost:1234"})
+```
+
+`_env` replaces your process’s environment completely. Only the key-value pairs in `_env` will be used for its environment. If you want to add new environment variables for a process in addition to your existing environment, try something like this:
+
+```python
+import os
+import sh
+
+new_env = os.environ.copy()
+new_env["SOCKS_SERVER"] = "localhost:1234"
+
+sh.google_chrome(_env=new_env)
+```
+
 ## [Avoid exception logging when killing a background process](https://stackoverflow.com/questions/44936743/using-the-sh-python-module-avoid-exception-logging-when-killing-a-background-pr)
 
 In order to catch this exception execute your process with `_bg_exec=False` and
@@ -322,6 +343,16 @@ except sh.SignalException_SIGKILL as err:
 
 foo
 ```
+
+## [Use commands that return a SyntaxError](https://github.com/amoffat/sh/issues/322)
+
+`pass` is a reserved python word so `sh` fails when calling the password store command `pass`.
+
+```python
+pass_command = sh.Command('pass')
+pass_command('show', 'new_file')
+```
+
 
 # References
 

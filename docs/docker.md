@@ -67,8 +67,7 @@ They don't [yet support Prometheus
 metrics](https://github.com/crazy-max/diun/issues/201) but it surely looks
 promising.
 
-## [Logging in
-automatically](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin)
+## [Logging in automatically](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin)
 
 To log in automatically without entering the password, you need to have the
 password stored in your *personal password store* (not in root's!), imagine it's
@@ -76,6 +75,12 @@ in the `dockerhub` entry. Then you can use:
 
 ```bash
 pass show dockerhub | docker login --username foo --password-stdin
+```
+
+## [Override entrypoint](https://phoenixnap.com/kb/docker-run-override-entrypoint)
+
+```bash
+sudo docker run -it --entrypoint /bin/bash [docker_image]
 ```
 
 # Snippets
