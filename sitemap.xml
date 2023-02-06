@@ -91,6 +91,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/authentik/</loc>
+         <lastmod>2023-02-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/aws_savings_plan/</loc>
          <lastmod>2023-02-06</lastmod>
          <changefreq>daily</changefreq>
@@ -156,12 +161,27 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/chezmoi/</loc>
+         <lastmod>2023-02-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/chromium/</loc>
+         <lastmod>2023-02-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/code_learning/</loc>
          <lastmod>2023-02-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/cone/</loc>
+         <lastmod>2023-02-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/configuration_management/</loc>
          <lastmod>2023-02-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -217,6 +237,16 @@
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/documentation/</loc>
+         <lastmod>2023-02-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/dotdrop/</loc>
+         <lastmod>2023-02-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/dotfiles/</loc>
          <lastmod>2023-02-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -461,12 +491,27 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/latex/</loc>
+         <lastmod>2023-02-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/lazy_loading/</loc>
          <lastmod>2023-02-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/letsencrypt/</loc>
+         <lastmod>2023-02-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/libreelec/</loc>
+         <lastmod>2023-02-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/life_logging/</loc>
          <lastmod>2023-02-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -841,6 +886,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/seedvault/</loc>
+         <lastmod>2023-02-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/selenium/</loc>
          <lastmod>2023-02-06</lastmod>
          <changefreq>daily</changefreq>
@@ -951,6 +1001,16 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/treesitter/</loc>
+         <lastmod>2023-02-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/tridactyl/</loc>
+         <lastmod>2023-02-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/typer/</loc>
          <lastmod>2023-02-06</lastmod>
          <changefreq>daily</changefreq>
@@ -962,6 +1022,11 @@
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/vdirsyncer/</loc>
+         <lastmod>2023-02-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/velero/</loc>
          <lastmod>2023-02-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
