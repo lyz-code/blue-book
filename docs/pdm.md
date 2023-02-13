@@ -445,6 +445,32 @@ of `>=2.7`.
 So, make sure you write `requires-python` properly if you don't want any
 outdated packages to be locked.
 
+### [Custom file generation](https://pdm.fming.dev/latest/pyproject/build/#custom-file-generation)
+
+During the build, you may want to generate other files or download resources from the internet. You can achieve this by the setup-script build configuration:
+
+```toml`
+[tool.pdm.build]
+setup-script = "build.py"
+```
+
+In the `build.py` script, pdm-pep517 looks for a build function and calls it with two arguments:
+
+* `src`: the path to the source directory
+* `dst`: the path to the distribution directory
+
+Example:
+
+```python
+# build.py
+def build(src, dst):
+    target_file = os.path.join(dst, "mypackage/myfile.txt")
+    os.makedirs(os.path.dirname(target_file), exist_ok=True)
+    download_file_to(dst)
+```
+
+The generated file will be copied to the resulted wheel with the same hierarchy, you need to create the parent directories if necessary.
+
 ### [Build distribution artifacts](https://pdm.fming.dev/usage/project/#build-distribution-artifacts)
 
 ```console

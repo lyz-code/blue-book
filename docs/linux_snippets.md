@@ -4,6 +4,22 @@ date: 20200826
 author: Lyz
 ---
 
+# [Measure the performance, IOPS of a disk](https://woshub.com/check-disk-performance-iops-latency-linux/)
+
+To measure disk IOPS performance in Linux, you can use the `fio` tool. Install it with
+
+```bash
+apt-get install fio
+```
+
+Then you need to go to the directory where your disk is mounted. The test is done by performing read/write operations in this directory.
+
+To do a random read/write operation test an 8 GB file will be created. Then `fio` will read/write a 4KB block (a standard block size) with the 75/25% by the number of reads and writes operations and measure the performance. 
+
+```bash
+fio --randrepeat=1 --ioengine=libaio --direct=1 --gtod_reduce=1 --name=fiotest --filename=testfio --bs=4k --iodepth=64 --size=8G --readwrite=randrw --rwmixread=75
+```
+
 # [Use a `pass` password in a Makefile](https://stackoverflow.com/questions/20671511/how-do-i-get-make-to-prompt-the-user-for-a-password-and-store-it-in-a-makefile)
 
 ```makefile

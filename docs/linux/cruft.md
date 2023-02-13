@@ -4,6 +4,8 @@ date: 20201016
 author: Lyz
 ---
 
+Note: [copier](https://github.com/copier-org/copier) looks a more maintained solution nowadays.
+
 [cruft](https://cruft.github.io/cruft/) allows you to maintain all the
 necessary boilerplate for packaging and building projects separate from the code
 you intentionally write. Fully compatible with existing

@@ -90,6 +90,38 @@ with Live("Test") as live:
 If you don't want the text to have the default colors, you can embed it all in
 a `Text` object.
 
+## [Tree](https://rich.readthedocs.io/en/latest/tree.html)
+
+Rich has a [`Tree`](https://rich.readthedocs.io/en/latest/reference/tree.html#rich.tree.Tree) class which can generate a tree view in the terminal. A tree view is a great way of presenting the contents of a filesystem or any other hierarchical data. Each branch of the tree can have a label which may be text or any other Rich renderable.
+
+The following code creates and prints a tree with a simple text label:
+
+```python
+from rich.tree import Tree
+from rich import print
+
+tree = Tree("Rich Tree")
+print(tree)
+```
+
+With only a single `Tree` instance this will output nothing more than the text “Rich Tree”. Things get more interesting when we call `add()` to add more branches to the `Tree`. The following code adds two more branches:
+
+```python
+tree.add("foo")
+tree.add("bar")
+print(tree)
+```
+
+The `tree` will now have two branches connected to the original tree with guide lines.
+
+When you call `add()` a new `Tree` instance is returned. You can use this instance to add more branches to, and build up a more complex tree. Let’s add a few more levels to the tree:
+
+```python
+baz_tree = tree.add("baz")
+baz_tree.add("[red]Red").add("[green]Green").add("[blue]Blue")
+print(tree)
+```
+
 # References
 
 * [Git](https://github.com/willmcgugan/rich)

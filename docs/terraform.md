@@ -4,7 +4,7 @@ date: 20210806
 author: Lyz
 ---
 
-[Terraform](https://en.wikipedia.org/wiki/Terraform_(software)) is an
+[Terraform](https://en.wikipedia.org/wiki/Terraform_%28software%29) is an
 open-source infrastructure as code software tool created by HashiCorp. It
 enables users to define and provision a datacenter infrastructure using
 an awful high-level configuration language known as Hashicorp Configuration Language

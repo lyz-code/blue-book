@@ -244,25 +244,72 @@ You create Stages by:
 To be able to complete the invitation through link we need to define the next stages:
 
 * An Invitation Stage: This stage represents the moment an admin chooses to create an invitation for a user. 
+  Graphically you would need to:
+
   * Click on Create
   * Select Invitation Stage
   * Fill the form with the next data:
-    * Name: enrollment-invitation-admin
+    * Name: enrollment-invitation
     * Uncheck the `Continue flow without invitation` as we don't want users to be able to register without the invitation.
   * Click Finish
 
+  Or use the next terraform snippet:
+
+  ```terraform
+  resource "authentik_stage_invitation" "default" {
+    name                             = "enrollment-invitation"
+    continue_flow_without_invitation = false
+  }
+  ```
+
 * An User Write Stage: This is when the user will be created but it won't show up as the username and password are not yet selected.
-  * Click on Create
-  * Select User Write Stage
-  * Click on Next
-  * Fill the form with the next data:
-    * Name: enrollment-invitation-admin-write
-    * Enable the `Can Create Users` flag.
-    * If you want users to validate their email leave "Create users as inactive" enabled, otherwise disable it.
-    * Select the group you want the user to be added to. I don't [yet know how to select more than one group](https://github.com/goauthentik/authentik/issues/2098)
-    * Click on Finish
+  Graphically you would need to:
+
+    * Click on Create
+    * Select User Write Stage
+    * Click on Next
+    * Fill the form with the next data:
+      * Name: enrollment-invitation-admin-write
+      * Enable the `Can Create Users` flag.
+      * If you want users to validate their email leave "Create users as inactive" enabled, otherwise disable it.
+      * Select the group you want the user to be added to. I don't [yet know how to select more than one group](https://github.com/goauthentik/authentik/issues/2098)
+      * Click on Finish
+
+  Or use the next terraform snippet:
+
+  ```terraform
+  resource "authentik_stage_user_write" "admin_write" {
+    name                     = "enrollment-invitation-admin-write"
+    create_users_as_inactive = true
+    create_users_group       = authentik_group.admins.id
+  }
+  ```
+
+  Where `authentik_group.admin` is defined as:
+
+  ```terraform
+  resource "authentik_group" "admins" {
+    name         = "Admins"
+    is_superuser = true
+    users = [
+      data.authentik_user.user_1.id,
+      data.authentik_user.user_2.id,
+    ]
+  }
+
+  data "authentik_user" "user_1" {
+    username = "user_1"
+  }
+
+  data "authentik_user" "user_2" {
+    username = "user_2"
+  }
+  ```
 
 * Email Confirmation Stage: This is when the user gets an email to confirm that it has access to it
+
+  Graphically you would need to:
+
   * Click on Create
   * Select Email Stage
   * Click on Next
@@ -271,28 +318,70 @@ To be able to complete the invitation through link we need to define the next st
     * Template: Account confirmation
   * Click on Finish
 
+  Or use the next terraform snippet:
+
+  ```terraform
+  resource "authentik_stage_email" "account_confirmation" {
+    name                     = "email-account-confirmation"
+    activate_user_on_success = true
+    subject                  = "Authentik Account Confirmation"
+    template                 = "email/account_confirmation.html"
+    timeout                  = 10
+  }
+  ```
+
 Create the invitation Flow:
 
-* Go to `Flows & Stages/Flows`
-* Click on Create
-* Fill the form with the next data:
-  * Name: Enrollment Invitation Admin
-  * Title: Enrollment Invitation Admin
-  * Designation: Enrollment
-  * Unfold the Behavior settings to enable the Compatibility mode
-* Click Create
+  Graphically you would need to:
+
+  * Go to `Flows & Stages/Flows`
+  * Click on Create
+  * Fill the form with the next data:
+    * Name: Enrollment Invitation Admin
+    * Title: Enrollment Invitation Admin
+    * Designation: Enrollment
+    * Unfold the Behavior settings to enable the Compatibility mode
+  * Click Create
+
+  Or use the next terraform snippet:
+
+  ```terraform
+  resource "authentik_flow" "enrollment_admin" {
+    name        = "Enrollment invitation admin"
+    title       = "Enrollment invitation admin"
+    slug        = "enrollment-invitation-admin"
+    designation = "enrollment"
+  }
+  ```
 
 We need to define how the flow is going to behave by adding the different the stage bindings:
 
-* Click on the flow we just created `enrollment-invitation-admin`
-* Click on `Stage Bindings`
 * Bind the Invitation admin stage:
+
+  Graphically you would need to:
+
+  * Click on the flow we just created `enrollment-invitation-admin`
+  * Click on `Stage Bindings`
   * Click on `Bind Stage`
   * Fill the form with the next data:
     * Stage: select `enrollment-invitation-admin`
     * Order: 10
   * Click Create
+
+  Or use the next terraform snippet:
+
+  ```terraform
+  resource "authentik_flow_stage_binding" "invitation_creation" {
+    target = authentik_flow.enrollment_admin.uuid
+    stage  = authentik_stage_invitation.default.id
+    order  = 10
+  }
+  ```
+
 * Bind the Enrollment prompt stage: This is a builtin stage where the user is asked for their login information
+
+  Graphically you would need to:
+
   * Click on `Bind Stage`
   * Fill the form with the next data:
     * Stage: select `default-source-enrollment-prompt`
@@ -306,13 +395,131 @@ We need to define how the flow is going to behave by adding the different the st
       * password
       * password_repeat
     * Select the validation policy you have one
+
+  Or use the next terraform snippet:
+
+  ```terraform
+  resource "authentik_stage_prompt" "user_data" {
+    name = "enrollment-user-data-prompt"
+    fields = [ 
+        authentik_stage_prompt_field.username.id,
+        authentik_stage_prompt_field.name.id,
+        authentik_stage_prompt_field.email.id,
+        authentik_stage_prompt_field.password.id,
+        authentik_stage_prompt_field.password_repeat.id,
+    ]
+  }
+
+  resource "authentik_stage_prompt_field" "username" {
+    field_key = "username"
+    label     = "Username"
+    type      = "text"
+    order = 200
+    placeholder = <<EOT
+  try:
+      return user.username
+  except:
+      return ''
+  EOT
+    placeholder_expression = true
+    required = true
+    # Until https://github.com/goauthentik/terraform-provider-authentik/issues/298 is fixed
+    lifecycle {
+      ignore_changes = [
+        placeholder,
+      ]
+    }
+  }
+
+  resource "authentik_stage_prompt_field" "name" {
+    field_key = "name"
+    label     = "Name"
+    type      = "text"
+    order = 201
+    placeholder = <<EOT
+  try:
+      return user.name
+  except:
+      return ''
+  EOT
+    placeholder_expression = true
+    required = true
+    # Until https://github.com/goauthentik/terraform-provider-authentik/issues/298 is fixed
+    lifecycle {
+      ignore_changes = [
+        placeholder,
+      ]
+    }
+  }
+
+  resource "authentik_stage_prompt_field" "email" {
+    field_key = "email"
+    label     = "Email"
+    type      = "email"
+    order = 202
+    placeholder = <<EOT
+  try:
+      return user.email
+  except:
+      return ''
+  EOT
+    placeholder_expression = true
+    required = true
+    # Until https://github.com/goauthentik/terraform-provider-authentik/issues/298 is fixed
+    lifecycle {
+      ignore_changes = [
+        placeholder,
+      ]
+    }
+  }
+
+  resource "authentik_stage_prompt_field" "password" {
+    field_key = "password"
+    label     = "Password"
+    type      = "password"
+    order = 300
+    placeholder = "Password"
+    placeholder_expression = false
+    required = true
+  }
+
+  resource "authentik_stage_prompt_field" "password_repeat" {
+    field_key = "password_repeat"
+    label     = "Password (repeat)"
+    type      = "password"
+    order = 301
+    placeholder = "Password (repeat)"
+    placeholder_expression = false
+    required = true
+  }
+  ```
+
+  We had to redefine all the `authentik_stage_prompt_field` because the terraform provider doesn't yet support [the `data` resource of the `authentik_stage_prompt_field`](https://github.com/goauthentik/terraform-provider-authentik/issues/243)
+
 * Bind the User write stage:
+
+  Graphically you would need to:
+
   * Click on `Bind Stage`
   * Fill the form with the next data:
     * Stage: select `enrollment-invitation-admin-write`
     * Order: 30
   * Click Create
+
+  Or use the next terraform snippet:
+
+  ```terraform
+  resource "authentik_flow_stage_binding" "invitation_user_write" {
+    target = authentik_flow.enrollment_admin.uuid
+    stage  = authentik_stage_user_write.admin_write.id
+    order  = 30
+  }
+  ```
+
 * Bind the email account confirmation stage: 
+
+  Graphically you would need to:
+
   * Click on `Bind Stage`
   * Fill the form with the next data:
     * Stage: select `email-account-confirmation`
@@ -322,12 +529,42 @@ We need to define how the flow is going to behave by adding the different the st
     * Activate pending user on success
     * Use global settings
   * Click Update
+
+  Or use the next terraform snippet:
+
+  ```terraform
+  resource "authentik_flow_stage_binding" "invitation_account_confirmation" {
+    target = authentik_flow.enrollment_admin.uuid
+    stage  = authentik_stage_email.account_confirmation.id
+    order  = 40
+  }
+  ```
+
 * Bind the User login stage: This is a builtin stage where the user is asked to log in
+
+  Graphically you would need to:
+
   * Click on `Bind Stage`
   * Fill the form with the next data:
     * Stage: select `default-source-enrollment-login`
     * Order: 50
   * Click Create
+
+  Or use the next terraform snippet:
+  
+  ```terraform
+  resource "authentik_flow_stage_binding" "invitation_login" {
+    target = authentik_flow.enrollment_admin.uuid
+    stage  = data.authentik_stage.default_source_enrollment_login.id
+    order  = 50
+  }
+  ```
+
+## [Configure password recovery](https://www.youtube.com/watch?v=NKJkYz0BIlA)
+
+You need to create an identification stage:
+
+
 
 ## [Use blueprints](https://goauthentik.io/developer-docs/blueprints/)
 
@@ -373,6 +610,20 @@ Additionally, default values will be skipped and not added to the blueprint.
 Instead of exporting everything from a single instance, there's also the option to export a single flow with it's attached stages, policies and other objects.
 
 This export can be triggered via the API or the Web UI by clicking the download button in the flow list.
+
+## [Hide and application from a user](https://goauthentik.io/docs/applications#authorization)
+
+Application access can be configured using (Policy) Bindings. Click on an application in the applications list, and select the Policy / Group / User Bindings tab. There you can bind users/groups/policies to grant them access. When nothing is bound, everyone has access. You can use this to grant access to one or multiple users/groups, or dynamically give access using policies.
+
+With terraform you can use `authentik_policy_binding`, for example:
+
+```terraform
+resource "authentik_policy_binding" "admin" {
+  target = authentik_application.gitea.uuid
+  group  = authentik_group.admins.id
+  order  = 0
+}
+```
 
 # References
 
