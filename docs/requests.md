@@ -74,6 +74,22 @@ s.headers.update({'x-test': 'true'})
 s.get('https://httpbin.org/headers', headers={'x-test2': 'true'})
 ```
 
+## [Use a proxy](https://stackoverflow.com/questions/8287628/proxies-with-python-requests-module)
+
+```python
+http_proxy  = "http://10.10.1.10:3128"
+https_proxy = "https://10.10.1.11:1080"
+ftp_proxy   = "ftp://10.10.1.10:3128"
+
+proxies = { 
+              "http"  : http_proxy, 
+              "https" : https_proxy, 
+              "ftp"   : ftp_proxy
+            }
+
+r = requests.get(url, headers=headers, proxies=proxies)
+```
+
 # References
 
 * [Docs](https://requests.readthedocs.io)

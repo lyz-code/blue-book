@@ -46,6 +46,22 @@ gpg = gnupg.GPG(gnupghome="/path/to/home/directory")
   >>> private_keys = gpg.list_keys(True)
   ```
 
+- [List the recipients that can decrypt a file](https://docs.red-dove.com/python-gnupg/#finding-the-recipients-for-an-encrypted-message)
+  
+  ```python
+  def list_recipients(self, path: Path) -> List['GPGKey']:
+      """List the keys that can decrypt a file.
+
+      Args:
+          path: Path to the file to check.
+      """
+      keys = []
+      for short_key in self.gpg.get_recipients_file(str(path)):
+          keys.append(self.gpg.list_keys(keys=[short_key])[0]['fingerprint'])
+
+      return keys
+  ```
+
 # References
 
 - [Docs](https://gnupg.readthedocs.io/en/latest/)
