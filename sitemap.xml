@@ -406,6 +406,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/gtd/</loc>
+         <lastmod>2023-02-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/hard_drive_health/</loc>
          <lastmod>2023-02-26</lastmod>
          <changefreq>daily</changefreq>
@@ -627,6 +632,11 @@
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/oracle_database/</loc>
+         <lastmod>2023-02-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/orgmode/</loc>
          <lastmod>2023-02-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -881,7 +891,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/sanoid/</loc>
+         <lastmod>2023-02-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/scrum/</loc>
+         <lastmod>2023-02-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/sed/</loc>
          <lastmod>2023-02-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -1137,6 +1157,11 @@
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/yamlfix/</loc>
+         <lastmod>2023-02-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/zfs_storage_planning/</loc>
          <lastmod>2023-02-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
