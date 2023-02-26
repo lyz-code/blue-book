@@ -14,358 +14,6 @@ Some neat features of ZFS include:
 - Creating point-in-time snapshots of data on disk.
 - Optionally encrypting or compressing data on disk.
 
-# Learning
-
-I've found that learning about ZFS was an interesting, intense and time
-consuming task. If you want a quick overview check
-[this video](https://yewtu.be/watch?v=MsY-BafQgj4). If you prefer to read, head
-to the awesome
-[Aaron Toponce](https://pthree.org/2012/04/17/install-zfs-on-debian-gnulinux/)
-articles and read all of them sequentially, each is a jewel. The
-[docs](https://openzfs.github.io/openzfs-docs/) on the other hand are not that
-pleasant to read. For further information check
-[JRS articles](https://jrs-s.net/category/open-source/zfs/).
-
-## [Storage planning](https://mtlynch.io/budget-nas/#storage-planning)
-
-There are many variables that affect the number and type of disks, you first
-need to have an idea of what kind of data you want to store and what use are you
-going to give to that data.
-
-### Robustness
-
-ZFS is designed to survive disk failures, so it stores each block of data
-redundantly. This feature complicates capacity planning because your total
-usable storage is not just the sum of each disk’s capacity.
-
-ZFS creates filesystems out of “pools” of disks. The more disks in the pool, the
-more efficiently ZFS can use their storage capacity. For example, if you give
-ZFS two 10 TB drives, you can only use half of your total disk capacity. If you
-instead use five 4 TB drives, ZFS gives you 14 TB of usable storage. Even though
-your total disk space is the same in either scenario, the five smaller drives
-give you 40% more usable space.
-
-When you’re building a NAS server, you need to decide whether to use a smaller
-quantity of large disks or a larger quantity of small disks. Smaller drives are
-usually cheaper in terms of $/TB, but they’re more expensive to operate. Two 4
-TB drives require twice the electricity of a single 8 TB drive.
-
-Also keep in mind that so far ZFS doesn't let you add a new drive to an existing
-vdev, but that
-[feature is under active development](https://github.com/openzfs/zfs/pull/12225).
-If you want to be safe, plan your vdev definition so that they don't need to
-change the disk numbers.
-
-#### [Preventing concurrent disk failures](https://mtlynch.io/budget-nas/#preventing-concurrent-disk-failures)
-
-Naively, the probability of two disks failing at once seems vanishingly small.
-Based on
-[Backblaze’s stats](https://www.backblaze.com/blog/backblaze-hard-drive-stats-for-2020/),
-high-quality disk drives fail at 0.5-4% per year. A 4% risk per year is a 0.08%
-chance in any given week. Two simultaneous failures would happen once every
-30,000 years, so you should be fine, right?
-
-The problem is that disks aren’t statistically independent. If one disk fails,
-its neighbor has a substantially higher risk of dying. This is especially true
-if the disks are the same model, from the same manufacturing batch, and
-processed the same workloads.
-
-Further, rebuilding a ZFS pool puts an unusual amount of strain on all of the
-surviving disks. A disk that would have lasted a few more months under normal
-usage might die under the additional load of a pool rebuild.
-
-Given these risks, you can reduce the risk of concurrent disk failures by
-choosing two different models of disk from two different manufacturers. To
-reduce the chances of getting disks from the same manufacturing batch, you can
-buy them from different vendors.
-
-### Choosing the disks to hold data
-
-Check [diskprices.com](https://www.diskprices.com) to get an idea of the cost of
-disks in the market. If you can, try to avoid buying to Amazon as it's the
-devil. Try to buy them from a local store instead, that way you interact with a
-human and promote a local commerce.
-
-Note: If you want a TL;DR you can jump to the
-[conclusion](#data-disk-conclusion).
-
-To choose your disks take into account:
-
-- [Disk speed](#data-disk-speed)
-- [Disk load](#data-disk-load)
-- [Disk type](#data-disk-type)
-- [Disk homogeneity](#data-disk-homogeneity)
-- [Disk Warranty](#data-disk-warranty)
-- [Disk Brands](#data-disk-brand)
-
-#### Data disk speed
-
-When comes to disk speed there are three kinds, the slow (5400 RPM), normal
-(7200 RPM) and fast (10k RPM).
-
-The higher the RPM, the louder the disk is, the more heat it creates and the
-more power it will consume. In exchange they will have higher writing and
-reading speeds. Slower disks expand the lifecycle of the device, but in the case
-of a failed disk in a RAID scenario, the rebuild time will be higher than on
-faster ones therefore increasing the risk on concurrent failing disks.
-
-Before choosing a high number of RPM make sure that it's your bottleneck, which
-usually is the network if you're using a 1Gbps network. In this case a 10k RPM
-disk won't offer better performance than a 7200 RPM, even a 7200 one won't be
-better than a 5400.
-
-The need of higher speeds can be fixed by using an SSD as a cache for reading
-and writing.
-
-#### Data disk load
-
-Disk specifications tell you the amount of TB/year they support, it gives you an
-idea of the fault tolerance. Some examples
-
-| Disk       | Fault tolerance (TB/year) |
-| ---------- | ------------------------- |
-| WD RED 8TB | 180                       |
-
-#### [Data disk type](https://www.howtogeek.com/345131/how-to-select-hard-drives-for-your-home-nas/)
-
-It’s easy to think that all hard drives are equal, save for the form factor and
-connection type. However, there’s a difference between the work your hard drive
-does in your computer versus the workload of a [NAS](nas.md) hard drive. A drive
-in your computer may only read and write data for a couple hours at a time,
-while a NAS drive may read and write data for weeks on end, or even longer.
-
-The environment inside of a NAS box is much different than a typical desktop or
-laptop computer. When you pack in a handful of hard drives close together,
-several things happen: there’s more vibration, more heat, and a lot more action
-going on in general.
-
-To cope with this, NAS hard drives usually have better vibration tolerance and
-produce less heat than regular hard drives, thanks to slightly-slower spindle
-speeds and reduced seek noise.
-
-Most popular brands are Western Digital Red and Seagate IronWolf which use 5400
-RPM, if you want to go on the 7200 RPM speeds you can buy the Pro version of
-each. I initially tried checking
-[Backblaze’s hard drive stats](https://www.backblaze.com/blog/backblaze-drive-stats-for-q2-2022/)
-to avoid failure-prone disks, but they use drives on the pricier side.
-
-The last pitfall to avoid is shingled magnetic recording (SMR) technology. ZFS
-[performs poorly on SMR drives](https://www.servethehome.com/wd-red-smr-vs-cmr-tested-avoid-red-smr/),
-so if you’re building a NAS, avoid
-[known SMR drives](https://www.truenas.com/community/resources/list-of-known-smr-drives.141/).
-If the drive is labeled as CMR, that’s conventional magnetic recording, which is
-fine for ZFS.
-
-SMR is well suited for high-capacity, low-cost use where writes are few and
-reads are many. It has worse sustained write performance than CMR, which can
-cause severe issues during resilvering or other write-intensive operations.
-
-There are three types of SMR:
-
-- Drive Managed, DM-SMR: It's opaque to the OS. This means ZFS cannot "target"
-  writes, and is the worst type for ZFS use. As a rule of thumb, avoid DM-SMR
-  drives, unless you have a specific use case where the increased resilver time
-  (a week or longer) is acceptable, and you know the drive will function for ZFS
-  during resilver.
-- Host Aware, HA-SMR: It's designed to give ZFS insight into the SMR process.
-  Note that ZFS code to use HA-SMR does not appear to exist. Without that code,
-  a HA-SMR drive behaves like a DM-SMR drive where ZFS is concerned.
-- Host Managed, HM-SMR: It's not backwards compatible and requires ZFS to manage
-  the SMR process.
-
-#### Data disk homogeneity
-
-It's recommended that all the disks in your pool (or is it by vdev?) have the
-same RPM and size.
-
-#### Data disk warranty
-
-Disks are going to fail, so it's good to have a good warranty to return them.
-
-#### [Data disk brands](https://www.nasmaster.com/best-nas-drives/)
-
-##### [Western Digital](https://www.nasmaster.com/wd-red-vs-red-plus-vs-red-pro-nas-hdd/)
-
-The Western Digital Red series of NAS drives are very similar to Seagate’s
-offering and you should consider these if you can find them at more affordable
-prices. WD splits its NAS drives into three sub-categories, normal, Plus, and
-Pro.
-
-| Specs                  | WD Red    | WD Red Plus        | WD Red Pro      |
-| ---------------------- | --------- | ------------------ | --------------- |
-| Technology             | SMR       | CMR                | CMR             |
-| Bays                   | 1-8       | 1-8                | 1-24            |
-| Capacity               | 2-6TB     | 1-14TB             | 2-18TB          |
-| Speed                  | 5,400 RPM | 5,400 RPM (1-4TB)  | 7200 RPM        |
-| Speed                  | 5,400 RPM | 5,640 RPM (6-8TB)  | 7200 RPM        |
-| Speed                  | 5,400 RPM | 7,200 RPM (8-14TB) | 7200 RPM        |
-| Speed                  | ?         | 210MB/s            | 235MB/s         |
-| Cache                  | 256MB     | 16MB (1TB)         |                 |
-| Cache                  | 256MB     | 64MB (1TB)         | 64MB (2TB)      |
-| Cache                  | 256MB     | 128MB (2-8TB)      | 256MB (4-12TB)  |
-| Cache                  | 256MB     | 256MB (8-12TB)     | 512MB (14-18TB) |
-| Cache                  | 256MB     | 512MB (14TB)       |                 |
-| Workload               | 180TB/yr  | 180TB/yr           | 300TB/yr        |
-| MTBF                   | 1 million | 1 million          | 1 million       |
-| Warranty               | 3 years   | 3 years            | 5 years         |
-| Power Consumption      | ?         | ?                  | 8.8 W           |
-| Power Consumption Rest | ?         | ?                  | 4.6 W           |
-| Price                  | From $50  | From $45           | From $78        |
-
-##### Seagate
-
-Seagate's "cheap" NAS disks are the IronWolf gama, there are
-[two variations IronWolf and IronWolf Pro](https://www.nasmaster.com/seagate-ironwolf-vs-seagate-ironwolf-pro/).
-Seagate Exos is a premium series of drives from the company. They’re even more
-advanced than IronWolf Pro and are best suited for server environments. They
-sport incredible levels of performance and reliability, including a workload
-rate of 550TB per year.
-
-| Specs                        | IronWolf           | IronWolf Pro         | Exos 7E8 8TB | Exos 7E10 8TB |
-| ---------------------------- | ------------------ | -------------------- | ------------ | ------------- |
-| Technology                   | CMR                | CMR                  | CMR          | SMR           |
-| Bays                         | 1-8                | 1-24                 | ?            | ?             |
-| Capacity                     | 1-12TB             | 2-20TB               | 8TB          | 8TB           |
-| RPM                          | 5,400 RPM (3-6TB)  | 7200 RPM             | 7200 RPM     | 7200 RPM      |
-| RPM                          | 5,900 RPM (1-3TB)  | 7200 RPM             | 7200 RPM     | 7200 RPM      |
-| RPM                          | 7,200 RPM (8-12TB) | 7200 RPM             | 7200 RPM     | 7200 RPM      |
-| Speed                        | 180MB/s (1-12TB)   | 214-260MB/s (4-18TB) | 249 MB/s     | 255 MB/s      |
-| Cache                        | 64MB (1-4TB)       | 256 MB               | 256 MB       | 256 MB        |
-| Cache                        | 256MB (3-12TB)     | 256 MB               | 256 MB       | 256 MB        |
-| Power Consumption (8TB)      | 10.1 W             | 10.1 W               | 12.81 W      | 11.03 W       |
-| Power Consumption Rest (8TB) | 7.8 W              | 7.8 W                | 7.64 W       | 7.06 W        |
-| Workload                     | 180TB/yr           | 300TB/yr             | 550TB/yr     | 550TB/yr      |
-| MTBF                         | 1 million          | 1 million            | 2 millions   | 2 millions    |
-| Warranty                     | 3 years            | 5 years              | 5 years      | 5 years       |
-| Price                        | From $60           | From $83             | 249$         | 249$          |
-
-Exos 7E10 is SMR so it's ruled out.
-
-Where MTBF stands for Medium Time Between Failures in hours
-
-#### Data disk conclusion
-
-I'm more interested on the 5400 RPM drives, but of all the NAS disks available
-to purchase only the WD RED of 8TB use it, and they use the SMR technology, so
-they aren't a choice.
-
-The disk prices offered by my cheapest provider are:
-
-| Disk                 | Size | Price |
-| -------------------- | ---- | ----- |
-| Seagate IronWolf     | 8TB  | 225$  |
-| Seagate IronWolf Pro | 8TB  | 254$  |
-| WD Red Plus          | 8TB  | 265$  |
-| Seagate Exos 7E8     | 8TB  | 277$  |
-| WD Red Pro           | 8TB  | 278$  |
-
-WD Red Plus has 5,640 RPM which is different than the rest, so it's ruled out.
-Between the IronWolf and IronWolf Pro, they offer 180MB/s and 214MB/s
-respectively. The Seagate Exos 7E8 provides much better performance than the WD
-Red Pro so I'm afraid that WD is out of the question.
-
-There are three possibilities in order to have two different brands. Imagining
-we want 4 disks:
-
-| Combination             | Total Price        |
-| ----------------------- | ------------------ |
-| IronWolf + IronWolf Pro | 958$               |
-| IronWolf + Exos 7E8     | 1004$ (+46$ +4.5%) |
-| IronWolf Pro + Exos 7E8 | 1062$ (+54$ +5.4%) |
-
-In terms of:
-
-- Consumption: both IronWolfs are equal, the Exos uses 2.7W more on normal use
-  and uses 0.2W less on rest.
-- Warranty: IronWolf has only 3 years, the others 5.
-- Speed: Ironwolf has 210MB/s, much less than the Pro (255MB/s) and Exos
-  (249MB/s), which are more similar.
-- Sostenibility: The Exos disks are much more robust (more workload, MTBF and
-  Warranty).
-
-I'd say that for 104$ it makes sense to go with the IronWolf Pro + Exos 7E8
-combination.
-
-### [Choosing the disks for the cache](https://www.nasmaster.com/best-m2-nvme-ssd-nas-caching/)
-
-Using a ZLOG greatly improves the
-[writing speed](https://www.servethehome.com/exploring-best-zfs-zil-slog-ssd-intel-optane-nand/),
-equally using an SSD disk for the L2ARC cache improves the read speeds and
-improves the health of the rotational disks.
-
-The best M.2 NVMe SSD for NAS caching are the ones that have enough capacity to
-actually make a difference to overall system performance. It also requires a
-good endurance rating for better reliability and longer lifespan, and you should
-look for a drive with a specific NAND technology if possible.
-
-Note: If you want a TL;DR you can jump to the
-[conclusion](#cache-disk-conclusion).
-
-To choose your disks take into account:
-
-- [Cache disk NAND technology](#cache-disk-nand-technology)
-- [DWPD](#dwpd)
-
-#### Cache disk NAND technology
-
-Not all flash-based storage drives are the same. NAND flash cells are usually
-categorised based on the number of bits that can be stored per cell. Watch out
-for the following terms when shopping around for an SSD:
-
-- Single-Level Cell (SLC): one bit per cell.
-- Multi-Level Cell (MLC): two bits per cell.
-- Triple-Level Cell (TLC): three bits per cell.
-- Quad-Level Cell (QLC): four bits per cell.
-
-When looking for the best M.2 NVMe SSD for NAS data caching, it’s important to
-bear the NAND technology in mind.
-
-SLC is the best technology for SSDs that will be used for NAS caching. This does
-mean you’re paying out more per GB and won’t be able to select high-capacity
-drives, but reliability and the protection of stored data is the most important
-factor here.
-
-Another benefit of SLC is the lower impact of write amplification, which can
-quickly creep up and chomp through a drive’s DWPD endurance rating. It’s
-important to configure an SSD for caching correctly too regardless of which
-technology you pick.
-
-Doing so will lessen the likelihood of losing data through a drive hanging and
-causing the system to crash. Anything stored on the cache drive that has yet to
-be written to the main drive array would be lost. This is mostly a reported
-issue for NVMe drives, as opposed to SATA.
-
-#### DWPD
-
-DWPD stands for drive writes per day. This is often used as a measurement of a
-drive’s endurance. The higher this number, the more writes the drive can perform
-on a daily basis, as is rated by the manufacturer. For caching, especially which
-involves writing data, you’ll want to aim for as high a DWPD rating as possible.
-
-#### Cache disk conclusion
-
-Overall, I’d recommend the Western Digital Red SN700, which has a good 1 DWPD
-endurance rating, is available in sizes up to 4TB, and is using SLC NAND
-technology, which is great for enhancing reliability through heavy caching
-workloads. A close second place goes to the Seagate IronWolf 525, which has
-similar specifications to the SN700 but utilizes TLC.
-
-| Disk            | Size   | Speed    | Endurance | Warranty | Tech | Price |
-| --------------- | ------ | -------- | --------- | -------- | ---- | ----- |
-| WD Red SN700    | 500 GB | 3430MB/s | 1 DWPD    | 5 years  | SLC  | 73$   |
-| SG IronWolf 525 | 500 GB | 5000MB/s | 0.8 DWPD  | 5 years  | TLC  | ?     |
-| WD Red SN700    | 1 TB   | 3430MB/s | 1 DWPD    | 5 years  | SLC  | 127$  |
-| SG IronWolf 525 | 1 TB   | 5000MB/s | 0.8 DWPD  | 5 years  | TLC  | ?     |
-
-### Choosing the cold spare disks
-
-It's good to think how much time you want to have your raids to be inconsistent
-once a drive has failed.
-
-In my case, for the data I want to restore the raid as soon as I can, therefore
-I'll buy another rotational disk. For the SSDs I have more confidence that they
-won't break so I don't feel like having a spare one.
-
 # Usage
 
 ## Mount a pool as readonly
@@ -380,27 +28,292 @@ zpool import -o readonly=on {{ pool_name }}
 mount -t zfs {{ pool_name }}/{{ snapshot_name }} {{ mount_path }} -o ro
 ```
 
-## List volumes
+## List pools
 
 ```bash
 zpool list
 ```
 
-## List snapshots
+## List the filesystems
 
 ```bash
-zfs list -t snapshot
+zfs list
 ```
 
 ## Get read and write stats from pool
 
 ```bash
-zpool iostat {{ pool_name }} {{ refresh_time_in_seconds }}
+zpool iostat -v {{ pool_name }} {{ refresh_time_in_seconds }}
 ```
+
+## Get all properties of a pool
+
+```bash
+zpool get all {{ pool_name }}
+```
+
+## Get all properties of a filesystem
+
+```bash
+zfs get all {{ pool_name }}
+```
+
+# Installation
+
+## Install the required programs
+
+OpenZFS is not in the mainline kernel for license issues (fucking capitalism...) so it's not yet suggested to use it for the root of your filesystem. 
+
+To install it in a Debian device:
+
+* ZFS packages are included in the `contrib` repository, but the `backports` repository often provides newer releases of ZFS. You can use it as follows.
+  
+  Add the backports repository:
+
+  ```bash
+  vi /etc/apt/sources.list.d/bullseye-backports.list
+  ```
+
+  ```
+  deb http://deb.debian.org/debian bullseye-backports main contrib
+  deb-src http://deb.debian.org/debian bullseye-backports main contrib
+  ```
+
+  ```bash
+  vi /etc/apt/preferences.d/90_zfs
+  ```
+
+  ```
+  Package: src:zfs-linux
+  Pin: release n=bullseye-backports
+  Pin-Priority: 990
+  ```
+
+* Install the packages:
+
+```bash
+apt update
+apt install dpkg-dev linux-headers-generic linux-image-generic
+apt install zfs-dkms zfsutils-linux
+```
+
+BE CAREFUL: if root doesn't have `sbin` in the `PATH` you will get an error of loading the zfs module as it's not signed. If this happens to you reinstall or try the debugging I did (which didn't work).
+
+## [Create your pool](https://pthree.org/2012/12/04/zfs-administration-part-i-vdevs/)
+
+First read the [ZFS storage planning](zfs_storage_planning.md) article and then create your `main` pool with a command similar to:
+
+```bash
+zpool create \
+  -o ashift=12 \ 
+  -o autoexpand=on \ 
+  -o compression=lz4 \
+main raidz /dev/sda /dev/sdb /dev/sdc /dev/sdd \
+  log mirror \
+    /dev/disk/by-id/nvme-eui.e823gqkwadgp32uhtpobsodkjfl2k9d0-part4 \
+    /dev/disk/by-id/nvme-eui.a0sdgohosdfjlkgjwoqkegdkjfl2k9d0-part4 \
+  cache \
+    /dev/disk/by-id/nvme-eui.e823gqkwadgp32uhtpobsodkjfl2k9d0-part5 \
+    /dev/disk/by-id/nvme-eui.a0sdgohosdfjlkgjwoqkegdkjfl2k9d0-part5 \
+```
+
+Where:
+
+* `-o ashift=12`: Adjusts the disk sector size to the disks in use.
+* `-o canmount=off`:  Don't mount the main pool, we'll mount the filesystems.
+* `-o compression=lz4`: Enable compression by default
+* `/dev/sda /dev/sdb /dev/sdc /dev/sdd` are the rotational data disks configured in RAIDZ1
+* We set two partitions in mirror for the ZLOG
+* We set two partitions in stripe for the L2ARC
+
+If you don't want the main pool to be mounted use `zfs set mountpoint=none main`.
+
+## [Create your filesystems](https://pthree.org/2012/12/17/zfs-administration-part-x-creating-filesystems/)
+
+Once we have the pool you can create the different filesystems. If you want to use encryption with a key follow the next steps:
+
+```bash
+mkdir /etc/zfs/keys
+chmod 700 /etc/zfs/keys
+dd if=/dev/random of=/etc/zfs/keys/home.key bs=1 count=32
+```
+
+Then create the filesystem:
+
+```bash
+zfs create \ 
+  -o mountpoint=/home/lyz \
+  -o encryption=on \
+  -o keyformat=raw \
+  -o keylocation=file:///etc/zfs/keys/home.key \
+  main/lyz
+```
+
+I'm assuming that `compression` was set in the pool.
+
+You can check the created filesystems with `zfs list`
+
+## Enable the autoloading of datasets on boot
+
+It is possible to automatically unlock a pool dataset on boot time by using a systemd unit. For example create the following service to unlock any specific dataset:
+
+```
+/etc/systemd/system/zfs-load-key.service
+```
+
+```
+[Unit]
+Description=Load encryption keys
+DefaultDependencies=no
+After=zfs-import.target
+Before=zfs-mount.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/bin/zfs load-key -a
+StandardInput=tty-force
+
+[Install]
+WantedBy=zfs-mount.service
+```
+
+```bash
+systemctl start zfs-load-key.service
+systemctl enable zfs-load-key.service
+reboot
+```
+
+# [Configure NFS](https://pthree.org/2012/12/31/zfs-administration-part-xv-iscsi-nfs-and-samba/)
+
+With ZFS you can share a specific dataset via NFS. If for whatever reason the dataset does not mount, then the export will not be available to the application, and the NFS client will be blocked.
+
+You still must install the necessary daemon software to make the share available. For example, if you wish to share a dataset via NFS, then you need to install the NFS server software, and it must be running. Then, all you need to do is flip the sharing NFS switch on the dataset, and it will be immediately available.
+
+## Install NFS 
+
+To share a dataset via NFS, you first need to make sure the NFS daemon is running. On Debian and Ubuntu, this is the `nfs-kernel-server` package. 
+
+```bash
+sudo apt-get install nfs-kernel-server
+```
+
+Further, with Debian and Ubuntu, the NFS daemon will not start unless there is an export in the `/etc/exports` file. So, you have two options: you can create a dummy export, only available to localhost, or you can edit the init script to start without checking for a current export. I prefer the former. Let's get that setup:
+
+```bash
+echo '/tmp localhost(ro)' >> /etc/exports
+$ sudo /etc/init.d/nfs-kernel-server start
+$ showmount -e hostname.example.com
+Export list for hostname.example.com:
+/mnt localhost
+```
+
+With our NFS daemon running, we can now start sharing ZFS datasets. The `sharenfs` property can be `on`, `off` or `opts`, where `opts` are valid NFS export options. So, if you want to share the `pool/srv` dataset, which is mounted to `/srv` to the `10.80.86.0/24` network you could run:
+
+```bash
+# zfs set sharenfs="rw=@10.80.86.0/24" pool/srv
+# zfs share pool/srv
+# showmount -e hostname.example.com
+Export list for hostname.example.com:
+/srv 10.80.86.0/24
+/mnt localhost
+```
+
+If you need to share to multiple subnets, you would do something like:
+
+```bash
+sudo zfs set sharenfs="rw=@192.168.0.0/24,rw=@10.0.0.0/24" pool-name/dataset-name
+```
+
+If you need `root` to be able to write to the directory [enable the `no_root_squash` NFS option](https://serverfault.com/questions/611007/unable-to-write-to-mount-point-nfs-server-getting-permission-denied)
+
+> root_squash — Prevents root users connected remotely from having root privileges and assigns them the user ID for the user nfsnobody. This effectively "squashes" the power of the remote root user to the lowest local user, preventing unauthorized alteration of files on the remote server. Alternatively, the no_root_squash option turns off root squashing. To squash every remote user, including root, use the all_squash option. To specify the user and group IDs to use with remote users from a particular host, use the anonuid and anongid options, respectively. In this case, a special user account can be created for remote NFS users to share and specify (anonuid=,anongid=), where is the user ID number and is the group ID number.
+
+You should now be able to mount the NFS export from an NFS client. Install the client with:
+
+```bash
+sudo apt-get install nfs-common
+```
+
+And then mount it with:
+
+```bash
+mount -t nfs hostname.example.com:/srv /mnt
+```
+
+# Backup
+
+Please remember that [RAID is not a backup](https://serverfault.com/questions/2888/why-is-raid-not-a-backup), it guards against one kind of hardware failure. There's lots of failure modes that it doesn't guard against though:
+
+* File corruption
+* Human error (deleting files by mistake)
+* Catastrophic damage (someone dumps water onto the server)
+* Viruses and other malware
+* Software bugs that wipe out data
+* Hardware problems that wipe out data or cause hardware damage (controller malfunctions, firmware bugs, voltage spikes, ...)
+
+That's why you still need to make backups.
+
+ZFS has the builtin feature to make snapshots of the pool. A snapshot is a first class read-only filesystem. It is a mirrored copy of the state of the filesystem at the time you took the snapshot. They are persistent across reboots, and they don't require any additional backing store; they use the same storage pool as the rest of your data. 
+
+If you remember [ZFS's awesome nature of copy-on-write](https://pthree.org/2012/12/14/zfs-administration-part-ix-copy-on-write/) filesystems, you will remember the discussion about Merkle trees. A ZFS snapshot is a copy of the Merkle tree in that state, except we make sure that the snapshot of that Merkle tree is never modified.
+
+Creating snapshots is near instantaneous, and they are cheap. However, once the data begins to change, the snapshot will begin storing data. If you have multiple snapshots, then multiple deltas will be tracked across all the snapshots. However, depending on your needs, snapshots can still be exceptionally cheap.
+
+## ZFS snapshot lifecycle management
+
+ZFS doesn't though have a clean way to manage the lifecycle of those snapshots. There are many tools to fill the gap:
+
+* [`sanoid`](sanoid.md): Made in Perl, 2.4k stars, last commit April 2022, last release April 2021
+* [zfs-auto-snapshot](https://github.com/zfsonlinux/zfs-auto-snapshot): Made in Bash, 767 stars, last commit/release on September 2019
+* [pyznap](https://github.com/yboetz/pyznap): Made in Python, 176 stars, last commit/release on September 2020
+* Custom scripts.
+
+It seems that the state of the art of ZFS backups is not changing too much in the last years, possibly because the functionality is covered so there is no need for further development. So I'm going to manage the backups with [`sanoid`](sanoid.md) despite it being done in Perl because [it's the most popular, it looks simple but flexible for complex cases, and it doesn't look I'd need to tweak the code](sanoid.md).
+
+## [Restore a backup](https://pthree.org/2012/12/19/zfs-administration-part-xii-snapshots-and-clones/)
+
+You can list the available snapshots of a filesystem with `zfs list -t snapshot {{ pool_or_filesystem_name }}`, if you don't specify the `pool_or_filesystem_name` it will show all available snapshots.
+
+You have two ways to restore a backup:
+
+* [Mount the snapshot in a directory and manually copy the needed files](https://askubuntu.com/questions/103369/ubuntu-how-to-mount-zfs-snapshot):
+
+  ```bash
+  mount -t zfs main/lyz@autosnap_2023-02-17_13:15:06_hourly /mnt
+  ```
+
+  To umount the snapshot run `umount /mnt`.
+
+* Rolling back the filesystem to the snapshot state: Rolling back to a previous snapshot will discard any data changes between that snapshot and the current time. Further, by default, you can only rollback to the most recent snapshot. In order to rollback to an earlier snapshot, you must destroy all snapshots between the current time and that snapshot you wish to rollback to. If that's not enough, the filesystem must be unmounted before the rollback can begin. This means downtime.
+
+  To rollback the "tank/test" dataset to the "tuesday" snapshot, we would issue:
+
+  ```bash
+  $: zfs rollback tank/test@tuesday
+  cannot rollback to 'tank/test@tuesday': more recent snapshots exist
+  use '-r' to force deletion of the following snapshots:
+  tank/test@wednesday
+  tank/test@thursday
+  ```
+
+  As expected, we must remove the `@wednesday` and `@thursday` snapshots before we can rollback to the `@tuesday` snapshot.
+
+# Learning
+
+I've found that learning about ZFS was an interesting, intense and time
+consuming task. If you want a quick overview check
+[this video](https://yewtu.be/watch?v=MsY-BafQgj4). If you prefer to read, head
+to the awesome
+[Aaron Toponce](https://pthree.org/2012/04/17/install-zfs-on-debian-gnulinux/)
+articles and read all of them sequentially, each is a jewel. The
+[docs](https://openzfs.github.io/openzfs-docs/) on the other hand are not that
+pleasant to read. For further information check
+[JRS articles](https://jrs-s.net/category/open-source/zfs/).
 
 # Resources
 
-- [Docs](https://openzfs.github.io/openzfs-docs/)
 - [Aaron Toponce articles](https://pthree.org/2012/04/17/install-zfs-on-debian-gnulinux/)
+- [Docs](https://openzfs.github.io/openzfs-docs/)
 - [JRS articles](https://jrs-s.net/category/open-source/zfs/)
 - [ZFS basic introduction video](https://yewtu.be/watch?v=MsY-BafQgj4)

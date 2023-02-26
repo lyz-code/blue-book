@@ -145,6 +145,17 @@ resource "gitea_team" "docker_compose" {
 }
 ```
 
+## Create an admin user through the command line
+
+```bash
+gitea --config /etc/gitea/app.ini admin user create --admin --username user_name --password password --email email
+```
+
+Or you can change [the admin's password](https://discourse.gitea.io/t/how-to-change-gitea-admin-password-from-the-command-terminal-line/1930):
+
+```bash
+gitea --config /etc/gitea/app.ini admin user change-password -u username -p password
+```
 
 # References
 

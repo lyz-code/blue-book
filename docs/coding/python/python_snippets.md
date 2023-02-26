@@ -4,6 +4,19 @@ date: 20200717
 author: Lyz
 ---
 
+# [Move a file](https://stackoverflow.com/questions/8858008/how-to-move-a-file-in-python)
+
+Use one of the following
+
+```python
+import os
+import shutil
+
+os.rename("path/to/current/file.foo", "path/to/new/destination/for/file.foo")
+os.replace("path/to/current/file.foo", "path/to/new/destination/for/file.foo")
+shutil.move("path/to/current/file.foo", "path/to/new/destination/for/file.foo")
+```
+
 # [Print an exception](https://stackoverflow.com/questions/1483429/how-do-i-print-an-exception-in-python)
 
 ## Using the logging module

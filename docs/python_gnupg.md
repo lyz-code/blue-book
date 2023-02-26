@@ -62,6 +62,7 @@ gpg = gnupg.GPG(gnupghome="/path/to/home/directory")
       return keys
   ```
 
+- [Get information of a key](
 # References
 
 - [Docs](https://gnupg.readthedocs.io/en/latest/)

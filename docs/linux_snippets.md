@@ -4,6 +4,117 @@ date: 20200826
 author: Lyz
 ---
 
+# [What is `/var/log/tallylog`](https://www.tecmint.com/use-pam_tally2-to-lock-and-unlock-ssh-failed-login-attempts/)
+
+`/var/log/tallylog` is the file where the `PAM` linux module (used for authentication of the machine) keeps track of the failed ssh logins in order to temporarily block users.
+
+# Manage users
+
+* Change main group of user
+
+  ```bash
+  usermod -g {{ group_name }} {{ user_name }}
+  ```
+
+* Add user to group
+
+  ```bash
+  usermod -a -G {{ group_name }} {{ user_name }}
+  ```
+
+* Remove user from group.
+
+  ```bash
+  usermod -G {{ remaining_group_names }} {{ user_name }}
+  ```
+
+  You have to execute `groups {{ user }}` get the list and pass the remaining to the above command
+
+* Change uid and gid of the user
+
+  ```bash
+  usermod -u {{ newuid }} {{ login }}
+  groupmod -g {{ newgid }} {{ group }}
+  find / -user {{ olduid }} -exec chown -h {{ newuid }} {} \;
+  find / -group {{ oldgid }} -exec chgrp -h {{ newgid }} {} \;
+  usermod -g {{ newgid }} {{ login }}
+  ```
+
+# Manage ssh keys
+
+*  Generate ed25519 key
+
+   ```bash
+   ssh-keygen -t ed25519 -f {{ path_to_keyfile }}
+   ```
+
+* Generate RSA key
+
+  ```bash
+  ssh-keygen -t rsa -b 4096 -o -a 100 -f {{ path_to_keyfile }}
+  ```
+
+* Generate different comment
+
+  ```bash
+  ssh-keygen -t ed25519 -f {{ path_to_keyfile }} -C {{ email }}
+  ```
+
+* Generate key headless, batch
+
+  ```bash
+  ssh-keygen -t ed25519 -f {{ path_to_keyfile }} -q -N ""
+  ```
+
+* Generate public key from private key
+
+  ```bash
+  ssh-keygen -y -f {{ path_to_keyfile }} > {{ path_to_public_key_file }}
+  ```
+
+* Get fingerprint of key
+  ```bash
+  ssh-keygen -lf {{ path_to_key }}
+  ```
+
+# [Measure the network performance between two machines](https://sidhion.com/blog/posts/zfs-syncoid-slow/)
+
+Install `iperf3` with `apt-get install iperf3` on both server and client.
+
+On the server system run:
+
+```bash
+server#: iperf3 -i 10 -s
+```
+
+Where:
+
+* `-i`: the interval to provide periodic bandwidth updates
+* `-s`: listen as a server
+
+On the client system:
+
+```bash
+client#: iperf3 -i 10 -w 1M -t 60 -c [server hostname or ip address]
+```
+
+Where:
+
+* `-i`: the interval to provide periodic bandwidth updates
+* `-w`: the socket buffer size (which affects the TCP Window). The buffer size is also set on the server by this client command.
+* `-t`: the time to run the test in seconds
+* `-c`: connect to a listening server at…
+
+
+Sometimes is interesting to test both ways as they may return different outcomes
+
+I've got the next results at home:
+
+* From new NAS to laptop through wifi 67.5 MB/s
+* From laptop to new NAS 59.25 MB/s
+* From intel Nuc to new NAS 116.75 MB/s (934Mbit/s)
+* From old NAS to new NAS 11 MB/s
+
 # [Measure the performance, IOPS of a disk](https://woshub.com/check-disk-performance-iops-latency-linux/)
 
 To measure disk IOPS performance in Linux, you can use the `fio` tool. Install it with
@@ -19,6 +130,105 @@ To do a random read/write operation test an 8 GB file will be created. Then `fio
 ```bash
 fio --randrepeat=1 --ioengine=libaio --direct=1 --gtod_reduce=1 --name=fiotest --filename=testfio --bs=4k --iodepth=64 --size=8G --readwrite=randrw --rwmixread=75
 ```
+
+I've run this test in different environments with awesome results:
+
+* New NAS server NVME: 
+  ```
+  read: IOPS=297k, BW=1159MiB/s (1215MB/s)(3070MiB/2649msec)
+   bw (  MiB/s): min= 1096, max= 1197, per=99.80%, avg=1156.61, stdev=45.31, samples=5
+   iops        : min=280708, max=306542, avg=296092.00, stdev=11598.11, samples=5
+  write: IOPS=99.2k, BW=387MiB/s (406MB/s)(1026MiB/2649msec); 0 zone resets
+   bw (  KiB/s): min=373600, max=408136, per=99.91%, avg=396248.00, stdev=15836.85, samples=5
+   iops        : min=93400, max=102034, avg=99062.00, stdev=3959.21, samples=5
+  cpu          : usr=15.67%, sys=67.18%, ctx=233314, majf=0, minf=8
+  ```
+
+* New NAS server ZFS pool with RAIDZ:
+
+  ```
+  read: IOPS=271k, BW=1059MiB/s (1111MB/s)(3070MiB/2898msec)
+   bw (  MiB/s): min=  490, max= 1205, per=98.05%, avg=1038.65, stdev=306.74, samples=5
+   iops        : min=125672, max=308484, avg=265893.20, stdev=78526.52, samples=5
+  write: IOPS=90.6k, BW=354MiB/s (371MB/s)(1026MiB/2898msec); 0 zone resets
+   bw (  KiB/s): min=167168, max=411776, per=98.26%, avg=356236.80, stdev=105826.16, samples=5
+   iops        : min=41792, max=102944, avg=89059.20, stdev=26456.54, samples=5
+  cpu          : usr=12.84%, sys=63.20%, ctx=234345, majf=0, minf=6
+  ```
+
+* Laptop NVME:
+
+  ```
+  read: IOPS=36.8k, BW=144MiB/s (151MB/s)(3070MiB/21357msec)
+   bw (  KiB/s): min=129368, max=160304, per=100.00%, avg=147315.43, stdev=6640.40, samples=42
+   iops        : min=32342, max=40076, avg=36828.86, stdev=1660.10, samples=42
+  write: IOPS=12.3k, BW=48.0MiB/s (50.4MB/s)(1026MiB/21357msec); 0 zone resets
+   bw (  KiB/s): min=42952, max=53376, per=100.00%, avg=49241.33, stdev=2151.40, samples=42
+   iops        : min=10738, max=13344, avg=12310.33, stdev=537.85, samples=42
+  cpu          : usr=14.32%, sys=32.17%, ctx=356674, majf=0, minf=7
+  ```
+
+* Laptop ZFS pool through NFS (running in parallel with other network processes):
+  
+  ```
+  read: IOPS=4917, BW=19.2MiB/s (20.1MB/s)(3070MiB/159812msec)
+   bw (  KiB/s): min=16304, max=22368, per=100.00%, avg=19681.46, stdev=951.52, samples=319
+   iops        : min= 4076, max= 5592, avg=4920.34, stdev=237.87, samples=319
+  write: IOPS=1643, BW=6574KiB/s (6732kB/s)(1026MiB/159812msec); 0 zone resets
+   bw (  KiB/s): min= 5288, max= 7560, per=100.00%, avg=6577.35, stdev=363.32, samples=319
+   iops        : min= 1322, max= 1890, avg=1644.32, stdev=90.82, samples=319
+  cpu          : usr=5.21%, sys=10.59%, ctx=175825, majf=0, minf=8
+  ```
+
+* Intel Nuc server disk SSD:
+  ```
+    read: IOPS=11.0k, BW=46.9MiB/s (49.1MB/s)(3070MiB/65525msec)
+   bw (  KiB/s): min=  280, max=73504, per=100.00%, avg=48332.30, stdev=25165.49, samples=130
+   iops        : min=   70, max=18376, avg=12083.04, stdev=6291.41, samples=130
+  write: IOPS=4008, BW=15.7MiB/s (16.4MB/s)(1026MiB/65525msec); 0 zone resets
+   bw (  KiB/s): min=   55, max=24176, per=100.00%, avg=16153.84, stdev=8405.53, samples=130
+   iops        : min=   13, max= 6044, avg=4038.40, stdev=2101.42, samples=130
+  cpu          : usr=8.04%, sys=25.87%, ctx=268055, majf=0, minf=8
+  ```
+
+* Intel Nuc server external HD usb disk :
+  ```
+  ```
+
+* Intel Nuc ZFS pool through NFS (running in parallel with other network processes):
+
+  ```
+    read: IOPS=18.7k, BW=73.2MiB/s (76.8MB/s)(3070MiB/41929msec)
+   bw (  KiB/s): min=43008, max=103504, per=99.80%, avg=74822.75, stdev=16708.40, samples=83
+   iops        : min=10752, max=25876, avg=18705.65, stdev=4177.11, samples=83
+  write: IOPS=6264, BW=24.5MiB/s (25.7MB/s)(1026MiB/41929msec); 0 zone resets
+   bw (  KiB/s): min=14312, max=35216, per=99.79%, avg=25003.55, stdev=5585.54, samples=83
+   iops        : min= 3578, max= 8804, avg=6250.88, stdev=1396.40, samples=83
+  cpu          : usr=6.29%, sys=13.21%, ctx=575927, majf=0, minf=10
+  ```
+
+* Old NAS with RAID5:
+  ```
+  read : io=785812KB, bw=405434B/s, iops=98, runt=1984714msec
+  write: io=262764KB, bw=135571B/s, iops=33, runt=1984714msec
+  cpu          : usr=0.16%, sys=0.59%, ctx=212447, majf=0, minf=8
+  ```
+
+Conclusions:
+
+* New NVME are **super fast** (1215MB/s read, 406MB/s write)
+* ZFS rocks, with a RAIDZ1, L2ARC and ZLOG it returned almost the same performance as the NVME ( 1111MB/s read, 371MB/s write)
+* Old NAS with RAID is **super slow** (0.4KB/s read, 0.1KB/s write!)
+* I should replace the laptop's NVME, the NAS one has 10x performace both on read and write.
+
+There is a huge difference between ZFS in local and through NFS. In local you get (1111MB/s read and 371MB/s write) while through NFS I got (20.1MB/s read and 6.7MB/s write). I've measured the network performance between both machines with `iperf3` and got:
+
+* From NAS to laptop 67.5 MB/s
+* From laptop to NAS 59.25 MB/s
+
+It was because I was running it over wifi.
+
+From the Intel nuc to the new server I get 76MB/s read and 25.7MB/s write. Still a huge difference though against the local transfer. The network speed measured with `iperf3` are 116 MB/s.
 
 # [Use a `pass` password in a Makefile](https://stackoverflow.com/questions/20671511/how-do-i-get-make-to-prompt-the-user-for-a-password-and-store-it-in-a-makefile)
 

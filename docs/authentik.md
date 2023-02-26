@@ -228,7 +228,9 @@ It assumes that:
 * You've changed `git.your-domain.org` with your gitea domain.
 * The gitea logo is mounted in the docker directory `/media/application-icons/gitea.svg`.
 
-Gitea can be configured through terraform too. There is an [official provider](https://gitea.com/gitea/terraform-provider-gitea/src/branch/main) that doesn't work, there's a [fork that does though[(https://registry.terraform.io/providers/Lerentis/gitea/latest/docs). Sadly it doesn't yet support configuring Oauth Authentication sources. Be careful [`gitea_oauth2_app`](https://registry.terraform.io/providers/Lerentis/gitea/latest/docs/resources/oauth2_app) looks to be the right resource to do that, but instead it configures Gitea to be the Oauth provider, not a consumer.
+Gitea can be configured through terraform too. There is an [official provider](https://gitea.com/gitea/terraform-provider-gitea/src/branch/main) that doesn't work, there's a [fork that does though[(https://registry.terraform.io/providers/Lerentis/gitea/latest/docs). Sadly it doesn't yet support configuring Oauth Authentication sources. So you'll need to configure it manually.
+
+Be careful [`gitea_oauth2_app`](https://registry.terraform.io/providers/Lerentis/gitea/latest/docs/resources/oauth2_app) looks to be the right resource to do that, but instead it configures Gitea to be the Oauth provider, not a consumer.
 
 ## [Configure the invitation flow](https://yewtu.be/watch?v=mGOTpRfulfQ)
 
@@ -423,12 +425,6 @@ We need to define how the flow is going to behave by adding the different the st
   EOT
     placeholder_expression = true
     required = true
-    # Until https://github.com/goauthentik/terraform-provider-authentik/issues/298 is fixed
-    lifecycle {
-      ignore_changes = [
-        placeholder,
-      ]
-    }
   }
 
   resource "authentik_stage_prompt_field" "name" {
@@ -444,12 +440,6 @@ We need to define how the flow is going to behave by adding the different the st
   EOT
     placeholder_expression = true
     required = true
-    # Until https://github.com/goauthentik/terraform-provider-authentik/issues/298 is fixed
-    lifecycle {
-      ignore_changes = [
-        placeholder,
-      ]
-    }
   }
 
   resource "authentik_stage_prompt_field" "email" {
@@ -465,12 +455,6 @@ We need to define how the flow is going to behave by adding the different the st
   EOT
     placeholder_expression = true
     required = true
-    # Until https://github.com/goauthentik/terraform-provider-authentik/issues/298 is fixed
-    lifecycle {
-      ignore_changes = [
-        placeholder,
-      ]
-    }
   }
 
   resource "authentik_stage_prompt_field" "password" {
@@ -562,9 +546,181 @@ We need to define how the flow is going to behave by adding the different the st
 
 ## [Configure password recovery](https://www.youtube.com/watch?v=NKJkYz0BIlA)
 
-You need to create an identification stage:
+Recovery of password is not enabled by default, to configure it you need to create two new stages:
 
+* An identification stage:
+  
+  ```terraform
+  data "authentik_source" "built_in" {
+    managed = "goauthentik.io/sources/inbuilt"
+  }
 
+  resource "authentik_stage_identification" "recovery" {
+    name           = "recovery-authentication-identification"
+    user_fields    = ["username", "email"]
+    sources = [data.authentik_source.built_in.uuid]
+    case_insensitive_matching = true
+  }
+  ```
+
+* An Email recovery stage: 
+
+  ```terraform
+  resource "authentik_stage_email" "recovery" {
+    name                     = "recovery-email"
+    activate_user_on_success = true
+    subject                  = "Password Recovery"
+    template                 = "email/password_reset.html"
+    timeout                  = 10
+  }
+  ```
+
+* We will reuse two existing stages too:
+  
+  ```terraform
+  data "authentik_stage" "default_password_change_prompt" {
+    name = "default-password-change-prompt"
+  }
+
+  data "authentik_stage" "default_password_change_write" {
+    name = "default-password-change-write"
+  }
+  ```
+
+Then we need to create the recovery flow and bind all the stages:
+
+```terraform
+resource "authentik_flow" "password_recovery" {
+  name        = "Password Recovery"
+  title       = "Password Recovery"
+  slug        = "password-recovery"
+  designation = "recovery"
+}
+
+resource "authentik_flow_stage_binding" "recovery_identification" {
+  target = authentik_flow.password_recovery.uuid
+  stage  = authentik_stage_identification.recovery.id
+  order  = 0
+}
+
+resource "authentik_flow_stage_binding" "recovery_email" {
+  target = authentik_flow.password_recovery.uuid
+  stage  = authentik_stage_email.recovery.id
+  order  = 10
+}
+
+resource "authentik_flow_stage_binding" "recovery_password_change" {
+  target = authentik_flow.password_recovery.uuid
+  stage  = data.authentik_stage.default_password_change_prompt.id
+  order  = 20
+}
+
+resource "authentik_flow_stage_binding" "recovery_password_write" {
+  target = authentik_flow.password_recovery.uuid
+  stage  = data.authentik_stage.default_password_change_write.id
+  order  = 30
+}
+```
+
+Finally we need to enable it in the site's authentication flow. To be able to do change the default flow we'd need to do two manual steps, so to have all the code in terraform we will create a new tenancy for our site and a new authentication flow.
+
+Starting with the authentication flow we need to create the Flow, stages and stage bindings.
+
+```terraform
+# -----------
+# -- Flows --
+# -----------
+
+resource "authentik_flow" "authentication" {
+  name        = "Welcome to Authentik!"
+  title        = "Welcome to Authentik!"
+  slug        = "custom-authentication-flow"
+  designation = "authentication"
+  authentication = "require_unauthenticated"
+  compatibility_mode = false
+}
+
+# ------------
+# -- Stages --
+# ------------
+
+resource "authentik_stage_identification" "authentication" {
+  name           = "custom-authentication-identification"
+  user_fields    = ["username", "email"]
+  password_stage = data.authentik_stage.default_authentication_password.id
+  case_insensitive_matching = true
+  recovery_flow = authentik_flow.password_recovery.uuid
+}
+
+data "authentik_stage" "default_authentication_mfa_validation" {
+  name = "default-authentication-mfa-validation"
+}
+
+data "authentik_stage" "default_authentication_login" {
+  name = "default-authentication-login"
+}
+
+data "authentik_stage" "default_authentication_password" {
+  name = "default-authentication-password"
+}
+
+# -------------------
+# -- Stage binding --
+# -------------------
+
+resource "authentik_flow_stage_binding" "login_identification" {
+  target = authentik_flow.authentication.uuid
+  stage  = authentik_stage_identification.authentication.id
+  order  = 10
+}
+
+resource "authentik_flow_stage_binding" "login_mfa" {
+  target = authentik_flow.authentication.uuid
+  stage  = data.authentik_stage.default_authentication_mfa_validation.id
+  order  = 20
+}
+
+resource "authentik_flow_stage_binding" "login_login" {
+  target = authentik_flow.authentication.uuid
+  stage  = data.authentik_stage.default_authentication_login.id
+  order  = 30
+}
+```
+
+Now we can bind it to the new tenant for our site:
+
+```terraform
+# ------------
+# -- Tenant --
+# ------------
+
+resource "authentik_tenant" "default" {
+  domain         = "your-domain.org"
+  default        = false
+  branding_title = "Authentik"
+  branding_logo = "/static/dist/assets/icons/icon_left_brand.svg"
+  branding_favicon = "/static/dist/assets/icons/icon.png"
+  flow_authentication = authentik_flow.authentication.uuid
+  # We need to define id instead of uuid until 
+  # https://github.com/goauthentik/terraform-provider-authentik/issues/305
+  # is fixed.
+  flow_invalidation = data.authentik_flow.default_invalidation_flow.id
+  flow_user_settings = data.authentik_flow.default_user_settings_flow.id
+  flow_recovery = authentik_flow.password_recovery.uuid
+}
+
+# -----------
+# -- Flows --
+# -----------
+
+data "authentik_flow" "default_invalidation_flow" {
+  slug = "default-invalidation-flow"
+}
+
+data "authentik_flow" "default_user_settings_flow" {
+  slug = "default-user-settings-flow"
+}
+```
 
 ## [Use blueprints](https://goauthentik.io/developer-docs/blueprints/)
 

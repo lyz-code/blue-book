@@ -124,7 +124,7 @@ vim.keymap.set({mode}, {lhs}, {rhs}, {opts})
   * `silent`: A boolean. Determines whether or not the keybindings can show a message. The default value is `false`.
   * `expr`: A boolean. If enabled it gives the chance to use vimscript or lua to calculate the value of `{rhs}`. The default value is `false`.
 
-### The leader key
+### [The leader key](https://www.reddit.com/r/vim/wiki/the_leader_mechanism/)
 
 When creating keybindings we can use the special sequence `<leader>` in the `{lhs}` parameter, it'll take the value of the global variable mapleader.
 
@@ -141,6 +141,35 @@ vim.keymap.set('n', '<leader>w', '<cmd>write<cr>')
 ```
 
 This will make `<space key>` + `w` save the current file.
+
+There are different opinions on what key to use as the `<leader>` key. The `<space>` is the most comfortable as it's always close to your thumbs, and it works well with both hands. Nevertheless, you can only use it in normal mode, because in insert `<space><whatever>` will be triggered as you write. An alternative is to use `;` which is also comfortable (if you use the english key distribution) and you can use it in insert mode. 
+
+If you [want to define more than one leader key](https://stackoverflow.com/questions/30467660/can-we-define-more-than-one-leader-key-in-vimrc) you can either:
+
+* Change the `mapleader` many times in your file: As the value of `mapleader` is used at the moment the mapping is defined, you can indeed change that while plugins are loading. For that, you have to explicitly `:runtime` the plugins in your `~/.vimrc` (and count on the canonical include guard to prevent redefinition later):
+
+  ```vim
+  let mapleader = ','
+  runtime! plugin/NERD_commenter.vim
+  runtime! ...
+  let mapleader = '\'
+  runime! plugin/mark.vim
+  ...
+  ```
+* Use the keys directly instead of using `<leader>` 
+  
+  ```vim
+  " editing mappings
+  nnoremap ,a <something>
+  nnoremap ,k <something else>
+  nnoremap ,d <and something else>
+
+  " window management mappings
+  nnoremap gw <something>
+  nnoremap gb <something else>
+  ```
+
+Defining `mapleader` and/or using `<leader>` may be useful if you change your mind often on what key to use a leader but it won't be of any use if your mappings are stable.
 
 ## Spelling
 
@@ -852,6 +881,16 @@ endfunction
 ```
 
 Now you need to run `:call Rm()`.
+
+# Task management
+
+Check the [`nvim-orgmode`](orgmode.md) file.
+
+### References
+
+* [Source](https://github.com/nvim-orgmode/orgmode#agenda)
+* [Getting started guide](https://github.com/nvim-orgmode/orgmode/wiki/Getting-Started)
+* [Docs](https://github.com/nvim-orgmode/orgmode/blob/master/DOCS.md)
 
 # Troubleshooting
 

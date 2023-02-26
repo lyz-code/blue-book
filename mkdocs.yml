@@ -24,8 +24,10 @@ nav:
       - Time Management: time_management.md
       - Task Management:
           - task_management.md
+          - Getting Things Done: gtd.md
           - Task Management Tools:
               - task_tools.md
+              - Org Mode: orgmode.md
               - OpenProject: openproject.md
           - Task Management Workflows: task_workflows.md
       - Life review: life_review.md
@@ -329,7 +331,10 @@ nav:
       - Storage:
           - storage.md
           - NAS: nas.md
-          - OpenZFS: linux/zfs.md
+          - OpenZFS: 
+            - linux/zfs.md
+            - OpenZFS storage planning: zfs_storage_planning.md
+            - Sanoid: sanoid.md
       - Monitoring:
           - Monitoring Comparison: monitoring_comparison.md
           - Prometheus:
@@ -406,6 +411,7 @@ nav:
           - Pipx: pipx.md
           - Profanity: profanity.md
           - rm: linux/rm.md
+          - sed: sed.md
           - Libreelec: libreelec.md
           - Torrents:
               - torrents.md
