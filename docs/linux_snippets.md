@@ -4,6 +4,60 @@ date: 20200826
 author: Lyz
 ---
 
+# [Force umount nfs mounted directory](https://stackoverflow.com/questions/40317/force-unmount-of-nfs-mounted-directory)
+
+```bash
+umount -l path/to/mounted/dir
+```
+
+# [Configure fstab to mount nfs](https://linuxopsys.com/topics/linux-nfs-mount-entry-in-fstab-with-example)
+
+NFS stands for ‘Network File System’. This mechanism allows Unix machines to share files and directories over the network. Using this feature, a Linux machine can mount a remote directory (residing in a NFS server machine) just like a local directory and can access files from it.
+
+An NFS share can be mounted on a machine by adding a line to the `/etc/fstab` file.
+
+The default syntax for `fstab` entry of NFS mounts is as follows.
+
+```
+Server:/path/to/export /local_mountpoint nfs <options> 0 0
+```
+
+Where:
+
+* `Server`: The hostname or IP address of the NFS server where the exported directory resides.
+* `/path/to/export`: The shared directory (exported folder) path.
+* `/local_mountpoint`: Existing directory in the host where you want to mount the NFS share.
+
+You can specify a number of options that you want to set on the NFS mount:
+
+* `soft/hard`: When the mount option `hard` is set, if the NFS server crashes or becomes unresponsive, the NFS requests will be retried indefinitely. You can set the mount option `intr`, so that the process can be interrupted. When the NFS server comes back online, the process can be continued from where it was while the server became unresponsive.
+
+  When the option `soft` is set, the process will be reported an error when the NFS server is unresponsive after waiting for a period of time (defined by the `timeo` option). In certain cases `soft` option can cause data corruption and loss of data. So, it is recommended to use `hard` and `intr` options.
+
+* `noexec`: Prevents execution of binaries on mounted file systems. This is useful if the system is mounting a non-Linux file system via NFS containing incompatible binaries.
+* `nosuid`: Disables set-user-identifier or set-group-identifier bits. This prevents remote users from gaining higher privileges by running a setuid program.
+* `tcp`: Specifies the NFS mount to use the TCP protocol.
+* `udp`: Specifies the NFS mount to use the UDP protocol.
+* `nofail`: Prevent issues when rebooting the host. The downside is that if you have services that depend on the volume to be mounted they won't behave as expected.
+
+# [Fix limit on the number of inotify watches](https://stackoverflow.com/questions/47075661/error-user-limit-of-inotify-watches-reached-extreact-build)
+
+Programs that sync files such as dropbox, git etc use inotify to notice changes to the file system. The limit can be see by -
+
+```bash
+cat /proc/sys/fs/inotify/max_user_watches
+```
+
+For me, it shows `65536`. When this limit is not enough to monitor all files inside a directory it throws this error.
+
+If you want to increase the amount of inotify watchers, run the following in a terminal:
+
+```bash
+echo fs.inotify.max_user_watches=100000 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+```
+
+Where `100000` is the desired number of inotify watches.
+
 # [What is `/var/log/tallylog`](https://www.tecmint.com/use-pam_tally2-to-lock-and-unlock-ssh-failed-login-attempts/)
 
 `/var/log/tallylog` is the file where the `PAM` linux module (used for authentication of the machine) keeps track of the failed ssh logins in order to temporarily block users.

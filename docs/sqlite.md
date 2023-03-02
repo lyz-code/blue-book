@@ -80,6 +80,26 @@ create the regexp function](sqlite3.md#regexp).
 
 # Snippets
 
+## [Import a table from another database](https://stackoverflow.com/questions/13206501/how-do-i-import-tables-from-another-database-in-sqlite)
+
+If you have an SQLite databases named `database1` with a table `t1` and `database2` with a table `t2` and want to import table `t2` from `database2` into `database1`. You need to open `database1` with `litecli`:
+
+```bash
+litecli database1
+```
+
+Attach the other database with the command:
+
+```sqlite
+ATTACH 'database2file' AS db2;
+```
+
+Then create the table `t2`, and copy the data over with:
+
+```sqlite
+INSERT INTO t2 SELECT * FROM db2.t2;
+```
+
 ## [Get the columns of a database](https://stackoverflow.com/questions/947215/how-to-get-a-list-of-column-names-on-sqlite3-database)
 
 ```sqlite

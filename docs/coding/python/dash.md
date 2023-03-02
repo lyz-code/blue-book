@@ -4,8 +4,8 @@ date: 20201107
 author: Lyz
 ---
 
-!!! note
-        "Use [Streamlit](https://docs.streamlit.io/) instead!"
+!!! note "Use [Streamlit](https://docs.streamlit.io/) instead!"
+    I've loved Dash since it was born, they made a big breakthrough with it. Nevertheless, streamlit is a better tool now. It has been built after Dash learning from it's improvable points thus making it much more comfortable to use and advisable for people that don't know either of the libraries.
 
 [Dash](https://dash.plotly.com/) is a productive Python framework for building
 web analytic applications.

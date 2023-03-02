@@ -31,6 +31,24 @@ cd anki-2.1.XX-linux-qt6
 sudo ./install.sh
 ```
 
+# Anki workflow 
+
+## How long to do study sessions
+
+I have two study modes:
+
+* When I'm up to date with my cards, I study them until I finish, but usually less than 15 minutes.
+* If I have been lazy and haven't checked them in a while (like now) I assume I'm not going to see them all and define a limited amount of time to review them, say 10 to 20 minutes depending on the time/energy I have at the moment. 
+
+The relief thought you can have is that as long as you keep a steady pace of 10/20 mins each day, inevitably you'll eventually finish your pending cards as you're more effective reviewing cards than entering new ones
+
+## What to do with "hard" cards
+
+If you're afraid to be stuck in a loop of reviewing "hard" cards, don't be. In reality after you've seen that "hard" card three times in a row you won't mark it as hard again, because you will remember. If you don't maybe there are two reasons:
+
+* The card has too much information that should be subdivided in smaller cards.
+* You're not doing a good process of memorizing the contents once they show up.
+
 # Interacting with python
 
 ## Configuration

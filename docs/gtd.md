@@ -1,5 +1,5 @@
 [Getting things done](https://en.wikipedia.org/wiki/Getting_Things_Done), commonly known as GTD is a task management method created by David Allen and published in a book of the same name.
-
+- 
 The GTD method rests on the idea of moving all items of interest, relevant information, issues, tasks and projects out of one's mind by recording them externally and then breaking them into actionable work items with known time limits. This allows one's attention to focus on taking action on each task listed in an external record, instead of recalling them intuitively.
 
 # Theory principles
@@ -148,7 +148,7 @@ The basic purpose of this workflow management process is to facilitate good choi
 
 First you need to get an awareness of your state. At any point in time you're limited to do the tasks that meet your:
 
-* Context: Most actions need to be done on a specific location or having some tool at hand.
+* Context: Most actions need to be done on a specific location or having some tool at hand. You can use tags to filter the actions available to your context.
 * Time available.
 * Energy available.
 
@@ -181,17 +181,67 @@ Choose a physical location to serve as as your central cockpit of control. If yo
 
 The basics for a workspace are just a writing surface and room for an in-tray.
 
-## Setting up your filing system
+## Capture all your stuff
+
+The focus of this process is to capture *everything* that has your attention, otherwise some part of you will still not totally trust that you're working with the whole picture. While you're doing it, create a list of all the sources of inputs in your world. 
+
+What you're going to do is methodically go through each piece of your life and search for anything that doesn’t permanently belong where it is, the way it is, and put it into your in-tray. You’ll be gathering things that are incomplete or things that have some decision about potential action tied to them. They all go into your “inbox”, so they’ll be available for later processing.
+
+Be patient, this process may take between 1 and 6 hours, and at the end you'll have a huge pile of stuff in your inbox. You might be scared and get the thought of "what am I doing with my life?", but don't worry you'll get everything in order soon :).
+
+### Define what is going to be your in-tray
+
+To be able to store all the "stuff" that needs to be dealt with you need to define what is your in-tray going to be, some suggestions are:
+
+* A clear room: Make some space somewhere at the location you're going to do the gathering to pile physical stuff
+* A physical or digital list.
+
+### Physical gathering
+
+The first activity is to search your physical environment. The best way to create a clean decision about whether something should go into the in-tray is to understand clearly what shouldn’t go in. Here are the four categories of things that can remain where they are, the way they are, with no action tied to them:
+
+* Supplies: Anything you need to keep because you use it regularly. 
+* Reference Material: Anything you simply keep for information as needed. This category includes manuals, all your telephone and address information, any material relevant to projects, themes, and topics. It also includes books and magazines that you may be keeping as a library.
+* Decoration.
+* Equipment: Your phone, computer, printer, wastebasket, furniture, clock, chargers, pens, and notepads.
+
+Everything else goes into your inbox. But many of the things you might initially interpret as supplies, reference, decoration, or equipment could also have action associated with them because they still aren’t exactly the way they need to be.
+
+As you engage in the capturing step, you may run into one or more of the following problems:
+
+* An item is too big to go in the in-tray: create a post it that represents it or add it as an entry in your digital inbox- .
+
+## Decide how to handle the sources of inputs
+
+Now that you know where do your inputs come from you need to think how do you want to manage them from now on to ensure that you're able to be able to continuously capture items in a frictionless way.
+
+## Setting your containers
+
+### Setting up your filing system
 
 You will resist the whole process of capturing information if your reference systems are not fast, functional, and fun. Thus you need to envision a system at hand that supports both physical and digital content. Without a streamlined system for both, you will resist keeping potentially valuable information, or what you do keep will accumulate in inappropriate places. 
 
 We’re concerned here mostly with general-reference filing, anything that you want to keep for its interesting or useful data or purpose and that doesn’t fit into your specialized filing systems and won’t stand up by itself on a shelf. For example articles, brochures, pieces of paper, notes, printouts, documents, and even physical things like tickets, keys, buyers-club membership cards, and flash drives.
 
-It should take you less than one minute to pick something up out of your in-tray, decide it needs no next action but has some potential future value, and finish storing it in a trusted system. If it takes longer, you’ll likely stack it or stuff it somewhere instead. Besides being fast, the system needs to be fun and easy, current and complete. Otherwise you’ll unconsciously resist emptying your in-tray because you know there’s likely to be something in there that ought to get filed, and you won’t even want to look at the papers or your clogged e-mail.
+It should take you less than one minute to pick something up out of your in-tray, decide it needs no next action but has some potential future value, and finish storing it in a trusted system. If it takes longer, you’ll likely stack it or stuff it somewhere instead. Besides being fast, the system needs to be fun and easy, current and complete. Otherwise you’ll unconsciously resist emptying your in-tray because you know there’s likely to be something in there that ought to get filed, and you won’t even want to look at the papers or your clogged e-mail. If you have to get up every time you have some ad hoc piece of paper you want to file, or you have to search multiple places on your computer for an appropriate location for a piece of information you want to keep, you’ll tend to stack it or leave it in its original place instead of filing it.
 
 You must feel equally comfortable about filing a single piece of paper on a new topic, even a scribbled note, in its own file as you would about filing a more formal, larger document.
 
-Whatever you need to do to get your reference system to that quick and easy standard for everything it has to hold, do it.
+Whatever you need to do to get your reference system to that quick and easy standard for everything it has to hold, do it. For example purge your files at least once a year, that keeps it from going stale and becoming the dreaded black hole- .
+
+### Digital general reference
+
+It is very helpful to have a visual map sorted in ways that make sense, either by indexes or data groups organized effectively, usually in an alphabetic order.
+
+The biggest issue for digitally oriented people is that the ease of capturing and storing has generated a write-only syndrome: all they’re doing is capturing information—not actually accessing and using it intelligently. Some consciousness needs to be applied to keep one’s potentially huge digital library functional, versus a black hole of data easily dumped in there with a couple of keystrokes.
+
+You need to consistently check how much room to give yourself so that the content remains meaningfully and easily accessible, without creating a black hole of an inordinate amount of information amorphously organized. 
+
+### Physical general reference
+
+One idea is to have one system/place where you order the content alphabetically, not multiple ones. People have a tendency to want to use their files as a personal management system, and therefore they attempt to organize them in groupings by projects or areas of focus. This magnifies geometrically the number of places something isn’t when you forget where you filed it.
+
+### Physical stuff
 
 # Unclassified thoughts
 

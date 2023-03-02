@@ -65,6 +65,10 @@ require('orgmode').setup({
 })
 ```
 
+## Be ready when breaking changes come
+
+The developers have [created an issue](https://github.com/nvim-orgmode/orgmode/issues/217) to track breaking changes, subscribe to it so you're notified in advance.
+
 # Usage
 
 If you are new to Orgmode, check the [vim Dotoo video](https://www.youtube.com/watch?v=nsv33iOnH34), it's another plugin but the developers say it's the same. If you, like me, prefer written tutorials check the hands-on [tutorial](https://github.com/nvim-orgmode/orgmode/wiki/Getting-Started).
@@ -496,11 +500,50 @@ org = {
   org_archive_subtree = ';A',
 }
 
+There are some work in progress to improve archiving in the next issues [1](https://github.com/nvim-orgmode/orgmode/issues/413), [2](https://github.com/nvim-orgmode/orgmode/issues/369)
+
 ## Refiling
 
-When you press the refile key binding you are supossed to press `<tab>` to see the available options, once you select the correct file, if you will be shown a autocomplete with the possible items to refile it to.
+Refiling lets you easily move around elements of your org file, such as headings or TODOs. You can refile with `<leader>r` with the next snippet:
 
-Luckily there is [a Telescope plugin](https://github.com/joaomsa/telescope-orgmode.nvim).
+```lua
+org = {
+  org_refile = '<leader>r',
+}
+```
+
+When you press the refile key binding you are supposed to press `<tab>` to see the available options, once you select the correct file, if you will be shown a autocomplete with the possible items to refile it to. Luckily there is [a Telescope plugin](https://github.com/joaomsa/telescope-orgmode.nvim).
+
+Install it by adding to your plugin config:
+
+```lua
+use 'joaomsa/telescope-orgmode.nvim'
+```
+
+Then install it with `:PackerInstall`.
+
+You can setup the extension by doing:
+
+```lua
+require('telescope').load_extension('orgmode')
+```
+
+To replace the default refile prompt:
+
+```lua
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'org',
+  group = vim.api.nvim_create_augroup('orgmode_telescope_nvim', { clear = true })
+  callback = function()
+    vim.keymap.set('n', '<leader>r', require('telescope').extensions.orgmode.refile_heading)
+    vim.keymap.set('n', '<leader>g', require('telescope').extensions.orgmode.search_headings)
+  end,
+})
+```
+
+If the auto command doesn't override the default `orgmode` one, bind it to another keys and never use it.
+
+The plugin also allows you to use `telescope` to search through the headings of the different files with `search_headings`, with the configuration above you'd use `<leader>g`.
 
 ## Agenda
 
@@ -586,3 +629,8 @@ Some interesting features for the future are:
 ## Sometimes <c-cr> doesn't work
 
 Close the terminal and open a new one (pooooltergeist!).
+
+# References
+
+* [Source](https://github.com/nvim-orgmode/orgmode)
+* [Docs](https://nvim-orgmode.github.io/)

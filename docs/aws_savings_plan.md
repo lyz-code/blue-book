@@ -171,7 +171,7 @@ Plans. You can monitor your usage in multiple forms.
     calculated based on how your Savings Plans applied to your usage over the
     lookback period.
 
-    For example, if you have a $10/ hour commitment, and your usage billed with
+    For example, if you have a 10 $/hour commitment, and your usage billed with
     Savings Plans rates totals to $9.80 for the hour, your utilization for that
     hour is 98 percent.
 
@@ -195,7 +195,7 @@ Plans. You can monitor your usage in multiple forms.
 * [Using the coverage
     report](https://docs.aws.amazon.com/savingsplans/latest/userguide/ce-sp-usingCR.html):
     The Savings Plans coverage report shows how much of your eligible spend was
-    covered by your Savings Plans, based on the selected time period.
+    covered by your Savings Plans and how much is not covered by either Savings plan or Reserved instances based on the selected time period. 
 
     You can find the following high-level metrics in the Coverage report section:
 
@@ -214,7 +214,15 @@ Plans. You can monitor your usage in multiple forms.
     * On the navigation pane, choose Savings Plans.
     * In the left pane, choose Coverage report.
 
-# [Doing your savings plan]()
+    The columns are a bit tricky:
+
+    * "Spend covered by Savings Plan": Refers to the on demand usage amount that you would have paid on demand that is being covered by the Savings Plans. Not the Savings Plan amount that is applied to on demand usage.
+
+    The coverage report of the reserved instances has the same trick on the columns:
+
+    * "Reservation covered hours": the column does not refer to your RI hours. This column refers to your on demand hours that was covered by Reserved Instances.
+
+# Doing your savings plan
 
 Go to the [AWS savings plan
 simulator](https://aws.amazon.com/savingsplans/compute-pricing/) and check the

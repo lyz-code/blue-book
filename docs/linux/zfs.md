@@ -241,6 +241,8 @@ And then mount it with:
 mount -t nfs hostname.example.com:/srv /mnt
 ```
 
+To permanently mount it you need to add it to your `/etc/fstab`, check [this section for more details](linux_snippets.md#configure-fstab-to-mount-nfs).
+
 # Backup
 
 Please remember that [RAID is not a backup](https://serverfault.com/questions/2888/why-is-raid-not-a-backup), it guards against one kind of hardware failure. There's lots of failure modes that it doesn't guard against though:

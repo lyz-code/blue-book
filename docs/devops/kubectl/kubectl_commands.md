@@ -223,6 +223,16 @@ sel=${$(kubectl get rc my-rc --output=json | jq -j '.spec.selector | to_entries 
 echo $(kubectl get pods --selector=$sel --output=jsonpath={.items..metadata.name})
 ```
 
+### [Show the remaining space of a persistent volume claim](https://stackoverflow.com/questions/53200828/how-to-identify-the-storage-space-left-in-a-persistent-volume-claim)
+
+Either look it in Prometheus or run in the pod that has the PVC mounted:
+
+```bash
+kubectl -n <namespace> exec <pod-name> -- df -ah
+```
+
+You may need to use `kubectl get pod <pod-name> -o yaml` to know what volume is mounted where.
+
 ## Services
 
 ### List services in namespace

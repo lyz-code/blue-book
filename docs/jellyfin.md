@@ -14,6 +14,122 @@ just a team who want to build something better and work together to achieve it.
 
 # Troubleshooting
 
+## Corrupt: SQLitePCL.pretty.SQLiteException: database disk image is malformed
+
+If your server log file shows SQLite errors like the following example your jellyfin.db file needs attention.
+
+```
+'SQLitePCL.pretty.SQLiteException'
+```
+
+Typical causes of this are sudden and abrupt terminations of the Emby server process, such as a power loss, operating system crash, force killing the server process, etc.
+
+### [Solutions to Try in This Order](https://support.emby.media/support/solutions/articles/44002210894-corrupt-database)
+
+#### Remove Database Locks
+
+1. Shutdown Jellyfin
+2. Navigate to the folder containing your database file
+3. Delete `library.db-shm` and `library.db-wal`
+4. Restart Jellyfin
+
+Check you server log for SQLite errors and only continue to the next step if needed.
+
+#### Check Database Integrity and Recover Database
+
+This step will require the use of a SQLite editor, I recommend `litecli` installable with `pip`.
+
+##### Run Integrity Check
+
+Open the library.db database and run the following SQL command:
+
+```
+PRAGMA integrity_check
+```
+
+This should return an `integrity_check` back of `OK` with no errors reported. If errors are reported we need to recover the database.
+
+##### Recover library.db
+
+What we need to do is: 
+
+* Dump all data from the database to a text file and then reload this back to another freshly created database. Run the following command line:
+
+  ```bash
+  sqlite3 library.db ".recover" | sqlite3 library-recovered.db
+  ```
+
+  `sqlite3` can be installed with `apt-get install sqlite3`.
+
+* We will now check the integrity of our recovered database (as above) using:
+
+  ```bash
+  sqlite3 library-recovered.db "PRAGMA integrity_check"
+  ```
+
+  This should return an `integrity_check` back of "OK" with no errors reported. If errors are reported please report this in the jellyfin issues before proceeding to Reset the Library Database. If OK and no errors are reported continue with the next step.
+
+* Make a copy of both `library.db` and `library-recovered.db`
+  
+  ```bash
+  mkdir broken-dbs
+  cp library* broken-dbs
+  ```
+
+* Rename `library.db` to library.old
+  
+  ```bash
+  mv library.db library.old
+  ```
+
+* Rename library-recoved.db to library.db
+
+  ```bash
+  mv library-recovered.db library.db
+  ```
+
+* Restart Jellyfin Server
+
+  ```bash
+  service jellyfin stop
+  service jellyfin start
+  ```
+
+Check you server log for SQLite errors and only continue to the next step if needed.
+
+#### Reset Library Database & Load Fresh
+
+* Shutdown Jellyfin
+* Do a copy of all your databases, copy the parent directory where your `.db` files are to `bk.data`
+* Rename `library.db` to `library.corrupt`
+* Restart Jellyfin
+* Run a Full Library Scan
+
+#### Move all the journal databases away
+
+Finally I moved all the '*-journal' files to a directory, copied again the `library-recovered.db` to `library.db`, started the server, do a full scan.
+
+### Check the watched history
+
+Last time I followed these steps I lost part of the visualization history for the users (yikes!). So check that everything is alright.
+
+If it's not follow [these steps](#restore-watched-history)
+
+## Restore watched history
+
+Jellyfin stores the watched information in one of the `.db` files, there are two ways to restore it:
+
+* Using scripts that interact with the API like [`jelly-jar`](https://github.com/mueslimak3r/jelly-jar) or [`jellyfin-backup-watched`](https://github.com/jab416171/jellyfin-backup-watched)
+* Running sqlite queries on the database itself.
+
+The user data is stored in the table `UserDatas` table in the `library.db` database file. The media data is stored in the `TypedBaseItems` table of the same database. 
+
+Comparing the contents of the tables of the broken database (lost watched content) and a backup database, I've seen that the media content is the same after a full library rescan, so the issue was fixed after injecting the missing user data from the backup to the working database through the [importing a table from another database](sqlite.md#import-a-table-from-another-database) sqlite operation.
+
+## ReadOnly: SQLitePCL.pretty.SQLiteException: attempt to write a readonly database
+
+Some of the database files of Jellyfin is not writable by the jellyfin user, check if you changed the ownership of the files, for example in the process of restoring a database file from backup.
+
 ## Wrong image covers
 
 Remove all the `jpg` files of the directory and then fetch again the data from
