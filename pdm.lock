@@ -286,7 +286,7 @@ dependencies = [
 
 [[package]]
 name = "mkdocs-material"
-version = "9.1.2"
+version = "9.1.3"
 requires_python = ">=3.7"
 summary = "Documentation that simply works"
 dependencies = [
@@ -309,7 +309,7 @@ summary = "Extension pack for Python Markdown and MkDocs Material."
 
 [[package]]
 name = "mkdocs-minify-plugin"
-version = "0.6.2"
+version = "0.6.3"
 requires_python = ">=3.7"
 summary = "An MkDocs plugin to minify HTML, JS or CSS files prior to being written to disk"
 dependencies = [
@@ -895,17 +895,17 @@ content_hash = "sha256:a0f9e668edb122c5384093dcee6011a6f154efeab678753b258e6cd2a
     {url = "https://files.pythonhosted.org/packages/86/5f/5cc21fcdaa14f7e01d7f9c3e2116bda975917e64eb8bf19d110eb74f6bcb/mkdocs-git-revision-date-localized-plugin-1.2.0.tar.gz", hash = "sha256:7752edd7c4dcaa9383e9a5b6a4f729831a62d604b0c43b319331127720c6a2bf"},
     {url = "https://files.pythonhosted.org/packages/c5/9f/dad0e4935fe18ea1163bf1bef56d41fe6d6ebc536ddb48793555f07fcc53/mkdocs_git_revision_date_localized_plugin-1.2.0-py3-none-any.whl", hash = "sha256:540b9c930d8d48630c090b72ac2c3900ac2ed0799b23738a33b88e31f5198fe7"},
 ]
-"mkdocs-material 9.1.2" = [
-    {url = "https://files.pythonhosted.org/packages/12/2d/fdaecd166a622eeda4f215b81217372a06d53d627c601edd7ea4a741afce/mkdocs_material-9.1.2-py3-none-any.whl", hash = "sha256:344a1c66f0e217e5ceaf67739d274e51c61ac9f9d7af55a5b4805a4a2ab54184"},
-    {url = "https://files.pythonhosted.org/packages/45/58/b913f50c70189b95bed6de15d7ee37a27a90e7607f36b267c9dec0ba51c6/mkdocs_material-9.1.2.tar.gz", hash = "sha256:9ca8c980c30aab3b70e3bfbec691f9ffcbea8319873911c86e8af145147e2a9d"},
+"mkdocs-material 9.1.3" = [
+    {url = "https://files.pythonhosted.org/packages/82/54/5cd2182ee05c161dec88a6e269e7b188ca18fbd544df36325d9aadbce9d8/mkdocs_material-9.1.3.tar.gz", hash = "sha256:0be1b5d76c00efc9b2ecbd2d71014be950351e710f5947f276264878afc82ca0"},
+    {url = "https://files.pythonhosted.org/packages/95/0d/b0597c5524a6948da856d49cef5985bc9a4c050d69a31111885c98bdb107/mkdocs_material-9.1.3-py3-none-any.whl", hash = "sha256:a8d14d03569008afb0f5a5785c253249b5ff038e3a5509f96a393b8596bf5062"},
 ]
 "mkdocs-material-extensions 1.1.1" = [
     {url = "https://files.pythonhosted.org/packages/cd/3f/e5e3c9bfbb42e4cb661f71bcec787ae6bdf4a161b8c4bb68fd7d991c436c/mkdocs_material_extensions-1.1.1.tar.gz", hash = "sha256:9c003da71e2cc2493d910237448c672e00cefc800d3d6ae93d2fc69979e3bd93"},
     {url = "https://files.pythonhosted.org/packages/fd/c9/35af8ceabace3e33d1fb64b1749c6f4dac6129faa32f8a4229791f89f56a/mkdocs_material_extensions-1.1.1-py3-none-any.whl", hash = "sha256:e41d9f38e4798b6617ad98ca8f7f1157b1e4385ac1459ca1e4ea219b556df945"},
 ]
-"mkdocs-minify-plugin 0.6.2" = [
-    {url = "https://files.pythonhosted.org/packages/2a/ca/1a8c11ebee63bd478d31b146663dc90bc2a8662b294be344221a9cfd889b/mkdocs_minify_plugin-0.6.2-py3-none-any.whl", hash = "sha256:b9f43751f515372b766f1e9e77422fd1c9acfaf8c2bf018ff461fd97476e05e3"},
-    {url = "https://files.pythonhosted.org/packages/dc/7d/ff775e363ddd3c14fc530f5ec5cfb036a1d168020c93dd410fca842cfb90/mkdocs-minify-plugin-0.6.2.tar.gz", hash = "sha256:679f6e430bf49845649d0a1f183e36be3a0da5fdc60fee5fdab4356db0a18e2c"},
+"mkdocs-minify-plugin 0.6.3" = [
+    {url = "https://files.pythonhosted.org/packages/48/74/c056e4237257f633d5019c1c91f3cb13c78c494d459f8565c4dfa8d827a9/mkdocs_minify_plugin-0.6.3-py3-none-any.whl", hash = "sha256:e4472e3ef1c9647e449759ece473ce34b0b203e429d5c20b382d1f9cca625651"},
+    {url = "https://files.pythonhosted.org/packages/95/39/eef76e7ad81a1acd9b87018e580ac22b578bcd3601df8d8271c69677f0f8/mkdocs-minify-plugin-0.6.3.tar.gz", hash = "sha256:e244f6c013bdcca7bb8940817dd9f4fb52149a5633f19ac0d98c8561b7fb9f4f"},
 ]
 "mkdocs-newsletter 1.0.1" = [
     {url = "https://files.pythonhosted.org/packages/06/d7/0e334bcf3297a07bc8455dab225eaae187294d2c39b1316f47e3c162aba7/mkdocs-newsletter-1.0.1.tar.gz", hash = "sha256:67ed079bc1db50cf04b657d310f0ae5c5ad6d765e1f8053a38fcb041190215ae"},
