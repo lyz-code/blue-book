@@ -1,6 +1,10 @@
-[Getting things done](https://en.wikipedia.org/wiki/Getting_Things_Done), commonly known as GTD is a task management method created by David Allen and published in a book of the same name.
+icij/etting things done](https://en.wikipedia.org/wiki/Getting_Things_Done), commonly known as GTD is a task management method created by David Allen and published in a book of the same name.
 - 
 The GTD method rests on the idea of moving all items of interest, relevant information, issues, tasks and projects out of one's mind by recording them externally and then breaking them into actionable work items with known time limits. This allows one's attention to focus on taking action on each task listed in an external record, instead of recalling them intuitively.
+
+The method was described by David Allen in a book with the same name. It's clear that the book is the corner stone of David's business. He is selling his method on every word, some times to the point of tiresome. It's also repeats the same ideas on different parts of the book, I guess that's good in terms of sticking an idea in the people's mind, but if you're already convinced and are trying to sum up the book it's like, hey, I have 90% of the valuable contents of this chapter already in my summary. It's obvious too the context of the writer, that the book was written a while ago and who does it write to. It talks quite often about assistants, bosses of high firm companies he's helped, preferring low-tech physical solutions over digital ones, a lot of references about parenting... If you're able to ignore all the above, it's actually a very good book. The guy has been polishing the method for more than 30 years, and has pretty nice ideas that can change how you manage your life.
+
+My idea of this summary is to try to extract the useful ideas removing all those old-fashioned capitalist values from it.
 
 # Theory principles
 
@@ -89,11 +93,19 @@ This is the component of input management that forms the basis for your personal
 
 ![](gtd-clarify-diagram.png)
 
-Your "stuff" will end in one of the next containers:
+Remember to follow the next rules while processing the items:
+
+- Process the top item first: that way you treat each element equally, so the "least" important ones are not left dangling forever in your inbox thus thwarting it's purpose. 
+- Process one item at a time.
+- Never put anything back into “in.”
+
+For each element you need to ask yourself: "What's the next action?".
+
+If you don't see any then refile the element to:
 
 * Trash: Throw away, shred, or recycle anything that has no potential future action or reference value. If you leave this stuff mixed in with other categories, it will seriously undermine the system and your clarity in the environment.
 
-* Someday/Maybe: It can be useful and inspiring to maintain an ongoing list of things you might want to do at some point but not now. This is the “parking lot” for projects that would be impossible to move on at present but that you don’t want to forget about entirely. You’d like to be reminded of the possibility at regular intervals (probably on your weekly reviews). You can also think this as the backlog. Here also belongs other types of information that only needs to be reviewed when you have an urge to engage in a particular kind of activity such as lists like books to read, web sites to surf, trips to do, things to do, recipes to try... Only if you want to review them often to expand your options for creative exploration, otherwise they belong to the References.
+* Someday/Maybe: Here goes the elements that don't have next actions now but may have them in the future. This is the “parking lot” for projects that would be impossible to move on at present but that you don’t want to forget about entirely. You’d like to be reminded of the possibility at regular intervals (probably on your weekly reviews). You can also think this as the backlog. Here also belongs other types of information that only needs to be reviewed when you have an urge to engage in a particular kind of activity such as lists like books to read, web sites to surf, trips to do, things to do, recipes to try... Only if you want to review them often to expand your options for creative exploration, otherwise they belong to the References.
 
 * References are the rest of information that that requires no action but have intrinsic value as information such as your [digital garden](digital_garden.md) or technical books.
 
@@ -103,32 +115,60 @@ Your "stuff" will end in one of the next containers:
 
   * General reference files: Stores ad hoc information that doesn’t belong in some predesigned larger category. 
 
-* Projects are any desired result that can be accomplished within a year that requires more than one action step. This means that some rather small things you might not normally call projects are going to be on your Projects list, as well as some big ones. If one step won’t complete something, some kind of goalpost needs to be set up to remind you that there’s something still left to do. If you don’t have a placeholder to remind you about it, it will slip back into your head. The reason for the one-year time frame is that anything you are committed to finish within that scope needs to be reviewed weekly to feel comfortable about its status. Another way to think of this is as a list of open loops, no matter what the size.
+If you can do something about the element, you need to think which is the next physical, visible activity that would be required to move the situation towards closure. It's tricky, something like "set meeting" won't do because it's not descriptive of physical behaviour. There is still stuff to decide how, when, with whom, if you don't do it now you won't empty your head and the uncertainty will create a psychological gap that will make you procrastinate, so define the next action now. "Decide what to do about X" doesn't work either, you may need to gather more information on the topic, but deciding doesn't take time. 
 
-  Projects do not initially need to be listed in any particular order, by size, or by priority. They just need to be on a master list so you can review them regularly enough to ensure that appropriate next actions have been defined for each of them.
+Once you have the next action, if it can be done in two minutes or less, do it when you first pick the item up. Even if it is not a high-priority one, do it now if you’re ever going to do it at all. The rationale for the two-minute rule is that it’s more or less the point where it starts taking longer to store and track an item than to deal with it the first time it’s in your hands. Two minutes is just a guideline. If you have a long open window of time in which to process your in-tray, you can extend the cutoff for each item to five or ten minutes. If you’ve got to get to the bottom of all your input rapidly, then you may want to shorten the time to one minute, or even thirty seconds, so you can get through everything a little faster. 
 
-  There may be reasons to sort your projects into different subcategories, based upon different areas of your focus, but initially creating a single list of all of them will make it easier to customize your system appropriately as you get more comfortable with its usage.
+There’s nothing you really need to track about your two-minute actions. Just do them. If, however, you take an action and don’t finish the project with that one action, you’ll need to clarify what’s next on it, and manage that according to the same criteria. 
 
-  For many of your projects, you will accumulate relevant information that you will want to organize by theme or topic or project name. Your Projects list will be merely an index. All of the details, plans, and supporting information that you may need as you work on your various projects should be contained in your References system, in separate file folders, computer files, notebooks, or binders .
+If the next action is going to take longer than two minutes, ask yourself, “Am I the best person to be doing it?” If not, hand it off to the appropriate person, in order of priority:
 
-* Waiting for: Tracks the elements that are blocked for any reason, under each element you should add that reason and optionally the process you want to follow to unblock it.
-* Next Actions: Tracks any longer-than-two-minute, non-delegatable action you have identified. If you have only twenty or thirty of these, it may be fine to keep them all on one list labeled “Next Actions,” which you’ll review whenever you have any free time. For most of us, however, the number is more likely to be fifty to 150. In that case it makes sense to subdivide your Next Actions list into categories, such as Calls to make when you have a window of time and your phone, or Computer action items to see as options when you’re at that device.
+* Send an e-mail.
+* Write a note or an over-note on paper and route it to that person.
+* Send it a instant message.
+* Add it as an agenda item on a list for your next real-time conversation with that person.
+* Talk with her directly, either face-to-face or by phone.
 
-* Calendar: Reminders of actions you need to take fall into two categories: those about things that have to happen on a specific day or time, and those about things that just need to get done as soon as possible. Your calendar handles the first type of reminder.
+When you hand it off to someone else, and if you care at all whether something happens as a result, you’ll need to track it. Depending on how active you need to be it can go to your Waiting list or to your tickler.
 
-  These things go on your calendar:
+The tracked actions that you can act on will end up in one of the next containers:
 
-  * Time-Specific actions or appointments.
-  * Day-Specific actions: These are things that you need to do sometime on a certain day, but not necessarily at a specific time. 
-  * Day-Specific information: Information that may be useful on a certain date. This might include directions for appointments, activities that other people will be involved in then, or events of interest. It’s helpful to put short-term tickler information here, too, such as a reminder to call someone after he or she returns from vacation. This is also where you would want to park important reminders about when something might be due, or when something needs to be started, given a determined lead time.
+* [Todo list](#todo-list)
+* [Calendar](#calendar)
+* [Tickler](#tickler)
 
-  Daily to-do lists don't belong to the calendar because:
+#### Todo list
 
-  * Constant new input and shifting tactical priorities reconfigure daily work so consistently that it’s virtually impossible to nail down to-do items ahead of time. Having a working game plan as a reference point is always useful, but it must be able to be renegotiated at any moment. Trying to keep a list on the calendar, which must then be reentered on another day if items don’t get done, is demoralizing and a waste of time. The Next Actions lists will hold all of those action reminders, even the most time-sensitive ones. And they won’t have to be rewritten daily.
+This list contains all the next actions and projects you are going to actively work on. Projects are any desired result that can be accomplished within a year that requires more than one action step. This means that some rather small things you might not normally call projects are going to be on your Projects list, as well as some big ones. If one step won’t complete something, some kind of goalpost needs to be set up to remind you that there’s something still left to do. If you don’t have a placeholder to remind you about it, it will slip back into your head. The reason for the one-year time frame is that anything you are committed to finish within that scope needs to be reviewed weekly to feel comfortable about its status. Another way to think of this is as a list of open loops, no matter what the size. This is going to be one of the lists that you'll review more often, and it needs to be manageable, if the items start to grow you may want to track the elements you want to do in the semester, or trimester.
 
-  * If there’s something on a daily to-do list that doesn’t absolutely have to get done that day, it will dilute the emphasis on the things that truly do. The calendar should be sacred territory. If you write something there, it must get done that day or not at all. 
+Projects do not initially need to be listed in any particular order, by size, or by priority. They just need to be on a master list so you can review them regularly enough to ensure that appropriate next actions have been defined for each of them. That being said, I like to order them a little bit so that I don't need to read the whole list to choose what to do.
 
-  That said, there’s absolutely nothing wrong with creating a quick, informal, short list of “if I have time, I’d really like to . . .” kinds of things, picked from your Next Actions inventory. It just should not be confused with your “have-tos,” and it should be treated lightly enough to discard or change quickly as the inevitable surprises of the day unfold.
+There may be reasons to sort your projects into different subcategories, based upon different areas of your focus, but initially creating a single list of all of them will make it easier to customize your system appropriately as you get more comfortable with its usage. To sort them use tags instead of hierarchical structures, they are more flexible. For example you could use tags for:
+
+- Context: Where can you do the element: `home`, `computer`, `mobile`, ...
+- Area: Broad categories where the element falls in: `activism`, `caring`, `self-caring`, `home`, `digital services`, ...
+- Type: I like to separate the tasks that are meant to survive (`maintenance`) from the ones that are meant to improve things (`improvement`)
+- Mood, energy level, time: It's useful to have a quick way to see the tasks you can work on when you don't have that much time (`small`), you don't have that much mental energy (`brainless`), when you're `sad`, ...
+
+For many of your projects, you will accumulate relevant information that you will want to organize by theme or topic or project name. Your Projects list will be merely an index. All of the details, plans, and supporting information that you may need as you work on your various projects should be contained in your References system.
+
+#### Calendar
+
+The calendar holds reminders of actions you need to take fall into two categories: those about things that have to happen on a specific day or time, and those about things that just need to get done as soon as possible. Your calendar handles the first type of reminder.
+
+These things go on your calendar:
+
+* Time-Specific actions or appointments.
+* Day-Specific actions: These are things that you need to do sometime on a certain day, but not necessarily at a specific time. 
+* Day-Specific information: Information that may be useful on a certain date. This might include directions for appointments, activities that other people will be involved in then, or events of interest. It’s helpful to put short-term tickler information here, too, such as a reminder to call someone after he or she returns from vacation. This is also where you would want to park important reminders about when something might be due, or when something needs to be started, given a determined lead time.
+
+Daily to-do lists don't belong to the calendar because:
+
+* Constant new input and shifting tactical priorities reconfigure daily work so consistently that it’s virtually impossible to nail down to-do items ahead of time. Having a working game plan as a reference point is always useful, but it must be able to be renegotiated at any moment. Trying to keep a list on the calendar, which must then be reentered on another day if items don’t get done, is demoralizing and a waste of time. The Next Actions lists will hold all of those action reminders, even the most time-sensitive ones. And they won’t have to be rewritten daily.
+
+* If there’s something on a daily to-do list that doesn’t absolutely have to get done that day, it will dilute the emphasis on the things that truly do. The calendar should be sacred territory. If you write something there, it must get done that day or not at all. 
+
+That said, there’s absolutely nothing wrong with creating a quick, informal, short list of “if I have time, I’d really like to . . .” kinds of things, picked from your Next Actions inventory. It just should not be confused with your “have-tos,” and it should be treated lightly enough to discard or change quickly as the inevitable surprises of the day unfold.
 
 ### Reflect
 
@@ -181,11 +221,192 @@ Choose a physical location to serve as as your central cockpit of control. If yo
 
 The basics for a workspace are just a writing surface and room for an in-tray.
 
+## Design your system
+
+Before you start moving stuff around it's a good idea to get the first design of your whole system, in my case I'm going to heavily rely on org-mode to track most of the stuff with a repository with the next structure:
+
+```
+.
+├── calendar
+│   ├── personal.org
+│   │   ├── One time events
+│   │   ├── Recurring events
+│   │   ├── Birthdays
+│   │   └── Deathdays
+│   ├── day.org
+│   ├── tickler.org
+│   ├── work_1.org
+│   ├── work_2.org
+│   ├── partner.org
+│   ├── family.org
+├── inbox
+│   ├── computer.org
+│   ├── mobile.org
+│   └── tablet.org
+├── reference
+│   ├── blue
+│   ├── reference.org
+│   └── red 
+└── todo
+    ├── personal.org
+    ├── work_1.org
+    ├── work_2.org
+    └── someday.org
+```
+
+Where:
+
+* The subtrees behind the `.org` files are the heading trees.
+* All `org` files go with their respective `org_archive` ones, they're not shown in the above diagram to keep it simple.
+* `calendar/personal.org` is my [personal calendar](#personal-calendar).
+* `calendar/day.org` is my [day planner](#day-planner).
+
+### Calendar management
+
+#### Personal calendar
+
+The `calendar/personal.org` file holds:
+
+- [Appointments](orgmode.md#appointments): Meant to be used for elements of the org file that have a defined date to occur. You whether do it that date or not do it at all. Avoid using dates to organize your tasks and if you don't do it that day, reschedule it to another date, it's a waste of time, use next actions in your `todo` instead. If you need to act on it use a `TODO` element, otherwise a headline is enough An example would be.
+
+  ```org
+  * TODO Meet with Marie
+  <2023-02-24 Fri>
+
+  * Internet's birthday
+  <2023-03-13 Mon>
+  ```
+
+- [Recurring events](orgmode.md#recurring-tasks): Events that not only happen on the given date, but again and again after a certain interval of N hours (h), days (d), weeks (w), months (m), or years (y). The following shows up in the agenda every Wednesday:
+
+  ```org
+  * TODO Go to pilates
+    <2007-05-16 Wed 12:30 +1w>
+  ```
+
+- [Tickler events](#tickler-management): Check the [Tickler management](#tickler-management) section for more details.
+
+Each section has it's own tag: `:recurring:`, `:day:`, `:birthday:`, `:deathday:`, and the whole file has the `:event:` tag for easy filtering.
+
+In rare cases you may want to use the [`DEADLINE`](orgmode.md#deadline) property if you want to be warned in the agenda some days before the date arrives or the [`SCHEDULED`](orgmode.md#scheduled) one in case you want to see in the agenda when you start working on the task. Again, don't waste time postponing these dates, if you do, you're using the system wrong.
+
+#### Day planner
+
+Some of my day events are semi-regular, meaning that the recurrence options are not powerful enough. For example, I usually go to pilates on Tuesdays, but some weeks I go at 18:00 and others at 19:00. In the past I used a script that interacts with [`ikhal`](ikhal.md) to create the elements of the day based on some questionary. The idea is to migrate the tool to create appointments in the day under the `diary.org` file using a `datetree` structure:
+
+```org
+* 2010
+** 2010-12 December
+*** 2010-12-20 Tuesday
+**** TODO Go to pilates
+    <2010-12-20 Tue 19:00-20:00>
+```
+
+I also use this file to add any diary annotations for my [life log](life_logging.md). Once [this issue is solved](https://github.com/nvim-orgmode/orgmode/issues/516) it will be really easy to add diary thoughts through the [capture feature](orgmode.md#capture)
+
+### Todo files
+
+The `todo` files are where you track the [todo list](#todo-list), which holds your projects and their next steps to work on. The `todo/personal.org`, `todo/work_1.org` and `todo/work_2.org` files of [the above schema](#design-your-system) will be divided into these level 1 headings:
+
+- `* Necessary`: These projects need to be dealt with immediately and finished as soon as possible
+- `* Desirable`: Here is where most of your elements will be, these are the ones that you think it's important to work on but there is no hard pressure.
+- `* Optional`: These are the projects that it would be nice to work on, but if you don't it's fine.
+
+Projects are any the second level headings with TODO keywords. To see the list of your projects just fold all the items in the `todo.org` file. 
+
+Inside each section the elements are more less ordered by what I want to work on first. But all projects are actionable, so if I'm not in the mood to do the first ones, I tackle the rest. As such, I try not to spend too much time ordering them.
+
+I find useful to split the tasks between my life silos, so that I don't even have a chance to think of anything of `work_1` when I'm doing my `personal` stuff or `work_2` stuff.
+
+#### Project structure
+
+Given the broad definition of what we consider a project and how they are usually cooked, the system that represents it must be equally flexible, quick to interact with and easy to evolve. 
+
+Every project starts with the title:
+
+```org
+* TODO Improve task management system
+```
+
+Optionally you can add a description
+
+```org
+* TODO Improve task management system
+  Using Openprojects is uncomfortable, I need to find a better system.
+```
+
+You may have noticed that the description doesn't follow the rules we defined for next actions, that's fine as you don't act on projects, but on their underlying actions. Nevertheless I like to start them with a verb. It may even make sense not to use TODO items but simple headings to define your projects. On one side you don't act on projects so it would make sense to use headings, on the other, it's also interesting to know the project state, which can be easily tracked with the TODO keywords. If you could tell apart headings from TODO items in the [agenda](orgmode.md#agenda) views it would make sense to use them. Right now `nvim-orgmode` let's you select in the agenda views only TODO items or TODO and headings, but you can't select only headings, so at the moment I don't see any good reason not to use TODO items for the projects.
+
+To define the next actions of a project you can use checklists
+
+```org
+* TODO Improve task management system
+  - [-] Read David Allen's GTD book
+    - [x] Read chapters 6 and 7
+    - [ ] Read chapters 8 and 9
+  - [ ] Sum up the book in the blue book
+```
+
+As your checklists grow they may start to be uncomfortable, for example if it has:
+
+- More than two levels of indentation: It may be hard to follow the logic of the task structure.
+- A lot of elements: You can't archive parts of checklists, so as you complete elements, they will still be shown diverting your attention from the things you can actually act upon or making you loose time scrolling to find where they are.
+
+In these cases it makes sense to promote the first level of headings to subprojects:
+
+```org
+* TODO Improve task management system
+  * DOING Read David Allen's GTD book
+    - [x] Read chapters 6 and 7
+    - [ ] Read chapters 8 and 9
+  * TODO up the book in the blue book
+```
+
+That way when `Read David Allen's GTD book` is done, you can archive it and forget about it. 
+
+If the project starts having many subprojects, it may help to have a section "Outcomes" to define what do you want to achieve with the project. It can be accompanied with a "Next Steps" section to add any subproject or action that doesn't match the defined outcomes, and once you finish the project, you can refile them into new projects.
+
+##### The NEXT state
+
+It's useful to have a `NEXT` state to track the first next action you need to deal with for each project. That way when you open the file, you can go to the top of it and search for `NEXT` and it will lead you directly to where you need to work on.
+
+#### Tag management
+
+As explained in the [todo list](#todo-list) section, you can use tags to filter your tasks. I'm using the next ones:
+
+- Area: Broad categories where the element falls in: `activism`, `caring`, `self-caring`, `home`, `digital services`, ...
+- Type: I like to separate the tasks that are meant to survive (`maintenance`) from the ones that are meant to improve things (`improvement`). I use these only in the big projects.
+- `:long_break:`: I'm using this tag to track the small projects that can be done in the [long pomodoro breaks](task_workflows.md). Depending on the kind of long break that I need I then filter for the next tags:
+  - `brainless`: If I want to keep on thinking on what I was doing, an example could be emptying the dishwasher, watering the plants, ...
+  - `call`: If I want to completely change context and want some social interaction. For example call mom. 
+
+
+#### Waiting tasks
+
+Waiting actions are elements that are blocked for any reason. I use the `WAITING` TODO keyword to track this state. Under each element you should add that reason and optionally the process you want to follow to unblock it.
+
+If you need to actively track the evolution of the WAITING status, leave it on the top of your `todo`. Otherwise set the date you want to check its status and move it to the `ticker.org` file. 
+
+### Tickler management
+
+The tickler is a system where you postpone actions to a specific date, but not with a calendar mindset where the action **needs** to be done at that date. With the tickler you schedule the action to enter your inbox that day to decide what are you going to do with it.
+
+To implement this in orgmode you can add the `:tickler:` tag to any element that is tracked in the agenda files and once a day you can look at the day's agenda and decide what to do with the action. It's important though that whatever you do with it, you have to remove it from the agenda view in order to only keep the elements that you need to do in the day. You can follow this workflow by:
+
+- Opening the agenda view `gaa` 
+- Go to the view of the day `vd`
+- Go to today `.`
+- Search by tickler `/tickler`
+
+It can also help to review in the weeklies all the ticklers of the week to avoid surprises.
+
+If you want to make the project go away from your `todo` or `someday` until the tickler date, move it to the `tickler.org` file.
+
 ## Capture all your stuff
 
 The focus of this process is to capture *everything* that has your attention, otherwise some part of you will still not totally trust that you're working with the whole picture. While you're doing it, create a list of all the sources of inputs in your world. 
 
-What you're going to do is methodically go through each piece of your life and search for anything that doesn’t permanently belong where it is, the way it is, and put it into your in-tray. You’ll be gathering things that are incomplete or things that have some decision about potential action tied to them. They all go into your “inbox”, so they’ll be available for later processing.
+What you're going to do is methodically go through each piece of your life and search for anything that doesn’t permanently belong where it is, the way it is, and put it into your in-tray. You’ll be gathering things that are incomplete or things that have some decision about potential action tied to them. They all go into your “inbox”, so they’ll be available for later processing. If it's immediately evident that you don't need the stuff trash it.
 
 Be patient, this process may take between 1 and 6 hours, and at the end you'll have a huge pile of stuff in your inbox. You might be scared and get the thought of "what am I doing with my life?", but don't worry you'll get everything in order soon :).
 
@@ -209,13 +430,335 @@ Everything else goes into your inbox. But many of the things you might initially
 
 As you engage in the capturing step, you may run into one or more of the following problems:
 
-* An item is too big to go in the in-tray: create a post it that represents it or add it as an entry in your digital inbox- .
+* An item is too big to go in the in-tray: create a post it that represents it or add it as an entry in your digital inbox. If you can, add the date too
+* The pile is too big to fit the in-tray: Create visually distinct stacks around the in-tray, even on the floor.
+* Doubts whether to trash something: When in doubt keep it, you'll decide about it later when you process the in-tray. What you need to avoid is to get caught up in deciding what to do with the element. That's going to be the next step in the process, let's go one at a time.
+* Getting caught up in cleaning and organizing: If it doesn't take that long it's fine but remember the purpose of this process and the fact that we want to finish it as soon as possible. If you discover things you want to change, add them to the in-tray.
+* If you encounter stuff that is already on lists and organizers, treat them as everything else in the "in".
 
-## Decide how to handle the sources of inputs
+Now that the process it's clear let's start.
+
+Start with the space where you actually do stuff, scan the place centimeter by centimeter with the mindset defined above, check your desk, drawers, floors, walls, shelves, equipment, furniture, fixtures...Then repeat the process with each room of your home.
+
+### Mental gathering
+
+Once you already have a nice pile of stuff, think of what has your attention that isn’t represented by something already in your in-tray and record each thought, each idea, each project or thing that occurs you and add it to the inbox.
+
+To assist in clearing your head, you may want to review the following the next trigger list, item by item, to see if you’ve forgotten anything. 
+
+#### Personal
+
+- Projects started, not completed
+- Projects that need to be started
+- Projects—other organizations
+  - Activism
+  - Community
+  - Volunteer
+  - Spiritual organization
+- Commitments/promises to others
+  - Friends
+  - Partner
+  - Family
+  - Parents
+  - Children
+  - Professionals
+  - Returnable items
+  - Debts
+- Communications to make/get
+  - Calls
+  - Instant messages
+  - Voice messages
+  - E-mails
+  - Cards and letters
+  - Thank-yous
+  - Texts
+  - Social media postings
+- Upcoming events
+  - Birthdays
+  - Anniversaries
+  - Holidays
+  - Vacation
+  - Travel
+  - Dinners
+  - Parties
+  - Cultural events
+  - Sporting events
+  - Weddings
+  - Graduations
+  - Receptions
+  - Outings
+- Administration
+  - Home office supplies
+  - Equipment
+  - Phones
+  - Mobile devices
+  - Audio/video media
+  - Voice mail
+  - Computers
+  - Software
+  - Internet
+  - Filing and records
+  - Data storage/backup
+- Health
+  - Public health system
+  - Doctors
+  - Dentist
+  - Optometrist
+  - Healthcare specialists
+  - Checkups
+  - Diet
+  - Food
+  - Exercise
+- Leisure
+  - Books
+  - Music
+  - Video
+  - Movies
+  - TV shows
+  - Hiking routes
+  - Travel
+  - Places to visit
+  - People to visit
+  - Web browsing
+  - Photography
+  - Sports equipment
+  - Hobbies
+  - Cooking
+  - Recreation
+- Errands
+  - Shopping
+  - Stores
+  - Hardware
+  - Supplies
+  - Groceries
+  - Gifts
+  - Pharmacy
+  - Bank
+  - Cleaners
+  - Repairs
+- Financial
+  - Worries
+  - Taxes
+  - Bills
+  - Banks
+  - Loans
+  - Budget
+  - Insurance
+  - Mortgage
+  - Bookkeeping
+  - Investments
+  - Accountants
+- Pets
+  - Health
+  - Supplies
+  - Training
+- Legal
+  - Wills
+  - Trusts
+  - Estate
+  - Legal affairs
+- Friend/Family projects/activities
+  - Friends
+  - Partner
+  - Parents
+  - Relatives
+  - Children
+- Home/household
+  - Worries
+  - Rent
+  - Real estate
+  - Repairs
+  - Construction
+  - Remodeling
+  - Landlords
+  - Heating and air conditioning
+  - Plumbing
+  - Utilities
+  - Roof
+  - Landscaping
+  - Driveway
+  - Garage
+  - Walls
+  - Floors
+  - Ceilings
+  - Decor
+  - Furniture
+  - Appliances
+  - Lights and wiring
+  - Kitchen supplies/equipment
+  - Laundry
+  - Purging, organizing, cleaning
+  - Storage
+  - Service providers
+- Personal development
+  - Classes
+  - Seminars
+  - Education
+  - Coaching/counseling
+  - Career
+  - Creative expressions
+- Transportation
+  - Bicycles
+  - Maintenance
+  - Repair
+  - Commuting
+  - Motor vehicles
+- Clothes
+  - Casual
+  - Formal
+  - Sports
+  - Accessories
+  - Luggage
+  - Repairs
+  - Tailoring
+  - Professional
+- Community
+  - Activism
+  - Neighborhood
+  - Neighbors
+  - Voting
+- Waiting for
+  - Product orders
+  - Repairs
+  - Reimbursements
+  - Loaned items
+  - Information
+  - Projects/tasks completed by family/friends
+ 
+#### Professional
+
+- Projects started, not completed
+- Projects that need to be started
+- “Look into . . .” projects
+- Commitments/promises to others
+  - Colleagues
+  - Boss/partners
+  - Others in organization
+  - “Outside” people
+    - Customers
+    - Other organizations
+    - Professionals
+    - Vendors
+- Communications to make/get
+  - Internal/external
+  - Initiate or respond to:
+    - Phone calls
+    - Voice notes
+    - E-mails
+    - Text messages
+    - Letters
+    - Social media postings
+- Other writing to finish/submit
+  - Reports
+  - Evaluations/reviews
+  - Proposals
+  - Articles
+  - Manuals/instructions
+  - Summaries
+  - Rewrites and edits
+  - Status reporting
+  - Conversation and communication tracking
+- Meetings that need to be set/requested
+- Who needs to know about what decisions?
+- Significant read/review
+- Professional development
+  - Training/seminars
+  - Things to learn
+  - Things to find out
+  - Skills to practice/develop
+  - Books to read/study
+  - Research
+  - Formal education (licensing, degrees)
+  - Career research
+  - Résumé
+  - Performance objectives
+- Financial
+  - Forecasts/projections
+  - Credit line
+  - Stability
+- Planning/organizing
+  - Formal planning (goals, targets, objectives)
+  - Current projects (next stages)
+  - Organizational initiatives
+  - Upcoming events
+  - Meetings
+  - Presentations
+  - Conferences
+  - Organizational structuring
+  - Changes in facilities
+  - Installation of new systems/equipment
+  - Travel
+  - Vacation
+  - Business trips
+- Waiting for . . .
+  - Information
+  - Delegated tasks/projects
+  - Completions critical to projects
+  - Answers to questions
+  - Replies to:
+    - E-mails
+    - Letters
+    - Proposals
+    - Calls
+    - Invitations
+  - Requisitions
+  - Reimbursements
+  - Insurance claims
+  - Ordered items
+  - Repairs
+  - Tickets
+  - Decisions of others
+- Organization Development
+  - Organization chart
+  - Restructuring
+  - Roles
+  - Job descriptions
+  - Facilities
+  - New systems
+  - Leadership
+  - Change initiatives
+  - Succession planning
+  - Organization culture
+- Administration
+  - Legal
+  - Insurance
+  - Personnel
+  - Staffing
+  - Policies/procedures
+  - Training
+- Staff
+  - Hiring/firing/promoting
+  - Reviews
+  - Communication
+  - Staff development
+  - Compensation
+  - Feedback
+  - Morale
+- Systems
+  - Mobile devices
+  - Phones
+  - Computers
+  - Software
+  - Databases
+  - Telecommunications
+  - Internet
+  - Filing and reference
+  - Inventories
+  - Storage
+- Office/site
+  - Space/arrangements
+  - Furniture
+  - Equipment
+  - Decorations
+  - Utilities
+  - Supplies
+  - Maintenance/cleaning
+  - Security
 
 Now that you know where do your inputs come from you need to think how do you want to manage them from now on to ensure that you're able to be able to continuously capture items in a frictionless way.
 
-## Setting your containers
+
+
 
 ### Setting up your filing system
 
@@ -241,7 +784,9 @@ You need to consistently check how much room to give yourself so that the conten
 
 One idea is to have one system/place where you order the content alphabetically, not multiple ones. People have a tendency to want to use their files as a personal management system, and therefore they attempt to organize them in groupings by projects or areas of focus. This magnifies geometrically the number of places something isn’t when you forget where you filed it.
 
-### Physical stuff
+## Empty the inbox
+
+Now that we have collected everything that has your attention, you need to get to the bottom of your inbox. To be able to do it in a reasonable amount of time you are not meant to actually do the items themselves, instead analyze each item and decide what it is, what it means and what are you going to do with it.
 
 # Unclassified thoughts
 
@@ -256,3 +801,4 @@ The Weekly Review is the time to:
 * Review your system.
 * Update your lists.
 * Get clean, clear, current, and complete.
+

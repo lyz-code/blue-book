@@ -152,6 +152,18 @@ If you were dealing with the first one, the message between the two tracebacks w
 During handling of the above exception, another exception occurred:
 ```
 
+## Module "typing" has no attribute "Annotated"
+
+This one happens only because `annotated` is not available in python < 3.9.
+
+```
+try:
+    # mypy is complaining that it can't import it, but it's solved below
+    from typing import Annotated # type: ignore
+except ImportError:
+    from typing_extensions import Annotated
+```
+
 # Issues
 
 * [Incompatible return value with

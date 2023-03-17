@@ -153,7 +153,7 @@ With a basic prometheus configuration:
       external_labels:
         environment: helm
     rule_files:
-      - /etc/prometheus/rules/*.rules
+      - /etc/prometheus/rules/*.yaml
     scrape_configs:
       - job_name: prometheus
         metrics_path: /metrics
@@ -164,7 +164,7 @@ With a basic prometheus configuration:
 
 And some basic rules:
 
-??? note "File: /data/prometheus/rules/"
+??? note "File: /data/prometheus/rules/node_exporter.yaml"
 
     ```yaml
     groups:

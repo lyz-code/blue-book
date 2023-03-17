@@ -23,6 +23,8 @@ You interface to the GnuPG functionality through an instance of the GPG class:
 gpg = gnupg.GPG(gnupghome="/path/to/home/directory")
 ```
 
+Note: I've already created an adapter for gpg called `KeyStore` available in [`pass-collaborate`](https://github.com/lyz-code/pass-collaborate)
+
 - Decrypt a file:
 
   ```python

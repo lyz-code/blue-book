@@ -4,6 +4,8 @@ date: 20221104
 author: Lyz
 ---
 
+Note: I've decided to use [orgmode](orgmode.md) instead.
+
 [OpenProject](https://www.openproject.org/) is an Open source project management
 software.
 

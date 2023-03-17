@@ -471,6 +471,8 @@ def build(src, dst):
 
 The generated file will be copied to the resulted wheel with the same hierarchy, you need to create the parent directories if necessary.
 
+You can find a real example in [`pass-collaborate`](https://github.com/lyz-code/pass-collaborate).
+
 ### [Build distribution artifacts](https://pdm.fming.dev/usage/project/#build-distribution-artifacts)
 
 ```console

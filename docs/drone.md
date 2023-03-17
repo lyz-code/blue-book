@@ -17,9 +17,14 @@ This section explains how to install the Drone server for Gitea.
     and even less using `docker-compose` due to network complications. But if
     you have only a small instance as I do, you'll have to try :P.
 
-* Log in with the drone Gitea user.
+* Log in with an admin Gitea user. 
+* Go to the administration configuration, then Applications.
 * Create a Gitea OAuth application. The Consumer Key and Consumer Secret are
-    used to authorize access to Gitea resources.  Maybe [with terraform](gitea.md).
+    used to authorize access to Gitea resources. Use the next data:
+    - Name: Drone
+    - Redirect URI: https://drone.your-domain.com/login
+
+    Even though it looks like you could use [terraform](gitea.md) to create the resource, you can't as it creates an application but at user level, not at gitea level. So the next snippet won't work
 
     ```terraform
     resource "gitea_oauth2_app" "drone" {

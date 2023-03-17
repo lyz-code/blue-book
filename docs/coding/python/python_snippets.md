@@ -4,6 +4,18 @@ date: 20200717
 author: Lyz
 ---
 
+# [Substract two paths](https://stackoverflow.com/questions/10149263/extract-a-part-of-the-filepath-a-directory-in-python)
+
+It can also framed to how to get the relative path between two absolute paths:
+
+```python
+>>> from pathlib import Path
+>>> p = Path('/home/lyz/')
+>>> h = Path('/home/')
+>>> p.relative_to(h)
+PosixPath('lyz')
+```
+
 # [Move a file](https://stackoverflow.com/questions/8858008/how-to-move-a-file-in-python)
 
 Use one of the following

@@ -144,42 +144,6 @@ def test_sync():
 If you want to test user stdin interaction check the
 [prompt_toolkit](prompt_toolkit.md) and [pexpect](pexpect.md) articles.
 
-## [File system isolation](https://click.palletsprojects.com/en/7.x/testing/#file-system-isolation)
-
-For basic command line tools with file system operations, the
-`CliRunner.isolated_filesystem()` method is useful for setting the current
-working directory to a new, empty folder.
-
-File: `cat.py`:
-
-```python
-import click
-
-
-@click.command()
-@click.argument("f", type=click.File())
-def cat(f):
-    click.echo(f.read())
-```
-
-File: `test_cat.py`:
-
-```python
-from click.testing import CliRunner
-from cat import cat
-
-
-def test_cat():
-    runner = CliRunner()
-    with runner.isolated_filesystem():
-        with open("hello.txt", "w") as f:
-            f.write("Hello World!")
-
-        result = runner.invoke(cat, ["hello.txt"])
-        assert result.exit_code == 0
-        assert result.output == "Hello World!\n"
-```
-
 ## Testing the value of stdout and stderr
 
 The `runner` has the `stdout` and `stderr` attributes to test if something was
@@ -334,6 +298,24 @@ def test_keep_dir(tmp_path):
     with runner.isolated_filesystem(temp_dir=tmp_path) as td:
         ...
 ```
+
+You may also need to isolate the environment variables if your application read the configuration from them. To do that override the `runner` fixture:
+
+```python
+@pytest.fixture(name="runner")
+def fixture_runner() -> CliRunner:
+    """Configure the Click cli test runner."""
+    return CliRunner(
+        env={
+            'PASSWORD_STORE_DIR': '',
+            'GNUPGHOME': '',
+            'PASSWORD_AUTH_DIR': '',
+        },
+        mix_stderr=False
+    )
+```
+
+If you define the fixture in `conftest.py` you may need to use another name than `runner` otherwise it may be skipped, for example `cli_runner`.
 
 # [Options](https://click.palletsprojects.com/en/7.x/options/)
 

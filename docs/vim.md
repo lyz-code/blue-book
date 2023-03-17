@@ -604,33 +604,34 @@ set.foldminlines = 3
 
 It won't fold code sections that have have less than 3 lines.
 
-If you add files through `telescope` you may see an `E490: No fold found` error when trying to access the folds, [there's an open issue]()https://github.com/nvim-telescope/telescope.nvim/issues/559 that tracks this, the workaround is to add an autocommand to recalculate the folds when you open a file:
+If you add files through `telescope` you may see an `E490: No fold found` error when trying to access the folds, [there's an open issue](https://github.com/nvim-telescope/telescope.nvim/issues/559) that tracks this, the workaround for me was to add this snippet in the `telescope` configuration::
 
 ```lua
-vim.api.nvim_create_autocmd('BufRead', {
-   callback = function()
-      vim.api.nvim_create_autocmd('BufWinEnter', {
-         once = true,
-         command = 'normal! zx'
-      })
-   end
-})
+require('telescope').setup {
+    defaults = {
+        mappings = {
+            i = {
+                ["<CR>"] = function()
+                    vim.cmd [[:stopinsert]]
+                    vim.cmd [[call feedkeys("\<CR>")]]
+                end
+            }
+        }
+    }
+}
 ```
 
-By default all folds are closed, which makes it difficult to read the files, if you want to open them by default you can use another autocommand to expand them on file opening:
+To save the foldings when you save a file [use the next snippet](https://stackoverflow.com/questions/37552913/vim-how-to-keep-folds-on-save). Sorry but I don't know how to translate that into lua.
 
 ```lua
-vim.api.nvim_create_autocmd('BufRead', {
-   callback = function()
-      vim.api.nvim_create_autocmd('BufWinEnter', {
-         once = true,
-         command = 'normal! zR'
-      })
-   end
-})
+vim.cmd[[
+  augroup remember_folds
+    autocmd!
+    autocmd BufWinLeave * silent! mkview
+    autocmd BufWinEnter * silent! loadview
+  augroup END
+]]
 ```
-
-Or you can combine both.
 
 # Git
 

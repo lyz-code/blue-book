@@ -4,6 +4,18 @@ date: 20200826
 author: Lyz
 ---
 
+# [Get class of a window](https://unix.stackexchange.com/questions/703084/how-to-get-current-window-class-name-from-script)
+
+Use `xprop` and click the window.
+
+# Change the brightness of the screen
+
+Get the current brightness level with `cat /sys/class/backlight/intel_backlight/brightness`. Imagine it's `1550`, then if you want to lower the brightness use:
+
+```bash
+sudo echo 500 > /sys/class/backlight/intel_backlight/brightness
+```
+
 # [Force umount nfs mounted directory](https://stackoverflow.com/questions/40317/force-unmount-of-nfs-mounted-directory)
 
 ```bash

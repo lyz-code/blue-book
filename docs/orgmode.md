@@ -1,4 +1,3 @@
-
 [`nvim-orgmode`](https://github.com/nvim-orgmode/orgmode#agenda) is a Orgmode clone written in Lua for Neovim. Org-mode is a flexible note-taking system that was originally created for Emacs. It has gained wide-spread acclaim and was eventually ported to Neovim.
 
 # [Installation](https://github.com/nvim-orgmode/orgmode#installation)
@@ -286,6 +285,23 @@ org = {
 }
 ```
 
+I feel more comfortable with these priorities:
+
+- `A`: Critical
+- `B`: High
+- `C`: Normal
+- `D`: Low
+
+This gives you room to usually work on priorities `B-D` and if something shows up that is really really important, you can use `A`. You can set this setting with the next snippet:
+
+```lua
+require('orgmode').setup({
+  org_priority_highest = 'A',
+  org_priority_default = 'C',
+  org_priority_lowest = 'D',
+})
+```
+
 ### [Dates](https://orgmode.org/manual/Deadlines-and-Scheduling.html)
 
 TODO items can also have [timestamps](https://orgmode.org/manual/Timestamps.html) which are specifications of a date (possibly with a time or a range of times) in a special format, either `<2003-09-16 Tue>` or `<2003-09-16 Tue 09:39>` or `<2003-09-16 Tue 12:00-12:30>`. A timestamp can appear anywhere in the headline or body of an Org tree entry. Its presence causes entries to be shown on specific dates in the [agenda](#agenda).
@@ -305,12 +321,12 @@ When you insert the timestamps with the date popup picker with `;d` (Default: `<
 
 You can also define a timestamp range that spans through many days `<2023-02-24 Fri>--<2023-02-26 Sun>`. The headline then is shown on the first and last day of the range, and on any dates that are displayed and fall in the range.  
 
-#### [Recurring tasks](https://orgmode.org/manual/Repeated-tasks.html)
+##### [Recurring tasks](https://orgmode.org/manual/Repeated-tasks.html)
 
 A timestamp may contain a repeater interval, indicating that it applies not only on the given date, but again and again after a certain interval of N hours (h), days (d), weeks (w), months (m), or years (y). The following shows up in the agenda every Wednesday:
 
 ```org
-* Go to pilates
+* TODO Go to pilates
   <2007-05-16 Wed 12:30 +1w>
 ```
 
@@ -318,7 +334,7 @@ When you mark a recurring task with the TODO keyword ‘DONE’, it no longer pr
 
 As a consequence of shifting the base date, this entry is no longer visible in the agenda when checking past dates, but all future instances will be visible. 
 
-With the `+1m` cookie, the date shift is always exactly one month. So if you have not paid the rent for three months, marking this entry DONE still keeps it as an overdue deadline. Depending on the task, this may not be the best way to handle it. For example, if you forgot to call your father for 3 weeks, it does not make sense to call him 3 times in a single day to make up for it. Finally, there are tasks, like changing batteries, which should always repeat a certain time after the last time you did it. For these tasks, Org mode has special repeaters `++` and `.+`. For example:
+With the `+1m` cookie, the date shift is always exactly one month. So if you have not paid the rent for three months, marking this entry DONE still keeps it as an overdue deadline. Depending on the task, this may not be the best way to handle it. For example, if you forgot to call your father for 3 weeks, it does not make sense to call him 3 times in a single day to make up for it. For these tasks you can use the `++` operator, for example `++1m`. Finally, there are tasks, like changing batteries, which should always repeat a certain time after the last time you did it you can use the `.+` operator. For example:
 
 ```org
 ** TODO Call Father
@@ -371,9 +387,18 @@ You can set it with `<leader>s` (Default: `<leader>ois`)
 DEADLINE: <2023-02-24 Fri>
 ```
 
-You can specify a different lead time for warnings for a specific deadlines. For example setting a warning period of 5 days `DEADLINE: <2004-02-29 Sun -5d>`. 
-
 You can set it with `<leader>d` (Default: `<leader>oid`).
+
+Using too many tasks with a `DEADLINE` will clutter your agenda. Use it only for the actions that you need to have a reminder, instead try to using [appointment](#appointments) dates instead. 
+
+If you need a different warning period for a special task, you can specify it. For example setting a warning period of 5 days `DEADLINE: <2004-02-29 Sun -5d>`. To configure the default number of days add:
+
+
+```lua
+require('orgmode').setup({
+  org_deadline_warning_days = 10,
+})
+```
 
 #### Date management
 
@@ -413,7 +438,7 @@ You can also use the next [abbreviations](https://github.com/nvim-orgmode/orgmod
 * `:now:`: expands to today's date and current time (example: <2021-06-29 Tue 15:32>)
 * `:inow:`: expands to invactive version of today's date and current time (example: [2021-06-29 Tue 15:32]
 
-### Tags
+### [Tags](https://orgmode.org/manual/Tag-Inheritance.html)
 
 You can also use tags to organize your items. To edit them use `<leader>g` (Default `<leader>ot`).
 
@@ -423,9 +448,27 @@ You can also use tags to organize your items. To edit them use `<leader>g` (Defa
   },
 ```
 
+When you press that key you can type:
+
+* `tag1`: It will add `:tag1:`.
+* `tag1:tag2`: It will add `:tag1:tag2:`.
+* Press `ESC`: It will remove all tags from the item.
+
 Tags are seen as `:tag1:tag2:` on the right of the TODO item description.
 
-Tags are applied to the parent and all its children by default.
+Tags make use of the hierarchical structure of outline trees. If a heading has a certain tag, all subheadings inherit the tag as well. For example, in the list
+
+```
+* Meeting with the French group      :work:
+** Summary by Frank                  :boss:notes:
+*** TODO Prepare slides for him      :action:
+```
+
+The final heading has the tags `work`, `boss`, `notes`, and `action` even though the final heading is not explicitly marked with those tags. You can also set tags that all entries in a file should inherit just as if these tags were defined in a hypothetical level zero that surrounds the entire file. Using a line like the next one:
+
+```
+#+FILETAGS: :Peter:Boss:Secret:
+```
 
 ### Lists
 
@@ -437,9 +480,9 @@ Lists start with a dash:
 
 To create new list item press `<control><enter>`.
 
-### Checkboxes
+### Checkboxes 
 
-Checkboxes are a special type of [list](#lists):
+Checkboxes or checklists are a special type of [list](#lists):
 
 ```org
 - [ ] Item 1
@@ -461,29 +504,93 @@ You can change the checkbox state with `<control><space>`, if you check a subite
 
 You can't yet [manage the checkboxes as you do the headings](https://github.com/nvim-orgmode/orgmode/issues/508) by promoting, demoting and moving them around.
 
+Follow [this issue](https://github.com/nvim-orgmode/orgmode/issues/305) if you want to see the progress of it's children at the parent checkbox.
+
 ### Links
 
-One final aspect of the org file syntax are links. Links are of the form `[[link][description]]`, where link can be a:
+One final aspect of the org file syntax are links. Links are of the form `[[link][description]]`, where link can be an:
 
-* URL (`http://`, `https://`)
-* path to a file (`file:/path/to/org/file`)
-* target (any text surrounded by `<<` and `>>`). If the target is in a different file the format is `file:~/path/to/org/file.org::My Target`
-* headline within the same file
-* headline with a custom id (`#your-custom-id`)
+* [Internal reference](#internal-document-links)
+* [External reference](#external-links)
 
-In order to easily go to the repositories we found online, let’s link to their actual website:
+A link that does not look like a URL refers to the current document. You can follow it with `gx` when point is on the link (Default `<leader>oo`) if you use the next configuration.
+
+```lua
+org = {
+  org_open_at_point = 'gx',
+}
+```
+
+#### [Internal document links](https://orgmode.org/manual/Internal-Links.html)
+
+Org provides several refinements to internal navigation within a document. Most notably:
+
+* `[[*Some section]]`: points to a headline with the name `Some section`.
+* `[[#my-custom-id]]`: targets the entry with the `CUSTOM_ID` property set to `my-custom-id`. 
+
+When the link does not belong to any of the cases above, Org looks for a dedicated target: the same string in double angular brackets, like `<<My Target>>`.
+
+If no dedicated target exists, the link tries to match the exact name of an element within the buffer. Naming is done, unsurprisingly, with the `NAME` keyword, which has to be put in the line before the element it refers to, as in the following example
 
 ```org
-* [[https://github.com/akinsho/org-bullets.nvim][org-bullets.nvim]]     :org:
-** Synopsis
-   This plugin is a clone of org-bullets. It replaces the asterisks in org
-   syntax with unicode characters.
-* [[https://github.com/dhruvasagar/vim-table-mode][vim-table-mode]]     :org:
-** TODO Synopsis
-   SCHEDULED: <YYYY-MM-DD>
-* [[https://github.com/nvim-lua/plenary.nvim][plenary]]                 :lua:
-** TODO [#A] Synopsis
-   DEADLINE: <YYYY-MM-DD>
+#+NAME: My Target
+| a  | table      |
+|----+------------|
+| of | four cells |
+```
+
+Ultimately, if none of the above succeeds, Org searches for a headline that is exactly the link text but may also include a `TODO` keyword and tags, or initiates a plain text search.
+
+Note that you must make sure custom IDs, dedicated targets, and names are unique throughout the document. Org provides a linter to assist you in the process, if needed, but I have not searched yet one for nvim.
+
+
+#### [External links](https://orgmode.org/guide/Hyperlinks.html)
+
+* URL (`http://`, `https://`)
+* Path to a file (`file:/path/to/org/file`). File links can contain additional information to jump to a particular location in the file when following a link. This can be:
+  * `file:~/code/main.c::255`: A line number 
+  * `file:~/xx.org::My Target`: A search for `<<My Target>>`
+  * `file:~/xx.org::#my-custom-id`: A	search for-  a custom ID
+
+### [Properties](https://orgmode.org/guide/Properties.html)
+
+Properties are key-value pairs associated with an entry. They live in a special drawer with the name `PROPERTIES`. Each property is specified on a single line, with the key (surrounded by colons) first, and the value after it:
+
+```org
+* CD collection
+** Classic
+*** Goldberg Variations
+    :PROPERTIES:
+    :Title:     Goldberg Variations
+    :Composer:  J.S. Bach
+    :Publisher: Deutsche Grammophon
+    :NDisks:    1
+    :END:
+```
+
+You may define the allowed values for a particular property `Xyz` by setting a property `Xyz_ALL`. This special property is inherited, so if you set it in a level 1 entry, it applies to the entire tree. When allowed values are defined, setting the corresponding property becomes easier and is less prone to typing errors. For the example with the CD collection, we can pre-define publishers and the number of disks in a box like this:
+
+```org
+* CD collection
+  :PROPERTIES:
+  :NDisks_ALL:  1 2 3 4
+  :Publisher_ALL: "Deutsche Grammophon" Philips EMI
+  :END:
+```
+
+If you want to set properties that can be inherited by any entry in a file, use a line like:
+
+```org
+#+PROPERTY: NDisks_ALL 1 2 3 4
+```
+
+This can be interesting for example if you want to track when was a header created:
+
+```org
+*** Title of header
+   :PROPERTIES:
+   :CREATED: <2023-03-03 Fri 12:11> 
+   :END:
 ```
 
 ## Archiving
@@ -500,7 +607,7 @@ org = {
   org_archive_subtree = ';A',
 }
 
-There are some work in progress to improve archiving in the next issues [1](https://github.com/nvim-orgmode/orgmode/issues/413), [2](https://github.com/nvim-orgmode/orgmode/issues/369)
+There are some work in progress to improve archiving in the next issues [1](https://github.com/nvim-orgmode/orgmode/issues/413), [2](https://github.com/nvim-orgmode/orgmode/issues/369) and [3](https://github.com/joaomsa/telescope-orgmode.nvim/issues/2). 
 
 ## Refiling
 
@@ -564,7 +671,15 @@ You'll be presented with the next views:
 * `s`: Search for keywords                                                                                 
 * `q`: Quit                                                                                                
 
-### Move around the agenda
+So far the `nvim-orgmode` agenda view lacks the next features:
+
+- Custom agenda commands
+- These interactions with the items:
+  - Remove it
+  - Promote/demote it
+  - Order it up and down
+
+### Move around the agenda view
 
 * `.`: Go to Today
 * `J`: Opens a popup that allows you to select the date to jump to.
@@ -616,6 +731,180 @@ Once you open one of the views you can do most of the same stuff that you on oth
 
 There is still no easy way to define your [custom agenda views](https://orgmode.org/manual/Custom-Agenda-Views.html), but it looks possible [1](https://github.com/nvim-orgmode/orgmode/issues/478) and [2](https://github.com/nvim-orgmode/orgmode/issues/135).
 
+### [Agenda searches](https://orgmode.org/worg/org-tutorials/advanced-searching.html#property-searches)
+
+When using the search agenda view you can:
+
+* Search by TODO states with `/WAITING`
+* Search by tags `+home`. The syntax for such searches follows a simple boolean logic:
+
+  - `|`: or
+  - `&`: and
+  - `+`: include matches
+  - `-`: exclude matches 
+
+  Here are a few examples:
+
+  - `+computer&+urgent`: Returns all items tagged both `computer` and `urgent`.
+  - `+computer|+urgent`: Returns all items tagged either `computer` or `urgent`.
+  - `+computer&-urgent`: Returns all items tagged `computer` and not `urgent`.
+
+
+  As you may have noticed, the syntax above can be a little verbose, so org-mode offers convenient ways of shortening it. First, `-` and `+` imply `and` if no boolean operator is stated, so example three above could be rewritten simply as:
+
+  ```
+  +computer-urgent
+  ```
+
+  Second, inclusion of matches is implied if no `+` or `-` is present, so example three could be further shortened to:
+
+  ```
+  computer-urgent
+  ```
+
+  Example number two, meanwhile, could be shortened to:
+
+  ```
+  computer|urgent
+  ```
+
+  There is no way (as yet) to express search grouping with parentheses. The `and` operators (`&`, `+`, and `-`) always bind terms together more strongly than `or` (`|`). For instance, the following search
+
+  ```
+  computer|work+email
+  ```
+
+  Results in all headlines tagged either with `computer` or both `work` and `email`. An expression such as `(computer|work)&email` is not supported at the moment. You can construct a regular expression though:
+
+  ```
+  +{computer\|work}+email
+  ```
+
+* [Search by properties](https://orgmode.org/worg/org-tutorials/advanced-searching.html#property-searches): You can search by properties with the `PROPERTY="value"` syntax. Properties with numeric values can be queried with inequalities `PAGES>100`. To search by partial searches use a regular expression, for example if the entry had `:BIB_TITLE: Mysteries of the Amazon` you could use `BIB_TITLE={Amazon}`
+
+## [Capture](https://orgmode.org/manual/Capture.html)
+
+Capture lets you quickly store notes with little interruption of your work flow. It works the next way:
+
+- Open the interface with `;c` (Default `<leader>oc`) that asks you what kind of element you want to capture. 
+- Select the template you want to use. By default you only have the `Task` template, that introduces a task into the same file where you're at, select it by pressing `t`.
+- Fill up the template.
+- Choose what to do with the captured content:
+  - Save it to the configured file by pressing `;w` (Default `<control>c`)
+  - Refile it to a file by pressing `;r` (Default `<leader>or`).
+  - Abort the capture `;q` (Default `<leader>ok`).
+
+```lua
+mappings = {
+  global = {
+    org_capture = ';c',
+    },
+  capture = {
+    org_capture_finalize = ';w',
+    org_capture_refile = ';r',
+    org_capture_kill = ';q',
+  },
+}
+```
+
+### Configure the capture templates
+
+Capture lets you define different templates for the different inputs. Each template has the next elements:
+
+* Keybinding: Keys to press to activate the template
+* Description: What to show in the capture menu to describe the template
+* Template: The actual template of the capture, look below to see how to create them.
+* Target: The place where the captured element will be inserted to. For example `~/org/todo.org`. If you don't define it it will go to the file configured in `org_default_notes_file`.
+* Headline: An [optional headline](https://github.com/nvim-orgmode/orgmode/issues/196) of the Target file to insert the element. 
+
+For example:
+
+```lua
+org_capture_templates = {
+  t = { description = 'Task', template = '* TODO %?\n  %u' }
+}
+```
+
+For the template you can use the next variables:
+
+- `%?: `Default cursor position when template is opened
+- `%t`: Prints current date (Example: `<2021-06-10 Thu>`)
+- `%T`: Prints current date and time (Example: `<2021-06-10 Thu 12:30>`)
+- `%u`: Prints current date in inactive format (Example: `[2021-06-10 Thu]`)
+- `%U`: Prints current date and time in inactive format (Example: `[2021-06-10 Thu 12:30]`)
+- `%<FORMAT>`: Insert current date/time formatted according to lua date format (Example: `%<%Y-%m-%d %A>` produces `2021-07-02 Friday`)
+- `%x`: Insert content of the clipboard via the "+" register (see `:help clipboard`)
+- `%^{PROMPT|DEFAULT|COMPLETION...}`: Prompt for input, if completion is provided an `:h inputlist` will be used
+- `%(EXP)`: Runs the given lua code and inserts the result. NOTE: this will internally pass the content to the lua `load()` function. So the body inside `%()` should be the body of a function that returns a string.
+- `%f`: Prints the file of the buffer capture was called from.
+- `%F`: Like `%f` but inserts the full path.
+- `%n`: Inserts the current `$USER`
+- `%a`: File and line number from where capture was initiated (Example: `[[file:/home/user/projects/myfile.txt +2]]`)
+
+For example:
+
+```lua
+{ 
+  T = {
+    description = 'Todo',
+    template = '* TODO %?\n %u',
+    target = '~/org/todo.org'
+  },
+  j = {
+    description = 'Journal',
+    template = '\n*** %<%Y-%m-%d %A>\n**** %U\n\n%?',
+    target = '~/sync/org/journal.org'
+  },
+  -- Nested key example:
+  e =  'Event',
+  er = {
+    description = 'recurring',
+    template = '** %?\n %T',
+    target = '~/org/calendar.org',
+    headline = 'recurring'
+  },
+  eo = {
+    description = 'one-time',
+    template = '** %?\n %T',
+    target = '~/org/calendar.org',
+    headline = 'one-time'
+  },
+  -- Example using a lua function
+  r = {
+    description = "Repo URL",
+    template = "* [[%x][%(return string.match('%x', '([^/]+)$'))]]%?",
+    target = "~/org/repos.org",
+  }
+}
+```
+
+
+### Use capture
+
+## Synchronize with external calendars
+
+You may want to synchronize your calendar entries with external ones shared with other people, such as nextcloud calendar or google.
+
+The orgmode docs have a tutorial to [sync with google](https://orgmode.org/worg/org-tutorials/org-google-sync.html) and suggests some orgmode packages that do that, sadly it won't work with `nvim-orgmode`. We'll need to go the "ugly way" by:
+
+* Downloading external calendar events to ics with [`vdirsyncer`](vdirsyncer.md).
+* [Importing the ics to orgmode](#importing-the-ics-to-orgmode)
+* Editing the events in orgmode
+* [Exporting from orgmode to ics](#exporting-from-orgmode-to-ics)
+* Uploading then changes to the external calendar events with [`vdirsyncer`](vdirsyncer.md).
+
+### Importing the ics to orgmode
+
+There are many tools that do this:
+
+* [`ical2orgpy`](https://github.com/ical2org-py/ical2org.py) 
+* [`ical2org` in go](https://github.com/rjhorniii/ical2org)
+
+They import an `ics` file
+
+### Exporting from orgmode to ics
+
+
 
 ## Other interesting features
 
@@ -630,7 +919,30 @@ Some interesting features for the future are:
 
 Close the terminal and open a new one (pooooltergeist!).
 
+# Comparison with Markdown
+
+What I like of Org mode over Markdown:
+
+* The whole interface to interact with the elements of the document through key bindings:
+  * Move elements around.
+  * Create elements
+* The TODO system is awesome
+* The Agenda system
+* How it handles checkboxes <3
+* Easy navigation between references in the document
+* Archiving feature
+* Refiling feature
+* `#` is used for comments.
+* Create internal document links is easier, you can just copy and paste the heading similar to `[[*This is the heading]]` on markdown you need to edit it to `[](#this-is-the-heading)`.
+
+What I like of markdown over Org mode:
+
+* The syntax of the headings `## Title` better than `** Title`. Although it makes sense to have `#` for comments.
+* The syntax of the links: `[reference](link)` is prettier to read and write than `[[link][reference]]`, although this can be improved if only the reference is shown by your editor (nvim-orgmode doesn't do his yet)
+
 # References
 
 * [Source](https://github.com/nvim-orgmode/orgmode)
 * [Docs](https://nvim-orgmode.github.io/)
+* [Developer docs](https://github.com/nvim-orgmode/orgmode/blob/master/DOCS.md#org_export)
+* [List of supported commands](https://github.com/nvim-orgmode/orgmode/wiki/Feature-Completeness#nvim-org-commands-not-in-emacs)

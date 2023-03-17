@@ -52,7 +52,8 @@ Date and time data types:
     Adding `DEFAULT` and `ON UPDATE` in the column definition to get automatic
     initialization and updating to the current date and time.
 
-# [List all tables](https://www.sqltutorial.org/sql-list-all-tables/)
+# Operations 
+## [List all tables](https://www.sqltutorial.org/sql-list-all-tables/)
 
 Mysql:
 
@@ -70,6 +71,13 @@ Sqlite:
 
 ```sql
 .tables
+```
+
+## Delete rows from table
+
+```sql
+DELETE FROM table_name
+WHERE condition;
 ```
 
 # [Table relationships](https://launchschool.com/books/sql/read/table_relationships)
