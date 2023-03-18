@@ -55,48 +55,6 @@ I monthly spin up new ideas for programs, and managing the storage of the
 information is cumbersome and repeating. My idea is to refactor that common
 codebase into a generic library that anyone can use.
 
-## [Pydo](https://lyz-code.github.io/pydo)
-
-I've been using [Taskwarrior](https://taskwarrior.org) for the last five or six
-years. It's an awesome program to do task management and it is really
-customizable. So throughout these years I've done several scripts to integrate
-it into my workflow:
-
-* [Taskban](https://github.com/lyz-code/taskban): To do [Sprint
-  Reviews](https://en.wikipedia.org/wiki/Scrum_%28software_development%29#Sprint_review)
-  and do data analysis on the difference between the estimation and the actual
-  time for doing tasks. To do so, I had to rewrite how
-  [tasklib](https://github.com/lyz-code/taskli://github.com/lyz-code/tasklib)
-  stores task time information.
-* [Taskwarrior_recurrence](https://git.digitales.cslabrecha.org/lyz/taskwarrior_recurrence):
-  A group of hooks to fix [Taskwarrior's recurrence
-  issues](https://taskwarrior.org/docs/design/recurrence.html).
-* [Taskwarrior_validation](https://git.digitales.cslabrecha.org/lyz/taskwarrior_validation):
-  A hook to help in the definition of validation criteria for tasks.
-
-Nevertheless, I'm searching for an alternative because:
-
-* As the database grows, `taskban` becomes unusable.
-* Taskwarrior lacks several features I want.
-* It's written in C, which I don't speak.
-* It's development has come to [code maintenance
-  only](https://github.com/GothenburgBitFactory/taskwarrior/graphs/code-frequency).
-* It uses a plaintext file as data storage.
-
-[tasklite](https://tasklite.org) is a promising project that tackles most of the
-points above. But is written in
-[Haskel](https://en.wikipedia.org/wiki/Haskell_%28programming_language%29) which
-I don't know and I don't want to learn.
-[git-bug](https://github.com/MichaelMure/git-bug) is a nice distributed
-issue tracker using git where we can get some ideas.
-
-So taking my experience with taskwarrior and looking at tasklite, I've started
-building [pydo](https://lyz-code.github.io/pydo).
-
-I'm now doing a full rewrite of the codebase following the [repository
-pattern](repository_pattern.md) which led me to create a [Python
-library](#repository-pattern).
-
 ## [Pynbox](https://lyz-code.github.io/pynbox)
 
 I wanted a system to improve the management of ideas, tasks,

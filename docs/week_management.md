@@ -8,11 +8,6 @@ I've been polishing a week reviewing and planning method that suits my needs.
 I usually follow it on Wednesdays, as I'm too busy on Mondays and Tuesdays and
 it gives enough time to plan the weekend.
 
-Until I've got [pydo](https://github.com/lyz-code/pydo) ready to natively
-incorporate all this processes, I heavily use taskwarrior to manage my tasks and
-logs. To make the process faster and reproducible, I've written small python
-scripts using tasklib.
-
 # Week review
 
 Life logging is the only purpose of my weekly review.

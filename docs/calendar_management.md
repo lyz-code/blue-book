@@ -5,8 +5,7 @@ author: Lyz
 ---
 
 Since the break of my taskwarrior instance I've used a physical calendar to
-manage the tasks that have a specific date. Can't wait for
-the first version of [`pydo`](https://github.com/lyz-code/pydo) to be finished.
+manage the tasks that have a specific date. 
 
 The next factors made me search for a temporal solution:
 

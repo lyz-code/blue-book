@@ -39,8 +39,7 @@ then a better task manager based on your needs.
 
 In the past I've used [taskwarrior](https://taskwarrior.org/), but [its
 limitations](https://lyz-code.github.io/pydo/#why-another-cli-task-manager) led
-me to start creating [pydo](https://lyz-code.github.io/pydo) although it's still
-not a usable project :(. Then I moved on to [the simplest task manager](#the-simplest-task-manager) but it eventually fell short in my needs, so I started working with [Openproject](#openproject) but working on a web interface is not for me, so now I'm migrating to [orgmode](orgmode.md).
+me to start creating [pydo](https://lyz-code.github.io/pydo) although I didn't finish it. Then I moved on to [the simplest task manager](#the-simplest-task-manager) but it eventually fell short in my needs, so I started working with [Openproject](#openproject) but working on a web interface is not for me, so now I'm migrating to [orgmode](orgmode.md).
 
 ## The simplest task manager
 
