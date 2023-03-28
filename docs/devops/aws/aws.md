@@ -16,3 +16,11 @@ blocks and tools.
 # Learn path
 
 TBD
+
+# AWS snippets
+
+## [Stop an EC2 instance](https://docs.aws.amazon.com/cli/latest/reference/ec2/stop-instances.html)
+
+```bash
+aws ec2 stop-instances --instance-ids i-xxxxxxxx
+```

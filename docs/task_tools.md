@@ -11,7 +11,7 @@ I currently use two tools to manage my tasks: the [inbox](#inbox) and the
 
 The inbox does not refer only to your e-mail inbox. It is a broader concept that
 includes all the elements you have collected in different ways: tasks you have to
-do, ideas you have thought of, notes, bills, business cards, etc…
+do, ideas you have thought of, notes, bills, etc…
 
 To achieve a stress-free productivity, emptying the inbox should be a daily
 activity. Note that this does not mean doing things, it just means identifying

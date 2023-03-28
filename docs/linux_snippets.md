@@ -4,6 +4,16 @@ date: 20200826
 author: Lyz
 ---
 
+# SSH tunnel 
+
+```bash
+ssh -D 9090 -N -f user@host
+```
+
+# [Fix the SSH client kex_exchange_identification: read: Connection reset by peer error](https://stackoverflow.com/questions/69394001/how-can-i-fix-kex-exchange-identification-read-connection-reset-by-peer)
+
+Restart the `ssh` service.
+
 # [Get class of a window](https://unix.stackexchange.com/questions/703084/how-to-get-current-window-class-name-from-script)
 
 Use `xprop` and click the window.

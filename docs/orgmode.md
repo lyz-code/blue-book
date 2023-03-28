@@ -1,4 +1,6 @@
-[`nvim-orgmode`](https://github.com/nvim-orgmode/orgmode#agenda) is a Orgmode clone written in Lua for Neovim. Org-mode is a flexible note-taking system that was originally created for Emacs. It has gained wide-spread acclaim and was eventually ported to Neovim.
+[`nvim-orgmode`](https://github.com/nvim-orgmode/orgmode#agenda) is a Orgmode clone written in Lua for Neovim. Org-mode is a flexible note-taking system that was originally created for Emacs. It has gained wide-spread acclaim and was eventually ported to Neovim. This page is heavily focused to the nvim plugin, but you can follow the concepts for emacs as well.
+
+If you use Android try [orgzly](orgzly.md).
 
 # [Installation](https://github.com/nvim-orgmode/orgmode#installation)
 
@@ -389,14 +391,14 @@ DEADLINE: <2023-02-24 Fri>
 
 You can set it with `<leader>d` (Default: `<leader>oid`).
 
-Using too many tasks with a `DEADLINE` will clutter your agenda. Use it only for the actions that you need to have a reminder, instead try to using [appointment](#appointments) dates instead. 
+Using too many tasks with a `DEADLINE` will clutter your agenda. Use it only for the actions that you need to have a reminder, instead try to using [appointment](#appointments) dates instead. The problem of using appointments is that once the date is over you don't get a reminder in the agenda that it's overdue, if you need this, use `DEADLINE` instead.
 
-If you need a different warning period for a special task, you can specify it. For example setting a warning period of 5 days `DEADLINE: <2004-02-29 Sun -5d>`. To configure the default number of days add:
+If you need a different warning period for a special task, you can specify it. For example setting a warning period of 5 days `DEADLINE: <2004-02-29 Sun -5d>`. If you do use `DEADLINES` for many small tasks you may want to configure the default number of days to `0`. Most of times you are able to finish the task in the day, for those that you can't specify a different warning period in the task.
 
 
 ```lua
 require('orgmode').setup({
-  org_deadline_warning_days = 10,
+  org_deadline_warning_days = 0,
 })
 ```
 
@@ -456,6 +458,8 @@ When you press that key you can type:
 
 Tags are seen as `:tag1:tag2:` on the right of the TODO item description.
 
+Note: tags can't have spaces so use `long_break` instead of `long break`.
+
 Tags make use of the hierarchical structure of outline trees. If a heading has a certain tag, all subheadings inherit the tag as well. For example, in the list
 
 ```
@@ -470,7 +474,9 @@ The final heading has the tags `work`, `boss`, `notes`, and `action` even though
 #+FILETAGS: :Peter:Boss:Secret:
 ```
 
-### Lists
+If you plan to use the [Capture](#capture) function on the file, add the `FILETAGS` like at the top of the file, otherwise it will end up in the middle of it as you capture new elements.
+
+### `Lists
 
 Lists start with a dash:
 
@@ -664,12 +670,12 @@ The org agenda is used to get an overview of all your different org files. Press
 
 You'll be presented with the next views:
 
-* `a`: Agenda for current week or day                                                                      
-* `t`: List of all TODO entries                                                                            
-* `m`: Match a TAGS/PROP/TODO query                                                                        
-* `M`: Like `m`, but only TODO entries                                                                       
-* `s`: Search for keywords                                                                                 
-* `q`: Quit                                                                                                
+* `a`: Agenda for current week or day
+* `t`: List of all TODO entries
+* `m`: Match a TAGS/PROP/TODO query
+* `M`: Like `m`, but only TODO entries
+* `s`: Search for keywords
+* `q`: Quit
 
 So far the `nvim-orgmode` agenda view lacks the next features:
 

@@ -131,11 +131,13 @@ If the next action is going to take longer than two minutes, ask yourself, “Am
 
 When you hand it off to someone else, and if you care at all whether something happens as a result, you’ll need to track it. Depending on how active you need to be it can go to your Waiting list or to your tickler.
 
-The tracked actions that you can act on will end up in one of the next containers:
+You need to determine what to do with the rest of the next actions once you do, they will end up in one of the next containers:
 
 * [Todo list](#todo-list)
 * [Calendar](#calendar)
 * [Tickler](#tickler)
+
+I's critical that all of these containers be kept distinct from one another. They each represent a discrete type of agreement we make with ourselves, to be reminded of at a specific time and in a specific way, and if they lose their edges and begin to blend, much of the value of organizing will be lost. That's why capturing and clarifying what your relationship to them is primary to getting organized.
 
 #### Todo list
 
@@ -246,11 +248,13 @@ Before you start moving stuff around it's a good idea to get the first design of
 ├── reference
 │   ├── blue
 │   ├── reference.org
+│   ├── health.org
 │   └── red 
 └── todo
     ├── personal.org
     ├── work_1.org
     ├── work_2.org
+    ├── recurrent.org
     └── someday.org
 ```
 
@@ -261,13 +265,45 @@ Where:
 * `calendar/personal.org` is my [personal calendar](#personal-calendar).
 * `calendar/day.org` is my [day planner](#day-planner).
 
+### Inbox management
+
+Inbox is the container where you [capture your stuff](#capture). I've found myself capturing stuff in each of my devices: computer, mobile phone and tablet. Each of them has their own org file under the `inbox` directory. Each of these files has the `#+FILETAGS: :inbox:` heading so that all elements share the tag.
+
+Part of the daily planning is to check the computer and mobile inboxes to see if there is anything that needs to be processed on the day. I don't check the tablet inbox as there's usually no urgent stuff there. The rest of the elements will be processed on the weekly review leaving all the inbox files empty.
+
+#### Computer inbox management
+
+[`nvim-orgmode`](orgmode.md) has an awesome feature called [capture](orgmode.md#capture) which lets you capture thoughts with a keystroke. This is awesome as no matter what are you doing inside `neovim` you can quickly record your thought, action or idea and keep on doing whatever you were doing. It's a very efficient way to record your *stuff* at the same time as you keep your focus. 
+
+You can use the next capture template:
+
+```lua
+  org_capture_templates = {
+    i = {
+      description = "Inbox",
+      template = "* TODO %?\n %U",
+      target = "~/org/inbox/computer.org",
+    },
+  }
+```
+
+#### Mobile and tablet inbox management
+
+To capture the content on the go you can use the [orgzly](orgzly.md) and then sync them with your computer through [syncthing](syncthing.md).
+
 ### Calendar management
+
+You need to trust your calendar as sacred territory, reflecting the exact hard edges of your day's commitments, which should be noticeable at a glance while you're on the run.
+
+So for each element you encounter in the calendar ask yourself, does this element **need** to be done on this hard date? If the answer is no, then the calendar is not the correct place for the element to be. 
+
+Using dates to order your tasks it's a waste of time, because there will always be a thousand of reasons why you can't do all the things you allocate to that day. As these not done issues start piling up, you'll start to get stressed with a lot of things that you were not able to do on the dates you deceived yourself you were supposed to do at and then you need to spend time defining a new date. Use next actions in your `todo` instead.
 
 #### Personal calendar
 
 The `calendar/personal.org` file holds:
 
-- [Appointments](orgmode.md#appointments): Meant to be used for elements of the org file that have a defined date to occur. You whether do it that date or not do it at all. Avoid using dates to organize your tasks and if you don't do it that day, reschedule it to another date, it's a waste of time, use next actions in your `todo` instead. If you need to act on it use a `TODO` element, otherwise a headline is enough An example would be.
+- [Appointments](orgmode.md#appointments): Meant to be used for elements of the org file that have a defined date to occur. You whether do it that date or not do it at all.  If you need to act on it use a `TODO` element, otherwise a headline is enough An example would be.
 
   ```org
   * TODO Meet with Marie
@@ -281,7 +317,7 @@ The `calendar/personal.org` file holds:
 
   ```org
   * TODO Go to pilates
-    <2007-05-16 Wed 12:30 +1w>
+    <2007-05-16 Wed 12:30 ++1w>
   ```
 
 - [Tickler events](#tickler-management): Check the [Tickler management](#tickler-management) section for more details.
@@ -379,13 +415,23 @@ As explained in the [todo list](#todo-list) section, you can use tags to filter 
 - `:long_break:`: I'm using this tag to track the small projects that can be done in the [long pomodoro breaks](task_workflows.md). Depending on the kind of long break that I need I then filter for the next tags:
   - `brainless`: If I want to keep on thinking on what I was doing, an example could be emptying the dishwasher, watering the plants, ...
   - `call`: If I want to completely change context and want some social interaction. For example call mom. 
+- `:thinking:`: Used to track the elements where you just need to think about them. For example I like to have this list to have a prioritized list to deal with when I'm in the shower, while biking, hiking...
+- `:relax:`: Used to track the things you can do when you just want to chill: really listen the music of a group, summarize a book, clean your music library...
+- People involved: `:marie:`, `:billy:`, ...
 
+Always use lowercase tags, it will save you some key strokes.
+
+#### Priority management
+
+You shouldn’t bother to create some external structuring of the priorities on your lists that you’ll then have to rearrange or rewrite as things change. Attempting to impose such scaffolding has been a big source of frustration in many people’s organizing. You’ll be prioritizing more intuitively as you see the whole list against quite a number of shifting variables. The list is just a way for you to keep track of the total inventory of active things to which you have made a commitment, and to have that inventory available for review.
+
+Therefore I'm going to try not to use orgmode's priorities for the tasks.
 
 #### Waiting tasks
 
 Waiting actions are elements that are blocked for any reason. I use the `WAITING` TODO keyword to track this state. Under each element you should add that reason and optionally the process you want to follow to unblock it.
 
-If you need to actively track the evolution of the WAITING status, leave it on the top of your `todo`. Otherwise set the date you want to check its status and move it to the `ticker.org` file. 
+If you need to actively track the evolution of the WAITING status, leave it on the top of your `todo`. Otherwise set the date you want to check its status and move it to the `ticker.org` file. If you don't even want to track it, move it to the `someday.org` file.
 
 ### Tickler management
 
@@ -401,6 +447,43 @@ To implement this in orgmode you can add the `:tickler:` tag to any element that
 It can also help to review in the weeklies all the ticklers of the week to avoid surprises.
 
 If you want to make the project go away from your `todo` or `someday` until the tickler date, move it to the `tickler.org` file.
+
+#### Soft recurrent tasks
+
+There are some tasks that have a soft recurrence meaning that once you do them you don't want them to show up in your list of actions until a specific time has passed. You could use a recurrent `DEADLINE` or `SCHEDULED` but as we've seen earlier that will clutter your calendar pretty soon. Try following the next workflow with these tasks:
+
+- Add the `:soft_recurrence:` tag to keep them tracked.
+- Add them to the tickler file with a recurrent appointment date `<2023-03-13 Mon ++1w>` and the `:tickler:` tag so that it doesn't show up in the agenda view even if you move it to another file.
+- When the appointed day comes you'll review the tickler elements as part of your day's routine. If you think it's time to do it, refile it to the `todo.org` file, if not, adjust the recurrence period and set the next date. Even though this workflow is reproducing the "kick the can forward" that we want to avoid, the idea is that once you get the period right you'll never have to do it again. If you see that after some iterations the period keeps on changing, maybe this workflow is not working for that kind of task and you may need to think of a better system `¯\(°_o)/¯`.
+- Once you complete the item, the new one will be spawned, once it has refile it to the tickler file again.
+
+We use appointments instead of `DEADLINE` or `SCHEDULED` so that they don't clutter the tickler view if you don't do them on the appointment date. 
+
+Another option is not to archive the DONE tasks and in the weekly reset them to TODO the ones that you want to do the next week.
+
+### Setting up your filing system
+
+You will resist the whole process of capturing information if your reference systems are not fast, functional, and fun. Thus you need to envision a system at hand that supports both physical and digital content. Without a streamlined system for both, you will resist keeping potentially valuable information, or what you do keep will accumulate in inappropriate places. 
+
+We’re concerned here mostly with general-reference filing, anything that you want to keep for its interesting or useful data or purpose and that doesn’t fit into your specialized filing systems and won’t stand up by itself on a shelf. For example articles, brochures, pieces of paper, notes, printouts, documents, and even physical things like tickets, keys, buyers-club membership cards, and flash drives.
+
+It should take you less than one minute to pick something up out of your in-tray, decide it needs no next action but has some potential future value, and finish storing it in a trusted system. If it takes longer, you’ll likely stack it or stuff it somewhere instead. Besides being fast, the system needs to be fun and easy, current and complete. Otherwise you’ll unconsciously resist emptying your in-tray because you know there’s likely to be something in there that ought to get filed, and you won’t even want to look at the papers or your clogged e-mail. If you have to get up every time you have some ad hoc piece of paper you want to file, or you have to search multiple places on your computer for an appropriate location for a piece of information you want to keep, you’ll tend to stack it or leave it in its original place instead of filing it.
+
+You must feel equally comfortable about filing a single piece of paper on a new topic, even a scribbled note, in its own file as you would about filing a more formal, larger document.
+
+Whatever you need to do to get your reference system to that quick and easy standard for everything it has to hold, do it. For example purge your files at least once a year, that keeps it from going stale and becoming the dreaded black hole- .
+
+### Digital general reference
+
+It is very helpful to have a visual map sorted in ways that make sense, either by indexes or data groups organized effectively, usually in an alphabetic order.
+
+The biggest issue for digitally oriented people is that the ease of capturing and storing has generated a write-only syndrome: all they’re doing is capturing information—not actually accessing and using it intelligently. Some consciousness needs to be applied to keep one’s potentially huge digital library functional, versus a black hole of data easily dumped in there with a couple of keystrokes.
+
+You need to consistently check how much room to give yourself so that the content remains meaningfully and easily accessible, without creating a black hole of an inordinate amount of information amorphously organized. 
+
+### Physical general reference
+
+One idea is to have one system/place where you order the content alphabetically, not multiple ones. People have a tendency to want to use their files as a personal management system, and therefore they attempt to organize them in groupings by projects or areas of focus. This magnifies geometrically the number of places something isn’t when you forget where you filed it.
 
 ## Capture all your stuff
 
@@ -757,41 +840,18 @@ To assist in clearing your head, you may want to review the following the next t
 
 Now that you know where do your inputs come from you need to think how do you want to manage them from now on to ensure that you're able to be able to continuously capture items in a frictionless way.
 
-
-
-
-### Setting up your filing system
-
-You will resist the whole process of capturing information if your reference systems are not fast, functional, and fun. Thus you need to envision a system at hand that supports both physical and digital content. Without a streamlined system for both, you will resist keeping potentially valuable information, or what you do keep will accumulate in inappropriate places. 
-
-We’re concerned here mostly with general-reference filing, anything that you want to keep for its interesting or useful data or purpose and that doesn’t fit into your specialized filing systems and won’t stand up by itself on a shelf. For example articles, brochures, pieces of paper, notes, printouts, documents, and even physical things like tickets, keys, buyers-club membership cards, and flash drives.
-
-It should take you less than one minute to pick something up out of your in-tray, decide it needs no next action but has some potential future value, and finish storing it in a trusted system. If it takes longer, you’ll likely stack it or stuff it somewhere instead. Besides being fast, the system needs to be fun and easy, current and complete. Otherwise you’ll unconsciously resist emptying your in-tray because you know there’s likely to be something in there that ought to get filed, and you won’t even want to look at the papers or your clogged e-mail. If you have to get up every time you have some ad hoc piece of paper you want to file, or you have to search multiple places on your computer for an appropriate location for a piece of information you want to keep, you’ll tend to stack it or leave it in its original place instead of filing it.
-
-You must feel equally comfortable about filing a single piece of paper on a new topic, even a scribbled note, in its own file as you would about filing a more formal, larger document.
-
-Whatever you need to do to get your reference system to that quick and easy standard for everything it has to hold, do it. For example purge your files at least once a year, that keeps it from going stale and becoming the dreaded black hole- .
-
-### Digital general reference
-
-It is very helpful to have a visual map sorted in ways that make sense, either by indexes or data groups organized effectively, usually in an alphabetic order.
-
-The biggest issue for digitally oriented people is that the ease of capturing and storing has generated a write-only syndrome: all they’re doing is capturing information—not actually accessing and using it intelligently. Some consciousness needs to be applied to keep one’s potentially huge digital library functional, versus a black hole of data easily dumped in there with a couple of keystrokes.
-
-You need to consistently check how much room to give yourself so that the content remains meaningfully and easily accessible, without creating a black hole of an inordinate amount of information amorphously organized. 
-
-### Physical general reference
-
-One idea is to have one system/place where you order the content alphabetically, not multiple ones. People have a tendency to want to use their files as a personal management system, and therefore they attempt to organize them in groupings by projects or areas of focus. This magnifies geometrically the number of places something isn’t when you forget where you filed it.
-
 ## Empty the inbox
 
 Now that we have collected everything that has your attention, you need to get to the bottom of your inbox. To be able to do it in a reasonable amount of time you are not meant to actually do the items themselves, instead analyze each item and decide what it is, what it means and what are you going to do with it.
+
+Follow the steps of [Clarify and organize](#clarify-and-organize) until you've reached the bottom of your inbox. You’ll dump a mess of things, file a bunch, do a lot of two-minute actions, and hand off a number of items to other people. You’ll also wind up with a stack of items that have actions associated with them that you still need to do soon, someday, or on a specific date, and reminders of things you’re waiting on from other people. Now that you have everything at the next action level, we need to scale up in the abstraction ladder so that we can prioritize better what to do next.
 
 # Unclassified thoughts
 
 * There must be zero resistance to using the systems we have. Having to continually reinvent our in-tray, our filing system, and how and where we process our stuff can only be a source of incessant distraction.
 * One of the best tricks for enhancing your productivity is having organizing tools you love to use.
+- Being organized means nothing more or less than where something is matches what it means to you.
+- Your organisation system is not something that you'll create all at once. It will evolve as you process yuor stuff and test out whether you have put everything in the best place for you. It won't remain static, it will evolve as you do.
 
 ## The weekly review
 

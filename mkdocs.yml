@@ -303,6 +303,7 @@ nav:
       - Continuous Integration:
           - devops/ci.md
           - Drone: drone.md
+          - ArgoCD: argocd.md
           - Linters:
               - Alex: devops/alex.md
               - Flakeheaven: flakeheaven.md
@@ -439,6 +440,7 @@ nav:
           - Apps:
               - Cone: cone.md
               - GadgetBridge: gadgetbridge.md
+              - Orgzly: orgzly.md
               - OsmAnd: osmand.md
               - Seedvault: seedvault.md
               - Signal: signal.md
