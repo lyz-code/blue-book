@@ -328,7 +328,7 @@ In rare cases you may want to use the [`DEADLINE`](orgmode.md#deadline) property
 
 #### Day planner
 
-Some of my day events are semi-regular, meaning that the recurrence options are not powerful enough. For example, I usually go to pilates on Tuesdays, but some weeks I go at 18:00 and others at 19:00. In the past I used a script that interacts with [`ikhal`](ikhal.md) to create the elements of the day based on some questionary. The idea is to migrate the tool to create appointments in the day under the `diary.org` file using a `datetree` structure:
+Some of my day events are semi-regular, meaning that the recurrence options are not powerful enough. For example, I usually go to pilates on Tuesdays, but some weeks I go at 18:00 and others at 19:00. In the past I used a script that interacts with [`ikhal`](khal.md) to create the elements of the day based on some questionary. The idea is to migrate the tool to create appointments in the day under the `diary.org` file using a `datetree` structure:
 
 ```org
 * 2010

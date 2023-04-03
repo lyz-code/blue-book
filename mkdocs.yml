@@ -19,6 +19,7 @@ nav:
       - Mentoring: mentoring.md
       - Free Knowledge: free_knowledge.md
       - Environmentalism: environmentalism.md
+      - Laboral: laboral.md
   - Life Management:
       - life_management.md
       - Time Management: time_management.md
@@ -368,6 +369,7 @@ nav:
           - Pedal PC: pedal_pc.md
   - Operating Systems:
       - Linux:
+          - linux.md
           - Linux Snippets: linux_snippets.md
           - afew: afew.md
           - aleph: aleph.md

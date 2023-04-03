@@ -346,3 +346,10 @@ you Docker `-.-`.
 
 Shutdown the VPN and it will work. If it doesn't inspect the output of
 `journalctl -eu docker`.
+
+## [Disable ipv6](https://stackoverflow.com/questions/30750271/disable-ip-v6-in-docker-container)
+
+```bash
+sysctl net.ipv6.conf.all.disable_ipv6=1
+sysctl net.ipv6.conf.default.disable_ipv6=1
+```

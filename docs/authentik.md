@@ -65,7 +65,7 @@ In your browser, navigate to authentik’s initial setup page https://auth.home.
 
 Set the email and password for the default admin user, `akadmin`. You’re now logged in.
 
-# Usage
+# Configuration
 
 ## [Terraform](https://registry.terraform.io/providers/goauthentik/authentik/latest/docs)
 
@@ -126,7 +126,7 @@ provider "authentik" {
 
 You have some guides to connect [some popular applications](https://goauthentik.io/integrations/)
 
-## [Gitea](https://goauthentik.io/integrations/services/gitea/)
+### [Gitea](https://goauthentik.io/integrations/services/gitea/)
 
 You can follow the [Authentik Gitea docs](https://goauthentik.io/integrations/services/gitea/) or you can use the next terraform snippet:
 
@@ -722,6 +722,76 @@ data "authentik_flow" "default_user_settings_flow" {
 }
 ```
 
+## [Hide and application from a user](https://goauthentik.io/docs/applications#authorization)
+
+Application access can be configured using (Policy) Bindings. Click on an application in the applications list, and select the Policy / Group / User Bindings tab. There you can bind users/groups/policies to grant them access. When nothing is bound, everyone has access. You can use this to grant access to one or multiple users/groups, or dynamically give access using policies.
+
+With terraform you can use `authentik_policy_binding`, for example:
+
+```terraform
+resource "authentik_policy_binding" "admin" {
+  target = authentik_application.gitea.uuid
+  group  = authentik_group.admins.id
+  order  = 0
+}
+```
+
+## [Protect applications that don't have authentication](https://piotrkrzyzek.com/how-to-setup-use-authentik-with-simple-forward-proxy/)
+
+Some applications don't have authentication, for example [prometheus](prometheus.md). You can use Authentik in front of such applications to add the authentication and authorization layer.
+
+Authentik can be used as a (very) simple reverse proxy by using its Provider feature with the regular "Proxy" setting. This let's you wrap authentication around a sub-domain / app where it normally wouldn't have authentication (or not the type of auth that you would specifically want) and then have Authentik handle the proxy forwarding and Auth.
+
+In this mode, there is no domain level nor 'integrated' authentication into your desired app; Authentik becomes both your reverse proxy and auth for this one particular app or (sub) domain. This mode does not forward authentication nor let you log in into any app. It's just acts like an authentication wrapper.
+
+It's best to use a normal reverse proxy out front of Authentik. This adds a second layer of routing to deal with but Authentik is not NGINX or a reverse proxy system, so it does not have that many configuration options. 
+
+We'll use the following fake domains in this example:
+
+- Authentik domain: auth.yourdomain.com
+- App domain: app.yourdomain.com
+- Nginx: nginx.yourdomain.com
+- Authentik's docker conter name: auth_server
+
+The steps are:
+
+- Configure the proxy provider:
+
+  ```terraform
+  # ---------------
+  # -- Variables --
+  # ---------------
+
+  variable "prometheus_url" {
+    type        = string
+    description = "The url to access the service."
+  }
+
+  # ----------
+  # -- Data --
+  # ----------
+
+  data "authentik_flow" "default-authorization-flow" {
+    slug = "default-provider-authorization-implicit-consent"
+  }
+
+  # --------------------
+  # --    Provider    --
+  # --------------------
+
+  resource "authentik_provider_proxy" "prometheus" {
+    name               = "Prometheus"
+    internal_host      = "http://prometheus:9090"
+    external_host      = var.prometheus_url
+    authorization_flow = data.authentik_flow.default-authorization-flow.id
+    internal_host_ssl_validation = false
+  }
+  ```
+
+- Configure the application:
+
+  
+
 ## [Use blueprints](https://goauthentik.io/developer-docs/blueprints/)
 
 WARNING: [Use the `terraform` provider instead!!!](#terraform)
@@ -767,19 +837,6 @@ Instead of exporting everything from a single instance, there's also the option 
 
 This export can be triggered via the API or the Web UI by clicking the download button in the flow list.
 
-## [Hide and application from a user](https://goauthentik.io/docs/applications#authorization)
-
-Application access can be configured using (Policy) Bindings. Click on an application in the applications list, and select the Policy / Group / User Bindings tab. There you can bind users/groups/policies to grant them access. When nothing is bound, everyone has access. You can use this to grant access to one or multiple users/groups, or dynamically give access using policies.
-
-With terraform you can use `authentik_policy_binding`, for example:
-
-```terraform
-resource "authentik_policy_binding" "admin" {
-  target = authentik_application.gitea.uuid
-  group  = authentik_group.admins.id
-  order  = 0
-}
-```
 
 # References
 

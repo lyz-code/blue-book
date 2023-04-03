@@ -4,11 +4,31 @@ date: 20200826
 author: Lyz
 ---
 
+# [Automatic reboot after power failure](https://askubuntu.com/questions/111907/automatic-reboot-after-power-failure)
+
+That's not something you can control in your operating system. That's what the BIOS is for. In most BIOS setups there'll be an option like After power loss with possible values like Power off and Reboot.
+
+You can also edit `/etc/default/grub` and add:
+
+```
+GRUB_RECORDFAIL_TIMEOUT=5
+```
+
+Then run:
+
+```bash
+sudo update-grub
+```
+
+This will make your machine display the boot options for 5 seconds before it boot the default option (instead of waiting forever for you to choose one).
+
 # SSH tunnel 
 
 ```bash
 ssh -D 9090 -N -f user@host
 ```
+
+If you need a more powerful solution you can try [sshuttle](https://sshuttle.readthedocs.io/en/stable/overview.html)
 
 # [Fix the SSH client kex_exchange_identification: read: Connection reset by peer error](https://stackoverflow.com/questions/69394001/how-can-i-fix-kex-exchange-identification-read-connection-reset-by-peer)
 
