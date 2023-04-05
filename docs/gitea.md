@@ -4,6 +4,9 @@ date: 20221012
 author: Lyz
 ---
 
+NOTE: Use [Forgejo](forgejo.md) instead!!
+
+
 [Gitea](https://gitea.io/en-us/) is a community managed lightweight code hosting
 solution written in Go. It's the best self hosted Github alternative in my
 opinion.

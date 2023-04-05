@@ -76,7 +76,7 @@ class Keyboard(str, Enum):
 ```python
 import sys
 import pexpect
-child = pexpect.spawn('ls')
+child = pexpect.spawn('ls', encoding='utf-8')
 child.logfile = sys.stdout
 child.expect(pexpect.EOF)
 ```

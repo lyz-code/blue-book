@@ -233,6 +233,7 @@ nav:
   - DevOps:
       - devops/devops.md
       - Infrastructure as Code:
+          - Forgejo: forgejo.md
           - Gitea: gitea.md
           - Helm:
               - devops/helm/helm.md
