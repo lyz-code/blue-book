@@ -14,6 +14,20 @@ just a team who want to build something better and work together to achieve it.
 
 # Troubleshooting
 
+## [Deceptive site ahead](https://github.com/jellyfin/jellyfin-web/issues/4076)
+
+It seems that Google is marking the domains that host Jellyfin as deceptive. If it happens to you, your users won't be able to access your instance with Firefox, Chrome nor the Android app. Nice uh? It's kind of scary how google is able to control who can access what in the internet without you signing for it. 
+
+If you search the problem online they suggest that you log in with your google account into the Search Console and see the reasons behind it. Many people did this and reported in the issue that they didn't get any useful information through this process. It's a privacy violation though, as now google is able to tie your identity (as your google account is linked to your phone number) with your Jellyfin domain. Completely disgusting.
+
+To solve this issue you need [to file a case with google](https://safebrowsing.google.com/safebrowsing/report_error/?tpl=mozilla&hl=en) and wait for them to unban you. It's like asking them for permission so that they let your users access your system. The disgust levels keep on growing. Don't waste your time being creative in the Comments of the request either, it looks like they don't even read them.
+
+The problem is that until the people from Jellyfin finds a solution, after following this ugly process, you may be flagged again any time in the future (ranging from days to months). 
+
+A mitigation of the problem is to have an alternative domain that your users can use (for example in duckdns.org). You may be lucky that google doesn't block both domains at the same time.
+
+For more information follow the [Jellyfin issue](https://github.com/jellyfin/jellyfin-web/issues/4076) or the [Jellyfin reddit thread](https://www.reddit.com/r/jellyfin/comments/xqk01i/deceptive_site_ahead/).
+
 ## Corrupt: SQLitePCL.pretty.SQLiteException: database disk image is malformed
 
 If your server log file shows SQLite errors like the following example your jellyfin.db file needs attention.

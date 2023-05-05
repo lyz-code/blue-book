@@ -392,7 +392,6 @@ It also needs [`fd`](https://github.com/sharkdp/fd#installation) for further fea
 
 To check that everything is fine run `:checkhealth telescope`.
 
-
 ### [Usage](https://github.com/nvim-telescope/telescope.nvim#usage)
 
 `telescope` has different ways to find files:
@@ -436,6 +435,20 @@ You can also replace some other default `vim` commands like history browsing, sp
 key.set('n', '<C-r>', builtin.command_history, {})
 key.set('n', 'z=', builtin.spell_suggest, {})
 key.set('n', '/', builtin.current_buffer_fuzzy_find, {})
+```
+
+### [Follow symbolic links](https://github.com/nvim-telescope/telescope.nvim/issues/394)
+
+By default symbolic links are not followed either for files or directories, to enable it use
+
+```lua
+  require('telescope').setup {
+    pickers = {
+      find_files = {
+        follow = true
+      }
+    }
+  }
 ```
 
 ## [Heading navigation](https://github.com/crispgm/telescope-heading.nvim)

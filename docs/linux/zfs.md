@@ -58,6 +58,12 @@ zpool get all {{ pool_name }}
 zfs get all {{ pool_name }}
 ```
 
+## [Get compress ratio of a filesystem](https://www.sotechdesign.com.au/zfs-how-to-check-compression-efficiency/)
+
+```bash
+zfs get compressratio {{ filesystem }}
+```
+
 # Installation
 
 ## Install the required programs

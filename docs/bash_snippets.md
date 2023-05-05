@@ -4,6 +4,8 @@ date: 20220827
 author: Lyz
 ---
 
+# [Parse csv with bash](https://www.baeldung.com/linux/csv-parsing)
+
 # [Do the remainder or modulus of a number](https://stackoverflow.com/questions/39006278/how-does-bash-modulus-remainder-work)
 
 ```bash

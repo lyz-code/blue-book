@@ -193,6 +193,7 @@ nav:
           - SQLite: sqlite.md
           - YAML: coding/yaml/yaml.md
           - Promql: coding/promql/promql.md
+          - Logql: logql.md
           - HTML: html.md
           - CSS: css.md
           - Javascript:
@@ -443,6 +444,7 @@ nav:
           - Apps:
               - Cone: cone.md
               - GadgetBridge: gadgetbridge.md
+              - LibreTube: libretube.md
               - Orgzly: orgzly.md
               - OsmAnd: osmand.md
               - Seedvault: seedvault.md

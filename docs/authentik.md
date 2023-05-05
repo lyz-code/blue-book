@@ -790,7 +790,55 @@ The steps are:
 
 - Configure the application:
 
-  
+  ```terraform
+  variable "prometheus_icon" {
+    type        = string
+    description = "The icon shown in the application"
+    default     = "/application-icons/prometheus.svg"
+  }
+
+  # -----------------------
+  # --    Application    --
+  # -----------------------
+
+  resource "authentik_application" "prometheus" {
+    name              = "Prometheus"
+    slug              = "prometheus"
+    meta_icon         = var.prometheus_icon
+    protocol_provider = authentik_provider_proxy.prometheus.id
+    lifecycle {
+      ignore_changes = [
+        # The terraform provider is continuously changing the attribute even though it's set
+        meta_icon,
+      ]
+    }
+  }
+  ```
+
+- Edit the default outpost. So far [there is no way to load the default outpost automatically](https://github.com/goauthentik/terraform-provider-authentik/issues/341) in terraform, so you need to import it manually with `terraform import authentik_outpost.default default_outpost_id`. You can get the `default_outpost_id` by going to the Admin interface/Applications/Outposts, open the browser network inspector and click on edit the `authentik Embedded Outpost`, the first request you see will be to an uri similar to `/api/v3/outposts/instances/eabbbc70-e411-48f9-95b6-29bh23ldghwc/`, then your `default_outpost_id` is `eabbbc70-e411-48f9-95b6-29bh23ldghwc`. Then run the next terraform code
+
+  ```terraform
+  # ----------------
+  # --- Outposts ---
+  # ----------------
+
+  resource "authentik_outpost" "default" {
+    name = "authentik Embedded Outpost"
+    service_connection = authentik_service_connection_docker.local.id 
+    protocol_providers = [
+      authentik_provider_proxy.prometheus.id
+    ]
+  }
+
+  # ----------------------------
+  # --- Outpost integrations ---
+  # ----------------------------
+
+  resource "authentik_service_connection_docker" "local" {
+    name  = "Local Docker connection"
+    local = true
+  }
+  ```
 
 ## [Use blueprints](https://goauthentik.io/developer-docs/blueprints/)
 

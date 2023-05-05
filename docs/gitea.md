@@ -16,6 +16,110 @@ opinion.
 Gitea provides automatically updated Docker images within its Docker Hub
 organisation.
 
+## [Configure gitea actions](https://blog.gitea.io/2023/03/hacking-on-gitea-actions/)
+
+We've been using [Drone](drone.md) as CI runner for some years now as Gitea didn't have their native runner. On [Mar 20, 2023](https://blog.gitea.io/2023/03/gitea-1.19.0-is-released/) however Gitea released the version 1.19.0 which promoted to stable the Gitea Actions which is a built-in CI system like GitHub Actions. With Gitea Actions, you can reuse your familiar workflows and Github Actions in your self-hosted Gitea instance. While it is not currently fully compatible with GitHub Actions, they intend to become as compatible as possible in future versions. The typical procedure is as follows:
+
+* Register a runner (at the moment, act runners are the only option). This can be done on the following scopes:
+  * site-wide (by site admins)
+  * organization-wide (by organization owners)
+  * repository-wide (by repository owners)
+* Create workflow files under `.gitea/workflows/<workflow name>.yaml` or `.github/workflows/<workflow name>.yaml`. The syntax is the same as [the GitHub workflow syntax](https://docs.github.com/en/actions) where supported. 
+
+Gitea Actions advantages are:
+
+* Uses the same pipeline syntax as Github Actions, so it's easier to use for new developers
+* You can reuse existent Github actions.
+* Migration from Github repositories to Gitea is easier.
+* You see the results of the workflows in the same gitea webpage, which is much cleaner than needing to go to drone
+* Define the secrets in the repository configuration.
+
+Drone advantages are:
+
+* They have the promote event. Not critical as we can use other git events such as creating a tag.
+* They can be run as a service by default. The gitea runners will need some work to run on instance restart.
+* Has support for [running kubernetes pipelines](https://docs.drone.io/quickstart/kubernetes/). Gitea actions doesn't yet support this
+
+### [Setup Gitea actions](https://blog.gitea.io/2023/03/hacking-on-gitea-actions/)
+
+You need a Gitea instance with a version of 1.19.0 or higher. Actions are disabled by default (as they are still an feature-in-progress), so you need to add the following to the configuration file to enable it:
+
+```ini
+[actions]
+ENABLED=true
+```
+
+Even if you enable at configuration level you need to manually enable the actions on each repository [until this issue is solved](https://github.com/go-gitea/gitea/issues/23724).
+
+So far there is [only one possible runner](https://gitea.com/gitea/act_runner) which is based on docker and [`act`](https://github.com/nektos/act). Currently, the only way to install act runner is by compiling it yourself, or by using one of the [pre-built binaries](http://dl.gitea.com/act_runner). There is no Docker image or other type of package management yet. At the moment, act runner should be run from the command line. Of course, you can also wrap this binary in something like a system service, supervisord, or Docker container.
+
+Before running a runner, you should first register it to your Gitea instance using the following command:
+
+```bash
+./act_runner register --no-interactive --instance <instance> --token <token>
+```
+
+There are two arguments required, `instance` and `token`.
+
+`instance` refers to the address of your Gitea instance, like `http://192.168.8.8:3000`. The runner and job containers (which are started by the runner to execute jobs) will connect to this address. This means that it could be different from the `ROOT_URL` of your Gitea instance, which is configured for web access. It is always a bad idea to use a loopback address such as `127.0.0.1` or `localhost`, as we will discuss later. If you are unsure which address to use, the LAN address is usually the right choice.
+
+`token` is used for authentication and identification, such as `P2U1U0oB4XaRCi8azcngmPCLbRpUGapalhmddh23`. It is one-time use only and cannot be used to register multiple runners. You can obtain tokens from `your_gitea.com/admin/runners`.
+
+After registering, a new file named `.runner` will appear in the current directory. This file stores the registration information. Please do not edit it manually. If this file is missing or corrupted, you can simply remove it and register again.
+
+Finally, it’s time to start the runner.
+
+```bash
+./act_runner daemon
+```
+
+### [Use the gitea actions](https://blog.gitea.io/2023/03/hacking-on-gitea-actions/#use-actions)
+
+Even if Actions is enabled for the Gitea instance, repositories [still disable Actions by default](https://github.com/go-gitea/gitea/issues/23724). Enable it on the settings page of your repository.
+
+You will need to study [the workflow syntax](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions) for Actions and write the workflow files you want.
+
+However, we can just start from a simple demo:
+
+```yaml
+name: Gitea Actions Demo
+run-name: ${{ gitea.actor }} is testing out Gitea Actions
+on: [push]
+jobs:
+  Explore-Gitea-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "The job was automatically triggered by a ${{ gitea.event_name }} event."
+      - run: echo "This job is now running on a ${{ runner.os }} server hosted by Gitea!"
+      - run: echo "The name of your branch is ${{ gitea.ref }} and your repository is ${{ gitea.repository }}."
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - run: echo "The ${{ gitea.repository }} repository has been cloned to the runner."
+      - run: echo "The workflow is now ready to test your code on the runner."
+      - name: List files in the repository
+        run: |
+          ls ${{ gitea.workspace }}          
+      - run: echo "This job's status is ${{ gitea.status }}."
+```
+
+You can upload it as a file with the extension `.yaml` in the directory `.gitea/workflows/` or `.github/workflows` of the repository, for example `.gitea/workflows/demo.yaml`. 
+
+You may be aware that there are tens of thousands of [marketplace actions in GitHub](https://github.com/marketplace?type=actions). However, when you write `uses: actions/checkout@v3`, it actually downloads the scripts from gitea.com/actions/checkout by default (not GitHub). This is a mirror of github.com/actions/checkout, but it’s impossible to mirror all of them. That’s why you may encounter failures when trying to use some actions that haven’t been mirrored.
+
+The good news is that you can specify the URL prefix to use actions from anywhere. This is an extra syntax in Gitea Actions. For example:
+
+* `uses: https://github.com/xxx/xxx@xxx`
+* `uses: https://gitea.com/xxx/xxx@xxx`
+* `uses: http://your_gitea_instance.com/xxx@xxx`
+
+Be careful, the `https://` or `http://` prefix is necessary!
+
+### Things that are not ready yet
+
+* [Enable actions by default](https://github.com/go-gitea/gitea/issues/23724)
+* Kubernetes act runner
+* [Support cron jobs](https://github.com/go-gitea/gitea/pull/22751)
+
 ## [Disable the regular login, use only Oauth](https://discourse.gitea.io/t/solved-removing-default-login-interface/2740/2)
 
 Inside your [`custom` directory](https://docs.gitea.io/en-us/customizing-gitea/) which may be `/var/lib/gitea/custom`:
