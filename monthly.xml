@@ -11,7 +11,7 @@
     <managingEditor>Lyz</managingEditor>
 
     
-    <pubDate>2023-05-01 06:34:01+00:00</pubDate>
+    <pubDate>2023-05-05 17:37:35+00:00</pubDate>
     <ttl>43200</ttl>
 
     
@@ -522,9 +522,9 @@ cat&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;signal-desktop-keyring.gpg&lt;spa
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt; &lt;ul&gt; &lt;li&gt;Add our repository to your list of repositories&lt;/li&gt; &lt;/ul&gt; &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&#39;deb [arch=amd64 signed-by=/usr/share/keyrings/signal-desktop-keyring.gpg] https://updates.signal.org/desktop/apt xenial main&#39;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\&lt;/span&gt;
 &lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;sudo&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;tee&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;-a&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;/etc/apt/sources.list.d/signal-xenial.list
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt; &lt;ul&gt; &lt;li&gt;Update your package database and install signal&lt;/li&gt; &lt;/ul&gt; &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sudo&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;apt&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;update&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;sudo&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;apt&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;install&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;signal-desktop
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt; &lt;/li&gt; &lt;/ul&gt; &lt;hr/&gt; &lt;div class=&#34;md-source-file&#34;&gt; &lt;small&gt; Last update: &lt;span class=&#34;git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago&#34;&gt;&lt;span class=&#34;timeago&#34; datetime=&#34;2023-03-01T06:38:20+00:00&#34; locale=&#34;en&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date&#34;&gt;2023-03-01&lt;/span&gt; &lt;/small&gt; &lt;/div&gt; &lt;/article&gt;</description>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt; &lt;/li&gt; &lt;/ul&gt; &lt;hr/&gt; &lt;div class=&#34;md-source-file&#34;&gt; &lt;small&gt; Last update: &lt;span class=&#34;git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago&#34;&gt;&lt;span class=&#34;timeago&#34; datetime=&#34;2023-05-05T17:37:35+00:00&#34; locale=&#34;en&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date&#34;&gt;2023-05-05&lt;/span&gt; &lt;/small&gt; &lt;/div&gt; &lt;/article&gt;</description>
       <link>https://lyz-code.github.io/blue-book/newsletter/2023_02/</link>
-      <pubDate>2023-03-01 06:38:20+00:00</pubDate>
+      <pubDate>2023-05-05 17:37:35+00:00</pubDate>
       <source url="https://lyz-code.github.io/blue-book/monthly.xml">The Blue Book</source>
       <guid isPermaLink="true">https://lyz-code.github.io/blue-book/newsletter/2023_02/</guid>
       
