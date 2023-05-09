@@ -286,7 +286,7 @@ dependencies = [
 
 [[package]]
 name = "mkdocs-material"
-version = "9.1.9"
+version = "9.1.11"
 requires_python = ">=3.7"
 summary = "Documentation that simply works"
 dependencies = [
@@ -896,9 +896,9 @@ content_hash = "sha256:a0f9e668edb122c5384093dcee6011a6f154efeab678753b258e6cd2a
     {url = "https://files.pythonhosted.org/packages/86/5f/5cc21fcdaa14f7e01d7f9c3e2116bda975917e64eb8bf19d110eb74f6bcb/mkdocs-git-revision-date-localized-plugin-1.2.0.tar.gz", hash = "sha256:7752edd7c4dcaa9383e9a5b6a4f729831a62d604b0c43b319331127720c6a2bf"},
     {url = "https://files.pythonhosted.org/packages/c5/9f/dad0e4935fe18ea1163bf1bef56d41fe6d6ebc536ddb48793555f07fcc53/mkdocs_git_revision_date_localized_plugin-1.2.0-py3-none-any.whl", hash = "sha256:540b9c930d8d48630c090b72ac2c3900ac2ed0799b23738a33b88e31f5198fe7"},
 ]
-"mkdocs-material 9.1.9" = [
-    {url = "https://files.pythonhosted.org/packages/07/ae/ccd917452bc195e979cf3dbe4ec95f54e72e925fa8234b66e126b57a6a07/mkdocs_material-9.1.9.tar.gz", hash = "sha256:74d8da1371ab3a326868fe47bae3cbc4aa22e93c048b4ca5117e6817b88bd734"},
-    {url = "https://files.pythonhosted.org/packages/23/7a/459749a11a8d952c5fdf46e7e87d8d75d0a54620b123661fc31c885e6f3c/mkdocs_material-9.1.9-py3-none-any.whl", hash = "sha256:7db24261cb17400e132c46d17eea712bfe71056d892a9beba32cf68210297141"},
+"mkdocs-material 9.1.11" = [
+    {url = "https://files.pythonhosted.org/packages/36/2d/e42f392cc7dd582da579da75180b0ad8f7d27155a5803ba1f79861b97c5d/mkdocs_material-9.1.11.tar.gz", hash = "sha256:f5d473eb79d6640a5e668d4b2ab5b9de5e76ae0a0e2d864112df0cfe9016dc1d"},
+    {url = "https://files.pythonhosted.org/packages/cf/73/18d407acaaa03bdc46027b6696bbdeef42858b3f45708937ec8e3441e5b8/mkdocs_material-9.1.11-py3-none-any.whl", hash = "sha256:fbc86d50ec2cf34d40d5c4365780f290ceedde23f1a0704323b34e7f16b0c0dd"},
 ]
 "mkdocs-material-extensions 1.1.1" = [
     {url = "https://files.pythonhosted.org/packages/cd/3f/e5e3c9bfbb42e4cb661f71bcec787ae6bdf4a161b8c4bb68fd7d991c436c/mkdocs_material_extensions-1.1.1.tar.gz", hash = "sha256:9c003da71e2cc2493d910237448c672e00cefc800d3d6ae93d2fc69979e3bd93"},
