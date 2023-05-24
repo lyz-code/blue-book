@@ -252,6 +252,8 @@ resource "gitea_team" "docker_compose" {
 }
 ```
 
+To import organisations and teams you need to use their `ID`. You can see the ID of the organisations in the Administration panel. To get the Teams ID you need to use the API. Go to https://your.gitea.com/api/swagger#/organization/orgListTeams and enter the organisation name.
+
 ## Create an admin user through the command line
 
 ```bash

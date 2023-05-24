@@ -466,6 +466,8 @@ nav:
       - Aerial Silk: aerial_silk.md
       - Dancing:
           - Rave Dances: dancing/rave_dances.md
+          - Swing:
+            - Shag: shag.md
           - Shuffle:
               - Basics: dancing/shuffle_basics.md
               - Kicks: dancing/shuffle_kicks.md

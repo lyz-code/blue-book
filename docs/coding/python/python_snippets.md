@@ -4,6 +4,14 @@ date: 20200717
 author: Lyz
 ---
 
+# [Copy files from a python package](https://stackoverflow.com/questions/33499866/how-can-i-copy-files-from-a-python-package-site-packages-to-a-directory)
+
+```python
+pkgdir = sys.modules['<mypkg>'].__path__[0]
+fullpath = os.path.join(pkgdir, <myfile>)
+shutil.copy(fullpath, os.getcwd())
+```
+
 # [Substract two paths](https://stackoverflow.com/questions/10149263/extract-a-part-of-the-filepath-a-directory-in-python)
 
 It can also framed to how to get the relative path between two absolute paths:

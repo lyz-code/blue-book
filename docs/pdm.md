@@ -447,6 +447,8 @@ outdated packages to be locked.
 
 ### [Custom file generation](https://pdm.fming.dev/latest/pyproject/build/#custom-file-generation)
 
+Warning: this method only works if you install the package with `pdm` if you use `pip` or any other package manager the `build.py` script won't be called. Thus a more generic approach is to run the initialization steps in a `your_command init` step or run the checks on each command.
+
 During the build, you may want to generate other files or download resources from the internet. You can achieve this by the setup-script build configuration:
 
 ```toml`
@@ -470,8 +472,6 @@ def build(src, dst):
 ```
 
 The generated file will be copied to the resulted wheel with the same hierarchy, you need to create the parent directories if necessary.
-
-You can find a real example in [`pass-collaborate`](https://github.com/lyz-code/pass-collaborate).
 
 ### [Build distribution artifacts](https://pdm.fming.dev/usage/project/#build-distribution-artifacts)
 

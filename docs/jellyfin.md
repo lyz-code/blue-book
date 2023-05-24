@@ -12,6 +12,10 @@ ported to the .NET Core framework to enable full cross-platform support. There
 are no strings attached, no premium licenses or features, and no hidden agendas:
 just a team who want to build something better and work together to achieve it.
 
+# Missing features
+
+- Hide movie or tv show from my gallery: Tracked by these feature requests [1](https://features.jellyfin.org/posts/1072/let-the-user-hide-a-movie-or-tv-show) and [2](https://features.jellyfin.org/posts/116/add-hide-ignore-for-series-seasons-episodes-as-an-alternative-to-favorite)
+  
 # Troubleshooting
 
 ## [Deceptive site ahead](https://github.com/jellyfin/jellyfin-web/issues/4076)

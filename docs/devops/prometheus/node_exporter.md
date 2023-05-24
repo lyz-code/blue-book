@@ -10,19 +10,15 @@ pluggable metric collectors.
 
 # Install
 
-To install in kubernetes nodes, use [this
-chart](https://github.com/helm/charts/tree/master/stable/prometheus-node-exporter).
-Elsewhere use [this ansible
-role](https://github.com/cloudalchemy/ansible-node-exporter).
+To install in kubernetes nodes, use [this chart](https://github.com/helm/charts/tree/master/stable/prometheus-node-exporter).
+Elsewhere use [this ansible role](https://github.com/cloudalchemy/ansible-node-exporter).
 
 If you use node exporter agents outside kubernetes, you need to configure
 a prometheus service discovery to scrap the information from them.
 
-To [auto discover EC2
-instances](https://kbild.ch/blog/2019-02-18-awsprometheus/) use the
+To [auto discover EC2 instances](https://kbild.ch/blog/2019-02-18-awsprometheus/) use the
 [ec2_sd_config](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#ec2_sd_config)
-configuration. It can be added in the helm chart values.yaml under the key
-`prometheus.prometheusSpec.additionalScrapeConfigs`
+configuration. It can be added in the helm chart values.yaml under the key `prometheus.prometheusSpec.additionalScrapeConfigs`.
 
 ```yaml
       - job_name: node_exporter
@@ -34,8 +30,8 @@ configuration. It can be added in the helm chart values.yaml under the key
           - source_labels: ['__meta_ec2_tag_Name', '__meta_ec2_private_ip']
             separator: ':'
             target_label: instance
-          -   source_labels:
-            - __meta_ec2_instance_type
+          - source_labels:
+              - __meta_ec2_instance_type
             target_label: instance_type
 ```
 
