@@ -134,6 +134,8 @@ Where:
 
 If you don't want the main pool to be mounted use `zfs set mountpoint=none main`.
 
+If you don't want replication use `zpool create main sde sdf sdg`
+
 ## [Create your filesystems](https://pthree.org/2012/12/17/zfs-administration-part-x-creating-filesystems/)
 
 Once we have the pool you can create the different filesystems. If you want to use encryption with a key follow the next steps:

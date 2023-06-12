@@ -216,6 +216,15 @@ round-trip min/avg/max = 0.042/0.042/0.042 ms
 
 The other way around works too.
 
+## [Remove the apt cache after installing a package](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
+
+```
+RUN apt-get update && apt-get install -y \
+  python3 \
+  python3-pip \
+  && rm -rf /var/lib/apt/lists/*
+```
+
 # Troubleshooting
 
 If you are using a VPN and docker, you're going to have a hard time.

@@ -83,6 +83,13 @@ Apply the changes:
 $ chezmoi -v apply
 ```
 
+Sometimes the `diff` is too big and you need to work with it chuck by chunk. For each change you can either:
+
+- `chezmoi add <target>` if you want to keep the changes you've manually made to the files that match the `<target>`.
+- `chezmoi apply <target>` if you want to apply the changes that chezmoi proposes for the `<target>`.
+
+Here `<target>` is any directory or file listed in the `diff`.
+
 All `chezmoi` commands accept the `-v` (verbose) flag to print out exactly what
 changes they will make to the file system, and the `-n` (dry run) flag to not
 make any actual changes. The combination `-n -v` is very useful if you want to

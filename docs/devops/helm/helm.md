@@ -32,6 +32,38 @@ programs:
 * [Helm-git](helm_git.md) is used to install helm charts directly from Git
     repositories.
 
+# Troubleshooting
+
+## [UPGRADE FAILED: another operation (install/upgrade/rollback) is in progress](https://stackoverflow.com/questions/71599858/upgrade-failed-another-operation-install-upgrade-rollback-is-in-progress)
+
+This error can happen for few reasons, but it most commonly occurs when there is an interruption during the upgrade/install process as you already mentioned.
+
+To fix this one may need to, first rollback to another version, then reinstall or helm upgrade again.
+
+Try below command to list the available charts:
+
+```bash
+helm ls --namespace <namespace>
+```
+
+You may note that when running that command ,it may not show any columns with information. If that's the case try to check the history of the previous deployment
+
+```bash
+helm history <release> --namespace <namespace>
+```
+
+This provides with information mostly like the original installation was never completed successfully and is pending state something like STATUS: `pending-upgrade` state.
+
+To escape from this state, use the rollback command:
+
+```bash
+helm rollback <release> <revision> --namespace <namespace>
+```
+
+`revision` is optional, but you should try to provide it.
+
+You may then try to issue your original command again to upgrade or reinstall.
+
 # Links
 
 * [Homepage](http://www.helm.sh/)

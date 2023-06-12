@@ -4,6 +4,64 @@ date: 20220119
 author: Lyz
 ---
 
+# [Authorize an SSH key](https://docs.ansible.com/ansible/latest/collections/ansible/posix/authorized_key_module.html)
+
+```yaml
+- name: Authorize the sender ssh key
+  authorized_key:
+    user: syncoid
+    state: present
+    key: "{{ syncoid_receive_ssh_key }}"
+```
+
+# [Create a user](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/user_module.html)
+
+The following snippet creates a user with password login disabled.
+
+```yaml
+- name: Create the syncoid user
+  ansible.builtin.user:
+    name: syncoid
+    state: present
+    password: !
+    shell: /usr/sbin/nologin
+```
+
+If you don't set a password any user can do `su your_user` to set a random password use the next snippet:
+
+```yaml
+- name: Create the syncoid user
+  ansible.builtin.user:
+    name: syncoid
+    state: present
+    password: "{{ lookup('password', '/dev/null', length=50, encrypt='sha512_crypt') }}"
+    shell: /bin/bash
+```
+
+This won't pass the idempotence tests as it doesn't save the password anywhere (`/dev/null`) in the controler machine.
+
+# [Create an ssh key](https://docs.ansible.com/ansible/2.9/modules/openssh_keypair_module.html)
+
+```yaml
+- name: Create .ssh directory
+  become: true
+  file:
+    path: /root/.ssh
+    state: directory
+    mode: 700
+
+- name: Create the SSH key to directory
+  become: true
+  openssh_keypair:
+    path: /root/.ssh/id_ed25519
+    type: ed25519
+  register: ssh
+
+- name: Show public key
+  debug:
+    var: ssh.public_key
+```
+
 # [Get the hosts of a dynamic ansible inventory](https://www.educba.com/ansible-dynamic-inventory/)
 
 ```bash

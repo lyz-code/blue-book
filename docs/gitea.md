@@ -73,6 +73,21 @@ Finally, it’s time to start the runner.
 ./act_runner daemon
 ```
 
+You can also create a systemd service so that it starts when the server boots. For example in `/etc/systemd/system/gitea_actions_runner.service:
+
+```
+[Unit]
+Description=Gitea Actions Runner
+After=network.target
+
+[Service]
+WorkingDirectory=/var/gitea/gitea/act_runner/main
+ExecStart=/var/gitea/gitea/act_runner/main/act_runner-main-linux-amd64 daemon
+
+[Install]
+WantedBy=default.target
+```
+
 ### [Use the gitea actions](https://blog.gitea.io/2023/03/hacking-on-gitea-actions/#use-actions)
 
 Even if Actions is enabled for the Gitea instance, repositories [still disable Actions by default](https://github.com/go-gitea/gitea/issues/23724). Enable it on the settings page of your repository.
@@ -110,9 +125,26 @@ The good news is that you can specify the URL prefix to use actions from anywher
 
 * `uses: https://github.com/xxx/xxx@xxx`
 * `uses: https://gitea.com/xxx/xxx@xxx`
-* `uses: http://your_gitea_instance.com/xxx@xxx`
+* `uses: https://your_gitea_instance.com/xxx@xxx`
 
 Be careful, the `https://` or `http://` prefix is necessary!
+
+### [Tweak the runner image](https://itsthejoker.github.io/gitea_actions_and_python/)
+
+The [gitea runner](https://docs.gitea.com/next/usage/actions/act-runner/#labels) uses the `node:16-bullseye` image by default, in that image [the `setup-python` action doesn't work](https://itsthejoker.github.io/gitea_actions_and_python/). You can tweak the docker image that the runner runs by editing the `.runner` file that is in the directory where you registered the runner (probably close to the `act_runner` executable).
+
+If you open that up, you’ll see that there is a section called labels, and it (most likely) looks like this:
+
+```json
+"labels": [
+  "ubuntu-latest:docker://node:16-bullseye",
+  "ubuntu-22.04:docker://node:16-bullseye",
+  "ubuntu-20.04:docker://node:16-bullseye",
+  "ubuntu-18.04:docker://node:16-buster"
+]
+```
+
+You can specify any other docker image. Adding new labels doesn't work yet.
 
 ### Things that are not ready yet
 

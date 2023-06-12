@@ -135,4 +135,4 @@ more options.
 
 # Links
 
-* [Git](https://github.com/futuresimple/helm-secrets)
+* [Git](https://github.com/jkroepke/helm-secrets)

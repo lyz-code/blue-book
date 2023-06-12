@@ -244,7 +244,9 @@ nav:
               - Helm Git: helm_git.md
           - Helmfile: devops/helmfile.md
           - Terraform: terraform.md
-          - Ansible Snippets: ansible_snippets.md
+          - Ansible:
+            - Ansible Snippets: ansible_snippets.md
+            - Molecule: molecule.md
           - Dotfiles:
               - dotfiles.md
               - Chezmoi: chezmoi.md
@@ -389,6 +391,7 @@ nav:
           - ferdium: ferdium.md
           - finnix: finnix.md
           - Gajim: gajim.md
+          - Gancio: gancio.md
           - Github cli: gh.md
           - goaccess: goaccess.md
           - google chrome: linux/google_chrome.md

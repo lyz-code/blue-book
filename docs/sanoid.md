@@ -77,28 +77,31 @@ An example of a configuration can be:
 ######################
 
 [main/backup]
-        use_template = daily
+  use_template = daily
+  recursive = yes
 [main/lyz]
-        use_template = frequent
+  use_template = frequent
 
 #############
 # Templates #
 #############
 
 [template_daily]
-        daily = 30
-        monthly = 6
+  daily = 30
+  monthly = 6
 
 [template_frequent]
-        frequently = 4
-        hourly = 25
-        daily = 30
-        monthly = 6
+  frequently = 4
+  hourly = 25
+  daily = 30
+  monthly = 6
 ```
 
 During installation from the Debian repositories, the `systemd` timer unit `sanoid.timer` is created which is set to run `sanoid` every 15 minutes. Therefore there is no need to create an entry in crontab. Having a crontab entry in addition to the `sanoid.timer` will result in errors similar to `cannot create snapshot '<pool>/<dataset>@<snapshot>': dataset already exists`.
 
 By default, the `sanoid.timer` timer unit runs the `sanoid-prune` service followed by the `sanoid` service. To edit any of the command-line options, you can edit these service files (`/lib/systemd/system/sanoid.timer`).
+
+Also `recursive` is not set by default, so the dataset's children won't be backed up unless you set this option.
 
 # Usage
 
