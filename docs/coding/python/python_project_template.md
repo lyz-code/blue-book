@@ -13,7 +13,7 @@ work as expected. Even more if testing, documentation or databases are involved.
     template](https://github.com/lyz-code/cookiecutter-python-project).
 
     ```bash
-    cruft https://github.com/lyz-code/cookiecutter-python-project
+    cruft create https://github.com/lyz-code/cookiecutter-python-project
     ```
 
     If you don't know cruft, take a look [here](cruft.md).
