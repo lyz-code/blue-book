@@ -225,6 +225,12 @@ RUN apt-get update && apt-get install -y \
   && rm -rf /var/lib/apt/lists/*
 ```
 
+## [Add the contents of a directory to the docker](https://stackoverflow.com/questions/37789984/how-to-copy-folders-to-docker-image-from-dockerfile)
+
+```
+ADD ./path/to/directory /path/to/destination
+```
+
 # Troubleshooting
 
 If you are using a VPN and docker, you're going to have a hard time.

@@ -4,6 +4,17 @@ date: 20220119
 author: Lyz
 ---
 
+# [Skip ansible-lint for some tasks](https://github.com/ansible/ansible-lint/pull/40)
+
+```yaml
+- name: Modify permissions
+  command: >
+    chmod -R g-w /home/user
+  tags:
+    - skip_ansible_lint
+  sudo: yes
+```
+
 # [Authorize an SSH key](https://docs.ansible.com/ansible/latest/collections/ansible/posix/authorized_key_module.html)
 
 ```yaml

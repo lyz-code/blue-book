@@ -10,8 +10,10 @@ deduplicating, grouping, and routing them to the correct receiver integrations
 such as email, PagerDuty, or OpsGenie. It also takes care of silencing and
 inhibition of alerts.
 
+# Configuration
+
 It is configured through the `alertmanager.config` key of the `values.yaml`
-of the [helm](helm.md) chart.
+of the [helm](helm.md) chart or the `alertmanager.yaml` file if you're using `docker-compose`.
 
 As stated in the [configuration
 file](https://prometheus.io/docs/alerting/configuration/#configuration-file), it
@@ -24,25 +26,21 @@ has four main keys (as `templates` is handled in
 * `receivers`: Notification integrations configuration.
 * `inhibit_rules`: Alert inhibition configuration.
 
-# [Route](https://prometheus.io/docs/alerting/configuration/#route)
-
-A route block defines a node in a routing tree and its children. Its optional
-configuration parameters are inherited from its parent node if not set.
-
-Every alert enters the routing tree at the configured top-level route, which
-must match all alerts (i.e. not have any configured matchers). It then traverses
-the child nodes. If continue is set to false, it stops after the first matching
-child. If continue is true on a matching node, the alert will continue matching
-against subsequent siblings. If an alert does not match any children of a node
-(no matching child nodes, or none exist), the alert is handled based on the
-configuration parameters of the current node.
-
-# [Receivers](https://prometheus.io/docs/alerting/configuration/#receiver)
+## [Receivers](https://prometheus.io/docs/alerting/configuration/#receiver)
 
 Notification receivers are the named configurations of one or more notification
 integrations.
 
-## Email notifications
+### Null receiver
+
+Useful to ditch alerts that shouldn't be inhibited
+
+```yaml
+receivers:
+  - name: 'null'
+```
+
+### [Email notifications](https://prometheus.io/docs/alerting/latest/configuration/#email_config)
 
 To configure email notifications, set up the following in your `config`:
 
@@ -66,7 +64,7 @@ value using [helm secrets](helm_secrets.md).
 `send_resolved`, set to `False` by default, defines whether or not to notify
 about resolved alerts.
 
-## [Rocketchat Notifications](https://rocket.chat/docs/administrator-guides/integrations/prometheus/)
+### [Rocketchat Notifications](https://rocket.chat/docs/administrator-guides/integrations/prometheus/)
 
 !!! note ""
     Go to [pavel-kazhavets AlertmanagerRocketChat
@@ -229,7 +227,35 @@ curl -X POST -H 'Content-Type: application/json' --data '
 ' {{ webhook-url }}
 ```
 
-# [Inhibit rules](https://prometheus.io/docs/alerting/configuration/#inhibit_rule)
+## [Route](https://prometheus.io/docs/alerting/configuration/#route)
+
+A route block defines a node in a routing tree and its children. Its optional
+configuration parameters are inherited from its parent node if not set.
+
+Every alert enters the routing tree at the configured top-level route, which
+must match all alerts (i.e. not have any configured matchers). It then traverses
+the child nodes. If continue is set to false, it stops after the first matching
+child. If continue is true on a matching node, the alert will continue matching
+against subsequent siblings. If an alert does not match any children of a node
+(no matching child nodes, or none exist), the alert is handled based on the
+configuration parameters of the current node.
+
+A basic configuration would be:
+
+```yaml
+route:
+  group_by: [job, alertname, severity]
+  group_wait: 30s
+  group_interval: 5m
+  repeat_interval: 12h
+  receiver: 'email'
+  routes:
+    - match:
+        alertname: Watchdog
+      receiver: 'null'
+```
+
+## [Inhibit rules](https://prometheus.io/docs/alerting/configuration/#inhibit_rule)
 
 Inhibit rules define which alerts triggered by Prometheus shouldn't be forwarded to
 the notification integrations. For example the `Watchdog` alert is meant to test
@@ -251,14 +277,14 @@ To disable both alerts, set a `match` rule in `config.inhibit_rules`:
           alertname: KubeVersionMismatch
 ```
 
-# Alert rules
+## Alert rules
 
 Alert rules are a special kind of Prometheus Rules that trigger alerts based on
 PromQL expressions. People have gathered several examples under [Awesome
 prometheus alert rules](https://awesome-prometheus-alerts.grep.to/rules)
 
-Alerts must be configured in the [Prometheus operator](prometheus_operator.md)
-helm chart, under the `additionalPrometheusRulesMap`. For example:
+Alerts must be configured in the Prometheus configuration, either through the [operator](prometheus_operator.md)
+helm chart, under the `additionalPrometheusRulesMap` or in the `prometheus.yml` file. For example:
 
 ```yaml
 additionalPrometheusRulesMap:
@@ -279,6 +305,17 @@ Other examples of rules are:
 
 * [Blackbox Exporter rules](blackbox_exporter.md#blackbox-exporter-alerts)
 
+If you are using `prometheus.yml` directly, you also need to configure the alerting:
+
+```
+alerting:
+  alertmanagers:
+    - scheme: http
+      static_configs:
+        - targets: [ 'alertmanager:9093' ]
+```
+
+
 # Silences
 
 To silence an alert with a regular expression use the matcher
@@ -286,4 +323,6 @@ To silence an alert with a regular expression use the matcher
 
 # References
 
-* [Awesome prometheus alert rules](https://awesome-prometheus-alerts.grep.to/rules)
+- [Source](https://github.com/prometheus/alertmanager)
+- [Docs](https://prometheus.io/docs/alerting/latest/alertmanager/
+- [Awesome prometheus alert rules](https://awesome-prometheus-alerts.grep.to/rules)

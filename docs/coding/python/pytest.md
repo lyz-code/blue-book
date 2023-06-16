@@ -77,6 +77,7 @@ Pytest supports several cool flags like:
   after the test run. If you pass in `--durations=0`, it reports everything in
   order of slowest to fastest.
 - `--setup-show`: Show the fixtures in use.
+- `--tb=long`: To see the tracebacks of the exceptions raised while running the program.
 
 # Fixtures
 
@@ -1091,6 +1092,10 @@ Or run it in the command itself
 
 Remember you can [change the log level](#change-the-log-level) of the different
 components in case it's too verbose.
+
+# Test asyncio programs
+
+Check the [asyncio article](asyncio.md#testing).
 
 # Pytest integration with Vim
 
