@@ -342,6 +342,8 @@ nav:
             - linux/zfs.md
             - OpenZFS storage planning: zfs_storage_planning.md
             - Sanoid: sanoid.md
+            - ZFS Prometheus exporter: zfs_exporter.md
+
       - Monitoring:
           - Monitoring Comparison: monitoring_comparison.md
           - Prometheus:

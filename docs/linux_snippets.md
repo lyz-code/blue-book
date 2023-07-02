@@ -4,6 +4,20 @@ date: 20200826
 author: Lyz
 ---
 
+# [Reset failed systemd services](https://unix.stackexchange.com/questions/418792/systemctl-remove-unit-from-failed-list)
+
+Use systemctl to remove the failed status. To reset all units with failed status:
+
+```bash
+systemctl reset-failed
+```
+
+or just your specific unit:
+
+```bash
+systemctl reset-failed openvpn-server@intranert.service
+```
+
 # [Automatic reboot after power failure](https://askubuntu.com/questions/111907/automatic-reboot-after-power-failure)
 
 That's not something you can control in your operating system. That's what the BIOS is for. In most BIOS setups there'll be an option like After power loss with possible values like Power off and Reboot.

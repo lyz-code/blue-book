@@ -80,6 +80,9 @@ DELETE FROM table_name
 WHERE condition;
 ```
 
+## [Update host permissions for a mysql user](https://serverfault.com/questions/483339/changing-host-permissions-for-mysql-users)
+
+
 # [Table relationships](https://launchschool.com/books/sql/read/table_relationships)
 
 ## [One to One](https://launchschool.com/books/sql/read/table_relationships#onetoone)

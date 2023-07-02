@@ -61,7 +61,7 @@ You may need to tweak the `volumes` and the `networks` sections of the `docker-c
 
 Once everything is set you can run `docker-compose up` to test everything is working.
 
-In your browser, navigate to authentik’s initial setup page https://auth.home.yourdomain.com/if/flow/initial-setup/.
+In your browser, navigate to authentik’s initial setup page https://auth.home.yourdomain.com/if/flow/initial-setup/
 
 Set the email and password for the default admin user, `akadmin`. You’re now logged in.
 

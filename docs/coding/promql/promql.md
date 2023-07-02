@@ -102,6 +102,38 @@ time() - demo_batch_last_success_timestamp_seconds > 3600
 
 # Snippets
 
+## [Run operation only on the elements that match a condition](https://iximiuz.com/en/posts/prometheus-vector-matching/)
+
+Imagine we want to run the `zfs_dataset_used_bytes - zfs_dataset_used_by_dataset_bytes` operation only on the elements that match `zfs_dataset_used_by_dataset_bytes > 200e3`. You can do this with `and`:
+
+```
+zfs_dataset_used_bytes - zfs_dataset_used_by_dataset_bytes and zfs_dataset_used_by_dataset_bytes > 200e3
+```
+
+## [Substracting two metrics](https://iximiuz.com/en/posts/prometheus-vector-matching/)
+
+To run binary operators between vectors you need them to match. Basically it means that it will only do the operation on the elements that have the same labels. Sometimes you want to do operations on metrics that don't have the same labels. In those cases you can use the `on` operator. Imagine that we want to substract the next vectors:
+
+```
+zfs_dataset_used_bytes{type='filesystem'}
+```
+
+And
+
+```
+sum by (hostname,filesystem) (zfs_dataset_used_bytes{type='snapshot'})
+```
+
+That only have in common the labels `hostname` and filesystem`. 
+
+You can use the next expression then:
+
+```
+zfs_dataset_used_bytes{type='filesystem'} - on (hostname, filesystem) sum by (hostname,filesystem) (zfs_dataset_used_bytes{type='snapshot'})
+```
+
+To learn more on Vector matching read [this article](https://iximiuz.com/en/posts/prometheus-vector-matching/)
+
 ## [Generating range vectors from return values in Prometheus queries](https://stackoverflow.com/questions/40717605/generating-range-vectors-from-return-values-in-prometheus-queries)
 
 Use the
@@ -129,6 +161,12 @@ deriv(rate(varnish_main_client_req[2m])[5m:10s])
 In the example above, Prometheus runs `rate()` (= `instant_query`) 30 times (the
 first from 5 minutes ago to -4:50, ..., the last -0:10 to now). The resulting
 range-vector is input to the `deriv()` function.
+
+# Troubleshooting
+
+## [Ranges only allowed for vector selectors](https://stackoverflow.com/questions/61169517/prometheus-returns-ranges-only-allowed-for-vector-selectors)
+
+You may need to specify a subquery range such as `[1w:1d]`.
 
 # Links
 

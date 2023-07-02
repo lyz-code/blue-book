@@ -309,6 +309,43 @@ You have two ways to restore a backup:
 
   As expected, we must remove the `@wednesday` and `@thursday` snapshots before we can rollback to the `@tuesday` snapshot.
 
+## [See how much space do your snapshots consume](https://www.thegeekdiary.com/how-to-find-the-space-consumed-by-zfs-snapshots/)
+
+When a snapshot is created, its space is initially shared between the snapshot and the file system, and possibly with previous snapshots. As the file system changes, space that was previously shared becomes unique to the snapshot, and thus is counted in the snapshot’s `used` property.
+
+Additionally, deleting snapshots can increase the amount of space that is unique for use by other snapshots.
+
+Note: The value for a snapshot’s space referenced property is the same as that for the file system when the snapshot was created.
+
+You can display the amount of space that is consumed by snapshots and descendant file systems by using the `zfs list -o space` command.
+
+```bash
+# zfs list -o space -r rpool
+NAME                             AVAIL   USED  USEDSNAP  USEDDS  USEDREFRESERV  USEDCHILD
+rpool                            10.2G  5.16G         0   4.52M              0      5.15G
+rpool/ROOT                       10.2G  3.06G         0     31K              0      3.06G
+rpool/ROOT/solaris               10.2G  3.06G     55.0M   2.78G              0       224M
+rpool/ROOT/solaris@install           -  55.0M         -       -              -          -
+rpool/ROOT/solaris/var           10.2G   224M     2.51M    221M              0          0
+rpool/ROOT/solaris/var@install       -  2.51M         -       -              -          -
+```
+
+From this output, you can see the amount of space that is:
+
+* AVAIL: The amount of space available to the dataset and all its children, assuming that there is no other activity in the pool. 
+* USED: The amount of space consumed by this dataset and all its descendants. This is the value that is checked against this dataset's quota and reservation. The space used does not include this dataset's reservation, but does take into account the reservations of any descendants datasets.
+    
+    The used space of a snapshot is the space referenced exclusively by this snapshot. If this snapshot is destroyed, the amount of `used` space will be freed. Space that is shared by multiple snapshots isn't accounted for in this metric. 
+* USEDSNAP: Space being consumed by snapshots of each data set
+* USEDDS: Space being used by the dataset itself
+* USEDREFRESERV: Space being used by a refreservation set on the dataset that would be freed if it was removed.
+* USEDCHILD: Space being used by the children of this dataset.
+
+Other space properties are:
+
+* LUSED: The amount of space that is "logically" consumed by this dataset and all its descendents. It ignores the effect of `compression` and `copies` properties, giving a quantity closer to the amount of data that aplication ssee. However it does include space consumed by metadata.
+* REFER: The amount of data that is accessible by this dataset, which may or may not be shared with other dataserts in the pool. When a snapshot or clone is created, it initially references the same amount of space as the filesystem or snapshot it was created from, since its contents are identical.
+
 # Learning
 
 I've found that learning about ZFS was an interesting, intense and time

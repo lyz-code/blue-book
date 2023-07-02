@@ -4,6 +4,66 @@ date: 20220119
 author: Lyz
 ---
 
+# Start and enable a systemd service
+
+```yaml
+- name: Start the service
+  become: true
+  systemd:
+    name: zfs_exporter
+    enabled: true
+    daemon_reload: true
+    state: started
+```
+
+# [Download an decompress a tar.gz](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/unarchive_module.html)
+
+```yaml
+- name: Unarchive a file that needs to be downloaded (added in 2.0)
+  ansible.builtin.unarchive:
+    src: https://example.com/example.zip
+    dest: /usr/local/bin
+    remote_src: yes
+```
+
+If you want to only extract a file you can use the `includes` arg
+
+```yaml
+- name: Download the zfs exporter
+  become: true
+  ansible.builtin.unarchive:
+    src: https://github.com/pdf/zfs_exporter/releases/download/v{{ zfs_exporter_version }}/zfs_exporter-{{ zfs_exporter_version }}.linux-amd64.tar.gz
+    dest: /usr/local/bin
+    include: zfs_exporter
+    remote_src: yes
+    mode: 0755
+```
+
+But that snippet sometimes fail, you can alternatively download it locally and `copy` it:
+
+```yaml
+- name: Test if zfs_exporter binary exists
+  stat:
+    path: /usr/local/bin/zfs_exporter
+  register: zfs_exporter_binary
+
+- name: Install the zfs exporter
+  block:
+    - name: Download the zfs exporter
+      delegate_to: localhost
+      ansible.builtin.unarchive:
+        src: https://github.com/pdf/zfs_exporter/releases/download/v{{ zfs_exporter_version }}/zfs_exporter-{{ zfs_exporter_version }}.linux-amd64.tar.gz
+        dest: /tmp/
+        remote_src: yes
+
+    - name: Upload the zfs exporter to the server
+      become: true
+      copy:
+        src: /tmp/zfs_exporter-{{ zfs_exporter_version }}.linux-amd64/zfs_exporter
+        dest: /usr/local/bin
+        mode: 0755
+  when: not zfs_exporter_binary.stat.exists
+```
 # [Skip ansible-lint for some tasks](https://github.com/ansible/ansible-lint/pull/40)
 
 ```yaml

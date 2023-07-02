@@ -323,6 +323,23 @@ The port is specified when using the module.
   module: tcp_connect
 ```
 
+## [Check TCP with TLS](https://digitalis.io/blog/security/prometheus-blackbox-exporter-monitoring-tls-certificates/)
+
+If you want to test for example if an LDAP is serving the correct certificate on the port 636 you can use:
+
+```yaml
+tcp_ssl_connect:
+  prober: tcp
+  timeout: 10s
+  tls: true
+```
+
+```yaml
+- name: Ldap
+  url: my-ldap-server:636
+  module: tcp_ssl_connect
+```
+
 ## Ping to the resource
 
 Test if the target is alive. It's useful When you don't know what port to check

@@ -217,6 +217,50 @@ INFO[0000] starting the server
 INFO[0000] successfully pinged the remote server
 ```
 
+# Troubleshooting
+
+## [Create the administrators](https://docs.drone.io/server/user/admin/)
+
+When you configure the Drone server you can create the initial administrative account by passing the below environment variable, which defines the account username (e.g. github handle) and admin flag set to true.
+
+```bash
+DRONE_USER_CREATE=username:octocat,admin:true
+```
+
+If you need to grant the primary administrative role to an existing user, you can provide an existing username. Drone will update the account and grant administrator role on server restart.
+
+You can create administrator accounts using the command line tools. Please see the command line tools documentation for installation instructions.
+
+Create a new administrator account:
+
+```bash
+$ drone user add octocat --admin
+```
+
+Or grant the administrator role to existing accounts:
+
+```bash
+$ drone user update octocat --admin
+```
+
+
+## [linter: untrusted repositories cannot mount host volumes](https://discuss.harness.io/t/linter-untrusted-repositories-cannot-mount-host-volumes/11360)
+
+Thats because the [repository is not trusted](https://docs.drone.io/pipeline/docker/syntax/volumes/host/).
+
+You have to set the trust as an admin of drone through the GUI or through the CLI with
+
+```bash
+drone repo update --trusted <your/repo>
+```
+
+If you're not an admin the above command returns a success but you'll see that the trust has not changed if you run
+
+```bash
+drone repo info <your/repo>
+```
+
+
 # References
 
 * [Docs](https://docs.drone.io/)

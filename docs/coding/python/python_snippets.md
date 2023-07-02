@@ -4,6 +4,31 @@ date: 20200717
 author: Lyz
 ---
 
+# [Sort the returned paths of glob](https://stackoverflow.com/questions/6773584/how-are-glob-globs-return-values-ordered)
+
+
+`glob` order is arbitrary, but you can sort them yourself.
+
+If you want sorted by name:
+
+```python
+sorted(glob.glob('*.png'))
+```
+
+sorted by modification time:
+
+```python
+import os
+sorted(glob.glob('*.png'), key=os.path.getmtime)
+```
+
+sorted by size:
+
+```python
+import os
+sorted(glob.glob('*.png'), key=os.path.getsize)
+```
+
 # [Copy files from a python package](https://stackoverflow.com/questions/33499866/how-can-i-copy-files-from-a-python-package-site-packages-to-a-directory)
 
 ```python
