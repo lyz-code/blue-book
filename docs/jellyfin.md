@@ -227,7 +227,7 @@ not introduced again.
     migrate from Polar and add jellyfin to the awesome selfhosted list.
 * [Prometheus
     exporter](https://github.com/jellyfin/jellyfin/issues/3016):
-    monitor it.
+    monitor it. There is [a plugin that can be used](https://github.com/StefanAbl/jellyfin-prometheus-exporter/issues/1) but don't know how.
 * [Easy Import/Export Jellyfin
     settings](https://features.jellyfin.org/posts/299/easy-import-export-jellyfin-settings):
     add to the backup process.
