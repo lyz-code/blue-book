@@ -11,7 +11,7 @@
     <managingEditor>Lyz</managingEditor>
 
     
-    <pubDate>2023-07-03 01:07:06+00:00</pubDate>
+    <pubDate>2023-07-04 06:38:33+00:00</pubDate>
     <ttl>1440</ttl>
 
     
@@ -25,6 +25,16 @@
     
 
     
+    
+    <item><title>3rd July 2023</title>
+      <author>Lyz</author>
+      <description>&lt;article class=&#34;md-content__inner md-typeset&#34;&gt;  &lt;h2 id=&#34;devops&#34;&gt;DevOps&lt;/h2&gt; &lt;h3 id=&#34;storage&#34;&gt;Storage&lt;/h3&gt; &lt;h4 id=&#34;zfs-prometheus-exporter&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/zfs_exporter/&#34;&gt;ZFS Prometheus exporter&lt;/a&gt;&lt;/h4&gt; &lt;ul&gt; &lt;li&gt;Correction: Improve alerts.&lt;/li&gt; &lt;/ul&gt; &lt;hr/&gt;  &lt;/article&gt;</description>
+      <link>https://lyz-code.github.io/blue-book/newsletter/2023_07_03/</link>
+      <pubDate>2023-07-04 06:38:33+00:00</pubDate>
+      <source url="https://lyz-code.github.io/blue-book/daily.xml">The Blue Book</source>
+      <guid isPermaLink="true">https://lyz-code.github.io/blue-book/newsletter/2023_07_03/</guid>
+      
+    </item>
     
     <item><title>2nd July 2023</title>
       <author>Lyz</author>
@@ -805,16 +815,6 @@ cat&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;signal-desktop-keyring.gpg&lt;spa
       <pubDate>2023-02-07 06:35:42+00:00</pubDate>
       <source url="https://lyz-code.github.io/blue-book/daily.xml">The Blue Book</source>
       <guid isPermaLink="true">https://lyz-code.github.io/blue-book/newsletter/2023_02_06/</guid>
-      
-    </item>
-    
-    <item><title>12th January 2023</title>
-      <author>Lyz</author>
-      <description>&lt;article class=&#34;md-content__inner md-typeset&#34;&gt;  &lt;h2 id=&#34;coding&#34;&gt;Coding&lt;/h2&gt; &lt;h3 id=&#34;git&#34;&gt;&lt;a href=&#34;https://lyz-code.github.io/blue-book/git/&#34;&gt;Git&lt;/a&gt;&lt;/h3&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;New: &lt;a href=&#34;https://lyz-code.github.io/blue-book/git/#set-the-upstream-remote-by-default&#34;&gt;Set the upstream remote by default.&lt;/a&gt;&lt;/p&gt;  &lt;/li&gt; &lt;/ul&gt; &lt;hr/&gt; &lt;div class=&#34;md-source-file&#34;&gt; &lt;small&gt; Last update: &lt;span class=&#34;git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago&#34;&gt;&lt;span class=&#34;timeago&#34; datetime=&#34;2023-01-13T06:35:34+00:00&#34; locale=&#34;en&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date&#34;&gt;2023-01-13&lt;/span&gt; &lt;/small&gt; &lt;/div&gt; &lt;/article&gt;</description>
-      <link>https://lyz-code.github.io/blue-book/newsletter/2023_01_12/</link>
-      <pubDate>2023-01-13 06:35:34+00:00</pubDate>
-      <source url="https://lyz-code.github.io/blue-book/daily.xml">The Blue Book</source>
-      <guid isPermaLink="true">https://lyz-code.github.io/blue-book/newsletter/2023_01_12/</guid>
       
     </item>
     
