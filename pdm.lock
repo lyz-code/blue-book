@@ -514,15 +514,15 @@ files = [
 
 [[package]]
 name = "mkdocs-autolinks-plugin"
-version = "0.7.0"
+version = "0.7.1"
 requires_python = ">=3.4"
 summary = "An MkDocs plugin"
 dependencies = [
     "mkdocs>=1.2.3",
 ]
 files = [
-    {file = "mkdocs-autolinks-plugin-0.7.0.tar.gz", hash = "sha256:75b43e0806d6fb9dfbe8e830371cf50d092c13c155e3cb5a44f71a800fb08c2d"},
-    {file = "mkdocs_autolinks_plugin-0.7.0-py3-none-any.whl", hash = "sha256:c8db70fe22ccc6fc914282c724b36a577e90daa9cac6204a63fb962fd9584359"},
+    {file = "mkdocs-autolinks-plugin-0.7.1.tar.gz", hash = "sha256:445ddb9b417b7795856c30801bb430773186c1daf210bdeecf8305f55a47d151"},
+    {file = "mkdocs_autolinks_plugin-0.7.1-py3-none-any.whl", hash = "sha256:5c6c17f6649b68e79a9ef0b2648d59f3072e18002b90ee1586a64c505f11ab12"},
 ]
 
 [[package]]
