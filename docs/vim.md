@@ -661,7 +661,7 @@ I've been using `vim-fugitive` for some years now and it works very well but is 
 
 At a first look `lazygit` is too much and `neogit` a little more verbose than `vim-fugitive` but it looks closer to my current workflow. I'm going to try `neogit` then.
 
-## [Neogit](https://github.com/TimUntersberger/neogit)
+## [Neogit](https://github.com/Neogit/neogit)
 
 ### [Installation](https://github.com/TimUntersberger/neogit#installation)
 
@@ -685,11 +685,6 @@ neogit.setup({
 })
 
 ### Improve the commit message window
-
-
-
-
-
 
 [create custom keymaps with lua](https://blog.devgenius.io/create-custom-keymaps-in-neovim-with-lua-d1167de0f2c2)
 [create specific bindings for a file type](https://stackoverflow.com/questions/72984648/neovim-lua-how-to-use-different-mappings-depending-on-file-type)
@@ -949,6 +944,11 @@ require('telescope').setup{
 
 # Tips
 
+## [Run a command when opening vim](https://vi.stackexchange.com/questions/846/how-can-i-start-vim-and-then-execute-a-particular-command-that-includes-a-fro)
+
+```bash
+nvim -c ':DiffViewOpen'
+```
 ## Run lua snippets
 
 Run lua snippet within neovim with `:lua <your snippet>`. Useful to test the commands before binding it to keys.

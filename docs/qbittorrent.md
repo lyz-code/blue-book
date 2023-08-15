@@ -84,6 +84,10 @@ this happens while you're away from your infrastructure it can be even worse.
 Something you can do in these cases is to have another client configured so you
 can spawn it fast and import the torrents that are under the Hit and Run threat.
 
+# Tools
+
+- [qbittools](https://github.com/buroa/qbittools): a feature rich CLI for the management of torrents in qBittorrent. 
+- [qbit_manage](https://github.com/StuffAnThings/qbit_manage): tool will help manage tedious tasks in qBittorrent and automate them. 
 # References
 
 - [Home](https://www.qbittorrent.org/)

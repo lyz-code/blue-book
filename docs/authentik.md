@@ -886,6 +886,11 @@ Instead of exporting everything from a single instance, there's also the option 
 This export can be triggered via the API or the Web UI by clicking the download button in the flow list.
 
 
+## [Monitorization](https://goauthentik.io/docs/installation/monitoring)
+
+I've skimmed through the prometheus metrics exposed at `:9300/metrics` in the core and they aren't that useful :(
+
+
 # References
 
 * [Source](https://github.com/goauthentik/authentik)

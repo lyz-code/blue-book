@@ -12,7 +12,8 @@ author: Lyz
 - When gathering food from fastest to slowest you can: fish > hunt deer > hunt
   boar > hunt sheep > gather berries.
 
-# [Basic Opening](https://yewtu.be/watch?v=4cWd9ST-TZc&list=PLQU6KyTfRZCZc-Q9HpfzEaWLvpLz9MdnE&index=0)
+# Openings or Build Orders
+## [Basic Opening](https://yewtu.be/watch?v=4cWd9ST-TZc&list=PLQU6KyTfRZCZc-Q9HpfzEaWLvpLz9MdnE&index=0)
 
 When the match starts:
 
@@ -89,6 +90,46 @@ When the match starts:
 
 - Send 5 or 6 of the sheep gatherers to the wood
 
+## [Fast castle boom](https://www.youtube.com/watch?v=JsTNM7j6fs4&t=119)
+
+# Strategy guides
+
+## How to play maps
+
+- How to play Arena:
+    - [Hera's guide](https://piped.video/watch?v=8gXI4XGMPzQ&t=0)
+    - [Tatoh game in arena](https://www.youtube.com/watch?v=3qg4Xwm8CAo&t=1211): First match of the series
+- [How to play Hideout](https://www.youtube.com/watch?v=DdK8QveBegw&t=652)
+- [How to play Blackforest](https://www.youtube.com/watch?v=1V_jsU9PF8Y)
+
+## Inside the mind of a pro player
+
+- [Episode 1](https://www.youtube.com/watch?v=54hRmrdzO-I)
+- [Episode 2](https://www.youtube.com/watch?v=sZCs6dwH5qk&t=1727)
+ 
+# Strategies against civilisations
+
+I'm using only the mongols, and so far I've seen/heard from the pros the next strategies:
+
+- Aztecs: 
+    - Steppe lancers good against eagle warriors
+    - Heavy scorpions against eagle warriors and skirms
+- Cumans: 
+    - [Scout, if it drops two TCs in feudal, tower rush into archers](https://www.youtube.com/watch?v=H9QUNtFII1g&t=0)
+    - [Put initial pressure](https://www.youtube.com/watch?v=R9qaFZzZgBY&t=1925): Nice initial pressure
+- Incas: 
+    - Steppe lancers good against eagle warriors
+    - Heavy scorpions against eagle warriors and skirms
+- Khmer: boom, map control, monks and albadiers 
+- Mayans: 
+    - Steppe lancers good against eagle warriors
+    - Heavy scorpions against eagle warriors and skirms
+- Romans:
+    - [Hera guide on how to beat them](https://www.youtube.com/watch?v=SA44-Y3XUy0&t=842)
+- Tartars: heavy scorpions
+- Turks: 
+    - [How to defend against them in Arena](https://www.youtube.com/watch?v=AI_JRA_nCpw&t=3710)
+
 # Newbie pitfalls
 
 - Don't go for the berries first it's slower.
@@ -98,7 +139,6 @@ When the match starts:
   control units
 - Not building the farms around the TC
 - Don't let the scout die
-
 # Micromanagements
 
 ## Workers
@@ -138,3 +178,20 @@ When the match starts:
 ### House building
 
 Build new houses when you're 2 of population down to the limit
+# Nice games
+
+## Tournaments
+
+- 2023 Masters of Arena 7 Final Tatoh vs Vinchester:
+    - [Casted by T90](https://www.youtube.com/watch?v=3qg4Xwm8CAo&t=1211s)
+    - [Pov by Tatoh](https://www.youtube.com/watch?v=AI_JRA_nCpw&t=8854)
+
+## Showmatches
+
+- [Hera vs TheViper | Battlegrounds 3 | BO5](https://www.youtube.com/watch?v=AlKMRQNMVzo&t=4306)
+- [The Viper VS Tatoh PA7](https://www.youtube.com/watch?v=5_p3TXasBHY&t=5319)
+
+## 1vs1 games
+
+- [Hindustanis vs Portuguese | Arabia | Hera vs Yo](https://www.youtube.com/watch?v=iZ7eWLLbh34)
+- [Dravidians vs Turks | African Clearing | Hera vs Yo](https://www.youtube.com/watch?v=tZyVLDwBfd4)

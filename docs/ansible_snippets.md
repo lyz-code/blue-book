@@ -4,10 +4,127 @@ date: 20220119
 author: Lyz
 ---
 
-# Start and enable a systemd service
+# Run command on a working directory
 
 ```yaml
-- name: Start the service
+- name: Change the working directory to somedir/ and run the command as db_owner 
+  ansible.builtin.command: /usr/bin/make_database.sh db_user db_name
+  become: yes
+  become_user: db_owner
+  args:
+    chdir: somedir/
+    creates: /path/to/database
+```
+
+# [Run handlers in the middle of the tasks file](https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_handlers.html#controlling-when-handlers-run)
+
+If you need handlers to run before the end of the play, add a task to flush them using the [meta module](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/meta_module.html#meta-module), which executes Ansible actions:
+
+```yaml
+tasks:
+  - name: Some tasks go here
+    ansible.builtin.shell: ...
+
+  - name: Flush handlers
+    meta: flush_handlers
+
+  - name: Some other tasks
+    ansible.builtin.shell: ...
+```
+
+The `meta: flush_handlers` task triggers any handlers that have been notified at that point in the play.
+
+Once handlers are executed, either automatically after each mentioned section or manually by the `flush_handlers meta` task, they can be notified and run again in later sections of the play.
+
+# [Run command idempotently](https://stackoverflow.com/questions/70956356/no-changed-when-lint-warning-araise-in-the-ansible-playbook)
+
+```yaml
+- name: Register the runner in gitea
+  become: true
+  command: act_runner register --config config.yaml --no-interactive --instance {{ gitea_url }} --token {{ gitea_docker_runner_token }}
+  args:
+    creates: /var/lib/gitea_docker_runner/.runner
+```
+
+# Get the correct architecture string
+
+If you have an `amd64` host you'll get `x86_64`, but sometimes you need the `amd64` string. On those cases you can use the next snippet:
+
+```yaml
+---
+# vars/main.yaml
+deb_architecture: 
+  aarch64: arm64
+  x86_64: amd64
+
+---
+# tasks/main.yaml
+- name: Download the act runner binary
+  become: True
+  ansible.builtin.get_url:
+    url: https://dl.gitea.com/act_runner/act_runner-linux-{{ deb_architecture[ansible_architecture] }}
+    dest: /usr/bin/act_runner
+    mode: '0755'
+```
+
+# [Check the instances that are going to be affected by playbook run](https://medium.com/geekculture/a-complete-overview-of-ansible-dynamic-inventory-a9ded104df4c)
+
+Useful to list the instances of a dynamic inventory
+
+```bash
+ansible-inventory -i aws_ec2.yaml --list
+```
+
+# [Check if variable is defined or empty](https://www.shellhacks.com/ansible-when-variable-is-defined-exists-empty-true/)
+
+In Ansible playbooks, it is often a good practice to test if a variable exists and what is its value.
+
+Particularity this helps to avoid different “VARIABLE IS NOT DEFINED” errors in Ansible playbooks.
+
+In this context there are several useful tests that you can apply using [Jinja2 filters](https://docs.ansible.com/ansible/latest/user_guide/playbooks_filters.html) in Ansible.
+
+## Check if Ansible variable is defined (exists)
+
+```yaml
+tasks:
+
+- shell: echo "The variable 'foo' is defined: '{{ foo }}'"
+  when: foo is defined
+
+- fail: msg="The variable 'bar' is not defined"
+  when: bar is undefined
+```
+
+## Check if Ansible variable is empty
+
+```yaml
+tasks:
+
+- fail: msg="The variable 'bar' is empty"
+  when: bar|length == 0
+
+- shell: echo "The variable 'foo' is not empty: '{{ foo }}'"
+  when: foo|length > 0
+```
+
+## Check if Ansible variable is defined and not empty
+
+```yaml
+tasks:
+
+- shell: echo "The variable 'foo' is defined and not empty"
+  when: (foo is defined) and (foo|length > 0)
+
+- fail: msg="The variable 'bar' is not defined or empty"
+  when: (bar is not defined) or (bar|length == 0)
+```
+
+# Start and enable a systemd service
+
+Typically defined in `handlers/main.yaml`:
+
+```yaml
+- name: Restart the service
   become: true
   systemd:
     name: zfs_exporter
@@ -16,6 +133,26 @@ author: Lyz
     state: started
 ```
 
+And used in any task:
+
+```yaml
+- name: Create the systemd service
+  become: true
+  template:
+    src: service.j2
+    dest: /etc/systemd/system/zfs_exporter.service
+  notify: Restart the service
+```
+
+# [Download a file](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/get_url_module.html)
+
+```yaml
+- name: Download foo.conf
+  ansible.builtin.get_url:
+    url: http://example.com/path/file.conf
+    dest: /etc/foo.conf
+    mode: '0440'
+```
 # [Download an decompress a tar.gz](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/unarchive_module.html)
 
 ```yaml
@@ -195,7 +332,8 @@ To make the `command` idempotent you can use a `stat` task before.
 
 ```yaml
 - name: stat foo
-  stat: path=/path/to/foo
+  stat: 
+    path: /path/to/foo
   register: foo_stat
 
 - name: Move foo to bar

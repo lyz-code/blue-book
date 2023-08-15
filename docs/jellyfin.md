@@ -12,11 +12,46 @@ ported to the .NET Core framework to enable full cross-platform support. There
 are no strings attached, no premium licenses or features, and no hidden agendas:
 just a team who want to build something better and work together to achieve it.
 
+# Clients
+
+## [Jellyfin Desktop](https://github.com/jellyfin/jellyfin-media-player)
+
+### Installation
+
+- Download the latest deb package from the [releases page](https://github.com/jellyfin/jellyfin-media-player/releases)
+- Install the dependencies
+- Run `dpkg -i`
+
+If you're on a TV you may want to [enable the TV mode](https://github.com/jellyfin/jellyfin-media-player/issues/11) so that the remote keys work as expected. The play/pause/next/prev won't work until [this issue is solved](https://github.com/jellyfin/jellyfin-media-player/issues/3), but it's not that bad to use the "Ok" and then navigate with the arrow keys.
+
+## [Jellycon](https://github.com/jellyfin/jellycon)
+
+JellyCon is a lightweight Kodi add-on that lets you browse and play media files directly from your Jellyfin server within the Kodi interface. It can be thought of as a thin frontend for a Jellyfin server.
+
+It's not very pleasant to use though.
+
+### [Installation](https://github.com/jellyfin/jellycon#installation)
+
+- Add the Jellyfin kodi addon repository
+    ```bash
+    wget https://kodi.jellyfin.org/repository.jellyfin.kodi.zip
+    ```
+- Open Kodi, go to the settings menu, and navigate to "Add-on Browser"
+- Select "Install from Zip File"
+- From within Kodi, navigate to "Add-on Browser"
+- Select "Install from Repository"
+- Choose "Kodi Jellyfin Add-ons", followed by "Video Add-ons"
+- Select the JellyCon add-on and choose install
+
 # Missing features
 
 - Hide movie or tv show from my gallery: Tracked by these feature requests [1](https://features.jellyfin.org/posts/1072/let-the-user-hide-a-movie-or-tv-show) and [2](https://features.jellyfin.org/posts/116/add-hide-ignore-for-series-seasons-episodes-as-an-alternative-to-favorite)
   
 # Troubleshooting
+
+## Transcode files are cleared frequently
+
+By default they are cleared each day. If you want to keep them you can go to Admin/Scheduled Tasks/Clean Transcode Directory and remove the scheduled task.
 
 ## [Deceptive site ahead](https://github.com/jellyfin/jellyfin-web/issues/4076)
 
@@ -245,6 +280,7 @@ not introduced again.
 * [Jellyfin for apple
     tv](https://features.jellyfin.org/posts/612/jellyfin-apple-tv-support): tell
     the people that use the shitty device.
+* [Pressing play on a tv show doesn't reproduce the Next Up](https://github.com/jellyfin/jellyfin/issues/9998)
 
 # References
 

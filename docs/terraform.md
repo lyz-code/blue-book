@@ -172,7 +172,7 @@ We can automate all the above to be executed before we do a commit using the
 [pre-commit](https://pre-commit.com/) framework.
 
 ```bash
-sudo pip install pre-commit
+pip install pre-commit
 cd $proyectoConTerraform
 echo """repos:
 - repo: git://github.com/antonbabenko/pre-commit-terraform
@@ -903,6 +903,37 @@ You can set the `TF_LOG` environmental variable to one of the log levels
 `TRACE`, `DEBUG`, `INFO`, `WARN` or `ERROR` to change the verbosity of the logs.
 
 To remove the debug traces run `unset TF_LOG`.
+
+
+# Snippets
+
+## [Create a list of resources based on a list of strings](https://developer.hashicorp.com/terraform/language/meta-arguments/count)
+
+```hcl
+variable "subnet_ids" {
+  type = list(string)
+}
+
+resource "aws_instance" "server" {
+  # Create one instance for each subnet
+  count = length(var.subnet_ids)
+
+  ami           = "ami-a1b2c3d4"
+  instance_type = "t2.micro"
+  subnet_id     = var.subnet_ids[count.index]
+
+  tags = {
+    Name = "Server ${count.index}"
+  }
+}
+```
+
+If you want to use this generated list on another resource extracting for example the id you can use
+
+```hcl
+aws_instance.server.*.id
+```
+
 # References
 
 * [Docs](https://www.terraform.io/docs/index.html)

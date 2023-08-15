@@ -51,12 +51,20 @@ ENABLED=true
 
 Even if you enable at configuration level you need to manually enable the actions on each repository [until this issue is solved](https://github.com/go-gitea/gitea/issues/23724).
 
-So far there is [only one possible runner](https://gitea.com/gitea/act_runner) which is based on docker and [`act`](https://github.com/nektos/act). Currently, the only way to install act runner is by compiling it yourself, or by using one of the [pre-built binaries](http://dl.gitea.com/act_runner). There is no Docker image or other type of package management yet. At the moment, act runner should be run from the command line. Of course, you can also wrap this binary in something like a system service, supervisord, or Docker container.
+So far there is [only one possible runner](https://gitea.com/gitea/act_runner) which is based on docker and [`act`](https://github.com/nektos/act). Currently, the only way to install act runner is by compiling it yourself, or by using one of the [pre-built binaries](https://dl.gitea.com/act_runner). There is no Docker image or other type of package management yet. At the moment, act runner should be run from the command line. Of course, you can also wrap this binary in something like a system service, supervisord, or Docker container.
+
+You can create the default configuration of the runner with:
+
+```bash
+./act_runner generate-config > config.yaml
+```
+
+You can tweak there for example the `capacity` so you are able to run more than one workflow in parallel.
 
 Before running a runner, you should first register it to your Gitea instance using the following command:
 
 ```bash
-./act_runner register --no-interactive --instance <instance> --token <token>
+./act_runner register --config config.yaml --no-interactive --instance <instance> --token <token>
 ```
 
 There are two arguments required, `instance` and `token`.
@@ -70,7 +78,7 @@ After registering, a new file named `.runner` will appear in the current directo
 Finally, it’s time to start the runner.
 
 ```bash
-./act_runner daemon
+./act_runner --config config.yaml daemon
 ```
 
 You can also create a systemd service so that it starts when the server boots. For example in `/etc/systemd/system/gitea_actions_runner.service:
@@ -146,11 +154,193 @@ If you open that up, you’ll see that there is a section called labels, and it 
 
 You can specify any other docker image. Adding new labels doesn't work yet.
 
+You can start with this dockerfile:
+
+```dockerfile
+FROM node:16-bullseye
+
+# Configure the labels
+LABEL prune=false
+
+# Configure the AWS credentials
+RUN mkdir /root/.aws
+COPY files/config /root/.aws/config
+COPY files/credentials /root/.aws/credentials
+
+# Install dependencies
+RUN apt-get update && apt-get install -y \
+  python3 \
+  python3-pip \
+  python3-venv \
+  screen \
+  vim \
+  && python3 -m pip install --upgrade pip \
+  && rm -rf /var/lib/apt/lists/*
+
+RUN pip install \
+  molecule==5.0.1 \
+  ansible==8.0.0 \
+  ansible-lint \
+  yamllint \ 
+  molecule-plugins[ec2,docker,vagrant] \
+  boto3 \ 
+  botocore \
+  testinfra \
+  pytest
+
+RUN wget https://download.docker.com/linux/static/stable/x86_64/docker-24.0.2.tgz \
+  && tar xvzf docker-24.0.2.tgz \
+  && cp docker/* /usr/bin \
+  && rm -r docker docker-*
+```
+
+It's prepared for:
+
+- Working within an AWS environment
+- Run Ansible and molecule
+- Build dockers
+
 ### Things that are not ready yet
 
 * [Enable actions by default](https://github.com/go-gitea/gitea/issues/23724)
 * Kubernetes act runner
 * [Support cron jobs](https://github.com/go-gitea/gitea/pull/22751)
+* [Badge for the CI jobs](https://github.com/go-gitea/gitea/issues/23688)
+
+### Build a docker within a gitea action
+
+Assuming you're using the custom gitea_runner docker proposed above you can build and upload a docker to a registry with this action:
+
+```yaml
+---
+name: Publish Docker image
+
+"on": [push]
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: https://github.com/actions/checkout@v3
+
+      - name: Login to Docker Registry
+        uses: https://github.com/docker/login-action@v2
+        with:
+          registry: my_registry.org
+          username: ${{ secrets.REGISTRY_USERNAME }}
+          password: ${{ secrets.REGISTRY_PASSWORD }}
+
+      - name: Set up QEMU
+        uses: https://github.com/docker/setup-qemu-action@v2
+
+      - name: Set up Docker Buildx
+        uses: https://github.com/docker/setup-buildx-action@v2
+
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: https://github.com/docker/metadata-action@v4
+        with:
+          images: my_registry.org/the_name_of_the_docker_to_build
+
+      - name: Build and push
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          platforms: linux/amd64,linux/arm64
+          push: true
+          cache-from: type=registry,ref=my_registry.org/the_name_of_the_docker_to_build:buildcache
+          cache-to: type=registry,ref=my_registry.org/the_name_of_the_docker_to_build:buildcache,mode=max
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+```
+
+It uses a pair of nice features:
+
+- Multi-arch builds
+- [Cache](https://docs.docker.com/build/ci/github-actions/cache/) to speed up the builds
+
+As it reacts to all events it will build and push:
+
+- A tag with the branch name on each push to that branch
+- a tag with the tag on tag push
+
+### Bump the version of a repository on commits on master
+
+- Create a SSH key for the CI to send commits to protected branches. 
+- Upload the private key to a repo or organization secret called `DEPLOY_SSH_KEY`.
+- Upload the public key to the repo configuration deploy keys
+- Create the `bump.yaml` file with the next contents:
+
+    ```yaml
+    ---
+    name: Bump version
+
+    "on":
+      push:
+        branches:
+          - main
+
+    jobs:
+      bump_version:
+        if: "!startsWith(github.event.head_commit.message, 'bump:')"
+        runs-on: ubuntu-latest
+        name: "Bump version and create changelog"
+        steps:
+          - name: Check out
+            uses: actions/checkout@v3
+            with:
+              fetch-depth: 0  # Fetch all history
+
+          - name: Configure SSH
+            run: |
+                echo "${{ secrets.DEPLOY_SSH_KEY }}" > ~/.ssh/deploy_key
+                chmod 600 ~/.ssh/deploy_key
+                dos2unix ~/.ssh/deploy_key
+                ssh-agent -a $SSH_AUTH_SOCK > /dev/null
+                ssh-add ~/.ssh/deploy_key
+
+          - name: Bump the version
+            run: cz bump --changelog --no-verify
+
+          - name: Push changes
+            run: |
+              git remote add ssh git@gitea-production.cloud.icij.org:templates/ansible-role.git
+              git pull ssh main
+              git push ssh main
+              git push ssh --tags
+    ```
+
+    It assumes that you have `cz` (commitizen) and `dos2unix` installed in your runner.
+
+### Skip gitea actions job on changes of some files
+
+There are some expensive CI pipelines that don't need to be run for example if you changed a line in the `README.md`, to skip a pipeline on changes of certain files you can use the `paths-ignore` directive:
+
+```yaml
+---
+name: Ansible Testing
+
+"on":
+  push:
+    paths-ignore:
+      - 'meta/**'
+      - Makefile
+      - README.md
+      - renovate.json
+      - CHANGELOG.md
+      - .cz.toml
+      - '.gitea/workflows/**'
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+        ...
+```
+
+The only downside is that if you set this pipeline as required in the branch protection, the merge button will look yellow instead of green when the pipeline is skipped.
 
 ## [Disable the regular login, use only Oauth](https://discourse.gitea.io/t/solved-removing-default-login-interface/2740/2)
 
@@ -297,6 +487,18 @@ Or you can change [the admin's password](https://discourse.gitea.io/t/how-to-cha
 ```bash
 gitea --config /etc/gitea/app.ini admin user change-password -u username -p password
 ```
+
+# [Gitea client command line tool](https://gitea.com/gitea/tea)
+
+`tea` is a command line tool to interact with Gitea servers. It still lacks some features but is usable.
+
+## [Installation](https://gitea.com/gitea/tea#installation)
+
+- Download the precompiled binary from https://dl.gitea.com/tea/
+- Until [#542](https://gitea.com/gitea/tea/issues/542) is fixed manually create a token with all the permissions
+- Run `tea login add` to set your credentials.
+
+
 
 # References
 

@@ -331,6 +331,7 @@ nav:
           - Dependency managers:
               - Pip-tools: devops/pip_tools.md
       - Automating Processes:
+          - copier: copier.md
           - cookiecutter: linux/cookiecutter.md
           - cruft: linux/cruft.md
           - renovate: renovate.md
@@ -398,7 +399,9 @@ nav:
           - Github cli: gh.md
           - goaccess: goaccess.md
           - google chrome: linux/google_chrome.md
+          - Gotify: gotify.md
           - Chromium: chromium.md
+          - Grafana: grafana.md
           - Graylog: graylog.md
           - HAProxy: linux/haproxy.md
           - Hard drive health: hard_drive_health.md
@@ -409,8 +412,11 @@ nav:
           - ffmpeg: ffmpeg.md
           - Khal: khal.md
           - Kitty: kitty.md
+          - Kodi: kodi.md
+          - Koel: koel.md
           - LUKS: linux/luks/luks.md
           - mbsync: mbsync.md
+          - Mediatracker: mediatracker.md
           - mkdocs: linux/mkdocs.md
           - Mopidy: mopidy.md
           - monica: linux/monica.md
@@ -437,6 +443,7 @@ nav:
               - Vim Plugins: linux/vim/vim_plugins.md
               - Write Neovim Plugins: write_neovim_plugins.md
               - Treesitter: treesitter.md
+              - Diffview: diffview.md
               - Tridactyl: tridactyl.md
           - VSCodium: vscodium.md
           - Wake on Lan: wake_on_lan.md

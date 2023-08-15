@@ -67,6 +67,17 @@ This version is seen as a clean-up or refactoring release, not expected to requi
 
 ## To v3.0.0
 
+# Troubleshooting
+
+## [Molecule doesn't find the `molecule.yaml` file](https://github.com/ansible-community/molecule/discussions/3344)
+
+
+This is expected default behavior since Molecule searches for scenarios using the `molecule/*/molecule.yml` glob. But if you would like to change the suffix to yaml, you can do that if you set the `MOLECULE_GLOB` environment variable like this:
+
+```bash
+export MOLECULE_GLOB='molecule/*/molecule.yaml'
+```
+
 # References
 
 - [Source](https://github.com/ansible-community/molecule)

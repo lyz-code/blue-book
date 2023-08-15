@@ -4,6 +4,75 @@ date: 20200826
 author: Lyz
 ---
 
+# [Get the current git branch](https://stackoverflow.com/questions/6245570/how-do-i-get-the-current-branch-name-in-git)
+
+```bash
+git branch --show-current
+```
+
+# Install latest version of package from backports
+
+Add the backports repository:
+
+```bash
+vi /etc/apt/sources.list.d/bullseye-backports.list
+```
+
+```
+deb http://deb.debian.org/debian bullseye-backports main contrib
+deb-src http://deb.debian.org/debian bullseye-backports main contrib
+```
+
+Configure the package to be pulled from backports
+
+```bash
+vi /etc/apt/preferences.d/90_zfs
+```
+
+```
+Package: src:zfs-linux
+Pin: release n=bullseye-backports
+Pin-Priority: 990
+```
+
+# [Rename multiple files matching a pattern](https://stackoverflow.com/questions/6840332/rename-multiple-files-by-replacing-a-particular-pattern-in-the-filenames-using-a)
+
+
+There is `rename` that looks nice, but you need to install it. Using only `find` you can do:
+
+```bash
+find . -name '*yml' -exec bash -c 'echo mv $0 ${0/yml/yaml}' {} \; 
+```
+
+If it shows what you expect, remove the `echo`.
+
+# [Force ssh to use password authentication](https://superuser.com/questions/1376201/how-do-i-force-ssh-to-use-password-instead-of-key)
+
+```bash
+ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no exampleUser@example.com
+```
+# [Do a tail -f with grep](https://stackoverflow.com/questions/23395665/tail-f-grep)
+
+```bash
+tail -f file | grep --line-buffered my_pattern
+```
+
+# [Check if a program exists in the user's PATH](https://stackoverflow.com/questions/592620/how-can-i-check-if-a-program-exists-from-a-bash-script)
+
+```bash
+command -v <the_command>
+```
+
+Example use:
+
+```bash
+if ! command -v <the_command> &> /dev/null
+then
+    echo "<the_command> could not be found"
+    exit
+fi
+```
+
 # [Reset failed systemd services](https://unix.stackexchange.com/questions/418792/systemctl-remove-unit-from-failed-list)
 
 Use systemctl to remove the failed status. To reset all units with failed status:
@@ -40,6 +109,12 @@ This will make your machine display the boot options for 5 seconds before it boo
 
 ```bash
 ssh -D 9090 -N -f user@host
+```
+
+If you need to forward an external port to a local one [you can use](https://linuxize.com/post/how-to-setup-ssh-tunneling/)
+
+```bash
+ssh -L LOCAL_PORT:DESTINATION:DESTINATION_PORT [USER@]SSH_SERVER
 ```
 
 If you need a more powerful solution you can try [sshuttle](https://sshuttle.readthedocs.io/en/stable/overview.html)

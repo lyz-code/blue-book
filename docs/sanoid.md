@@ -111,6 +111,14 @@ To check the logs use `journalctl -eu sanoid`.
 
 To manage the snapshots look at the [`zfs`](zfs.md#restore-a-backup) article.
 
+## Prune snapshots
+
+If you want to manually prune the snapshots after you tweaked `sanoid.conf` you can run:
+
+```bash
+sanoid --prune-snapshots
+```
+
 # [Syncoid](https://github.com/jimsalterjrs/sanoid/wiki/Syncoid)
 
 `Sanoid` also includes a replication tool, `syncoid`, which facilitates the asynchronous incremental replication of ZFS filesystems. A typical `syncoid` command might look like this:
@@ -131,7 +139,7 @@ Which would push-replicate the specified ZFS filesystem from the local host to r
 syncoid root@remotehost:data/images/vm backup/images/vm
 ```
 
-Which would pull-replicate the filesystem from the remote host to the local system over an SSH tunnel.
+Which would pull-replicate the filesystem from the remote host to the local system over an SSH tunnel. In case of doubt [using the pull strategy is always desired](https://github.com/jimsalterjrs/sanoid/issues/666)
 
 `Syncoid` supports recursive replication (replication of a dataset and all its child datasets) and uses mbuffer buffering, lzop compression, and pv progress bars if the utilities are available on the systems used. If ZFS supports resumeable send/receive streams on both the source and target those will be enabled as default. It also automatically supports and enables resume of interrupted replication when both source and target support this feature.
 
@@ -159,6 +167,70 @@ Also note that `post_snapshot_script` cannot be used with `syncoid` especially w
 `sanoid` does not wait for the script completion before continuing. This mean that should the `syncoid` process take a bit too much time, a new one will be spawned. And for reasons unknown to me yet, a new syncoid process will cancel the previous one (instead of just leaving). As some of the spawned `syncoid` will produce errors, the entire `sanoid` process will fail.
 
 So this approach does not work and has to be done independently, it seems. The good news is that the SystemD service of `Type= oneshot` can have several `Execstart=` lines.
+
+## Send encrypted backups to a encrypted dataset
+
+`syncoid`'s default behaviour is to create the destination dataset without encryption so the snapshots are transferred and can be read without encryption. You can check this with the `zfs get encryption,keylocation,keyformat` command both on source and destination.
+
+To prevent this from happening you have to [pass the `--sendoptions='w'](https://github.com/jimsalterjrs/sanoid/issues/548) to `syncoid` so that it tells zfs to send a raw stream. If you do so, you also need to [transfer the key file](https://github.com/jimsalterjrs/sanoid/issues/648) to the destination server so that it can do a `zfs loadkey` and then mount the dataset. For example:
+
+```bash
+server-host:$ sudo zfs list -t filesystem
+NAME                    USED  AVAIL     REFER  MOUNTPOINT
+server_data             232M  38.1G      230M  /var/server_data
+server_data/log         111K  38.1G      111K  /var/server_data/log
+server_data/mail        111K  38.1G      111K  /var/server_data/mail
+server_data/nextcloud   111K  38.1G      111K  /var/server_data/nextcloud
+server_data/postgres    111K  38.1G      111K  /var/server_data/postgres
+
+server-host:$ sudo zfs get keylocation server_data/nextcloud
+NAME                   PROPERTY     VALUE                                    SOURCE
+server_data/nextcloud  keylocation  file:///root/zfs_dataset_nextcloud_pass  local
+
+server-host:$ sudo syncoid --recursive --skip-parent --sendoptions=w server_data root@192.168.122.94:backup_pool
+INFO: Sending oldest full snapshot server_data/log@autosnap_2021-06-18_18:33:42_yearly (~ 49 KB) to new target filesystem:
+17.0KiB 0:00:00 [1.79MiB/s] [=================================================>                                                                                                  ] 34%            
+INFO: Updating new target filesystem with incremental server_data/log@autosnap_2021-06-18_18:33:42_yearly ... syncoid_caedrium.com_2021-06-22:10:12:55 (~ 15 KB):
+41.2KiB 0:00:00 [78.4KiB/s] [===================================================================================================================================================] 270%            
+INFO: Sending oldest full snapshot server_data/mail@autosnap_2021-06-18_18:33:42_yearly (~ 49 KB) to new target filesystem:
+17.0KiB 0:00:00 [ 921KiB/s] [=================================================>                                                                                                  ] 34%            
+INFO: Updating new target filesystem with incremental server_data/mail@autosnap_2021-06-18_18:33:42_yearly ... syncoid_caedrium.com_2021-06-22:10:13:14 (~ 15 KB):
+41.2KiB 0:00:00 [49.4KiB/s] [===================================================================================================================================================] 270%            
+INFO: Sending oldest full snapshot server_data/nextcloud@autosnap_2021-06-18_18:33:42_yearly (~ 49 KB) to new target filesystem:
+17.0KiB 0:00:00 [ 870KiB/s] [=================================================>                                                                                                  ] 34%            
+INFO: Updating new target filesystem with incremental server_data/nextcloud@autosnap_2021-06-18_18:33:42_yearly ... syncoid_caedrium.com_2021-06-22:10:13:42 (~ 15 KB):
+41.2KiB 0:00:00 [50.4KiB/s] [===================================================================================================================================================] 270%            
+INFO: Sending oldest full snapshot server_data/postgres@autosnap_2021-06-18_18:33:42_yearly (~ 50 KB) to new target filesystem:
+17.0KiB 0:00:00 [1.36MiB/s] [===============================================>                                                                                                    ] 33%            
+INFO: Updating new target filesystem with incremental server_data/postgres@autosnap_2021-06-18_18:33:42_yearly ... syncoid_caedrium.com_2021-06-22:10:14:11 (~ 15 KB):
+41.2KiB 0:00:00 [48.9KiB/s] [===================================================================================================================================================] 270%  
+
+server-host:$ sudo scp /root/zfs_dataset_nextcloud_pass 192.168.122.94:
+```
+
+```bash
+backup-host:$ sudo zfs set keylocation=file:///root/zfs_dataset_nextcloud_pass  backup_pool/nextcloud
+backup-host:$ sudo zfs load-key backup_pool/nextcloud
+backup-host:$ sudo zfs mount backup_pool/nextcloud
+```
+
+If you also want to keep the `encryptionroot` you need to [let zfs take care of the recursion instead of syncoid](https://github.com/jimsalterjrs/sanoid/issues/614). In this case you can't use syncoid's stuff like `--exclude` from the manpage of zfs:
+
+```
+-R, --replicate
+   Generate a replication stream package, which will replicate the specified file system, and all descendent file systems, up to the named snapshot.  When received, all properties, snap‐
+   shots, descendent file systems, and clones are preserved.
+
+   If the -i or -I flags are used in conjunction with the -R flag, an incremental replication stream is generated.  The current values of properties, and current snapshot and file system
+   names are set when the stream is received.  If the -F flag is specified when this stream is received, snapshots and file systems that do not exist on the sending side are destroyed.
+   If the -R flag is used to send encrypted datasets, then -w must also be specified.
+```
+
+In this case this should work:
+
+```bash
+/sbin/syncoid --recursive --force-delete --sendoptions="Rw" zpool/backups zfs-recv@10.29.3.27:zpool/backups
+```
 
 # Troubleshooting
 

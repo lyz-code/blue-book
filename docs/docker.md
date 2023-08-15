@@ -85,6 +85,62 @@ sudo docker run -it --entrypoint /bin/bash [docker_image]
 
 # Snippets
 
+## [Add healthcheck to your dockers](https://www.howtogeek.com/devops/how-and-why-to-add-health-checks-to-your-docker-containers/)
+
+Health checks allow a container to expose its workload’s availability. This stands apart from whether the container is running. If your database goes down, your API server won’t be able to handle requests, even though its Docker container is still running.
+
+This makes for unhelpful experiences during troubleshooting. A simple `docker ps` would report the container as available. Adding a health check extends the `docker ps` output to include the container’s true state.
+
+You configure container health checks in your Dockerfile. This accepts a command which the Docker daemon will execute every 30 seconds. Docker uses the command’s exit code to determine your container’s healthiness:
+
+- `0`: The container is healthy and working normally.
+- `1`: The container is unhealthy; the workload may not be functioning.
+
+Healthiness isn’t checked straightaway when containers are created. The status will show as starting before the first check runs. This gives the container time to execute any startup tasks. A container with a passing health check will show as healthy; an unhealthy container displays unhealthy.
+
+In docker-compose you can write the healthchecks like the next snippet:
+
+```yaml
+---
+version: '3.4'
+
+services:
+  jellyfin:
+    image: linuxserver/jellyfin:latest
+    container_name: jellyfin
+    restart: unless-stopped
+    healthcheck:
+      test: curl http://localhost:8096/health || exit 1
+      interval: 10s
+      retries: 5
+      start_period: 5s
+      timeout: 10s
+```
+
+## [List the dockers of a registry](https://stackoverflow.com/questions/31251356/how-to-get-a-list-of-images-on-docker-registry-v2)
+
+
+List all repositories (effectively images):
+
+```bash
+$: curl -X GET https://myregistry:5000/v2/_catalog
+> {"repositories":["redis","ubuntu"]}
+```
+
+List all tags for a repository:
+
+```bash
+$: curl -X GET https://myregistry:5000/v2/ubuntu/tags/list
+> {"name":"ubuntu","tags":["14.04"]}
+```
+
+If the registry needs authentication you have to specify username and password in the curl command
+
+```bash
+curl -X GET -u <user>:<pass> https://myregistry:5000/v2/_catalog
+curl -X GET -u <user>:<pass> https://myregistry:5000/v2/ubuntu/tags/list
+```
+
 ## Attach a docker to many networks
 
 You can't do it through the `docker run` command, there you can only specify one
@@ -229,6 +285,12 @@ RUN apt-get update && apt-get install -y \
 
 ```
 ADD ./path/to/directory /path/to/destination
+```
+
+## [Append a new path to PATH](https://stackoverflow.com/questions/27093612/in-a-dockerfile-how-to-update-path-environment-variable)
+
+```
+ENV PATH="${PATH}:/opt/gtk/bin"
 ```
 
 # Troubleshooting

@@ -405,6 +405,14 @@ kubectl exec {{ pod_name }} -it bash
 kubectl run --generator=run-pod/v1 -i --tty debian --image=debian -- bash
 ```
 
+## [Run a pod in a defined node](https://stackoverflow.com/questions/66972537/can-you-schedule-a-pod-on-a-specific-node-using-kubectl-run)
+
+Get the node hostnames with `kubectl get nodes`, then override the node with:
+
+```bash
+kubectl run mypod --image ubuntu:18.04 --overrides='{"apiVersion": "v1", "spec": {"nodeSelector": { "kubernetes.io/hostname": "my-node.internal" }}}' --command -- sleep 100000000000000
+```
+
 ## [Get a root shell of a running container](http://stackoverflow.com/questions/42793382/exec-commands-on-kubernetes-pods-with-root-access)
 
 1. Get the Node where the pod is and the docker ID

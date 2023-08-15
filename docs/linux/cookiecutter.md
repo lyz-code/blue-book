@@ -4,6 +4,9 @@ date: 20200713
 author: Lyz
 ---
 
+NOTE: Use [`copier`](copier.md) instead!
+
+
 [Cookiecutter](https://github.com/cookiecutter/cookiecutter) is a command-line
 utility that creates projects from cookiecutters (project templates).
 

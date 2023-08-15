@@ -64,6 +64,140 @@ zfs get all {{ pool_name }}
 zfs get compressratio {{ filesystem }}
 ```
 
+## [Rename or move a dataset](https://docs.oracle.com/cd/E19253-01/819-5461/gamnq/index.html)
+
+NOTE: if you want to rename the topmost dataset look at [rename the topmost dataset](#rename-the-topmost-dataset) instead.
+File systems can be renamed by using the `zfs rename` command. You can perform the following operations:
+
+- Change the name of a file system.
+- Relocate the file system within the ZFS hierarchy.
+- Change the name of a file system and relocate it within the ZFS hierarchy.
+
+The following example uses the `rename` subcommand to rename of a file system from `kustarz` to `kustarz_old`:
+
+```bash
+zfs rename tank/home/kustarz tank/home/kustarz_old
+```
+
+The following example shows how to use zfs `rename` to relocate a file system:
+
+```bash
+zfs rename tank/home/maybee tank/ws/maybee
+```
+
+In this example, the `maybee` file system is relocated from `tank/home` to `tank/ws`. When you relocate a file system through rename, the new location must be within the same pool and it must have enough disk space to hold this new file system. If the new location does not have enough disk space, possibly because it has reached its quota, rename operation fails.
+
+The rename operation attempts an unmount/remount sequence for the file system and any descendent file systems. The rename command fails if the operation is unable to unmount an active file system. If this problem occurs, you must forcibly unmount the file system.
+
+You'll loose the snapshots though, as explained below.
+
+### [Rename the topmost dataset](https://www.solaris-cookbook.eu/solaris/solaris-zpool-rename/)
+
+If you want to rename the topmost dataset you [need to rename the pool too](https://github.com/openzfs/zfs/issues/4681) as these two are tied. 
+
+```bash
+$: zpool status -v
+
+  pool: tets
+ state: ONLINE
+ scrub: none requested
+config:
+
+        NAME        STATE     READ WRITE CKSUM
+        tets        ONLINE       0     0     0
+          c0d1      ONLINE       0     0     0
+          c1d0      ONLINE       0     0     0
+          c1d1      ONLINE       0     0     0
+
+errors: No known data errors
+```
+
+To fix this, first export the pool:
+
+```bash
+$ zpool export tets
+```
+
+And then imported it with the correct name:
+
+```bash
+$ zpool import tets test
+```
+
+After the import completed, the pool contains the correct name:
+
+```bash
+$ zpool status -v
+
+  pool: test
+ state: ONLINE
+ scrub: none requested
+config:
+
+        NAME        STATE     READ WRITE CKSUM
+        test        ONLINE       0     0     0
+          c0d1      ONLINE       0     0     0
+          c1d0      ONLINE       0     0     0
+          c1d1      ONLINE       0     0     0
+
+errors: No known data errors
+```
+
+Now you may need to fix the ZFS mountpoints for each dataset
+
+```bash
+zfs set mountpoint="/opt/zones/[Newmountpoint]" [ZFSPOOL/[ROOTor other filesystem]
+```
+
+## [Rename or move snapshots](https://docs.oracle.com/cd/E19253-01/819-5461/gbion/index.html)
+
+If the dataset has snapshots you need to rename them too. They must be renamed within the same pool and dataset from which they were created though. For example:
+
+```bash
+zfs rename tank/home/cindys@083006 tank/home/cindys@today
+```
+
+In addition, the following shortcut syntax is equivalent to the preceding syntax:
+
+```bash
+zfs rename tank/home/cindys@083006 today
+```
+
+The following snapshot rename operation is not supported because the target pool and file system name are different from the pool and file system where the snapshot was created:
+
+```bash
+$: zfs rename tank/home/cindys@today pool/home/cindys@saturday
+cannot rename to 'pool/home/cindys@today': snapshots must be part of same 
+dataset
+```
+
+You can recursively rename snapshots by using the `zfs rename -r` command. For example:
+
+```bash
+$: zfs list
+NAME                         USED  AVAIL  REFER  MOUNTPOINT
+users                        270K  16.5G    22K  /users
+users/home                    76K  16.5G    22K  /users/home
+users/home@yesterday            0      -    22K  -
+users/home/markm              18K  16.5G    18K  /users/home/markm
+users/home/markm@yesterday      0      -    18K  -
+users/home/marks              18K  16.5G    18K  /users/home/marks
+users/home/marks@yesterday      0      -    18K  -
+users/home/neil               18K  16.5G    18K  /users/home/neil
+users/home/neil@yesterday       0      -    18K  -
+$: zfs rename -r users/home@yesterday @2daysago
+$: zfs list -r users/home
+NAME                        USED  AVAIL  REFER  MOUNTPOINT
+users/home                   76K  16.5G    22K  /users/home
+users/home@2daysago            0      -    22K  -
+users/home/markm             18K  16.5G    18K  /users/home/markm
+users/home/markm@2daysago      0      -    18K  -
+users/home/marks             18K  16.5G    18K  /users/home/marks
+users/home/marks@2daysago      0      -    18K  -
+users/home/neil              18K  16.5G    18K  /users/home/neil
+users/home/neil@2daysago       0      -    18K  -
+```
+
 # Installation
 
 ## Install the required programs
@@ -113,7 +247,6 @@ First read the [ZFS storage planning](zfs_storage_planning.md) article and then 
 zpool create \
   -o ashift=12 \ 
   -o autoexpand=on \ 
-  -o compression=lz4 \
 main raidz /dev/sda /dev/sdb /dev/sdc /dev/sdd \
   log mirror \
     /dev/disk/by-id/nvme-eui.e823gqkwadgp32uhtpobsodkjfl2k9d0-part4 \
@@ -126,8 +259,6 @@ main raidz /dev/sda /dev/sdb /dev/sdc /dev/sdd \
 Where:
 
 * `-o ashift=12`: Adjusts the disk sector size to the disks in use.
-* `-o canmount=off`:  Don't mount the main pool, we'll mount the filesystems.
-* `-o compression=lz4`: Enable compression by default
 * `/dev/sda /dev/sdb /dev/sdc /dev/sdd` are the rotational data disks configured in RAIDZ1
 * We set two partitions in mirror for the ZLOG
 * We set two partitions in stripe for the L2ARC
@@ -156,6 +287,8 @@ zfs create \
   -o keylocation=file:///etc/zfs/keys/home.key \
   main/lyz
 ```
+
+If you want to use a passphrase instead [you can use the `zfs create -o encryption=on -o keylocation=prompt -o keyformat=passphrase` command.
 
 I'm assuming that `compression` was set in the pool.
 
@@ -317,7 +450,7 @@ Additionally, deleting snapshots can increase the amount of space that is unique
 
 Note: The value for a snapshot’s space referenced property is the same as that for the file system when the snapshot was created.
 
-You can display the amount of space that is consumed by snapshots and descendant file systems by using the `zfs list -o space` command.
+You can display the amount of space or size that is consumed by snapshots and descendant file systems by using the `zfs list -o space` command.
 
 ```bash
 # zfs list -o space -r rpool
@@ -345,6 +478,65 @@ Other space properties are:
 
 * LUSED: The amount of space that is "logically" consumed by this dataset and all its descendents. It ignores the effect of `compression` and `copies` properties, giving a quantity closer to the amount of data that aplication ssee. However it does include space consumed by metadata.
 * REFER: The amount of data that is accessible by this dataset, which may or may not be shared with other dataserts in the pool. When a snapshot or clone is created, it initially references the same amount of space as the filesystem or snapshot it was created from, since its contents are identical.
+
+## [See the differences between two backups](https://docs.oracle.com/cd/E36784_01/html/E36835/gkkqz.html)
+
+To identify the differences between two snapshots, use syntax similar to the following:
+
+```bash
+$ zfs diff tank/home/tim@snap1 tank/home/tim@snap2
+M       /tank/home/tim/
++       /tank/home/tim/fileB
+```
+
+The following table summarizes the file or directory changes that are identified by the `zfs diff` command.
+
+| File or Directory Change | Identifier | 
+| --- | --- |
+| File or directory has been modified or file or directory link has changed | M |
+| File or directory is present in the older snapshot but not in the more recent snapshot | — |
+| File or directory is present in the more recent snapshot but not in the older snapshot | + |
+| File or directory has been renamed | R |
+
+## Create a cold backup of a series of datasets
+
+If you've used the `-o keyformat=raw -o keylocation=file:///etc/zfs/keys/home.key` arguments to encrypt your datasets you can't use a `keyformat=passphase` encryption on the cold storage device. You need to copy those keys on the disk. One way of doing it is to:
+
+- Create a 100M LUKS partition protected with a passphrase where you store the keys.
+- The rest of the space is left for a partition for the zpool.
+
+# Troubleshooting
+
+## [Clear a permanent ZFS error in a healthy pool](https://serverfault.com/questions/576898/clear-a-permanent-zfs-error-in-a-healthy-pool)
+
+Sometimes when you do a `zpool status` you may see that the pool is healthy but that there are "Permanent errors" that may point to files themselves or directly to memory locations.
+
+You can read [this long discussion](https://github.com/openzfs/zfs/discussions/9705) on what does these permanent errors mean, but what solved the issue for me was to run a new scrub
+
+`zpool scrub my_pool`
+
+It takes a long time to run, so be patient.
+
+## ZFS pool is in suspended mode
+
+Probably because you've unplugged a device without unmounting it.
+
+If you want to remount the device [you can follow these steps](https://github.com/openzfsonosx/zfs/issues/104#issuecomment-30344347) to symlink the new devfs entries to where zfs thinks the vdev is. That way you can regain access to the pool without a reboot.
+
+So if zpool status says the vdev is /dev/disk2s1, but the reattached drive is at disk4, then do the following:
+
+```bash
+cd /dev
+sudo rm -f disk2s1
+sudo ln -s disk4s1 disk2s1
+sudo zpool clear -F WD_1TB
+sudo zpool export WD_1TB
+sudo rm disk2s1
+sudo zpool import WD_1TB
+```
+
+If you don't care about the zpool anymore, sadly your only solution is to [reboot the server](https://github.com/openzfs/zfs/issues/5242). Real ugly, so be careful when you umount zpools.
+
 
 # Learning
 

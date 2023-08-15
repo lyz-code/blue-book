@@ -316,6 +316,20 @@ Use the `none` test (not to be confused with Python's `None` object!):
 {% endif %}
 ```
 
+# Snippets
+
+## [Escape jinja expansion on a jinja template](https://stackoverflow.com/questions/25359898/escape-jinja2-syntax-in-a-jinja2-template)
+
+```jinja
+{% raw %}
+
+Anything in this block is treated as raw text,
+including {{ curly braces }} and
+{% other block-like syntax %}
+
+{% endraw %}
+```
+
 # References
 
 * [Docs](https://jinja.palletsprojects.com)

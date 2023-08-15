@@ -646,6 +646,10 @@ extension-pkg-whitelist = "pydantic"
 
 Or if it fails, add to the line `# pylint: extension-pkg-whitelist`.
 
+# To investigate
+
+- [Integration of pydantic with pandas](https://pandera.readthedocs.io/en/stable/pydantic_integration.html)
+
 # References
 
 - [Docs](https://pydantic-docs.helpmanual.io/)

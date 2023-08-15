@@ -733,6 +733,20 @@ git config --global --add push.autoSetupRemote true
 
 # Snippets
 
+## Remove tags
+
+To delete a tag you can run:
+
+```bash
+git tag -d {{tag_name}}
+```
+
+To remove them remotely do
+
+```bash
+git push --delete origin {{ tag_name }}
+```
+
 ## Revert a commit
 
 ```bash

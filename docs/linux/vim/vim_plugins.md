@@ -307,6 +307,52 @@ Test.vim consists of a core which provides an abstraction over running any kind
 of tests from the command-line. Concrete test runners are then simply plugged
 in, so they all work in the same unified way.
 
+# [DiffView](https://github.com/sindrets/diffview.nvim)
+
+Single tabpage interface for easily cycling through diffs for all modified files for any git rev.
+
+## Installation
+
+If you use `Packer` in your `plugins.lua` file add:
+
+```lua
+  use {
+    'sindrets/diffview.nvim',
+    requires = {
+      'nvim-tree/nvim-web-devicons'
+    }
+  }
+```
+
+Then configure it with:
+
+```lua
+-- Configure diff viewer
+require("diffview").setup({
+  keymaps = {
+    view = {
+      { { "n", "v" }, "dc", ":DiffviewClose<CR>" },
+    }
+  }
+})
+
+vim.cmd[[
+  " Enter the diff window
+  nmap dv :DiffviewOpen<CR>
+  "
+]]
+```
+
+That way you can open the diff window with `do` and close it with `dc` (only if you are in one of the buffers)
+
+Some nice keymaps of the diff window:
+
+- `<tab>`: go to the next file
+- `-`: Stage/unstage the changes
+- `]x`: next conflict
+- `[x`: previous conflict
+- `X`: On the file panel to discard the changes
+
 # Issues
 
 ## Vim-Abolish
