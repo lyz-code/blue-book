@@ -216,6 +216,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/copier/</loc>
+         <lastmod>2023-08-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/cpu/</loc>
          <lastmod>2023-08-15</lastmod>
          <changefreq>daily</changefreq>
@@ -227,6 +232,11 @@
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/cypress/</loc>
+         <lastmod>2023-08-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/diffview/</loc>
          <lastmod>2023-08-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -411,6 +421,16 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/gotify/</loc>
+         <lastmod>2023-08-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/grafana/</loc>
+         <lastmod>2023-08-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/grapheneos/</loc>
          <lastmod>2023-08-15</lastmod>
          <changefreq>daily</changefreq>
@@ -497,6 +517,16 @@
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/kitty/</loc>
+         <lastmod>2023-08-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/kodi/</loc>
+         <lastmod>2023-08-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/koel/</loc>
          <lastmod>2023-08-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -592,6 +622,11 @@
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/mdformat/</loc>
+         <lastmod>2023-08-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/mediatracker/</loc>
          <lastmod>2023-08-15</lastmod>
          <changefreq>daily</changefreq>
     </url>

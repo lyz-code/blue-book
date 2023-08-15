@@ -11,7 +11,7 @@
     <managingEditor>Lyz</managingEditor>
 
     
-    <pubDate>2023-07-10 06:37:56+00:00</pubDate>
+    <pubDate>2023-08-15 17:12:16+00:00</pubDate>
     <ttl>10080</ttl>
 
     
@@ -596,9 +596,9 @@ runime&lt;span class=&#34;p&#34;&gt;!&lt;/span&gt; plugin/mark.&lt;span class=&#
 &lt;span class=&#34;c&#34;&gt;&#34; window management mappings&lt;/span&gt;
 &lt;span class=&#34;nb&#34;&gt;nnoremap&lt;/span&gt; gw &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;something&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
 &lt;span class=&#34;nb&#34;&gt;nnoremap&lt;/span&gt; gb &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;something &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt; &lt;p&gt;Defining &lt;code&gt;mapleader&lt;/code&gt; and/or using &lt;code&gt;&amp;lt;leader&amp;gt;&lt;/code&gt; may be useful if you change your mind often on what key to use a leader but it won&#39;t be of any use if your mappings are stable.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;hr/&gt; &lt;div class=&#34;md-source-file&#34;&gt; &lt;small&gt; Last update: &lt;span class=&#34;git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago&#34;&gt;&lt;span class=&#34;timeago&#34; datetime=&#34;2023-02-27T06:37:58+00:00&#34; locale=&#34;en&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date&#34;&gt;2023-02-27&lt;/span&gt; &lt;/small&gt; &lt;/div&gt; &lt;/article&gt;</description>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt; &lt;p&gt;Defining &lt;code&gt;mapleader&lt;/code&gt; and/or using &lt;code&gt;&amp;lt;leader&amp;gt;&lt;/code&gt; may be useful if you change your mind often on what key to use a leader but it won&#39;t be of any use if your mappings are stable.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;hr/&gt; &lt;div class=&#34;md-source-file&#34;&gt; &lt;small&gt; Last update: &lt;span class=&#34;git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago&#34;&gt;&lt;span class=&#34;timeago&#34; datetime=&#34;2023-08-15T17:12:16+00:00&#34; locale=&#34;en&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date&#34;&gt;2023-08-15&lt;/span&gt; &lt;/small&gt; &lt;/div&gt; &lt;/article&gt;</description>
       <link>https://lyz-code.github.io/blue-book/newsletter/2023_w08/</link>
-      <pubDate>2023-02-27 06:37:58+00:00</pubDate>
+      <pubDate>2023-08-15 17:12:16+00:00</pubDate>
       <source url="https://lyz-code.github.io/blue-book/weekly.xml">The Blue Book</source>
       <guid isPermaLink="true">https://lyz-code.github.io/blue-book/newsletter/2023_w08/</guid>
       
