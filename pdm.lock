@@ -873,7 +873,7 @@ files = [
 
 [[package]]
 name = "pymdown-extensions"
-version = "10.2"
+version = "10.2.1"
 requires_python = ">=3.7"
 summary = "Extension pack for Python Markdown."
 dependencies = [
@@ -881,8 +881,8 @@ dependencies = [
     "pyyaml",
 ]
 files = [
-    {file = "pymdown_extensions-10.2-py3-none-any.whl", hash = "sha256:fbb86243db9a681602e3b869deef000211c55d0261015a5cc41d6f34d2afc57f"},
-    {file = "pymdown_extensions-10.2.tar.gz", hash = "sha256:06042274876eb4267f12a389daf505eabaebc38bdca26725560c9afda5867549"},
+    {file = "pymdown_extensions-10.2.1-py3-none-any.whl", hash = "sha256:bded105eb8d93f88f2f821f00108cb70cef1269db6a40128c09c5f48bfc60ea4"},
+    {file = "pymdown_extensions-10.2.1.tar.gz", hash = "sha256:d0c534b4a5725a4be7ccef25d65a4c97dba58b54ad7c813babf0eb5ba9c81591"},
 ]
 
 [[package]]
