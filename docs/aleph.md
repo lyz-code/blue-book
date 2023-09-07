@@ -207,6 +207,30 @@ delete from role where id = 8;
 
 ## Troubleshooting
 
+### Ingest gets stuck
+
+It looks that Aleph doesn't yet give an easy way to debug it. It can be seen in the next webs:
+
+- [Improve the UX for bulk uploading and processing of large number of files](https://github.com/alephdata/aleph/issues/2124)
+- [Document ingestion gets stuck effectively at 100%](https://github.com/alephdata/aleph/issues/1839)
+- [Display detailed ingestion status to see if everything is alright and when the collection is ready](https://github.com/alephdata/aleph/discussions/1525)
+
+Some interesting ideas I've extracted while diving into these issues is that:
+
+- You can also upload files using the [`alephclient` python command line tool](https://github.com/alephdata/alephclient)
+- Some of the files might fail to be processed without leaving any hint to the uploader or the viewer.
+  - This results in an incomplete dataset and the users don't get to know that the dataset is incomplete. This is problematic if the completeness of the dataset is crucial for an investigation.
+  - There is no way to upload only the files that failed to be processed without re-uploading the entire set of documents or manually making a list of the failed documents and re-uploading them
+  - There is no way for uploaders or Aleph admins to see an overview of processing errors to figure out why some files are failing to be processed without going through docker logs (which is not very user-friendly)
+- There was an attempt to [improve the way ingest-files manages the pending tasks](https://github.com/alephdata/aleph/issues/2127), it's merged into the [release/4.0.0](https://github.com/alephdata/ingest-file/tree/release/4.0.0) branch, but it has [not yet arrived `main`](https://github.com/alephdata/ingest-file/pull/423).
+
+There are some tickets that attempt to address these issues on the command line:
+
+- [Allow users to upload/crawl new files only](https://github.com/alephdata/alephclient/issues/34)
+- [Check if alephclient crawldir was 100% successful or not](https://github.com/alephdata/alephclient/issues/35)
+
+I think it's interesting either to contribute to `alephclient` to solve those issues or if it's complicated create a small python script to detect which files were not uploaded and try to reindex them and/or open issues that will prevent future ingests to fail.
+
 ### Problems accessing redis locally
 
 If you're with the VPN connected, turn it off.

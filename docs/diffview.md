@@ -48,6 +48,20 @@ With a Diffview open and the default key bindings, you can:
 - Refresh the diffs with `R`
 - Go to the file panel with `<leader>e`
 
+# Tips
+
+## [Use the same binding to open and close the diffview windows](https://www.reddit.com/r/neovim/comments/15remc4/how_to_exit_all_the_tabs_in_diffviewnvim/?rdt=52076)
+
+```lua
+vim.keymap.set('n', 'dv', function()
+  if next(require('diffview.lib').views) == nil then
+    vim.cmd('DiffviewOpen')
+  else
+    vim.cmd('DiffviewClose')
+  end
+end)
+```
+
 # Troubleshooting
 
 ## No valid VCS tool found

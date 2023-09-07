@@ -49,6 +49,14 @@ It's not very pleasant to use though.
   
 # Troubleshooting
 
+## Forgot Password. Please try again within your home network to initiate the password reset process.
+
+If you're an external jellyfin user you can't reset your password unless you are part of the LAN. This is done because the reset password process is simple and insecure.
+
+If you don't care about that and still think that the internet is a happy and safe place [here](https://wiki.jfa-go.com/docs/password-resets/) and [here](https://github.com/hrfee/jellyfin-accounts/issues/12) are some instructions on how to bypass the security measure.
+
+For more information also read [1](https://github.com/jellyfin/jellyfin/issues/2282) and [2](https://github.com/jellyfin/jellyfin/issues/2869).
+
 ## Transcode files are cleared frequently
 
 By default they are cleared each day. If you want to keep them you can go to Admin/Scheduled Tasks/Clean Transcode Directory and remove the scheduled task.
@@ -281,6 +289,8 @@ not introduced again.
     tv](https://features.jellyfin.org/posts/612/jellyfin-apple-tv-support): tell
     the people that use the shitty device.
 * [Pressing play on a tv show doesn't reproduce the Next Up](https://github.com/jellyfin/jellyfin/issues/9998)
+
+* [Federation between servers](https://features.jellyfin.org/posts/184/federated-servers): Similar to [Share Libraries between servers](https://features.jellyfin.org/posts/758/share-libraries-between-servers)
 
 # References
 

@@ -57,7 +57,7 @@ jobs:
 
 They've removed the `lint` command, the reason behind is that there are two different testing methods which are expected to be run in very different ways. Linting should be run per entire repository. Molecule executions are per scenario and one project can have even >100 scenarios. Running lint on each of them would not only slowdown but also increase the maintenance burden on linter configuration and the way is called.
 
-They recommend users to run `ansible-lint` using `pre-commit` with or without `tox. That gives much better control over how/when it is updated.
+They recommend users to run `ansible-lint` using `pre-commit` with or without `tox`. That gives much better control over how/when it is updated.
 
 You can see an example on how to do this in the [CI configuration section](#ci-configuration).
 
@@ -65,7 +65,32 @@ You can see an example on how to do this in the [CI configuration section](#ci-c
 
 This version is seen as a clean-up or refactoring release, not expected to require users to change their existing scenarios in order to make use of the new version.
 
-## To v3.0.0
+# Snippets
+
+## Get variables from the environment
+
+You can configure your `molecule.yaml` file to read variables from the environment with:
+
+```yaml
+provisioner:
+  name: ansible
+  inventory:
+    group_vars:
+      all:
+        my_secret: ${MY_SECRET}
+```
+
+It's useful to have a task that checks if this secret exists:
+
+```yaml
+- name: Verify that the secret is set
+  fail: 
+    msg: 'Please export my_secret: export MY_SECRET=$(pass show my_secret)'
+  run_once: true
+  when: my_secret == None
+```
+
+In the CI you can set it as a secret in the repository.
 
 # Troubleshooting
 

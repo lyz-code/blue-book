@@ -4,6 +4,12 @@ date: 20220221
 author: Lyz
 ---
 
+# [Invalidate a cloudfront distribution](https://docs.aws.amazon.com/cli/latest/reference/cloudfront/create-invalidation.html)
+
+```bash
+aws cloudfront create-invalidation --paths "/pages/about" --distribution-id my-distribution-id
+```
+
 # [Get EC2 metadata from within the instance](https://towardsthecloud.com/amazon-ec2-instance-metadata)
 
 The quickest way to fetch or retrieve EC2 instance metadata from within a running EC2 instance is to log in and run the command:

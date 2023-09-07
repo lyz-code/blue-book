@@ -571,19 +571,20 @@ Without the `-n` it won't work well.
 
 - Configure `apt` to only use `unstable` when specified
 
-!!! note "File: `/etc/apt/preferences`" \`\`\` Package: * Pin: release a=stable
-Pin-Priority: 700
+    File: `/etc/apt/preferences`
+    ```
+    Package: * 
+    Pin: release a=stable
+    Pin-Priority: 700
 
-````
-Package: *
-Pin: release  a=testing
-Pin-Priority: 600
+    Package: *
+    Pin: release  a=testing
+    Pin-Priority: 600
 
-Package: *
-Pin: release a=unstable
-Pin-Priority: 100
-```
-````
+    Package: *
+    Pin: release a=unstable
+    Pin-Priority: 100
+    ```
 
 - Update the package data with `apt-get update`.
 - See that the new versions are available with

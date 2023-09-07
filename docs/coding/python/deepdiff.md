@@ -80,5 +80,6 @@ To obtain the keys and values of the matched objects, you can use the
 
 # References
 
+- [Source](https://github.com/seperman/deepdiff)
 * [Homepage/Docs](https://zepworks.com/deepdiff/5.0.0/index.html)
 * [Old Docs](https://deepdiff.readthedocs.io/en/latest/index.html)

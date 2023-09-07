@@ -548,6 +548,18 @@ require('nvim-treesitter.configs').setup({
 
 Select the languages you want to install from the [available ones](https://github.com/nvim-treesitter/nvim-treesitter#supported-languages), close and reopen the vim window to install them.
 
+To do so you need to run:
+
+```vim
+:TSInstall <language>
+```
+
+To update the parsers run
+
+```vim
+:TSUpdate
+```
+
 ### Usage
 
 By default it doesn't enable any feature, you need to enable them yourself.
@@ -691,12 +703,6 @@ neogit.setup({
 https://neovim.discourse.group/t/how-to-create-an-auto-command-for-a-specific-filetype-in-neovim-0-7/2404
 [create autocmd in neovim](https://alpha2phi.medium.com/neovim-for-beginners-lua-autocmd-and-keymap-functions-3bdfe0bebe42)
 [autocmd events](https://neovim.io/doc/user/autocmd.html#autocmd-events)
-
-
-
-
-
-
 
 
 # [Abbreviations](https://davidxmoody.com/2014/better-vim-abbreviations/)
@@ -903,6 +909,8 @@ Check the [`nvim-orgmode`](orgmode.md) file.
 
 # Troubleshooting
 
+When you run into problems run `:checkhealth` to see if it rings a bell
+
 ## Deal with big files
 
 Sometimes `neovim` freezes when opening big files, one way to deal with it is to [disable some functionality when loading them](https://www.reddit.com/r/neovim/comments/z85s1l/disable_lsp_for_very_large_files/)
@@ -962,6 +970,24 @@ key.set({'n'}, 't', ":lua require('neotest').run.run()<cr>", {desc = 'Run the cl
 ## [Use relativenumber](https://koenwoortman.com/vim-relative-line-numbers/)
 
 If you enable the `relativenumber` configuration you'll see how to move around with `10j` or `10k`.
+
+# Troubleshooting
+
+## Telescope changes working directory when opening a file
+
+In my case was due to a snippet I have to remember the folds:
+
+```
+vim.cmd[[
+  augroup remember_folds
+    autocmd!
+    autocmd BufWinLeave * silent! mkview
+    autocmd BufWinEnter * silent! loadview
+  augroup END
+]]
+```
+
+It looks that it had saved a view with the other working directory so when a file was loaded the `cwd` changed. To solve it I created a new `mkview` in the correct directory.
 
 # Resources
 

@@ -129,6 +129,9 @@ I'm using only the mongols, and so far I've seen/heard from the pros the next st
 - Tartars: heavy scorpions
 - Turks: 
     - [How to defend against them in Arena](https://www.youtube.com/watch?v=AI_JRA_nCpw&t=3710)
+- Vietnamese:
+    - Gain early map control with scouts, then switch into steppe lancers and front siege, finally castle in the face when you clicked to imperial.
+        - [Example Hera vs Mr.Yo in TCI](https://yewtu.be/watch?v=20bktCBldcw)
 
 # Newbie pitfalls
 

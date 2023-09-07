@@ -415,6 +415,7 @@ nav:
           - Kodi: kodi.md
           - Koel: koel.md
           - LUKS: linux/luks/luks.md
+          - Matrix: matrix.md
           - mbsync: mbsync.md
           - Mediatracker: mediatracker.md
           - mkdocs: linux/mkdocs.md
@@ -427,14 +428,15 @@ nav:
           - Peek: peek.md
           - Pipx: pipx.md
           - Profanity: profanity.md
+          - retroarch: retroarch.md
           - rm: linux/rm.md
           - sed: sed.md
+          - Syncthing: linux/syncthing.md
           - Libreelec: libreelec.md
           - Torrents:
               - torrents.md
               - qBittorrent: qbittorrent.md
               - Rtorrent: rtorrent.md
-          - Syncthing: linux/syncthing.md
           - Tahoe-LAFS: tahoe.md
           - vdirsyncer: vdirsyncer.md
           - Vim:
@@ -442,6 +444,7 @@ nav:
               - Tabs vs Buffers: vim_tabs.md
               - Vim Plugins: linux/vim/vim_plugins.md
               - Write Neovim Plugins: write_neovim_plugins.md
+              - gitsigns: gitsigns.md
               - Treesitter: treesitter.md
               - Diffview: diffview.md
               - Tridactyl: tridactyl.md
@@ -481,6 +484,7 @@ nav:
           - Rave Dances: dancing/rave_dances.md
           - Swing:
             - Shag: shag.md
+            - Lindy Hop: lindy.md
           - Shuffle:
               - Basics: dancing/shuffle_basics.md
               - Kicks: dancing/shuffle_kicks.md

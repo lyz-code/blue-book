@@ -4,6 +4,131 @@ date: 20220827
 author: Lyz
 ---
 
+# [Remove the lock screen in ubuntu](https://askubuntu.com/questions/1140079/completely-remove-lockscreen)
+
+Create the `/usr/share/glib-2.0/schemas/90_ubuntu-settings.gschema.override` file with the next content:
+
+```ini
+[org.gnome.desktop.screensaver]
+lock-enabled = false
+[org.gnome.settings-daemon.plugins.power]
+idle-dim = false
+```
+
+Then reload the schemas with:
+
+```bash
+sudo glib-compile-schemas /usr/share/glib-2.0/schemas/
+```
+
+# [How to deal with HostContextSwitching alertmanager alert](https://access.redhat.com/solutions/69271)
+
+A context switch is described as the kernel suspending execution of one process on the CPU and resuming execution of some other process that had previously been suspended. A context switch is required for every interrupt and every task that the scheduler picks.
+
+Context switching can be due to multitasking, Interrupt handling , user & kernel mode switching. The interrupt rate will naturally go high, if there is higher network traffic, or higher disk traffic. Also it is dependent on the application which every now and then invoking system calls.
+
+If the cores/CPU's are not sufficient to handle load of threads created by application will also result in context switching.
+
+It is not a cause of concern until performance breaks down. This is expected that CPU will do context switching. One shouldn't verify these data at first place since there are many statistical data which should be analyzed prior to looking into kernel activities. Verify the CPU, memory and network usage during this time. 
+
+You can see which process is causing issue with the next command:
+
+```bash
+# pidstat -w 3 10   > /tmp/pidstat.out
+
+10:15:24 AM     UID     PID     cswch/s         nvcswch/s       Command 
+10:15:27 AM     0       1       162656.7        16656.7         systemd
+10:15:27 AM     0       9       165451.04       15451.04        ksoftirqd/0
+10:15:27 AM     0       10      158628.87       15828.87        rcu_sched
+10:15:27 AM     0       11      156147.47       15647.47        migration/0
+10:15:27 AM     0       17      150135.71       15035.71        ksoftirqd/1
+10:15:27 AM     0       23      129769.61       12979.61        ksoftirqd/2
+10:15:27 AM     0       29      2238.38         238.38          ksoftirqd/3
+10:15:27 AM     0       43      1753            753             khugepaged
+10:15:27 AM     0       443     1659            165             usb-storage
+10:15:27 AM     0       456     1956.12         156.12          i915/signal:0
+10:15:27 AM     0       465     29550           29550           kworker/3:1H-xfs-log/dm-3
+10:15:27 AM     0       490     164700          14700           kworker/0:1H-kblockd
+10:15:27 AM     0       506     163741.24       16741.24        kworker/1:1H-xfs-log/dm-3
+10:15:27 AM     0       594     154742          154742          dmcrypt_write/2
+10:15:27 AM     0       629     162021.65       16021.65        kworker/2:1H-kblockd
+10:15:27 AM     0       715     147852.48       14852.48        xfsaild/dm-1
+10:15:27 AM     0       886     150706.86       15706.86        irq/131-iwlwifi
+10:15:27 AM     0       966     135597.92       13597.92        xfsaild/dm-3
+10:15:27 AM     81      1037    2325.25         225.25          dbus-daemon
+10:15:27 AM     998     1052    118755.1        11755.1         polkitd
+10:15:27 AM     70      1056    158248.51       15848.51        avahi-daemon
+10:15:27 AM     0       1061    133512.12       455.12          rngd
+10:15:27 AM     0       1110    156230          16230           cupsd
+10:15:27 AM     0       1192    152298.02       1598.02         sssd_nss
+10:15:27 AM     0       1247    166132.99       16632.99        systemd-logind
+10:15:27 AM     0       1265    165311.34       16511.34        cups-browsed
+10:15:27 AM     0       1408    10556.57        1556.57         wpa_supplicant
+10:15:27 AM     0       1687    3835            3835            splunkd
+10:15:27 AM     42      1773    3728            3728            Xorg
+10:15:27 AM     42      1996    3266.67         266.67          gsd-color
+10:15:27 AM     0       3166    32036.36        3036.36         sssd_kcm
+10:15:27 AM     119349  3194    151763.64       11763.64        dbus-daemon
+10:15:27 AM     119349  3199    158306          18306           Xorg
+10:15:27 AM     119349  3242    15.28           5.8             gnome-shell
+
+# pidstat -wt 3 10  > /tmp/pidstat-t.out
+
+Linux 4.18.0-80.11.2.el8_0.x86_64 (hostname)    09/08/2020  _x86_64_    (4 CPU)
+
+10:15:15 AM   UID      TGID       TID   cswch/s   nvcswch/s  Command
+10:15:19 AM     0         1         -   152656.7   16656.7   systemd
+10:15:19 AM     0         -         1   152656.7   16656.7   |__systemd
+10:15:19 AM     0         9         -   165451.04  15451.04  ksoftirqd/0
+10:15:19 AM     0         -         9   165451.04  15451.04  |__ksoftirqd/0
+10:15:19 AM     0        10         -   158628.87  15828.87  rcu_sched
+10:15:19 AM     0         -        10   158628.87  15828.87  |__rcu_sched
+10:15:19 AM     0        23         -   129769.61  12979.61  ksoftirqd/2
+10:15:19 AM     0         -        23   129769.61  12979.33  |__ksoftirqd/2
+10:15:19 AM     0        29         -   32424.5    2445      ksoftirqd/3
+10:15:19 AM     0         -        29   32424.5    2445      |__ksoftirqd/3
+10:15:19 AM     0        43         -   334        34        khugepaged
+10:15:19 AM     0         -        43   334        34        |__khugepaged
+10:15:19 AM     0       443         -   11465      566       usb-storage
+10:15:19 AM     0         -       443   6433       93        |__usb-storage
+10:15:19 AM     0       456         -   15.41      0.00      i915/signal:0
+10:15:19 AM     0         -       456   15.41      0.00      |__i915/signal:0
+10:15:19 AM     0       715         -   19.34      0.00      xfsaild/dm-1
+10:15:19 AM     0         -       715   19.34      0.00      |__xfsaild/dm-1
+10:15:19 AM     0       886         -   23.28      0.00      irq/131-iwlwifi
+10:15:19 AM     0         -       886   23.28      0.00      |__irq/131-iwlwifi
+10:15:19 AM     0       966         -   19.67      0.00      xfsaild/dm-3
+10:15:19 AM     0         -       966   19.67      0.00      |__xfsaild/dm-3
+10:15:19 AM    81      1037         -   6.89       0.33      dbus-daemon
+10:15:19 AM    81         -      1037   6.89       0.33      |__dbus-daemon
+10:15:19 AM     0      1038         -   11567.31   4436      NetworkManager
+10:15:19 AM     0         -      1038   1.31       0.00      |__NetworkManager
+10:15:19 AM     0         -      1088   0.33       0.00      |__gmain
+10:15:19 AM     0         -      1094   1340.66    0.00      |__gdbus
+10:15:19 AM   998      1052         -   118755.1   11755.1   polkitd
+10:15:19 AM   998         -      1052   32420.66   25545     |__polkitd
+10:15:19 AM   998         -      1132   0.66       0.00      |__gdbus
+```
+
+Then with help of PID which is causing issue, one can get all system calls details:
+Raw
+
+```bash
+# strace -c -f -p <pid of process/thread>
+```
+
+Let this command run for a few minutes while the load/context switch rates are high. It is safe to run this on a production system so you could run it on a good system as well to provide a comparative baseline. Through strace, one can debug & troubleshoot the issue, by looking at system calls the process has made.
+
+# [Redirect stderr of all subsequent commands of a script to a file](https://unix.stackexchange.com/questions/61931/redirect-all-subsequent-commands-stderr-using-exec)
+
+```bash
+{
+    somecommand 
+    somecommand2
+    somecommand3
+} 2>&1 | tee -a $DEBUGLOG
+```
+
 # [Get the root path of a git repository](https://stackoverflow.com/questions/957928/is-there-a-way-to-get-the-git-root-directory-in-one-command)
 
 ```bash

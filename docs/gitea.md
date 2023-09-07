@@ -315,6 +315,44 @@ As it reacts to all events it will build and push:
 
 ### Skip gitea actions job on changes of some files
 
+#### Using `paths-filter` custom action
+
+```
+jobs:
+  test:
+    if: "!startsWith(github.event.head_commit.message, 'bump:')"
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the codebase
+        uses: https://github.com/actions/checkout@v3
+
+      - name: Check if we need to run the molecule tests
+        uses: https://github.com/dorny/paths-filter@v2
+        id: filter
+        with:
+          filters: |
+            molecule:
+              - 'defaults/**'
+              - 'tasks/**'
+              - 'handlers/**'
+              - 'tasks/**'
+              - 'templates/**'
+              - 'molecule/**'
+              - 'requirements.yaml'
+              - '.github/workflows/tests.yaml'
+
+      - name: Run Molecule tests
+        if: steps.filter.outputs.molecule == 'true'
+        run: make molecule
+```
+
+You can find more examples on how to use `paths-filter` [here](https://github.com/dorny/paths-filter#examples ).
+
+#### Using `paths-ignore` gitea actions built-in feature
+
+Note: at least till 2023-09-04 this path lead to some errors such as pipeline not being triggered on the first commit of a pull request even if the files that should trigger it were modified.
+
 There are some expensive CI pipelines that don't need to be run for example if you changed a line in the `README.md`, to skip a pipeline on changes of certain files you can use the `paths-ignore` directive:
 
 ```yaml

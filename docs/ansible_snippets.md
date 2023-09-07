@@ -4,6 +4,32 @@ date: 20220119
 author: Lyz
 ---
 
+# Ansible condition that uses a regexp
+
+```yaml
+- name: Check if an instance name or hostname matches a regex pattern
+  when: inventory_hostname is not match('molecule-.*')
+  fail:
+    msg: "not a molecule instance"
+```
+
+# Ansible-lint doesn't find requirements
+
+It may be because you're using `requirements.yaml` instead of `requirements.yml`. Create a temporal link from one file to the other, run the command and then remove the link.
+
+It will work from then on even if you remove the link. `¯\(°_o)/¯`
+
+# [Run task only once](https://stackoverflow.com/questions/55481560/how-to-run-an-ansible-task-only-once-regardless-of-how-many-targets-there-are)
+
+Add `run_once: true` on the task definition:
+
+```yaml
+- name: Do a thing on the first host in a group.
+  debug: 
+    msg: "Yay only prints once"
+  run_once: true
+```
+
 # Run command on a working directory
 
 ```yaml

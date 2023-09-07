@@ -45,13 +45,9 @@ Some tips:
 
 You can create public lists to share with the rest of the users, the way to share it though [is a bit archaic so far](https://github.com/bonukai/MediaTracker/issues/527), it's only through the list link, in the interface they won't be able to see it.
 
-# Troubleshooting
+# Alternatives
 
-## Can't find a book
-
-The metadata provider is not yet very usable :( I wouldn't recommend mediatracker (as of July of 2023) to track your book rating.
-
-[Ryot](https://github.com/IgnisDa/ryot) seems to work better with books, but it still doesn't have a [jellyfin scrobbler](https://github.com/IgnisDa/ryot/issues/187).
+[Ryot](https://github.com/IgnisDa/ryot) has a better web design, it also has a [jellyfin scrobbler](https://github.com/IgnisDa/ryot/pull/195), although it's not [yet stable](https://github.com/IgnisDa/ryot/issues/187). There are other UI tweaks that is preventing me from migrating to ryot such as [the easier media rating](https://github.com/IgnisDa/ryot/issues/284) and [the percentage over five starts rating system](https://github.com/IgnisDa/ryot/issues/283).
 
 # References
 
