@@ -411,6 +411,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/gitsigns/</loc>
+         <lastmod>2023-09-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/goaccess/</loc>
          <lastmod>2023-09-07</lastmod>
          <changefreq>daily</changefreq>
@@ -591,6 +596,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/lindy/</loc>
+         <lastmod>2023-09-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/linux/</loc>
          <lastmod>2023-09-07</lastmod>
          <changefreq>daily</changefreq>
@@ -612,6 +622,11 @@
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/map_management/</loc>
+         <lastmod>2023-09-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/matrix/</loc>
          <lastmod>2023-09-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -962,6 +977,11 @@
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/requests/</loc>
+         <lastmod>2023-09-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/retroarch/</loc>
          <lastmod>2023-09-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
