@@ -553,7 +553,7 @@ files = [
 
 [[package]]
 name = "mkdocs-material"
-version = "9.4.1"
+version = "9.4.2"
 requires_python = ">=3.8"
 summary = "Documentation that simply works"
 dependencies = [
@@ -566,12 +566,12 @@ dependencies = [
     "paginate~=0.5",
     "pygments~=2.16",
     "pymdown-extensions~=10.2",
-    "regex~=2022.4",
+    "regex>=2022.4",
     "requests~=2.26",
 ]
 files = [
-    {file = "mkdocs_material-9.4.1-py3-none-any.whl", hash = "sha256:27e74b5b14b8b797074759beb85876ca6425e60c78f70e76be0c209627eb5199"},
-    {file = "mkdocs_material-9.4.1.tar.gz", hash = "sha256:1495273cfce13ab52bcfcc49fa6fac779ae75818dfe566ed149d9d3aea7d8439"},
+    {file = "mkdocs_material-9.4.2-py3-none-any.whl", hash = "sha256:8651ff451f84681df9d2e3388906eee63c866576d98d6bb542826f83a091b289"},
+    {file = "mkdocs_material-9.4.2.tar.gz", hash = "sha256:d53b17d058e70efd04c281f9b384ca10fb1f0bfecfe85dacdadad891bb826e3d"},
 ]
 
 [[package]]
