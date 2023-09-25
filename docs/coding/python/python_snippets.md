@@ -4,6 +4,20 @@ date: 20200717
 author: Lyz
 ---
 
+# Read file with Pathlib
+
+```python
+file_ = Path('/to/some/file')
+file_.read_text()
+```
+
+# [Get changed time of a file](https://stackoverflow.com/questions/237079/how-do-i-get-file-creation-and-modification-date-times)
+
+```python
+import os
+
+os.path.getmtime(path)
+```
 # [Sort the returned paths of glob](https://stackoverflow.com/questions/6773584/how-are-glob-globs-return-values-ordered)
 
 
@@ -1053,6 +1067,8 @@ print(html2text.html2text(html))
 ```
 
 # [Parse a datetime from a string](https://stackoverflow.com/questions/466345/converting-string-into-datetime)
+
+Convert a string to a datetime.
 
 ```python
 from dateutil import parser

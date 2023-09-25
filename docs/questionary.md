@@ -99,6 +99,7 @@ as usual and the default value will be ignored.
 If you want the question to exit when it receives a `KeyboardInterrupt` event,
 use `unsafe_ask` instead of `ask`.
 
+
 ## [Question types](https://questionary.readthedocs.io/en/stable/pages/types.html)
 
 The different question types are meant to cover different use cases. The
@@ -146,6 +147,21 @@ question types:
 
 Check the [examples](https://github.com/tmbo/questionary/tree/master/examples)
 to see them in action and how to use them.
+
+### [Autocomplete answers](https://questionary.readthedocs.io/en/stable/pages/types.html#autocomplete)
+
+If you want autocomplete with fuzzy finding use:
+
+```python
+import questionary
+from prompt_toolkit.completion import FuzzyWordCompleter
+
+questionary.autocomplete(
+    "Save to (q to cancel): ",
+    choices=destination_directories,
+    completer=FuzzyWordCompleter(destination_directories),
+).ask()
+```
 
 # Styling
 

@@ -4,6 +4,12 @@ date: 20200826
 author: Lyz
 ---
 
+# Limit the resources a docker is using
+
+You can either use limits in the `docker` service itself, see [1](https://unix.stackexchange.com/questions/537645/how-to-limit-docker-total-resources) and [2](https://www.freedesktop.org/software/systemd/man/systemd.resource-control.html).
+
+Or/and you can limit it for each docker, see [1](https://www.baeldung.com/ops/docker-memory-limit) and [2](https://docs.docker.com/config/containers/resource_constraints/).
+
 # [Get the current git branch](https://stackoverflow.com/questions/6245570/how-do-i-get-the-current-branch-name-in-git)
 
 ```bash

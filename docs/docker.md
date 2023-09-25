@@ -12,6 +12,21 @@ they can communicate with each other through well-defined channels. Because
 all of the containers share the services of a single operating system kernel,
 they use fewer resources than virtual machines.
 
+# Installation
+
+Follow [these instructions](https://docs.docker.com/engine/install/debian/)
+
+If that doesn't install the version of `docker-compose` that you want use [the next snippet](https://stackoverflow.com/questions/49839028/how-to-upgrade-docker-compose-to-latest-version):
+
+```bash
+VERSION=$(curl --silent https://api.github.com/repos/docker/compose/releases/latest | grep -Po '"tag_name": "\K.*\d')
+DESTINATION=/usr/local/bin/docker-compose
+sudo curl -L https://github.com/docker/compose/releases/download/${VERSION}/docker-compose-$(uname -s)-$(uname -m) -o $DESTINATION
+sudo chmod 755 $DESTINATION
+```
+
+If you don't want the latest version set the `VERSION` variable.
+
 # How to keep containers updated
 
 ## [With Renovate](renovate.md)

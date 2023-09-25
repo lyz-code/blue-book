@@ -4,6 +4,14 @@ date: 20220119
 author: Lyz
 ---
 
+# Ansible add a sleep
+
+```yaml
+- name: Pause for 5 minutes to build app cache
+  ansible.builtin.pause:
+    minutes: 5
+```
+
 # Ansible condition that uses a regexp
 
 ```yaml

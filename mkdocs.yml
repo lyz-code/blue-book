@@ -478,8 +478,6 @@ nav:
           - cooking.md
           - Cooking Basics: cooking_basics.md
           - Cooking software: cooking_software.md
-      - Pilates: [pilates.md]
-      - Aerial Silk: aerial_silk.md
       - Dancing:
           - Rave Dances: dancing/rave_dances.md
           - Swing:
@@ -490,9 +488,12 @@ nav:
               - Kicks: dancing/shuffle_kicks.md
               - Spins: dancing/shuffle_spins.md
           - Cutting Shapes: dancing/cutting_shapes_basics.md
+      - Pilates: pilates.md
+      - Aerial Silk: aerial_silk.md
       - Meditation: meditation.md
       - Maker:
           - Redox: redox.md
+          - Vial: vial.md
       - Video Gaming:
           - King Arthur Gold: kag.md
           - The Battle for Wesnoth:
@@ -507,6 +508,7 @@ nav:
       - Drawing:
           - drawing/drawing.md
           - Exercise Pool: drawing/exercise_pool.md
+      - Gardening: gardening.md
       - Origami: origami.md
       - Fun: fun.md
       - Book Binding: book_binding.md

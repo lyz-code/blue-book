@@ -656,6 +656,10 @@ vim.api.nvim_create_autocmd('FileType', {
 
 If the auto command doesn't override the default `orgmode` one, bind it to another keys and never use it.
 
+If you refile from the capture window, [until this issue is solved](https://github.com/joaomsa/telescope-orgmode.nvim/issues/4), your task will be refiled but the capture window won't be closed.
+
+Be careful that it only refiles the first task there is, so you need to close the capture before refiling the next
+
 The plugin also allows you to use `telescope` to search through the headings of the different files with `search_headings`, with the configuration above you'd use `<leader>g`.
 
 ## Agenda

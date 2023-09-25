@@ -485,7 +485,24 @@ This is a deliberate decision of *pydantic*, and in general it's the most useful
 approach. See [here](https://github.com/samuelcolvin/pydantic/issues/578) for a
 longer discussion on the subject.
 
-## [Initialize attributes at object creation](https://stackoverflow.com/questions/60695759/creating-objects-with-id-and-populating-other-fields)
+## Initialize attributes at object creation
+
+`pydantic` recommends [using root validators](#using-root-validators), but it's difficult to undestand how to do it and to debug the errors. You also don't have easy access to the default values of the model. I'd rather use the [overwriting the `__init__` method](#overwriting-the-__init__-method).
+
+### [Overwriting the `__init__` method](https://stackoverflow.com/questions/76286148/how-do-custom-init-functions-work-in-pydantic-with-inheritance)
+
+```python
+class fish(BaseModel):
+    name: str
+    color: str
+
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        print("Fish initialization successful!")
+        self.color=complex_function()
+```
+
+### [Using root validators](https://stackoverflow.com/questions/60695759/creating-objects-with-id-and-populating-other-fields)
 
 If you want to initialize attributes of the object automatically at object
 creation, similar of what you'd do with the `__init__` method of the class, you

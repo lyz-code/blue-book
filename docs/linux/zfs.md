@@ -198,6 +198,87 @@ users/home/neil              18K  16.5G    18K  /users/home/neil
 users/home/neil@2daysago       0      -    18K  -
 ```
 
+## [Repair a DEGRADED pool](https://blog.cavelab.dev/2021/01/zfs-replace-disk-expand-pool/)
+
+First let’s offline the device we are going to replace: 
+
+```bash
+zpool offline tank0 ata-WDC_WD2003FZEX-00SRLA0_WD-xxxxxxxxxxxx
+```
+
+Now let us have a look at the pool status.
+
+```bash
+zpool status
+
+NAME                                            STATE     READ WRITE CKSUM
+tank0                                           DEGRADED     0     0     0
+  raidz2-1                                      DEGRADED     0     0     0
+    ata-TOSHIBA_HDWN180_xxxxxxxxxxxx            ONLINE       0     0     0
+    ata-TOSHIBA_HDWN180_xxxxxxxxxxxx            ONLINE       0     0     0
+    ata-TOSHIBA_HDWN180_xxxxxxxxxxxx            ONLINE       0     0     0
+    ata-WDC_WD80EFZX-68UW8N0_xxxxxxxx           ONLINE       0     0     0
+    ata-TOSHIBA_HDWG180_xxxxxxxxxxxx            ONLINE       0     0     0
+    ata-TOSHIBA_HDWG180_xxxxxxxxxxxx            ONLINE       0     0     0
+    ata-WDC_WD2003FZEX-00SRLA0_WD-xxxxxxxxxxxx  OFFLINE      0     0     0
+    ata-ST4000VX007-2DT166_xxxxxxxx             ONLINE       0     0     0
+```
+
+Sweet, the device is offline (last time it didn't show as offline for me, but the offline command returned a status code of 0). 
+
+Time to shut the server down and physically replace the disk.
+
+```bash
+shutdown -h now
+```
+
+When you start again the server, it’s time to instruct ZFS to replace the removed device with the disk we just installed.
+
+```bash
+zpool replace tank0 \
+    ata-WDC_WD2003FZEX-00SRLA0_WD-xxxxxxxxxxxx \
+    /dev/disk/by-id/ata-TOSHIBA_HDWG180_xxxxxxxxxxxx
+```
+
+```bash
+zpool status tank0
+
+pool: main
+state: DEGRADED
+status: One or more devices is currently being resilvered.  The pool will
+        continue to function, possibly in a degraded state.
+action: Wait for the resilver to complete.
+  scan: resilver in progress since Fri Sep 22 12:40:28 2023
+        4.00T scanned at 6.85G/s, 222G issued at 380M/s, 24.3T total
+        54.7G resilvered, 0.89% done, 18:28:03 to go
+NAME                                              STATE     READ WRITE CKSUM
+tank0                                             DEGRADED     0     0     0
+  raidz2-1                                        DEGRADED     0     0     0
+    ata-TOSHIBA_HDWN180_xxxxxxxxxxxx              ONLINE       0     0     0
+    ata-TOSHIBA_HDWN180_xxxxxxxxxxxx              ONLINE       0     0     0
+    ata-TOSHIBA_HDWN180_xxxxxxxxxxxx              ONLINE       0     0     0
+    ata-WDC_WD80EFZX-68UW8N0_xxxxxxxx             ONLINE       0     0     0
+    ata-TOSHIBA_HDWG180_xxxxxxxxxxxx              ONLINE       0     0     0
+    ata-TOSHIBA_HDWG180_xxxxxxxxxxxx              ONLINE       0     0     0
+    replacing-6                                   DEGRADED     0     0     0
+      ata-WDC_WD2003FZEX-00SRLA0_WD-xxxxxxxxxxxx  OFFLINE      0     0     0
+      ata-TOSHIBA_HDWG180_xxxxxxxxxxxx            ONLINE       0     0     0  (resilvering)
+    ata-ST4000VX007-2DT166_xxxxxxxx               ONLINE       0     0     0
+```
+
+The disk is replaced and getting resilvered (which may take a long time to run (18 hours in a 8TB disk in my case).
+
+Once the resilvering is done; this is what the pool looks like.
+
+```bash
+zpool list
+
+NAME      SIZE  ALLOC   FREE  EXPANDSZ   FRAG    CAP  DEDUP  HEALTH  ALTROOT
+tank0    43.5T  33.0T  10.5T     14.5T     7%    75%  1.00x  ONLINE  -
+```
+
+If you want to read other blogs that have covered the same topic check out [1](https://madaboutbrighton.net/articles/replace-disk-in-zfs-pool).
+
 # Installation
 
 ## Install the required programs
@@ -503,7 +584,27 @@ The following table summarizes the file or directory changes that are identified
 If you've used the `-o keyformat=raw -o keylocation=file:///etc/zfs/keys/home.key` arguments to encrypt your datasets you can't use a `keyformat=passphase` encryption on the cold storage device. You need to copy those keys on the disk. One way of doing it is to:
 
 - Create a 100M LUKS partition protected with a passphrase where you store the keys.
+  
 - The rest of the space is left for a partition for the zpool.
+
+WARNING: substitute `/dev/sde` for the partition you need to work on in the next snippets
+
+To do it:
+- Create the partitions: 
+
+  ```bash
+  fdisk /dev/sde
+  n
+  +100M
+  n
+  w
+  ```
+
+- Create the zpool
+
+  ```bash
+  zpool create cold-backup-01 /dev/sde2
+  ```
 
 # Troubleshooting
 
@@ -516,6 +617,12 @@ You can read [this long discussion](https://github.com/openzfs/zfs/discussions/9
 `zpool scrub my_pool`
 
 It takes a long time to run, so be patient.
+
+If you want [to stop a scrub](https://sotechdesign.com.au/zfs-stopping-a-scrub/) run:
+
+```bash
+zpool scrub -s my_pool
+```
 
 ## ZFS pool is in suspended mode
 

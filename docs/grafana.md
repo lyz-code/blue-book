@@ -93,13 +93,14 @@ you can use the next docker-compose file.
 
 ```yaml
 ---
-version: "3.8"
+version: "3.3"
 services:
   grafana:
     image: grafana/grafana-oss:${GRAFANA_VERSION:-latest}
     container_name: grafana
     restart: unless-stopped
     volumes:
+      - config:/etc/grafana
       - data:/var/lib/grafana
     networks:
       - grafana
@@ -136,12 +137,18 @@ networks:
       name: swag
 
 volumes:
+  config:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /data/grafana/app/config
   data:
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: /data/grafana/app
+      device: /data/grafana/app/data
   db-data:
     driver: local
     driver_opts:
@@ -226,14 +233,27 @@ export GF_FEATURE_TOGGLES_ENABLE=newNavigation
 And in the docker compose you can edit the `.env` file. Mine looks similar to:
 
 ```bash
+# Check all configuration options at:
+# https://grafana.com/docs/grafana/latest/setup-grafana/configure-grafana
+
+# -----------------------------
+# --- General configuration ---
+# -----------------------------
+
 GRAFANA_VERSION=latest
 GF_DEFAULT_INSTANCE_NAME="production"
 GF_SERVER_ROOT_URL="https://your.domain.org"
+
+# Set this option to true to enable HTTP compression, this can improve transfer
+# speed and bandwidth utilization. It is recommended that most users set it to
+# true. By default it is set to false for compatibility reasons.
+GF_SERVER_ENABLE_GZIP="true"
 
 # ------------------------------
 # --- Database configuration ---
 # ------------------------------
 
+DATABASE_VERSION=15
 GF_DATABASE_TYPE=postgres
 DATABASE_VERSION=15
 GF_DATABASE_HOST=grafana-db:5432
@@ -257,8 +277,29 @@ GF_AUTH_GENERIC_OAUTH_API_URL="https://authentik.company/application/o/userinfo/
 GF_AUTH_SIGNOUT_REDIRECT_URL="https://authentik.company/application/o/<Slug of the application from above>/end-session/"
 # Optionally enable auto-login (bypasses Grafana login screen)
 GF_AUTH_OAUTH_AUTO_LOGIN="true"
+# Set to true to enable automatic sync of the Grafana server administrator
+# role. If this option is set to true and the result of evaluating
+# role_attribute_path for a user is GrafanaAdmin, Grafana grants the user the
+# server administrator privileges and organization administrator role. If this
+# option is set to false and the result of evaluating role_attribute_path for a
+# user is GrafanaAdmin, Grafana grants the user only organization administrator
+# role.
+GF_AUTH_GENERIC_OAUTH_ALLOW_ASSIGN_GRAFANA_ADMIN="true"
+# Optionally enable auto-login (bypasses Grafana login screen)
+# Optionally map user groups to Grafana roles
 # Optionally map user groups to Grafana roles
 GF_AUTH_GENERIC_OAUTH_ROLE_ATTRIBUTE_PATH="contains(groups[*], 'Grafana Admins') && 'Admin' || contains(groups[*], 'Grafana Editors') && 'Editor' || 'Viewer'"
+# Set to true to disable (hide) the login form, useful if you use OAuth. Default is false.
+GF_AUTH_DISABLE_LOGIN_FORM="true"
+
+# -------------------------
+# --- Log configuration ---
+# -------------------------
+
+# Options are “console”, “file”, and “syslog”. Default is “console” and “file”. Use spaces to separate multiple modes, e.g. console file.
+GF_LOG_MODE="console file"
+# Options are “debug”, “info”, “warn”, “error”, and “critical”. Default is info.
+GF_LOG_LEVEL="info"
 ```
 
 ### [Configure datasources](https://grafana.com/docs/grafana/latest/administration/provisioning/#data-sources)
@@ -281,6 +322,7 @@ datasources:
     jsonData:
       httpMethod: POST
       manageAlerts: true
+      timeInterval: 30s
       prometheusType: Prometheus
       prometheusVersion: 2.44.0
       cacheLevel: 'High'
@@ -288,6 +330,8 @@ datasources:
       incrementalQueryOverlapWindow: 10m
       exemplarTraceIdDestinations: []
 ```
+
+Be careful to set the `timeInterval` variable to the value of how often you scrape the data from the node exporter to avoid [this issue](https://github.com/rfmoz/grafana-dashboards/issues/137).
 
 ### [Configure dashboards](https://grafana.com/docs/grafana/latest/administration/provisioning/#dashboards)
 

@@ -64,7 +64,11 @@ Note: I've already created an adapter for gpg called `KeyStore` available in [`p
       return keys
   ```
 
-- [Get information of a key](
+- [Receive keys from a keyserver](https://gnupg.readthedocs.io/en/latest/index.html#importing-and-receiving-keys)
+
+  ```python
+  import_result = gpg.recv_keys('server-name', 'keyid1', 'keyid2', ...)
+  ```
 # References
 
 - [Docs](https://gnupg.readthedocs.io/en/latest/)

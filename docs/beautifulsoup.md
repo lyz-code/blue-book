@@ -654,6 +654,13 @@ soup.find_all("a", string="Elsie")
 # [<a href="http://example.com/elsie" class="sister" id="link1">Elsie</a>]
 ```
 
+#### [Searching by attribute and value](https://stackoverflow.com/questions/8933863/how-to-find-tags-with-only-certain-attributes-beautifulsoup)
+
+```python
+soup = BeautifulSoup(html)
+results = soup.findAll("td", {"valign" : "top"})
+```
+
 #### The limit argument
 
 `find_all()` returns all the tags and strings that match your filters. This can

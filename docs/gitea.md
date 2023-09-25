@@ -536,8 +536,6 @@ gitea --config /etc/gitea/app.ini admin user change-password -u username -p pass
 - Until [#542](https://gitea.com/gitea/tea/issues/542) is fixed manually create a token with all the permissions
 - Run `tea login add` to set your credentials.
 
-
-
 # References
 
 * [Home](https://gitea.io/en-us/)

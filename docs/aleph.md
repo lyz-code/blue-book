@@ -244,5 +244,5 @@ conditional that only matches one of both threads.
 
 # References
 
+- [Source](https://github.com/alephdata/aleph)
 - [Docs](http://docs.alephdata.org/)
-- [Git](https://github.com/alephdata/aleph)
