@@ -391,6 +391,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/gardening/</loc>
+         <lastmod>2023-09-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/gettext/</loc>
          <lastmod>2023-09-25</lastmod>
          <changefreq>daily</changefreq>
@@ -1162,6 +1167,11 @@
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/versioning/</loc>
+         <lastmod>2023-09-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/vial/</loc>
          <lastmod>2023-09-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
