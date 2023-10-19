@@ -76,6 +76,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/anticolonialism/</loc>
+         <lastmod>2023-10-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/antifascism/</loc>
          <lastmod>2023-10-19</lastmod>
          <changefreq>daily</changefreq>
@@ -147,6 +152,11 @@
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/book_management/</loc>
+         <lastmod>2023-10-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/bookwyrm/</loc>
          <lastmod>2023-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -286,6 +296,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/elastic_security/</loc>
+         <lastmod>2023-10-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/elasticsearch_exporter/</loc>
          <lastmod>2023-10-19</lastmod>
          <changefreq>daily</changefreq>
@@ -386,6 +401,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/game_theory/</loc>
+         <lastmod>2023-10-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/gancio/</loc>
          <lastmod>2023-10-19</lastmod>
          <changefreq>daily</changefreq>
@@ -457,6 +477,11 @@
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/gtd/</loc>
+         <lastmod>2023-10-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/happycow/</loc>
          <lastmod>2023-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -621,12 +646,22 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/loki/</loc>
+         <lastmod>2023-10-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/maison/</loc>
          <lastmod>2023-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/map_management/</loc>
+         <lastmod>2023-10-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/math/</loc>
          <lastmod>2023-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -712,6 +747,11 @@
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/news_management/</loc>
+         <lastmod>2023-10-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/nix/</loc>
          <lastmod>2023-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -996,6 +1036,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/rss/</loc>
+         <lastmod>2023-10-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/rtorrent/</loc>
          <lastmod>2023-10-19</lastmod>
          <changefreq>daily</changefreq>
@@ -1036,12 +1081,22 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/shellcheck/</loc>
+         <lastmod>2023-10-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/signal/</loc>
          <lastmod>2023-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/sleep/</loc>
+         <lastmod>2023-10-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/spaced_repetition/</loc>
          <lastmod>2023-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -1277,6 +1332,11 @@
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/yamlfix/</loc>
+         <lastmod>2023-10-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/yq/</loc>
          <lastmod>2023-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
