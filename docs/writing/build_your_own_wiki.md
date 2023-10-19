@@ -76,7 +76,7 @@ plugins:
 * The newsletter could be split in
   [years](https://wiki.nikitavoloboev.xyz/looking-back/2020/2020-january) with
   one summary once the [year has ended](https://www.gwern.net/newsletter/2019/13)
-* I want an rss support for my newsletters, mkdocs [is not going to support
+* I want an [rss](rss.md) support for my newsletters, mkdocs [is not going to support
   it](https://github.com/mkdocs/mkdocs/issues/1844), so the solution is to use
   a [static
   template](https://www.mkdocs.org/user-guide/configuration/#static_templates)

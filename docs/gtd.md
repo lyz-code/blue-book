@@ -328,6 +328,8 @@ In rare cases you may want to use the [`DEADLINE`](orgmode.md#deadline) property
 
 #### Day planner
 
+Note: I'm not yet using the day planner.
+
 Some of my day events are semi-regular, meaning that the recurrence options are not powerful enough. For example, I usually go to pilates on Tuesdays, but some weeks I go at 18:00 and others at 19:00. In the past I used a script that interacts with [`ikhal`](khal.md) to create the elements of the day based on some questionary. The idea is to migrate the tool to create appointments in the day under the `diary.org` file using a `datetree` structure:
 
 ```org
@@ -338,7 +340,7 @@ Some of my day events are semi-regular, meaning that the recurrence options are 
     <2010-12-20 Tue 19:00-20:00>
 ```
 
-I also use this file to add any diary annotations for my [life log](life_logging.md). Once [this issue is solved](https://github.com/nvim-orgmode/orgmode/issues/516) it will be really easy to add diary thoughts through the [capture feature](orgmode.md#capture)
+I also use this file to add any diary annotations for my [life log](life_logging.md). Once [this issue is solved](https://github.com/nvim-orgmode/orgmode/issues/516) it will be really easy to add diary thoughts through the [capture feature](orgmode.md#capture).
 
 ### Todo files
 

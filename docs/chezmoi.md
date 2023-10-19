@@ -4,6 +4,8 @@ date: 20221231
 author: Lyz
 ---
 
+Note: Think of using [nix](nix.md) instead. I haven't tried it yet but it looks nice
+
 [Chezmoi](https://www.chezmoi.io/) stores the desired state of your dotfiles in
 the directory `~/.local/share/chezmoi`. When you run `chezmoi apply`, `chezmoi`
 calculates the desired contents for each of your dotfiles and then makes the
@@ -43,6 +45,8 @@ alias cexternal='nvim ~/.local/share/chezmoi/.chezmoiexternal.yaml'
 ```
 
 # [Basic Usage](https://www.chezmoi.io/quick-start/#start-using-chezmoi-on-your-current-machine)
+
+## First install
 
 Assuming that you have already installed `chezmoi`, initialize `chezmoi` with:
 

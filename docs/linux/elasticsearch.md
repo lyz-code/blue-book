@@ -38,6 +38,24 @@ curl \
 
 **It's better to use the `curator` tool**
 
+If you see the next error it's probably because you misspelled the name of the repository:
+
+```json
+{
+  "error": {
+    "root_cause": [
+      {
+        "type": "repository_missing_exception",
+        "reason": "[your_repository] missing"
+      }
+    ],
+    "type": "repository_missing_exception",
+    "reason": "[your_repository] missing"
+  },
+  "status": 404
+}
+```
+
 ## Create snapshot
 
 ```bash
@@ -63,7 +81,14 @@ curl -XPUT 'localhost:9200/_snapshot/my_backup/snapshot_1?pretty' -H 'Content-Ty
 Check for my-snapshot-repo
 
 ```bash
-curl {{ url }}/_snapshot/{{ backup_path }}/*?pretty
+curl {{ url }}/_snapshot/{{ backup_path }}/_all?pretty
+```
+
+Check if htere are snapshots stuck in process or deletion
+
+```bash
+curl {{ url }}/_snapshot/_status
+curl {{ url }}/_cluster/state?filter_path=*snapshot*
 ```
 
 ## Restore backup

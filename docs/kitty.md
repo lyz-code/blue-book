@@ -10,7 +10,7 @@ humans like me.
 
 # [Installation](https://sw.kovidgoyal.net/kitty/binary/)
 
-Although it's in the official repos, the version of Debian is quite old, instead
+Although it's in the official repos, the version of Debian (previous to 12) is quite old, instead
 you can install it for the current user with:
 
 ```bash

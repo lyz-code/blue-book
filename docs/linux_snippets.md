@@ -4,6 +4,68 @@ date: 20200826
 author: Lyz
 ---
 
+# Wipe a disk
+
+Overwrite it many times [with badblocks](hard_drive_health.md#check-the-health-of-a-disk-with-badblocks).
+
+```bash
+badblocks -wsv -b 4096 /dev/sde | tee disk_wipe_log.txt
+```
+
+# [Impose load on a system to stress it](https://linux.die.net/man/1/stress)
+
+```bash
+sudo apt-get install stress
+
+stress --cpu 2
+```
+
+That will fill up the usage of 2 cpus. To run 1 vm stressor using 1GB of virtual memory for 60s, enter:
+
+```bash
+stress --vm 1 --vm-bytes 1G --vm-keep -t 60s
+```
+
+You can also stress io with `--io 4`, for example to spawn 4 workers.
+
+# [Get the latest tag of a git repository](https://stackoverflow.com/questions/1404796/how-can-i-get-the-latest-tag-name-in-current-branch-in-git)
+
+```bash
+git describe --tags --abbrev=0
+```
+
+# [Configure gpg-agent cache ttl](https://superuser.com/questions/624343/keep-gnupg-credentials-cached-for-entire-user-session)
+
+
+The user configuration (in `~/.gnupg/gpg-agent.conf`) can only define the default and maximum caching duration; it can't be disabled.
+
+The `default-cache-ttl` option sets the timeout (in seconds) after the last GnuPG activity (so it resets if you use it), the `max-cache-ttl` option set the timespan (in seconds) it caches after entering your password. The default value is 600 seconds (10 minutes) for `default-cache-ttl` and 7200 seconds (2 hours) for max-cache-ttl.
+
+
+```
+default-cache-ttl 21600
+max-cache-ttl 21600
+```
+
+For this change to take effect, you need to end the session by restarting `gpg-agent`.
+
+```bash
+gpgconf --kill gpg-agent
+gpg-agent --daemon --use-standard-socket
+```
+
+# Get return code of failing find exec
+
+When you run `find . -exec ls {} \;` even if the command run in the `exec` returns a status code different than 0 [you'll get an overall status code of 0](https://serverfault.com/questions/905031/how-can-i-make-find-return-non-0-if-exec-command-fails) which makes difficult to catch errors in bash scripts.
+
+You can instead use `xargs`, for example:
+
+```bash
+find /tmp/ -iname '*.sh' -print0 | xargs -0 shellcheck
+```
+
+This will run `shellcheck file_name` for each of the files found by the `find` command.
+
 # Limit the resources a docker is using
 
 You can either use limits in the `docker` service itself, see [1](https://unix.stackexchange.com/questions/537645/how-to-limit-docker-total-resources) and [2](https://www.freedesktop.org/software/systemd/man/systemd.resource-control.html).

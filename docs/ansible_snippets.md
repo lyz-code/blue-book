@@ -4,6 +4,16 @@ date: 20220119
 author: Lyz
 ---
 
+# [Ansible retry a failed job](https://stackoverflow.com/questions/44134642/how-to-retry-ansible-task-that-may-fail)
+
+```yaml
+- command: /usr/bin/false
+  retries: 3
+  delay: 3
+  register: result
+  until: result.rc == 0
+```
+
 # Ansible add a sleep
 
 ```yaml

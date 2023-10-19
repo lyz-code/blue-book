@@ -94,7 +94,7 @@ It creates daily, weekly, monthly and yearly newsletter articles with the
 changes of each period. Those pages, stored under the `Newsletters` section, are
 filled with the changes extracted from the commit messages of the git history.
 The changes are grouped by categories, subcategories and then by file using the
-order of the site's navigation structure. RSS feeds are also created for each
+order of the site's navigation structure. [RSS feeds](rss.md) are also created for each
 newsletter type, so it's easy for people to keep updated with the evolution of
 the site.
 

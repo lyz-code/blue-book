@@ -47,6 +47,8 @@ There are some checks that I wasn't able to adopt:
   statistical significance; this common confusion is one reason for
   ["statistical-significance considered harmful"](http://lesswrong.com/lw/g13/against_nhst/))
 
+* To make your writing concise: write your first draft, get its word count, then multiply that number by 0.9 (90%). Cut your writing down to that new word count. 
+
 # Vim enhancements
 
 * [vim-pencil](https://github.com/reedes/vim-pencil) looks promising but it's
@@ -77,6 +79,7 @@ Awesome:
 
 * [Nikita's writing notes](https://wiki.nikitavoloboev.xyz/writing)
 * [Gwern's writing checklist](https://www.gwern.net/About#writing-checklist)
+* [Nicky Case writing notes](https://ncase.me/faq/#toc_11)
 
 Good:
 

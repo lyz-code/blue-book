@@ -11,4 +11,5 @@ Telegram bridge to republish Gancio events
 - [Docs](https://gancio.org/)
 - [Source](https://framagit.org/les/gancio)
 - [Home](https://gancio.org/)
+- [Radar Squat](https://radar.squat.net)
 

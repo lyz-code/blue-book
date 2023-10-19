@@ -3,7 +3,7 @@ If you want to follow the meaningful changes of this site, you can either:
 * [Subscribe to the RSS feed](#rss_feed)
 * [Browse the Newsletter section](#newsletter_section)
 
-# RSS feed
+# [RSS feed](rss.md)
 
 You can choose how often you want to see the site updates:
 

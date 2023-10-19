@@ -891,6 +891,21 @@ This export can be triggered via the API or the Web UI by clicking the download 
 I've skimmed through the prometheus metrics exposed at `:9300/metrics` in the core and they aren't that useful :(
 
 
+# Troubleshooting
+
+## [I can't log in to authentik](https://goauthentik.io/docs/troubleshooting/login/)
+
+In case you can't login anymore, perhaps due to an incorrectly configured stage or a failed flow import, you can create a recovery key.
+
+To create the key, run the following command:
+
+```bash
+docker run --it authentik bash
+ak create_recovery_key 1 akadmin
+```
+
+This will output a link, that can be used to instantly gain access to authentik as the user specified above. The link is valid for amount of years specified above, in this case, 1 year.
+
 # References
 
 * [Source](https://github.com/goauthentik/authentik)

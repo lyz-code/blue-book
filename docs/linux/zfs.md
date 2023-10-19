@@ -28,6 +28,27 @@ zpool import -o readonly=on {{ pool_name }}
 mount -t zfs {{ pool_name }}/{{ snapshot_name }} {{ mount_path }} -o ro
 ```
 
+## [Mount a dataset that is encrypted](https://unix.stackexchange.com/questions/730921/zfs-on-linux-how-to-import-an-encrypted-pool-if-you-dont-know-where-key-must-b)
+
+If your dataset is encrypted using a key file you need to:
+
+- Mount the device that has your keys
+- Import the pool without loading the key because you want to override the keylocation attribute with zfs load-key. Without the -l option, any encrypted datasets won't be mounted, which is what you want.
+- Load the key(s) for the dataset(s)
+- Mount the dataset(s).
+
+```bash
+zpool import rpool    # without the `-l` option!
+zfs load-key -L file:///path/to/keyfile rpool
+zfs mount rpool
+```
+
+## [Umount a pool](https://superuser.com/questions/1542723/zfs-unmount-entire-pool)
+
+```bash
+zpool export pool-name
+```
+
 ## List pools
 
 ```bash
@@ -200,7 +221,13 @@ users/home/neil@2daysago       0      -    18K  -
 
 ## [Repair a DEGRADED pool](https://blog.cavelab.dev/2021/01/zfs-replace-disk-expand-pool/)
 
-First let’s offline the device we are going to replace: 
+First you need to make sure that it is in fact a problem of the disk. Check the `dmesg` to see if there are any traces of reading errors, or SATA cable errors. 
+
+A friend suggested to mark the disk as healthy and do a resilver on the same disk. If the error is reproduced in the next days, then replace the disk. A safer approach is to resilver on a new disk, analyze the disk when it's not connected to the pool, and if you feel it's safe then save it as a cold spare.
+
+### Replacing a disk in the pool
+
+If you are going to replace the disk, you need to bring offline the device to be replaced:
 
 ```bash
 zpool offline tank0 ata-WDC_WD2003FZEX-00SRLA0_WD-xxxxxxxxxxxx
@@ -278,6 +305,14 @@ tank0    43.5T  33.0T  10.5T     14.5T     7%    75%  1.00x  ONLINE  -
 ```
 
 If you want to read other blogs that have covered the same topic check out [1](https://madaboutbrighton.net/articles/replace-disk-in-zfs-pool).
+
+### Check the health of the degraded disk
+
+Follow [these instructions](hard_drive_health.md#check-the-disk-health).
+
+### RMA the degraded disk
+
+Follow [these instructions](hard_drive_health.md#check-the-warranty-status).
 
 # Installation
 
@@ -643,7 +678,6 @@ sudo zpool import WD_1TB
 ```
 
 If you don't care about the zpool anymore, sadly your only solution is to [reboot the server](https://github.com/openzfs/zfs/issues/5242). Real ugly, so be careful when you umount zpools.
-
 
 # Learning
 

@@ -76,7 +76,7 @@ If you are new to Orgmode, check the [vim Dotoo video](https://www.youtube.com/w
 
 If you get lost in any view you can use `g?` to get the mappings of the view.
 
-## Org File
+## The Org file syntax
 
 ### Headings
 
@@ -599,6 +599,42 @@ This can be interesting for example if you want to track when was a header creat
    :END:
 ```
 
+### [Code blocks](https://orgmode.org/manual/Structure-of-Code-Blocks.html)
+
+Org offers two ways to structure source code in Org documents: in a source code block, and directly inline. Both specifications are shown below.
+
+A source code block conforms to this structure:
+
+```org
+#+NAME: <name>
+#+BEGIN_SRC <language> <switches> <header arguments>
+  <body>
+#+END_SRC
+```
+
+You need to use snippets for this to be usable.
+
+An inline code block conforms to this structure:
+
+```org
+src_<language>{<body>}
+```
+
+or
+
+```org
+src_<language>[<header arguments>]{<body>}
+```
+
+Where:
+
+- `#+NAME: <name>`: (Optional) Names the source block so it can be called, like a function, from other source blocks or inline code to evaluate or to capture the results. Code from other blocks, other files.
+- `#+BEGIN_SRC’ … ‘#+END_SRC`: (Mandatory) They mark the start and end of a block that Org requires.
+- `<language>`: (Mandatory) It is the identifier of the source code language in the block. See [Languages](https://orgmode.org/worg/org-contrib/babel/languages/index.html) for identifiers of supported languages.
+- `<switches>`: (Optional) Switches provide finer control of the code execution, export, and format.
+- `<header arguments>`: (Optional) Heading arguments control many aspects of evaluation, export and tangling of code blocks. Using Org’s properties feature, header arguments can be selectively applied to the entire buffer or specific subtrees of the Org document.
+- `<body>`: Source code in the dialect of the specified language identifier. 
+
 ## Archiving
 
 When we no longer need certain parts of our org files, they can be archived. You can archive items by pressing `;A` (Default `<Leader>o$`) while on the heading. This will also archive any child headings. The default location for archived headings is `<name-of-current-org-file>.org_archive`, which can be changed with the `org_archive_location` option.
@@ -997,6 +1033,10 @@ Some interesting features for the future are:
 
 Close the terminal and open a new one (pooooltergeist!).
 
+## Narrow/Widen to subtree
+
+It's [not yet supported](https://github.com/nvim-orgmode/orgmode/issues/200) to focus or zoom on one task.
+
 # Comparison with Markdown
 
 What I like of Org mode over Markdown:
@@ -1018,9 +1058,17 @@ What I like of markdown over Org mode:
 * The syntax of the headings `## Title` better than `** Title`. Although it makes sense to have `#` for comments.
 * The syntax of the links: `[reference](link)` is prettier to read and write than `[[link][reference]]`, although this can be improved if only the reference is shown by your editor (nvim-orgmode doesn't do his yet)
 
+# Interesting things to investigate
+
+- [org-bullets.nvim](https://github.com/akinsho/org-bullets.nvim): Show org mode bullets as UTF-8 characters.
+- [headlines.nvim](https://github.com/lukas-reineke/headlines.nvim): Add few highlight options for code blocks and headlines.
+- [Sniprun](https://github.com/michaelb/sniprun): A neovim plugin to run lines/blocs of code (independently of the rest of the file), supporting multiples languages.
+
 # References
 
 * [Source](https://github.com/nvim-orgmode/orgmode)
 * [Docs](https://nvim-orgmode.github.io/)
 * [Developer docs](https://github.com/nvim-orgmode/orgmode/blob/master/DOCS.md#org_export)
 * [List of supported commands](https://github.com/nvim-orgmode/orgmode/wiki/Feature-Completeness#nvim-org-commands-not-in-emacs)
+* [Python library: Org-rw](https://github.com/kenkeiras/org-rw)
+* [List of plugins](https://github.com/topics/orgmode-nvim)

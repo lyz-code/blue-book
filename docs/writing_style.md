@@ -27,6 +27,8 @@ Not to
 
 # General writing principles
 
+First rule is to don't worry about writing with "style". Just write with substance. What you find substantial is what you find valuable. Your set of values is what makes your voice identifiable. Your voice is your style.
+
 ## Make it pleasant to the reader
 
 [Writing](https://en.wikipedia.org/wiki/Writing) is a medium of communication, so avoid

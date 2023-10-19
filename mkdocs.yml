@@ -10,6 +10,7 @@ nav:
       - Antifascism:
           - antifascism.md
           - Antifascist Actions: antifascist_actions.md
+      - Anti-Colonialism: anticolonialism.md
       - Anti-Transphobia: antitransphobia.md
       - Diversity, Equity and Inclusion:
           - diversity.md
@@ -39,11 +40,17 @@ nav:
       - Week Management: week_management.md
       - Relationship Management: relationship_management.md
       - Money Management: money_management.md
-      - News Management: news_management.md
+      - News Management: 
+        - news_management.md
+        - RSS: rss.md
       - Calendar Management: calendar_management.md
       - Email Management:
-          - email_management.md
-          - Email Automation: email_automation.md
+        - email_management.md
+        - Email Automation: email_automation.md
+      - Knowledge Management:
+        - Spaced Repetition: spaced_repetition.md
+        - Anki: anki.md
+
       - Music Management:
           - music_management.md
           - MusicBrainz: musicbrainz.md
@@ -58,6 +65,7 @@ nav:
           - Virtual Assistant: virtual_assistant.md
       - Life logging: life_logging.md
       - Strategy: strategy.md
+      - Game Theory: game_theory.md
       - Tool Management: tool_management.md
   - Health:
       - Sleep: sleep.md
@@ -251,6 +259,7 @@ nav:
           - Dotfiles:
               - dotfiles.md
               - Chezmoi: chezmoi.md
+              - Nix: nix.md
               - Dotdrop: dotdrop.md
       - Infrastructure Solutions:
           - Kubernetes:
@@ -316,6 +325,7 @@ nav:
               - Flake8: devops/flake8.md
               - Markdownlint: devops/markdownlint.md
               - Proselint: devops/proselint.md
+              - Shellcheck: shellcheck.md
               - Yamllint: devops/yamllint.md
               - Write Good: devops/write_good.md
           - Formatters/Fixers:
@@ -359,6 +369,11 @@ nav:
               - Instance sizing analysis: devops/prometheus/instance_sizing_analysis.md
               - Prometheus Troubleshooting: >-
                   devops/prometheus/prometheus_troubleshooting.md
+          - Grafana: grafana.md
+          - Log analysis:
+            - Loki: loki.md
+            - Graylog: graylog.md
+            - Elastic Security: elastic_security.md
       - Authentication:
           - Authentik: authentik.md
       - Self-hosted services:
@@ -382,10 +397,10 @@ nav:
           - afew: afew.md
           - aleph: aleph.md
           - alot: alot.md
-          - Anki: anki.md
           - ActivityWatch: activitywatch.md
           - beancount: beancount.md
           - Beets: beets.md
+          - Bookwyrm: bookwyrm.md
           - brew: linux/brew.md
           - Docker: docker.md
           - dunst: dunst.md
@@ -401,8 +416,6 @@ nav:
           - google chrome: linux/google_chrome.md
           - Gotify: gotify.md
           - Chromium: chromium.md
-          - Grafana: grafana.md
-          - Graylog: graylog.md
           - HAProxy: linux/haproxy.md
           - Hard drive health: hard_drive_health.md
           - Hushboard: husboard.md
@@ -453,6 +466,7 @@ nav:
           - Wallabag: wallabag.md
           - Wireguard: linux/wireguard.md
           - Wireshark: wireshark.md
+          - yq: yq.md
           - zip: linux/zip.md
       - Android:
           - Android Tips: android_tips.md
@@ -461,6 +475,7 @@ nav:
               - Cone: cone.md
               - GadgetBridge: gadgetbridge.md
               - LibreTube: libretube.md
+              - HappyCow: happycow.md
               - Orgzly: orgzly.md
               - OsmAnd: osmand.md
               - Seedvault: seedvault.md
@@ -521,6 +536,7 @@ nav:
           - The XY Problem: psychology/the_xy_problem.md
       - Botany:
           - Trees: botany/trees.md
+      - Math: math.md
   - Contact: contact.md
 
 plugins:

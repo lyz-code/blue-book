@@ -198,3 +198,9 @@ Build new houses when you're 2 of population down to the limit
 
 - [Hindustanis vs Portuguese | Arabia | Hera vs Yo](https://www.youtube.com/watch?v=iZ7eWLLbh34)
 - [Dravidians vs Turks | African Clearing | Hera vs Yo](https://www.youtube.com/watch?v=tZyVLDwBfd4)
+
+# References:
+
+- [Hera channel](https://www.youtube.com/@HeraAgeofEmpires2): Awesome to learn to play
+- [Hera gameplay channel](https://www.youtube.com/@Hera-Gameplay): Good 1st person point of view games
+- [Tatoh channel](https://www.youtube.com/@TaToHAoE): Good spanish content.

@@ -34,7 +34,7 @@ as a podcast.
 
 ## Written content
 
-To process the written content I use an RSS reader
+To process the written content I use an [RSS reader](rss.md)
 ([Feeder](https://f-droid.org/en/packages/com.nononsenseapps.feeder/)) to gather
 all written content in one place. I skim through the elements without reading
 them, and I send the ones that catch my attention to
@@ -44,7 +44,7 @@ and read the elements that feels more attractive at that moment.
 Before starting to read, I define the amount of time I want to spend on getting
 updated. Half of that time goes to skimming through, and the other to deep
 reading the selected content. You'll probably won't be able to process either
-the whole content on your RSS reader nor the selected content, that's why
+the whole content on your [RSS reader](rss.md) nor the selected content, that's why
 a recommender system would be awesome.
 
 Finding the reading devices is very important. I prefer to browse it on a tablet
@@ -73,7 +73,7 @@ My current workflow could be improved by software, currently the key features
 I'd want are:
 
 * One place for all sources: It's useless to go to `n` different websites to see
-    if there is new information. RSS has been with us for too long to fall on
+    if there is new information. [RSS](rss.md) has been with us for too long to fall on
     that.
 * The user has control of it's data: The user should be able to decide which
     information is private and which one is public. Only the people it trusts
@@ -112,7 +112,7 @@ All those platforms have one or more of the next flaws for me:
 * There's a mix of information with conversation between users.
 * You may not be interested in all the elements the source publishes.
 
-Some of them support the export to RSS and if they don't, you'll probably can
+Some of them support the export to [RSS](rss.md) and if they don't, you'll probably can
 find bridge platforms that do. That'll solve all the problems but the two last
 ones. I've used the RSS feed of mastodon users, and I finally removed them
 because there was a lot of content I didn't like. I've also used the reddit and

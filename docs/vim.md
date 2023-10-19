@@ -72,6 +72,12 @@ The version of `nvim` released by debian is too old, use the latest by downloadi
 directly from the [releases](https://github.com/neovim/neovim/releases) page and
 unpacking it somewhere in your home and doing a link to the `bin/nvim` file somewhere in your `$PATH`.
 
+```bash
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+chmod u+x nvim.appimage
+mv nvim.appimage ~/.local/bin/nvim
+```
+
 # [Configuration](https://vonheikemen.github.io/devlog/tools/build-your-first-lua-config-for-neovim/)
 
 Nvim moved away from vimscript and now needs to be configured in lua. You can access the
@@ -658,7 +664,36 @@ vim.cmd[[
 ]]
 ```
 
-# Git
+## Concealment
+
+Some plugins allow the conceal of some text, for example in orgmode you will only see the text of the description of a link and not the content, making it more pleasant to read. To enable it set in your config:
+
+```lua
+-- Conceal links
+-- https://github.com/nvim-orgmode/orgmode#links-are-not-concealed
+-- Use visual mode to navigate through the hidden text
+vim.opt.conceallevel = 2
+vim.opt.concealcursor = 'nc'
+```
+
+Where:
+
+- `conceallevel`: Determine how text with the "conceal" syntax attribute is shown:
+
+  - `0`: Text is shown normally
+  - `1`: Each block of concealed text is replaced with one character. If the syntax item does not have a custom replacement character defined the character defined in 'listchars' is used (default is a space). It is highlighted with the "Conceal" highlight group.
+  - `2`: Concealed text is completely hidden unless it has a custom replacement character defined.
+  - `3`: Concealed text is completely hidden.
+
+- `concealcursor`: Sets the modes in which text in the cursor line can also be concealed. When the current mode is listed then concealing happens just like in other lines.
+  - `n`: Normal mode
+  - `v`: Visual mode
+  - `i`: Insert mode
+  - `c`: Command line editing, for 'incsearch'
+
+  A useful value is `nc`. So long as you are moving around text is concealed, but when starting to insert text or selecting a Visual area the concealed text is displayed, so that you can see what you are doing.
+
+## Git
 
 There are many plugins to work with git in neovim the most interesting ones are:
 
