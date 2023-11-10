@@ -324,7 +324,16 @@ If the official steps failed for you, try these ones:
     redirect_uri="http://127.0.0.1:8088",
     ```
 
+    You also need to find where it starts the `wsgi` server `wsgiref.simple_server.make_server` and set the port to `8088`
+
+    ```python
+    local_server = wsgiref.simple_server.make_server(
+        host, 8088, wsgi_app, handler_class=_WSGIRequestHandler
+    )
+    ```
+
 * Run `vdirsyncer discover my_calendar`.
+
 * Opened the link in my browser (on my desktop machine).
 * Proceeded with Google authentication until "Firefox can not connect to 127.0.0.1:8088." was displayed.
     from the browser's address bar that looked like:

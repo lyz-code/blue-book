@@ -4,6 +4,66 @@ date: 20200826
 author: Lyz
 ---
 
+# [Accept new ssh keys by default](https://stackoverflow.com/questions/21383806/how-can-i-force-ssh-to-accept-a-new-host-fingerprint-from-the-command-line)
+
+While common wisdom is not to disable host key checking, there is a built-in option in SSH itself to do this. It is relatively unknown, since it's new (added in Openssh 6.5).
+
+This is done with `-o StrictHostKeyChecking=accept-new`. Or if you want to use it for all hosts you can add the next lines to your `~/.ssh/config`:
+
+```
+Host *
+  StrictHostKeyChecking accept-new
+```
+
+WARNING: use this only if you absolutely trust the IP\hostname you are going to SSH to:
+
+```bash
+ssh -o StrictHostKeyChecking=accept-new mynewserver.example.com
+```
+
+Note, `StrictHostKeyChecking=no` will add the public key to `~/.ssh/known_hosts` even if the key was changed. `accept-new` is only for new hosts. From the man page:
+
+> If this flag is set to “accept-new” then ssh will automatically add new host keys to the user known hosts files, but will not permit connections to hosts with changed host keys. If this flag is set to “no” or “off”, ssh will automatically add new host keys to the user known hosts files and allow connections to hosts with changed hostkeys to proceed, subject to some restrictions. If this flag is set to ask (the default), new host keys will be added to the user known host files only after the user has confirmed that is what they really want to do, and ssh will refuse to connect to hosts whose host key has changed. The host keys of known hosts will be verified automatically in all cases.
+
+# [Do not add trailing / to ls](https://stackoverflow.com/questions/9044465/list-of-dirs-without-trailing-slash)
+
+Probably, your `ls` is aliased or defined as a function in your config files.
+
+Use the full path to `ls` like:
+
+```bash
+/bin/ls /var/lib/mysql/ 
+```
+
+# [Convert png to svg](https://askubuntu.com/questions/470495/how-do-i-convert-a-png-to-svg)
+
+Inkscape has got an awesome auto-tracing tool.
+
+- Install Inkscape using `sudo apt-get install inkscape`
+- Import your image
+- Select your image
+- From the menu bar, select Path > Trace Bitmap Item
+- Adjust the tracing parameters as needed
+- Save as svg
+
+Check their [tracing tutorial](https://inkscape.org/en/doc/tutorials/tracing/tutorial-tracing.html) for more information.
+
+Once you are comfortable with the tracing options. You can automate it by using [CLI of Inkscape](https://inkscape.org/en/doc/inkscape-man.html).
+
+# [Redirect stdout and stderr of a cron job to a file](https://unix.stackexchange.com/questions/52330/how-to-redirect-output-to-a-file-from-within-cron)
+
+```
+*/1 * * * * /home/ranveer/vimbackup.sh >> /home/ranveer/vimbackup.log 2>&1
+```
+
+# Error when unmounting a device: Target is busy
+
+- Check the processes that are using the mountpoint with `lsof /path/to/mountpoint` 
+- Kill those processes
+- Try the umount again
+
+If that fails, you can use `umount -l`.
+
 # Wipe a disk
 
 Overwrite it many times [with badblocks](hard_drive_health.md#check-the-health-of-a-disk-with-badblocks).

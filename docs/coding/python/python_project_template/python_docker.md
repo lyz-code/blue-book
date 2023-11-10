@@ -4,7 +4,45 @@ date: 20200602
 author: Lyz
 ---
 
-Docker is a popular way to distribute applications. Assuming that you've set all
+Docker is a popular way to distribute applications. 
+
+# [Using PDM](https://pdm.fming.dev/latest/usage/advanced/#use-pdm-in-a-multi-stage-dockerfile)
+
+It is possible to use PDM in a multi-stage Dockerfile to first install the project and dependencies into `__pypackages__` and then copy this folder into the final stage, adding it to `PYTHONPATH`.
+
+```dockerfile
+# build stage
+FROM python:3.11-slim-bookworm AS builder
+
+# install PDM
+RUN pip install pdm
+
+# copy files
+COPY pyproject.toml pdm.lock README.md /project/
+COPY src/ /project/src
+
+# install dependencies and project into the local packages directory
+WORKDIR /project
+RUN mkdir __pypackages__ && pdm sync --prod --no-editable
+
+
+# run stage
+FROM python:3.11-slim-bookworm
+
+# retrieve packages from build stage
+ENV PYTHONPATH=/project/pkgs
+COPY --from=builder /project/__pypackages__/3.11/lib /project/pkgs
+
+# retrieve executables
+COPY --from=builder /project/__pypackages__/3.11/bin/* /bin/
+
+# set command/entrypoint, adapt to fit your needs
+CMD ["python", "-m", "project"]
+```
+
+# Using setup.py 
+
+Assuming that you've set all
 required dependencies in the `setup.py`, we're going to create an image with these
 properties:
 

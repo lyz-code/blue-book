@@ -159,6 +159,12 @@ Auditor provides attestation for GrapheneOS phones and the stock operating syste
 
 Attestation can be done locally by pairing with another Android 8+ device or remotely using the remote attestation service. To make sure that your hardware and operating system is genuine, perform local attestation immediately after the device has been setup and prior to any internet connection.
 
+# Tips
+
+## [Split the screen](https://www.reddit.com/r/GrapheneOS/comments/134iqr3/split_screen/)
+
+Go into app switcher, tap on the app icon above the active app and then select "Split top".
+
 # References
 
 - [Home](https://grapheneos.org/)

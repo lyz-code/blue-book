@@ -4,6 +4,54 @@ date: 20220827
 author: Lyz
 ---
 
+# [Loop through a list of files found by find](https://stackoverflow.com/questions/9612090/how-to-loop-through-file-names-returned-by-find)
+
+For simple loops use the `find -exec` syntax:
+
+```bash
+# execute `process` once for each file
+find . -name '*.txt' -exec process {} \;
+```
+
+For more complex loops use a `while read` construct:
+
+```bash
+find . -name "*.txt" -print0 | while read -r -d $'\0' file
+do
+    …code using "$file"
+done
+```
+
+The loop will execute while the `find` command is executing. Plus, this command will work even if a file name is returned with whitespace in it. And, you won't overflow your command line buffer.
+
+The `-print0` will use the NULL as a file separator instead of a newline and the `-d $'\0'` will use NULL as the separator while reading.
+
+## How not to do it
+
+If you try to run the next snippet:
+
+```bash
+# Don't do this
+for file in $(find . -name "*.txt")
+do
+    …code using "$file"
+done
+```
+
+You'll get the next [`shellcheck`](shellcheck.md) warning:
+
+```
+SC2044: For loops over find output are fragile. Use find -exec or a while read loop.
+```
+
+You should not do this because:
+
+Three reasons:
+
+- For the for loop to even start, the find must run to completion.
+- If a file name has any whitespace (including space, tab or newline) in it, it will be treated as two separate names.
+- Although now unlikely, you can overrun your command line buffer. Imagine if your command line buffer holds 32KB, and your for loop returns 40KB of text. That last 8KB will be dropped right off your for loop and you'll never know it.
+
 # [Remove the lock screen in ubuntu](https://askubuntu.com/questions/1140079/completely-remove-lockscreen)
 
 Create the `/usr/share/glib-2.0/schemas/90_ubuntu-settings.gschema.override` file with the next content:

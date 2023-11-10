@@ -4,6 +4,52 @@ date: 20200717
 author: Lyz
 ---
 
+# Configure the logging of a program to look nice
+
+```python
+def load_logger(verbose: bool = False) -> None:  # pragma no cover
+    """Configure the Logging logger.
+
+    Args:
+        verbose: Set the logging level to Debug.
+    """
+    logging.addLevelName(logging.INFO, "\033[36mINFO\033[0m")
+    logging.addLevelName(logging.ERROR, "\033[31mERROR\033[0m")
+    logging.addLevelName(logging.DEBUG, "\033[32mDEBUG\033[0m")
+    logging.addLevelName(logging.WARNING, "\033[33mWARNING\033[0m")
+
+    if verbose:
+        logging.basicConfig(
+            format="%(asctime)s %(levelname)s %(name)s: %(message)s",
+            stream=sys.stderr,
+            level=logging.DEBUG,
+            datefmt="%Y-%m-%d %H:%M:%S",
+        )
+        telebot.logger.setLevel(logging.DEBUG)  # Outputs debug messages to console.
+    else:
+        logging.basicConfig(
+            stream=sys.stderr, level=logging.INFO, format="%(levelname)s: %(message)s"
+        )
+```
+
+# Get the modified time of a file with Pathlib
+
+```python
+file_ = Path('/to/some/file')
+file_.stat().st_mtime
+```
+
+You can also access:
+
+- Created time: with `st_ctime`
+- Accessed time: with `st_atime`
+
+They are timestamps, so if you want to compare it with a datetime object use the `timestamp` method:
+
+```python
+assert datetime.now().timestamp - file_.stat().st_mtime < 60
+```
+
 # Read file with Pathlib
 
 ```python

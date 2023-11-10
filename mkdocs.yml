@@ -21,9 +21,14 @@ nav:
       - Free Knowledge: free_knowledge.md
       - Environmentalism: environmentalism.md
       - Laboral: laboral.md
+      - Collaborating tools: collaborating_tools.md
   - Life Management:
       - life_management.md
       - Time Management: time_management.md
+      - Life analysis:
+        - life_analysis.md
+        - Life planning: life_planning.md
+        - Life review: life_review.md
       - Task Management:
           - task_management.md
           - Getting Things Done: gtd.md
@@ -32,7 +37,6 @@ nav:
               - Org Mode: orgmode.md
               - OpenProject: openproject.md
           - Task Management Workflows: task_workflows.md
-      - Life review: life_review.md
       - Interruption Management:
           - interruption_management.md
           - Work Interruption Analysis: work_interruption_analysis.md
@@ -146,6 +150,10 @@ nav:
                   - python-gnupg: python_gnupg.md
                   - Python Mysql: python_mysql.md
                   - pythonping: pythonping.md
+                  - Python Prometheus: python-prometheus.md
+                  - Python Telegram: 
+                    - python-telegram.md
+                    - pytelegrambotapi: pytelegrambotapi.md
                   - Python VLC: python_vlc.md
                   - Plotly: coding/python/plotly.md
                   - questionary: questionary.md
@@ -184,6 +192,7 @@ nav:
                   - Parametrized testing: coding/python/pytest_parametrized_testing.md
                   - Pytest-cases: coding/python/pytest_cases.md
                   - Pytest-HttpServer: pytest_httpserver.md
+                  - Pytest-xprocess: pytest-xprocess.md
               - Internationalization: python_internationalization.md
               - Python Snippets: coding/python/python_snippets.md
               - Data Classes: coding/python/data_classes.md
@@ -214,6 +223,7 @@ nav:
           - JWT: devops/jwt.md
           - React: coding/react/react.md
       - Generic Coding Practices:
+          - How to code: how_to_code.md
           - Program Versioning:
               - versioning.md
               - Semantic Versioning: semantic_versioning.md
@@ -366,6 +376,7 @@ nav:
               - Blackbox Exporter: devops/prometheus/blackbox_exporter.md
               - Elasticsearch Exporter: elasticsearch_exporter.md
               - Node Exporter: devops/prometheus/node_exporter.md
+              - Python Prometheus: python-prometheus.md
               - Instance sizing analysis: devops/prometheus/instance_sizing_analysis.md
               - Prometheus Troubleshooting: >-
                   devops/prometheus/prometheus_troubleshooting.md
@@ -374,6 +385,7 @@ nav:
             - Loki: loki.md
             - Graylog: graylog.md
             - Elastic Security: elastic_security.md
+          - SIEM: siem.md
       - Authentication:
           - Authentik: authentik.md
       - Self-hosted services:
@@ -443,9 +455,11 @@ nav:
           - Profanity: profanity.md
           - retroarch: retroarch.md
           - rm: linux/rm.md
+          - Rocketchat: rocketchat.md
           - sed: sed.md
           - Syncthing: linux/syncthing.md
           - Libreelec: libreelec.md
+          - Tails: tails.md
           - Torrents:
               - torrents.md
               - qBittorrent: qbittorrent.md
@@ -532,6 +546,7 @@ nav:
       - Data Analysis:
           - Recommender Systems: >-
               data_analysis/recommender_systems/recommender_systems.md
+          - Parsing Data: parsing_data.md
       - Psychology:
           - The XY Problem: psychology/the_xy_problem.md
       - Botany:

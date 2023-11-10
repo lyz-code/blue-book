@@ -380,6 +380,28 @@ jobs:
 
 The only downside is that if you set this pipeline as required in the branch protection, the merge button will look yellow instead of green when the pipeline is skipped.
 
+### [Run jobs if other jobs failed](https://github.com/go-gitea/gitea/issues/23725)
+
+This is useful to send notifications if any of the jobs failed.
+
+[Right now](https://github.com/go-gitea/gitea/issues/23725) you can't run a job if other jobs fail, all you can do is add a last step on each workflow to do the notification on failure:
+
+```yaml
+- name: Send mail
+    if: failure()
+    uses: https://github.com/dawidd6/action-send-mail@v3
+    with:
+        to: ${{ secrets.MAIL_TO }}
+        from: Gitea <gitea@hostname>
+        subject: ${{ gitea.repository }} ${{gitea.workflow}} ${{ job.status }}
+        priority: high
+        convert_markdown: true
+        html_body: |
+            ### Job ${{ job.status }}
+
+            ${{ github.repository }}: [${{ github.ref }}@${{ github.sha }}](${{ github.server_url }}/${{ github.repository }}/actions)
+```
+
 ## [Disable the regular login, use only Oauth](https://discourse.gitea.io/t/solved-removing-default-login-interface/2740/2)
 
 Inside your [`custom` directory](https://docs.gitea.io/en-us/customizing-gitea/) which may be `/var/lib/gitea/custom`:

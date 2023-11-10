@@ -396,6 +396,8 @@ require('telescope').load_extension('fzf')
 
 It also needs [`fd`](https://github.com/sharkdp/fd#installation) for further features. You should be using it too for your terminal.
 
+NOTE: If you want to [search exact words](https://github.com/nvim-telescope/telescope.nvim/issues/1083) you can start the search with `'` to search for exact matches.
+
 To check that everything is fine run `:checkhealth telescope`.
 
 ### [Usage](https://github.com/nvim-telescope/telescope.nvim#usage)
@@ -708,9 +710,9 @@ I've been using `vim-fugitive` for some years now and it works very well but is 
 
 At a first look `lazygit` is too much and `neogit` a little more verbose than `vim-fugitive` but it looks closer to my current workflow. I'm going to try `neogit` then.
 
-## [Neogit](https://github.com/Neogit/neogit)
+### [Neogit](https://github.com/Neogit/neogit)
 
-### [Installation](https://github.com/TimUntersberger/neogit#installation)
+#### [Installation](https://github.com/TimUntersberger/neogit#installation)
 
 ```lua
 use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
@@ -730,6 +732,7 @@ That uses the default configuration, but there are [many options that can be set
 neogit.setup({
   disable_commit_confirmation = true
 })
+```
 
 ### Improve the commit message window
 
@@ -740,7 +743,7 @@ https://neovim.discourse.group/t/how-to-create-an-auto-command-for-a-specific-fi
 [autocmd events](https://neovim.io/doc/user/autocmd.html#autocmd-events)
 
 
-# [Abbreviations](https://davidxmoody.com/2014/better-vim-abbreviations/)
+## [Abbreviations](https://davidxmoody.com/2014/better-vim-abbreviations/)
 
 In order to reduce the amount of typing and fix common typos, I use the Vim
 abbreviations support. Those are split into two files,
@@ -806,7 +809,7 @@ Check the
 [README](https://github.com/tpope/vim-abolish/blob/master/doc/abolish.txt) for
 more details.
 
-## Troubleshooting
+### Troubleshooting
 
 Abbreviations with dashes or if you only want the first letter in capital need
 to be specified with the first letter in capital letters as stated in [this
@@ -825,7 +828,7 @@ Abolish Knobas Knowledge-based
 Abolish W What
 ```
 
-# Auto complete prose text
+## Auto complete prose text
 
 Tools like [YouCompleteMe](https://github.com/ycm-core/YouCompleteMe) allow you
 to auto complete variables and functions. If you want the same functionality for
@@ -853,7 +856,7 @@ au FileType markdown let g:ycm_max_num_candidates = 1
 au FileType markdown let g:ycm_max_num_identifier_candidates = 1
 ```
 
-# Find synonyms
+## Find synonyms
 
 Sometimes the prose linters tell you that a word is wordy or too complex, or you may be
 repeating a word too much. The [thesaurus query
@@ -896,7 +899,7 @@ Type number and <Enter> (empty cancels; 'n': use next backend; 'p' use previous 
 
 If for example you type `45` and hit enter, it will change it for `thus`.
 
-# [Keep foldings](https://stackoverflow.com/questions/37552913/vim-how-to-keep-folds-on-save)
+## [Keep foldings](https://stackoverflow.com/questions/37552913/vim-how-to-keep-folds-on-save)
 
 When running fixers usually the foldings go to hell. To keep the foldings add
 the following snippet to your vimrc file
@@ -909,14 +912,14 @@ augroup remember_folds
 augroup END
 ```
 
-## [Python folding done right](https://github.com/tmhedberg/SimpylFold)
+### [Python folding done right](https://github.com/tmhedberg/SimpylFold)
 
 Folding Python in Vim is not easy, the python-mode plugin doesn't do it for me
 by default and after fighting with it for 2 hours...
 
 SimpylFold does the trick just fine.
 
-# [Delete a file inside vim](https://vim.fandom.com/wiki/Delete_files_with_a_Vim_command)
+## [Delete a file inside vim](https://vim.fandom.com/wiki/Delete_files_with_a_Vim_command)
 
 ```vim
 :call delete(expand('%')) | bdelete!
@@ -932,7 +935,7 @@ endfunction
 
 Now you need to run `:call Rm()`.
 
-# Task management
+## Task management
 
 Check the [`nvim-orgmode`](orgmode.md) file.
 
@@ -941,6 +944,35 @@ Check the [`nvim-orgmode`](orgmode.md) file.
 * [Source](https://github.com/nvim-orgmode/orgmode#agenda)
 * [Getting started guide](https://github.com/nvim-orgmode/orgmode/wiki/Getting-Started)
 * [Docs](https://github.com/nvim-orgmode/orgmode/blob/master/DOCS.md)
+
+## [Email inside nvim](https://www.reddit.com/r/neovim/comments/zh0nx9/email_client/)
+
+The best looking one is himalaya
+
+- [Home](https://pimalaya.org/himalaya/index.html)
+- [Nvim plugin](https://git.sr.ht/%7Esoywod/himalaya-vim)
+- [Source](https://github.com/soywod/himalaya)
+
+# Tips
+
+## [Run a command when opening vim](https://vi.stackexchange.com/questions/846/how-can-i-start-vim-and-then-execute-a-particular-command-that-includes-a-fro)
+
+```bash
+nvim -c ':DiffViewOpen'
+```
+## Run lua snippets
+
+Run lua snippet within neovim with `:lua <your snippet>`. Useful to test the commands before binding it to keys.
+
+## Bind a lua function to a key binding
+
+```lua
+key.set({'n'}, 't', ":lua require('neotest').run.run()<cr>", {desc = 'Run the closest test'})
+```
+
+## [Use relativenumber](https://koenwoortman.com/vim-relative-line-numbers/)
+
+If you enable the `relativenumber` configuration you'll see how to move around with `10j` or `10k`.
 
 # Troubleshooting
 
@@ -985,28 +1017,6 @@ require('telescope').setup{
   ...
 ```
 
-# Tips
-
-## [Run a command when opening vim](https://vi.stackexchange.com/questions/846/how-can-i-start-vim-and-then-execute-a-particular-command-that-includes-a-fro)
-
-```bash
-nvim -c ':DiffViewOpen'
-```
-## Run lua snippets
-
-Run lua snippet within neovim with `:lua <your snippet>`. Useful to test the commands before binding it to keys.
-
-## Bind a lua function to a key binding
-
-```lua
-key.set({'n'}, 't', ":lua require('neotest').run.run()<cr>", {desc = 'Run the closest test'})
-```
-
-## [Use relativenumber](https://koenwoortman.com/vim-relative-line-numbers/)
-
-If you enable the `relativenumber` configuration you'll see how to move around with `10j` or `10k`.
-
-# Troubleshooting
 
 ## Telescope changes working directory when opening a file
 

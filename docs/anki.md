@@ -49,6 +49,16 @@ If you're afraid to be stuck in a loop of reviewing "hard" cards, don't be. In r
 * The card has too much information that should be subdivided in smaller cards.
 * You're not doing a good process of memorizing the contents once they show up.
 
+## [What to do with unneeded cards](https://www.reddit.com/r/medicalschoolanki/comments/9dwjia/difference_between_suspend_and_bury_card/)
+
+You have three options: 
+
+- Suspend: It stops it from showing up permanently until you reactivate it through the browser.
+- Bury: Just delays it until the next day.
+- Delete: It deletes it forever.
+
+Unless you're certain that you are not longer going to need it, suspend it.
+
 # Interacting with python
 
 ## Configuration
@@ -157,6 +167,138 @@ curl localhost:8765 -X POST -d '{"action": "deckNames", "version": 6}'
 ```python
 self.requests("createDeck", {"deck": deck})
 ```
+
+# Configure self hosted synchronization
+
+NOTE: In the end I dropped this path and used Ankidroid alone with syncthing as I didn't need to interact with the decks from the computer. Also the ecosystem of synchronization in Anki at 2023-11-10 is confusing as there are many servers available, not all are compatible with the clients and Anki itself has released it's own so some of the community ones will eventually die.
+
+## [Install the server](https://github.com/ankicommunity/anki-devops-services#about-this-docker-image)
+
+I'm going to install `anki-sync-server` as it's simpler to [`djankiserv`](https://github.com/ankicommunity/anki-api-server):
+
+* Create the data directories: 
+  ```bash
+  mkdir -p /data/apps/anki/data
+  ```
+
+* Copy the `docker/docker-compose.yaml` to `/data/apps/anki`.
+  ```yaml
+  ---
+  version: "3"
+
+  services:
+    anki:
+      image: kuklinistvan/anki-sync-server:latest
+      container_name: anki
+      restart: always
+      networks:
+        - nginx
+      volumes:
+        - data:/app/data
+
+  networks:
+    nginx:
+      external:
+        name: nginx
+
+  volumes:
+    data:
+      driver: local
+      driver_opts:
+        type: none
+        o: bind
+        device: /data/apps/anki
+  ```
+* Copy the nginx config into your `site-confs`:
+
+  ```
+  # make sure that your dns has a cname set for anki and that your anki container is not using a base url
+
+  server {
+    listen 443 ssl;
+    listen [::]:443 ssl;
+
+    server_name anki.*;
+
+    include /config/nginx/ssl.conf;
+
+    client_max_body_size 0;
+
+    # enable for ldap auth, fill in ldap details in ldap.conf
+    #include /config/nginx/ldap.conf;
+
+    location / {
+        # enable the next two lines for http auth
+        #auth_basic "Restricted";
+        #auth_basic_user_file /config/nginx/.htpasswd;
+
+        # enable the next two lines for ldap auth
+        #auth_request /auth;
+        #error_page 401 =200 /login;
+
+        include /config/nginx/proxy.conf;
+        resolver 127.0.0.11 valid=30s;
+        set $upstream_anki anki;
+        proxy_pass http://$upstream_anki:27701;
+    }
+  }
+  ```
+
+* Copy the `service/anki.service` into `/etc/systemd/system/`
+  ```ini
+  [Unit]
+  Description=anki
+  Requires=docker.service
+  After=docker.service
+  
+  [Service]
+  Restart=always
+  User=root
+  Group=docker
+  WorkingDirectory=/data/apps/anki
+  # Shutdown container (if running) when unit is started
+  TimeoutStartSec=100
+  RestartSec=2s
+  # Start container when unit is started
+  ExecStart=/usr/local/bin/docker-compose -f docker-compose.yaml up
+  # Stop container when unit is stopped
+  ExecStop=/usr/local/bin/docker-compose -f docker-compose.yaml down
+
+  [Install]
+  WantedBy=multi-user.target
+  ```
+* Start the service `systemctl start anki`
+* If needed enable the service `systemctl enable anki`.
+* Create your user by:
+  * Getting a shell inside the container:
+    ```bash
+    docker exec -it anki sh
+    ```
+  * Create the user:
+    ```bash
+    ./ankisyncctl.py adduser kuklinistvan
+    ```
+
+`ankisyncctl.py` has more commands to manage your users:
+
+* `adduser <username>`: add a new user
+* `deluser <username>`: delete a user
+* `lsuser`: list users
+* `passwd <username>`: change password of a user
+
+## [Configure AnkiDroid](https://github.com/ankicommunity/anki-sync-server#ankidroid)
+
+* Add the dns you configured in your nginx reverse proxy into Advanced → Custom sync server.
+* Then enter the credentials you created before in Advanced -> AnkiWeb account
+
+## [Configure Anki](https://github.com/ankicommunity/anki-sync-server#setting-up-anki)
+
+Install addon from ankiweb (support 2.1)
+
+- On add-on window,click Get Add-ons and fill in the textbox with the code 358444159
+- There,you get add-on custom sync server redirector,choose it.Then click config below right
+- Apply your server dns address
+- Press Sync in the main application page and enter your credentials
 
 # References
 

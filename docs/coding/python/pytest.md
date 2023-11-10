@@ -1097,6 +1097,27 @@ components in case it's too verbose.
 
 Check the [asyncio article](asyncio.md#testing).
 
+# [Stop pytest right at the start if condition not met](https://stackoverflow.com/questions/70822031/stop-pytest-right-at-the-start-if-condition-not-met)
+
+Use the `pytest_configure` [initialization hook](https://docs.pytest.org/en/4.6.x/reference.html#initialization-hooks).
+
+In your global `conftest.py`:
+
+```python
+import requests
+import pytest
+
+def pytest_configure(config):
+    try:
+        requests.get(f'http://localhost:9200')
+    except requests.exceptions.ConnectionError:
+        msg = 'FATAL. Connection refused: ES does not appear to be installed as a service (localhost port 9200)' 
+        pytest.exit(msg)
+```
+
+- Note that the single argument of `pytest_configure` has to be named `config`.
+- Using `pytest.exit` makes it look nicer.
+
 # Pytest integration with Vim
 
 Integrating pytest into your Vim workflow enhances your productivity while

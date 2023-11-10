@@ -30,7 +30,7 @@ find {{ directory }} -type f -exec sed -i 's/nano/vim/g' {} +
 
 Sed doesn't support non greedy, use `.[^{{ character }}]*` instead
 
-## Delete match
+## Delete line that match
 
 ```bash
 sed '/<match>/d' file

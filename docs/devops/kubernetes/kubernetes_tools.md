@@ -9,7 +9,7 @@ Kubernetes.
 
 ## Tried
 
-* [K3s](https://k3s.io): Recommended small kubernetes, like hyperkube.
+* [K3s](https://k3s.io): Recommended small kubernetes, like hyperkube. A friend told me that rke2 works better than k3s.
 
 ## To try
 
