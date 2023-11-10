@@ -196,6 +196,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/collaborating_tools/</loc>
+         <lastmod>2023-11-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/cone/</loc>
          <lastmod>2023-11-10</lastmod>
          <changefreq>daily</changefreq>
@@ -496,6 +501,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/how_to_code/</loc>
+         <lastmod>2023-11-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/html/</loc>
          <lastmod>2023-11-10</lastmod>
          <changefreq>daily</changefreq>
@@ -611,12 +621,22 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/life_analysis/</loc>
+         <lastmod>2023-11-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/life_logging/</loc>
          <lastmod>2023-11-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/life_management/</loc>
+         <lastmod>2023-11-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/life_planning/</loc>
          <lastmod>2023-11-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -806,6 +826,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/parsing_data/</loc>
+         <lastmod>2023-11-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/pdm/</loc>
          <lastmod>2023-11-10</lastmod>
          <changefreq>daily</changefreq>
@@ -886,7 +911,27 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/pytelegrambotapi/</loc>
+         <lastmod>2023-11-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/pytest-xprocess/</loc>
+         <lastmod>2023-11-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/pytest_httpserver/</loc>
+         <lastmod>2023-11-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/python-prometheus/</loc>
+         <lastmod>2023-11-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/python-telegram/</loc>
          <lastmod>2023-11-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -1036,6 +1081,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/rocketchat/</loc>
+         <lastmod>2023-11-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/rss/</loc>
          <lastmod>2023-11-10</lastmod>
          <changefreq>daily</changefreq>
@@ -1086,6 +1136,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/siem/</loc>
+         <lastmod>2023-11-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/signal/</loc>
          <lastmod>2023-11-10</lastmod>
          <changefreq>daily</changefreq>
@@ -1132,6 +1187,11 @@
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/tahoe/</loc>
+         <lastmod>2023-11-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/tails/</loc>
          <lastmod>2023-11-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
