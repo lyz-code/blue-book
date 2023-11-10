@@ -50,6 +50,27 @@ They are timestamps, so if you want to compare it with a datetime object use the
 assert datetime.now().timestamp - file_.stat().st_mtime < 60
 ```
 
+# [Show the date in the logging module traces](https://docs.python.org/3/howto/logging.html#displaying-the-date-time-in-messages)
+
+To display the date and time of an event, you would place `%(asctime)s` in your format string:
+
+```python
+import logging
+logging.basicConfig(format='%(asctime)s %(message)s')
+logging.warning('is when this event was logged.')
+```
+
+
+# [Remove html url characters](https://stackoverflow.com/questions/11768070/transform-url-string-into-normal-string-in-python-20-to-space-etc)
+
+To transform an URL string into normal string, for example replacing `%20` with space use:
+
+```python
+>>> from urllib.parse import unquote
+>>> print(unquote("%CE%B1%CE%BB%20"))
+αλ
+```
+
 # Read file with Pathlib
 
 ```python

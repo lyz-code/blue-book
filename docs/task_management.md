@@ -42,6 +42,27 @@ in your current workflow, and evolve from that point guided by the faults you
 find. Forget about instant solutions, this is a never ending marathon. Make sure
 that each step is small and easy, otherwise you will get tired too soon.
 
-I haven't written a guide yet on how to give your first steps, but you could
-start by following [a simple workflow](task_workflows.md) with [simple
-tools](task_tools.md).
+# Hype flow versus a defined plan
+
+I've found two ways to work on my tasks: following a plan and following the hype
+flow.
+
+The first one helps you finish what you started, and directs your efforts
+towards big goals. The side effect is that it achieves it by setting constrains
+on what to do, so you sometimes end up in the position of doing tasks that you
+don't want to at the moment, and suppressing yourself not to do the ones that
+you want.
+
+The second one takes advantage of letting you work on wherever you want at the
+moment, which boosts your creativity and productivity. This way imposes less
+constrains on you and is more pleasant because surfing the hype is awesome. The
+side effect is that if you have many interests, you can move forward very
+quickly on many directions leaving a lot of projects half done, instead of
+pushing in the direction of your big goals.
+
+The art here is to combine both at need, if you have a good plan, you may be
+able to start surfing the hype, and when the time constrains start to press you,
+switch to a stricter plan to be able to deliver value in time. This makes more
+sense in work environments, at personal level I usually just surf the hype
+unless I have a clear objective with a due date to reach.
+

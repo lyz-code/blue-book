@@ -36,7 +36,6 @@ nav:
               - task_tools.md
               - Org Mode: orgmode.md
               - OpenProject: openproject.md
-          - Task Management Workflows: task_workflows.md
       - Interruption Management:
           - interruption_management.md
           - Work Interruption Analysis: work_interruption_analysis.md

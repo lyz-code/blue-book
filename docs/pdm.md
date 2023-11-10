@@ -506,6 +506,41 @@ pdm publish -r https://custom.index.com/
 If you don't want to use your credentials in plaintext on the command, you can
 use the environmental variables `PDM_PUBLISH_PASSWORD` and `PDM_PUBLISH_USER`.
 
+## [Build a docker](https://pdm.fming.dev/latest/usage/advanced/#use-pdm-in-a-multi-stage-dockerfile)
+
+It is possible to use PDM in a multi-stage Dockerfile to first install the project and dependencies into `__pypackages__` and then copy this directory into the final stage, adding it to `PYTHONPATH`.
+
+```docker
+# build stage
+FROM python:3.11-slim-bookworm as builder
+
+# install PDM
+RUN pip install -U pip setuptools wheel
+RUN pip install pdm
+
+# copy files
+COPY pyproject.toml pdm.lock README.md /project/
+COPY src/ /project/src
+
+# install dependencies and project into the local packages directory
+WORKDIR /project
+RUN mkdir __pypackages__ && pdm sync --prod --no-editable
+
+
+# run stage
+FROM python:3.11-slim-bookworm
+
+# retrieve packages from build stage
+ENV PYTHONPATH=/project/pkgs
+COPY --from=builder /project/__pypackages__/3.11/lib /project/pkgs
+
+# retrieve executables
+COPY --from=builder /project/__pypackages__/3.11/bin/* /bin/
+
+# set command/entrypoint, adapt to fit your needs
+CMD ["python", "-m", "project"]
+```
+
 ## [Show the current Python environment](https://pdm.fming.dev/usage/project/#show-the-current-python-environment)
 
 ```console
