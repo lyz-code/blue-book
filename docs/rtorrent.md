@@ -4,6 +4,8 @@ date: 20220222
 author: Lyz
 ---
 
+Note: use [qbittorrent](qbittorrent.md) instead.
+
 # Debugging
 
 * Get into the docker with `docker exec -it docker_name bash`
@@ -16,3 +18,9 @@ author: Lyz
 
 If you manually run `/usr/bin/rtorrent -b 12.5.232.12 -o ip=232.234.324.211`
 you'll get more information on why `rtorrent` is not starting.
+
+# References
+
+- [Source](https://github.com/rakshasa/rtorrent)
+- [Docs](https://github.com/rakshasa/rtorrent/wiki)
+- [Community docs](https://rtorrent-docs.readthedocs.io/en/latest/)

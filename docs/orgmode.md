@@ -531,7 +531,7 @@ org = {
 
 Org provides several refinements to internal navigation within a document. Most notably:
 
-* `[[*Some section]]`: points to a headline with the name `Some section`.
+* `[[Some section]]`: points to a headline with the name `Some section`.
 * `[[#my-custom-id]]`: targets the entry with the `CUSTOM_ID` property set to `my-custom-id`. 
 
 When the link does not belong to any of the cases above, Org looks for a dedicated target: the same string in double angular brackets, like `<<My Target>>`.
@@ -555,7 +555,7 @@ Note that you must make sure custom IDs, dedicated targets, and names are unique
 * URL (`http://`, `https://`)
 * Path to a file (`file:/path/to/org/file`). File links can contain additional information to jump to a particular location in the file when following a link. This can be:
   * `file:~/code/main.c::255`: A line number 
-  * `file:~/xx.org::My Target`: A search for `<<My Target>>`
+  * `file:~/xx.org::*My Target`: A search for `<<My Target>>` heading.
   * `file:~/xx.org::#my-custom-id`: A	search for-  a custom ID
 
 ### [Properties](https://orgmode.org/guide/Properties.html)
@@ -927,7 +927,65 @@ For example:
 
 ### Use capture
 
-## Synchronize with external calendars
+## The orgmode repository file organization
+
+How to structure the different orgmode files is something that has always confused me, each one does it's own way, and there are no good posts on why one structure is better than other, people just state what they do.
+
+I've started with a typical [gtd](gtd.md) structure with a directory for the `todo` another for the `calendar` then another for the `references`. In the `todo` I had a file for personal stuff, another for each of my work clients, and the `someday.org`. Soon making the internal links was cumbersome so I decided to merge the personal `todo.org` and the `someday.org` into the same file and use folds to hide uninteresting parts of the file. The reality is that I feel that orgmode is less responsive and that I often feel lost in the file. 
+
+I'm now more into the idea of having files per project in a flat structure and use an index.org file to give it some sense in the same way I do with the mkdocs repositories. Then I'd use internal links in the todo.org file to organize the priorities of what to do next.
+
+Benefits:
+
+- As we're using a flat structure at file level, the links between the files are less cumbersome `file:./project.org::*heading`. We only need to have unique easy to remember names for the files, instead of having to think on which directory was the file I want to make the link to. The all in one file structure makes links even easier, just `*heading`, but the disadvantages make it not worth it.
+- You have the liberty to have a generic link like `Work on project` or if you want to fine grain it, link the specific task of the project
+- The todo file will get smaller.
+- It has been the natural evolution of other knowledge repositories such as blue
+
+Cons:
+
+- Filenames must be unique. It hasn't been a problem in blue.
+- Blue won't be flattened into Vida as it's it's own knowledge repository
+
+
+## Synchronizations
+
+### Synchronize with other orgmode repositories
+
+I use orgmode both at the laptop and the mobile, I want to syncronize some files between both with the next requisites:
+
+- The files should be available on the devices when I'm not at home
+- The synchronization will be done only on the local network
+- The synchronization mechanism will only be able to see the files that need to be synched. 
+- Different files can be synced to different devices. If I have three devices (laptop, mobile, tablet) I want to sync all mobile files to the laptop but just some to the tablet).
+
+Right now I'm already using [syncthing](syncthing.md) to sync files between the mobile and my server, so it's tempting to use it also to solve this issue. So the first approach is to spawn a syncthing docker at the laptop that connects with the server to sync the files whenever I'm at home. 
+
+#### Mount the whole orgmode repository with syncthing
+
+I could mount the whole orgmode directory and use the [ignore patterns of syncthing](https://willschenk.com/howto/2020/using_syncthing/), but that will make syncthing see more files than I want even though it won't sync them to the other devices. The ideal scenario is where syncthing only sees the files that needs to sync, so that in case of a vulnerability only a subset of the files is leaked.
+
+#### Mount a specific directory to sync
+
+An alternative would be to have a `mobile` directory at the orgmode repository where the files that need to be synced will live. The problem is that it would break the logical structure of the repository and it would make difficult to make internal links between files as you need to remember or need to search if the file is in the usual place or in the mobile directory. To avoid this we could use hard links. Soft links don't work well because:
+
+- If you have the file in the org repo and do the soft link in the mobile directory, syncthing won't know what to do with it
+- If you have the file in the mobile repo and do the soft link in the repository, nvim-orgmode won't be able to work well with the file. I don't know why but those files don't show when I search them in telescope (and I have symbolic links enabled in the config).
+
+If we use this workflow, we'd need to manually create the hard links each time a new file is created that needs to be linked
+
+This is also a good solution for the different authorization syncs as you can only have one syncthing directory per Linux directory so if you want different authorization for different devices you won't be able to do this unless you create a specific directory for that share. For example if I want to have only one file shared to the tablet I'd need a tablet directory.
+
+#### Select which files to mount on the docker command
+
+We could also select which files to mount on the syncthing docker of the laptop. I find this to be an ugly solution because we'd first need to mount a directory so that syncthing can write it's internal data and then map each of the files we want to sync. So each time a new file is added, we need to change the docker command... Unpleasant.
+
+
+#### Use the org-orgzly script
+
+Another solution would be to use [org-orgzly script](https://codeberg.org/anoduck/org-orgzly) to parse a chosen org file or files, check if an entry meets required parameters, and if it does, write the entry in a new file located inside the directory you desire to sync with orgzly. In theory it may work but I feel it's too Dropbox focused.
+
+### Synchronize with external calendars
 
 You may want to synchronize your calendar entries with external ones shared with other people, such as nextcloud calendar or google.
 
@@ -939,7 +997,7 @@ The orgmode docs have a tutorial to [sync with google](https://orgmode.org/worg/
 * [Exporting from orgmode to ics](#exporting-from-orgmode-to-ics)
 * Uploading then changes to the external calendar events with [`vdirsyncer`](vdirsyncer.md).
 
-### Importing the ics to orgmode
+#### Importing the ics to orgmode
 
 There are many tools that do this:
 
@@ -948,7 +1006,7 @@ There are many tools that do this:
 
 They import an `ics` file
 
-### Exporting from orgmode to ics
+#### Exporting from orgmode to ics
 
 
 

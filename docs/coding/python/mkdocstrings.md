@@ -116,8 +116,6 @@ With the identifier as title:
 
 MkDocstrings accept a few top-level configuration options in `mkdocs.yml`:
 
-- `watch`: a list of directories to watch while serving the documentation. So if
-    any file is changed in those directories, the documentation is rebuilt.
 - `default_handler`: the handler that is used by default when no handler is specified.
 - `custom_templates`: the path to a directory containing custom templates.
   The path is relative to the docs directory.
@@ -135,9 +133,11 @@ plugins:
         rendering:
           show_source: false
     custom_templates: templates
-    watch:
-      - src/my_package
+watch:
+  - src/my_package
 ```
+
+Where `watch` is a list of directories to watch while serving the documentation. So if any file is changed in those directories, the documentation is rebuilt.
 
 The handlers global configuration can then be overridden by local configurations:
 

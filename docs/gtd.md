@@ -1,4 +1,4 @@
-icij/etting things done](https://en.wikipedia.org/wiki/Getting_Things_Done), commonly known as GTD is a task management method created by David Allen and published in a book of the same name.
+[Getting things done](https://en.wikipedia.org/wiki/Getting_Things_Done), commonly known as GTD is a task management method created by David Allen and published in a book of the same name.
 - 
 The GTD method rests on the idea of moving all items of interest, relevant information, issues, tasks and projects out of one's mind by recording them externally and then breaking them into actionable work items with known time limits. This allows one's attention to focus on taking action on each task listed in an external record, instead of recalling them intuitively.
 

@@ -199,6 +199,22 @@ Assuming you're using [prometheus](prometheus.md) you can add the next prometheu
 
 # Usage
 
+## Create a backup
+
+If you already have schedules select the one you want to use:
+
+```bash
+velero schedules get
+```
+
+Then create the backup with:
+
+```bash
+velero backup create --from-schedule selected-schedule
+```
+
+You can see the other options to create backups in `velero backup create --help`
+
 ## Restore backups
 
 To get the available backups you can use:

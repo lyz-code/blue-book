@@ -197,23 +197,23 @@ advanced than IronWolf Pro and are best suited for server environments. They
 sport incredible levels of performance and reliability, including a workload
 rate of 550TB per year.
 
-| Specs                        | IronWolf           | IronWolf Pro         | Exos 7E8 8TB | Exos 7E10 8TB |
-| ---------------------------- | ------------------ | -------------------- | ------------ | ------------- |
-| Technology                   | CMR                | CMR                  | CMR          | SMR           |
-| Bays                         | 1-8                | 1-24                 | ?            | ?             |
-| Capacity                     | 1-12TB             | 2-20TB               | 8TB          | 8TB           |
-| RPM                          | 5,400 RPM (3-6TB)  | 7200 RPM             | 7200 RPM     | 7200 RPM      |
-| RPM                          | 5,900 RPM (1-3TB)  | 7200 RPM             | 7200 RPM     | 7200 RPM      |
-| RPM                          | 7,200 RPM (8-12TB) | 7200 RPM             | 7200 RPM     | 7200 RPM      |
-| Speed                        | 180MB/s (1-12TB)   | 214-260MB/s (4-18TB) | 249 MB/s     | 255 MB/s      |
-| Cache                        | 64MB (1-4TB)       | 256 MB               | 256 MB       | 256 MB        |
-| Cache                        | 256MB (3-12TB)     | 256 MB               | 256 MB       | 256 MB        |
-| Power Consumption (8TB)      | 10.1 W             | 10.1 W               | 12.81 W      | 11.03 W       |
-| Power Consumption Rest (8TB) | 7.8 W              | 7.8 W                | 7.64 W       | 7.06 W        |
-| Workload                     | 180TB/yr           | 300TB/yr             | 550TB/yr     | 550TB/yr      |
-| MTBF                         | 1 million          | 1 million            | 2 millions   | 2 millions    |
-| Warranty                     | 3 years            | 5 years              | 5 years      | 5 years       |
-| Price                        | From $60           | From $83             | 249$         | 249$          |
+| Specs                        | IronWolf           | IronWolf Pro         | Exos 7E8 8TB | Exos 7E10 8TB | Exos X18 16TB |
+| ---------------------------- | ------------------ | -------------------- | ------------ | ------------- | ------------- |
+| Technology                   | CMR                | CMR                  | CMR          | SMR           | CMR           |
+| Bays                         | 1-8                | 1-24                 | ?            | ?             | ?             | 
+| Capacity                     | 1-12TB             | 2-20TB               | 8TB          | 8TB           | 16 TB         | 
+| RPM                          | 5,400 RPM (3-6TB)  | 7200 RPM             | 7200 RPM     | 7200 RPM      | 7200 RPM      |
+| RPM                          | 5,900 RPM (1-3TB)  | 7200 RPM             | 7200 RPM     | 7200 RPM      | 7200 RPM      |
+| RPM                          | 7,200 RPM (8-12TB) | 7200 RPM             | 7200 RPM     | 7200 RPM      | 7200 RPM      |
+| Speed                        | 180MB/s (1-12TB)   | 214-260MB/s (4-18TB) | 249 MB/s     | 255 MB/s      | 258 MB/s      |
+| Cache                        | 64MB (1-4TB)       | 256 MB               | 256 MB       | 256 MB        | 256 MB        |
+| Cache                        | 256MB (3-12TB)     | 256 MB               | 256 MB       | 256 MB        | 256 MB        |
+| Power Consumption            | 10.1 W             | 10.1 W               | 12.81 W      | 11.03 W       | 9.31 W        |
+| Power Consumption Rest       | 7.8 W              | 7.8 W                | 7.64 W       | 7.06 W        | 5.08 W        |
+| Workload                     | 180TB/yr           | 300TB/yr             | 550TB/yr     | 550TB/yr      | 550TB/yr      |
+| MTBF                         | 1 million          | 1 million            | 2 millions   | 2 millions    | 2.5 millions  |
+| Warranty                     | 3 years            | 5 years              | 5 years      | 5 years       | 5 years       |
+| Price                        | From $60 (2022)    | From $83  (2022)     | 249$ (2022)  | 249$ (2022)   | 249$ (2023)   |
 
 Exos 7E10 is SMR so it's ruled out.
 

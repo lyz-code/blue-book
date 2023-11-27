@@ -530,6 +530,12 @@ ZFS doesn't though have a clean way to manage the lifecycle of those snapshots. 
 
 It seems that the state of the art of ZFS backups is not changing too much in the last years, possibly because the functionality is covered so there is no need for further development. So I'm going to manage the backups with [`sanoid`](sanoid.md) despite it being done in Perl because [it's the most popular, it looks simple but flexible for complex cases, and it doesn't look I'd need to tweak the code](sanoid.md).
 
+### [Remove all snapshots of a dataset](https://serverfault.com/questions/340837/how-to-delete-all-but-last-n-zfs-snapshots)
+
+```bash
+zfs list -t snapshot -o name path/to/dataset | tail -n+2 | tac | xargs -n 1 zfs destroy -r
+```
+
 ## [Restore a backup](https://pthree.org/2012/12/19/zfs-administration-part-xii-snapshots-and-clones/)
 
 You can list the available snapshots of a filesystem with `zfs list -t snapshot {{ pool_or_filesystem_name }}`, if you don't specify the `pool_or_filesystem_name` it will show all available snapshots.

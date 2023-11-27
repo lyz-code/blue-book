@@ -84,6 +84,7 @@ Curated list of emojis to copy paste.
 
 ```
 (╥﹏╥)
+(╥_╥)
 (ಥ﹏ಥ)
 ```
 
@@ -140,6 +141,12 @@ v('-')v
 
 ```
 ❤
+```
+
+# Lol
+
+```
+(*≧▽≦)ﾉｼ))
 ```
 
 # Pride

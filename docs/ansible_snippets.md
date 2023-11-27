@@ -4,6 +4,10 @@ date: 20220119
 author: Lyz
 ---
 
+# [Ansible lint skip some rules](https://ansible.readthedocs.io/projects/lint/configuring/#ansible-lint-configuration)
+
+Add a `.ansible-lint-ignore` file with a line per rule to ignore with the syntax `path/to/file rule_to_ignore`.
+
 # [Ansible retry a failed job](https://stackoverflow.com/questions/44134642/how-to-retry-ansible-task-that-may-fail)
 
 ```yaml
