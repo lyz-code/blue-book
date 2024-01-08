@@ -503,9 +503,11 @@ git remote add local $(pwd)
 git-sweep cleanup --origin=local
 ```
 
-- [git-sweep](https://github.com/arc90/git-sweep): For local branches
-- [archaeologit](https://github.com/peterjaric/archaeologit): Tool to search
-  strings in the history of a github user
+The tool is [no longer maintained](https://github.com/arc90/git-sweep/issues/45) but there is still no good alternative. I've found some but are either not popular and/or not maintained:
+
+- [gitsweeper](https://github.com/petems/gitsweeper)
+- [git-removed-brances](https://github.com/nemisj/git-removed-branches)
+- [git-sweep rewrite in go](https://github.com/gottwald/git-sweep)
 - [jessfraz made a tool ghb0t](https://github.com/jessfraz/ghb0t): For github
 
 # Submodules
@@ -797,3 +799,5 @@ You can use `pipx install git-fame` to install it.
 ## Tools
 
 - [git-extras](https://github.com/tj/git-extras/blob/master/Commands.md)
+- [archaeologit](https://github.com/peterjaric/archaeologit): Tool to search
+  strings in the history of a github user

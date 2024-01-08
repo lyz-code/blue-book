@@ -53,6 +53,7 @@ Date and time data types:
     initialization and updating to the current date and time.
 
 # Operations 
+
 ## [List all tables](https://www.sqltutorial.org/sql-list-all-tables/)
 
 Mysql:

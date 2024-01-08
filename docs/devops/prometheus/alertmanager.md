@@ -277,6 +277,35 @@ To disable both alerts, set a `match` rule in `config.inhibit_rules`:
           alertname: KubeVersionMismatch
 ```
 
+### [Inhibit rules between times](https://prometheus.io/docs/alerting/latest/configuration/#time_interval)
+
+To prevent some alerts to be sent between some hours you can use the `time_intervals` alertmanager configuration. 
+
+This can be useful for example if your backup system triggers some alerts that you don't need to act on.
+
+```yaml
+# See route configuration at https://prometheus.io/docs/alerting/latest/configuration/#route
+route:
+  receiver: 'email'
+  group_by: [job, alertname, severity]
+  group_wait: 5m
+  group_interval: 5m
+  repeat_interval: 12h
+  routes:
+    - receiver: 'email'
+      matchers:
+        - alertname =~ "HostCpuHighIowait|HostContextSwitching|HostUnusualDiskWriteRate"
+        - hostname = backup_server
+      mute_time_intervals:
+        - night
+time_intervals:
+  - name: night
+    time_intervals:
+      - times:
+          - start_time: 02:00
+            end_time: 07:00
+```
+
 ## Alert rules
 
 Alert rules are a special kind of Prometheus Rules that trigger alerts based on

@@ -188,7 +188,7 @@ SHA1-, SHA256- or MD5-Fingerprints can be used.
 You can use the following command for obtaining a SHA-1 fingerprint:
 
 ```bash
-echo -n | openssl s_client -connect unterwaditzer.net:443 | openssl x509 -noout -fingerprint -sha256
+echo -n | openssl s_client -connect cloud.disroot.org:443 | openssl x509 -noout -fingerprint -sha256
 ```
 
 Note that `verify_fingerprint` doesn't suffice for `vdirsyncer` to work with

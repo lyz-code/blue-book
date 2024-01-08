@@ -33,6 +33,20 @@ def do_something_unreliable():
 
 print(do_something_unreliable())
 ```
+## Full example of retry
+
+```python
+from tenacity import retry
+from tenacity.stop import stop_after_attempt
+from tenacity.wait import wait_exponential
+
+
+@retry(
+    stop=stop_after_attempt(5), wait=wait_exponential(multiplier=3, min=1, max=300)
+)
+def function():
+    pass
+```
 
 ## [Basic Retry](https://tenacity.readthedocs.io/en/latest/#basic-retry)
 
@@ -56,6 +70,7 @@ def stop_after_7_attempts():
     print("Stopping after 7 attempts")
     raise Exception
 ```
+Note: remember to `from tenacity import stop_after_attempt`. 
 
 We don’t have all day, so let’s set a boundary for how long we should be retrying stuff.
 
@@ -172,3 +187,4 @@ def do_something():
 # References
 
 * [Git](https://github.com/jd/tenacity)
+* [Docs](https://tenacity.readthedocs.io/en/latest/)

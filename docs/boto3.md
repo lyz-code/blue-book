@@ -198,6 +198,22 @@ def _get_region_name(region_code: str) -> str:
     return region_name.replace("Europe", "EU")
 ```
 
+### [Get running instances](https://stackoverflow.com/questions/57899265/pagination-in-boto3-ec2-describe-instance)
+
+```python
+import boto3
+
+ec2 = boto3.client('ec2')
+
+running_instances = [
+    instance 
+    for page in ec2.get_paginator('describe_instances').paginate() 
+    for reservation in page['Reservations'] 
+    for instance in reservation['Instances']]
+    if instance['State']['Name'] == 'running'
+]
+```
+
 # Type hints
 
 AWS library doesn't have working type hints `-.-`, so you either use `Any` or

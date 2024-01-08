@@ -4,6 +4,21 @@ date: 20220827
 author: Lyz
 ---
 
+# Show the progresion of a long running task with dots
+
+```bash
+echo -n "Process X is running."
+
+# Process is running
+sleep 1 
+echo -n "."
+sleep 1 
+echo -n "."
+
+# Process ended
+echo ""
+```
+
 # [Loop through a list of files found by find](https://stackoverflow.com/questions/9612090/how-to-loop-through-file-names-returned-by-find)
 
 For simple loops use the `find -exec` syntax:

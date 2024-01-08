@@ -168,6 +168,5 @@ Go into app switcher, tap on the app icon above the active app and then select "
 # References
 
 - [Home](https://grapheneos.org/)
-
 * [Articles](https://grapheneos.org/articles/)
 * [Features](https://grapheneos.org/features)

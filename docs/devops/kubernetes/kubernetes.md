@@ -100,6 +100,12 @@ now](https://github.com/ramitsurana/awesome-kubernetes#starting-point):
 * [kube-hunter](https://github.com/aquasecurity/kube-hunter) hunts for security
     weaknesses in Kubernetes clusters. The tool was developed to increase
     awareness and visibility for security issues in Kubernetes environments.
+* [IceKube](https://twitter.com/clintgibler/status/1732459956669214784): 
+    Finding complex attack paths in Kubernetes clusters
+
+    Bloodhound for Kubernetes
+
+    Uses Neo4j to store & analyze Kubernetes resource relationships → identify attack paths & security misconfigs
 
 # References
 

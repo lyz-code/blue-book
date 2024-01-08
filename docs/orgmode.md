@@ -323,6 +323,48 @@ When you insert the timestamps with the date popup picker with `;d` (Default: `<
 
 You can also define a timestamp range that spans through many days `<2023-02-24 Fri>--<2023-02-26 Sun>`. The headline then is shown on the first and last day of the range, and on any dates that are displayed and fall in the range.  
 
+##### Start working on a task dates
+
+`SCHEDULED` defines when you are plan to start working on that task.
+
+The headline is listed under the given date. In addition, a reminder that the scheduled date has passed is present in the compilation for today, until the entry is marked as done or [disabled](#how-to-deal-with-overdue-SCHEDULED-and-DEADLINE-tasks).
+
+```org
+*** TODO Call Trillian for a date on New Years Eve.
+    SCHEDULED: <2004-12-25 Sat>
+```
+
+Although is not a good idea (as it promotes the can pushing through the street), if you want to delay the display of this task in the agenda, use `SCHEDULED: <2004-12-25 Sat -2d>` the task is still scheduled on the 25th but will appear two days later. In case the task contains a repeater, the delay is considered to affect all occurrences; if you want the delay to only affect the first scheduled occurrence of the task, use `--2d` instead. 
+
+Scheduling an item in Org mode should not be understood in the same way that we understand scheduling a meeting. Setting a date for a meeting is just [a simple appointment](#appointments), you should mark this entry with a simple plain timestamp, to get this item shown on the date where it applies. This is a frequent misunderstanding by Org users. In Org mode, scheduling means setting a date when you want to start working on an action item. 
+
+You can set it with `<leader>s` (Default: `<leader>ois`)
+
+##### Deadlines
+
+`DEADLINE` are like [appointments](#appointments) in the sense that it defines when the task is supposed to be finished on. On the deadline date, the task is listed in the agenda. The difference with appointments is that you also see the task in your agenda if it is overdue and you can set a warning about the approaching deadline, starting `org_deadline_warning_days` before the due date (14 by default). It's useful then to set `DEADLINE` for those tasks that you don't want to miss that the deadline is over.
+
+An example:
+
+```org
+* TODO Do this 
+DEADLINE: <2023-02-24 Fri>
+```
+
+You can set it with `<leader>d` (Default: `<leader>oid`).
+
+If you need a different warning period for a special task, you can specify it. For example setting a warning period of 5 days `DEADLINE: <2004-02-29 Sun -5d>`.  
+
+If you're as me, you may want to remove the warning feature of `DEADLINES` to be able to keep your agenda clean. Most of times you are able to finish the task in the day, and for those that you can't specify a `SCHEDULED` date. To do so set the default number of days to `0`. 
+
+```lua
+require('orgmode').setup({
+  org_deadline_warning_days = 0,
+})
+```
+
+Using too many tasks with a `DEADLINE` will clutter your agenda. Use it only for the actions that you need to have a reminder, instead try to using [appointment](#appointments) dates instead. The problem of using appointments is that once the date is over you don't get a reminder in the agenda that it's overdue, if you need this, use `DEADLINE` instead.
+
 ##### [Recurring tasks](https://orgmode.org/manual/Repeated-tasks.html)
 
 A timestamp may contain a repeater interval, indicating that it applies not only on the given date, but again and again after a certain interval of N hours (h), days (d), weeks (w), months (m), or years (y). The following shows up in the agenda every Wednesday:
@@ -340,14 +382,14 @@ With the `+1m` cookie, the date shift is always exactly one month. So if you hav
 
 ```org
 ** TODO Call Father
-   DEADLINE: <2008-02-10 Sun ++1w>
+   SCHEDULED: <2008-02-10 Sun ++1w>
    Marking this DONE shifts the date by at least one week, but also
    by as many weeks as it takes to get this date into the future.
    However, it stays on a Sunday, even if you called and marked it
    done on Saturday.
 
 ** TODO Empty kitchen trash
-   DEADLINE: <2008-02-08 Fri 20:00 ++1d>
+   SCHEDULED: <2008-02-08 Fri 20:00 ++1d>
    Marking this DONE shifts the date by at least one day, and also
    by as many days as it takes to get the timestamp into the future.
    Since there is a time in the timestamp, the next deadline in the
@@ -355,51 +397,57 @@ With the `+1m` cookie, the date shift is always exactly one month. So if you hav
    20:00.
 
 ** TODO Check the batteries in the smoke detectors
-   DEADLINE: <2005-11-01 Tue .+1m>
+   SCHEDULED: <2005-11-01 Tue .+1m>
    Marking this DONE shifts the date to one month after today.
 
 ** TODO Wash my hands
-   DEADLINE: <2019-04-05 08:00 Fri .+1h>
+   SCHEDULED: <2019-04-05 08:00 Fri .+1h>
    Marking this DONE shifts the date to exactly one hour from now.
+
+** TODO Send report
+   DEADLINE: <2019-04-05 08:00 Fri .+1m>
 ```
 
-##### Scheduled
+##### How to deal with overdue SCHEDULED and DEADLINE tasks.
 
-`SCHEDULED` defines when you are plan to start working on that task.
+Quite often you may not meet the `SCHEDULED` or `DEADLINE` date. If it's not a recurring task and you have it already in your `todo.org` list, then you can safely remove the SCHEDULED or DEADLINE line.
 
-The headline is listed under the given date. In addition, a reminder that the scheduled date has passed is present in the compilation for today, until the entry is marked as done.
+If it's a recurring task you may want to keep the line for future iterations. That doesn't mean that it has to show in your agenda. If you have it already tracked you may want to hide it. One way I'm managing it is by deactivating the date (transforming the `<>` into `[]`) and adding a special state (`RDEACTIVATED`) so I don't mark the task as done by error. For example if we have:
 
-```org
-*** TODO Call Trillian for a date on New Years Eve.
-    SCHEDULED: <2004-12-25 Sat>
+```orgmode
+** RDEACTIVATED Check the batteries in the smoke detectors
+   SCHEDULED: [2005-11-01 Tue .+1m]
+   Marking this DONE shifts the date to one month after today.
 ```
 
-If you want to delay the display of this task in the agenda, use `SCHEDULED: <2004-12-25 Sat -2d>` the task is still scheduled on the 25th but will appear two days later. In case the task contains a repeater, the delay is considered to affect all occurrences; if you want the delay to only affect the first scheduled occurrence of the task, use `--2d` instead. 
+Once the task is ready to be marked as done you need to change the `[]` to `<>` and then you can mark it as `DONE`.
 
-Scheduling an item in Org mode should not be understood in the same way that we understand scheduling a meeting. Setting a date for a meeting is just [a simple appointment](#appointments), you should mark this entry with a simple plain timestamp, to get this item shown on the date where it applies. This is a frequent misunderstanding by Org users. In Org mode, scheduling means setting a date when you want to start working on an action item. 
+##### How to deal with recurring tasks that have checklists
 
-You can set it with `<leader>s` (Default: `<leader>ois`)
+Some recurring tasks may have checklists. For example:
 
-##### Deadline
-
-`DEADLINE` defines when the task is supposed to be finished on. On the deadline date, the task is listed in the agenda. In addition, the agenda for today carries a warning about the approaching or missed deadline, starting `org_deadline_warning_days` before the due date (14 by default), and continuing until the entry is marked as done. An example:
-
-```org
-* TODO Do this 
-DEADLINE: <2023-02-24 Fri>
+```orgmode
+* TODO Clean the inbox
+  SCHEDULED: <2024-01-04 ++1w>
+  - [x] Clean email
+  - [x] Clean physical inbox
+  - [ ] Clean computer inbox
+  - [ ] Clean mobile inbox
 ```
 
-You can set it with `<leader>d` (Default: `<leader>oid`).
+Once you mark the task as done, the done items are not going to be reseted. That's why I use a special state `CHECK` to prevent the closing of a task before checking it.
 
-Using too many tasks with a `DEADLINE` will clutter your agenda. Use it only for the actions that you need to have a reminder, instead try to using [appointment](#appointments) dates instead. The problem of using appointments is that once the date is over you don't get a reminder in the agenda that it's overdue, if you need this, use `DEADLINE` instead.
+For those tasks that you want to always check before closing you can add a `(CHECK)` at the end of the title. The reason is because each time you mark a recurrent task as done it switches back the state to `TODO`. For example, as of right now nvim-orgmode doesn't support the recurrence type of "the first wednesday of the month". As a workaround you can do:
 
-If you need a different warning period for a special task, you can specify it. For example setting a warning period of 5 days `DEADLINE: <2004-02-29 Sun -5d>`. If you do use `DEADLINES` for many small tasks you may want to configure the default number of days to `0`. Most of times you are able to finish the task in the day, for those that you can't specify a different warning period in the task.
+```orgmode
+* TODO Do X the first thursday of the month (CHECK)
+  DEADLINE: <2024-01-04 ++1m>
+  
+  - [ ] Step 1
+  - [ ] Step 2
+  - [ ] Step ...
 
-
-```lua
-require('orgmode').setup({
-  org_deadline_warning_days = 0,
-})
+  - [ ] Adjust the date to match the first thursday of the month
 ```
 
 #### Date management
@@ -648,8 +696,23 @@ org = {
   org_toggle_archive_tag = ';a',
   org_archive_subtree = ';A',
 }
+```
 
 There are some work in progress to improve archiving in the next issues [1](https://github.com/nvim-orgmode/orgmode/issues/413), [2](https://github.com/nvim-orgmode/orgmode/issues/369) and [3](https://github.com/joaomsa/telescope-orgmode.nvim/issues/2). 
+
+If you [don't want to have dangling org_archive files](https://github.com/nvim-orgmode/orgmode/issues/628) you can create an `archive` directory somewhere and then set:
+
+```lua
+local org = require('orgmode').setup({
+  org_archive_location = "~/orgmode/archive/" .. "%s_archive",
+)}
+```
+
+### Use archiving to clean long checklists
+
+When you have big tasks that have nested checklists, when you finish the day working on the task you may want to clean the checklist without loosing what you've done, for example for reporting purposes.
+
+In those cases what I do is archive the task, and then undo the archiving. That way you have a copy of the state of the task in your archive with a defined date. Then you can safely remove the done checklist items.
 
 ## Refiling
 
@@ -967,12 +1030,13 @@ I could mount the whole orgmode directory and use the [ignore patterns of syncth
 
 #### Mount a specific directory to sync
 
-An alternative would be to have a `mobile` directory at the orgmode repository where the files that need to be synced will live. The problem is that it would break the logical structure of the repository and it would make difficult to make internal links between files as you need to remember or need to search if the file is in the usual place or in the mobile directory. To avoid this we could use hard links. Soft links don't work well because:
+An alternative would be to have a `.mobile` directory at the orgmode repository where the files that need to be synced will live. The problem is that it would break the logical structure of the repository and it would make difficult to make internal links between files as you need to remember or need to search if the file is in the usual place or in the mobile directory. To avoid this we could use hard links. Soft links don't work well because:
 
 - If you have the file in the org repo and do the soft link in the mobile directory, syncthing won't know what to do with it
-- If you have the file in the mobile repo and do the soft link in the repository, nvim-orgmode won't be able to work well with the file. I don't know why but those files don't show when I search them in telescope (and I have symbolic links enabled in the config).
+- If you have the file in the mobile repo and do a hard link in the repository it wont work because syncthing overwrites the file when updating from a remote thus breaking the hard links
+- If you have the file in the mobile repo and do the soft link in the repository, nvim-orgmode sometimes behaves weirdly with the symlinks, try moving the files and recreating the links to a different path. For example I discovered that all links that pointed to a directory which contained the `nas` string didn't work, the rest did. Super weird.
 
-If we use this workflow, we'd need to manually create the hard links each time a new file is created that needs to be linked
+If we use this workflow, we'd need to manually create the links each time a new file is created that needs to be linked.
 
 This is also a good solution for the different authorization syncs as you can only have one syncthing directory per Linux directory so if you want different authorization for different devices you won't be able to do this unless you create a specific directory for that share. For example if I want to have only one file shared to the tablet I'd need a tablet directory.
 
@@ -984,6 +1048,10 @@ We could also select which files to mount on the syncthing docker of the laptop.
 #### Use the org-orgzly script
 
 Another solution would be to use [org-orgzly script](https://codeberg.org/anoduck/org-orgzly) to parse a chosen org file or files, check if an entry meets required parameters, and if it does, write the entry in a new file located inside the directory you desire to sync with orgzly. In theory it may work but I feel it's too Dropbox focused.
+
+#### Conclusion on the synchronization
+
+The best solution for me is to [Mount a specific directory to sync](#mount-a-specific-directory-to-sync).
 
 ### Synchronize with external calendars
 
@@ -1094,6 +1162,16 @@ Close the terminal and open a new one (pooooltergeist!).
 ## Narrow/Widen to subtree
 
 It's [not yet supported](https://github.com/nvim-orgmode/orgmode/issues/200) to focus or zoom on one task.
+
+## Attempt to index local 'src_file' (a nil value) using telescope orgmode
+
+This happens when not all the files are loaded in the telescope cache. You just need to wait until they are. 
+
+I've made some tests and it takes more time to load many small files than few big ones.
+
+Take care then on what files you add to your `org_agenda_files`. For example you can take the next precautions:
+
+- When adding a wildcard, use `*.org` not to load the `*.org_archive` files into the ones to process. Or [save your archive files elsewhere](#archiving).
 
 # Comparison with Markdown
 

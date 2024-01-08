@@ -7,6 +7,7 @@ nav:
   - Introduction: index.md
   - Projects: projects.md
   - Activism:
+      - activism.org
       - Antifascism:
           - antifascism.md
           - Antifascist Actions: antifascist_actions.md
@@ -25,8 +26,7 @@ nav:
   - Life Management:
       - life_management.md
       - Time Management: time_management.md
-      - Life analysis:
-        - life_analysis.md
+      - Life Management:
         - Life planning: life_planning.md
         - Life review: life_review.md
       - Task Management:
@@ -205,6 +205,7 @@ nav:
                   - Vitest: vitest.md
           - Bash:
               - Bash snippets: bash_snippets.md
+          - lua: lua.md
           - JSON: coding/json/json.md
           - SQL: coding/sql/sql.md
           - SQLite: sqlite.md
@@ -413,6 +414,7 @@ nav:
           - Beets: beets.md
           - Bookwyrm: bookwyrm.md
           - brew: linux/brew.md
+          - Dino: dino.md
           - Docker: docker.md
           - dunst: dunst.md
           - Dynamic DNS: dynamicdns.md
@@ -506,6 +508,8 @@ nav:
           - cooking.md
           - Cooking Basics: cooking_basics.md
           - Cooking software: cooking_software.md
+      - Cleaning:
+          - Cleaning tips: cleaning_tips.md
       - Dancing:
           - Rave Dances: dancing/rave_dances.md
           - Swing:
@@ -541,6 +545,11 @@ nav:
       - Fun: fun.md
       - Book Binding: book_binding.md
       - Emojis: emojis.md
+  - Languages:
+      - Castellano: castellano.md
+      - Galego: 
+          - galego.md
+          - Diccionario galego-castelan: diccionario_galego.md
   - Science:
       - Data Analysis:
           - Recommender Systems: >-

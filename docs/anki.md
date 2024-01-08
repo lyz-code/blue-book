@@ -59,6 +59,10 @@ You have three options:
 
 Unless you're certain that you are not longer going to need it, suspend it.
 
+## What to do when you need to edit a card but don't have the time
+
+You can mark it with a red flag so that you remember to edit it the next time you see it.
+
 # Interacting with python
 
 ## Configuration

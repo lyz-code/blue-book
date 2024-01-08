@@ -88,7 +88,6 @@ prometheus](https://prometheus.io/docs/prometheus/latest/installation/), but I'd
 recommend using the [Kubernetes](kubernetes.md) or Docker [Prometheus
 operator](prometheus_installation.md).
 
-
 # Exposing your metrics
 
 Prometheus defines a very nice text-based format for its metrics:

@@ -43,7 +43,6 @@ for n in track(range(n), description="Processing..."):
 ```
 
 ## [Tables](https://rich.readthedocs.io/en/latest/tables.html)
-
 ```python
 from rich.console import Console
 from rich.table import Table
@@ -120,6 +119,45 @@ When you call `add()` a new `Tree` instance is returned. You can use this instan
 baz_tree = tree.add("baz")
 baz_tree.add("[red]Red").add("[green]Green").add("[blue]Blue")
 print(tree)
+```
+## [Configure the logging handler](https://rich.readthedocs.io/en/latest/logging.html)
+
+Rich supplies a logging handler which will format and colorize text written by Python’s logging module.
+
+Here’s an example of how to set up a rich logger:
+
+```python
+import logging
+from rich.logging import RichHandler
+
+FORMAT = "%(message)s"
+logging.basicConfig(
+    level="NOTSET", format=FORMAT, datefmt="[%X]", handlers=[RichHandler()]
+)
+
+log = logging.getLogger("rich")
+log.info("Hello, World!")
+```
+
+If you want to use different levels with the verbose use:
+
+```python
+def load_logger(verbose: bool = False) -> None: 
+    """Configure the Logging logger.
+
+    Args:
+        verbose: Set the logging level to Debug.
+    """
+
+    if verbose:
+        level = logging.DEBUG
+    else:
+        level = logging.INFO
+    logging.basicConfig(
+        format="%(message)s",
+        level=level,
+        handlers=[RichHandler()],
+    )
 ```
 
 # References

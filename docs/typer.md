@@ -253,6 +253,17 @@ if __name__ == "__main__":
     app()
 ```
 
+## [Arguments with help](https://typer.tiangolo.com/tutorial/arguments/help/)
+
+```python
+import typer
+from typing_extensions import Annotated
+
+
+def main(name: Annotated[str, typer.Argument(help="The name of the user to greet")]):
+    print(f"Hello {name}")
+```
+
 ## [Using the context](https://typer.tiangolo.com/tutorial/commands/context/)
 
 When you create a Typer application it uses [`Click`](click.md) underneath. And
@@ -285,7 +296,22 @@ if __name__ == "__main__":
 The `...` as the first argument is to make the
 [option required](https://typer.tiangolo.com/tutorial/options/required/)
 
-## [Create `-vvv`](https://typer.tiangolo.com/tutorial/parameter-types/number/#counter-cli-options)
+## [Create a verbose argument](https://typer.tiangolo.com/tutorial/parameter-types/number/#counter-cli-options)
+A simple `--verbose` and `-v` flag can be defined as:
+
+```python
+import typer
+
+
+def main(
+    verbose: Annotated[bool, typer.Option("--verbose", "-v")] = False,
+):
+    print(f"Verbose level is {verbose}")
+
+
+if __name__ == "__main__":
+    typer.run(main)
+```
 
 You can make a CLI option work as a counter with the `counter` parameter:
 
@@ -293,7 +319,7 @@ You can make a CLI option work as a counter with the `counter` parameter:
 import typer
 
 
-def main(verbose: int = typer.Option(0, "--verbose", "-v", count=True)):
+def main(verbose: Annotated[int, typer.Option("--verbose", "-v", count=True)] = 0):
     print(f"Verbose level is {verbose}")
 
 
@@ -386,6 +412,24 @@ if __name__ == "__main__":
     typer.run(main)
 ```
 
+## [Add a --help and -h command](https://stackoverflow.com/questions/74403900/how-do-i-get-typer-to-accept-the-short-h-as-well-as-the-long-help-to-outp)
+
+`typer` by default gives the `--help` command. If you want `-h` to work too add:
+
+```python
+import typer
+
+app = typer.Typer(context_settings={"help_option_names": ["-h", "--help"]})
+
+
+@app.command()
+def main(name: str):
+    print(f"Hello {name}")
+
+
+if __name__ == "__main__":
+    app()
+```
 ## [Print to stderr](https://typer.tiangolo.com/tutorial/options-autocompletion/#printing-to-standard-error)
 
 You can print to "standard error" with a Rich `Console(stderr=True)`

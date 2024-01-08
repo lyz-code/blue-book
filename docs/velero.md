@@ -204,7 +204,7 @@ Assuming you're using [prometheus](prometheus.md) you can add the next prometheu
 If you already have schedules select the one you want to use:
 
 ```bash
-velero schedules get
+velero schedule get
 ```
 
 Then create the backup with:

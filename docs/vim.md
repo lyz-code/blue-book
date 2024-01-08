@@ -261,6 +261,12 @@ If you prefer minimalism take a look at `paq`. If you want something full of fea
 
 ### Installation
 
+To get started, first clone this repository to somewhere on your packpath, e.g.:
+
+```bash
+git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+```
+
 Create the `~/.config/nvim/lua/plugins.lua` file with the contents:
 
 ```lua
@@ -309,18 +315,19 @@ Whenever you make changes to your plugin configuration you need to:
   :PackerInstall
   ```
 
-To update the packages to the latest version you can run:
+  This will install the plugins in `~/.local/share/nvim/site/pack/packer/start/`, you can manually edit those files to develop new feature or fix issues on the plugins.
 
-```
-:PackerUpdate
-```
+* Update the packages to the latest version you can run:
 
-To show the list of installed plugins run:
+  ```
+  :PackerUpdate
+  ```
 
-```
-:PackerStatus
-```
+* Show the list of installed plugins run:
 
+  ```
+  :PackerStatus
+  ```
 
 # Buffer and file management
 
@@ -358,6 +365,7 @@ require('telescope').setup{
         "--column",
         "--smart-case",
         "--silent",
+        "--follow",
         "--vimgrep",
     }
   }
@@ -953,7 +961,21 @@ The best looking one is himalaya
 - [Nvim plugin](https://git.sr.ht/%7Esoywod/himalaya-vim)
 - [Source](https://github.com/soywod/himalaya)
 
+# Neovim plugin debug
+
+If you use [packer](#packer) your plugins will be installed in `~/.local/share/nvim/site/pack/packer/start/`. You can manually edit those files to develop new feature or fix issues on the plugins.
+
+To debug a plugin read it's source code and try to load in a lua shell the relevant code. If you are in a vim window you can run lua code with `:lua your code here`, for example `:lua Files = require('orgmode.parser.files')`, you can then do stuff with the `Files` object.
+
+Remember that if you need to print the contents of a table [you can use `vim.inspect`](lua.md#inspect-contents-of-Lua-table-in-Neovim).
+
+Another useful tip for Lua newbies (like me) can be to use `print` statements to debug the state of the variables. If it doesn't show up in vim use `error` instead, although that will break the execution with an error.
+
 # Tips
+
+## [Get the name of the file shown](https://stackoverflow.com/questions/4111696/display-name-of-the-current-file-in-vim)
+
+`:f` (`:file`) will do same as `<C-G>`. `:f!` will give a untruncated version, if applicable.
 
 ## [Run a command when opening vim](https://vi.stackexchange.com/questions/846/how-can-i-start-vim-and-then-execute-a-particular-command-that-includes-a-fro)
 

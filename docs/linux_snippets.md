@@ -4,6 +4,30 @@ date: 20200826
 author: Lyz
 ---
 
+# [Makefile use bash instead of sh](https://stackoverflow.com/questions/589276/how-can-i-use-bash-syntax-in-makefile-targets)
+
+The program used as the shell is taken from the variable `SHELL`.  If
+this variable is not set in your makefile, the program `/bin/sh` is
+used as the shell.
+
+So put `SHELL := /bin/bash` at the top of your makefile, and you should be good to go.
+
+# [Recover the message of a commit if the command failed](https://unix.stackexchange.com/questions/590224/is-git-commit-message-recoverable-if-committing-fails-for-some-reason)
+
+`git commit` can fail for reasons such as `gpg.commitsign = true` && `gpg` fails, or when running a pre-commit. Retrying the command opens a blank editor and the message seems to be lost.
+
+The message is saved though in `.git/COMMIT_EDITMSG`, so you can:
+
+```bash
+git commit -m "$(cat .git/COMMIT_EDITMSG)"
+```
+
+Or in general (suitable for an alias for example):
+
+```bash
+git commit -m "$(cat "$(git rev-parse --git-dir)/COMMIT_EDITMSG)")"
+```
+
 # [Accept new ssh keys by default](https://stackoverflow.com/questions/21383806/how-can-i-force-ssh-to-accept-a-new-host-fingerprint-from-the-command-line)
 
 While common wisdom is not to disable host key checking, there is a built-in option in SSH itself to do this. It is relatively unknown, since it's new (added in Openssh 6.5).

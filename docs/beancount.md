@@ -499,6 +499,17 @@ include {{ path/to/file.beancount }}
 
 The path could be relative or absolute.
 
+### [Comments](https://beancount.github.io/docs/beancount_language_syntax.html#comments)
+
+Any text on a line after the character `;` is ignored, text like this:
+
+```beancount
+; I paid and left the taxi, forgot to take change, it was cold.
+2015-01-01 * "Taxi home from concert in Brooklyn"
+  Assets:Cash      -20 USD  ; inline comment
+  Expenses:Taxi
+```
+
 # Library usage
 
 Beancount can also be used as a Python library.

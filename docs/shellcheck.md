@@ -8,6 +8,31 @@ apt-get install shellcheck
 
 # Errors
 
+## [SC1090: Can't follow non-constant source. Use a directive to specify location](https://www.shellcheck.net/wiki/SC1090)
+
+Problematic code:
+
+```bash
+. "${util_path}"
+```
+
+Correct code:
+
+```bash
+# shellcheck source=src/util.sh
+. "${util_path}"
+```
+
+Rationale:
+
+ShellCheck is not able to include sourced files from paths that are determined at runtime. The file will not be read, potentially resulting in warnings about unassigned variables and similar.
+
+Use a Directive to point shellcheck to a fixed location it can read instead.
+
+Exceptions:
+
+If you don't care that ShellCheck is unable to account for the file, specify `# shellcheck source=/dev/null`.
+
 ## [SC2143: Use `grep -q` instead of comparing output with `[ -n .. ]`.](https://www.shellcheck.net/wiki/SC2143)
 
 Problematic code:

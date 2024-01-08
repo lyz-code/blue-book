@@ -27,22 +27,7 @@ comes when you do the initial load, as you have to add all the:
 * Quantity conversions.
 * Products.
 
-## Tips
-
-!!! note
-    Very recommended to use the [android
-    app](https://github.com/patzly/grocy-android)
-
-* Add first the products with less letters, so add first `Toothpaste` and then
-  `Toothpaste roommate`.
-* Do the filling in iterations:
-  * Add the common products: this can be done with the ticket of the last
-    groceries, or manually inspecting all the elements in your home.
-  * Incrementally add the recipes that you use
-  * Add the barcodes in the products that make sense.
-* Add the `score` and `shop` userfields for the products, so you can evaluate
-  how much you like the product and where to buy it. If you show them in the
-  columns, you can also filter the shopping list by shop.
+# General concepts
 
 ## Minimum quantities
 
@@ -127,7 +112,44 @@ The rule of thumb I've been using is:
   milliliters for the wine (so I only have to update the inventory when the
   bottle is gone).
 
-## Future ideas
+# Workflows
+
+## Doing the inventory review
+
+I haven't found a way to make the grocy inventory match the reality because for me it's hard to register when I consume a product. Even more if other people also use them. Therefore I use grocy only to know what to buy without thinking about it. For that use case the inventory needs to meet reality only before doing the groceries. I usually do a big shopping of non-perishable goods at the supermarket once each two or three months, and a weekly shopping of the rest.
+
+Tracking the goods that are bought each week makes no sense as those are things that are clearly seen and are very variable depending on the season. Once I've automated the ingestion and consumption of products it will, but so far it would mean investing more time than the benefit it gives.
+
+This doesn't apply to the big shopping, as this one is done infrequently, so we need a better planning.
+
+To do the inventory review I use a tablet and the [android app](https://github.com/patzly/grocy-android).
+
+- [ ] Open the stock overview and iterate through the locations to:
+  - [ ] Make sure that the number of products match the reality
+    - [ ] Iterate over the list of products checking the quantity
+    - [ ] Look at the location to see if there are missing products in the inventory
+  - [ ] Adjust the product properties (default location, minimum amount)
+- [ ] Check the resulting shopping list and adjust the minimum values.
+- [ ] Check the list of missing products to adjust the minimum values. I have a notepad in the fridge where I write the things I miss.
+
+# Tips
+
+!!! note
+    Very recommended to use the [android
+    app](https://github.com/patzly/grocy-android)
+
+* Add first the products with less letters, so add first `Toothpaste` and then
+  `Toothpaste roommate`.
+* Do the filling in iterations:
+  * Add the common products: this can be done with the ticket of the last
+    groceries, or manually inspecting all the elements in your home.
+  * Incrementally add the recipes that you use
+  * Add the barcodes in the products that make sense.
+* Add the `score` and `shop` userfields for the products, so you can evaluate
+  how much you like the product and where to buy it. If you show them in the
+  columns, you can also filter the shopping list by shop.
+
+# Future ideas
 
 I could monitor the ratio of rotting and when a product gets below the minimum
 stock to optimize the units to buy above the minimum quantity so as to minimize
@@ -136,8 +158,7 @@ the shopping frequency. It can be saved in the `max_amount` user field.
 To calculate it's use I can use the average shelf life, last purchased and last
 used specified in the product information
 
-
-## TODO
+# TODO
 
 * Define the userfields I've used
 * Define the workflow for :
@@ -206,6 +227,7 @@ used specified in the product information
     [1](https://github.com/grocy/grocy/issues/682),
     [2](https://github.com/grocy/grocy/issues/1188) and
     [3](https://github.com/grocy/grocy/issues/1387).
-## Resources
+
+# References
 
 * [Homepage](https://grocy.info/)

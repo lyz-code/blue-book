@@ -40,6 +40,12 @@ connections](https://docs.syncthing.net/users/security.html#relay-connections)
 so that you don't leak the existence of your services to the syncthing servers.
 
 # Troubleshooting
+## [Change the path of a folder](https://forum.syncthing.net/t/why-cant-we-change-the-folder-paths/16507)
+
+- Shutdown Syncthing
+- Edit the config file (`~/.config/syncthing/config.xml`)
+- Search and replace the path
+- Start again syncthing
 
 ## Syncthing over Tor
 

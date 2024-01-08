@@ -15,6 +15,9 @@ a good range of
 and supports a [huge range of
 bands](https://codeberg.org/Freeyourgadget/Gadgetbridge/src/branch/master/README.md#supported-devices-warning-some-of-them-wip-and-some-of-them-without-maintainer).
 
+# Installation
+
+On [GrapheneOS](grapheneos.md) you may need to [enable the restricted permissions](https://support.google.com/android/answer/12623953?hl=en)
 # [Data extraction](https://codeberg.org/Freeyourgadget/Gadgetbridge/wiki/Data-Export-Import-Merging-Processing)
 
 You can use the Data export or Data Auto export to get copy of your data.

@@ -182,7 +182,19 @@ raise `ValueError`, `TypeError` or `AssertionError` (or subclasses of
 
 One exception will be raised regardless of the number of errors found, that
 `ValidationError` will contain information about all the errors and how they
-happened.
+happened. It does not include however the data that produced the error. A nice way of showing it is to capture the error and print it yourself:
+
+```python
+try:
+    model = Model(
+        state=state,
+    )
+except ValidationError as error:
+    log.error(f'Error building model with state {state}')
+    raise error
+```
+
+This creates a message that does not include the data that generated the i
 
 You can access these errors in a several ways:
 
@@ -631,6 +643,44 @@ You can define your own properties but when you export the schema they won't
 appear there.
 [dgasmith has a workaround](https://github.com/samuelcolvin/pydantic/issues/1035)
 though.
+
+## [Load a pydantic model from json](https://docs.pydantic.dev/latest/concepts/json/#json-parsing)
+
+You can use the [`model_validate_json`](https://docs.pydantic.dev/latest/api/base_model/#pydantic.main.BaseModel.model_validate_json) method that will validate and return an object with the loaded data.
+
+```python
+from datetime import date
+
+from pydantic import BaseModel, ConfigDict, ValidationError
+
+
+class Event(BaseModel):
+    model_config = ConfigDict(strict=True)
+
+    when: date
+    where: tuple[int, int]
+
+
+json_data = '{"when": "1987-01-28", "where": [51, -1]}'
+print(Event.model_validate_json(json_data))  
+
+
+#> when=datetime.date(1987, 1, 28) where=(51, -1)
+
+try:
+    Event.model_validate({'when': '1987-01-28', 'where': [51, -1]})  
+
+
+except ValidationError as e:
+    print(e)
+    """
+    2 validation errors for Event
+    when
+      Input should be a valid date [type=date_type, input_value='1987-01-28', input_type=str]
+    where
+      Input should be a valid tuple [type=tuple_type, input_value=[51, -1], input_type=list]
+    """
+```
 
 # Troubleshooting
 

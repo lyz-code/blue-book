@@ -407,47 +407,37 @@ This is useful to send notifications if any of the jobs failed.
 Inside your [`custom` directory](https://docs.gitea.io/en-us/customizing-gitea/) which may be `/var/lib/gitea/custom`:
 
 * Create the directories `templates/user/auth`, 
-* Create the `signin_inner.tmpl` file with the next contents:
+* Create the `signin_inner.tmpl` file with the next contents. If it fails check [the latest version of the file](https://raw.githubusercontent.com/go-gitea/gitea/main/templates/user/auth/signin_inner.tmpl) and tweak it accordingly:
   ```jinja2
-                  {{if or (not .LinkAccountMode) (and .LinkAccountMode .LinkAccountModeSignIn)}}
-                {{template "base/alert" .}}
-                {{end}}
-                <h4 class="ui top attached header center">
-                        {{if .LinkAccountMode}}
-                                {{.locale.Tr "auth.oauth_signin_title"}}
-                        {{else}}
-                                {{.locale.Tr "auth.login_userpass"}}
-                        {{end}}
-                </h4>
-                <div class="ui attached segment">
-                        <form class="ui form" action="{{.SignInLink}}" method="post">
-                        {{.CsrfTokenHtml}}
-                        {{if and .OrderedOAuth2Names .OAuth2Providers}}
-                        <div class="ui attached segment">
-                                <div class="oauth2 center">
-                                        <div id="oauth2-login-loader" class="ui disabled centered loader"></div>
-                                        <div>
-                                                <div id="oauth2-login-navigator">
-                                                        <p>Sign in with </p>
-                                                        {{range $key := .OrderedOAuth2Names}}
-                                                                {{$provider := index $.OAuth2Providers $key}}
-                                                                <a href="{{AppSubUrl}}/user/oauth2/{{$key}}">
-                                                                        <img
-                                                                                alt="{{$provider.DisplayName}}{{if eq $provider.Name "openidConnect"}} ({{$key}}){{end}}"
-                                                                                title="{{$provider.DisplayName}}{{if eq $provider.Name "openidConnect"}} ({{$key}}){{end}}"
-                                                                                class="{{$provider.Name}} oauth-login-image"
-                                                                                src="{{AppSubUrl}}{{$provider.Image}}"
-                                                                        ></a>
-                                                        {{end}}
-                                                </div>
-                                        </div>
-                                </div>
-                        </div>
-                        {{end}}
-                        </form>
-                </div>
+  {{if or (not .LinkAccountMode) (and .LinkAccountMode .LinkAccountModeSignIn)}}
+  {{template "base/alert" .}}
+  {{end}}
+  <h4 class="ui top attached header center">
+          {{if .LinkAccountMode}}
+                  {{ctx.Locale.Tr "auth.oauth_signin_title"}}
+          {{else}}
+                  {{ctx.Locale.Tr "auth.login_userpass"}}
+          {{end}}
+  </h4>
+  <div class="ui attached segment">
+          <form class="ui form" action="{{.SignInLink}}" method="post">
+          {{if .OAuth2Providers}}
+          <div id="oauth2-login-navigator" class="gt-py-2">
+                  <div class="gt-df gt-fc gt-jc">
+                          <div id="oauth2-login-navigator-inner" class="gt-df gt-fc gt-fw gt-ac gt-gap-3">
+                                  {{range $provider := .OAuth2Providers}}
+                                          <a class="{{$provider.Name}} ui button gt-df gt-ac gt-jc gt-py-3 oauth-login-link" href="{{AppSubUrl}}/user/oauth2/{{$provider.DisplayName}}">
+                                                  {{$provider.IconHTML 28}}
+                                                  {{ctx.Locale.Tr "sign_in_with_provider" $provider.DisplayName}}
+                                          </a>
+                                  {{end}}
+                          </div>
+                  </div>
+          </div>
+          {{end}}
+          </form>
+  </div>
   ```
-* Download the [`signin_inner.tmpl`](https://raw.githubusercontent.com/go-gitea/gitea/main/templates/user/auth/signin_inner.tmpl)
  
 ## [Configure it with terraform](https://registry.terraform.io/providers/Lerentis/gitea/latest/docs)
 

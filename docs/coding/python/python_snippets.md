@@ -4,9 +4,31 @@ date: 20200717
 author: Lyz
 ---
 
-# Configure the logging of a program to look nice
+# [Get unique items between two lists](https://stackoverflow.com/questions/28444561/get-only-unique-elements-from-two-lists)
+
+If you want all items from the second list that do not appear in the first list you can write:
+
+```
+x = [1,2,3,4]
+f = [1,11,22,33,44,3,4]
+
+result = set(f) - set(x)
+```
+
+# [Pad number with zeros](https://stackoverflow.com/questions/134934/display-number-with-leading-zeros)
 
 ```python
+number = 1
+print(f"{number:02d}")
+```
+
+# Configure the logging of a program to look nice
+
+Note: if you're going to use the [`rich`](rich.md) library check [this snippet instead](rich.md#configure-the-logging-handler).
+
+```python
+import sys
+
 def load_logger(verbose: bool = False) -> None:  # pragma no cover
     """Configure the Logging logger.
 
