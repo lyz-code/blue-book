@@ -7,7 +7,7 @@ nav:
   - Introduction: index.md
   - Projects: projects.md
   - Activism:
-      - activism.org
+      - activism.md
       - Antifascism:
           - antifascism.md
           - Antifascist Actions: antifascist_actions.md
@@ -383,6 +383,7 @@ nav:
           - Grafana: grafana.md
           - Log analysis:
             - Loki: loki.md
+            - Promtail: promtail.md
             - Graylog: graylog.md
             - Elastic Security: elastic_security.md
           - SIEM: siem.md
@@ -401,6 +402,7 @@ nav:
           - CPU: cpu.md
           - RAM: ram.md
           - Power Supply Unit: psu.md
+          - GPU: gpu.md
           - Pedal PC: pedal_pc.md
   - Operating Systems:
       - Linux:
@@ -444,6 +446,7 @@ nav:
           - Matrix: matrix.md
           - mbsync: mbsync.md
           - Mediatracker: mediatracker.md
+          - Moonlight: moonlight.md
           - mkdocs: linux/mkdocs.md
           - Mopidy: mopidy.md
           - monica: linux/monica.md

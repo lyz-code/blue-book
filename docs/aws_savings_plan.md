@@ -142,6 +142,129 @@ Savings Plan rate is $2.40. This is less than the $3.00/hour commitment.
 Next, the Compute Savings Plan is applied to rest of the resource usage, if it
 doesn't cover the whole expense, then On demand rates will apply.
 
+# [Understanding how reserved instances are applied](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/apply_ri.html)
+
+A Reserved Instance that is purchased for a Region is called a regional Reserved Instance, and provides Availability Zone and instance size flexibility.
+
+- The Reserved Instance discount applies to instance usage in any Availability Zone in that Region.
+- The Reserved Instance discount applies to instance usage within the instance family, regardless of size—this is known as instance size flexibility.
+
+With instance size flexibility, the Reserved Instance discount applies to instance usage for instances that have the same family, generation, and attribute. The Reserved Instance is applied from the smallest to the largest instance size within the instance family based on the normalization factor.
+
+The discount applies either fully or partially to running instances of the same instance family, depending on the instance size of the reservation, in any Availability Zone in the Region. The only attributes that must be matched are the instance family, tenancy, and platform.
+
+The following table lists the different sizes within an instance family, and the corresponding normalization factor. This scale is used to apply the discounted rate of Reserved Instances to the normalized usage of the instance family.
+
+| Instance size | 	Normalization factor |
+| --- | --- |
+| nano | 	0.25 |
+| micro | 	0.5 |
+| small | 	1 |
+| medium | 	2 |
+| large | 	4 |
+| xlarge | 	8 |
+| 2xlarge | 	16 |
+| 3xlarge | 	24 |
+| 4xlarge | 	32 |
+| 6xlarge | 	48 |
+| 8xlarge | 	64 |
+| 9xlarge | 	72 |
+| 10xlarge | 	80 |
+| 12xlarge | 	96 |
+| 16xlarge | 	128 |
+| 18xlarge | 	144 |
+| 24xlarge | 	192 |
+| 32xlarge | 	256 |
+| 48xlarge | 	384 |
+| 56xlarge | 	448 |
+| 112xlarge | 	896 |
+
+For example, a `t2.medium` instance has a normalization factor of `2`. If you purchase a `t2.medium` default tenancy Amazon Linux/Unix Reserved Instance in the US East (N. Virginia) and you have two running `t2.small` instances in your account in that Region, the billing benefit is applied in full to both instances.
+
+Or, if you have one `t2.large` instance running in your account in the US East (N. Virginia) Region, the billing benefit is applied to 50% of the usage of the instance.
+
+Limitations:
+
+- *Supported*: Instance size flexibility is only supported for Regional Reserved Instances.
+- *Not supported*: Instance size flexibility is not supported for the following Reserved Instances:
+    - Reserved Instances that are purchased for a specific Availability Zone (zonal Reserved Instances)
+    - Reserved Instances for G4ad, G4dn, G5, G5g, and Inf1 instances
+    - Reserved Instances for Windows Server, Windows Server with SQL Standard, Windows Server with SQL Server Enterprise, Windows Server with SQL Server Web, RHEL, and SUSE Linux Enterprise Server
+    - Reserved Instances with dedicated tenancy
+
+## [Examples of applying reserved instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/apply_ri.html)
+
+### Scenario 1: Reserved Instances in a single account
+
+You are running the following On-Demand Instances in account A:
+
+- 4 x `m3.large` Linux, default tenancy instances in Availability Zone us-east-1a
+- 2 x `m4.xlarge` Amazon Linux, default tenancy instances in Availability Zone us-east-1b
+- 1 x `c4.xlarge` Amazon Linux, default tenancy instances in Availability Zone us-east-1c
+
+You purchase the following Reserved Instances in account A:
+
+- 4 x `m3.large` Linux, default tenancy Reserved Instances in Availability Zone us-east-1a (capacity is reserved)
+- 4 x `m4.large` Amazon Linux, default tenancy Reserved Instances in Region us-east-1
+- 1 x `c4.large` Amazon Linux, default tenancy Reserved Instances in Region us-east-1
+
+The Reserved Instance benefits are applied in the following way:
+
+- The discount and capacity reservation of the four `m3.large` zonal Reserved Instances is used by the four `m3.large` instances because the attributes (instance size, Region, platform, tenancy) between them match.
+- The `m4.large` regional Reserved Instances provide Availability Zone and instance size flexibility, because they are regional Amazon Linux Reserved Instances with default tenancy.
+
+  An `m4.large` is equivalent to 4 normalized units/hour.
+
+  You've purchased four `m4.large` regional Reserved Instances, and in total, they are equal to `16` normalized units/hour (4x4). Account A has two `m4.xlarge` instances running, which is equivalent to `16` normalized units/hour (2x8). In this case, the four `m4.large` regional Reserved Instances provide the full billing benefit to the usage of the two `m4.xlarge` instances.
+
+  The `c4.large` regional Reserved Instance in us-east-1 provides Availability Zone and instance size flexibility, because it is a regional Amazon Linux Reserved Instance with default tenancy, and applies to the `c4.xlarge` instance. A `c4.large` instance is equivalent to `4` normalized units/hour and a `c4.xlarge` is equivalent to `8` normalized units/hour.
+
+  In this case, the `c4.large` regional Reserved Instance provides partial benefit to `c4.xlarge` usage. This is because the `c4.large` Reserved Instance is equivalent to `4` normalized units/hour of usage, but the `c4.xlarge` instance requires `8` normalized units/hour. Therefore, the `c4.large` Reserved Instance billing discount applies to 50% of `c4.xlarge` usage. The remaining `c4.xlarge` usage is charged at the On-Demand rate.
+
+### Scenario 2: Reserved Instances in a single account using the normalization factor
+
+You are running the following On-Demand Instances in account A:
+
+- 2 x `m3.xlarge` Amazon Linux, default tenancy instances in Availability Zone us-east-1a
+- 2 x `m3.large` Amazon Linux, default tenancy instances in Availability Zone us-east-1b
+
+You purchase the following Reserved Instance in account A:
+
+- 1 x `m3.2xlarge` Amazon Linux, default tenancy Reserved Instance in Region us-east-1
+
+The Reserved Instance benefits are applied in the following way:
+
+- The `m3.2xlarge` regional Reserved Instance in us-east-1 provides Availability Zone and instance size flexibility, because it is a regional Amazon Linux Reserved Instance with default tenancy. It applies first to the `m3.large` instances and then to the `m3.xlarge` instances, because it applies from the smallest to the largest instance size within the instance family based on the normalization factor.
+
+- An `m3.large` instance is equivalent to `4` normalized units/hour.
+- An `m3.xlarge` instance is equivalent to `8` normalized units/hour.
+- An `m3.2xlarge` instance is equivalent to `16` normalized units/hour.
+
+The benefit is applied as follows:
+
+The `m3.2xlarge` regional Reserved Instance provides full benefit to 2 x `m3.large` usage, because together these instances account for `8` normalized units/hour. This leaves `8` normalized units/hour to apply to the `m3.xlarge` instances.
+
+With the remaining `8` normalized units/hour, the `m3.2xlarge` regional Reserved Instance provides full benefit to 1 x `m3.xlarge` usage, because each `m3.xlarge` instance is equivalent to `8` normalized units/hour. The remaining `m3.xlarge` usage is charged at the On-Demand rate.
+
+# [Standard or convertible reserved instances](https://docs.aws.amazon.com/whitepapers/latest/cost-optimization-reservation-models/standard-vs.-convertible-offering-classes.html)
+
+When you purchase a Reserved Instance, you can choose between a Standard or Convertible offering class. 
+
+- Standard Reserved Instance: Enables you to modify Availability Zone, scope, networking type, and instance size (within the same instance type) of your Reserved Instance.
+- Convertible Reserved Instance:  Enables you to exchange one or more Convertible Reserved Instances for another Convertible Reserved Instance with a different configuration, including instance family, operating system, and tenancy.
+
+  There are no limits to how many times you perform an exchange, as long as the target Convertible Reserved Instance is of an equal or higher value than the Convertible Reserved Instances that you are exchanging.
+
+Standard Reserved Instances typically provide the highest discount levels. One-year Standard Reserved Instances provide a similar discount to three-year Convertible Reserved Instances. 
+
+Convertible Reserved Instances are useful when:
+
+- Purchasing Reserved Instances in the payer account instead of a subaccount. You can more easily modify Convertible Reserved Instances to meet changing needs across your organization.
+- Workloads are likely to change. In this case, a Convertible Reserved Instance enables you to adapt as needs evolve while still obtaining discounts and capacity reservations.
+- You want to hedge against possible future price drops.
+- You can’t or don’t want to ask teams to do capacity planning or forecasting.
+- You expect compute usage to remain at the committed amount over the commitment period.
+
 # [Monitoring the savings plan](https://docs.aws.amazon.com/savingsplans/latest/userguide/sp-monitoring.html)
 
 Monitoring is an important part of your Savings Plans usage. Understanding the
@@ -222,6 +345,8 @@ Plans. You can monitor your usage in multiple forms.
 
     * "Reservation covered hours": the column does not refer to your RI hours. This column refers to your on demand hours that was covered by Reserved Instances.
 
+- Using the Reserved Instance Coverage report: In this report the column "Reservation covered hours" is also misleading as it does not refer to your Reserved instance hours. It refers to your on demand hours that was covered by Reserved Instances.
+    
 # Doing your savings plan
 
 Go to the [AWS savings plan

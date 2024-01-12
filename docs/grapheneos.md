@@ -161,6 +161,20 @@ Attestation can be done locally by pairing with another Android 8+ device or rem
 
 # Tips
 
+## Disable Bluetooth and Wifi once it's disconnected
+
+If you don't want to go spreading your SSIDs you can configure graphene to disable wifi and bluetooth X minutes after loosing connection.
+
+For Wifi:
+
+- Go to Settings > network & internet > internet > network preferences
+- Select Turn off Wi-Fi automatically, for example after 2 minutes
+
+For Bluetooth:
+
+- Go to Settings > connected devices > connection preferences>  bluetooth 
+- Select Turn Bluetooth off automatically, for example after 2 minutes
+
 ## [Split the screen](https://www.reddit.com/r/GrapheneOS/comments/134iqr3/split_screen/)
 
 Go into app switcher, tap on the app icon above the active app and then select "Split top".

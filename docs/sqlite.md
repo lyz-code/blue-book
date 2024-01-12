@@ -80,6 +80,18 @@ create the regexp function](sqlite3.md#regexp).
 
 # Snippets
 
+## Order by a column descending
+
+```sql
+SELECT
+   select_list
+FROM
+   table
+ORDER BY
+    column_1 ASC,
+    column_2 DESC;
+```
+
 ## [Import a table from another database](https://stackoverflow.com/questions/13206501/how-do-i-import-tables-from-another-database-in-sqlite)
 
 If you have an SQLite databases named `database1` with a table `t1` and `database2` with a table `t2` and want to import table `t2` from `database2` into `database1`. You need to open `database1` with `litecli`:
