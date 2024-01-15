@@ -11,6 +11,20 @@ sudo add-apt-repository -y ppa:team-xbmc/ppa
 sudo apt install kodi
 ```
 
+# Extract the user browsing data
+
+## From the database
+
+At `~/.kodi/
+
+```
++-----------+----------+------------+-------------+--------+-------+
+| rating_id | media_id | media_type | rating_type | rating | votes |
++-----------+----------+------------+-------------+--------+-------+
+| 1         | 1        | movie      | default     | 6.4    | 339   |
++-----------+----------+------------+-------------+--------+-------+
+```
+
 # Troubleshooting
 
 ## [Movie not recognized by kodi](https://kodi.wiki/view/Incorrect_and_missing_videos)

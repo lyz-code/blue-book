@@ -45,6 +45,16 @@ Some tips:
 
 You can create public lists to share with the rest of the users, the way to share it though [is a bit archaic so far](https://github.com/bonukai/MediaTracker/issues/527), it's only through the list link, in the interface they won't be able to see it.
 
+## API
+
+I haven't found a way to see the api docs from my own instance. Luckily you can browse it [at the official instance](https://bonukai.github.io/MediaTracker/).
+
+You can create an application token on your user configuration. Then you can use it with something similar to:
+
+```bash
+curl -H 'Content-Type: application/json' https://mediatracker.your-domain.org/api/logs\?token\=your-token | jq
+```
+
 # Alternatives
 
 [Ryot](https://github.com/IgnisDa/ryot) has a better web design, it also has a [jellyfin scrobbler](https://github.com/IgnisDa/ryot/pull/195), although it's not [yet stable](https://github.com/IgnisDa/ryot/issues/187). There are other UI tweaks that is preventing me from migrating to ryot such as [the easier media rating](https://github.com/IgnisDa/ryot/issues/284) and [the percentage over five starts rating system](https://github.com/IgnisDa/ryot/issues/283).

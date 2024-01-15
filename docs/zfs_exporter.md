@@ -98,6 +98,7 @@ Configure the scraping in your prometheus configuration:
 ```yaml
   - job_name: zfs_exporter
     metrics_path: /metrics
+    scrape_timeout: 60s
     static_configs:
     - targets: [192.168.3.236:9134] 
     metric_relabel_configs:
@@ -110,6 +111,8 @@ Configure the scraping in your prometheus configuration:
         target_label: snapshot_type
         replacement: ${1}
 ```
+
+Remember to set the `scrape_timeout` to at least of `60s` as the exporter is sometimes slow to answer, specially on low hardware resources.
 
 The relabelings are done to be able to extract the `filesystem` and the backup type of the snapshots'  metrics. This assumes that you are using [`sanoid`](sanoid.md) to do the backups, which gives metrics such as:
 

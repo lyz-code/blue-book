@@ -49,6 +49,12 @@ zfs mount rpool
 zpool export pool-name
 ```
 
+If you get an error of `pool or dataset is busy` run the next command to see which process is still running on the pool:
+
+```bash
+lsof 2>/dev/null | grep dataset-name
+```
+
 ## List pools
 
 ```bash

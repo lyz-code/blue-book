@@ -3,6 +3,11 @@
 - Download the latest [deb package](https://github.com/RocketChat/Rocket.Chat.Electron/releases)
 - `sudo dpkg -i file.deb`
 
+# API
+
+The API docs are a bit weird, you need to go to [endpoints](https://developer.rocket.chat/reference/api/rest-api/endpoints) and find the one you need. Your best bet though is to open the browser network console and see which requests they are doing and then to find them in the docs.
+
+
 # [Integrations](https://docs.rocket.chat/use-rocket.chat/workspace-administration/integrations)
 
 Rocket.Chat supports webhooks to integrate tools and services you like into the platform. Webhooks are simple event notifications via HTTP POST. This way, any webhook application can post a message to a Rocket.Chat instance and much more.
@@ -135,3 +140,4 @@ curl -X POST \
 ```
 
 If you want to do more complex things uncomment the part of the attachments.
+
