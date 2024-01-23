@@ -14,6 +14,11 @@ just a team who want to build something better and work together to achieve it.
 
 # Clients
 
+## [Python library](https://github.com/jellyfin/jellyfin-apiclient-python/tree/master)
+
+This is the API client from Jellyfin Kodi extracted as a python package so that other users may use the API without maintaining a fork of the API client. Please note that this API client is not complete. You may have to add API calls to perform certain tasks. 
+
+It doesn't (yet) support async
 ## [Jellyfin Desktop](https://github.com/jellyfin/jellyfin-media-player)
 
 ### Installation

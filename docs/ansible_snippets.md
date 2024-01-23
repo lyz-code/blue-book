@@ -4,6 +4,29 @@ date: 20220119
 author: Lyz
 ---
 
+# Fix the `ERROR! 'become' is not a valid attribute for a IncludeRole` error
+
+
+If you're trying to do something like:
+```yaml
+tasks:
+  - name: "Install nfs"
+    become: true
+    ansible.builtin.include_role:
+      name: nfs
+```
+
+You need to use this other syntax:
+
+```yaml
+tasks:
+  - name: "Install nfs"
+    ansible.builtin.include_role:
+      name: nfs
+      apply:
+        become: true
+```
+
 # [Ansible lint skip some rules](https://ansible.readthedocs.io/projects/lint/configuring/#ansible-lint-configuration)
 
 Add a `.ansible-lint-ignore` file with a line per rule to ignore with the syntax `path/to/file rule_to_ignore`.

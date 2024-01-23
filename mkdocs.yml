@@ -34,8 +34,12 @@ nav:
           - Getting Things Done: gtd.md
           - Task Management Tools:
               - task_tools.md
-              - Org Mode: orgmode.md
+              - Org Mode: 
+                - orgmode.md
+                - Org-rw: org_rw.md
+                - Orgzly: orgzly.md
               - OpenProject: openproject.md
+      - Habit management: habit_management.md
       - Interruption Management:
           - interruption_management.md
           - Work Interruption Analysis: work_interruption_analysis.md
@@ -125,10 +129,12 @@ nav:
                   - GitPython: coding/python/gitpython.md
                   - Goodconf: goodconf.md
                   - ICS: ics.md
+                  - Inotify: python_inotify.md
                   - Jinja2: python_jinja2.md
                   - Maison: maison.md
                   - mkdocstrings: coding/python/mkdocstrings.md
                   - NetworkX: networkx.md
+                  - Org-rw: org_rw.md
                   - Pandas: coding/python/pandas.md
                   - Passpy: coding/python/passpy.md
                   - pexpect: pexpect.md
@@ -437,6 +443,7 @@ nav:
           - hypothesis: linux/hypothesis.md
           - i3wm: i3wm.md
           - Jellyfin: jellyfin.md
+          - journald: journald.md
           - ffmpeg: ffmpeg.md
           - Khal: khal.md
           - Kitty: kitty.md
@@ -444,6 +451,7 @@ nav:
           - Koel: koel.md
           - LUKS: linux/luks/luks.md
           - Matrix: matrix.md
+          - Matrix Highlight: matrix_highlight.md
           - mbsync: mbsync.md
           - Mediatracker: mediatracker.md
           - Moonlight: moonlight.md
@@ -539,6 +547,8 @@ nav:
           - Age of Empires: age_of_empires.md
       - Board Gaming:
           - Regicide: regicide.md
+      - Music:
+        - Sister Rosetta Tharpe: sister_rosetta_tharpe.md
       - Sudokus: sudokus.md
       - Drawing:
           - drawing/drawing.md
@@ -557,7 +567,7 @@ nav:
       - Data Analysis:
           - Recommender Systems: >-
               data_analysis/recommender_systems/recommender_systems.md
-          - Parsing Data: parsing_data.md
+          - Parsers: parsers.md
       - Psychology:
           - The XY Problem: psychology/the_xy_problem.md
       - Botany:

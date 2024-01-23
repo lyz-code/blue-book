@@ -34,12 +34,12 @@ pip install 'typer[all]'
 import typer
 
 
-def main(name: str):
+def cli(name: str):
     print(f"Hello {name}")
 
 
 if __name__ == "__main__":
-    typer.run(main)
+    typer.run(cli)
 ```
 
 # [Usage](https://typer.tiangolo.com/#the-absolute-minimum)

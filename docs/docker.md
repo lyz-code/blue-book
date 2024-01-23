@@ -27,6 +27,88 @@ sudo chmod 755 $DESTINATION
 
 If you don't want the latest version set the `VERSION` variable.
 
+## Configure log aggregation
+
+To centralize the logs you can either use journald or loki directly.
+
+### [Send logs to journald](https://docs.docker.com/config/containers/logging/journald/)
+
+The `journald` logging driver sends container logs to the systemd journal. Log entries can be retrieved using the `journalctl` command, through use of the journal API, or using the docker logs command.
+
+In addition to the text of the log message itself, the `journald` log driver stores the following metadata in the journal with each message:
+| Field |	Description |
+| ---   |  ----  |
+| CONTAINER_ID |	The container ID truncated to 12 characters. |
+| CONTAINER_ID_FULL |	The full 64-character container ID. |
+| CONTAINER_NAME |	The container name at the time it was started. If you use docker rename to rename a container, the new name isn't reflected in the journal entries. |
+| CONTAINER_TAG, | SYSLOG_IDENTIFIER	The container tag ( log tag option documentation). |
+| CONTAINER_PARTIAL_MESSAGE |	A field that flags log integrity. Improve logging of long log lines. |
+
+To use the journald driver as the default logging driver, set the log-driver and log-opts keys to appropriate values in the `daemon.json` file, which is located in `/etc/docker/`.
+
+```json
+{
+  "log-driver": "journald"
+}
+```
+
+Restart Docker for the changes to take effect.
+
+### [Send the logs to loki](https://grafana.com/docs/loki/latest/send-data/docker-driver/configuration/)
+
+There are many ways to send logs to loki
+
+- Using the docker plugin
+- Using the journald driver and sending them to loki with promtail with the journald driver
+- Using the json driver and sending them to loki with promtail with the docker driver
+
+#### Using the json driver
+
+#### Using journald 
+
+This has worked for me but the labels extracted are not that great.
+
+#### Using the docker plugin
+
+Grafana Loki officially supports a Docker plugin that will read logs from Docker containers and ship them to Loki.
+
+I would not recommend to use this path because there is a known issue that deadlocks the docker daemon :S. The driver keeps all logs in memory and will drop log entries if Loki is not reachable and if the quantity of `max_retries` has been exceeded. To avoid the dropping of log entries, setting `max_retries` to zero allows unlimited retries; the driver will continue trying forever until Loki is again reachable. Trying forever may have undesired consequences, because the Docker daemon will wait for the Loki driver to process all logs of a container, until the container is removed. Thus, the Docker daemon might wait forever if the container is stuck.
+
+The wait time can be lowered by setting `loki-retries=2`, `loki-max-backoff_800ms`, `loki-timeout=1s` and `keep-file=true`. This way the daemon will be locked only for a short time and the logs will be persisted locally when the Loki client is unable to re-connect.
+
+To avoid this issue, use the Promtail Docker service discovery.
+
+#### Install the Docker driver client
+
+The Docker plugin must be installed on each Docker host that will be running containers you want to collect logs from.
+
+Run the following command to install the plugin, updating the release version if needed:
+bash
+
+```bash
+docker plugin install grafana/loki-docker-driver:2.9.1 --alias loki --grant-all-permissions
+```
+
+To check installed plugins, use the `docker plugin ls` command. Plugins that have started successfully are listed as enabled:
+
+```bash
+$ docker plugin ls
+ID                  NAME         DESCRIPTION           ENABLED
+ac720b8fcfdb        loki         Loki Logging Driver   true
+```
+
+Once you have successfully installed the plugin you can configure it.
+
+#### Upgrade the Docker driver client
+
+The upgrade process involves disabling the existing plugin, upgrading, then re-enabling and restarting Docker:
+
+```bash
+docker plugin disable loki --force
+docker plugin upgrade loki grafana/loki-docker-driver:2.9.1 --grant-all-permissions
+docker plugin enable loki
+systemctl restart docker
+```
 # How to keep containers updated
 
 ## [With Renovate](renovate.md)
@@ -287,6 +369,8 @@ round-trip min/avg/max = 0.042/0.042/0.042 ms
 
 The other way around works too.
 
+# Dockerfile creation
+
 ## [Remove the apt cache after installing a package](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
 
 ```
@@ -315,6 +399,24 @@ If you are using a VPN and docker, you're going to have a hard time.
 The `docker` systemd service logs `systemctl status docker.service` usually doesn't
 give much information. Try to start the daemon directly with `sudo
 /usr/bin/dockerd`.
+
+## Syslog getting filled up with docker network recreation
+
+If you find yourself with your syslog getting filled up by lines similar to:
+
+```
+ Jan 15 13:19:19 home kernel: [174716.097109] eth2: renamed from veth0adb07e
+ Jan 15 13:19:20 home kernel: [174716.145281] IPv6: ADDRCONF(NETDEV_CHANGE): vethcd477bc: link becomes ready
+ Jan 15 13:19:20 home kernel: [174716.145337] br-1ccd0f48be7c: port 5(vethcd477bc) entered blocking state
+ Jan 15 13:19:20 home kernel: [174716.145338] br-1ccd0f48be7c: port 5(vethcd477bc) entered forwarding state
+ Jan 15 13:19:20 home kernel: [174717.081132] br-fbe765bc7d0a: port 2(veth31cdd6f) entered disabled state
+ Jan 15 13:19:20 home kernel: [174717.081176] vethc4da041: renamed from eth0
+ Jan 15 13:19:21 home kernel: [174717.214911] br-fbe765bc7d0a: port 2(veth31cdd6f) entered disabled state
+ Jan 15 13:19:21 home kernel: [174717.215917] device veth31cdd6f left promiscuous mode
+ Jan 15 13:19:21 home kernel: [174717.215919] br-fbe765bc7d0a: port 2(veth31cdd6f) entered disabled state
+```
+
+It probably means that some docker is getting recreated continuously. Those traces are normal logs of docker creating the networks, but as they do each time the docker starts, if it's restarting continuously then you have a problem.
 
 ## Don't store credentials in plaintext
 

@@ -4,6 +4,8 @@ date: 20200611
 author: Lyz
 ---
 
+Note: Hypothesis is not ready to be self hosted. Use [Matrix highlight](matrix_highlight.md) instead.
+
 [Hypothesis](https://en.wikipedia.org/wiki/Hypothes.is) is an open-source
 software project that aims to collect comments about statements made in any
 web-accessible content, and filter and rank those comments to assess each

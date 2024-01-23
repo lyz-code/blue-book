@@ -12,6 +12,8 @@ You can save up to 72 percent on your AWS compute workloads.
 !!! note "Please don't make Jeff Bezos even richer, try to pay as less money to
 AWS as you can."
 
+!!! warning "When doing the savings plan reservations always use the reservation rates instead of the on-demand rates!"
+
 Savings Plans provide savings beyond On-Demand rates in exchange for
 a commitment of using a specified amount of compute power (measured per hour)
 for a one or three year period.
@@ -142,7 +144,18 @@ Savings Plan rate is $2.40. This is less than the $3.00/hour commitment.
 Next, the Compute Savings Plan is applied to rest of the resource usage, if it
 doesn't cover the whole expense, then On demand rates will apply.
 
+# EC2 Instance savings plan versus reserved instances
+
+I've been comparing the EC2 Reserved Instances and of the EC2 instance family savings plans and decided to go with the second because:
+
+- They both have almost the same rates. Reserved instances round the price at the 3rd decimal and the savings plan at the fourth, but this difference is neglegible.
+- Savings plan are easier to calculate, as you just need to multiply the number of instances you want times the current rate and add them all up.
+- Easier to understand: To reserve instances you need to take into account the instance flexibility and the normalization factors which makes it difficult both to make the plans and also to audit how well you're using it.
+- Easier to audit: In addition to the above point, you have nice dashboards to see the coverage and utilization over time of your ec2 instance savings plans, which are at the same place as the other savings plans.
+
 # [Understanding how reserved instances are applied](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/apply_ri.html)
+
+WARNING: Don't use reserved instances, use EC2 family savings plans.
 
 A Reserved Instance that is purchased for a Region is called a regional Reserved Instance, and provides Availability Zone and instance size flexibility.
 
@@ -349,6 +362,13 @@ Plans. You can monitor your usage in multiple forms.
     
 # Doing your savings plan
 
+Important notes when doing a savings plan:
+
+- Always use the reservation rates instead of the on-demand rates!
+- Analyze your coverage reports. You don't want to have many points of 100% coverage as it means that you're using less resources than you've reserved. On the other hand it's fine to sometimes use less resources than the reserved if that will mean a greater overall savings. It's a tight balance.
+- The Savings plan reservation is taken into account at hour level, not at month or year level. That means that if you reserve 1$/hour of an instance type and you use for example 2$/hour half the day and 0$/hour half the day, you'll have a 100% coverage of your plan the first hour and another 1$/hour of on-demand infrastructure cost for the first part of the day. On the second part of the day you'll have a 0% coverage. This means that you should only reserve the amount of resources you plan to be using 100% of the time throughout your savings plan. Again you may want to overcommit a little bit, reducing the utilization percentage of a plan but getting better savings in the end.
+
 Go to the [AWS savings plan
 simulator](https://aws.amazon.com/savingsplans/compute-pricing/) and check the
 different instances you were evaluating.
+

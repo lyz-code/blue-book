@@ -52,8 +52,33 @@ I haven't found a way to see the api docs from my own instance. Luckily you can 
 You can create an application token on your user configuration. Then you can use it with something similar to:
 
 ```bash
-curl -H 'Content-Type: application/json' https://mediatracker.your-domain.org/api/logs\?token\=your-token | jq
+curl -s -H 'Content-Type: application/json' https://mediatracker.your-domain.org/api/logs\?token\=your-token | jq
 ```
+
+There is a [python library](https://github.com/jonkristian/pymediatracker) although it's doesn't (yet) have any documentation and the functionality so far is only to get information, not to push changes.
+
+### Get list of tv shows
+
+With `/api/items?mediaType=tv` you can get a list of all tv shows with the next interesting fields:
+
+- `id`: mediatracker id
+- `tmdbId`:
+- `tvdbId`:
+- `imdbId`:
+- `title`: 
+- `lastTimeUpdated`: epoch time
+- `lastSeenAt`: epoch time
+- `seen`: bool
+- `onWatchlist`: bool
+- `firstUnwatchedEpisode`:
+  - `id`: mediatracker episode id
+  - `episodeNumber`:
+  - `seasonNumber`
+  - `tvShowId`:
+  - `seasonId`:
+- `lastAiredEpisode`: same schema as before
+
+Then you can use the `api/details/{mediaItemId}` endpoint to get all the information of all the episodes of each tv show.
 
 # Alternatives
 
@@ -63,3 +88,4 @@ curl -H 'Content-Type: application/json' https://mediatracker.your-domain.org/ap
 
 - [Source](https://github.com/bonukai/MediaTracker)
 - [Issues](https://github.com/bonukai/MediaTracker/issues)
+- [Python library](https://github.com/jonkristian/pymediatracker)

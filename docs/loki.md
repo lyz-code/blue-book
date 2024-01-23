@@ -161,11 +161,7 @@ wget https://raw.githubusercontent.com/grafana/loki/v2.9.1/cmd/loki/loki-local-c
 
 ## Configure Promtail
 
-Download and edit [the basic configuration](https://grafana.com/docs/loki/latest/setup/install/docker/)
-
-```bash
-wget https://raw.githubusercontent.com/grafana/loki/v2.9.1/clients/cmd/promtail/promtail-docker-config.yaml -O /data/promtail/promtail-config.yaml
-```
+Check the [promtail](promtail.md) document.
 
 ## Configure Grafana
 

@@ -22,38 +22,6 @@ number = 1
 print(f"{number:02d}")
 ```
 
-# Configure the logging of a program to look nice
-
-Note: if you're going to use the [`rich`](rich.md) library check [this snippet instead](rich.md#configure-the-logging-handler).
-
-```python
-import sys
-
-def load_logger(verbose: bool = False) -> None:  # pragma no cover
-    """Configure the Logging logger.
-
-    Args:
-        verbose: Set the logging level to Debug.
-    """
-    logging.addLevelName(logging.INFO, "\033[36mINFO\033[0m")
-    logging.addLevelName(logging.ERROR, "\033[31mERROR\033[0m")
-    logging.addLevelName(logging.DEBUG, "\033[32mDEBUG\033[0m")
-    logging.addLevelName(logging.WARNING, "\033[33mWARNING\033[0m")
-
-    if verbose:
-        logging.basicConfig(
-            format="%(asctime)s %(levelname)s %(name)s: %(message)s",
-            stream=sys.stderr,
-            level=logging.DEBUG,
-            datefmt="%Y-%m-%d %H:%M:%S",
-        )
-        telebot.logger.setLevel(logging.DEBUG)  # Outputs debug messages to console.
-    else:
-        logging.basicConfig(
-            stream=sys.stderr, level=logging.INFO, format="%(levelname)s: %(message)s"
-        )
-```
-
 # Get the modified time of a file with Pathlib
 
 ```python
@@ -1155,9 +1123,16 @@ html = open("foobar.html").read()
 print(html2text.html2text(html))
 ```
 
-# [Parse a datetime from a string](https://stackoverflow.com/questions/466345/converting-string-into-datetime)
+# [Parse a datetime ](https://stackoverflow.com/questions/466345/converting-string-into-datetime)
 
-Convert a string to a datetime.
+## [Parse a datetime from an epoch](https://stackoverflow.com/questions/12400256/converting-epoch-time-into-the-datetime)
+
+```python
+>>> import datetime
+>>> datetime.datetime.fromtimestamp(1347517370).strftime('%c')
+  '2012-09-13 02:22:50'
+```
+## Parse a datetime from a string
 
 ```python
 from dateutil import parser

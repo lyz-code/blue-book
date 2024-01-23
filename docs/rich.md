@@ -41,7 +41,6 @@ from rich.progress import track
 for n in track(range(n), description="Processing..."):
     do_work(n)
 ```
-
 ## [Tables](https://rich.readthedocs.io/en/latest/tables.html)
 ```python
 from rich.console import Console
@@ -61,7 +60,6 @@ table.add_row("Dec 16, 2016", "Rogue One: A Star Wars Story", "$1,332,439,889")
 console = Console()
 console.print(table)
 ```
-
 ## [Rich text](https://rich.readthedocs.io/en/latest/text.html)
 
 ```python
@@ -72,7 +70,6 @@ console = Console()
 text = Text.assemble(("Hello", "bold magenta"), " World!")
 console.print(text)
 ```
-
 ## [Live display text](https://rich.readthedocs.io/en/latest/live.html)
 
 ```python
@@ -88,7 +85,6 @@ with Live("Test") as live:
 
 If you don't want the text to have the default colors, you can embed it all in
 a `Text` object.
-
 ## [Tree](https://rich.readthedocs.io/en/latest/tree.html)
 
 Rich has a [`Tree`](https://rich.readthedocs.io/en/latest/reference/tree.html#rich.tree.Tree) class which can generate a tree view in the terminal. A tree view is a great way of presenting the contents of a filesystem or any other hierarchical data. Each branch of the tree can have a label which may be text or any other Rich renderable.

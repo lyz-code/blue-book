@@ -82,7 +82,7 @@ Artigos determinados:
 | Feminino  | a        | as     |
 | Masculino | o        | os     |
 
-# Vocabulário
+# Vocabulario
 
 ## Expresións
 
@@ -161,7 +161,6 @@ Artigos determinados:
 * deica logo
 * deica agora
 * Adeus
-
 
 # Referencias
 

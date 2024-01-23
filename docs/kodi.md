@@ -15,15 +15,33 @@ sudo apt install kodi
 
 ## From the database
 
-At `~/.kodi/
+At `~/.kodi/userdata/Database/MyVideos116.db` you can extract the data from the next tables:
 
-```
-+-----------+----------+------------+-------------+--------+-------+
-| rating_id | media_id | media_type | rating_type | rating | votes |
-+-----------+----------+------------+-------------+--------+-------+
-| 1         | 1        | movie      | default     | 6.4    | 339   |
-+-----------+----------+------------+-------------+--------+-------+
-```
+- In the `movie_view` table there is:
+  - `idMovie`: kodi id for the movie
+  - `c00`: Movie title
+  - `userrating`
+  - `uniqueid_value`: The id of the external web service
+  - `uniqueid_type`: The web it extracts the id from
+  - `lastPlayed`: The reproduction date
+- In the `tvshow_view` table there is:
+  - `idShow`: kodi id of a show
+  - `c00`: title
+  - `userrating`
+  - `lastPlayed`: The reproduction date
+  - `uniqueid_value`: The id of the external web service
+  - `uniqueid_type`: The web it extracts the id from
+- In the `season_view` there is no interesting data as the userrating is null on all rows.
+- In the `episode_view` table there is:
+  - `idEpisodie`: kodi id for the episode
+  - `idShow`: kodi id of a show
+  - `idSeason: kodi id of a season
+  - `c00`: title
+  - `userrating`
+  - `lastPlayed`: The reproduction date
+  - `uniqueid_value`: The id of the external web service
+  - `uniqueid_type`: The web it extracts the id from. I've seen mainly tvdb and sonarr
+- Don't use the `rating` table as it only stores the ratings from external webs such as themoviedb:
 
 # Troubleshooting
 

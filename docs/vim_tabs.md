@@ -164,6 +164,14 @@ in another tab.
 Just remember though, if you are using a single tab for each file, that isn't
 how tabs in Vim were designed to be used.
 
+# [Switch to the previous opened buffer](https://vim.fandom.com/wiki/Easier_buffer_switching)
+
+Often the buffer that you want to edit is the buffer that you have just left. Vim provides a couple of convenient commands to switch back to the previous buffer. These are `<C-^>` (or `<C-6>`) and `:b#`. All of them are inconvenient so I use the next mapping:
+
+```vim
+nnoremap <Leader><Tab> :b#<CR>
+```
+
 # Default option when switching
 
 The default behavior when trying to switch the buffer is to not allow you to

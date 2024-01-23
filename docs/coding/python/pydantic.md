@@ -514,6 +514,21 @@ class fish(BaseModel):
         self.color=complex_function()
 ```
 
+If you want to create part of the attributes you can use the next snippet
+
+```python
+class Sqlite(BaseModel):
+    model_config = ConfigDict(arbitrary_types_allowed=True)
+        
+    path: Path
+    db: sqlite3.Cursor
+
+    def __init__(self, **kwargs):
+        conn = sqlite3.connect(kwargs['path'])
+        kwargs['db'] = conn.cursor()
+        super().__init__(**kwargs)
+```
+
 ### [Using root validators](https://stackoverflow.com/questions/60695759/creating-objects-with-id-and-populating-other-fields)
 
 If you want to initialize attributes of the object automatically at object

@@ -18,9 +18,10 @@ pip install requests
 ## Download file
 
 ```python
+import requests
 url = "http://beispiel.dort/ichbineinbild.jpg"
 filename = url.split("/")[-1]
-r = requests.get(url, timeout=0.5)
+r: requests.models.Response = requests.get(url, timeout=0.5)
 
 if r.status_code == 200:
     with open(filename, 'wb') as f:
