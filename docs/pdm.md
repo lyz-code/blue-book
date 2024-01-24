@@ -878,7 +878,7 @@ To install all of them:
 pdm install
 ```
 
-For more CLI usage, please refer to [Manage Dependencies](/usage/dependency/)
+For more CLI usage, please refer to Manage Dependencies.
 
 ### [Show outdated packages](https://github.com/pdm-project/pdm/issues/358)
 

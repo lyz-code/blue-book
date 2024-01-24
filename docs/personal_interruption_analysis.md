@@ -75,7 +75,7 @@ focused interaction rather than many chat sessions.
 I categorize the calls in two groups:
 
 * Social interactions: managed similar as the [physical
-    social interactions](work_interruption_analysis#social-interactions),
+    social interactions](work_interruption_analysis.md#social-interactions),
     with the people that I speak regularly, we arrange meetings that suit us
     both, the others I tell which are good time spans to call me. If the
     conversation allows it, I try to use headphones and simultaneously do
@@ -104,7 +104,7 @@ events but most have low priority. They can be categorized as:
     So they have high priority and I have the notifications enabled.
 * Social interaction through direct messages: I don't have many as I try to
     [arrange one on one calls
-    instead](instant_messages_management#use-calls-for-non-short-conversations),
+    instead](instant_messages_management.md#use-calls-for-non-short-conversations),
     so they have a low priority.
 * Team group or support rooms: We've defined the *interruption role* so I check them
     whenever an chosen interruption event comes.

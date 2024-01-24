@@ -130,7 +130,7 @@ with a wide range of priorities. They can be categorized as:
     So they have high priority and I have the notifications enabled.
 * Social interaction through direct messages: I don't have many as I try to
     [arrange one on one meetings
-    instead](instant_messages_management#use-calls-for-non-short-conversations),
+    instead](instant_messages_management.md#use-calls-for-non-short-conversations),
     so they have a low priority. As notifications are defined for all direct
     messages, I inherit the notifications from the last category.
 * Team group or support rooms: We've defined the *interruption role* so I check them

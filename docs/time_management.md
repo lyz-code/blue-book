@@ -45,7 +45,7 @@ information and loading the new is both time consuming and exhausting, so do it
 consciously and sparingly.
 
 One way of improving this behaviour is by using the [Pomodoro
-technique](task_workflows.md).
+technique](life_planning.md).
 
 ### [Interruption management](interruption_management.md)
 
@@ -103,10 +103,10 @@ caused by a long running process or waiting for someone to do something.
 When a block comes, I first try to switch back to processes that I was already
 working on. Try to have as less processes as possible, less than three if
 possible. If there is only one active process, look at the [task
-plan](task_workflows.md#task-plan) for the next step that could be done in
+plan](life_planning.md#task-plan) for the next step that could be done in
 parallel. As both processes work on the same task, they share most of the
 context, so the switch is cheap. If there is none, go to the [day
-plan](task_workflows.md#day-plan) to start the first step of the next task in the
+plan](life_planning.md#day-plan) to start the first step of the next task in the
 plan.
 
 ## Improve the way you do the tasks

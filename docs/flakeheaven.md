@@ -182,7 +182,7 @@ When using Flakeheaven, I frequently use the following commands:
 
 Flakeheaven checks can be run in:
 
-* In [Vim](vim.md) though the [ALE plugin](vim_plugins#flakeheaven).
+* In [Vim](vim.md) though the [ALE plugin](vim_plugins.md#flakeheaven).
 
 * Through a pre-commit:
 

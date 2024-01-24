@@ -365,7 +365,7 @@ The activation/deactivation of warnings will change with the warning type:
 
 ## Pomodoro command line
 
-Command line to help with the [pomodoro workflow](task_workflows.md#pomodoro), besides the basic stuff it will
+Command line to help with the [pomodoro workflow](life_review.md#pomodoro), besides the basic stuff it will
 interact with the task manager, [activitywatch](activitywatch.md) and the
 notifications system so that:
 

@@ -370,7 +370,7 @@ books.
 ### Task review
 
 Follow the
-[review process of the task management article](task_workflows#year-review).
+[review process of the task management article](life_review.md#year-review).
 
 ## Planning
 

@@ -675,7 +675,7 @@ Using the proxy you have following advantages:
 With the following disadvantages:
 
 * When using an external http proxy, [the probe runs the DNS resolution
-locally]((https://github.com/prometheus/blackbox_exporter/pull/554)). Therefore
+locally](https://github.com/prometheus/blackbox_exporter/pull/554). Therefore
 if the record doesn't exist in the local server the probe will fail, even if the
 proxy DNS resolver has the correct record.
 

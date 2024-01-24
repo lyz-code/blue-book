@@ -28,5 +28,5 @@ text = prompt('Give me some input: ')
 print('You said: %s' % text)
 ```
 
-It can be used to build [REPL applications](prompt_toolkit_repl) or [full screen
+It can be used to build [REPL applications](prompt_toolkit_repl.md) or [full screen
 ones](prompt_toolkit_fullscreen_applications.md).

@@ -38,7 +38,7 @@ There are some checks that I wasn't able to adopt:
     *Installation* instead of *Install*.
 * [gwern markdown-lint.sh](https://www.gwern.net/About#markdown-checker) [script
     file](https://www.gwern.net/markdown-lint.sh).
-* Avoid the use of [here](link), use descriptive link text.
+* Avoid the use of `here`, use descriptive link text.
 * Rotten links: use [linkchecker](https://github.com/linkchecker/linkchecker) (I think
   there was a mkdocs plugin to do this). Also read [how to archive
   urls](https://www.gwern.net/Archiving-URLs).

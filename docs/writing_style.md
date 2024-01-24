@@ -354,7 +354,7 @@ it and learn how to write with it.
 
 The author doesn't get too philosophical or cutesy in his concepts, neither he
 gets too technical. In a way, it provides the right balance between [The
-Elements of Style](#the-elements-of-style) and [Bird by Bird](bird-by-bird).
+Elements of Style](#the-elements-of-style) and [Bird by Bird](#bird-by-bird).
 Reading the book feels like you’re being mentored by a wise, highly experienced
 writer.
 
