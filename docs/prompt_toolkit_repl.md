@@ -53,7 +53,6 @@ internally.
     ```python
     import pexpect
 
-
     def test_tui() -> None:
         tui = pexpect.spawn("python source.py", timeout=5)
         tui.expect("Give me .*")
@@ -62,7 +61,7 @@ internally.
 
         with open("/tmp/tui.txt", "r") as f:
             assert f.read() == "HI"
-   ```
+    ```
 
 Where:
 
