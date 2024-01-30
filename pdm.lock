@@ -585,7 +585,7 @@ files = [
 
 [[package]]
 name = "mkdocs-minify-plugin"
-version = "0.7.2"
+version = "0.8.0"
 requires_python = ">=3.8"
 summary = "An MkDocs plugin to minify HTML, JS or CSS files prior to being written to disk"
 dependencies = [
@@ -595,8 +595,8 @@ dependencies = [
     "mkdocs>=1.4.1",
 ]
 files = [
-    {file = "mkdocs-minify-plugin-0.7.2.tar.gz", hash = "sha256:6a551e22d6517eaef9e1890afd60021dc1dcd1255de02d266f588d1ace040713"},
-    {file = "mkdocs_minify_plugin-0.7.2-py3-none-any.whl", hash = "sha256:ae8bfc4a68806883e990ea025938b3f989da7b9fa08ea8390dba47adf25e0c5b"},
+    {file = "mkdocs-minify-plugin-0.8.0.tar.gz", hash = "sha256:bc11b78b8120d79e817308e2b11539d790d21445eb63df831e393f76e52e753d"},
+    {file = "mkdocs_minify_plugin-0.8.0-py3-none-any.whl", hash = "sha256:5fba1a3f7bd9a2142c9954a6559a57e946587b21f133165ece30ea145c66aee6"},
 ]
 
 [[package]]
