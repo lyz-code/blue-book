@@ -211,6 +211,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/coding_by_voice/</loc>
+         <lastmod>2024-02-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/collaborating_tools/</loc>
          <lastmod>2024-02-05</lastmod>
          <changefreq>daily</changefreq>
@@ -322,6 +327,11 @@
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/dynamicdns/</loc>
+         <lastmod>2024-02-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/efs/</loc>
          <lastmod>2024-02-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -566,6 +576,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/immich/</loc>
+         <lastmod>2024-02-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/instant_messages_management/</loc>
          <lastmod>2024-02-05</lastmod>
          <changefreq>daily</changefreq>
@@ -647,6 +662,11 @@
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/lazy_loading/</loc>
+         <lastmod>2024-02-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/lazyvim/</loc>
          <lastmod>2024-02-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -816,6 +836,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/neotree/</loc>
+         <lastmod>2024-02-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/networkx/</loc>
          <lastmod>2024-02-05</lastmod>
          <changefreq>daily</changefreq>
@@ -912,6 +937,11 @@
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/pexpect/</loc>
+         <lastmod>2024-02-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/photo_self_hosted/</loc>
          <lastmod>2024-02-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -1156,6 +1186,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/route_management/</loc>
+         <lastmod>2024-02-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/rss/</loc>
          <lastmod>2024-02-05</lastmod>
          <changefreq>daily</changefreq>
@@ -1231,6 +1266,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/speech_recognition/</loc>
+         <lastmod>2024-02-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/sponsor/</loc>
          <lastmod>2024-02-05</lastmod>
          <changefreq>daily</changefreq>
@@ -1296,6 +1336,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/telescope/</loc>
+         <lastmod>2024-02-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/tenacity/</loc>
          <lastmod>2024-02-05</lastmod>
          <changefreq>daily</changefreq>
@@ -1317,11 +1362,6 @@
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/torrents/</loc>
-         <lastmod>2024-02-05</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://lyz-code.github.io/blue-book/treesitter/</loc>
          <lastmod>2024-02-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -1366,7 +1406,102 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/vim_coding_plugins/</loc>
+         <lastmod>2024-02-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/vim_config/</loc>
+         <lastmod>2024-02-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/vim_dap/</loc>
+         <lastmod>2024-02-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/vim_editor_plugins/</loc>
+         <lastmod>2024-02-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/vim_email/</loc>
+         <lastmod>2024-02-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/vim_foldings/</loc>
+         <lastmod>2024-02-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/vim_keymaps/</loc>
+         <lastmod>2024-02-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/vim_lsp/</loc>
+         <lastmod>2024-02-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/vim_markdown/</loc>
+         <lastmod>2024-02-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/vim_movement/</loc>
+         <lastmod>2024-02-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/vim_packer/</loc>
+         <lastmod>2024-02-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/vim_plugin_development/</loc>
+         <lastmod>2024-02-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/vim_plugin_managers/</loc>
+         <lastmod>2024-02-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/vim_snippets/</loc>
+         <lastmod>2024-02-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/vim_spelling/</loc>
+         <lastmod>2024-02-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/vim_tabs/</loc>
+         <lastmod>2024-02-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/vim_testing/</loc>
+         <lastmod>2024-02-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/vim_treesitter/</loc>
+         <lastmod>2024-02-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/vim_troubleshooting/</loc>
+         <lastmod>2024-02-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/vim_vs_neovim/</loc>
          <lastmod>2024-02-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -1447,11 +1582,6 @@
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/work_interruption_analysis/</loc>
-         <lastmod>2024-02-05</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://lyz-code.github.io/blue-book/write_neovim_plugins/</loc>
          <lastmod>2024-02-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -4287,6 +4417,11 @@
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/newsletter/2024_01_23/</loc>
+         <lastmod>2024-02-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/newsletter/2024_02_05/</loc>
          <lastmod>2024-02-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
