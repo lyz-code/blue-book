@@ -171,6 +171,7 @@ The table below shows built-in exceptions that are usually raised in Python:
 * [snscrape](https://github.com/JustAnotherArchivist/snscrape): A social
     networking service scraper in Python.
 * [tweepy](https://github.com/tweepy/tweepy): Twitter for Python.
+* [python-whatsapp-bot](https://pypi.org/project/python-whatsapp-bot/)
 
 # Interesting sources
 

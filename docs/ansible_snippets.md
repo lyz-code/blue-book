@@ -4,6 +4,9 @@ date: 20220119
 author: Lyz
 ---
 
+# [Set host variables using a dynamic inventory](https://stackoverflow.com/questions/40212986/ansible-ec2-dynamic-inventory-with-host-vars)
+As with a normal inventory you can use the `host_vars` files with the proper name.
+
 # Fix the `ERROR! 'become' is not a valid attribute for a IncludeRole` error
 
 

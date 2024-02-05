@@ -1,5 +1,8 @@
 [Letsencrypt](https://letsencrypt.org/) is a free, automated, and open certificate authority brought to you by the nonprofit Internet Security Research Group (ISRG). Basically it gives away SSL certificates, which are required to configure webservers to use HTTPS instead of HTTP for example.
 
+# Manually renew a certificate
+
+Linuxserver swag container renews the certificates at night. If you don't have your server up at those hours your certificate won't be renewed automatically and you need to react to the prometheus alert manually. To do so get into the container and run `certbot renew`.
 # [Configure a wildcard dns when the provider is not supported](https://certbot.eff.org/instructions?ws=nginx&os=pip)
 
 If you’d like to obtain a wildcard certificate from Let’s Encrypt or run certbot on a machine other than your target webserver, you can use one of Certbot’s DNS plugins.

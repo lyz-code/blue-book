@@ -142,6 +142,10 @@ map ctrl+v        paste_from_clipboard
 
 ## [Fonts](https://sw.kovidgoyal.net/kitty/conf/#fonts)
 
+If you're thinking of adding a new font, you should take a look at the [nerd fonts](https://www.nerdfonts.com/#home) as they patch developer targeted fonts with a high number of glyphs (icons). Specifically to add a high number of extra glyphs from popular ‘iconic fonts’ such as Font Awesome, Devicons, Octicons, and others.
+
+For example you can get the [`FiraCode Nerd Font`](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/FiraCode.zip)
+
 * Add your fonts to the `~/.local/share/fonts` directory
 * Check they are available when you run `kitty +list-fonts`
 * Add them to your config:

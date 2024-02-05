@@ -111,8 +111,6 @@ scrape_configs:
       - host: unix:///var/run/docker.sock
         refresh_interval: 5s
     relabel_configs:
-      - source_labels: ['__meta_docker_container_id']
-        target_label: docker_id
       - source_labels: ['__meta_docker_container_name']
         target_label: docker_name
 ```
@@ -151,7 +149,20 @@ scrape_configs:
         regex: '/(.*)'
         target_label: 'container'
 ```
+# Pipeline building
 
+In [this issue](https://github.com/grafana/loki/issues/6165) there are nice examples on different pipelines.
+
+## [Drop logs](https://grafana.com/docs/loki/latest/send-data/promtail/stages/drop/)
+
+If you don't want the logs that have the keyword `systemd-journal` and value `docker-compose` you can add the next pipeline stage:
+
+```yaml
+pipeline_stages:
+  - drop:
+      source: syslog_identifier
+      value: docker-compose
+```
 # Basic concepts
 
 ## API

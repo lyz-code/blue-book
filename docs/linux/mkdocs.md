@@ -533,6 +533,36 @@ it's better to create unit tests to make sure that they work as you want.
 You can see a full example
 [here](https://github.com/lyz-code/mkdocs-newsletter/tree/master/tests).
 
+# Use your custom domain 
+
+## [Use your custom domain in Gitlab](https://docs.gitlab.com/ee/user/project/pages/custom_domains_ssl_tls_certification/)
+To set up Pages with a custom domain name, read the requirements and steps below.
+
+Prerequisites:
+
+- An administrator has configured the server for GitLab Pages custom domains
+- A GitLab Pages website up and running, served under the default Pages domain (*.gitlab.io, for GitLab.com).
+- A custom domain name example.com or subdomain subdomain.example.com.
+
+Access to your domain’s server control panel to set up DNS records:
+
+- A DNS record (A, ALIAS, or CNAME) pointing your domain to the GitLab Pages server. If there are multiple DNS records on that name, you must use an ALIAS record.
+- A DNS TXT record to verify your domain’s ownership.
+
+## [Use your custom domain in github pages](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site)
+
+You can't define a subdomain for a repo static page. You define a subdomain for your user github page and then the repo is added afterwards with a domain/repo structure.
+
+## [Redirect Github Pages to custom domain](https://stackoverflow.com/questions/30167113/redirect-github-pages-to-custom-domain)
+There is no "beautiful non-plugin solution". Indeed, the solution I found is not beautiful, it is more kind of a workaround, but it works.
+
+- [Set up CNAME redirection](https://help.github.com/articles/adding-a-cname-file-to-your-repository/)
+- Go to your GitHub Pages repo. Click Settings and below GitHub Pages, under Custom domain, enter your custom domain and click Save.
+
+- Now open another tab on your browser, open DevTools (F12), select the Network tab. Try to access your GitHub Pages website and see that a 301 redirect happens.
+
+- GitHub is going to complain that your domain is not configured properly. Well, that does not really matter. What matters is that you have the 301 redirect required by the Google Search Console's Change of Address Tool and your website won't lose its Google ranking.
+
 # Issues
 
 Once they are closed:

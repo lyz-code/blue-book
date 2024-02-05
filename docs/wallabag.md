@@ -79,6 +79,10 @@ only want to share the starred articles, add to your nginx config:
     }
 ```
 
+# Not there yet
+
+- Wallabag annotations are not yet ready to be used as an analytical reading tool for webpages on android
+
 # References
 
 * [Docs](https://doc.wallabag.org)

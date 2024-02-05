@@ -74,6 +74,14 @@ Sqlite:
 .tables
 ```
 
+## Get the schema of a table
+
+[Postgres](https://stackoverflow.com/questions/25639088/show-table-structure-and-list-of-tables-in-postgresql):
+
+```
+\d+ table_name
+```
+
 ## Delete rows from table
 
 ```sql

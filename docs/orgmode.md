@@ -4,6 +4,66 @@ If you use Android try [orgzly](orgzly.md).
 
 # [Installation](https://github.com/nvim-orgmode/orgmode#installation)
 
+## Using lazyvim
+
+```lua
+return {
+  'nvim-orgmode/orgmode',
+  ```lua
+    {
+        'nvim-orgmode/orgmode',
+        dependencies = {
+      { 'nvim-treesitter/nvim-treesitter', lazy = true },
+    },
+        event = 'VeryLazy',
+        config = function()
+    -- Load treesitter grammar for org
+    require('orgmode').setup_ts_grammar()
+
+    -- Setup treesitter
+    require('nvim-treesitter.configs').setup({
+        highlight = {
+          enable = true,
+          additional_vim_regex_highlighting = { 'org' },
+        },
+        ensure_installed = { 'org' },
+      })
+
+    -- Setup orgmode
+    require('orgmode').setup({
+        org_agenda_files = '~/orgfiles/**/*',
+        org_default_notes_file = '~/orgfiles/refile.org',
+      })
+  end,
+  }
+  ```
+  dependencies = {
+    { 'nvim-treesitter/nvim-treesitter', lazy = true },
+  },
+  event = 'VeryLazy',
+  config = function()
+    -- Load treesitter grammar for org
+    require('orgmode').setup_ts_grammar()
+
+    -- Setup treesitter
+    require('nvim-treesitter.configs').setup({
+      highlight = {
+        enable = true,
+        additional_vim_regex_highlighting = { 'org' },
+      },
+      ensure_installed = { 'org' },
+    })
+
+    -- Setup orgmode
+    require('orgmode').setup({
+      org_agenda_files = '~/orgfiles/**/*',
+      org_default_notes_file = '~/orgfiles/refile.org',
+    })
+  end,
+}
+```
+## Using packer
+
 Add to your plugin config:
 
 ```lua
@@ -1088,6 +1148,9 @@ Some interesting features for the future are:
 # Troubleshooting
 
 ## Create an issue in the orgmode repository
+
+Note: if you want to debug orgmode with DAP use [this config instead](#troubleshoot-orgmode-with-dap)
+
 - [Create a new issue](https://github.com/nvim-orgmode/orgmode/issues/new/choose)
 - Create the `minimal_init.lua` file from [this file](https://github.com/nvim-orgmode/orgmode/blob/master/scripts/minimal_init.lua)
   ```lua
@@ -1096,6 +1159,7 @@ Some interesting features for the future are:
 
   local package_root = '/tmp/nvim/site/pack'
   local install_path = package_root .. '/packer/start/packer.nvim'
+  vim.g.mapleader = ' '
 
   local function load_plugins()
     require('packer').startup({
@@ -1155,6 +1219,310 @@ Some interesting features for the future are:
 - Add the leader configuration at the top of the file `vim.g.mapleader = ' '`
 - Open it with `nvim -u minimal_init.lua`
 
+## Troubleshoot orgmode with dap
+
+Use the next config and follow the steps of [Create an issue in the orgmode repository](#create-an-issue-in-the-orgmode-repository).
+
+```lua
+vim.cmd([[set runtimepath=$VIMRUNTIME]])
+vim.cmd([[set packpath=/tmp/nvim/site]])
+
+local package_root = '/tmp/nvim/site/pack'
+local install_path = package_root .. '/packer/start/packer.nvim'
+
+local function load_plugins()
+  require('packer').startup({
+    {
+      'wbthomason/packer.nvim',
+      { 'nvim-treesitter/nvim-treesitter' },
+      { 'nvim-lua/plenary.nvim'},
+      { 'nvim-orgmode/orgmode'},
+      { 'nvim-telescope/telescope.nvim'},
+      { 'lyz-code/telescope-orgmode.nvim' },
+      { 'jbyuki/one-small-step-for-vimkind' },
+      { 'mfussenegger/nvim-dap' },
+      { 'kristijanhusak/orgmode.nvim', branch = 'master' },
+    },
+    config = {
+      package_root = package_root,
+      compile_path = install_path .. '/plugin/packer_compiled.lua',
+    },
+  })
+end
+
+_G.load_config = function()
+  require('orgmode').setup_ts_grammar()
+  require('nvim-treesitter.configs').setup({
+    highlight = {
+      enable = true,
+      additional_vim_regex_highlighting = { 'org' },
+    },
+  })
+
+  vim.cmd([[packadd nvim-treesitter]])
+  vim.cmd([[runtime plugin/nvim-treesitter.lua]])
+  vim.cmd([[TSUpdateSync org]])
+
+  -- Close packer after install
+  if vim.bo.filetype == 'packer' then
+    vim.api.nvim_win_close(0, true)
+  end
+
+  require('orgmode').setup({
+    org_agenda_files = {
+      './*'
+    }
+  }
+  )
+
+  -- Reload current file if it's org file to reload tree-sitter
+  if vim.bo.filetype == 'org' then
+    vim.cmd([[edit!]])
+  end
+end
+if vim.fn.isdirectory(install_path) == 0 then
+  vim.fn.system({ 'git', 'clone', 'https://github.com/wbthomason/packer.nvim', install_path })
+  load_plugins()
+  require('packer').sync()
+  vim.cmd([[autocmd User PackerCompileDone ++once lua load_config()]])
+else
+  load_plugins()
+  load_config()
+end
+
+
+require('telescope').setup{
+  defaults = {
+    preview = {
+      enable = true,
+      treesitter = false,
+    },
+    vimgrep_arguments = {
+      "ag",
+      "--nocolor",
+      "--noheading",
+      "--numbers",
+      "--column",
+      "--smart-case",
+      "--silent",
+      "--follow",
+      "--vimgrep",
+    },
+    file_ignore_patterns = {
+      "%.svg",
+      "%.spl",
+      "%.sug",
+      "%.bmp",
+      "%.gpg",
+      "%.pub",
+      "%.kbx",
+      "%.db",
+      "%.jpg",
+      "%.jpeg",
+      "%.gif",
+      "%.png",
+      "%.org_archive",
+      "%.flf",
+      ".cache",
+      ".git/",
+      ".thunderbird",
+      ".nas",
+    },
+    mappings = {
+      i = {
+        -- Required so that folding works when opening a file in telescope
+        -- https://github.com/nvim-telescope/telescope.nvim/issues/559
+        ["<CR>"] = function()
+            vim.cmd [[:stopinsert]]
+            vim.cmd [[call feedkeys("\<CR>")]]
+        end,
+        ['<C-j>'] = 'move_selection_next',
+        ['<C-k>'] = 'move_selection_previous',
+      }
+    }
+  },
+  pickers = {
+    find_files = {
+      find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
+      hidden = true,
+      follow = true,
+    }
+  },
+  extensions = {
+    fzf = {
+      fuzzy = true,                    -- false will only do exact matching
+      override_generic_sorter = true,  -- override the generic sorter
+      override_file_sorter = true,     -- override the file sorter
+      case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
+                                       -- the default case_mode is "smart_case"
+    },
+    heading = {
+      treesitter = true,
+    },
+  }
+}
+
+require('telescope').load_extension('orgmode')
+
+local key = vim.keymap
+vim.g.mapleader = ' '
+
+local builtin = require('telescope.builtin')
+key.set('n', '<leader>f', builtin.find_files, {})
+key.set('n', '<leader>F', ':Telescope file_browser<cr>')
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'org',
+  group = vim.api.nvim_create_augroup('orgmode_telescope_nvim', { clear = true }),
+  callback = function()
+    vim.keymap.set('n', '<leader>r', require('telescope').extensions.orgmode.refile_heading)
+    vim.keymap.set('n', '<leader>g', require('telescope').extensions.orgmode.search_headings)
+  end,
+})
+
+require('orgmode').setup_ts_grammar()
+local org = require('orgmode').setup({
+  org_agenda_files = {
+    "./*"
+  },
+  org_todo_keywords = { 'TODO(t)', 'CHECK(c)', 'DOING(d)', 'RDEACTIVATED(r)', 'WAITING(w)', '|', 'DONE(e)', 'REJECTED(j)', 'DUPLICATE(u)' },
+  org_hide_leading_stars = true,
+  org_deadline_warning_days = 0,
+  win_split_mode = "horizontal",
+  org_priority_highest = 'A',
+  org_priority_default = 'C',
+  org_priority_lowest = 'D',
+  mappings = {
+    global = {
+      org_agenda = 'ga',
+      org_capture = ';c',
+    },
+    org = {
+      -- Enter new items
+      org_meta_return = '<c-cr>',
+      org_insert_heading_respect_content = ';<cr>',
+      org_insert_todo_heading = "<c-t>",
+      org_insert_todo_heading_respect_content = ";t",
+
+      -- Heading promoting and demoting
+      org_toggle_heading = '<leader>h',
+      org_do_promote = '<h',
+      org_do_demote = '>h',
+      org_promote_subtree = '<H',
+      org_demote_subtree = '>H',
+
+      -- Heading moving
+      org_move_subtree_up = "<leader>k",
+      org_move_subtree_down = "<leader>j",
+
+      -- Heading navigation
+      org_next_visible_heading = '<c-j>',
+      org_previous_visible_heading = '<c-k>',
+      org_forward_heading_same_level = '<c-n>',
+      org_backward_heading_same_level = '<c-p>',
+      outline_up_heading = 'gp',
+      org_open_at_point = 'gx',
+
+      -- State transition
+      org_todo = 't',
+
+      -- Priority change
+      org_priority_up = '-',
+      org_priority_down = '=',
+
+      -- Date management
+      org_deadline = '<leader>d',
+      org_schedule = '<leader>s',
+      org_time_stamp = ';d',
+      org_change_date = '<c-e>',
+
+      -- Tag management
+      org_set_tags_command = 'T',
+
+      -- Archive management and refiling
+      org_archive_subtree = ';a',
+      org_toggle_archive_tag = ';A',
+      -- org_refile = '<leader>r',  The refile is being handled below
+    },
+    agenda = {
+      org_agenda_later = '<c-n>',
+      org_agenda_earlier = '<c-p>',
+      org_agenda_switch_to = '<tab>',
+      org_agenda_goto = '<cr>',
+      org_agenda_priority_up = '=',
+      org_agenda_set_tags = 'T',
+      org_agenda_deadline = '<leader>d',
+      org_agenda_schedule = '<leader>s',
+      org_agenda_archive = 'a',
+    },
+    capture = {
+      org_capture_finalize = ';w',
+      org_capture_refile = ';r',
+      org_capture_kill = 'qqq',
+    },
+  }
+})
+local dap = require"dap"
+dap.configurations.lua = { 
+  { 
+    type = 'nlua', 
+    request = 'attach',
+    name = "Attach to running Neovim instance",
+  }
+}
+
+dap.adapters.nlua = function(callback, config)
+  callback({ type = 'server', host = config.host or "127.0.0.1", port = config.port or 8086 })
+end
+
+vim.api.nvim_set_keymap('n', '<leader>b', [[:lua require"dap".toggle_breakpoint()<CR>]], { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>c', [[:lua require"dap".continue()<CR>]], { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>n', [[:lua require"dap".step_over()<CR>]], { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>m', [[:lua require"dap".repl.open()<CR>]], { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>N', [[:lua require"dap".step_into()<CR>]], { noremap = true })
+vim.api.nvim_set_keymap('n', '<F12>', [[:lua require"dap.ui.widgets".hover()<CR>]], { noremap = true })
+vim.api.nvim_set_keymap('n', '<F5>', [[:lua require"osv".launch({port = 8086})<CR>]], { noremap = true })
+```
+
+## Hide the state changes in the folds
+
+The folding of the recurring tasks iterations is also kind of broken. For the next example
+
+```orgmode
+** TODO Recurring task
+   DEADLINE: <2024-02-08 Thu .+14d -0d>
+   :PROPERTIES:
+   :LAST_REPEAT: [2024-01-25 Thu 11:53]
+   :END:
+   - State "DONE" from "TODO" [2024-01-25 Thu 11:53]
+   - State "DONE" from "TODO" [2024-01-10 Wed 23:24]
+   - State "DONE" from "TODO" [2024-01-03 Wed 19:39]
+   - State "DONE" from "TODO" [2023-12-11 Mon 21:30]
+   - State "DONE" from "TODO" [2023-11-24 Fri 13:10]
+ 
+   - [ ] Do X
+```
+
+When folded the State changes is not added to the Properties fold. It's shown something like:
+
+```orgmode
+** TODO Recurring task
+   DEADLINE: <2024-02-08 Thu .+14d -0d>
+   :PROPERTIES:...                                                                                                                                                                                              
+    
+   - State "DONE" from "TODO" [2024-01-25 Thu 11:53]
+   - State "DONE" from "TODO" [2024-01-10 Wed 23:24]
+   - State "DONE" from "TODO" [2024-01-03 Wed 19:39]
+   - State "DONE" from "TODO" [2023-12-11 Mon 21:30]
+   - State "DONE" from "TODO" [2023-11-24 Fri 13:10]
+
+   - [ ] Do X
+```
+
+I don't know if this is a bug or a feature, but when you have many iterations it's difficult to see the task description. So it would be awesome if they could be included into the properties fold or have their own fold.
+
+I've found though that if you set the [`org_log_into_drawer = "LOGBOOK"` in the config](https://github.com/nvim-orgmode/orgmode/issues/455) this is fixed.
+
 ## Sometimes <c-cr> doesn't work
 
 Close the terminal and open a new one (pooooltergeist!).
@@ -1172,6 +1540,14 @@ I've made some tests and it takes more time to load many small files than few bi
 Take care then on what files you add to your `org_agenda_files`. For example you can take the next precautions:
 
 - When adding a wildcard, use `*.org` not to load the `*.org_archive` files into the ones to process. Or [save your archive files elsewhere](#archiving).
+
+# Things that are still broken or not developed
+
+- [The agenda does not get automatically refreshed](https://github.com/nvim-orgmode/orgmode/issues/656)
+- [Uncheck checkboxes on recurring tasks once they are completed](https://github.com/nvim-orgmode/orgmode/issues/655)
+- [Foldings when moving items around](https://github.com/nvim-orgmode/orgmode/issues/524)
+- [Refiling from the agenda](https://github.com/nvim-orgmode/orgmode/issues/657)
+- [Interacting with the logbook](https://github.com/nvim-orgmode/orgmode/issues/149)
 
 # Comparison with Markdown
 
@@ -1203,8 +1579,9 @@ What I like of markdown over Org mode:
 # References
 
 * [Source](https://github.com/nvim-orgmode/orgmode)
+* [Getting started guide](https://github.com/nvim-orgmode/orgmode/wiki/Getting-Started)
 * [Docs](https://nvim-orgmode.github.io/)
-* [Developer docs](https://github.com/nvim-orgmode/orgmode/blob/master/DOCS.md#org_export)
+* [Developer docs](https://github.com/nvim-orgmode/orgmode/blob/master/DOCS.md)
 * [List of supported commands](https://github.com/nvim-orgmode/orgmode/wiki/Feature-Completeness#nvim-org-commands-not-in-emacs)
 * [Python library: Org-rw](https://github.com/kenkeiras/org-rw)
 * [List of plugins](https://github.com/topics/orgmode-nvim)

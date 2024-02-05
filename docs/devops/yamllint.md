@@ -24,6 +24,30 @@ You can use it both with:
             - id: yamllint
         ```
 
+# Configuration
+
+## [Ignore certain files](https://yamllint.readthedocs.io/en/latest/configuration.html#ignoring-paths)
+
+It is possible to exclude specific files or directories, so that the linter doesn’t process them. They can be provided either as a list of paths, or as a bulk string.
+
+You can either totally ignore files (they won’t be looked at):
+
+```yaml
+extends: default
+
+ignore: |
+  /this/specific/file.yaml
+  all/this/directory/
+  *.template.yaml
+
+# or:
+
+ignore:
+  - /this/specific/file.yaml
+  - all/this/directory/
+  - '*.template.yaml'
+```
+
 # References
 
 * [Git](https://github.com/adrienverge/yamllint)

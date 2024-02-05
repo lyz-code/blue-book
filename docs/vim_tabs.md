@@ -4,7 +4,7 @@ date: 20210318
 author: Lyz
 ---
 
-!!! note "This article is almost a copy paste of [joshldavis post](http://joshldavis.com/2014/04/05/vim-tab-madness-buffers-vs-tabs/)"
+The rest of the article is an outdated almost copy-paste of [joshldavis post](http://joshldavis.com/2014/04/05/vim-tab-madness-buffers-vs-tabs/) which is what I've been using for years.
 
 First I have to admit, I was a heavy user of tabs in Vim.
 

@@ -193,7 +193,7 @@ The objectives of the month plan are:
 - Make your backlog and todo list match the month objectives
 - Define the philosophical topics to address
 - Define the topics to learn
-- Define the are of habits to incorporate?
+- Define the habits to incorporate
 - Define the checks you want to do at the end of the month.
 - Plan when is it going to be the next review.
 
@@ -228,19 +228,30 @@ It's important that you prepare your environment for the planning. You need to b
 
 To be able to make a good decision on your month's path you need to sort out which is your current state. To do so:
 
-- Clean your inbox: Refile each item until it's empty
+- Clean your inbox: If it's feasible in a short period of time refile each item until it's empty otherwise quickly overview it to see if there is any thing that needs to be addressed this month.
 - Clean your todo: Review each todo element by deciding if they should still be in the todo. If they do and they belong to a month objective, add it. If they don't need to be in the todo, refile it.
-- Clean your someday: Review each relevant someday element (not the ones that are archive at greater levels than month) and decide if they should be refiled elsewhere and if they are part of a month objective that should be dealt with this month.
-- Adress each of the trimester objectives by creating month objectives that get you closer to the desired objective.
+
+## Decide the month objectives
+
+Create the month objectives in your roadmap file after addressing each element of:
+
+- Your last month review document.
+- The trimester objectives of your roadmap.
+
+Once they are ready, copy them to the description of your `todo.org` file. That way you'll see it every day.
 
 ## Decide the next steps
 
 For each of your month objectives:
 
-- Decide wheter it makes sense to address it this month. If not, archive it
+- Decide whether it makes sense to address it this month. If not, archive it
 - Create a clear plan of action for this month on that objective
+- Define the todo of each device (mobile, tablet, laptop)
 - Tweak your *things to think about list*.
 - Tweak your *reading list*.
+- Tweak your week distribution (what to do in each day)
+- If you selected maintenance week days tweak the priorities on your *maintenance list*.
+- If you selected improvement week days tweak the priorities on your *improvements list*.
 - Tweak your *habit manager system*.
 
 # Trimester plan

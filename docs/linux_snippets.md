@@ -4,6 +4,53 @@ date: 20200826
 author: Lyz
 ---
 
+# [Configure nginx to restrict methods](https://tecadmin.net/how-to-allow-get-and-post-methods-only-in-nginx/)
+
+```
+server {
+    listen 80;
+    server_name yourdomain.com;
+    
+    location / {
+        if ($request_method !~ ^(GET|POST)$ ) {
+            return 405;
+        }
+        
+        try_files $uri $uri/ =404;
+    }
+}
+```
+
+# [Configure nginx location regexp to accept dashes](https://superuser.com/questions/1363456/nginx-server-name-regex-allow-dash)
+
+```
+location ~* /share/[\w-]+ {
+  root /home/project_root;
+}
+```
+# [Configure nginx location to accept many paths](https://serverfault.com/questions/564127/nginx-location-regex-for-multiple-paths)
+
+```
+location ~ ^/(static|media)/ {
+  root /home/project_root;
+}
+```
+
+# [Remove image metadata](https://stackoverflow.com/questions/66192531/exiftool-how-to-remove-all-metadata-from-all-files-possible-inside-a-folder-an)
+```bash
+exiftool -all:all= /path/to/file
+```
+
+# [Get the size increment of a directory between two dates](https://stackoverflow.com/questions/60147882/calculating-the-total-size-of-all-files-from-a-particular-date-to-till-date-usin)
+
+To see how much has a directory grown between two dates you can use:
+
+```bash
+find /path/to/directory -type f -newerat 2022-12-31 ! -newerat 2024-01-01 -printf "%s\\n" | awk '{s+=$1} END {print s}'
+```
+
+It finds all the files in that directory that were created in the 2023, it only prints their size in bytes and then it adds them all up.
+
 # [Makefile use bash instead of sh](https://stackoverflow.com/questions/589276/how-can-i-use-bash-syntax-in-makefile-targets)
 
 The program used as the shell is taken from the variable `SHELL`.  If

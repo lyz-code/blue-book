@@ -96,11 +96,77 @@ If we keep these stages in mind then:
     - Response: Make it difficult
     - Reward: Make it unsatisfying
 
+## Select which habits you want to work with
+
+Our responses to the cues are so deeply encoded that it may feel like the urge to act comes from nowhere. For this reason, we must begin the process of behavior change with awareness. Before we can effectively build new habits, we need to get a handle on our current ones. The author suggests to do a list of your daily habits and rate them positively, negatively or neutral under the judgement of whether it brings you closer to the desired person you want to be. 
+
+I find this approach expensive time-wise if you already have a huge list of habits to work with. As it's my case I'll skip this part. You can read it in more detail in the chapter "4: The Man Who Didn't Look Right".
+
 ## Working with the habit cues
 
-Our responses to the cues are so deeply encoded that it may feel like the urge to act comes from nowhere. For this reason, we must begin the process of behavior change with awareness. Before we can effectively build new habits, we need to get a handle on our current ones.
+The first place to start the habit design is to understand and tweak the triggers that produce them. We'll do it by:
 
+- [Clearly formulating the habits to change](#clearly-formulate-the-habit-you-want-to-change)
+- [Stacking habits](#habit-stacking)
+- [Using the environment to tweak your cues](#use-the-environment-to-tweak-your-cues)
+
+### Clearly formulate the habit you want to change
+
+The cues that can trigger an habit can come in a wide range of forms but the two most common are time and location. Being specific about what you want and how you will achieve it helps you say no to things that derail progress, distract your attention and pull you off course. And with enough repetition, you will get the urge to do the right thing at the right time, even if you can't say why. That's why it's interesting to formulate your habits as "I will [behaviour] at [time] in [location]". 
+
+You want the cue to be highly specific and immediately actionable. If there is room for doubt the implementation will suffer. Continuously refine the habit definitions as you catch the exceptions that drift you off.
+
+If you aren't sure of when to start your habit, try the first day of the week, month or year. People are more likely to take action at those times because hope is usually higher as you get the feeling of a fresh start.
+
+### Habit stacking
+
+Many behaviours are linked together where the action of the first is the cue that triggers the next one. You can use this connection to build new habits based on your established ones. This may be called habit stacking. The formulation in this case is "After [current habit], I will [new habit]".
+
+The key is to tie your desired behaviour into something you already do each day. Once you have mastered this basic structure, you can begin to create larger stacks by chaining small habits together. The catch is that the new habit should have the same frequency as the established one. 
+
+One way to find the right trigger for your habit stack is by brainstorming over:
+
+- The list of your current habits.
+- A new list of things that always happen to you with that frequency.
+
+With these two lists, you can begin searching for the best triggers for the stack.
+
+### Use the environment to tweak your cues
+
+The cues that trigger a habit can start out very specific, but over time your habits become associated not with a single trigger but with the entire context surrounding the behaviour. This stacks over itself and your habits change depending on the room you are in and the cues in front of you. The context or the environment is then the invisible hand that shapes behaviours. They are not defined by the objects in the environment but by our relationship to them. 
+
+A new environment is a good foundation to make new habits, as you are free from the subtle triggers that nudge you toward your current habits. When you can't manage to get an entirely new environment, you can redefine or rearrange your current one.
+
+When building good habits you can rearrange the environment to create obvious visual cues that draw your attention towards the desired habit. By sprinkling triggers throughout your surroundings, you increase the odds that you'll think about your habit throughout the day.
+
+Once a habit has been encoded, the urge to act follows whenever the environmental cues reappear. This is why bad habits reinforce themselves. As you carry through the behaviour you spiral into a situation where the craving keeps growing and points you to keep on going with the same response. For example watching TV makes you feel sluggish, so you watch more television because you don't have the energy to do anything else.
+
+Even if you manage to break a habit, you are unlikely to forget it's cues even if you don't do it for a while. That means that simply resisting temptation is an ineffective strategy. In the short run it may work. In the long run, as self-control is an exhausting task that consumes willpower, we become a product of the environment we live in. Trying to change a habit with self-control is doomed to fail as you may be able to resist temptation once or twice, but it's unlikely you can muster the willpower to override your desires every time. It's also very hard and frustrating to try to achieve change when you're under the mood influences of a bad habit. 
+
+A more reliable approach is to cut bad habits off at the source. Tweak the environment to make the cue virtually impossible to happen. That way you won't even have the chance to fall for the craving.
 
 ## Working with the habit cravings
+
+### Temptation bundling
+
+Dopamine is a neurotransmitter that can be used as the scientific measurement of craving. For years we assumed that it was all about pleasure, but now we know it plays a central role in many neurological processes, including motivation, learning and memory, punishment and aversion and voluntary movement.
+
+Habits are a dopamine-driven feed back loop. It is released not only when you receive a reward but also when you anticipate it. This anticipation, and not the fulfillment of it, is what gets us to take action. 
+
+If we make a habit more attractive it will release more dopamine which will gives us more motivation to carry it through. 
+
+Temptation bundling works by pairing an action you want to do with an action you need to do. You're more likely to find a behaviour attractive if you get to do one of your favourite things at the same time. In the end you may even look forward to do the habit you need as it's related to the habit you want.
+
+### Align your personal identity change with an existent shared identity
+
+We pick up habits from the people around us. As a general rule, the closer we are to someone, the more likely we are to imitate some of their habits. One of the most effective things you can do to build better habits is to join a culture where your desired behaviour is the normal one. This transforms your personal identity transformation into the building of a shared one. Shared identities have great benefits over single ones:
+
+- They foster belonging. A powerful feeling that creates motivation.
+- They are more resilient: When one falters others will take their place so all together you'll guarantee the maintenance of the identity.
+- They create friendship and community
+- They expose you to an environment where more habits tied to that identity thrive.
+
+Likewise, if you're trying to run from a bad habit cut your ties to communities that embrace that habit.
+
 ## Working with the habit responses
 ## Working with the habit rewards

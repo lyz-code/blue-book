@@ -115,6 +115,7 @@ There are different paths to discover actionable items:
 
 - Analyze what is in your mind: Take 10 minutes to answer to the next questions (you don't need to answer them all):
 
+  - Where is your mind these days?
   - What did drain your energy or brought you down emotionally this last month?
   - What worries you right now?
   - What did help you most this last month?
@@ -159,6 +160,7 @@ Once you have analyzed an element copy all the decisions you've made in the `Dec
 
 Once you have a clear definition of the current state, the new and how to reach it you need to process each of the decisions you've identified through the review process so that they are represented in your life management system, otherwise you won't arrive the desired state. To do so analyze what is the best way to process each of the elements you have written in the `Decide` section. It can be one or many of the following:
 
+- Identify hard deadlines: Add a warning days before the deadline to make sure you're reminded until it's done.
 - Create or tweak a habit
 - Tweak your project and tasks definitions
 - Create *checks* to make sure that they are not overseen. 

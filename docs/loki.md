@@ -159,6 +159,22 @@ Download and edit [the basic configuration](https://grafana.com/docs/loki/latest
 wget https://raw.githubusercontent.com/grafana/loki/v2.9.1/cmd/loki/loki-local-config.yaml -O /data/loki/config/loki-config.yaml
 ```
 
+### Prevent the [too many outstanding requests error](https://github.com/grafana/loki/issues/5123)
+
+Add to your loki config the next options
+```yaml
+
+limits_config:
+  split_queries_by_interval: 24h
+  max_query_parallelism: 100
+
+query_scheduler:
+  max_outstanding_requests_per_tenant: 4096
+
+frontend: 
+  max_outstanding_per_tenant: 4096
+```
+
 ## Configure Promtail
 
 Check the [promtail](promtail.md) document.

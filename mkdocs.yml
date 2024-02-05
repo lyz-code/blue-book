@@ -25,55 +25,62 @@ nav:
       - Collaborating tools: collaborating_tools.md
   - Life Management:
       - life_management.md
-      - Time Management: time_management.md
-      - Life Management:
-        - Life planning: life_planning.md
-        - Life review: life_review.md
-      - Task Management:
-          - task_management.md
-          - Getting Things Done: gtd.md
-          - Task Management Tools:
-              - task_tools.md
-              - Org Mode: 
-                - orgmode.md
-                - Org-rw: org_rw.md
-                - Orgzly: orgzly.md
-              - OpenProject: openproject.md
-      - Habit management: habit_management.md
-      - Interruption Management:
-          - interruption_management.md
-          - Work Interruption Analysis: work_interruption_analysis.md
-          - Personal Interruption Analysis: personal_interruption_analysis.md
-      - Week Management: week_management.md
-      - Relationship Management: relationship_management.md
-      - Money Management: money_management.md
-      - News Management: 
-        - news_management.md
-        - RSS: rss.md
-      - Calendar Management: calendar_management.md
-      - Email Management:
-        - email_management.md
-        - Email Automation: email_automation.md
+      - Productivity:
+        - Time Management: time_management.md
+        - Life Management:
+          - Life planning: life_planning.md
+          - Life review: life_review.md
+        - Task Management:
+            - task_management.md
+            - Getting Things Done: gtd.md
+            - Task Management Tools:
+                - task_tools.md
+                - Org Mode: 
+                  - orgmode.md
+                  - Org-rw: org_rw.md
+                  - Orgzly: orgzly.md
+                - OpenProject: openproject.md
+        - Habit management: habit_management.md
+        - Interruption Management:
+            - interruption_management.md
+            - Work Interruption Analysis: work_interruption_analysis.md
+            - Personal Interruption Analysis: personal_interruption_analysis.md
+        - Week Management: week_management.md
+        - Calendar Management: calendar_management.md
+        - Strategy: strategy.md
+        - Game Theory: game_theory.md
+      - Life Chores Management:
+        - Trip Management:
+          - Route Management: route_management.md
+          - Map Management: map_management.md
+        - Food Management: food_management.md
+        - Stock Management: 
+          - Grocy: grocy_management.md
+        - Money Management: money_management.md
+        - Tools Management: 
+          - tool_management.md
+          - Email Management:
+            - email_management.md
+            - Email Automation: email_automation.md
+          - Instant Messages Management: instant_messages_management.md
+          - Computer configuration management: configuration_management.md
+      - Content Management:
+        - Music Management:
+            - music_management.md
+            - MusicBrainz: musicbrainz.md
+        - Book Management: book_management.md
+        - News Management: 
+          - news_management.md
+          - RSS: rss.md
       - Knowledge Management:
+        - knowledge_management.md
         - Spaced Repetition: spaced_repetition.md
         - Anki: anki.md
-
-      - Music Management:
-          - music_management.md
-          - MusicBrainz: musicbrainz.md
-      - Book Management: book_management.md
-      - Map Management: map_management.md
-      - Food Management: food_management.md
-      - Grocy Management: grocy_management.md
-      - Instant Messages Management: instant_messages_management.md
-      - Computer configuration management: configuration_management.md
+      - Relationship Management: relationship_management.md
       - Process Automation:
           - process_automation.md
           - Virtual Assistant: virtual_assistant.md
       - Life logging: life_logging.md
-      - Strategy: strategy.md
-      - Game Theory: game_theory.md
-      - Tool Management: tool_management.md
   - Health:
       - Sleep: sleep.md
       - Teeth:
@@ -228,6 +235,45 @@ nav:
           - Qwik: qwik.md
           - JWT: devops/jwt.md
           - React: coding/react/react.md
+      - IDES:
+          - Vim:
+              - vim.md
+              - Vim configuration: 
+                - vim_config.md
+                - Vim Keymaps: vim_keymaps.md
+                - Vim Package Manager:
+                  - vim_plugin_managers.md
+                  - LazyVim: lazyvim.md
+                  - Packer: vim_packer.md
+                - UI management configuration: 
+                  - Vim foldings: vim_foldings.md
+                  - Vim movement: vim_movement.md
+                  - Tabs vs Buffers: vim_tabs.md
+                - File management configuration:
+                  - NeoTree: neotree.md
+                  - Telescope: telescope.md
+                - Editing specific configuration:
+                  - vim_editor_plugins.md
+                  - Vim markdown: vim_markdown.md
+                  - Vim spelling: vim_spelling.md
+                - Coding specific configuration:
+                  - vim_coding_plugins.md
+                  - Treesitter: vim_treesitter.md
+                  - LSP: vim_lsp.md
+                  - DAP: vim_dap.md
+                  - Git management configuration: 
+                    - Diffview: diffview.md
+                    - gitsigns: gitsigns.md
+                  - Testing management configuration: vim_testing.md
+                - Email management: vim_email.md
+                - Other Vim Plugins: 
+                  - linux/vim/vim_plugins.md
+              - Vim Snippets: vim_snippets.md 
+              - Vim Troubleshooting: vim_troubleshooting.md 
+              - Neovim Plugin Development: vim_plugin_development.md
+              - Vi vs Vim vs Neovim: vim_vs_neovim.md
+              - Tridactyl: tridactyl.md
+          - VSCodium: vscodium.md
       - Generic Coding Practices:
           - How to code: how_to_code.md
           - Program Versioning:
@@ -325,6 +371,7 @@ nav:
               - AWS Savings plan: aws_savings_plan.md
               - Security groups workflow: devops/aws/security_groups.md
               - EKS: devops/aws/eks.md
+              - EFS: efs.md
               - IAM:
                   - devops/aws/iam/iam.md
                   - IAM Commands: devops/aws/iam/iam_commands.md
@@ -397,6 +444,9 @@ nav:
           - Authentik: authentik.md
       - Self-hosted services:
           - Ombi: ombi.md
+          - Self-hosted Photo galleries: 
+            - photo_self_hosted.md
+            - Immich: immich.md
       - API Management:
           - devops/api_management.md
           - Kong: devops/kong/kong.md
@@ -478,16 +528,6 @@ nav:
               - Rtorrent: rtorrent.md
           - Tahoe-LAFS: tahoe.md
           - vdirsyncer: vdirsyncer.md
-          - Vim:
-              - vim.md
-              - Tabs vs Buffers: vim_tabs.md
-              - Vim Plugins: linux/vim/vim_plugins.md
-              - Write Neovim Plugins: write_neovim_plugins.md
-              - gitsigns: gitsigns.md
-              - Treesitter: treesitter.md
-              - Diffview: diffview.md
-              - Tridactyl: tridactyl.md
-          - VSCodium: vscodium.md
           - Wake on Lan: wake_on_lan.md
           - Wallabag: wallabag.md
           - Wireguard: linux/wireguard.md
@@ -564,6 +604,9 @@ nav:
           - galego.md
           - Diccionario galego-castelan: diccionario_galego.md
   - Science:
+      - Artificial Intelligence: 
+        - Speech recognition: speech_recognition.md
+        - Coding by Voice: coding_by_voice.md
       - Data Analysis:
           - Recommender Systems: >-
               data_analysis/recommender_systems/recommender_systems.md

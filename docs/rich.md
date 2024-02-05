@@ -60,6 +60,16 @@ table.add_row("Dec 16, 2016", "Rogue One: A Star Wars Story", "$1,332,439,889")
 console = Console()
 console.print(table)
 ```
+
+Adding a footer is not easy task. [This answer](https://github.com/Textualize/rich/discussions/2135) doesn't work anymore as `table` doesn't have the `add_footer`. You need to create the footer in the `add_column` so you need to have the data that needs to go to the footer before building the rows.
+
+You would do something like:
+
+```python
+table = Table(title="Star Wars Movies", show_footer=True)
+table.add_column("Title", style="magenta", footer='2342')
+```
+
 ## [Rich text](https://rich.readthedocs.io/en/latest/text.html)
 
 ```python
