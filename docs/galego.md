@@ -179,5 +179,4 @@ Artigos determinados:
 * [Gramática da Lingua Galega de Xosé Feixó Cid](https://www.xerais.gal/libro.php?id=927711)
 * [Como falar e escribir en galego con corrección e fluidez de Carlos Callón](https://www.xerais.gal/libro.php?id=3337926)
 * [Manual de conxugación verbal da lingua galega de Avelino Hermida](https://editorialgalaxia.gal/produto/manual-de-conxugacion-verbal-da-lingua-galega/)
-* [Dicionario Galaxia de usos e dificultades da lingua galega de Benigno
-    Fernández Salgado](https://editorialgalaxia.gal/produto/dicionario-galaxia-de-usos-e-dificultades-da-lingua-galega/)
+* [Dicionario Galaxia de usos e dificultades da lingua galega de Benigno Fernández Salgado](https://editorialgalaxia.gal/produto/dicionario-galaxia-de-usos-e-dificultades-da-lingua-galega/)

@@ -248,8 +248,9 @@ For each of your month objectives:
 - Create a clear plan of action for this month on that objective
 - Define the todo of each device (mobile, tablet, laptop)
 - Tweak your *things to think about list*.
+- Tweak your *investigations list*.
 - Tweak your *reading list*.
-- Tweak your week distribution (what to do in each day)
+- Tweak your week distribution (what to do in each day) in your roadmap document
 - If you selected maintenance week days tweak the priorities on your *maintenance list*.
 - If you selected improvement week days tweak the priorities on your *improvements list*.
 - Tweak your *habit manager system*.

@@ -9,11 +9,38 @@ author: Lyz
 * [plugin example](https://github.com/jacobsimpson/nvim-example-python-plugin)
 * [plugin repo](https://github.com/neovim/python-client)
 
-The plugin repo has some examples in the tests directory
+The plugin repo has some examples in the tests directory.
 
-## Vim plugin development snippets
+[Miguel Crespo has created a nice tutorial too](https://miguelcrespo.co/posts/how-to-write-a-neovim-plugin-in-lua)
+# [The anatomy of a Neovim plugin](https://miguelcrespo.co/posts/how-to-write-a-neovim-plugin-in-lua) 
 
-### Control an existing nvim instance
+Let’s start by seeing how the architecture of a common neovim plugin looks like, usually a neovim plugin is structured in the following way:
+
+```code
+.
+├── LICENSE
+├── plugin
+│  └── plugin-file.lua
+├── lua
+│  └── main-file.lua
+└── README.md
+
+```
+
+The plugin and lua folder are special cases and have the following meanings:
+
+- `plugin` directory: All files in this directory will get executed as soon as Neovim starts, this is useful if you want to set keymaps or autocommands regardless of the user requiring the plugin or not.
+
+- `lua` directory: Here is where your plugin’s code lives, this code will only be executed when the user explicitly requires your plugin.
+
+The naming of the files is important and will usually be the same as the plugin, there are two ways to do it:
+
+- Having a single lua file named after the plugin, e.g: `scratch-buffer.lua`
+- Having a folder named after the plugin with an init.lua inside of it, e.g `lua/scratch-buffer/init.lua`.
+
+# Vim plugin development snippets
+
+## Control an existing nvim instance
 
 A number of different transports are supported, but the simplest way to get
 started is with the python REPL. First, start Nvim with a known address (or use
@@ -42,7 +69,7 @@ bridge](http://vimdoc.sourceforge.net/htmldoc/if_pyth.html#python-vim):
 [1, 2, 3]
 ```
 
-### Load buffer
+## Load buffer
 
 ```python
 buffer = nvim.current.buffer # Get the current buffer
@@ -50,7 +77,7 @@ buffer[0] = 'replace first line'
 buffer[:] = ['replace whole buffer']
 ```
 
-### Get cursor position
+## Get cursor position
 ```python
 nvim.current.window.cursor
 ```
@@ -94,4 +121,7 @@ You will debug the plugin by:
 - Optionally open the `nvim-dap-ui` with `<leader>B` in the debugger.
 - Run your script/plugin in the debuggee
 - Interact in the debugger using `<leader>n` to step to the next step, and `<leader>N` to step into. Then use the dap console to inspect and change the values of the state.
+
+# References
+- [Miguel Crespo tutorial](https://miguelcrespo.co/posts/how-to-write-a-neovim-plugin-in-lua)
 

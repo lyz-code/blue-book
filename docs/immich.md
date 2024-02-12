@@ -88,10 +88,154 @@ Make sure to configure the update library cron job to run after this script has 
 
 ### Sharing content
 
+# Troubleshooting
+
+## [Create albums from a directory structure using external library](https://github.com/immich-app/immich/discussions/4279)
+
+As it's not yet supported alvistar has created [`immich-albums`](https://github.com/alvistar/immich-albums)
+
+Immich Albums is a tool designed to create albums in Immich from a folder structure. Assets needs to be loaded as external library in Immich then you can launch script to create albums.
+### [Installation](https://github.com/alvistar/immich-albums?tab=readme-ov-file#installation)
+- Clone the repository:
+
+  ```bash
+  git clone https://github.com/alvistar/immich-albums.git
+  ```
+
+- Navigate to the project directory:
+
+  ```bash
+  cd immich-albums
+  ```
+
+- Install dependencies:
+
+  ```bash
+  poetry install
+  ```
+
+- Activate virtual environment:
+
+```bash
+ poetry shell
+```
+
+- Test installation:
+
+  ```bash
+  im --help
+  ```
+### [Usage](https://github.com/alvistar/immich-albums?tab=readme-ov-file#usage)
+
+
+The following are required arguments:
+
+- `--api-key`: Immich API key
+- `--api-host`: Immich API host. Example: https://localhost:22283/api
+- `--original-path`: Path to local albums
+- `--replace-path`: Path as seen by Immich host
+
+Original path is the path to your local albums. If for example your albums are stored in `/home/user/albums` and you mounted that path under docker as `/mnt/albums` you need to pass `/home/user/albums` as `--original-path` and `/mnt/albums` as `--replace-path`.
+
+Note
+
+Api host should be the API endpoint of your Immich instance.
+
+Example: https://localhost:22283/api
+
+cd /home/user/albums
+im --api-key YOUR_API_KEY --api-host YOUR_API_HOST --original-path /home/user/albums --replace-path /mnt/albums .
+
+## Edit an image metadata
+
+You can't do it directly through the interface yet, use [exiftool](linux_snippets.md#Remove-image-metadata) instead.
+
+This is interesting to remove the geolocation of the images that are not yours
+
+## [Fix a file date on a external library](https://immich.app/docs/features/libraries/#external-libraries)
+
+You can change the dates directly by `touching` the file.
+
+```bash 
+touch -d YYYYMMDD path/to/file
+```
+If a file is modified outside of Immich, the changes will not be reflected in immich until the library is scanned again. There are different ways to scan a library depending on the use case:
+
+- Scan Library Files: This is the default scan method and also the quickest. It will scan all files in the library and add new files to the library. It will notice if any files are missing (see below) but not check existing assets
+- Scan All Library Files: Same as above, but will check each existing asset to see if the modification time has changed. If it has, the asset will be updated. Since it has to check each asset, this is slower than Scan Library Files.
+- Force Scan All Library Files: Same as above, but will read each asset from disk no matter the modification time. This is useful in some cases where an asset has been modified externally but the modification time has not changed. This is the slowest way to scan because it reads each asset from disk.
+
+Due to aggressive caching it can take some time for a refreshed asset to appear correctly in the web view. You need to clear the cache in your browser to see the changes. This is a known issue and will be fixed in a future release. In Chrome, you need to open the developer console with F12, then reload the page with F5, and finally right click on the reload button and select "Empty Cache and Hard Reload".
+
+In my case I had to see in which albums I added the files that were of the date `2023-07-02` so I used this command to build the `touch -d` iterative command.
+
+```python
+import requests
+import os
+
+
+base_url = "https://your-server.org/api"
+directory = "directory/to/correct"
+original_path = "/server/path/for/external/library/"
+replace_path = "/docker/path/for/external/library"
+albums = {}
+
+payload = {}
+headers = {
+    "Accept": "application/json",
+    "Cookie": "XXXX",
+}
+
+def get_asset_by_original_path(path):
+    response = requests.request(
+        "GET", f"{base_url}/assets?originalPath={path}", headers=headers, data=payload
+    )
+    return response.json()[0]
+
+
+for filename in os.listdir(f"{original_path}/{directory}"):
+    full_path = f"{original_path}/{directory}/{filename}"
+    if os.path.isfile(full_path):
+        replaced_path = full_path.replace(original_path, replace_path)
+        # print(f"searching for: {replaced_path}")
+        asset = get_asset_by_original_path(replaced_path)
+        asset_id = asset["id"]
+        if asset_id is not None:
+            if "2023-07-02" in asset["fileCreatedAt"]:
+                # print("Bad date")
+                album_data = requests.request(
+                    "GET",
+                    f"{base_url}/album?assetId={asset_id}",
+                    headers=headers,
+                    data=payload,
+                ).json()
+                for album in [album["albumName"] for album in album_data]:
+                    albums.setdefault(album, [])
+                    albums[album].append(f"'{filename}'")
+
+
+for album, archives in albums.items():
+    print(f'{album}: {" ".join(archives)}')
+__import__("pdb").set_trace()
+```
+
+
 # Not there yet
 
 There are some features that are still lacking:
 
+- Better album management: Right now only the owner can edit an album
+  - [Collaborative albums](https://github.com/immich-app/immich/discussions/5649): That let different users edit the album
+  - [User groups for sharing/permissions](https://github.com/immich-app/immich/discussions/1633)
+  - [Adding to shared album](https://github.com/immich-app/immich/discussions/920)
+  - [Tidy up sharing](https://github.com/immich-app/immich/discussions/6335)
+  - [Reshare photos](https://github.com/immich-app/immich/discussions/5643)
+  - [Implement shared photos to show under main Photos](https://github.com/immich-app/immich/discussions/5013#discussion-5847421)
+  - [Add possibility to import pictures from a partner to our library ](https://github.com/immich-app/immich/discussions/5359)
+  - [Add to Library](https://github.com/immich-app/immich/discussions/1587)
+  - [A new approach on sharing photos](https://github.com/immich-app/immich/discussions/3273)
+  - [allow use of explore features for shared albums](https://github.com/immich-app/immich/discussions/3176)
+  - [Option to allow guests to modify description and or tags](https://github.com/immich-app/immich/discussions/3990)
 - [Image rotation](https://github.com/immich-app/immich/discussions/1695)
 - [Smart albums](https://github.com/immich-app/immich/discussions/1673)
 - [Image rating](https://github.com/immich-app/immich/discussions/3619)
@@ -99,14 +243,10 @@ There are some features that are still lacking:
 - [Nested albums](https://github.com/immich-app/immich/discussions/2073#discussioncomment-6584926)
 - [Duplication management](https://github.com/immich-app/immich/discussions/1968)
 - [Search guide](https://github.com/immich-app/immich/discussions/3657)
+- [Seeing shared assets into your timeline](https://github.com/immich-app/immich/discussions/3984)
+- [Be notified when pictures are added in album](https://github.com/immich-app/immich/discussions/1671)
+- [Person sharing](https://github.com/immich-app/immich/discussions/6755)
 
-# Troubleshooting
-
-## Edit an image metadata
-
-You can't do it directly through the interface yet, use [exiftool](linux_snippets.md#Remove-image-metadata) instead.
-
-This is interesting to remove the geolocation of the images that are not yours
 # References
 
 - [Home](https://immich.app/)

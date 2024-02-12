@@ -26,10 +26,17 @@ apt-get install python
 
 * Select the version in https://www.python.org/ftp/python/ and download it
     ```bash
-    wget https://www.python.org/ftp/python/3.9.2/Python-3.9.2.tgz
-    cd Python-3.9.2/
+    wget https://www.python.org/ftp/python/3.11.8/Python-3.11.8.tgz
+    unp Python-3.11.8/
+    cd Python-3.11.8/
     ./configure --enable-optimizations
     sudo make altinstall
+
+* If you want to change the machine default `python3` interpreter you can:
+  ```bash
+  sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.8 8
+  sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.10 10
+  ```
     ```
 
 # [Generators](https://realpython.com/introduction-to-python-generators/)

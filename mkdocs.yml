@@ -54,10 +54,10 @@ nav:
           - Route Management: route_management.md
           - Map Management: map_management.md
         - Food Management: food_management.md
-        - Stock Management: 
+        - Stock Management:
           - Grocy: grocy_management.md
         - Money Management: money_management.md
-        - Tools Management: 
+        - Tools Management:
           - tool_management.md
           - Email Management:
             - email_management.md
@@ -260,8 +260,10 @@ nav:
                   - vim_coding_plugins.md
                   - Treesitter: vim_treesitter.md
                   - LSP: vim_lsp.md
+                  - Snippets: luasnip.md
                   - DAP: vim_dap.md
                   - Git management configuration: 
+                    - vim_git.md
                     - Diffview: diffview.md
                     - gitsigns: gitsigns.md
                   - Testing management configuration: vim_testing.md
@@ -318,10 +320,11 @@ nav:
           - Ansible:
             - Ansible Snippets: ansible_snippets.md
             - Molecule: molecule.md
+          - Nix: nix.md
           - Dotfiles:
               - dotfiles.md
+              - Home Manager: home-manager.md
               - Chezmoi: chezmoi.md
-              - Nix: nix.md
               - Dotdrop: dotdrop.md
       - Infrastructure Solutions:
           - Kubernetes:

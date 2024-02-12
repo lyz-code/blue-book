@@ -6,6 +6,37 @@ When behaviors are repeated in a consistent context, there is an incremental inc
 
 Mastering habit formation can be a powerful tool to change yourself. Usually with small changes you get massive outcomes in the long run. The downside is that it's not for the impatient people as it often appears to make no difference until you cross a critical threshold that unlocks a new level of performance.
 
+# How to manage habits
+## Track your habit management
+You can have a `habits.org` file where you prioritize, analyze, track them.
+
+I'm using the next headings:
+
+* *Habits being implemented*: It's subdivided in two:
+  * Habits that need attention
+  * Habits that don't need attention
+* *Unclassified habits*: Useful when refiling habits from your inbox. This list will be analyzed when you do habit analysis.
+* *Backlog of habits*: Unrefined and unordered list of habits
+* Implemented habits:
+* Rejected habits:
+
+Each habit is a `TODO` item with the usual states: `TODO`, `DOING`, `DONE`, `REJECTED`. In it's body I keep a log of the evolution and the analysis of the habit.
+
+## Habit management workflow
+
+Each month I'm trying to go through the list of habits to:
+
+- Update the state of the habits: Some will be done, rejected or to register ideas about them. 
+- Decide which ones need attention.
+- Do habit analysis on the ones that need attention.
+
+For each of the habits that need analysis, apply the learnings of the next sections:
+
+- [Working with the habit cues](#working-with-the-habit-cues)
+- [Working with the habit cravings ](#working-with-the-habit-cravings ) 
+- [Working with the habit responses ](#working-with-the-habit-responses ) 
+- [Working with the habit rewards](#working-with-the-habit-rewards ) 
+
 # Why are habits interesting
 
 Whenever you face a problem repeatedly, your brain begins to automate the process of solving it. Habits are a series of automatic resolutions that solve the problems and stresses you face regularly.

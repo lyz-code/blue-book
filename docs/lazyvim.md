@@ -126,10 +126,20 @@ vim.api.nvim_create_autocmd("VimEnter", {
     if require("lazy.status").has_updates then
       require("lazy").update({ show = false })
     end
-  end,
+  end
 })
 ```
 
+## [Disabling plugins](https://www.lazyvim.org/configuration/plugins#-disabling-plugins)
+In order to disable a plugin, add a spec with enabled=false
+lua/plugins/disabled.lua
+
+```lua
+return {
+  -- disable trouble
+  { "folke/trouble.nvim", enabled = false },
+}
+```
 # References
 
 - [Source](https://github.com/LazyVim/LazyVim)

@@ -1146,6 +1146,39 @@ Some interesting features for the future are:
 * [Clocking](https://orgmode.org/manual/Clocking-Work-Time.html)
 
 # Troubleshooting
+## [Prevent Enter to create `*` on headings](https://github.com/LazyVim/LazyVim/discussions/2529)
+With a clean install of LazyVim distribution when pressing `<CR>` from a heading it creates a new heading instead of moving the cursor to the body of the heading:
+
+```org
+* Test <--  press enter in insert mode
+```
+The result is:
+```org
+* Test
+* <-- cursor here
+```
+The expected behaviour is:
+```org
+* Test
+  <-- cursor here
+```
+
+It's because of the [`formatoptions`](https://vimhelp.org/change.txt.html#fo-table). If you do `:set fo-=r`, you will observe the difference. 
+
+The `r` option automatically inserts the current comment leader after pressing `<Enter>` in Insert mode.
+
+To make the change permanent, you should enforce it with an auto-command. I really have no idea what makes Neovim think that the character `*` is a comment leader in `.org` files.
+
+```lua 
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "org",
+  group = vim.api.nvim_create_augroup("orgmode", { clear = true }),
+  callback = function()
+    vim.opt.formatoptions:remove({ "r" })
+  end,
+})
+```
+
 
 ## Create an issue in the orgmode repository
 
@@ -1219,8 +1252,31 @@ Note: if you want to debug orgmode with DAP use [this config instead](#troublesh
 - Add the leader configuration at the top of the file `vim.g.mapleader = ' '`
 - Open it with `nvim -u minimal_init.lua`
 
+## Troubleshoot orgmode from within lazyvim
+To start a fresh instance of lazyvim with orgmode you can run
+
+```bash
+mkdir ~/.config/newstarter && cd ~/.config/newstarter
+git clone https://github.com/LazyVim/starter .
+rm -rf .git*
+NVIM_APPNAME=newstarter nvim # and wait for installation of plugins to finish
+# Quit Neovim and start again with 
+NVIM_APPNAME=newstarter nvim lua/plugins/orgmode.lua
+# Paste the contents of the installation steps for `lazy.nvim` mentioned [here](https://github.com/nvim-orgmode/orgmode#installation) in the file that you opened. 
+# Quit and restart Neovim again with the aforementioned command 
+```
+
+Once you're done clean up with:
+
+```bash
+rm -rf ~/.config/newstarter ~/.local/share/newstarter
+```
 ## Troubleshoot orgmode with dap
 
+### To debug
+
+You already have configured `dap` just press `<F5>` in the window where you are running orgmode and set the breakpoints with the other nvim.
+### To open an issue
 Use the next config and follow the steps of [Create an issue in the orgmode repository](#create-an-issue-in-the-orgmode-repository).
 
 ```lua
@@ -1541,14 +1597,6 @@ Take care then on what files you add to your `org_agenda_files`. For example you
 
 - When adding a wildcard, use `*.org` not to load the `*.org_archive` files into the ones to process. Or [save your archive files elsewhere](#archiving).
 
-# Things that are still broken or not developed
-
-- [The agenda does not get automatically refreshed](https://github.com/nvim-orgmode/orgmode/issues/656)
-- [Uncheck checkboxes on recurring tasks once they are completed](https://github.com/nvim-orgmode/orgmode/issues/655)
-- [Foldings when moving items around](https://github.com/nvim-orgmode/orgmode/issues/524)
-- [Refiling from the agenda](https://github.com/nvim-orgmode/orgmode/issues/657)
-- [Interacting with the logbook](https://github.com/nvim-orgmode/orgmode/issues/149)
-
 # Comparison with Markdown
 
 What I like of Org mode over Markdown:
@@ -1575,6 +1623,16 @@ What I like of markdown over Org mode:
 - [org-bullets.nvim](https://github.com/akinsho/org-bullets.nvim): Show org mode bullets as UTF-8 characters.
 - [headlines.nvim](https://github.com/lukas-reineke/headlines.nvim): Add few highlight options for code blocks and headlines.
 - [Sniprun](https://github.com/michaelb/sniprun): A neovim plugin to run lines/blocs of code (independently of the rest of the file), supporting multiples languages.
+
+
+# Things that are still broken or not developed
+
+- [The agenda does not get automatically refreshed](https://github.com/nvim-orgmode/orgmode/issues/656)
+- [Uncheck checkboxes on recurring tasks once they are completed](https://github.com/nvim-orgmode/orgmode/issues/655)
+- [Foldings when moving items around](https://github.com/nvim-orgmode/orgmode/issues/524)
+- [Refiling from the agenda](https://github.com/nvim-orgmode/orgmode/issues/657)
+- [Interacting with the logbook](https://github.com/nvim-orgmode/orgmode/issues/149)
+- [Easy list item management](https://github.com/nvim-orgmode/orgmode/issues/472)
 
 # References
 

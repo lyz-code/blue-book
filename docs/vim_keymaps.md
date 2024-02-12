@@ -1,3 +1,4 @@
+# Vim custom keymaps
 I'm assuming you control the next concepts, otherwise read those sections first:
 
 - [Setting keymaps in lua](#setting-keymaps-in-lua)
@@ -8,13 +9,13 @@ LazyVim comes with some sane default keybindings, you can see them [here](https:
 - default `<leader>` is `<space>`
 - default `<localleader>` is `\`
 
-# General editor bindings
+## General editor bindings
 
 - Save file: `<C-s>`
 - Quit all: `<leader>qq`
 - Open a floating terminal: `<C-/>`
 
-# Movement keybindings
+## Movement keybindings
 
 - Split the windows:
   - Vertically: `<C-|`
@@ -26,9 +27,9 @@ LazyVim comes with some sane default keybindings, you can see them [here](https:
   - Next and previous with <S-h>, <S-l>
   - Switch to the previously opened buffer: `<leader>bb`
 
-# Coding keybindings
+## Coding keybindings
 
-## Diagnostics 
+### Diagnostics 
 
 - `<leader>cd>`: Shows you the diagnostics message of the current line in a floating window
 - `]d` and `[d`: iterates over all diagnostics
@@ -117,3 +118,32 @@ If you [want to define more than one leader key](https://stackoverflow.com/quest
   ```
 
 Defining `mapleader` and/or using `<leader>` may be useful if you change your mind often on what key to use a leader but it won't be of any use if your mappings are stable.
+
+# Tips
+
+## Tell the user not to use the keymap
+If you're moving away from a keymap or set of keymaps you can show a notice:
+
+```lua
+-- Save key strokes (now we do not need to press shift to enter command mode).
+keymap.set({ "n", "x" }, ";", ":")
+keymap.set({ "n", "x" }, ":", function()
+  vim.notify("Use ; instead")
+end)
+```
+## [Set custom keymaps on specific filetypes](https://github.com/folke/which-key.nvim/issues/135)
+
+Use autocomands on the `FileType` pattern. For example to add a keymap to the `gitcommit` filetype:
+
+```lua
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "gitcommit",
+  group = augroup("gitcommit"),
+  callback = function()
+    local keymap = vim.keymap
+
+    keymap.set("i", "jj", "<esc>:wincmd l<cr>j", { desc = "Go to normal, changes window and down", silent = true, buffer = true })
+})
+```
+
+It's important to set the `buffer = true` if you don't want the bindings to be permanent for all buffers once it's been loaded.
