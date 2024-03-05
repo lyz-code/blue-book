@@ -4,6 +4,7 @@ date: 20221007
 author: Lyz
 ---
 
+# Calendar solutions
 Since the break of my taskwarrior instance I've used a physical calendar to
 manage the tasks that have a specific date. 
 
@@ -25,7 +26,7 @@ To fulfill my needs the solution needs to:
 * Support having a personal calendar mixed with the shared ones.
 * Show all calendars in the same interface
 
-# [Khal](khal.md)
+## [Khal](khal.md)
 
 Looking at the available programs I found [`khal`](khal.md), which looks like
 it may be up to the task.
@@ -35,3 +36,12 @@ instance to have a local calendar.
 
 If you want to sync your calendar events through CalDAV, you need to set
 [vdirsyncer](vdirsyncer.md).
+
+# Calendar event notification system
+Set up a system that notifies you when the next calendar event is about to start to avoid spending mental load on it and to reduce the possibilities of missing the event.
+
+I've created a small tool that:
+
+- Tells me the number of [pomodoros](task_tools.md#pomodoro) that I have until the next event.
+- Once a pomodoro finishes it makes me focus on the amount left so that I can prepare for the event
+- Catches my attention when the event is starting.

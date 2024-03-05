@@ -58,11 +58,25 @@ Restart Docker for the changes to take effect.
 
 There are many ways to send logs to loki
 
+- Using the json driver and sending them to loki with promtail with the docker driver
 - Using the docker plugin
 - Using the journald driver and sending them to loki with promtail with the journald driver
-- Using the json driver and sending them to loki with promtail with the docker driver
 
 #### Using the json driver
+
+This is the cleanest way to do it in my opinion. First configure `docker` to output the logs as json by adding to `/etc/docker/daemon.json`:
+
+```json 
+{
+  "log-driver": "json-file",
+  "log-opts": {
+    "max-size": "10m",
+    "max-file": "3"
+  }
+}
+```
+
+Then use [promtail's `docker_sd_configs`](promtail.md#scrape-docker-logs).
 
 #### Using journald 
 
@@ -78,7 +92,7 @@ The wait time can be lowered by setting `loki-retries=2`, `loki-max-backoff_800m
 
 To avoid this issue, use the Promtail Docker service discovery.
 
-#### Install the Docker driver client
+##### Install the Docker driver client
 
 The Docker plugin must be installed on each Docker host that will be running containers you want to collect logs from.
 
@@ -99,7 +113,7 @@ ac720b8fcfdb        loki         Loki Logging Driver   true
 
 Once you have successfully installed the plugin you can configure it.
 
-#### Upgrade the Docker driver client
+##### Upgrade the Docker driver client
 
 The upgrade process involves disabling the existing plugin, upgrading, then re-enabling and restarting Docker:
 

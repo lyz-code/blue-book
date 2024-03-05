@@ -4,6 +4,41 @@ date: 20220827
 author: Lyz
 ---
 
+# [Self delete shell script ](https://stackoverflow.com/questions/8981164/self-deleting-shell-script) 
+
+Add at the end of the script
+
+```bash
+rm -- "$0"
+```
+
+`$0` is a magic variable for the full path of the executed script.
+# [Add a user to the sudoers through command line ](https://askubuntu.com/questions/7477/how-can-i-add-a-user-as-a-new-sudoer-using-the-command-line) 
+
+Add the user to the sudo group:
+
+```bash
+sudo  usermod -a -G sudo <username>
+```
+
+The change will take effect the next time the user logs in.
+
+This works because `/etc/sudoers` is pre-configured to grant permissions to all members of this group (You should not have to make any changes to this):
+
+```bash
+# Allow members of group sudo to execute any command
+%sudo   ALL=(ALL:ALL) ALL
+```
+
+# Error management done well in bash
+If you wish to capture error management in bash you can use the next format
+
+```bash
+if ( ! echo "$EMAIL" >> "$USER_TOTP_FILE" ) then
+	echo "** Error: could not associate email for user $USERNAME"
+	exit 1
+fi
+```
 # Show the progresion of a long running task with dots
 
 ```bash

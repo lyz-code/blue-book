@@ -4,6 +4,29 @@ date: 20200717
 author: Lyz
 ---
 
+# [Fix variable is unbound pyright error](https://github.com/microsoft/pyright/issues/3041) 
+
+You may receive these warnings if you set variables inside if or try/except blocks such as the next one:
+
+```python
+  def x():
+    y = True
+    if y:
+        a = 1
+    print(a)  # "a" is possibly unbound
+```
+
+The easy fix is to set `a = None` outside those blocks
+
+```python
+  def x():
+    a = None
+    y = True
+    if y:
+        a = 1
+    print(a)  # "a" is possibly unbound
+```
+
 # [Get unique items between two lists](https://stackoverflow.com/questions/28444561/get-only-unique-elements-from-two-lists)
 
 If you want all items from the second list that do not appear in the first list you can write:

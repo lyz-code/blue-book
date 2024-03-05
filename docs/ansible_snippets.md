@@ -4,6 +4,13 @@ date: 20220119
 author: Lyz
 ---
 
+# [Avoid arbitrary disk mount](https://forum.ansible.com/t/aws-determine-ebs-volume-physical-name-in-order-to-format-it/2510) 
+
+Instead of using `/dev/sda` use `/dev/disk/by-id/whatever`
+# [Get the user running ansible in the host ](https://stackoverflow.com/questions/26394096/how-do-i-get-a-variable-with-the-name-of-the-user-running-ansible) 
+
+If you `gather_facts` use the `ansible_user_id` variable.
+
 # [Set host variables using a dynamic inventory](https://stackoverflow.com/questions/40212986/ansible-ec2-dynamic-inventory-with-host-vars)
 As with a normal inventory you can use the `host_vars` files with the proper name.
 

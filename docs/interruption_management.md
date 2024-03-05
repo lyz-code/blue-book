@@ -58,7 +58,7 @@ If you want to see the analysis in action, check my [work
 analysis](work_interruption_analysis.md) or my [personal
 one](personal_interruption_analysis.md).
 
-# Workflow
+# Interruption refactor
 
 Once you have all the interruption sources identified, classified, and defined the
 checking periodicity, you need to decide how to handle them.

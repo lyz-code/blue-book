@@ -28,8 +28,8 @@ is as follows:
 * There have been only a few minutes, but you feel pretty good. Everything is
     where it should be.
 
-I've developed [`pynbox`](https://lyz-code.github.io/pynbox) to automate the
-management of the inbox. Help out if you like it!
+I developed [`pynbox`](https://lyz-code.github.io/pynbox) to automate the
+management of the inbox.
 
 # Task manager
 
@@ -51,8 +51,8 @@ When you add a new item, choose it's location relative to the existent one based
 on its priority. Being the top tasks are the ones that need to be done first.
 
 ~~~markdown
-* Task with a high priority
-* Task with low priority
+- Task with a high priority
+- Task with low priority
 ~~~
 
 The advantages of using a plaintext file over a physical notebook is that you
@@ -61,18 +61,28 @@ by reordering them or changing the description.
 
 ### Add task state sections
 
-You'll soon encounter tasks that become blocked but need your monitoring. You
-can add a `# Blocked` section and move those tasks under it. You can optionally
-add the reasons why it's blocked indented below the element.
+As the number of tasks starts to grow it will start to become unmanageable. One way of managing it is to use sections. For example:
+
+- Doing: Track only the things you are actively doing
+- Waiting: Track blocked tasks that need your monitoring
+- To do: 
+
+You can also start adding task information such as the reasons why a task is blocked.
 
 ~~~markdown
-* Unblocked task
+# Doing
+- Unblocked task
 
-# Blocked
+# Waiting
 
-* Blocked task
-  * Waiting for Y to happen
+- Blocked task
+  - Waiting for Y to happen
+
+# To do 
+
+- Thing to do next week
 ~~~
+
 
 ### Divide a task in small steps
 
@@ -82,30 +92,33 @@ split it in smaller doable steps that drive to its completion. If the steps are
 also big split them further with more indentation levels.
 
 ~~~markdown
-* Complex task
-  * Do X
-  * Do Y
-    * Do Z
-    * Do W
+- Complex task
+  - Do X
+  - Do Y
+    - Do Z
+    - Do W
 ~~~
+### Simplest task manager limits
 
-## Web based task manager
+After using it for a while I found that:
 
-Life happened and the development of [pydo](https://lyz-code.github.io/pydo) has
-fallen behind in my priority list. I've also reached a point where [simplest
-one](#the-simplest-task-manager) is no longer suitable for my workflow because:
-
-* I loose a lot of time in the reviews.
-* I loose a lot of time when doing the different plannings (year, trimester,
+* I lost a lot of time in the reviews.
+* I lost a lot of time when doing the different plannings (year, trimester,
     month, week, day).
 * I find it hard to organize and refine the backlog.
+## Command line interface task managers
+My love for the command line favours these solutions. I started my task management tool journey with Taskwarrior but some of it's limits made me start the development of `pydo` which ended in a dead end. Right now I'm using [orgmode](orgmode.md), and I'm loving it.
+## Web based task managers
 
-As `pydo` is not ready yet and I need a solution that works *today* better than
-the simplest task manager, I've done an analysis of the state of the art of
+Life happened and when I gave up on the development of [pydo](https://lyz-code.github.io/pydo), and reached a point where [simplest
+one](#the-simplest-task-manager) was [no longer suitable for my workflow](#simplest-task-manager-limits), I needed a solution that worked *on that day* better than
+the simplest task manager. I did an analysis of the state of the art of
 [self-hosted
-applications](https://github.com/awesome-selfhosted/awesome-selfhosted#software-development---project-management)
+applications](https://github.com/awesome-selfhosted/awesome-selfhosted#software-development---project-management) and 
 of all of them the two that were more promising were [Taiga](#taiga) and
 [OpenProject](#openproject).
+
+I ended using OpenProject for a while but finally switched to [orgmode](orgmode.md).
 
 ### [Taiga](https://www.taiga.io/)
 
@@ -127,7 +140,62 @@ Some facts made me finally not choose it, for example:
 
 Check the [OpenProject](openproject.md) page to see the analysis of the tool.
 
-In the end I went with this option.
+# Pomodoro
+
+Pomodoro is a technique used to ensure that for short periods of time, you
+invest all your mental resources in doing the work needed to finish a task. It's
+your main unit of work and a good starting point if you have concentration
+issues.
+
+When done well, you'll start moving faster on your tasks, because
+[uninterrupted work](interruption_management.md) is the most efficient. You'll
+also begin to know if you're drifting from your [day's plan](life_planning.md#day-plan), and
+will have space to adapt it or the [task plan](life_planning.md#task-plan) to time constrains or
+unexpected events.
+
+!!! note "" If you don't yet have a [task plan](life_planning.md#task-plan) or
+[day plan](life_planning.md#day-plan), don't worry! Ignore the steps that involve them until you
+do.
+
+The next steps define a Pomodoro cycle:
+
+- Select the cycle time span. Either 20 minutes or until the next interruption,
+  whichever is shortest.
+- Decide what are you going to do.
+- Analyze yourself to see if you're state of mind is ready to only do that for
+  the chosen time span. If it's not, maybe you need to take a "Pomodoro break",
+  take 20 minutes off doing something that replenish your willpower or the
+  personal attribute that is preventing you to be able to work.
+- Start the timer.
+- Work uninterruptedly on what you've decided until the timer goes off.
+- Take 20s to look away from the screen (this is good for your ejes).
+- Update your [task](life_planning.md#task-plan) and [day](life_planning.md#day-plan) plans:
+  - Tick off the done task steps.
+  - Refine the task steps that can be addressed in the next cycle.
+  - Check if you can still meet the day's plan.
+- Check the
+  [interruption channels that need to be checked each 20 minutes](interruption_management.md#define-your-interruption-events).
+
+At the fourth Pomodoro cycle, you'll have finished a Pomodoro iteration. At the
+end of the iteration:
+
+- Check if you're going to meet the [day plan](life_planning.md#day), if you're not, change
+  change it or the [task plan](life_planning.md#task) to make the time constrain.
+- Get a small rest, you've earned it! Get off the chair, stretch or give a small
+  walk. What's important is that you take your mind off the task at hand and let
+  your body rest. Remember, this is a marathon, you need to take care of
+  yourself.
+- Start a new Pomodoro iteration.
+
+If you're super focused at the end of a Pomodoro cycle, you can skip the task
+plan update until the end of the iteration.
+
+To make it easy to follow the pomodoro plan I use a script that:
+
+- Uses [timer](https://github.com/pando85/timer) to show the countdown.
+- Uses [safeeyes](https://github.com/slgobinath/SafeEyes) to track the eye
+  rests.
+- Asks me to follow the list of steps I've previously defined.
 
 # References
 

@@ -106,13 +106,17 @@ Note that the discovery will not pick up finished containers. That means Promtai
 
 ```yaml
 scrape_configs:
-  - job_name: docker 
+  - job_name: docker
     docker_sd_configs:
       - host: unix:///var/run/docker.sock
         refresh_interval: 5s
     relabel_configs:
       - source_labels: ['__meta_docker_container_name']
-        target_label: docker_name
+        regex: '/(.*)'
+        target_label: 'container'
+    pipeline_stages:
+      - static_labels:
+          job: docker
 ```
 The available meta labels are:
 
@@ -132,7 +136,36 @@ The available meta labels are:
 - `__meta_docker_port_public`: the external port if a port-mapping exists
 - `__meta_docker_port_public_ip`: the public IP if a port-mapping exists
 
-These labels can be used during relabeling. For instance, the following configuration scrapes the container named `flog` and removes the leading slash (/) from the container name.
+If you've set some systemd services that run docker-compose it's a good idea not to ingest them with promtail so as not to have duplicate log lines:
+
+```yaml 
+scrape_configs:
+  - job_name: journal
+    journal:
+      json: false
+      max_age: 12h
+      path: /var/log/journal
+      labels:
+        job: systemd-journal
+    relabel_configs:
+      - source_labels: ['__journal__systemd_unit']
+        target_label: unit
+      - source_labels: ['__journal__hostname']
+        target_label: hostname
+      - source_labels: ['__journal_syslog_identifier']
+        target_label: syslog_identifier
+      - source_labels: ['__journal_transport']
+        target_label: transport
+      - source_labels: ['__journal_priority_keyword']
+        target_label: level
+    pipeline_stages:
+      - drop:
+          source: syslog_identifier
+          value: docker-compose
+```
+#### Fetch only some docker logs
+
+The labels can be used during relabeling. For instance, the following configuration scrapes the container named `flog` and removes the leading slash (/) from the container name.
 yaml
 
 ```yaml

@@ -11,6 +11,8 @@ author: Lyz
 
 The plugin repo has some examples in the tests directory.
 
+Check [org-checkbox](https://github.com/massix/org-checkbox.nvim/blob/trunk/lua/orgcheckbox/init.lua) to see a simple one
+)
 [Miguel Crespo has created a nice tutorial too](https://miguelcrespo.co/posts/how-to-write-a-neovim-plugin-in-lua)
 # [The anatomy of a Neovim plugin](https://miguelcrespo.co/posts/how-to-write-a-neovim-plugin-in-lua) 
 
@@ -123,5 +125,6 @@ You will debug the plugin by:
 - Interact in the debugger using `<leader>n` to step to the next step, and `<leader>N` to step into. Then use the dap console to inspect and change the values of the state.
 
 # References
+- [Simple plugin example](https://github.com/massix/org-checkbox.nvim/blob/trunk/lua/orgcheckbox/init.lua)
 - [Miguel Crespo tutorial](https://miguelcrespo.co/posts/how-to-write-a-neovim-plugin-in-lua)
 

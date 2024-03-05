@@ -94,6 +94,29 @@ kubectl get pods --context <context_B>
 
 To get a list of available contexts use `kubectl config get-contexts`
 
+## Namespaces
+
+### Temporary set the namespace for a request
+
+```bash
+kubectl -n {{ namespace_name }} {{ command_to_execute }}
+kubectl --namespace={{ namespace_name }} {{ command_to_execute }}
+```
+
+### Permanently set the namespace for a request
+
+```bash
+kubectl config set-context --current --namespace={{ namespace_name }}
+```
+
+To make things easier you can set an alias:
+
+```bash 
+alias kn='kubectl config set-context --current --namespace '
+``` 
+
+To unset the namespace use `kubectl config set-context --current --namespace=""`
+
 # Links
 
 * [Overview](https://kubernetes.io/docs/reference/kubectl/overview/).

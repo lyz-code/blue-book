@@ -51,6 +51,15 @@ Or browse the following lists:
 
 Or the [digital garden](https://www.reddit.com/r/DigitalGardens/)'s reddit.
 
+# Link rot
+Link rot occurs when hyperlinks become obsolete or broken, leading to content loss or diminished user experience. Here are some ways to mitigate link rot in digital gardens:
+
+- Use Permalinks: Ensure that your digital garden software supports permanent URLs (permalinks) for each note or idea. Permalinks make it easier to reference and maintain links over time because they remain stable even if the underlying content changes. This is uncomfortable to do unless your editor supports it transparently.
+- Regularly Update Links: You can check for broken or outdated links and replacing them with current references through by using automated link checkers.
+- Implement Redirects: When restructuring your digital garden or moving content to different locations, set up redirects for old URLs to ensure that visitors are directed to the new location. This prevents link rot and maintains the continuity of your digital garden. I don't do it as I haven't found a way to automatically doing this.
+- [Archive External Content](#archive-external-content): When linking to external websites or resources, consider using web archiving services to create snapshots or archives of the content. This ensures that even if the original content becomes unavailable, visitors can still access archived versions. Check [the section below](#archive-external-content) for more information
+
+## Archive External Content
 # References
 
 * [Joel Hooks article on Digital Gardens](https://joelhooks.com/digital-garden)

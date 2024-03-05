@@ -25,6 +25,10 @@ directly from the [releases](https://github.com/neovim/neovim/releases) page and
 unpacking it somewhere in your home and doing a link to the `bin/nvim` file somewhere in your `$PATH`.
 
 ```bash
+# Install the dependencies
+
+sudo apt-get install gcc g++ npm libc6-dev ripgrep
+
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
 chmod u+x nvim.appimage
 mv nvim.appimage ~/.local/bin/nvim

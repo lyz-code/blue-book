@@ -209,10 +209,102 @@ Loki 2.0 brings an index mechanism named ‘boltdb-shipper’ and is what we now
 
 Loki 2.8 adds TSDB as a new mode for the Single Store and is now the recommended way to persist data in Loki as it improves query performance, reduces TCO and has the same feature parity as “boltdb-shipper”.
 
+## [Configure alerts and rules](https://grafana.com/docs/loki/latest/alert/)
+
+Grafana Loki includes a component called the ruler. The ruler is responsible for continually evaluating a set of configurable queries and performing an action based on the result.
+
+This example configuration sources rules from a local disk.
+
+```yaml 
+ruler:
+  storage:
+    type: local
+    local:
+      directory: /tmp/rules
+  rule_path: /tmp/scratch
+  alertmanager_url: http://localhost
+  ring:
+    kvstore:
+      store: inmemory
+  enable_api: true
+```
+
+There are two kinds of rules: alerting rules and recording rules.
+
+### Alerting rules
+
+Alerting rules allow you to define alert conditions based on LogQL expression language expressions and to send notifications about firing alerts to an external service.
+
+A complete example of a rules file:
+
+```yaml 
+groups:
+  - name: should_fire
+    rules:
+      - alert: HighPercentageError
+        expr: |
+          sum(rate({app="foo", env="production"} |= "error" [5m])) by (job)
+            /
+          sum(rate({app="foo", env="production"}[5m])) by (job)
+            > 0.05
+        for: 10m
+        labels:
+            severity: page
+        annotations:
+            summary: High request latency
+  - name: credentials_leak
+    rules: 
+      - alert: http-credentials-leaked
+        annotations: 
+          message: "{{ $labels.job }} is leaking http basic auth credentials."
+        expr: 'sum by (cluster, job, pod) (count_over_time({namespace="prod"} |~ "http(s?)://(\\w+):(\\w+)@" [5m]) > 0)'
+        for: 10m
+        labels: 
+          severity: critical
+```
+
+### Recording rules
+Recording rules allow you to precompute frequently needed or computationally expensive expressions and save their result as a new set of time series.
+
+Querying the precomputed result will then often be much faster than executing the original expression every time it is needed. This is especially useful for dashboards, which need to query the same expression repeatedly every time they refresh.
+
+
+Loki allows you to run metric queries over your logs, which means that you can derive a numeric aggregation from your logs, like calculating the number of requests over time from your NGINX access log.
+
+```yaml 
+name: NginxRules
+interval: 1m
+rules:
+  - record: nginx:requests:rate1m
+    expr: |
+      sum(
+        rate({container="nginx"}[1m])
+      )
+    labels:
+      cluster: "us-central1"
+```
+This query (`expr`) will be executed every 1 minute (`interval`), the result of which will be stored in the metric name we have defined (`record`). This metric named `nginx:requests:rate1m` can now be sent to Prometheus, where it will be stored just like any other metric.
+
+Here is an example remote-write configuration for sending to a local Prometheus instance:
+
+```yaml 
+ruler:
+  ... other settings ...
+  
+  remote_write:
+    enabled: true
+    client:
+      url: http://localhost:9090/api/v1/write
+```
 # Usage
 
 ## [Build dashboards](https://grafana.com/blog/2020/04/08/loki-quick-tip-how-to-create-a-grafana-dashboard-for-searching-logs-using-loki-and-prometheus/)
+## [Creating alerts](https://grafana.com/docs/loki/latest/alert/)
 
+Surprisingly I haven't found any compilation of Loki alerts. I'll gather here the ones I create.
+
+### Generic docker errors
+To catch the errors shown in docker (assuming you're using my same [promtail configuration](promtail.md#scrape-docker-logs)) you can use the next rule (that needs to go into your Loki configuration).
 # References
 
 - [Docs](https://grafana.com/docs/loki/latest/)

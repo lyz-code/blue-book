@@ -4,6 +4,45 @@ date: 20200826
 author: Lyz
 ---
 
+# [Make a file executable in a git repository ](https://docs.github.com/en/actions/creating-actions/creating-a-docker-container-action) 
+```bash 
+git add entrypoint.sh
+git update-index --chmod=+x entrypoint.sh
+```
+# [Configure autologin in Debian with Gnome](https://linux.how2shout.com/enable-or-disable-automatic-login-in-debian-11-bullseye/) 
+
+Edit the `/etc/gdm3/daemon.conf` file and include:
+
+```ini
+AutomaticLoginEnable = true
+AutomaticLogin = <your user>
+```
+
+# [See errors in the journalctl ](https://unix.stackexchange.com/questions/332886/how-to-see-error-message-in-journald ) 
+
+To get all errors for running services using journalctl:
+
+```bash
+journalctl -p 3 -xb
+```
+where `-p 3` means priority err, `-x` provides extra message information, and `-b` means since last boot.
+# [Fix rsyslog builtin:omfile suspended error](https://ubuntu-mate.community/t/rsyslogd-action-action-0-builtin-omfile-resumed-module-builtin-omfile/24105/21)
+It may be a permissions error. I have not been able to pinpoint the reason behind it. 
+
+What did solve it though is to remove the [aledgely deprecated paramenters](https://www.rsyslog.com/doc/configuration/modules/omfile.html) from `/etc/rsyslog.conf`:
+
+```
+# $FileOwner syslog
+# $FileGroup adm
+# $FileCreateMode 0640
+# $DirCreateMode 0755 
+# $Umask 0022 
+# $PrivDropToUser syslog 
+# $PrivDropToGroup syslog 
+```
+
+I hope that as they are the default parameters, they don't need to be set.
+
 # [Configure nginx to restrict methods](https://tecadmin.net/how-to-allow-get-and-post-methods-only-in-nginx/)
 
 ```

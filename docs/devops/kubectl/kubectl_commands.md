@@ -484,22 +484,6 @@ kubectl scale --replicas={{ replicas_number }} -f {{ path_to_yaml }}
 ```
 
 # Updating resources
-
-## Namespaces
-
-### Temporary set the namespace for a request
-
-```bash
-kubectl -n {{ namespace_name }} {{ command_to_execute }}
-kubectl --namespace={{ namespace_name }} {{ command_to_execute }}
-```
-
-### Permanently set the namespace for a request
-
-```bash
-kubectl config set-context $(kubectl config current-context) --namespace={{ namespace_name }}
-```
-
 ## Deployment
 
 ### Modify the image of a deployment

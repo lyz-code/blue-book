@@ -145,3 +145,4 @@ return {
 - [Source](https://github.com/LazyVim/LazyVim)
 - [Docs](https://lazyvim.github.io/)
 - [Home](https://lazyvim.github.io/)
+- [Keymaps](https://www.lazyvim.org/keymaps)

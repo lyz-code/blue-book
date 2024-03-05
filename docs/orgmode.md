@@ -1,7 +1,6 @@
 [`nvim-orgmode`](https://github.com/nvim-orgmode/orgmode#agenda) is a Orgmode clone written in Lua for Neovim. Org-mode is a flexible note-taking system that was originally created for Emacs. It has gained wide-spread acclaim and was eventually ported to Neovim. This page is heavily focused to the nvim plugin, but you can follow the concepts for emacs as well.
 
 If you use Android try [orgzly](orgzly.md).
-
 # [Installation](https://github.com/nvim-orgmode/orgmode#installation)
 
 ## Using lazyvim
@@ -129,7 +128,6 @@ require('orgmode').setup({
 ## Be ready when breaking changes come
 
 The developers have [created an issue](https://github.com/nvim-orgmode/orgmode/issues/217) to track breaking changes, subscribe to it so you're notified in advance.
-
 # Usage
 
 If you are new to Orgmode, check the [vim Dotoo video](https://www.youtube.com/watch?v=nsv33iOnH34), it's another plugin but the developers say it's the same. If you, like me, prefer written tutorials check the hands-on [tutorial](https://github.com/nvim-orgmode/orgmode/wiki/Getting-Started).
@@ -286,7 +284,7 @@ vim.cmd[[
 
 ### TODO items
 
-`TODO` items are meant to model tasks that evolve between states. 
+`TODO` items are meant to model tasks that evolve between states.  Check [this article](task_abstraction_levels.md) to see advanced uses of `TODO` items.
 
 As creating `TODO` items is quite common you can:
 
@@ -742,7 +740,6 @@ Where:
 - `<switches>`: (Optional) Switches provide finer control of the code execution, export, and format.
 - `<header arguments>`: (Optional) Heading arguments control many aspects of evaluation, export and tangling of code blocks. Using Org’s properties feature, header arguments can be selectively applied to the entire buffer or specific subtrees of the Org document.
 - `<body>`: Source code in the dialect of the specified language identifier. 
-
 ## Archiving
 
 When we no longer need certain parts of our org files, they can be archived. You can archive items by pressing `;A` (Default `<Leader>o$`) while on the heading. This will also archive any child headings. The default location for archived headings is `<name-of-current-org-file>.org_archive`, which can be changed with the `org_archive_location` option.
@@ -773,7 +770,6 @@ local org = require('orgmode').setup({
 When you have big tasks that have nested checklists, when you finish the day working on the task you may want to clean the checklist without loosing what you've done, for example for reporting purposes.
 
 In those cases what I do is archive the task, and then undo the archiving. That way you have a copy of the state of the task in your archive with a defined date. Then you can safely remove the done checklist items.
-
 ## Refiling
 
 Refiling lets you easily move around elements of your org file, such as headings or TODOs. You can refile with `<leader>r` with the next snippet:
@@ -820,7 +816,6 @@ If you refile from the capture window, [until this issue is solved](https://gith
 Be careful that it only refiles the first task there is, so you need to close the capture before refiling the next
 
 The plugin also allows you to use `telescope` to search through the headings of the different files with `search_headings`, with the configuration above you'd use `<leader>g`.
-
 ## Agenda
 
 The org agenda is used to get an overview of all your different org files. Pressing `ga` (Default: `<leader>oa`) gives you an overview of the various specialized views into the agenda that are available. Remember that you can press `g?` to see all the available key mappings for each view.
@@ -951,6 +946,54 @@ When using the search agenda view you can:
 
 * [Search by properties](https://orgmode.org/worg/org-tutorials/advanced-searching.html#property-searches): You can search by properties with the `PROPERTY="value"` syntax. Properties with numeric values can be queried with inequalities `PAGES>100`. To search by partial searches use a regular expression, for example if the entry had `:BIB_TITLE: Mysteries of the Amazon` you could use `BIB_TITLE={Amazon}`
 
+
+### [Reload the agenda con any file change](https://github.com/nvim-orgmode/orgmode/issues/656)
+There are two ways of doing this:
+
+- Reload the agenda each time you save a document
+- Reload the agenda each X seconds
+
+#### Reload the agenda each time you save a document
+Add this to your configuration:
+
+```lua
+vim.api.nvim_create_autocmd('BufWritePost', {
+  pattern = '*.org',
+  callback = function()
+    local bufnr = vim.fn.bufnr('orgagenda') or -1
+    if bufnr > -1 then
+      require('orgmode').agenda:redo()
+    end
+  end
+})
+```
+
+This will reload agenda window if it's open each time you write any org file, it won't work if you archive without saving though yet. But that can be easily fixed if you use [the auto-save plugin](vim_autosave.md).
+#### Reload the agenda each X seconds
+Add this to your configuration:
+
+```lua
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "org",
+  group = vim.api.nvim_create_augroup("orgmode", { clear = true }),
+  callback = function()
+    -- Reload the agenda each second if its opened so that unsaved changes 
+    -- in the files are shown
+    local timer = vim.loop.new_timer()
+    timer:start(
+      0,
+      10000,
+      vim.schedule_wrap(function()
+        local bufnr = vim.fn.bufnr("orgagenda") or -1
+        if bufnr > -1 then
+          require("orgmode").agenda:redo(true)
+        end
+      end)
+    )
+  end,
+})
+```
+
 ## [Capture](https://orgmode.org/manual/Capture.html)
 
 Capture lets you quickly store notes with little interruption of your work flow. It works the next way:
@@ -1049,7 +1092,30 @@ For example:
 
 
 ### Use capture
+## Links
 
+Orgmode supports the insertion of links with the `org_insert_link` and `org_store_link` commands. I've changed the default `<leader>oli` and `<leader>ols` bindings to some quicker ones:
+
+```lua
+mappings = {
+  org = {
+    -- link management
+    org_insert_link = "<leader>l",
+    org_store_link = "<leader>ls",
+  },
+}
+```
+There are the next possible workflows:
+
+- Discover links as you go: If you more less know in which file are the headings you want to link:
+  - Start the link helper with `<leader>l`
+  - Type `file:./` and press `<tab>`, this will show you the available files. Select the one you want
+  - Then type `::*` and press `<tab>` again to get the list of available headings.
+- Store the links you want to paste:
+  - Go to the heading you want to link
+  - Press `<leader>ls` to store the link 
+  - Go to the place where you want to paste the link 
+  - Press `<leader>l` and then `<tab>` to iterate over the saved links.
 ## The orgmode repository file organization
 
 How to structure the different orgmode files is something that has always confused me, each one does it's own way, and there are no good posts on why one structure is better than other, people just state what they do.
@@ -1069,8 +1135,6 @@ Cons:
 
 - Filenames must be unique. It hasn't been a problem in blue.
 - Blue won't be flattened into Vida as it's it's own knowledge repository
-
-
 ## Synchronizations
 
 ### Synchronize with other orgmode repositories
@@ -1135,16 +1199,12 @@ There are many tools that do this:
 They import an `ics` file
 
 #### Exporting from orgmode to ics
-
-
-
 ## Other interesting features
 
 Some interesting features for the future are:
 
 * [Effort estimates](https://orgmode.org/manual/Effort-Estimates.html)
 * [Clocking](https://orgmode.org/manual/Clocking-Work-Time.html)
-
 # Troubleshooting
 ## [Prevent Enter to create `*` on headings](https://github.com/LazyVim/LazyVim/discussions/2529)
 With a clean install of LazyVim distribution when pressing `<CR>` from a heading it creates a new heading instead of moving the cursor to the body of the heading:
@@ -1178,7 +1238,6 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 ```
-
 
 ## Create an issue in the orgmode repository
 
@@ -1596,7 +1655,8 @@ I've made some tests and it takes more time to load many small files than few bi
 Take care then on what files you add to your `org_agenda_files`. For example you can take the next precautions:
 
 - When adding a wildcard, use `*.org` not to load the `*.org_archive` files into the ones to process. Or [save your archive files elsewhere](#archiving).
-
+# Plugins 
+nvim-orgmode supports plugins. Check [org-checkbox](https://github.com/massix/org-checkbox.nvim/blob/trunk/lua/orgcheckbox/init.lua) to see a simple one
 # Comparison with Markdown
 
 What I like of Org mode over Markdown:
@@ -1617,14 +1677,30 @@ What I like of markdown over Org mode:
 
 * The syntax of the headings `## Title` better than `** Title`. Although it makes sense to have `#` for comments.
 * The syntax of the links: `[reference](link)` is prettier to read and write than `[[link][reference]]`, although this can be improved if only the reference is shown by your editor (nvim-orgmode doesn't do his yet)
-
 # Interesting things to investigate
-
 - [org-bullets.nvim](https://github.com/akinsho/org-bullets.nvim): Show org mode bullets as UTF-8 characters.
 - [headlines.nvim](https://github.com/lukas-reineke/headlines.nvim): Add few highlight options for code blocks and headlines.
 - [Sniprun](https://github.com/michaelb/sniprun): A neovim plugin to run lines/blocs of code (independently of the rest of the file), supporting multiples languages.
+## Convert source code in the fly from markdown to orgmode
+It would be awesome that when you do `nvim myfile.md` it automatically converts it to orgmode so that you can use all the power of it and once you save the file it converts it back to markdown
 
+I've started playing around with this but got nowhere. I leave you my breadcrumbs in case you want to follow this path. 
 
+```lua
+-- Load the markdown documents as orgmode documents
+vim.api.nvim_create_autocmd("BufReadPost", {
+  pattern = "*.md",
+  callback = function()
+    local markdown_file = vim.fn.expand("%:p")
+    local org_content = vim.fn.system("pandoc -f gfm -t org " .. markdown_file)
+    vim.cmd("%delete")
+    vim.api.nvim_put(vim.fn.split(org_content, "\n"), "l", false, true)
+    vim.bo.filetype = "org"
+  end,
+})
+```
+
+If you make it work please [tell me how you did it!](contact.md)
 # Things that are still broken or not developed
 
 - [The agenda does not get automatically refreshed](https://github.com/nvim-orgmode/orgmode/issues/656)
@@ -1633,7 +1709,6 @@ What I like of markdown over Org mode:
 - [Refiling from the agenda](https://github.com/nvim-orgmode/orgmode/issues/657)
 - [Interacting with the logbook](https://github.com/nvim-orgmode/orgmode/issues/149)
 - [Easy list item management](https://github.com/nvim-orgmode/orgmode/issues/472)
-
 # References
 
 * [Source](https://github.com/nvim-orgmode/orgmode)
@@ -1641,5 +1716,6 @@ What I like of markdown over Org mode:
 * [Docs](https://nvim-orgmode.github.io/)
 * [Developer docs](https://github.com/nvim-orgmode/orgmode/blob/master/DOCS.md)
 * [List of supported commands](https://github.com/nvim-orgmode/orgmode/wiki/Feature-Completeness#nvim-org-commands-not-in-emacs)
+* [Default mappings](https://github.com/nvim-orgmode/orgmode/blob/master/lua/orgmode/config/mappings/init.lua)
 * [Python library: Org-rw](https://github.com/kenkeiras/org-rw)
 * [List of plugins](https://github.com/topics/orgmode-nvim)

@@ -76,7 +76,18 @@ kubectl create job {{ job_name }} -n {{ namespace }} \
 ```
 
 # [Monitorization of cronjobs](https://medium.com/@tristan_96324/prometheus-k8s-cronjob-alerts-94bee7b90511)
+## The new way
 
+```yaml
+- alert: CronJobStatusFailed
+  expr: kube_cronjob_status_last_successful_time{exported_namespace!=""} - kube_cronjob_status_last_schedule_time < 0
+  for: 5m
+  annotations:
+    description: |
+      '{{ $labels.cronjob }} at {{ $labels.exported_namespace }} namespace last run hasn't been successful for {{ value }} seconds.'
+
+```
+## The old way
 Alerting of traditional Unix cronjobs meant sending an email if the job failed.
 Most job scheduling systems that have followed have provided the same
 experience, Kubernetes does not. One approach to alerting jobs is to

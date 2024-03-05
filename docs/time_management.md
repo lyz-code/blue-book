@@ -4,33 +4,23 @@ date: 20210524
 author: Lyz
 ---
 
-[Time management](https://en.wikipedia.org/wiki/Time_management) is the process
-of planning and exercising conscious control of time spent on specific
-activities, especially to increase effectiveness, efficiency, and productivity.
-It involves a juggling act of various demands upon a person relating to work,
-social life, family, hobbies, personal interests, and commitments with the
-finiteness of time. Using time effectively gives the person "choice" on spending
-or managing activities at their own time and expediency.
+[Time management](https://en.wikipedia.org/wiki/Time_management) is the process of planning and exercising conscious control of time spent on specific activities, especially to increase effectiveness, efficiency, and productivity. It involves a juggling act of various demands upon a person relating to work, social life, family, hobbies, personal interests, and commitments with the finiteness of time. Using time effectively gives the person "choice" on spending or managing activities at their own time and expediency.
 
-To be able to do time management, you first need to define how do you want to
-increase your effectiveness, efficiency, and productivity. For me, it means
-increasing the amount and quality of work per unit of time or effort.
-Understanding work as any task that gets me closer to a goal. It doesn't
-necessarily be related with professional work, it can be applied to a personal
-project, cleaning or hanging out with friends.
+To be able to do time management, you first need to define how do you want to increase your effectiveness, efficiency, and productivity. For me, it means increasing the amount and quality of work per unit of time or effort. Understanding work as any task that gets me closer to a goal. It doesn't necessarily be related with professional work, it can be applied to a personal project, cleaning or hanging out with friends.
 
-The rest of the article describes the approaches I use to maximize this idea of
-efficiency. If you have a different understanding, goal or your brain works in
-a different way than mine, most of the guidelines may not apply to you, but they
-could spark some ideas that you can implement on your daily life.
+The rest of the article describes the approaches I use to maximize this idea of efficiency. If you have a different understanding, goal or your brain works in a different way than mine, most of the guidelines may not apply to you, but they could spark some ideas that you can implement on your daily life.
 
-To increase the productivity we can:
+To increase the efficiency we can:
 
+* [Adjust your roadmap](#adjust-your-roadmap)
 * [Reduce the time spent doing unproductive tasks](#reduce-the-time-spent-doing-unproductive-tasks).
 * [Improve the way you do the tasks](#improve-the-way-you-do-the-tasks).
 * [Improve how you manage your tools](#improve-how-you-manage-your-tools).
 * [Improve your state and environment to be more efficient](#improve-your-state-and-environment-to-be-more-efficient).
 
+## Adjust your roadmap
+
+To be able to efficiently use your time and energy you need to identify where and how to do it given your current circumstances. [Roadmap management](roadmap_management.md) gathers the techniques to make and review plans in order to define that optimal path.
 ## Reduce the time spent doing unproductive tasks
 
 Sadly, the day has *only* 24 hours you can use. There's nothing to do about it,

@@ -653,7 +653,27 @@ To do it:
   zpool create cold-backup-01 /dev/sde2
   ```
 
-# Troubleshooting
+# [Troubleshooting](https://openzfs.github.io/openzfs-docs/Basic%20Concepts/Troubleshooting.html)
+
+To debug ZFS errors you can check:
+
+- The generic kernel logs: `dmesg -T`, `/var/log/syslog` or where kernel log messages are sent.
+- ZFS Kernel Module Debug Messages: The ZFS kernel modules use an internal log buffer for detailed logging information. This log information is available in the pseudo file `/proc/spl/kstat/zfs/dbgmsg` for ZFS builds where ZFS module parameter `zfs_dbgmsg_enable = 1`
+
+## [ZFS pool is stuck](https://openzfs.github.io/openzfs-docs/Basic%20Concepts/Troubleshooting.html#unkillable-process)
+Symptom: zfs or zpool command appear hung, does not return, and is not killable
+
+Likely cause: kernel thread hung or panic
+
+If a kernel thread is stuck, then a backtrace of the stuck thread can be in the logs. In some cases, the stuck thread is not logged until the deadman timer expires. 
+
+The only way I've yet found to solve this is rebooting the machine (not ideal). I even have to use the magic keys -.- .
+
+## [kernel NULL pointer dereference in zap_lockdir](https://github.com/openzfs/zfs/issues/11804)
+
+There are many issues open with this behaviour: [1](https://github.com/openzfs/zfs/issues/11804), [2](https://github.com/openzfs/zfs/issues/6639)
+
+In my case I feel it happens when running `syncoid` to send the backups to the backup server.
 
 ## [Clear a permanent ZFS error in a healthy pool](https://serverfault.com/questions/576898/clear-a-permanent-zfs-error-in-a-healthy-pool)
 

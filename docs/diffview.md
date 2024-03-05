@@ -119,6 +119,9 @@ markers:
 
 It may be because you have an outdated version of git. To fix it update to the latest one, if it's still not enough, [install it from the backports repo](linux_snippets.md#install-latest-version-of-package-from-backports)
 
+# Not there yet
+- [Use diffview as a diff tool between files not tracked by vcs](https://github.com/sindrets/diffview.nvim/issues/286)
+
 # References
 
 - [Source](https://github.com/sindrets/diffview.nvim)

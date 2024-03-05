@@ -13,11 +13,13 @@ nav:
           - Antifascist Actions: antifascist_actions.md
       - Anti-Colonialism: anticolonialism.md
       - Anti-Transphobia: antitransphobia.md
+      - Anti-Racism: antiracism.md
       - Diversity, Equity and Inclusion:
           - diversity.md
           - Anonymous Feedback: anonymous_feedback.md
       - Feminism:
           - Privileges: feminism/privileges.md
+      - Memoria histórica: memoria_historica.md
       - Mentoring: mentoring.md
       - Free Knowledge: free_knowledge.md
       - Environmentalism: environmentalism.md
@@ -25,14 +27,14 @@ nav:
       - Collaborating tools: collaborating_tools.md
   - Life Management:
       - life_management.md
-      - Productivity:
-        - Time Management: time_management.md
-        - Life Management:
-          - Life planning: life_planning.md
-          - Life review: life_review.md
+      - Time management:
+        - time_management.md
+        - Time management abstraction levels: time_management_abstraction_levels.md
+        - Roadmap Adjustment: 
+          - roadmap_adjustment.md
+          - Strategy: strategy.md
         - Task Management:
             - task_management.md
-            - Getting Things Done: gtd.md
             - Task Management Tools:
                 - task_tools.md
                 - Org Mode: 
@@ -43,12 +45,13 @@ nav:
         - Habit management: habit_management.md
         - Interruption Management:
             - interruption_management.md
-            - Work Interruption Analysis: work_interruption_analysis.md
-            - Personal Interruption Analysis: personal_interruption_analysis.md
+            - Interruption Management Analysis:
+              - Work Interruption Analysis: work_interruption_analysis.md
+              - Personal Interruption Analysis: personal_interruption_analysis.md
         - Week Management: week_management.md
         - Calendar Management: calendar_management.md
-        - Strategy: strategy.md
-        - Game Theory: game_theory.md
+        - Time management theories:
+          - Getting Things Done: gtd.md
       - Life Chores Management:
         - Trip Management:
           - Route Management: route_management.md
@@ -74,8 +77,12 @@ nav:
           - RSS: rss.md
       - Knowledge Management:
         - knowledge_management.md
-        - Spaced Repetition: spaced_repetition.md
-        - Anki: anki.md
+        - Spaced Repetition: 
+          - spaced_repetition.md
+          - Anki: anki.md
+        - Analytical web reading: 
+          - analytical_web_reading.md
+          - Hypothesis: linux/hypothesis.md
       - Relationship Management: relationship_management.md
       - Process Automation:
           - process_automation.md
@@ -218,6 +225,7 @@ nav:
                   - Vitest: vitest.md
           - Bash:
               - Bash snippets: bash_snippets.md
+              - Bash testing: bats.md
           - lua: lua.md
           - JSON: coding/json/json.md
           - SQL: coding/sql/sql.md
@@ -256,6 +264,7 @@ nav:
                   - vim_editor_plugins.md
                   - Vim markdown: vim_markdown.md
                   - Vim spelling: vim_spelling.md
+                  - Vim autosave: vim_autosave.md
                 - Coding specific configuration:
                   - vim_coding_plugins.md
                   - Treesitter: vim_treesitter.md
@@ -342,7 +351,6 @@ nav:
                   - Labels: devops/kubernetes/kubernetes_labels.md
                   - Annotations: devops/kubernetes/kubernetes_annotations.md
                   - Ingress: devops/kubernetes/kubernetes_ingress.md
-                  - Operators: devops/kubernetes/kubernetes_operators.md
                   - Jobs: devops/kubernetes/kubernetes_jobs.md
               - Kubectl:
                   - devops/kubectl/kubectl.md
@@ -363,6 +371,7 @@ nav:
               - Debugging: kubernetes_debugging.md
               - Backups:
                   - Velero: velero.md
+              - Operators: devops/kubernetes/kubernetes_operators.md
               - Tools:
                   - devops/kubernetes/kubernetes_tools.md
                   - Krew: krew.md
@@ -420,7 +429,6 @@ nav:
             - OpenZFS storage planning: zfs_storage_planning.md
             - Sanoid: sanoid.md
             - ZFS Prometheus exporter: zfs_exporter.md
-
       - Monitoring:
           - Monitoring Comparison: monitoring_comparison.md
           - Prometheus:
@@ -443,6 +451,12 @@ nav:
             - Graylog: graylog.md
             - Elastic Security: elastic_security.md
           - SIEM: siem.md
+      - Databases:
+        - PostgreSQL:
+          - postgres.md
+          - Postgres operators: 
+            - postgres_operators.md
+            - Zalando Postgres operator: zalando_postgres_operator.md
       - Authentication:
           - Authentik: authentik.md
       - Self-hosted services:
@@ -475,6 +489,7 @@ nav:
           - Beets: beets.md
           - Bookwyrm: bookwyrm.md
           - brew: linux/brew.md
+          - detox: detox.md
           - Dino: dino.md
           - Docker: docker.md
           - dunst: dunst.md
@@ -493,7 +508,6 @@ nav:
           - HAProxy: linux/haproxy.md
           - Hard drive health: hard_drive_health.md
           - Hushboard: husboard.md
-          - hypothesis: linux/hypothesis.md
           - i3wm: i3wm.md
           - Jellyfin: jellyfin.md
           - journald: journald.md
@@ -535,7 +549,9 @@ nav:
           - Wallabag: wallabag.md
           - Wireguard: linux/wireguard.md
           - Wireshark: wireshark.md
+          - Wordpress: wordpress.md
           - yq: yq.md
+          - yt-dlp: yt-dlp.md
           - zip: linux/zip.md
       - Android:
           - Android Tips: android_tips.md
@@ -616,6 +632,7 @@ nav:
           - Parsers: parsers.md
       - Psychology:
           - The XY Problem: psychology/the_xy_problem.md
+          - Game Theory: game_theory.md
       - Botany:
           - Trees: botany/trees.md
       - Math: math.md
