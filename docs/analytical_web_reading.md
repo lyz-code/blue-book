@@ -15,7 +15,7 @@ The advantage of using Orgzly is also that it works today both online and offlin
 
 # [Nunux keeper](https://keeper.nunux.org/)
 Looks good but [it's kind of dead](https://github.com/nunux-keeper/keeper-web-app/issues).
-# [Diigo](www.diigo.com)
+# [Diigo](https://www.diigo.com)
 
 Cons:
 
@@ -96,3 +96,4 @@ Glasp is a “social web highlighter” for the desktop. This means that your h
 # References
 
 - [MakeUseof article](https://www.makeuseof.com/tools-annotate-highlight-web-pages-research-study/)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

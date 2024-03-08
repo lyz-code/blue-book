@@ -214,3 +214,4 @@ Total of 2605 $
 
 - [mtlynch NAS building guide](https://mtlynch.io/budget-nas/)
 - [NAS master building guide](https://www.nasmaster.com/everything-you-need-to-build-your-own-nas/)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

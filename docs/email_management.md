@@ -126,3 +126,4 @@ with your own. If you use [vim](vim.md) or emacs, there's a good chance that the
 email client has a plugin that allows you to use it. Or you can always migrate
 to a command line client. I'll probably do that once I set up the [email
 automation system](projects.md#automate-email-management).
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

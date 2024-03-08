@@ -154,3 +154,4 @@ details.
 # References
 
 * [Docs](https://pawamoy.github.io/mkdocstrings)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

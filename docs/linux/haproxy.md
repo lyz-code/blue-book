@@ -62,3 +62,4 @@ gists.
 # References
 
 * [Guidelines for HAProxy termination in AWS](https://github.com/jvehent/haproxy-aws)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

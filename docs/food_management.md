@@ -35,3 +35,4 @@ Check [grocy management](grocy_management.md) for more details.
 # Cooking
 
 Week batch cooking, yearly batch cooking
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

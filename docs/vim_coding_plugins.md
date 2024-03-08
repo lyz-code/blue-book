@@ -156,3 +156,4 @@ Type number and <Enter> (empty cancels; 'n': use next backend; 'p' use previous 
 If for example you type `45` and hit enter, it will change it for `thus`.
 
 
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

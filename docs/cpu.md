@@ -292,3 +292,4 @@ motherboard socket.
 * [Tom's hardware CPU cooling guide](https://www.tomshardware.com/reviews/cooling-buying-guide,6105.html)
 * [How to select the best processor for your server](https://www.techmaish.com/how-to-select-the-best-processor-for-your-server/)
 * [Cloudzy best server processor](https://cloudzy.com/best-server-processor/)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

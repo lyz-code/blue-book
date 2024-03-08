@@ -83,3 +83,4 @@ tempo is usually between 140 and 150 BPM.
 Here are another Jumpstyle videos:
 [1](https://www.youtube.com/watch?v=b1e1yFlZUH4),
 [2](https://www.youtube.com/watch?v=yPjk-wJjEXU).
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

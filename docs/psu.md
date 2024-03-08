@@ -262,3 +262,4 @@ money is not that big. Therefore I'll go with the Straight Power 11 450W
 # References
 
 * [Linuxhint article on PSU](https://linuxhint.com/pc-power-supply-unit/)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

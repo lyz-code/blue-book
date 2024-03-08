@@ -23,3 +23,4 @@ It provides lots of features, most importantly:
 # References
 
 - [Sematext post on journald](https://sematext.com/blog/journald-logging-tutorial/#journald-vs-syslog)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

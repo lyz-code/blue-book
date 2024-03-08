@@ -231,3 +231,4 @@ used specified in the product information
 # References
 
 * [Homepage](https://grocy.info/)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

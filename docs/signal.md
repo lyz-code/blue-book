@@ -68,3 +68,4 @@ I'd first try to use [signal-black](https://github.com/xeals/signal-back).
 # References
 
 * [Home]()
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

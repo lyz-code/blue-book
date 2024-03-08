@@ -729,3 +729,4 @@ pleasant to read. For further information check
 - [Docs](https://openzfs.github.io/openzfs-docs/)
 - [JRS articles](https://jrs-s.net/category/open-source/zfs/)
 - [ZFS basic introduction video](https://yewtu.be/watch?v=MsY-BafQgj4)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

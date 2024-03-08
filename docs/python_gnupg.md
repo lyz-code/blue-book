@@ -74,3 +74,4 @@ Note: I've already created an adapter for gpg called `KeyStore` available in [`p
 - [Docs](https://gnupg.readthedocs.io/en/latest/)
 - [Source](https://github.com/vsajip/python-gnupg)
 - [Issues](https://github.com/vsajip/python-gnupg/issues)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

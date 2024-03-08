@@ -49,3 +49,4 @@ Sources: [1](https://www.youtube.com/embed/NVISfLc_z8c?start=119)
 
 * [Elements tutorial playlist](https://www.youtube.com/playlist?list=PLv695483ty5Nj0L0ZsAIiSAN62-lT6-3U)
 * [Anderson Jovani playlist](https://www.youtube.com/playlist?list=PLPAWfysb_wUx259mARAAWuYttD7b6nauh)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

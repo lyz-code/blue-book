@@ -165,3 +165,4 @@ events.
 
 The first free open source application for managing collections I used, it has
 an old looking desktop interface and is no longer maintained.
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

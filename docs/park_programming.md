@@ -70,3 +70,4 @@ By doing park programming you:
 # Inconveniences
 
 * You'll probably don't be as comfortable as in your common development place.
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

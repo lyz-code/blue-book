@@ -27,3 +27,4 @@ Configurable AWS access controls:
 # Links
 
 * [Docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

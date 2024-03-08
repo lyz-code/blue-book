@@ -132,3 +132,4 @@ To enable the Github Pages website associated with your repo, follow these steps
 
 Now, the site will be built whenever you push new commits and periodically,
 according to the `cron` configuration from *.github/workflows/gh-pages.yml*.
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

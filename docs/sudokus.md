@@ -17,3 +17,4 @@ solution.
 * [Hidden pairs](https://www.learn-sudoku.com/hidden-pairs.html).
 * [Hidden triplets](https://www.learn-sudoku.com/hidden-triplets.html).
 * [Naked triplets](https://www.learn-sudoku.com/naked-triplets.html).
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

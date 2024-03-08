@@ -531,3 +531,4 @@ well documented (both by docstrings and type hints).
 * [Awesome beancount](https://awesome-beancount.com/)
 * [Docs in google](https://docs.google.com/document/d/1RaondTJCS_IUPBHFNdT8oqFKJjVJDsfsn6JEjBG04eA/edit)
 * [Vim plugin](https://github.com/nathangrigg/vim-beancount)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

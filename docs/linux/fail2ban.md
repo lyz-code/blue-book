@@ -13,3 +13,4 @@ fail2ban-client set {{ jail }} unbanip {{ ip }}
 ```
 
 Where `jail` can be `ssh`.
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

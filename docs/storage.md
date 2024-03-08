@@ -41,3 +41,4 @@ Both are robust and flexible but I'm more inclined towards building
 a [NAS](nas.md) because it can hold the amount of data that I need, it's easier
 to maintain and the underlying technology has been more battle proven throughout
 the years.
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

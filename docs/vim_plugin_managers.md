@@ -96,3 +96,4 @@ Whenever you make changes to your plugin configuration you need to:
   ```
   :PackerStatus
   ```
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

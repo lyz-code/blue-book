@@ -246,3 +246,4 @@ conditional that only matches one of both threads.
 
 - [Source](https://github.com/alephdata/aleph)
 - [Docs](http://docs.alephdata.org/)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

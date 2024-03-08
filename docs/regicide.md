@@ -138,3 +138,4 @@ we played one without counting and it was playable, will test the other soon.
 # References
 
 * [Homepage](https://www.badgersfrommars.com/)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

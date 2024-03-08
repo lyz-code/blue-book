@@ -96,3 +96,4 @@ pairing](https://codeberg.org/Freeyourgadget/Gadgetbridge/wiki/Huami-Server-Pair
 * [Blog](https://blog.freeyourgadget.org/), although the
     [RSS](https://blog.freeyourgadget.org/feeds/all.atom.xml) is [not
     working](https://codeberg.org/Freeyourgadget/Gadgetbridge/issues/2204).
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

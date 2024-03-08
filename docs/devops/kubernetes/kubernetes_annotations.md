@@ -32,3 +32,4 @@ Here are some examples of information that could be recorded in annotations:
 * User or tool/system provenance information, such as URLs of related objects
   from other ecosystem components.
 * Lightweight rollout tool metadata: for example, config or checkpoints.
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

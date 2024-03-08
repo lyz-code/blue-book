@@ -21,3 +21,4 @@ entire workflow for a use case.
 * [The service layer pattern chapter of the Architecture Patterns with
     Python](https://www.cosmicpython.com/book/chapter_04_service_layer.html) book by
     Harry J.W. Percival and Bob Gregory.
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

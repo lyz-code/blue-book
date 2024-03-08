@@ -20,3 +20,4 @@ key.set({'n'}, 't', ":lua require('neotest').run.run()<cr>", {desc = 'Run the cl
 # [Use relativenumber](https://koenwoortman.com/vim-relative-line-numbers/)
 
 If you enable the `relativenumber` configuration you'll see how to move around with `10j` or `10k`.
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

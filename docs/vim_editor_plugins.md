@@ -248,3 +248,4 @@ endfunction
 ```
 
 Now you need to run `:call Rm()`.
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

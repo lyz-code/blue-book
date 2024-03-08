@@ -4,6 +4,18 @@ date: 20200826
 author: Lyz
 ---
 
+# [Rotate image with the command line ](https://askubuntu.com/questions/591733/rotate-images-from-terminal) 
+If you want to overwrite in-place, `mogrify` from the ImageMagick suite seems to be the easiest way to achieve this:
+
+```bash
+# counterclockwise:
+mogrify -rotate -90 *.jpg
+
+# clockwise:
+mogrify -rotate 90 *.jpg
+```
+# [Configure desktop icons in gnome](https://gitlab.gnome.org/GNOME/nautilus/-/issues/158#instructions)
+Latest versions of gnome dont have desktop icons [read this article to fix this](https://gitlab.gnome.org/GNOME/nautilus/-/issues/158#instructions)
 # [Make a file executable in a git repository ](https://docs.github.com/en/actions/creating-actions/creating-a-docker-container-action) 
 ```bash 
 git add entrypoint.sh
@@ -1131,3 +1143,4 @@ check that there is no output.
 ```bash
 for file in /proc/*/status ; do awk '/VmSwap|Name/{printf $2 " " $3}END{ print ""}' $file; done | sort -k 2 -n -r | less
 ```
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

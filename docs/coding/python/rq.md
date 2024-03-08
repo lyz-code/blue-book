@@ -61,3 +61,4 @@ pip install rq
 * [Homepage](https://python-rq.org/)
 * [Git](https://github.com/rq/rq)
 * [Docs](https://python-rq.org/docs/)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

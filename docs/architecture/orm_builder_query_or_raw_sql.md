@@ -211,3 +211,4 @@ through classical mappings to split the storage logic from the business one.
 
 * [Raw SQL vs Query Builder vs ORM by Martin Thoma](https://levelup.gitconnected.com/raw-sql-vs-query-builder-vs-orm-eee72dbdd275)
 * [ORMs vs Plain SQL in Python by Koby Bass](https://medium.com/@kobybum/orms-vs-plain-sql-in-python-2ba5362bca21)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

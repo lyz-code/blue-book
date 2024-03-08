@@ -335,3 +335,4 @@ Since in some cases is useful, I'm going to use them to reduce the mental load.
     good insights on common grammar mistakes. Thanks for the link Dave :)
 
 * [JamesESL videos](https://www.youtube.com/c/engvidJames/videos)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

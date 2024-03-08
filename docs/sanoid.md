@@ -256,3 +256,4 @@ If you really want to put in the effort, you can even take a look at which `zfs`
 
 * [Source](https://github.com/jimsalterjrs/sanoid/)
 * [Docs](https://github.com/jimsalterjrs/sanoid/wiki)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

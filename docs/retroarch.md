@@ -29,3 +29,4 @@ Dive through the menus until you find a way to update the assets
 
 - [Home](https://www.retroarch.com/)
 - [Docs](https://docs.libretro.com/)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

@@ -255,3 +255,4 @@ need to manually remove the revision python file.
 ## Articles
 
 * [Migrate SQLAlchemy databases with Alembic](https://www.pythoncentral.io/migrate-sqlalchemy-databases-alembic/)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

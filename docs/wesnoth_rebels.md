@@ -13,3 +13,4 @@ longer than humans. In harmony with nature, the elves find allies with the human
 mages, certain merfolk, and tree creatures called woses. Rebels are best played
 taking advantage of their high forest defense, mastery of ranged attacks, and
 the elves' neutral alignment.
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

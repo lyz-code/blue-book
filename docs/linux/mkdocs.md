@@ -563,6 +563,30 @@ There is no "beautiful non-plugin solution". Indeed, the solution I found is not
 
 - GitHub is going to complain that your domain is not configured properly. Well, that does not really matter. What matters is that you have the 301 redirect required by the Google Search Console's Change of Address Tool and your website won't lose its Google ranking.
 
+# Tips
+## [Center images](https://github.com/squidfunk/mkdocs-material/issues/748) 
+
+In your config enable the `attr_list` extension:
+
+```yaml
+markdown_extensions:
+  - attr_list
+```
+
+On your `extra.css` file add the `center` class
+
+```css 
+.center {
+    display: block;
+    margin: 0 auto;
+}
+```
+
+Now you can center elements by appending the attribute:
+
+~~~markdown 
+![image](../_imatges/ebc_form_01.jpg){: .center}
+~~~
 # Issues
 
 Once they are closed:
@@ -585,3 +609,4 @@ Once they are closed:
 - [User guide](https://www.mkdocs.org/user-guide/plugins/)
 - [List of events](https://www.mkdocs.org/user-guide/plugins/#events)
 - [Plugin testing example](https://github.com/andyoakley/mkdocs-blog/tree/master/tests)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

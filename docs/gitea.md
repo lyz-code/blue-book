@@ -567,3 +567,4 @@ Fetching the whole history with fetch-depth: 0 worked for us:
 
 * [Terraform provider docs](https://registry.terraform.io/providers/Lerentis/gitea/latest/docs)
 * [Terraform provider source code](https://github.com/Lerentis/terraform-provider-gitea)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

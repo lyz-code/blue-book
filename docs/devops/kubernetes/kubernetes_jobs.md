@@ -317,3 +317,4 @@ now construct the alert:
 
 We use the `kube_cronjob_labels` here to merge in labels from the original
 cronjob.
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

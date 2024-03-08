@@ -216,3 +216,4 @@ Build it with `docker-compose build test-sqlite` and run the tests with
 # References
 
 * [Rest API tutorial](https://restfulapi.net/)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

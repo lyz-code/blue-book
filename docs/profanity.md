@@ -106,3 +106,4 @@ To quit profanity:
 
 * [Home](https://profanity-im.github.io/)
 * [Quickstart](https://profanity-im.github.io/guide/0111/basic.html)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

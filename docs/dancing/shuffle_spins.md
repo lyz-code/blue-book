@@ -61,3 +61,4 @@ To get there :
 
 
 Source: [1](https://www.youtube.com/embed/TaUz1KCVdJg?start=160)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

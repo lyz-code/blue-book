@@ -197,3 +197,4 @@ The purpose defines the reason and meaning of your existence, principles define 
 
 As we increase in the level of abstraction we need more time and energy (both mental and willpower) to adjust the path, it may also mean that the invested efforts so far are not aligned with the new direction, so we may need to throw away some of the advances made. That's why we need to support those changes with a higher levels of analysis and thought.
 
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

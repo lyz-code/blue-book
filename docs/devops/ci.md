@@ -148,3 +148,4 @@ If you have this error while making a commit through a pipeline step, it may be
 the pre-commits stepping in.
 
 To fix it, remove all git hooks with `rm -r .git/hooks`.
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

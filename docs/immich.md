@@ -88,6 +88,12 @@ Make sure to configure the update library cron job to run after this script has 
 
 ### Sharing content
 
+# Usage
+## [Keyboard shortcuts](https://immich.app/blog/2023/07/29/update/#shortcuts-for-common-actions-on-the-web)
+You can press `?` to see the shortcuts. Some of the most useful are:
+
+- `f`: Toggle favourite
+- `Shift+a`: Archive element
 # Troubleshooting
 
 ## [Create albums from a directory structure using external library](https://github.com/immich-app/immich/discussions/4279)
@@ -218,8 +224,12 @@ for album, archives in albums.items():
     print(f'{album}: {" ".join(archives)}')
 __import__("pdb").set_trace()
 ```
+## Rotate pictures or videos
 
+Until [Image rotation is supported](https://github.com/immich-app/immich/discussions/1695) you have to manually rotate the media. The best way I've found to do this is:
 
+- Select the elements in the web interface and download them
+- 
 # Not there yet
 
 There are some features that are still lacking:
@@ -236,7 +246,9 @@ There are some features that are still lacking:
   - [A new approach on sharing photos](https://github.com/immich-app/immich/discussions/3273)
   - [allow use of explore features for shared albums](https://github.com/immich-app/immich/discussions/3176)
   - [Option to allow guests to modify description and or tags](https://github.com/immich-app/immich/discussions/3990)
-- [Image rotation](https://github.com/immich-app/immich/discussions/1695)
+  - [Only see the favourites of an album](https://github.com/immich-app/immich/discussions/7719)
+  - [Sort sharing albums](https://github.com/immich-app/immich/discussions/7025)
+- [Image rotation](https://github.com/immich-app/immich/discussions/1695): Related PRS [5151](https://github.com/immich-app/immich/pull/5151) and [3271](https://github.com/immich-app/immich/pull/3271)
 - [Smart albums](https://github.com/immich-app/immich/discussions/1673)
 - [Image rating](https://github.com/immich-app/immich/discussions/3619)
 - [Tags](https://github.com/immich-app/immich/discussions/1651)
@@ -255,3 +267,4 @@ There are some features that are still lacking:
 - [Source](https://github.com/immich-app/immich).
 - [Blog](https://immich.app/blog)
 - [Demo](https://demo.immich.app/photos) 
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

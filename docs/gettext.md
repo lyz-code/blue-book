@@ -335,3 +335,4 @@ You can use it with
 * [Homepage](https://docs.python.org/3/library/gettext.html)
 * [Reference](https://docs.python.org/3/library/gettext.html)
 * [Phrase blog on Localizing with GNU gettext](https://phrase.com/blog/posts/translate-python-gnu-gettext/)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

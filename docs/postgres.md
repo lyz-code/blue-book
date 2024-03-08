@@ -23,3 +23,4 @@ Or if you need to enter the password
 docker run -v /path/to/dump:/dump -it postgres:12 bash
 pg_dump books > /dump/books.out
 ```
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

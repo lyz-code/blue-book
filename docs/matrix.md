@@ -34,3 +34,4 @@ sudo apt install element-desktop
 # References
 
 - [Matrix Arch wiki page](https://wiki.archlinux.org/index.php/Matrix)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

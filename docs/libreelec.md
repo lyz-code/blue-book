@@ -29,3 +29,4 @@ Where=/storage/media
 [Install]
 WantedBy=multi-user.target
 ```
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

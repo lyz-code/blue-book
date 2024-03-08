@@ -427,6 +427,23 @@ the same. Both client and server send encrypted data to the most recent IP
 endpoint for which they authentically decrypted data. Thus, there is full IP
 roaming on both ends.
 
+# [Improve logging](https://www.procustodibus.com/blog/2021/03/wireguard-logs/)
+WireGuard doesn’t do any logging by default. If you use the WireGuard Linux kernel module (on kernel versions 5.6 or newer), you can turn on WireGuard’s dyndbg logging, which sends log messages to the kernel message buffer, kmsg. You can then use the standard dmesg utility to read these messages. Also, many Linux systems have a logging daemon like rsyslogd or journald that automatically captures and stores these messages.
+
+First, enable WireGuard `dyndbg` logging with the following commands:
+
+```bash
+modprobe wireguard
+echo module wireguard +p > /sys/kernel/debug/dynamic_debug/control
+```
+
+Once you do that, you’ll be able to see WireGuard log messages in the kernel message facility, if your system is set up with `rsyslogd`, `journald`, or a similar logging daemon. With `rsyslogd`, check the `/var/log/kern.log` or `/var/log/messages` file. With `journald`, run `journalctl -ek`.
+
+# Monitor wireguard
+
+- https://www.procustodibus.com/blog/2021/01/how-to-monitor-wireguard-activity/
+- https://techoverflow.net/2021/12/31/how-to-check-if-wireguard-client-peer-is-connected/
 # References
 
 - [Home](https://www.wireguard.com/)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

@@ -9,3 +9,4 @@ To fix it go into the backup policy and remove the next line from the `Deny` pol
 ```json
 backup:StartRestoreJob
 ```
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

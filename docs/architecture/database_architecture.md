@@ -98,3 +98,4 @@ Suitable for:
 # References
 
 * [Decoupling database migrations from server startup](https://pythonspeed.com/articles/schema-migrations-server-startup/)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

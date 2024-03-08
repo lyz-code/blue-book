@@ -68,3 +68,4 @@ author: Lyz
 
 * [Configure SQLAlchemy for projects without
     flask](python_sqlalchemy_without_flask.md)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

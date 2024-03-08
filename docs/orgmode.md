@@ -284,7 +284,7 @@ vim.cmd[[
 
 ### TODO items
 
-`TODO` items are meant to model tasks that evolve between states.  Check [this article](task_abstraction_levels.md) to see advanced uses of `TODO` items.
+`TODO` items are meant to model tasks that evolve between states.  Check [this article](time_management_abstraction_levels.md) to see advanced uses of `TODO` items.
 
 As creating `TODO` items is quite common you can:
 
@@ -720,17 +720,24 @@ A source code block conforms to this structure:
 
 You need to use snippets for this to be usable.
 
-An inline code block conforms to this structure:
+An inline code block has two possibilies
 
-```org
-src_<language>{<body>}
-```
+- Language agnostic inline block is any string between `=` or `~` such as:
+  ```org
+  If ~variable == true~ where =variable= is ...
+  ```
 
-or
+- Language specific block conforms to this structure:
 
-```org
-src_<language>[<header arguments>]{<body>}
-```
+  ```org
+  src_<language>{<body>}
+  ```
+
+  or
+
+  ```org
+  src_<language>[<header arguments>]{<body>}
+  ```
 
 Where:
 
@@ -1719,3 +1726,4 @@ If you make it work please [tell me how you did it!](contact.md)
 * [Default mappings](https://github.com/nvim-orgmode/orgmode/blob/master/lua/orgmode/config/mappings/init.lua)
 * [Python library: Org-rw](https://github.com/kenkeiras/org-rw)
 * [List of plugins](https://github.com/topics/orgmode-nvim)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

@@ -50,7 +50,24 @@ Or browse the following lists:
 * [KasperZutterman's compilation](https://github.com/KasperZutterman/Second-Brain)
 
 Or the [digital garden](https://www.reddit.com/r/DigitalGardens/)'s reddit.
+# Add the not by AI badge
 
+[Not by AI](https://notbyai.fyi/) is an initiative to mark content as created by humans instead of AI.
+
+To automatically add the badge to all your content you can use the next script:
+
+```bash 
+#!/bin/bash
+
+echo "Checking the Not by AI badge"
+find docs -iname '*md' -print0 | while read -r -d $'\0' file; do
+	if ! grep -q not-by-ai.svg "$file"; then
+		echo "Adding the Not by AI badge to $file"
+		echo "[![](not-by-ai.svg){: .center}](https://notbyai.fyi)" >>"$file"
+	fi
+done
+```
+You can see how it's used in this blog by looking at the `Makefile` and the `gh-pages.yaml` workflow.
 # Link rot
 Link rot occurs when hyperlinks become obsolete or broken, leading to content loss or diminished user experience. Here are some ways to mitigate link rot in digital gardens:
 
@@ -60,7 +77,9 @@ Link rot occurs when hyperlinks become obsolete or broken, leading to content lo
 - [Archive External Content](#archive-external-content): When linking to external websites or resources, consider using web archiving services to create snapshots or archives of the content. This ensures that even if the original content becomes unavailable, visitors can still access archived versions. Check [the section below](#archive-external-content) for more information
 
 ## Archive External Content
+archive.org has an API and a python library.
 # References
 
 * [Joel Hooks article on Digital Gardens](https://joelhooks.com/digital-garden)
 * [Tom Critchlow article on Digital Gardens](https://tomcritchlow.com/2019/02/17/building-digital-garden/)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

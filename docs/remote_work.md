@@ -101,3 +101,4 @@ your work experience can be:
 
 If you have a remote work contract, make sure that your employer pays for any
 upgrades, it's their responsibility.
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

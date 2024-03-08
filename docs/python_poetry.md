@@ -731,3 +731,4 @@ show internet/pypi.token)`. Although I can't find where it's storing the value
 
 * [Git](https://github.com/python-poetry/poetry)
 * [Docs](https://python-poetry.org/docs/)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

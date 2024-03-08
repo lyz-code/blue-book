@@ -347,3 +347,4 @@ trac.ffmpeg.org to know about all the possible things you can do with FFmpeg.
 # References
 
 * [Home](https://www.ffmpeg.org/)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

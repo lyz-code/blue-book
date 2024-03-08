@@ -15,3 +15,4 @@ A Pod represents a unit of deployment. It encapsulates:
 * A unique network IP.
 * Options that govern how the container(s) should run.
 
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

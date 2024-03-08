@@ -102,3 +102,4 @@ The objectives of the trimester plan are to adjust your life path to meet the se
 # References
 
 - [Pomodoro article](https://en.wikipedia.org/wiki/Pomodoro_Technique).
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

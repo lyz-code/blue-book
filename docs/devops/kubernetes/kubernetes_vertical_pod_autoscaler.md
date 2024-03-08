@@ -15,3 +15,4 @@ does data analysis on the pod metrics to automatically adjust these values.
 Nevertheless it's still not suggested to use it in conjunction with the
 [horizontal pod autoscaler](kubernetes_hpa.md), so we'll need to watch out for
 future improvements.
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

@@ -118,3 +118,4 @@ Junior
 * Analyze themselves with respect to the mentoring workflows.
 * Overcome the apprentice's obstacles.
     *
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

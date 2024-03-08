@@ -71,3 +71,4 @@ You may then try to issue your original command again to upgrade or reinstall.
 * [Git](https://github.com/kubernetes/helm)
 * [Chart hub](https://hub.helm.sh)
 * [Git charts repositories](https://github.com/kubernetes/charts)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

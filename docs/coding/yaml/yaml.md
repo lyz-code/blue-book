@@ -46,3 +46,4 @@ YAML 1.2 a superset of JSON.
     ```
 
 * YAML is crazy.
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

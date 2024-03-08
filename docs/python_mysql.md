@@ -49,3 +49,4 @@ for db in cursor:
 * [Git](https://github.com/mysql/mysql-connector-python)
 * [Docs](https://dev.mysql.com/doc/connector-python/en/)
 * [RealPython tutorial](https://realpython.com/python-mysql/)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

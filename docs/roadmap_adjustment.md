@@ -50,7 +50,7 @@ Reviews are proceses to stop your daily life and do introspections to gather ins
 
 Reviews can be done at different levels of purpose, each level gives you different benefits.
 
-- [Month review](#month-review)
+- [Personal integrity review](#personal-integrity-review)
 - [Trimester review](#trimester-review)
 - [Year review](#year-review)
 ### Reviews guidelines
@@ -72,7 +72,7 @@ Reviews can also be used as deadlines. Sometimes deadlines helps us get motivati
 Life planning can be done at different levels. All of them help you in different ways to reduce the mental load, each also gives you extra benefits that can't be gained by the others. Going from lowest to highest abstraction level we have:
 
 - [Day plan](#make-a-day-plan).
-- Week plan.
+- [Week plan](#week-plan)
 - Month plan.
 - Trimester plan.
 - Year plan.
@@ -259,7 +259,7 @@ There are two tools that will help to follow the day plan:
 
 ### Control your inbox
 
-The [Inbox](task_tools.md#inbox) is a nasty daemon that loves to get out of control. You need to develop your inbox cleaning skills and proceses up to the point that you're sure that the important stuff tracked where it should be tracked. So far aiming to have a 0 element inbox is unrealistic though, at least for me.
+The [Inbox](task_tools.md#inbox) is a nasty daemon that loves to get out of control. You need to develop your inbox cleaning skills and proceses up to the point that you're sure that the important stuff tracked where it should be tracked. So far aiming to have a  element inbox is unrealistic though, at least for me.
 ## Survive the week
 At this level you're able to open your myopic eyes, so you start to guess what life throws at you. This may be enough to be able to gracefully handle some of the small stuff. The fast ones will still hit you though as you still don't have too much time or definition to react. 
 
@@ -414,3 +414,4 @@ Finally:
 
 - Check the last month checks and complete this month ones.
 - Pat yourself in the shoulder as you've finished the review ^^.
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

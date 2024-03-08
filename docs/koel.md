@@ -20,3 +20,4 @@ The API is [not very well documented](https://github.com/koel/koel/issues/535):
 - [Home](https://koel.dev/)
 - [Docs](https://docs.koel.dev/#using-docker)
 - [Source](https://github.com/koel/koel)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

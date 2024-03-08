@@ -63,3 +63,4 @@ For more details see Pydantic's docs for examples of loading:
 # References
 
 - [Git](https://github.com/lincolnloop/goodconf/)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

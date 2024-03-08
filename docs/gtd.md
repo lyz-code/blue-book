@@ -854,3 +854,4 @@ Follow the steps of [Clarify and organize](#clarify-and-organize) until you've r
 * One of the best tricks for enhancing your productivity is having organizing tools you love to use.
 - Being organized means nothing more or less than where something is matches what it means to you.
 - Your organisation system is not something that you'll create all at once. It will evolve as you process yuor stuff and test out whether you have put everything in the best place for you. It won't remain static, it will evolve as you do.
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

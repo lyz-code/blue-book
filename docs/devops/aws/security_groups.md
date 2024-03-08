@@ -268,3 +268,4 @@ resource "aws_instance" "gitea_production" {
     data.terraform_remote_state.security_groups.outputs.egress_https_to_debian_repositories_from_publicdmz_id,
   ]
 ```
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

@@ -18,3 +18,4 @@ Argo CD automates the deployment of the desired application states in the specif
 # References
 
 * [Docs](https://argo-cd.readthedocs.io/en/stable/)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

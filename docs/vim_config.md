@@ -154,3 +154,4 @@ Where `option_name` can be anything in [this list](https://neovim.io/doc/user/qu
 
 * [List of nvim configs](https://github.com/topics/neovim-config)
 * [jessfraz vimrc](https://github.com/jessfraz/.vim/blob/master/vimrc)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

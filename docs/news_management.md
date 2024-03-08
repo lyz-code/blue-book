@@ -164,3 +164,4 @@ a nightmare](https://github.com/samuelclay/NewsBlur/blob/master/docker-compose.y
 
 Intermediate solutions between the sources and the reader aren't a viable option
 either, as you need to interact with that middleware outside the RSS reader.
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

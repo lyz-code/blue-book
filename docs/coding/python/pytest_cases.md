@@ -602,3 +602,4 @@ yields
 
 * [Docs](https://smarie.github.io/python-pytest-cases/)
 * [Git](https://github.com/smarie/python-pytest-cases/)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

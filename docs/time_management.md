@@ -20,7 +20,7 @@ To increase the efficiency we can:
 
 ## Adjust your roadmap
 
-To be able to efficiently use your time and energy you need to identify where and how to do it given your current circumstances. [Roadmap management](roadmap_management.md) gathers the techniques to make and review plans in order to define that optimal path.
+To be able to efficiently use your time and energy you need to identify where and how to do it given your current circumstances. [Roadmap adjustment](roadmap_adjustment.md) gathers the techniques to make and review plans in order to define that optimal path.
 ## Reduce the time spent doing unproductive tasks
 
 Sadly, the day has *only* 24 hours you can use. There's nothing to do about it,
@@ -175,3 +175,4 @@ Some of the vectors you can work on to improve your state are:
 * [Don't be a slave of the interruptions](interruption_management.md).
 * Improve your [working environment](remote_work.md).
 * Prevent illnesses through [hygiene](teeth.md) and [exercise](pilates.md).
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

@@ -276,3 +276,4 @@ removed (`\n`), the workaround is to paste it inside a `code snippet`.
 - [Git](https://github.com/opf/openproject)
 - [Homepage](https://www.openproject.org/)
 - [Upgrading notes](https://www.openproject.org/docs/installation-and-operations/operation/upgrading/#compose-based-installation)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

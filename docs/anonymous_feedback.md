@@ -182,3 +182,4 @@ Once you have sent the anonymous feedback, be sure to:
 * [Julian Cook article](https://www.linkedin.com/pulse/three-reasons-why-anonymous-workplace-feedback-better-julian-cook).
     I haven't used it's text, but it's written for managers in their language,
     it may help someone there.
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

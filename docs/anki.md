@@ -308,3 +308,4 @@ Install addon from ankiweb (support 2.1)
 
 * [Homepage](https://apps.ankiweb.net/)
 * [Anki-Connect reference](https://foosoft.net/projects/anki-connect/)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

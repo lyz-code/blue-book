@@ -600,3 +600,4 @@ Query.from_(table).delete().where(table.id == id)
 
 * [Docs](https://pypika.readthedocs.io/en/latest/)
 * [Source](https://github.com/kayak/pypika)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

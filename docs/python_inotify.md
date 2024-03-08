@@ -67,3 +67,4 @@ The wait will be done in the `list(events)` line
 # References
 
 - [Source](https://github.com/dsoprea/PyInotify)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

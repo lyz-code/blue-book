@@ -232,3 +232,4 @@ ON users.id == checkouts.user_id
 Left OUTER JOIN books
 ON checkouts.book_id == books.id
 ```
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

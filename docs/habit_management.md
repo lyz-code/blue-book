@@ -201,3 +201,4 @@ Likewise, if you're trying to run from a bad habit cut your ties to communities 
 
 ## Working with the habit responses
 ## Working with the habit rewards
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

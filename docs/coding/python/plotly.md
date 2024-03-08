@@ -62,3 +62,4 @@ fig.show()
 
 * [Homepage](https://plotly.com/python/)
 * [Git](https://github.com/plotly/plotly.py)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

@@ -308,3 +308,4 @@ To catch the errors shown in docker (assuming you're using my same [promtail con
 # References
 
 - [Docs](https://grafana.com/docs/loki/latest/)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

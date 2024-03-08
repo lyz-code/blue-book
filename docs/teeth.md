@@ -263,3 +263,4 @@ Once you have it, yearly go to their dreaded places so they can:
 * [Wikipedia oral hygiene article](https://en.wikipedia.org/wiki/Oral_hygiene)
 * [CNN health article on oral
     hygiene](https://edition.cnn.com/2019/05/03/health/dental-health-tips-partner/index.html)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

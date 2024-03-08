@@ -551,3 +551,4 @@ To see how to use it read the [Vuetify Flexbox section](vuetify.md#flex).
 
 * [W3 Tutorial](https://www.w3schools.com/css/default.asp)
 * [W3 CSS templates](https://www.w3schools.com/css/css_rwd_templates.asp)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

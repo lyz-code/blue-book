@@ -265,3 +265,4 @@ drone repo info <your/repo>
 
 * [Docs](https://docs.drone.io/)
 * [Home](https://www.drone.io/)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

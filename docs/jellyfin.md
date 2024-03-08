@@ -302,3 +302,4 @@ not introduced again.
 * [Home](https://jellyfin.org/)
 * [Git](https://github.com/jellyfin/jellyfin)
 * [Blog](https://jellyfin.org/posts/)([RSS](https://jellyfin.org/index.xml))
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

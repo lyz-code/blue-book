@@ -66,8 +66,7 @@ find . -name '*.txt' -exec process {} \;
 For more complex loops use a `while read` construct:
 
 ```bash
-find . -name "*.txt" -print0 | while read -r -d $'\0' file
-do
+find . -name "*.txt" -print0 | while read -r -d $'\0' file; do
     …code using "$file"
 done
 ```
@@ -311,3 +310,4 @@ And then you'll have:
   "other_property": "value"
 }
 ```
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

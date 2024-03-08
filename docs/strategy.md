@@ -48,3 +48,4 @@ The strategist must have a great capacity for both analysis and synthesis;
 analysis is necessary to assemble the data on which he makes his diagnosis,
 synthesis in order to produce from these data the diagnosis itself—and the
 diagnosis in fact amounts to a choice between alternative courses of action.
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

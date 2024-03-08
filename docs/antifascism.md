@@ -127,3 +127,4 @@ falls into a pity image then it may strengthen their victim role.
 ## Podcasts
 
 * [Hope not Hate](https://hopenothate.org.uk/research/podcast/)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

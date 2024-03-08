@@ -43,3 +43,4 @@ required files:
 ```bash
 aws eks update-kubeconfig --name {{ cluster_name }}
 ```
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

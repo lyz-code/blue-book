@@ -15,3 +15,4 @@ Follow this template if you want to build a project that meets these requirement
 
 Defining the project layout of a flask application [is not
 easy](python_flask_template.md), even less one with several
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

@@ -83,3 +83,4 @@ def load_logger(verbose: bool = False) -> None:  # pragma no cover
             stream=sys.stderr, level=logging.INFO, format="%(levelname)s %(message)s"
         )
 ```
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

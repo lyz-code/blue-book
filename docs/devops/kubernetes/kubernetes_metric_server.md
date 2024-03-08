@@ -15,3 +15,4 @@ To install it, you can use the [`metrics-server`](https://github.com/helm/charts
 To test that the horizontal pod autoscaling is working, follow the [AWS EKS
 guide](https://docs.aws.amazon.com/eks/latest/userguide/horizontal-pod-autoscaler.html).
 
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

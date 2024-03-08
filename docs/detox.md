@@ -10,3 +10,4 @@ apt-get install detox
 ```bash 
 detox *  
 ```
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

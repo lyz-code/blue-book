@@ -19,3 +19,4 @@ If you want to go back to the newer positions, after you’re done with what you
 Ctrl + O is probably not meant for a single task, as far as Vim’s philosophy is concerned. The jumping mentioned in the previous section only works when you’re in Normal Mode, and not when you’re in Insert Mode. When you press Ctrl + O in Insert Mode, what happens instead is that you’ll enter Normal Mode, and be able to execute a single command, after which Vim will automatically switch back to Insert Mode.
 
 
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

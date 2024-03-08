@@ -21,3 +21,4 @@ support.
 # References
 
 * [Docs](https://vitejs.dev/guide/)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

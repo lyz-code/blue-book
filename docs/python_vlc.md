@@ -85,3 +85,4 @@ There are the next playback modes:
 
 * [Home](https://wiki.videolan.org/Python_bindings/)
 * [Source](https://git.videolan.org/?p=vlc/bindings/python.git;a=summary)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

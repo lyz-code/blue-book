@@ -39,3 +39,4 @@ You can list the network interfaces that match the IP you're searching for
 ```bash
 aws ec2 describe-network-interfaces --filters Name=association.public-ip,Values="{{ your_ip_address}}"
 ```
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

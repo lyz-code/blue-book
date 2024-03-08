@@ -67,3 +67,4 @@ author: Lyz
         -m "Initial schema"
     ```
 * [Set up the testing environment for SQLAlchemy](../sqlalchemy.md#testing-sqlalchemy-code)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

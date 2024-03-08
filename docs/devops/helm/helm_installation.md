@@ -36,3 +36,4 @@ helm plugin install https://github.com/databus23/helm-diff
 
 Now that you've got Helm installed, you'll probably want to install
 [Helmfile](helmfile.md).
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

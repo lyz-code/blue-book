@@ -23,3 +23,4 @@ confront an unseen evil.
 * [Wiki](https://wiki.wesnoth.org/StartingPoints)
 * [Game manual](https://www.wesnoth.org/manual/stable/manual.en_GB.html)
 * [Mainline campaigns](https://wiki.wesnoth.org/Mainline_Campaigns)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

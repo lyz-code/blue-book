@@ -119,3 +119,4 @@ feedback and executable documentation of our intent.
 # Further reading
 
 * [Martin Fowler o Mocks aren't stubs](https://martinfowler.com/articles/mocksArentStubs.html)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

@@ -406,3 +406,4 @@ avoid attacking units that can retaliate, unless you have a reasonably high
 chance of killing them that turn. Avoid attacking *trolls* if you can't heavily
 damage them or outright kill them, they're regenaration will quickly mean they
 can heal from any scratches your *bowmen* might have dealt them.
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

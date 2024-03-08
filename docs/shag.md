@@ -21,3 +21,4 @@ Collection of shag videos:
   - [Dragon Swing 2016](https://yewtu.be/watch?v=QGJAIKyW7r4)
   - [Warsaw Shag Festival 2018](https://yewtu.be/watch?v=0DHUfThIrlA)
   - [Warsaw Shag Festival 2017](https://yewtu.be/watch?v=6wasM8nF9gg)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

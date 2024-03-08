@@ -195,3 +195,4 @@ the kicks.
 * [Francis Shuffle compilation](https://www.youtube.com/watch?v=ia-06zXLa5E)
 * [Siera Shuffle compilation](https://www.youtube.com/watch?v=bUOR1KOhLXE)
 * [Bulldog Shuffle compilation](https://www.youtube.com/watch?v=AscmjFyXenQ)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

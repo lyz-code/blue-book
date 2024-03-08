@@ -47,3 +47,4 @@ require("luasnip").config.setup({store_selection_keys="<Tab>"})
 ```
 # Reference
 - [Source](https://github.com/L3MON4D3/LuaSnip)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

@@ -39,3 +39,4 @@ your machine. It is similar to tools like apt, dnf or brew.
 
 * [Git](https://github.com/kubernetes-sigs/krew)
 * [Docs](https://krew.sigs.k8s.io/)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

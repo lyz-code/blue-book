@@ -7,3 +7,4 @@
 # References
 
 - [Source](https://github.com/gotify/server)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

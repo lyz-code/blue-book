@@ -22,3 +22,4 @@ overwrite, you may end up fucking your device hard drive instead!"
 # References
 
 * [Home](https://www.finnix.org/)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

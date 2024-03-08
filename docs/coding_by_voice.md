@@ -26,3 +26,4 @@ After the initial learning curve, users often create custom prompts for commonly
 # References
 
 - [Nature article of coding by voice](https://www.nature.com/articles/d41586-018-05588-x)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

@@ -128,3 +128,4 @@ You will debug the plugin by:
 - [Simple plugin example](https://github.com/massix/org-checkbox.nvim/blob/trunk/lua/orgcheckbox/init.lua)
 - [Miguel Crespo tutorial](https://miguelcrespo.co/posts/how-to-write-a-neovim-plugin-in-lua)
 
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

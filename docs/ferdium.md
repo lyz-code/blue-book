@@ -36,3 +36,4 @@ device. So only add services that are not critical to you.
 # References
 
 * [Homepage](https://ferdium.org)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

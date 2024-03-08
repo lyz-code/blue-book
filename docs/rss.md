@@ -48,3 +48,4 @@ But now in 2021, for most of us, social media is very not fun and not convenient
 And that's all, folks! Now you know how to escape the attention-draining, empathy-killing, critical-thought-suffocating siren song of the algorithms. And get your inbox less cluttered with newsletters.
 
 Here's to a renaissance for a kinder, better web. 💖
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

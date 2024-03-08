@@ -208,3 +208,4 @@ Promtail features an embedded web server exposing a web console at `/` and the f
 # References
 
 - [Docs](https://grafana.com/docs/loki/latest/send-data/promtail/)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

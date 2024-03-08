@@ -358,3 +358,4 @@ pass_command('show', 'new_file')
 
 * [Docs](https://amoffat.github.io/sh/index.html)
 * [Git](https://github.com/amoffat/sh)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

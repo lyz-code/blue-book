@@ -134,3 +134,4 @@ specific role. The second worked flawlessly.
 
 For more information visit the [official external-dns aws
 documentation](https://github.com/kubernetes-sigs/external-dns/blob/master/docs/tutorials/aws.md).
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

@@ -372,3 +372,4 @@ Go to the [AWS savings plan
 simulator](https://aws.amazon.com/savingsplans/compute-pricing/) and check the
 different instances you were evaluating.
 
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

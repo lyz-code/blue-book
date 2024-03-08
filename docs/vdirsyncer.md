@@ -354,3 +354,4 @@ you can have all the history.
 
 * [Docs](https://vdirsyncer.pimutils.org/en/stable/)
 * [Git](https://github.com/pimutils/vdirsyncer)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

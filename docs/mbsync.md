@@ -55,3 +55,4 @@ mkdir -p ~/mail/example
 # References
 
 * [Homepage](https://isync.sourceforge.io/mbsync.html)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

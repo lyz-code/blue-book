@@ -97,3 +97,4 @@ def myserver(xprocess):
 
 - [Source](https://github.com/pytest-dev/pytest-xprocess)
 - [Docs](https://pytest-xprocess.readthedocs.io/en/latest/)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

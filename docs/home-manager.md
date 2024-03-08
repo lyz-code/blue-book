@@ -28,3 +28,4 @@ Once finished, Home Manager should be active and available in your user environm
 - [Source](https://github.com/nix-community/home-manager)
 - [Manual](https://nix-community.github.io/home-manager/)
 - [Nixpkgs](https://github.com/NixOS/nixpkgs)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

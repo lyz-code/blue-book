@@ -188,3 +188,4 @@ COPY . /opt/app
 # continue as before...
 ```
 
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

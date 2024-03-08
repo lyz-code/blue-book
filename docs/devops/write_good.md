@@ -31,3 +31,4 @@ a soft linter.
 # References
 
 * [Git](https://github.com/btford/write-good)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

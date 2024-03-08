@@ -29,3 +29,4 @@ launch it with `via-nativia`.
 # References
 
 - [Git](https://github.com/mattdibi/redox-keyboard)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

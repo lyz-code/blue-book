@@ -222,3 +222,4 @@ response = requests.get(
 
 * [Prometheus Up & Running](http://shop.oreilly.com/product/0636920147343.do).
 * [Monitoring With Prometheus](https://www.prometheusbook.com/).
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

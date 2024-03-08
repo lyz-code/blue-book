@@ -155,3 +155,4 @@ Sometimes the client applications don't give enough granularity, or you would
 like to show notifications based on more complex conditions, that's why
 I created the seed project to [improve the notification management in
 Linux](projects.md#improve-the-notification-management-in-linux).
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

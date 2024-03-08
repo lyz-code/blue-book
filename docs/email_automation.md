@@ -112,3 +112,4 @@ And add the entry in your `crontab -e`.
 
 If you want to process your emails with this system through a command line
 interface, you can configure [alot](alot.md).
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

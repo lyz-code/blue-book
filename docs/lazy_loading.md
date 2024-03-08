@@ -90,3 +90,4 @@ method](https://medium.com/better-programming/how-to-create-lazy-attributes-to-i
 
 * [Steven Loria article on Lazy Properties](https://stevenloria.com/lazy-properties/)
 * [Yong Cui article on Lazy attributes](https://medium.com/better-programming/how-to-create-lazy-attributes-to-improve-performance-in-python-b369fd72e1b6)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

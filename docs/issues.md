@@ -95,3 +95,4 @@ still some usability issues that need to be fixed first:
 * [Allow search by
     genre](https://features.ombi.io/suggestions/115149/search-by-genres): Notify
     the people and start using it.
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

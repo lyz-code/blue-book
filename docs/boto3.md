@@ -676,3 +676,4 @@ Check the official docs to check the method arguments:
 
 * [Git](https://github.com/boto/boto3)
 * [Docs](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

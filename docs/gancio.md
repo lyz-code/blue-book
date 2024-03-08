@@ -14,3 +14,4 @@ Telegram bridge to republish Gancio events
 - [Home](https://gancio.org/)
 - [Radar Squat](https://radar.squat.net)
 
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

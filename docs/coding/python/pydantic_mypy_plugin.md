@@ -32,3 +32,4 @@ docs for more details.
 # References
 
 * [Pydantic mypy plugin docs](https://pydantic-docs.helpmanual.io/mypy_plugin/)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

@@ -273,3 +273,4 @@ environment.
 # References
 
 * [Kubernetes components overview](https://kubernetes.io/docs/concepts/overview/components/)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

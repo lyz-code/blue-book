@@ -395,3 +395,4 @@ By default, Velero performs a non-destructive restore, meaning that it won’t d
 * [Docs](https://velero.io/docs/main/)
 * [Source](https://github.com/vmware-tanzu/velero)
 * [Home](https://velero.io/)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

@@ -59,3 +59,4 @@ Safety can be used through:
 # References
 
 * [Git](https://github.com/pyupio/safety)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

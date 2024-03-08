@@ -19,3 +19,4 @@ For example you can get information about the current mode like so:
 :lua print(vim.inspect(vim.api.nvim_get_mode()))
 " {  blocking = false,  mode = "n"}
 ```
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

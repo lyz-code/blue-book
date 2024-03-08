@@ -29,3 +29,4 @@ as](https://pulitzercenter.org/diversity-equity-and-inclusion):
 * [Pulitzer center DEI
     page](https://pulitzercenter.org/diversity-equity-and-inclusion)
 * [Journalist's Toolbox DEI links](https://www.journaliststoolbox.org/2021/03/01/diversity_links/)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

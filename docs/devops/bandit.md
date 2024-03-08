@@ -70,3 +70,4 @@ You can run bandit through:
 # References
 
 * [Docs](https://bandit.readthedocs.io/en/latest/)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

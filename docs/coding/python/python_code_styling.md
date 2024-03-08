@@ -155,3 +155,4 @@ try:
 except FileNotFoundError:
     pass
 ```
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

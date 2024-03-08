@@ -147,3 +147,4 @@ retrieved.
 
 * [Docs](https://requests-mock.readthedocs.io/en/latest/index.html)
 * [Git](https://github.com/jamielennox/requests-mock)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

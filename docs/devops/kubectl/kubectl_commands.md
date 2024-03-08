@@ -626,3 +626,4 @@ kubectl get rs,secrets -o json --namespace old | jq '.items[].metadata.namespace
 ```bash
 -o=yaml
 ```
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

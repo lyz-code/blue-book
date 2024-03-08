@@ -39,8 +39,8 @@ The year is then divided in two sets of an expansion trimester and a retreat one
 
 With a new level of abstraction we need tools:
 
-- [Area documents](life_abstraction_levels#areas).
-- [The life path document](life_abstraction_levels.md#life-path).
+- [Area documents](time_management_abstraction_levels.md#areas).
+- [The life path document](time_management_abstraction_levels.md#life-path).
 - The notes gathered throughout the last days on the thoughts about the trimester (probably in `think.org`).
 ## Trimester review phases
 
@@ -200,3 +200,4 @@ Follow the
 
 With the analysis of what I've read I research for new books and create an
 ordered list per genre.
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

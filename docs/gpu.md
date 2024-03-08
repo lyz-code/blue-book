@@ -30,3 +30,4 @@ The best graphics card is objectively Nvidia's RTX 4090 but it's too expensive. 
 
 On the other end of the market, Nvidia has a rather uninspired upgrade in the RTX 4060. We also met the release of AMD's RX 7600 with a shrug, but at least it's cheap enough now to feel more competitive. And Intel still has a dog in the budget game: the Arc A750. When this card drops down to around $200, it's a steal, though the drivers aren't always up to the standard we'd like to see. That leaves AMD's RX 7600 as the best budget graphics card today, mostly for being a boringly safe pick.
 
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

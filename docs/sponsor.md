@@ -75,3 +75,4 @@ Try to avoid Paypal and use Stripe for both platforms.
 [5]: https://ko-fi.com/gold
 [6]: https://www.buymeacoffee.com/
 [7]: https://github.com/sponsors
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

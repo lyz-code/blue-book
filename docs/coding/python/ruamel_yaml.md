@@ -93,3 +93,4 @@ I've opened [an issue](https://github.com/pycontribs/ruyaml/issues/27) in the
 
 * [Docs](https://yaml.readthedocs.io/en/latest/overview.html)
 * [Code](https://sourceforge.net/projects/ruamel-yaml/)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

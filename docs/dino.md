@@ -51,3 +51,4 @@ If you have more detailed follow [this article](https://t-hinrichs.net/DinoTails
     echo 'alias dino="torsocks dino-im &> /dev/null &"' >> ~/.bashrc
     ```
 
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

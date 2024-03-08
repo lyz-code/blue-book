@@ -11,3 +11,4 @@ without MS branding/telemetry/licensing.
 
 - [Home](https://vscodium.com/)
 - [Git](https://github.com/VSCodium/vscodium)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

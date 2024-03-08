@@ -167,3 +167,4 @@ The process carries it's risks, such as:
 
 So, ask the opinion of two or three independent dentists before
 doing a deep clean.
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

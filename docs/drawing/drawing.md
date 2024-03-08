@@ -222,3 +222,4 @@ skills.
 ## Dive deeper
 
 * [Pool of drawing exercises](exercise_pool.md)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

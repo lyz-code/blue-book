@@ -56,3 +56,4 @@ If you want to set the missing picture of an artist, you need to add it at
 approval, so don't expect it to be automatic. They are really kind when you
 don't do things right, but still, check their [upload
 guidelines](https://fanart.tv/music-fanart/) before you contribute.
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

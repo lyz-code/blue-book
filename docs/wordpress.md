@@ -2,3 +2,4 @@
 # References
 
 - [API reference](https://developer.wordpress.org/rest-api/reference/posts/#update-a-post)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

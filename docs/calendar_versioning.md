@@ -34,3 +34,4 @@ article section.
 # References
 
 * [Home](https://calver.org/)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

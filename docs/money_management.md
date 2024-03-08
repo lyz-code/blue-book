@@ -546,3 +546,4 @@ is subdivided in:
 * `Weekly balances`: As doing the monthly review is long, but it doesn't give me
     the enough information to not mess up the cash transactions, I do a weekly
     balance of those accounts.
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

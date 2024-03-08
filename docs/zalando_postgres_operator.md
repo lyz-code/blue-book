@@ -152,3 +152,4 @@ Some also suggest to monitor Patroni, I still have no idea of what this is and t
 - [Source](https://github.com/zalando/postgres-operator)
 - [Docs](https://postgres-operator.readthedocs.io)
 - [Chart source](https://github.com/zalando/postgres-operator/tree/master/charts/postgres-operator)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

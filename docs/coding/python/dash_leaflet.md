@@ -167,3 +167,4 @@ Add a custom css file:
 
 * [Docs](https://dash-leaflet.herokuapp.com/)
 * [Git](https://github.com/thedirtyfew/dash-leaflet)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

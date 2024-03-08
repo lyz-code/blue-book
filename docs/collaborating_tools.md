@@ -7,3 +7,4 @@
 # Collaborating through terminals
 
 - [sshx](https://sshx.io/) looks promising although I think it uses their servers to do the connection, which is troublesome.
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

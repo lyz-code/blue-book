@@ -98,3 +98,4 @@ df.loc[df['Value'].idxmax()]
 
 * [Homepage](https://pandas.pydata.org/)
 
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

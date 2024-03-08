@@ -13,3 +13,4 @@ You'll probably never manually use these resources, as they are defined inside
 the [deployments](kubernetes_deployments.md). The older version of this resource are the
 [Replication
 controllers](https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller/).
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

@@ -702,3 +702,4 @@ Wrapper over other Faker providers to return their value or `None`. Useful to
 create data of type `Optional[Any]`.
 
 Not needed anymore as I use [pydantic factories](pydantic_factories.md) now.
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

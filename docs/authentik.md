@@ -914,3 +914,4 @@ This will output a link, that can be used to instantly gain access to authentik 
 
 * [Terraform provider docs](https://registry.terraform.io/providers/goauthentik/authentik/latest/docs)
 * [Terraform provider source code](https://github.com/goauthentik/terraform-provider-authentik)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

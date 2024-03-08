@@ -246,3 +246,4 @@ def test_assert_true(full_repo: Repo) -> None:
 - [Docs](https://gitpython.readthedocs.io)
 - [Git](https://github.com/gitpython-developers/GitPython)
 - [Tutorial](https://gitpython.readthedocs.io/en/stable/tutorial.html#tutorial-label)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

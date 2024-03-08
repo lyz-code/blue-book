@@ -107,3 +107,4 @@ export MOLECULE_GLOB='molecule/*/molecule.yaml'
 
 - [Source](https://github.com/ansible-community/molecule)
 - [Docs](https://molecule.rtfd.io/)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

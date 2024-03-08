@@ -78,3 +78,4 @@ If you want to copy a directory you need to assume that the prompt is done from 
 - [Docs](https://github.com/nvim-neo-tree/neo-tree.nvim/blob/main/doc/neo-tree.txt)
 - [Wiki](https://github.com/nvim-neo-tree/neo-tree.nvim/wiki)
 - [Wiki Recipes](https://github.com/nvim-neo-tree/neo-tree.nvim/wiki/Recipes)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

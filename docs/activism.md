@@ -3,3 +3,4 @@
 # Random thoughts on activism
 
 - If you find it uncomfortable selling activist content to the people maybe it's because you don't fully trust in the content. If you did, you'd be eager to spread the word.
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

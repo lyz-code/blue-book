@@ -21,3 +21,4 @@ that the routing algorithm prioritizes the routes to your desires. It's based on
 [brouter](https://github.com/abrensch/brouter) and both can be
 [self-hosted](https://github.com/nrenner/brouter-web), although [brouter does
 not yet use Docker](https://github.com/abrensch/brouter/issues/359).
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

@@ -30,3 +30,4 @@ What I don't like:
 - [Source](https://github.com/deadc0de6/dotdrop)
 - [Docs](https://dotdrop.readthedocs.io/en/latest/)
 - [Blog post](https://deadc0de.re/articles/dotfiles.html)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

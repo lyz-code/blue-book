@@ -201,3 +201,4 @@ To make it easy to follow the pomodoro plan I use a script that:
 
 * [GTD](https://en.wikipedia.org/wiki/Getting_Things_Done) time management
     framework.
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

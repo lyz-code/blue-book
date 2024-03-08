@@ -66,3 +66,4 @@ switch to a stricter plan to be able to deliver value in time. This makes more
 sense in work environments, at personal level I usually just surf the hype
 unless I have a clear objective with a due date to reach.
 
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

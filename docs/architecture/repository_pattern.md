@@ -252,3 +252,4 @@ class Task:
 * [The repository pattern chapter of the Architecture Patterns with
     Python](https://www.cosmicpython.com/book/preface.html) book by
     Harry J.W. Percival and Bob Gregory.
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

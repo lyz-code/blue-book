@@ -147,3 +147,4 @@ vim.api.nvim_create_autocmd("FileType", {
 ```
 
 It's important to set the `buffer = true` if you don't want the bindings to be permanent for all buffers once it's been loaded.
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

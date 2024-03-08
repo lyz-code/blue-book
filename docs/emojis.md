@@ -234,3 +234,4 @@ _へ__(‾◡◝ )>
 # Links
 
 - [Japanese Emoticons](http://japaneseemoticons.me)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

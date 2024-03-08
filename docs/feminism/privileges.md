@@ -92,3 +92,4 @@ to the [Michael Kimmel book](https://www.goodreads.com/book/show/7400069-privile
 ## Essays
 
 * [White Privilege: Unpacking the Invisible Knapsack by Peggy McIntosh](https://www.racialequitytools.org/resourcefiles/mcintosh.pdf)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

@@ -21,3 +21,4 @@ and offering poor solutions.
 * If someone asks for more information, do provide details.
 * If there are other solutions you've already ruled out, share why you've ruled
     them out. This gives more information about your requirements.
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

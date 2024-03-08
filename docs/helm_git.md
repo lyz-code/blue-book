@@ -64,3 +64,4 @@ helm fetch git+https://github.com/jetstack/cert-manager@deploy/charts/cert-manag
 # References
 
 * [Git](https://github.com/aslafy-z/helm-git)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

@@ -13,3 +13,4 @@ networks.
 * [Docs](https://networkx.org/documentation/latest/)
 * [Git](https://github.com/networkx/networkx)
 * [Home](https://networkx.org/)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

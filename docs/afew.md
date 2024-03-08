@@ -47,3 +47,4 @@ afew -v --tag --new
 
 * [Git](https://github.com/afewmail/afew)
 * [Docs](https://afew.readthedocs.io/en/latest/)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

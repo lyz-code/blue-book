@@ -28,3 +28,4 @@ If you don't like those options, you can also store the backup in the phone and 
 
 * [Home](https://calyxinstitute.org/projects/seedvault-encrypted-backup-for-android)
 * [Source](https://github.com/seedvault-app/seedvault)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

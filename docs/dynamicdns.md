@@ -12,3 +12,4 @@ addresses or other information.
 There are different DDNS providers, I use [Duckdns](https://www.duckdns.org) as
 it is easy to setup and the Linuxserver people have a [docker that makes it
 work](https://hub.docker.com/r/linuxserver/duckdns/).
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

@@ -21,3 +21,4 @@ be better for my well being.
 One way that can help me with the switch, is to understand the science behind it
 and be precise with the process. Thus this section was born, I'll start with the
 very basics and build from there on.
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

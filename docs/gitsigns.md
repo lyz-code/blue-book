@@ -73,3 +73,4 @@ Some interesting bindings:
 
 - [Source](https://github.com/lewis6991/gitsigns.nvim)
 
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

@@ -42,3 +42,4 @@ Being a soft-fork has it's disadvantages too, for example deciding where to open
 - [Docs](https://forgejo.org/docs/latest)
 - [Home](https://forgejo.org/)
 - [News](https://forgejo.org/news/)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

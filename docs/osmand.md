@@ -28,3 +28,4 @@ maps.
 * [Home](https://osmand.net)
 * [Git](https://github.com/osmandapp/OsmAnd)
 * [Reddit](https://www.reddit.com/r/OsmAnd)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

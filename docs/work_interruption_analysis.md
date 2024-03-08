@@ -149,3 +149,4 @@ Often with a wide range of priorities.
 
 * decide if you have to go
 * Define an agenda with times
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

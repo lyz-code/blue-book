@@ -16,3 +16,4 @@ presentation](https://www.youtube.com/watch?v=0dC11DMR3fU&t=154s).
 
 * [Home](https://qwik.builder.io)
 * [Git](https://github.com/BuilderIO/qwik)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

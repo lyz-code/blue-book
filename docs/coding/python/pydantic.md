@@ -736,3 +736,4 @@ Or if it fails, add to the line `# pylint: extension-pkg-whitelist`.
 
 - [Docs](https://pydantic-docs.helpmanual.io/)
 - [Git](https://github.com/samuelcolvin/pydantic/)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

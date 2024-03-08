@@ -83,3 +83,4 @@ $ wakeonlan -i *target_IP* *target_MAC_address*
 # References
 
 * [Arch wiki post](https://wiki.archlinux.org/index.php/Wake-on-LAN)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

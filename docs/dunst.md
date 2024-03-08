@@ -43,3 +43,4 @@ Read and tweak the `~/.dunst/dunstrc` file to your liking.
 * [Git](https://github.com/dunst-project/dunst)
 * [Home](https://dunst-project.org/)
 * [Archwiki page on dunst](https://wiki.archlinux.org/title/Dunst)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

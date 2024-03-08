@@ -159,3 +159,4 @@ directory:
 * [Docs](https://cruft.github.io/cruft/)
 * [Git](https://github.com/cruft/cruft/)
 * [Issues](https://github.com/cruft/cruft/issues)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

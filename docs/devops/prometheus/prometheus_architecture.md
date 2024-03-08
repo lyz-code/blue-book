@@ -98,3 +98,4 @@ own clients, you can do that too.
 
 * [Prometheus Overview](https://prometheus.io/docs/introduction/overview/)
 * [Open Source for U architecture overview](https://opensourceforu.com/2017/04/prometheus/)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

@@ -98,3 +98,4 @@ durability characteristics of the underlying disk.
 * [glusterfs](https://kubernetes.io/docs/concepts/storage/volumes/#glusterfs)
 * [cephfs](https://kubernetes.io/docs/concepts/storage/volumes/#cephfs)
 
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

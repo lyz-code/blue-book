@@ -206,3 +206,4 @@ formalized in [here](https://github.com/teto/i3-dispatch) which I will want to
 have time to test.
 
 Another solution would be to try to use [neovim remote](https://github.com/mhinz/neovim-remote)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

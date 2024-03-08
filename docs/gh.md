@@ -72,3 +72,4 @@ where you can get the `workflow_name` with `gh workflow list`
 # References
 
 * [Git](https://github.com/cli/cli)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

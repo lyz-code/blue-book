@@ -20,3 +20,4 @@ with open('your_file.org', 'r') as f:
 # References
 
 - [Source](https://github.com/kenkeiras/org-rw)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

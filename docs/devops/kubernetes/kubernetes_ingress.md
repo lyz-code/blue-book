@@ -30,3 +30,4 @@ than HTTP and HTTPS to the internet typically uses
 a [service](kubernetes_services.md) of type
 [NodePort](kubernetes_services.md#nodeport) or
 [LoadBalancer](kubernetes_services.md#loadbalancer).
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

@@ -153,3 +153,4 @@ I've found that Lvl 2 and Lvl 3 give a less pleasant spine rub.
 * [Pilates anatomy by Rael Isacowitz and Karen
     Clippinger](https://www.goodreads.com/book/show/10367335-pilates-anatomy):
     With gorgeous illustrations.
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

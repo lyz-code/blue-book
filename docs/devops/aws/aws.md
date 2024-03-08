@@ -54,3 +54,4 @@ aws ec2 stop-instances --instance-ids i-xxxxxxxx
 # References
 
 - [Compare aws ec2 instance types and prices](https://instances.vantage.sh/)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

@@ -141,3 +141,4 @@ credentials](https://pythonhosted.org/feedparser/http-authentication.html).
 
 * [Git](https://github.com/kurtmckee/feedparser)
 * [Docs](https://pythonhosted.org/feedparser/)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

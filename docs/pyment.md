@@ -29,3 +29,4 @@ dropped dramatically, so it needs our help to get better :).
 # References
 
 * [Git](https://github.com/dadadel/pyment)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

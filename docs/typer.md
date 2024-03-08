@@ -455,3 +455,4 @@ from typer.testing import CliRunner
 - [Docs](https://typer.tiangolo.com/)
 - [Source](https://github.com/tiangolo/typer)
 - [Issues](https://github.com/tiangolo/typer/issues)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

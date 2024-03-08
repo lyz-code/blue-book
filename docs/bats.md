@@ -21,3 +21,4 @@ Bats is most useful when testing software written in Bash, but you can use it to
 # References
 - [Source](https://github.com/bats-core/bats-core)
 - [Docs](https://bats-core.readthedocs.io/)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

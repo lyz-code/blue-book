@@ -22,6 +22,7 @@ nav:
       - Memoria histórica: memoria_historica.md
       - Mentoring: mentoring.md
       - Free Knowledge: free_knowledge.md
+      - Free Software: free_software.md
       - Environmentalism: environmentalism.md
       - Laboral: laboral.md
       - Collaborating tools: collaborating_tools.md
@@ -624,6 +625,7 @@ nav:
           - Diccionario galego-castelan: diccionario_galego.md
   - Science:
       - Artificial Intelligence: 
+        - ai.md
         - Speech recognition: speech_recognition.md
         - Coding by Voice: coding_by_voice.md
       - Data Analysis:
@@ -653,6 +655,7 @@ plugins:
 markdown_extensions:
   - abbr
   - admonition
+  - attr_list
   - meta
   - def_list
   - toc:
@@ -665,7 +668,11 @@ markdown_extensions:
   - pymdownx.critic
   - pymdownx.details
   - pymdownx.emoji:
-      emoji_generator: '!!python/name:pymdownx.emoji.to_svg'
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+      options:
+        custom_icons:
+          - theme/.icons
   - pymdownx.magiclink
   - pymdownx.mark
   - pymdownx.smartsymbols

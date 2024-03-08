@@ -52,3 +52,4 @@ ignore:
 
 * [Git](https://github.com/adrienverge/yamllint)
 * [Docs](https://yamllint.readthedocs.io/)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

@@ -66,3 +66,4 @@ directory](https://github.com/pazz/alot/tree/master/extra/themes).
 * [Docs](https://alot.readthedocs.io/en/latest/)
 * [Wiki](https://github.com/pazz/alot/wiki)
 * [FAQ](https://alot.readthedocs.io/en/latest/faq.html)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

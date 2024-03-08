@@ -46,3 +46,4 @@ There are several ways to interact with a Redis server, such as:
 # Reference
 
 * [Real Python Redis introduction](https://realpython.com/python-redis/)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

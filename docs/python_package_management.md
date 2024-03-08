@@ -160,3 +160,4 @@ more PEP standards.
 * [John Franey comparison](https://johnfraney.ca/posts/2019/03/06/pipenv-poetry-benchmarks-ergonomics/)
 * [Frost Ming comparison (developer of PDM)](https://frostming.com/2021/03-26/pm-review-2021/#result)
 * [Henry Schreiner analysis on Poetry](https://iscinumpy.dev/post/poetry-versions/)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

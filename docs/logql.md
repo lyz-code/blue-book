@@ -40,3 +40,4 @@ This query will:
 # References
 
 - [Docs](https://grafana.com/docs/loki/latest/logql/)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

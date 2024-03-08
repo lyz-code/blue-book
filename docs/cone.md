@@ -40,3 +40,4 @@ HTTP](https://f-droid.org/en/packages/com.MarcosDiez.shareviahttp/) or
 
 * [Git](https://github.com/bradyt/cone)
 * [Docs](https://cone.tangential.info/)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

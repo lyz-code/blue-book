@@ -605,3 +605,4 @@ done).
 # Links
 
 * [Git](https://github.com/helmfile/helmfile)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

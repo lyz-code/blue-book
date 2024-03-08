@@ -439,3 +439,4 @@ The most basic probes, test if the service is healthy
 # Links
 
 * [Git](https://github.com/prometheus-community/elasticsearch_exporter)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

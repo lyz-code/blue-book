@@ -30,3 +30,4 @@ Other interesting solutions:
 - [Home](https://orgzly.com/)
 - [Alternative docs](https://github.com/orgzly/documentation)
 - [Alternative fork maintained by the community](https://github.com/orgzly-revived/orgzly-android-revived)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

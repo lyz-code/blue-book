@@ -456,3 +456,4 @@ def test_j_moves_to_the_next_row(self, pydantic_data: PydanticData) -> None:
 * [Docs](https://python-prompt-toolkit.readthedocs.io/en/master/)
 * [Git](https://github.com/prompt-toolkit/python-prompt-toolkit)
 * [Projects using prompt_toolkit](https://github.com/prompt-toolkit/python-prompt-toolkit/blob/master/PROJECTS.rst)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

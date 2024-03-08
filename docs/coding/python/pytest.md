@@ -1160,3 +1160,4 @@ en parallel and any pdb trace will fail.
 - [Docs](https://docs.pytest.org/en/latest/)
 
 - [Vim-test plugin](https://github.com/janko-m/vim-test)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

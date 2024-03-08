@@ -42,3 +42,4 @@ citizen can freely do, we have only industrialized the process".
 
 They've done a [crowdfunding](https://afd-muell.de/) to fund the legal process
 that may result.
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

@@ -465,3 +465,4 @@ Install with:
 ```bash
 npm install vue2-timeago@next
 ```
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

@@ -155,3 +155,4 @@ about those in order to make progress.
 * [divio's documentation wiki](https://documentation.divio.com/introduction/)
 * [Vue's guidelines](https://v3.vuejs.org/guide/contributing/writing-guide.html#principles)
 * [FastAPI awesome docs](https://fastapi.tiangolo.com/tutorial/)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

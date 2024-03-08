@@ -250,3 +250,4 @@ with backend.lock():
 * [Source](https://hg.sr.ht/~olly/yoyo)
 * [Issue Tracker](https://todo.sr.ht/~olly/yoyo)
 * [Mailing list](https://lists.sr.ht/~olly/yoyo)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

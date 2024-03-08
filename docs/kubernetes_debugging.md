@@ -51,3 +51,4 @@ Where `nicolaka/netshoot` is an optimized network troubleshooting docker.
 There's some issues with this too, for example, as of Kubernetes 1.21 Ephemeral
 containers are not enabled by default, so chances are you won't have access to
 them yet in your environment.
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

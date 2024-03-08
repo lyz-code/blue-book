@@ -333,3 +333,4 @@ including {{ curly braces }} and
 # References
 
 * [Docs](https://jinja.palletsprojects.com)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

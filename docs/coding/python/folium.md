@@ -150,3 +150,4 @@ gpx = gpxpy.parse(gpx_file)
 
 It seems that it doesn't yet support searching for [multiple attributes in the
 geojson data](https://github.com/stefanocudini/leaflet-search/issues/34)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

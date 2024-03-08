@@ -377,3 +377,4 @@ To install a plugin from a custom URL, use the following convention to specify t
 # References
 
 - [Home](https://grafana.com/grafana)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

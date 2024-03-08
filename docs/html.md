@@ -668,3 +668,4 @@ beautify](https://htmlbeautify.com).
 # References
 
 * [W3 tutorial](https://www.w3schools.com/html/default.asp)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

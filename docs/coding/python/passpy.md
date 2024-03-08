@@ -55,3 +55,4 @@ For a full overview over all available methods see
 
 * [Docs](https://passpy.readthedocs.org/)
 * [Git](https://github.com/bfrascher/passpy)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

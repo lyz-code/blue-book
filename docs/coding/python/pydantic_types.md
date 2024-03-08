@@ -768,3 +768,4 @@ from `str`, it can be used as a string in most places.
 # References
 
 - [Field types](https://pydantic-docs.helpmanual.io/usage/types)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

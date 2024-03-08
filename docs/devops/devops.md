@@ -192,3 +192,4 @@ To get the basic knowledge of the Dev side I would:
 * Once you're comfortable, try to collaborate with existent projects (right now
     you may not now where to look for projects to collaborate, but when you reach
     this point, I promise you will).
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

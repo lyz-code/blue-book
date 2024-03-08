@@ -204,3 +204,4 @@ downstream dependencies.
 # References
 
 * [Bernat post on versioning](https://bernat.tech/posts/version-numbers/#a-better-way-to-handle-api-evolution)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

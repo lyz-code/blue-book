@@ -90,3 +90,4 @@ graph LR
 # References
 
 * [Docs](https://mermaid-js.github.io)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

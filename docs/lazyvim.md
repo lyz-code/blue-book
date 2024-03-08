@@ -146,3 +146,4 @@ return {
 - [Docs](https://lazyvim.github.io/)
 - [Home](https://lazyvim.github.io/)
 - [Keymaps](https://www.lazyvim.org/keymaps)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

@@ -119,3 +119,4 @@ That way I only check them when I want to.
 
 I have none but I've seen people have a notification each time the music player
 changes of song. It makes no sense at all.
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

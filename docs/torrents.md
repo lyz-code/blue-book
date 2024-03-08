@@ -191,3 +191,4 @@ you don't get kicked.
 # References
 
 - [](<>)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

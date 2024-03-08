@@ -28,3 +28,4 @@ to use that service.
   apt-get update
   apt-get install google-chrome-stable
   ```
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

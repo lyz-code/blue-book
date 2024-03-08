@@ -30,3 +30,4 @@ print('You said: %s' % text)
 
 It can be used to build [REPL applications](prompt_toolkit_repl.md) or [full screen
 ones](prompt_toolkit_fullscreen_applications.md).
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

@@ -47,3 +47,4 @@ sed '$d' -i file.txt
 ```bash
 sed '1d' -i file.txt
 ```
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

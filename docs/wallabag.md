@@ -86,3 +86,4 @@ only want to share the starred articles, add to your nginx config:
 # References
 
 * [Docs](https://doc.wallabag.org)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

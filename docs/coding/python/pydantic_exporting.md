@@ -357,3 +357,4 @@ The same holds for the `json` and `copy` methods.
 # References
 
 * [Pydantic exporting models](https://pydantic-docs.helpmanual.io/usage/exporting_models)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

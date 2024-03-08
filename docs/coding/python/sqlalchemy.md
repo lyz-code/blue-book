@@ -528,3 +528,4 @@ def clone_model(model, **kwargs):
 
 * [Home](https://www.sqlalchemy.org/)
 * [Docs](https://docs.sqlalchemy.org)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

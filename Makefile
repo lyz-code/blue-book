@@ -54,6 +54,16 @@ docs:
 
 	@echo ""
 
+.PHONY: format
+format:
+	@echo "----------------------"
+	@echo "- Running formatters -"
+	@echo "----------------------"
+
+	@bash .scripts/footer.sh
+
+	@echo ""
+
 .PHONY: build-docs
 build-docs:
 	@echo "--------------------------"

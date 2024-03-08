@@ -470,3 +470,4 @@ A task needs to meet the following criteria before being closed.
 
 * [ ] All changes must be documented.
 * [ ] All related pull requests must be merged.
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

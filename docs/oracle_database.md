@@ -51,3 +51,4 @@ Oracle Database is an awful proprietary database, run away from it!
      -e ORACLE_CHARACTERSET=AL32UTF8 \
      oracle/database:19.3.0-ee
     ```
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

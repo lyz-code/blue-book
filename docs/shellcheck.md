@@ -64,3 +64,4 @@ The correct code is cleaner and stops at the first matching line, avoiding both 
 - [Source](https://github.com/koalaman/shellcheck)
 - [Docs](https://www.shellcheck.net/wiki/Home)
 - [Home](https://www.shellcheck.net/)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

@@ -108,3 +108,4 @@ I think I'll give `chezmoi` a try.
 [3]: https://github.com/jbernard/dotfiles
 [4]: https://github.com/EvanPurkhiser/dots
 [5]: https://github.com/lra/mackup
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

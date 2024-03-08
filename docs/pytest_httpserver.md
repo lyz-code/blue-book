@@ -65,3 +65,4 @@ respond_with_handler(my_handler)
 # References
 
 * [Docs](https://pytest-httpserver.readthedocs.io/en/latest/index.html)
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)
