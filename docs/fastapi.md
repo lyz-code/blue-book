@@ -60,9 +60,17 @@ pip install uvicorn[standard]
 
 - Run the server:
 
-  ```bash
-  uvicorn main:app --reload
-  ```
+  - From the command line:
+
+    ```bash
+    uvicorn main:app --reload
+    ```
+  - Or [from python](https://stackoverflow.com/questions/73908734/how-to-run-uvicorn-fastapi-server-as-a-module-from-another-python-file):
+    ```python
+    import uvicorn
+    if __name__ == "__main__":
+      uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
+    ```
 
 - Open your browser at http://127.0.0.1:8000/items/5?q=somequery. You will see
   the JSON response as:
@@ -840,6 +848,23 @@ else:
 app = FastAPI()
 
 # rest of the application...
+```
+
+For more information on changing the logging read [1](https://nuculabs.dev/p/fastapi-uvicorn-logging-in-production)
+
+To set the datetime of the requests [use this configuration](https://stackoverflow.com/questions/62894952/fastapi-gunicon-uvicorn-access-log-format-customization)
+
+```python
+@asynccontextmanager
+async def lifespan(api: FastAPI):
+    logger = logging.getLogger("uvicorn.access")
+    console_formatter = uvicorn.logging.ColourizedFormatter(
+        "{asctime} {levelprefix} : {message}", style="{", use_colors=True
+    )
+    logger.handlers[0].setFormatter(console_formatter)
+    yield
+
+api = FastAPI(lifespan=lifespan)
 ```
 
 ## Logging to Sentry

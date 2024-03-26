@@ -557,6 +557,21 @@ another repository into your project and keep your commits separate.
 
 ## Submodule tips
 
+### [Update all git submodules](https://stackoverflow.com/questions/1030169/pull-latest-changes-for-all-git-submodules)
+
+If it's the first time you check-out a repo you need to use `--init` first:
+
+```bash
+git submodule update --init --recursive
+```
+
+To update to latest tips of remote branches use:
+
+```bash
+git submodule update --recursive --remote
+
+```
+
 ### Submodule Foreach
 
 There is a foreach submodule command to run some arbitrary command in each

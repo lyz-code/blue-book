@@ -320,6 +320,17 @@ This will rotate the video 180° counter-clockwise.
 ffmpeg -i input.mp4 -filter:v 'transpose=2,transpose=2' rotated-video.mp4
 ```
 
+
+For the transpose parameter you can pass:
+
+- 0 = 90° counterclockwise and vertical flip (default)
+- 1 = 90° clockwise
+- 2 = 90° counterclockwise
+- 3 = 90° clockwise and vertical flip
+
+Note that this will re-encode the audio and video parts. You can usually copy the audio without touching it, by using -c:a copy
+
+You can't overwrite the file directly, you need to move it to a temp and then to move it. [This python script does it for you](https://github.com/laurentperrinet/photoscripts/blob/master/rotate_video.py)
 ## Speed up or Slow down the video
 
 You can change the speed of your video using the setpts (set presentation time

@@ -15,7 +15,6 @@ interfaces. It makes it very easy to query your user for input.
 ```bash
 pip install questionary
 ```
-
 ## [Usage](https://questionary.readthedocs.io/en/stable/pages/quickstart.html)
 
 ### [Asking a single question](https://questionary.readthedocs.io/en/stable/pages/quickstart.html#asking-a-single-question)
@@ -98,8 +97,6 @@ as usual and the default value will be ignored.
 
 If you want the question to exit when it receives a `KeyboardInterrupt` event,
 use `unsafe_ask` instead of `ask`.
-
-
 ## [Question types](https://questionary.readthedocs.io/en/stable/pages/types.html)
 
 The different question types are meant to cover different use cases. The

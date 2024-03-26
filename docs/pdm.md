@@ -351,7 +351,7 @@ array.
 
 Sometimes `pdm` is not able to
 [locate the best package combination](https://github.com/pdm-project/pdm/issues/1354),
-or it does too many loops, so to help it you can update your version constrains
+or it does too many loops, so to help it you can updatehtml. your version constrains
 so that it has the minimum number of candidates.
 
 To solve circular dependencies we first need to locate what are the conflicting

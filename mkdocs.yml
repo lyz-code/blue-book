@@ -26,6 +26,7 @@ nav:
       - Environmentalism: environmentalism.md
       - Laboral: laboral.md
       - Collaborating tools: collaborating_tools.md
+      - Ludditest: luddites.md 
   - Life Management:
       - life_management.md
       - Time management:
@@ -197,6 +198,7 @@ nav:
               - Code Styling: coding/python/python_code_styling.md
               - Docstrings: coding/python/docstrings.md
               - Properties: python_properties.md
+              - Protocols: python_protocols.md 
               - Package Management:
                   - python_package_management.md
                   - PDM: pdm.md
@@ -430,6 +432,10 @@ nav:
             - OpenZFS storage planning: zfs_storage_planning.md
             - Sanoid: sanoid.md
             - ZFS Prometheus exporter: zfs_exporter.md
+      - Resilience: 
+        - linux_resilience.md
+        - Memtest: memtest.md 
+        - watchdog: watchdog.md
       - Monitoring:
           - Monitoring Comparison: monitoring_comparison.md
           - Prometheus:
@@ -441,6 +447,7 @@ nav:
               - Blackbox Exporter: devops/prometheus/blackbox_exporter.md
               - Elasticsearch Exporter: elasticsearch_exporter.md
               - Node Exporter: devops/prometheus/node_exporter.md
+              - Process Exporter: process_exporter.md
               - Python Prometheus: python-prometheus.md
               - Instance sizing analysis: devops/prometheus/instance_sizing_analysis.md
               - Prometheus Troubleshooting: >-
@@ -474,7 +481,11 @@ nav:
               - Refinement Template: refinement_template.md
       - Hardware:
           - CPU: cpu.md
-          - RAM: ram.md
+          - RAM: 
+            - ram.md
+            - ECC RAM: 
+              - ecc.md
+              - rasdaemon: rasdaemon.md
           - Power Supply Unit: psu.md
           - GPU: gpu.md
           - Pedal PC: pedal_pc.md
@@ -518,6 +529,7 @@ nav:
           - Kodi: kodi.md
           - Koel: koel.md
           - LUKS: linux/luks/luks.md
+          - Magic keys: magic_keys.md
           - Matrix: matrix.md
           - Matrix Highlight: matrix_highlight.md
           - mbsync: mbsync.md
@@ -530,11 +542,13 @@ nav:
           - nodejs: linux/nodejs.md
           - Oracle Database: oracle_database.md
           - Outrun: outrun.md
+          - Pass: pass.md 
           - Peek: peek.md
           - Pipx: pipx.md
           - Profanity: profanity.md
           - retroarch: retroarch.md
           - rm: linux/rm.md
+          - rofi: rofi.md
           - Rocketchat: rocketchat.md
           - sed: sed.md
           - Syncthing: linux/syncthing.md

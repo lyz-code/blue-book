@@ -4,6 +4,27 @@ date: 20220827
 author: Lyz
 ---
 
+# [Compare two semantic versions](https://www.baeldung.com/linux/compare-dot-separated-version-string)
+
+[This article](https://www.baeldung.com/linux/compare-dot-separated-version-string) gives a lot of ways to do it. For my case the simplest is to use `dpkg` to compare two strings in dot-separated version format in bash.
+
+```bash
+Usage: dpkg --compare-versions <condition>
+```
+
+If the condition is `true`, the status code returned by `dpkg` will be zero (indicating success). So, we can use this command in an `if` statement to compare two version numbers:
+```bash
+$ if $(dpkg --compare-versions "2.11" "lt" "3"); then echo true; else echo false; fi
+true
+```
+
+# [Exclude list of extensions from find command ](https://stackoverflow.com/questions/44030071/exclude-list-of-file-extensions-from-find-in-bash-shell) 
+
+
+```bash
+find . -not \( -name '*.sh' -o -name '*.log' \)
+```
+
 # [Self delete shell script ](https://stackoverflow.com/questions/8981164/self-deleting-shell-script) 
 
 Add at the end of the script

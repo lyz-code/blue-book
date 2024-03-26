@@ -185,6 +185,8 @@ Build new houses when you're 2 of population down to the limit
 
 ## Tournaments
 
+- 2024 Hidden Cup 5:
+  - [Semifinal Viper vs Lierey](https://yewtu.be/watch?v=Ol-mqMeQ7OQ)
 - 2023 Masters of Arena 7 Final Tatoh vs Vinchester:
     - [Casted by T90](https://www.youtube.com/watch?v=3qg4Xwm8CAo&t=1211s)
     - [Pov by Tatoh](https://www.youtube.com/watch?v=AI_JRA_nCpw&t=8854)

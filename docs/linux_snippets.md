@@ -4,6 +4,80 @@ date: 20200826
 author: Lyz
 ---
 
+# [Send multiline messages with notify-send](https://stackoverflow.com/questions/35628702/display-multi-line-notification-using-notify-send-in-python) 
+The title can't have new lines, but the body can.
+
+```bash
+notify-send "Title" "This is the first line.\nAnd this is the second.")
+```
+# [Find BIOS version](https://www.cyberciti.biz/faq/check-bios-version-linux/)
+
+```bash 
+dmidecode | less
+```
+# [Reboot server on kernel panic ](https://unix.stackexchange.com/questions/29567/how-to-early-configure-linux-kernel-to-reboot-on-panic ) 
+The `proc/sys/kernel/panic` file gives read/write access to the kernel variable `panic_timeout`. If this is zero, the kernel will loop on a panic; if nonzero it indicates that the kernel should autoreboot after this number of seconds. When you use the software watchdog device driver, the recommended setting is `60`.
+
+To set the value add the next contents to the `/etc/sysctl.d/99-panic.conf`
+
+```
+kernel.panic = 60
+```
+
+Or with an ansible task:
+
+```yaml
+- name: Configure reboot on kernel panic
+  become: true
+  lineinfile:
+    path: /etc/sysctl.d/99-panic.conf
+    line: kernel.panic = 60
+    create: true
+    state: present
+```
+ 
+# [Share a calculated value between github actions steps](https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#setting-an-output-parameter) 
+
+You need to set a step's output parameter. Note that the step will need an `id` to be defined to later retrieve the output value.
+
+```bash
+echo "{name}={value}" >> "$GITHUB_OUTPUT"
+```
+
+For example:
+
+```yaml
+- name: Set color
+  id: color-selector
+  run: echo "SELECTED_COLOR=green" >> "$GITHUB_OUTPUT"
+- name: Get color
+  env:
+    SELECTED_COLOR: ${{ steps.color-selector.outputs.SELECTED_COLOR }}
+  run: echo "The selected color is $SELECTED_COLOR"
+```
+
+# [Split a zip into sizes with restricted size ](https://unix.stackexchange.com/questions/198982/zip-files-with-size-limit) 
+Something like:
+
+```bash
+zip -9 myfile.zip *
+zipsplit -n 250000000 myfile.zip
+```
+
+Would produce `myfile1.zip`, `myfile2.zip`, etc., all independent of each other, and none larger than 250MB (in powers of ten). `zipsplit` will even try to organize the contents so that each resulting archive is as close as possible to the maximum size.
+# [find files that were modified between dates](https://unix.stackexchange.com/questions/29245/how-to-list-files-that-were-changed-in-a-certain-range-of-time) 
+The best option is the `-newerXY`. The m and t flags can be used.
+
+- `m`   The modification time of the file reference
+- `t`   reference is interpreted directly as a time
+
+So the solution is
+
+```bash
+find . -type f -newermt 20111222 \! -newermt 20111225
+```
+
+The lower bound in inclusive, and upper bound is exclusive, so I added 1 day to it. And it is recursive. 
 # [Rotate image with the command line ](https://askubuntu.com/questions/591733/rotate-images-from-terminal) 
 If you want to overwrite in-place, `mogrify` from the ImageMagick suite seems to be the easiest way to achieve this:
 

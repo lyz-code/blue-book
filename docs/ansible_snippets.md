@@ -4,6 +4,123 @@ date: 20220119
 author: Lyz
 ---
 
+# [Filter json data](https://docs.ansible.com/ansible/latest/collections/community/general/docsite/filter_guide_selecting_json_data.html) 
+To select a single element or a data subset from a complex data structure in JSON format (for example, Ansible facts), use the `community.general.json_query` filter. The `community.general.json_query` filter lets you query a complex JSON structure and iterate over it using a loop structure.
+
+
+This filter is built upon jmespath, and you can use the same syntax. For examples, see [jmespath examples](http://jmespath.org/examples.html).
+
+A complex example would be:
+
+```yaml
+"{{ ec2_facts | json_query('instances[0].block_device_mappings[?device_name!=`/dev/sda1` && device_name!=`/dev/xvda`].{device_name: device_name, id: ebs.volume_id}') }}"
+```
+
+This snippet:
+
+- Gets all dictionaries under the block_device_mappings list which `device_name` is not equal to `/dev/sda1` or `/dev/xvda` 
+- From those results it extracts and flattens only the desired values. In this case `device_name` and the `id` which is at the key `ebs.volume_id` of each of the items of the block_device_mappings list.
+
+# [Do asserts](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/assert_module.html) 
+```yaml 
+- name: After version 2.7 both 'msg' and 'fail_msg' can customize failing assertion message
+  ansible.builtin.assert:
+    that:
+      - my_param <= 100
+      - my_param >= 0
+    fail_msg: "'my_param' must be between 0 and 100"
+    success_msg: "'my_param' is between 0 and 100"
+```
+
+# [Split a variable in ansible ](https://www.middlewareinventory.com/blog/ansible-split-examples/) 
+
+```yaml
+{{ item | split ('@') | last }}
+
+```
+
+# Get a list of EC2 volumes mounted on an instance an their mount points
+Assuming that each volume has a tag `mount_point` you could:
+
+```yaml
+- name: Gather EC2 instance metadata facts
+  amazon.aws.ec2_metadata_facts:
+
+- name: Gather info on the mounted disks
+  delegate_to: localhost
+  block:
+    - name: Gather information about the instance
+      amazon.aws.ec2_instance_info:
+        instance_ids:
+          - "{{ ansible_ec2_instance_id }}"
+      register: ec2_facts
+
+    - name: Gather volume tags
+      amazon.aws.ec2_vol_info:
+        filters:
+          volume-id: "{{ item.id }}"
+      # We exclude the root disk as they are already mounted and formatted
+      loop: "{{ ec2_facts | json_query('instances[0].block_device_mappings[?device_name!=`/dev/sda1` && device_name!=`/dev/xvda`].{device_name: device_name, id: ebs.volume_id}') }}"
+      register: volume_tags_data
+
+    - name: Save the required volume data
+      set_fact:
+        volumes: "{{ volume_tags_data | json_query('results[0].volumes[].{id: id, mount_point: tags.mount_point}') }}"
+
+    - name: Display volumes data
+      debug:
+        msg: "{{ volumes }}"
+
+    - name: Make sure that all volumes have a mount point
+      assert:
+        that:
+          - item.mount_point is defined
+          - item.mount_point|length > 0
+        fail_msg: "Configure the 'mount_point' tag on the volume {{ item.id }} on the instance {{ ansible_ec2_instance_id }}"
+        success_msg: "The volume {{ item.id }} has the mount_point tag well set"
+      loop: "{{ volumes }}"
+```
+# [Create a list of dictionaries using ansible ](https://www.middlewareinventory.com/blog/ansible-dict/) 
+
+```yaml 
+- name: Create and Add items to dictionary
+  set_fact: 
+      userdata: "{{ userdata | default({}) | combine ({ item.key : item.value }) }}"
+  with_items:
+    - { 'key': 'Name' , 'value': 'SaravAK'}
+    - { 'key': 'Email' , 'value': 'sarav@gritfy.com'}
+    - { 'key': 'Location' , 'value': 'Coimbatore'}
+    - { 'key': 'Nationality' , 'value': 'Indian'}
+```
+# [Merge two dictionaries on a key ](https://stackoverflow.com/questions/70627339/merging-two-list-of-dictionaries-according-to-a-key-value-in-ansible) 
+
+If you have these two lists:
+
+```yaml
+"list1": [
+  { "a": "b", "c": "d" },
+  { "a": "e", "c": "f" }
+]
+
+"list2": [
+  { "a": "e", "g": "h" },
+  { "a": "b", "g": "i" }
+]
+```
+And want to merge them using the value of key "a":
+
+```yaml
+"list3": [
+  { "a": "b", "c": "d", "g": "i" },
+  { "a": "e", "c": "f", "g": "h" }
+]
+```
+
+If you can install the collection community.general use the filter lists_mergeby. The expression below gives the same result
+
+```yaml
+list3: "{{ list1|community.general.lists_mergeby(list2, 'a') }}"
+```
 # [Avoid arbitrary disk mount](https://forum.ansible.com/t/aws-determine-ebs-volume-physical-name-in-order-to-format-it/2510) 
 
 Instead of using `/dev/sda` use `/dev/disk/by-id/whatever`

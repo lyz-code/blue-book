@@ -28,4 +28,12 @@ to use that service.
   apt-get update
   apt-get install google-chrome-stable
   ```
+# Usage
+## [Open a specific profile](https://superuser.com/questions/377186/how-do-i-start-chrome-using-a-specified-user-profile)
+```bash 
+google-chrome --profile-directory="Profile Name"
+```
+
+Where `Profile Name` is one of the profiles listed under `ls ~/.config/chromium | grep -i profile`.
+
 [![](not-by-ai.svg){: .center}](https://notbyai.fyi)

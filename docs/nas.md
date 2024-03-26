@@ -99,6 +99,10 @@ Registered ECC ram, but only Unregistered ECC ram.
 
 ## Motherboard
 
+When choosing a motherboard make sure that:
+
+- If you want [ECC](ecc.md) that it [truly supports ECC](ecc.md#confusion-on-boards-supporting-ecc).
+
 After reading these
 reviews([1](https://reviewsgarage.com/best-motherboards-for-nas/),
 [2](https://pcper.com/2020/03/asrock-x570m-pro4-micro-atx-motherboard-review/))
@@ -121,6 +125,8 @@ And it gives me room enough to grow:
   generation, so if I need more speed I can change them.
 - I'm only going to use 2 slots of RAM giving me 32GB, but I could grow 32 more
   easily.
+
+The only downside so far is that [it doesn't look to be IPMI compliant, so it doesn't have hardware watchdog support](watchdog.md#watchdog-hardware is-disabled-error-on-boot)
 
 ## CPU
 

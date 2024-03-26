@@ -653,6 +653,21 @@ To do it:
   zpool create cold-backup-01 /dev/sde2
   ```
 
+# Monitorization
+
+If you use [loki](loki.md) remember to monitor the `/proc/spl/kstat/zfs/dbgmsg` file:
+
+```yaml
+- job_name: zfs
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: zfs
+          __path__: /proc/spl/kstat/zfs/dbgmsg
+```
+
+
 # [Troubleshooting](https://openzfs.github.io/openzfs-docs/Basic%20Concepts/Troubleshooting.html)
 
 To debug ZFS errors you can check:
@@ -667,7 +682,24 @@ Likely cause: kernel thread hung or panic
 
 If a kernel thread is stuck, then a backtrace of the stuck thread can be in the logs. In some cases, the stuck thread is not logged until the deadman timer expires. 
 
-The only way I've yet found to solve this is rebooting the machine (not ideal). I even have to use the magic keys -.- .
+The only way I've yet found to solve this is rebooting the machine (not ideal). I even have to use the magic keys -.- . A solution may be to [Reboot server on kernel panic ](linux_snippets.md#reboot-server-on-kernel-panic).
+
+You can monitor this issue with loki using the next alerts:
+
+```yaml
+groups: 
+  - name: zfs
+    rules:
+      - alert: SlowSpaSyncZFSError
+        expr: |
+          count_over_time({job="zfs"} |~ `spa_deadman.*slow spa_sync` [5m]) 
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Slow sync traces found in the ZFS debug logs at {{ $labels.hostname}}"
+          message: "This usually happens before the ZFS becomes unresponsible"
+```
 
 ## [kernel NULL pointer dereference in zap_lockdir](https://github.com/openzfs/zfs/issues/11804)
 

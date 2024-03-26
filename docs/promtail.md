@@ -10,6 +10,18 @@ It primarily:
     Attaches labels to log streams
     Pushes them to the Loki instance.
 
+# Installation
+Use [patrickjahns ansible role](https://github.com/patrickjahns/ansible-role-promtail). Some interesting variables are:
+
+```yaml
+loki_url: localhost
+promtail_system_user: root
+
+promtail_config_clients:
+  - url: "http://{{ loki_url }}:3100/loki/api/v1/push"
+    external_labels:
+      hostname: "{{ ansible_hostname }}"
+```
 # [Configuration](https://grafana.com/docs/loki/latest/send-data/promtail/configuration/)
 
 Promtail is configured in a YAML file (usually referred to as config.yaml) which contains information on the Promtail server, where positions are stored, and how to scrape logs from files.
@@ -43,13 +55,13 @@ If you're going to use `journald` for your logs you can skip this section.
 
 ```yaml
 scrape_configs:
-- job_name: system
-  static_configs:
-  - targets:
-      - localhost
-    labels:
-      job: varlogs
-      __path__: /var/log/*log
+  - job_name: system
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: varlogs
+          __path__: /var/log/*log
 ```
 
 ### [Scrape journald logs](https://grafana.com/docs/loki/latest/send-data/promtail/scraping/#journal-scraping-linux-only)
@@ -204,7 +216,11 @@ Promtail features an embedded web server exposing a web console at `/` and the f
 
 - GET `/ready`: This endpoint returns 200 when Promtail is up and running, and there’s at least one working target.
 - GET `/metrics`: This endpoint returns Promtail metrics for Prometheus. 
+# [Troubleshooting](https://grafana.com/docs/loki/latest/send-data/promtail/troubleshooting/)
 
+Find where is the `positions.yaml` file and see if it evolves. 
+
+Sometimes if you are not seeing the logs in loki it's because the query you're running is not correct.
 # References
 
 - [Docs](https://grafana.com/docs/loki/latest/send-data/promtail/)

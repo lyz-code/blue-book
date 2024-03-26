@@ -60,7 +60,7 @@ performance.
 RAM latency (lower the better) = (CAS Latency (CL) x 2000 ) / Frequency (MHz)
 ```
 
-### [ECC](https://en.wikipedia.org/wiki/ECC_memory)
+### [ECC](ecc.md)
 
 Error correction code memory (ECC memory) is a type of computer data storage
 that uses an error correction code to detect and correct n-bit data corruption

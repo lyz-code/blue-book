@@ -4,6 +4,32 @@ date: 20200717
 author: Lyz
 ---
 
+# [Investigate a class attributes](https://docs.python.org/3/library/inspect.html)
+
+# [Expire the cache of the lru_cache](https://stackoverflow.com/questions/31771286/python-in-memory-cache-with-time-to-live)
+
+The `lru_cache` decorator caches forever, a way to prevent it is by adding one more parameter to your expensive function: `ttl_hash=None`. This new parameter is so-called "time sensitive hash", its the only purpose is to affect lru_cache. For example:
+
+```python
+from functools import lru_cache
+import time
+
+
+@lru_cache()
+def my_expensive_function(a, b, ttl_hash=None):
+    del ttl_hash  # to emphasize we don't use it and to shut pylint up
+    return a + b  # horrible CPU load...
+
+
+def get_ttl_hash(seconds=3600):
+    """Return the same value withing `seconds` time period"""
+    return round(time.time() / seconds)
+
+
+# somewhere in your code...
+res = my_expensive_function(2, 2, ttl_hash=get_ttl_hash())
+# cache will be updated once in an hour
+```
 # [Fix variable is unbound pyright error](https://github.com/microsoft/pyright/issues/3041) 
 
 You may receive these warnings if you set variables inside if or try/except blocks such as the next one:

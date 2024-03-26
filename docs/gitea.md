@@ -16,6 +16,143 @@ opinion.
 Gitea provides automatically updated Docker images within its Docker Hub
 organisation.
 
+## [Disable the regular login, use only Oauth](https://discourse.gitea.io/t/solved-removing-default-login-interface/2740/2)
+
+Inside your [`custom` directory](https://docs.gitea.io/en-us/customizing-gitea/) which may be `/var/lib/gitea/custom`:
+
+* Create the directories `templates/user/auth`, 
+* Create the `signin_inner.tmpl` file with the next contents. If it fails check [the latest version of the file](https://raw.githubusercontent.com/go-gitea/gitea/main/templates/user/auth/signin_inner.tmpl) and tweak it accordingly:
+  ```jinja2
+  {{if or (not .LinkAccountMode) (and .LinkAccountMode .LinkAccountModeSignIn)}}
+  {{template "base/alert" .}}
+  {{end}}
+  <h4 class="ui top attached header center">
+          {{if .LinkAccountMode}}
+                  {{ctx.Locale.Tr "auth.oauth_signin_title"}}
+          {{else}}
+                  {{ctx.Locale.Tr "auth.login_userpass"}}
+          {{end}}
+  </h4>
+  <div class="ui attached segment">
+          <form class="ui form" action="{{.SignInLink}}" method="post">
+          {{if .OAuth2Providers}}
+          <div id="oauth2-login-navigator" class="gt-py-2">
+                  <div class="gt-df gt-fc gt-jc">
+                          <div id="oauth2-login-navigator-inner" class="gt-df gt-fc gt-fw gt-ac gt-gap-3">
+                                  {{range $provider := .OAuth2Providers}}
+                                          <a class="{{$provider.Name}} ui button gt-df gt-ac gt-jc gt-py-3 oauth-login-link" href="{{AppSubUrl}}/user/oauth2/{{$provider.DisplayName}}">
+                                                  {{$provider.IconHTML 28}}
+                                                  {{ctx.Locale.Tr "sign_in_with_provider" $provider.DisplayName}}
+                                          </a>
+                                  {{end}}
+                          </div>
+                  </div>
+          </div>
+          {{end}}
+          </form>
+  </div>
+  ```
+ 
+## [Configure it with terraform](https://registry.terraform.io/providers/Lerentis/gitea/latest/docs)
+
+Gitea can be configured through terraform too. There is an [official provider](https://gitea.com/gitea/terraform-provider-gitea/src/branch/main) that doesn't work, there's a [fork that does though](https://registry.terraform.io/providers/Lerentis/gitea/latest/docs). Sadly it doesn't yet support configuring Oauth Authentication sources. Be careful [`gitea_oauth2_app`](https://registry.terraform.io/providers/Lerentis/gitea/latest/docs/resources/oauth2_app) looks to be the right resource to do that, but instead it configures Gitea to be the Oauth provider, not a consumer.
+
+To configure the provider you need to specify the url and a Gitea API token, keeping in mind that whoever gets access to this information will have access and full permissions on your Gitea instance it's critical that [you store this information well](terraform.md#sensitive-information). We'll use [`sops` to encrypt the token with GPG.](#sensitive-information-in-the-terraform-source-code).
+
+First create a Gitea user under `Site Administration/User Accounts/` with the `terraform` name (use your Oauth2 provider if you have one!).
+
+Then log in with that user and create a token with name `Terraform` under `Settings/Applications`, copy it to your clipboard.
+
+Configure `sops` by defining the gpg keys in a `.sops.yaml` file at the top of your repository:
+
+```yaml
+---
+creation_rules:
+  - pgp: >-
+      2829BASDFHWEGWG23WDSLKGL323534J35LKWERQS,
+      2GEFDBW349YHEDOH2T0GE9RH0NEORIG342RFSLHH
+```
+
+Then create the secrets file with the command `sops secrets.enc.json` somewhere in your terraform repository. For example:
+
+```json
+{
+  "gitea_token": "paste the token here"
+}
+```
+
+```hcl
+terraform {
+  required_providers {
+    gitea = {
+      source  = "Lerentis/gitea"
+      version = "~> 0.12.1"
+    }
+    sops = {
+      source = "carlpett/sops"
+      version = "~> 0.5"
+    }
+  }
+}
+
+provider "gitea" {
+  base_url   = "https://gitea.your-domain.org"
+  token = data.sops_file.secrets.data["gitea_token"]
+}
+```
+
+### [Create an organization](https://registry.terraform.io/providers/Lerentis/gitea/latest/docs/resources/team)
+
+If you manage your users externally for example with an Oauth2 provider like [Authentik](authentik.md) you don't need to create a resource for the users, use a `data` instead:
+
+```terraform
+resource "gitea_org" "docker_compose" {
+  name = "docker-compose"
+}
+
+resource "gitea_team" "docker_compose" {
+  name         = "Developers"
+  organisation = gitea_org.docker_compose.name
+  permission   = "owner"
+  members      = [
+    data.gitea_user.lyz.username,
+  ]
+}
+```
+
+If you have many organizations that share the same users you can use variables.
+
+```terraform
+
+resource "gitea_org" "docker_compose" {
+  name = "docker-compose"
+}
+
+resource "gitea_team" "docker_compose" {
+  name         = "Developers"
+  organisation = gitea_org.docker_compose.name
+  permission   = "owner"
+  members      = [
+    data.gitea_user.lyz.username,
+  ]
+}
+```
+
+To import organisations and teams you need to use their `ID`. You can see the ID of the organisations in the Administration panel. To get the Teams ID you need to use the API. Go to https://your.gitea.com/api/swagger#/organization/orgListTeams and enter the organisation name.
+
+## Create an admin user through the command line
+
+```bash
+gitea --config /etc/gitea/app.ini admin user create --admin --email email --username user_name --password password
+```
+
+Or you can change [the admin's password](https://discourse.gitea.io/t/how-to-change-gitea-admin-password-from-the-command-terminal-line/1930):
+
+```bash
+gitea --config /etc/gitea/app.ini admin user change-password -u username -p password
+```
+
+# Actions
 ## [Configure gitea actions](https://blog.gitea.io/2023/03/hacking-on-gitea-actions/)
 
 We've been using [Drone](drone.md) as CI runner for some years now as Gitea didn't have their native runner. On [Mar 20, 2023](https://blog.gitea.io/2023/03/gitea-1.19.0-is-released/) however Gitea released the version 1.19.0 which promoted to stable the Gitea Actions which is a built-in CI system like GitHub Actions. With Gitea Actions, you can reuse your familiar workflows and Github Actions in your self-hosted Gitea instance. While it is not currently fully compatible with GitHub Actions, they intend to become as compatible as possible in future versions. The typical procedure is as follows:
@@ -402,141 +539,11 @@ This is useful to send notifications if any of the jobs failed.
             ${{ github.repository }}: [${{ github.ref }}@${{ github.sha }}](${{ github.server_url }}/${{ github.repository }}/actions)
 ```
 
-## [Disable the regular login, use only Oauth](https://discourse.gitea.io/t/solved-removing-default-login-interface/2740/2)
+## Create your own actions
 
-Inside your [`custom` directory](https://docs.gitea.io/en-us/customizing-gitea/) which may be `/var/lib/gitea/custom`:
+Note: Using private actions is not yet supported. Look at [1](https://github.com/go-gitea/gitea/issues/27935), [2](https://github.com/go-gitea/gitea/issues/24635), [3](https://github.com/go-gitea/gitea/issues/26032). Even though [there is a workaround](https://github.com/go-gitea/gitea/issues/25929) that didn't work for me.
 
-* Create the directories `templates/user/auth`, 
-* Create the `signin_inner.tmpl` file with the next contents. If it fails check [the latest version of the file](https://raw.githubusercontent.com/go-gitea/gitea/main/templates/user/auth/signin_inner.tmpl) and tweak it accordingly:
-  ```jinja2
-  {{if or (not .LinkAccountMode) (and .LinkAccountMode .LinkAccountModeSignIn)}}
-  {{template "base/alert" .}}
-  {{end}}
-  <h4 class="ui top attached header center">
-          {{if .LinkAccountMode}}
-                  {{ctx.Locale.Tr "auth.oauth_signin_title"}}
-          {{else}}
-                  {{ctx.Locale.Tr "auth.login_userpass"}}
-          {{end}}
-  </h4>
-  <div class="ui attached segment">
-          <form class="ui form" action="{{.SignInLink}}" method="post">
-          {{if .OAuth2Providers}}
-          <div id="oauth2-login-navigator" class="gt-py-2">
-                  <div class="gt-df gt-fc gt-jc">
-                          <div id="oauth2-login-navigator-inner" class="gt-df gt-fc gt-fw gt-ac gt-gap-3">
-                                  {{range $provider := .OAuth2Providers}}
-                                          <a class="{{$provider.Name}} ui button gt-df gt-ac gt-jc gt-py-3 oauth-login-link" href="{{AppSubUrl}}/user/oauth2/{{$provider.DisplayName}}">
-                                                  {{$provider.IconHTML 28}}
-                                                  {{ctx.Locale.Tr "sign_in_with_provider" $provider.DisplayName}}
-                                          </a>
-                                  {{end}}
-                          </div>
-                  </div>
-          </div>
-          {{end}}
-          </form>
-  </div>
-  ```
- 
-## [Configure it with terraform](https://registry.terraform.io/providers/Lerentis/gitea/latest/docs)
-
-Gitea can be configured through terraform too. There is an [official provider](https://gitea.com/gitea/terraform-provider-gitea/src/branch/main) that doesn't work, there's a [fork that does though](https://registry.terraform.io/providers/Lerentis/gitea/latest/docs). Sadly it doesn't yet support configuring Oauth Authentication sources. Be careful [`gitea_oauth2_app`](https://registry.terraform.io/providers/Lerentis/gitea/latest/docs/resources/oauth2_app) looks to be the right resource to do that, but instead it configures Gitea to be the Oauth provider, not a consumer.
-
-To configure the provider you need to specify the url and a Gitea API token, keeping in mind that whoever gets access to this information will have access and full permissions on your Gitea instance it's critical that [you store this information well](terraform.md#sensitive-information). We'll use [`sops` to encrypt the token with GPG.](#sensitive-information-in-the-terraform-source-code).
-
-First create a Gitea user under `Site Administration/User Accounts/` with the `terraform` name (use your Oauth2 provider if you have one!).
-
-Then log in with that user and create a token with name `Terraform` under `Settings/Applications`, copy it to your clipboard.
-
-Configure `sops` by defining the gpg keys in a `.sops.yaml` file at the top of your repository:
-
-```yaml
----
-creation_rules:
-  - pgp: >-
-      2829BASDFHWEGWG23WDSLKGL323534J35LKWERQS,
-      2GEFDBW349YHEDOH2T0GE9RH0NEORIG342RFSLHH
-```
-
-Then create the secrets file with the command `sops secrets.enc.json` somewhere in your terraform repository. For example:
-
-```json
-{
-  "gitea_token": "paste the token here"
-}
-```
-
-```hcl
-terraform {
-  required_providers {
-    gitea = {
-      source  = "Lerentis/gitea"
-      version = "~> 0.12.1"
-    }
-    sops = {
-      source = "carlpett/sops"
-      version = "~> 0.5"
-    }
-  }
-}
-
-provider "gitea" {
-  base_url   = "https://gitea.your-domain.org"
-  token = data.sops_file.secrets.data["gitea_token"]
-}
-```
-
-### [Create an organization](https://registry.terraform.io/providers/Lerentis/gitea/latest/docs/resources/team)
-
-If you manage your users externally for example with an Oauth2 provider like [Authentik](authentik.md) you don't need to create a resource for the users, use a `data` instead:
-
-```terraform
-resource "gitea_org" "docker_compose" {
-  name = "docker-compose"
-}
-
-resource "gitea_team" "docker_compose" {
-  name         = "Developers"
-  organisation = gitea_org.docker_compose.name
-  permission   = "owner"
-  members      = [
-    data.gitea_user.lyz.username,
-  ]
-}
-```
-
-If you have many organizations that share the same users you can use variables.
-
-```terraform
-
-resource "gitea_org" "docker_compose" {
-  name = "docker-compose"
-}
-
-resource "gitea_team" "docker_compose" {
-  name         = "Developers"
-  organisation = gitea_org.docker_compose.name
-  permission   = "owner"
-  members      = [
-    data.gitea_user.lyz.username,
-  ]
-}
-```
-
-To import organisations and teams you need to use their `ID`. You can see the ID of the organisations in the Administration panel. To get the Teams ID you need to use the API. Go to https://your.gitea.com/api/swagger#/organization/orgListTeams and enter the organisation name.
-
-## Create an admin user through the command line
-
-```bash
-gitea --config /etc/gitea/app.ini admin user create --admin --email email --username user_name --password password
-```
-
-Or you can change [the admin's password](https://discourse.gitea.io/t/how-to-change-gitea-admin-password-from-the-command-terminal-line/1930):
-
-```bash
-gitea --config /etc/gitea/app.ini admin user change-password -u username -p password
-```
+Follow [this simple tutorial](https://docs.github.com/en/actions/creating-actions/creating-a-docker-container-action)
 
 # [Gitea client command line tool](https://gitea.com/gitea/tea)
 

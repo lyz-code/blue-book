@@ -151,13 +151,11 @@ Example: https://localhost:22283/api
 
 cd /home/user/albums
 im --api-key YOUR_API_KEY --api-host YOUR_API_HOST --original-path /home/user/albums --replace-path /mnt/albums .
-
 ## Edit an image metadata
 
 You can't do it directly through the interface yet, use [exiftool](linux_snippets.md#Remove-image-metadata) instead.
 
 This is interesting to remove the geolocation of the images that are not yours
-
 ## [Fix a file date on a external library](https://immich.app/docs/features/libraries/#external-libraries)
 
 You can change the dates directly by `touching` the file.
@@ -226,10 +224,11 @@ __import__("pdb").set_trace()
 ```
 ## Rotate pictures or videos
 
-Until [Image rotation is supported](https://github.com/immich-app/immich/discussions/1695) you have to manually rotate the media. The best way I've found to do this is:
+Until [Image rotation is supported](https://github.com/immich-app/immich/discussions/1695) you have to manually rotate the media. For videos the best way I've found is to:
 
-- Select the elements in the web interface and download them
-- 
+- Annotate the file paths on two lists clockwise and counterclockwise.
+- Run [the `rotate_video.py`](https://raw.githubusercontent.com/laurentperrinet/photoscripts/master/rotate_video.py) script on those paths (`-c` for counterclockwise and without argument for clockwise)
+- Run the script to correct the dates of the archivesj
 # Not there yet
 
 There are some features that are still lacking:

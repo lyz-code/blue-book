@@ -217,19 +217,24 @@ This example configuration sources rules from a local disk.
 
 ```yaml 
 ruler:
+  alertmanager_url: http://alertmanager:9093
   storage:
     type: local
     local:
-      directory: /tmp/rules
-  rule_path: /tmp/scratch
-  alertmanager_url: http://localhost
+      directory: /etc/loki/rules
+  rule_path: /tmp/rules
   ring:
     kvstore:
       store: inmemory
   enable_api: true
+  enable_alertmanager_v2: true
 ```
 
-There are two kinds of rules: alerting rules and recording rules.
+If you only have one Loki instance you need to save the rule yaml files in the `/etc/loki/rules/fake/` otherwise Loki will silently ignore them (it took me a lot of time to figure this out `-.-`).
+
+Surprisingly I haven't found any compilation of Loki alerts. I'll gather here the ones I create.
+
+There are two kinds of rules: alerting rules and recording rules. 
 
 ### Alerting rules
 
@@ -262,6 +267,11 @@ groups:
         labels: 
           severity: critical
 ```
+More examples of alert rules can be found in the next articles:
+
+- [ECC error alerts](rasdaemon.md#monitorization)
+- [ZFS errors](zfs.md#zfs-pool-is-stuck)
+- [Sanoid errors](sanoid.md#monitorization)
 
 ### Recording rules
 Recording rules allow you to precompute frequently needed or computationally expensive expressions and save their result as a new set of time series.
@@ -296,16 +306,11 @@ ruler:
     client:
       url: http://localhost:9090/api/v1/write
 ```
-# Usage
-
 ## [Build dashboards](https://grafana.com/blog/2020/04/08/loki-quick-tip-how-to-create-a-grafana-dashboard-for-searching-logs-using-loki-and-prometheus/)
-## [Creating alerts](https://grafana.com/docs/loki/latest/alert/)
-
-Surprisingly I haven't found any compilation of Loki alerts. I'll gather here the ones I create.
-
-### Generic docker errors
-To catch the errors shown in docker (assuming you're using my same [promtail configuration](promtail.md#scrape-docker-logs)) you can use the next rule (that needs to go into your Loki configuration).
+# Troubleshooting
+[This stackoverflow answer](https://stackoverflow.com/questions/74329564/how-configure-recording-and-alerting-rules-with-loki) has some insights on how to debug broken loki rules
 # References
 
 - [Docs](https://grafana.com/docs/loki/latest/)
+
 [![](not-by-ai.svg){: .center}](https://notbyai.fyi)

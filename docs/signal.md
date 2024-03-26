@@ -40,6 +40,36 @@ Cons:
 
 # Installation
 
+## [Use the Molly FOSS android client](https://molly.im/)
+Molly is an independent Signal fork for Android. The advantages are:
+
+- Contains no proprietary blobs, unlike Signal.
+- Protects database with passphrase encryption.
+- Locks down the app automatically when you are gone for a set period of time.
+- Securely shreds sensitive data from RAM.
+- Automatic backups on a daily or weekly basis.
+- Supports SOCKS proxy and Tor via Orbot.
+
+### [Migrate from Signal](https://github.com/mollyim/mollyim-android/wiki/Migrating-From-Signal)
+
+Note, the migration should be done when the available Molly version is equal to or later than the currently installed Signal app version.
+
+- Verify your Signal backup passphrase. In the Signal app: Settings > Chats > Chat backups > Verify backup passphrase.
+- Optionally, put your phone offline (enable airplane mode or disable data services) until after Signal is uninstalled in step 5. This will prevent the possibility of losing any Signal messages that are received during or after the backup is created.
+- Create a Signal backup. In the Signal app, go to Settings > Chats > Chat backups > Create backup.
+- Uninstall the Signal app. Now you can put your phone back online (disable airplane mode or re-enable data services).
+- Install the Molly or Molly-FOSS app.
+- Open the Molly app. Enable database encryption if desired. As soon as the option is given, tap Transfer or restore account. Answer any permissions questions.
+- Choose to Restore from backup and tap Choose backup. Navigate to your Signal backup location (Signal/Backups/, by default) and choose the backup that was created in step 3.
+- Check the backup details and then tap Restore backup to confirm. Enter the backup passphrase when requested.
+- If asked, choose a new folder for backup storage. Or choose Not Now and do it later.
+
+Consider also:
+
+- Any previously linked devices will need to be re-linked. Go to Settings > Linked devices in the Molly app. If Signal Desktop is not detecting that it is no longer linked, try restarting it.
+- Verify your Molly backup settings and passphrase at Settings > Chats > Chat backups (to change the backup folder, disable and then enable backups). Tap Create backup to create your first Molly backup.
+- When you are satisfied that Molly is working, you may want to delete the old Signal backups (in Signal/Backups, by default).
+## Install the Signal app
 These instructions only work for 64 bit Debian-based Linux distributions such as Ubuntu, Mint etc.
 
 * Install our official public software signing key

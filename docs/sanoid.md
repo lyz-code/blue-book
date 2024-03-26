@@ -231,7 +231,23 @@ In this case this should work:
 ```bash
 /sbin/syncoid --recursive --force-delete --sendoptions="Rw" zpool/backups zfs-recv@10.29.3.27:zpool/backups
 ```
+# Monitorization
 
+You can monitor this issue with loki using the next alerts:
+
+```yaml
+groups: 
+  - name: zfs
+    rules:
+      - alert: ErrorInSanoidLogs
+        expr: |
+          count_over_time({job="systemd-journal", syslog_identifier="sanoid"} |= `ERROR` [5m]) 
+        for: 1m
+        labels:
+            severity: critical
+        annotations:
+            summary: "Errors found on sanoid log at {{ $labels.hostname}}"
+```
 # Troubleshooting
 
 ## [Syncoid no tty present and no askpass program specified](https://sidhion.com/blog/posts/zfs-syncoid-slow/)
