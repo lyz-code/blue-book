@@ -150,7 +150,6 @@ LOKI_VERSION=latest
 
 PROMTAIL_VERSION=latest
 ```
-
 ## Configure Loki
 
 Download and edit [the basic configuration](https://grafana.com/docs/loki/latest/setup/install/docker/)
@@ -158,7 +157,6 @@ Download and edit [the basic configuration](https://grafana.com/docs/loki/latest
 ```bash
 wget https://raw.githubusercontent.com/grafana/loki/v2.9.1/cmd/loki/loki-local-config.yaml -O /data/loki/config/loki-config.yaml
 ```
-
 ### Prevent the [too many outstanding requests error](https://github.com/grafana/loki/issues/5123)
 
 Add to your loki config the next options
@@ -273,6 +271,18 @@ More examples of alert rules can be found in the next articles:
 - [ZFS errors](zfs.md#zfs-pool-is-stuck)
 - [Sanoid errors](sanoid.md#monitorization)
 
+#### Alert when query returns no data
+
+Sometimes the queries you want to alert happen when the return value is NaN or No Data. For example if you want to monitory the happy path by setting an alert if a string is not found in some logs in a period of time.
+
+```logql
+count_over_time({filename="/var/log/mail.log"} |= `Mail is sent` [24h]) < 1
+```
+
+This won't trigger the alert because the `count_over_time` doesn't return a `0` but a `NaN`. One way to solve it is to use [the `vector(0)`](https://github.com/grafana/loki/pull/7023) operator with [the operation `or on() vector(0)`](https://stackoverflow.com/questions/76489956/how-to-return-a-zero-vector-in-loki-logql-metric-query-when-grouping-is-used-and)
+```logql
+(count_over_time({filename="/var/log/mail.log"} |= `Mail is sent` [24h]) or on() vector(0)) < 1
+```
 ### Recording rules
 Recording rules allow you to precompute frequently needed or computationally expensive expressions and save their result as a new set of time series.
 
@@ -307,10 +317,96 @@ ruler:
       url: http://localhost:9090/api/v1/write
 ```
 ## [Build dashboards](https://grafana.com/blog/2020/04/08/loki-quick-tip-how-to-create-a-grafana-dashboard-for-searching-logs-using-loki-and-prometheus/)
+# Monitoring
+## Monitor loki metrics
+Since Loki reuses the Prometheus code for recording rules and WALs, it also gains all of Prometheus’ observability.
+
+To scrape loki metrics with prometheus add the next snippet to the prometheus configuration:
+
+```yaml
+  - job_name: loki
+    metrics_path: /metrics
+    static_configs:
+    - targets:
+      - loki:3100
+```
+
+This assumes that `loki` is a docker in the same network as `prometheus`.
+
+There are some rules in the [awesome prometheus alerts repo](https://samber.github.io/awesome-prometheus-alerts/rules#loki)
+
+```yaml 
+---
+groups:
+- name: Awesome Prometheus loki alert rules
+  # https://samber.github.io/awesome-prometheus-alerts/rules#loki
+  rules:
+  - alert: LokiProcessTooManyRestarts
+    expr: changes(process_start_time_seconds{job=~".*loki.*"}[15m]) > 2
+    for: 0m
+    labels:
+      severity: warning
+    annotations:
+      summary: Loki process too many restarts (instance {{ $labels.instance }})
+      description: "A loki process had too many restarts (target {{ $labels.instance }})\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+  - alert: LokiRequestErrors
+    expr: 100 * sum(rate(loki_request_duration_seconds_count{status_code=~"5.."}[1m])) by (namespace, job, route) / sum(rate(loki_request_duration_seconds_count[1m])) by (namespace, job, route) > 10
+    for: 15m
+    labels:
+      severity: critical
+    annotations:
+      summary: Loki request errors (instance {{ $labels.instance }})
+      description: "The {{ $labels.job }} and {{ $labels.route }} are experiencing errors\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+  - alert: LokiRequestPanic
+    expr: sum(increase(loki_panic_total[10m])) by (namespace, job) > 0
+    for: 5m
+    labels:
+      severity: critical
+    annotations:
+      summary: Loki request panic (instance {{ $labels.instance }})
+      description: "The {{ $labels.job }} is experiencing {{ printf \"%.2f\" $value }}% increase of panics\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+  - alert: LokiRequestLatency
+    expr: (histogram_quantile(0.99, sum(rate(loki_request_duration_seconds_bucket{route!~"(?i).*tail.*"}[5m])) by (le)))  > 1
+    for: 5m
+    labels:
+      severity: critical
+    annotations:
+      summary: Loki request latency (instance {{ $labels.instance }})
+      description: "The {{ $labels.job }} {{ $labels.route }} is experiencing {{ printf \"%.2f\" $value }}s 99th percentile latency\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+```
+
+And there are some guidelines on the rest of the metrics in [the grafana documentation](https://grafana.com/docs/loki/latest/operations/observability/)
+
+## [Monitor the ruler](https://grafana.com/docs/loki/latest/operations/recording-rules/)
+
+Prometheus exposes a number of metrics for its WAL implementation, and these have all been prefixed with `loki_ruler_wal_`.
+
+For example: `prometheus_remote_storage_bytes_total` → `loki_ruler_wal_prometheus_remote_storage_bytes_total`
+
+Additional metrics are exposed, also with the prefix `loki_ruler_wal_`. All per-tenant metrics contain a tenant label, so be aware that cardinality could begin to be a concern if the number of tenants grows sufficiently large.
+
+Some key metrics to note are:
+
+- `loki_ruler_wal_appender_ready`: whether a WAL appender is ready to accept samples (1) or not (0)
+- `loki_ruler_wal_prometheus_remote_storage_samples_total`: number of samples sent per tenant to remote storage
+- `loki_ruler_wal_prometheus_remote_storage_samples_pending_total`: samples buffered in memory, waiting to be sent to remote storage
+- `loki_ruler_wal_prometheus_remote_storage_samples_failed_total`: samples that failed when sent to remote storage
+- `loki_ruler_wal_prometheus_remote_storage_samples_dropped_total`: samples dropped by relabel configurations
+- `loki_ruler_wal_prometheus_remote_storage_samples_retried_total`: samples re-resent to remote storage
+- `loki_ruler_wal_prometheus_remote_storage_highest_timestamp_in_seconds`: highest timestamp of sample appended to WAL
+
 # Troubleshooting
-[This stackoverflow answer](https://stackoverflow.com/questions/74329564/how-configure-recording-and-alerting-rules-with-loki) has some insights on how to debug broken loki rules
+- `loki_ruler_wal_prometheus_remote_storage_queue_highest_sent_timestamp_seconds`: highest timestamp of sample sent to remote storage.
+
+# Things that don't still work
+## [Get a useful Source link in the alertmanager](https://github.com/grafana/loki/issues/4722)
+Currently for the ruler `external_url` if you use the URL of your Grafana installation: e.g. `external_url: "https://grafana.example.com"` it creates a Source link in alertmanager similar to https://grafana.example.com/graph?g0.expr=%28sum+by%28thing%29%28count_over_time%28%7Bnamespace%3D%22foo%22%7D+%7C+json+%7C+bar%3D%22maxRetries%22%5B5m%5D%29%29+%3E+0%29&g0.tab=1, which isn't valid.
+
+This url templating (via `/graph?g0.expr=%s&g0.tab=1`) appears to be coming from prometheus. There is not a workaround yet
 # References
+[This stackoverflow answer](https://stackoverflow.com/questions/74329564/how-configure-recording-and-alerting-rules-with-loki) has some insights on how to debug broken loki rules
 
 - [Docs](https://grafana.com/docs/loki/latest/)
+- [Source](https://github.com/grafana/loki)
 
 [![](not-by-ai.svg){: .center}](https://notbyai.fyi)

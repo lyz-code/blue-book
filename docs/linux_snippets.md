@@ -4,6 +4,10 @@ date: 20200826
 author: Lyz
 ---
 
+# [Get info of a mkv file](https://superuser.com/questions/595177/how-to-retrieve-video-file-information-from-command-line-under-linux)
+```bash
+ffprobe file.mkv
+```
 # [Send multiline messages with notify-send](https://stackoverflow.com/questions/35628702/display-multi-line-notification-using-notify-send-in-python) 
 The title can't have new lines, but the body can.
 

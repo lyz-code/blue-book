@@ -4,6 +4,51 @@ date: 20220827
 author: Lyz
 ---
 
+# [Do relative import of a bash library](https://code-maven.com/bash-shell-relative-path)
+If you want to import a file `lib.sh` that lives in the same directory as the file that is importing it you can use the next snippet:
+
+```bash
+# shellcheck source=lib.sh
+source "$(dirname "$(realpath "$0")")/lib.sh"
+```
+
+If you use `source ./lib.sh` you will get an import error if you run the script on any other place that is not the directory where `lib.sh` lives.
+# [Check the battery status](https://www.howtogeek.com/810971/how-to-check-a-linux-laptops-battery-from-the-command-line/)
+This [article gives many ways to check the status of a battery](https://www.howtogeek.com/810971/how-to-check-a-linux-laptops-battery-from-the-command-line/), for my purposes the next one is enough
+
+```bash 
+cat /sys/class/power_supply/BAT0/capacity
+```
+# [Check if file is being sourced](https://unix.stackexchange.com/questions/424492/how-to-define-a-shell-script-to-be-sourced-not-run)
+
+
+Assuming that you are running bash, put the following code near the start of the script that you want to be sourced but not executed:
+
+```bash
+if [ "${BASH_SOURCE[0]}" -ef "$0" ]
+then
+    echo "Hey, you should source this script, not execute it!"
+    exit 1
+fi
+```
+
+Under bash, `${BASH_SOURCE[0]}` will contain the name of the current file that the shell is reading regardless of whether it is being sourced or executed.
+
+By contrast, `$0` is the name of the current file being executed.
+
+`-ef` tests if these two files are the same file. If they are, we alert the user and exit.
+
+Neither `-ef` nor `BASH_SOURCE` are POSIX. While `-ef` is supported by ksh, yash, zsh and Dash, BASH_SOURCE requires bash. In zsh, however, `${BASH_SOURCE[0]}` could be replaced by `${(%):-%N}`.
+# Parsing bash arguments
+
+Long story short, it's nasty, think of using a python script with [typer](typer.md) instead.
+
+There are some possibilities to do this:
+
+- [The old getops](https://www.baeldung.com/linux/bash-parse-command-line-arguments)
+- [argbash](https://github.com/matejak/argbash) library
+- [Build your own parser](https://medium.com/@Drew_Stokes/bash-argument-parsing-54f3b81a6a8f)
+
 # [Compare two semantic versions](https://www.baeldung.com/linux/compare-dot-separated-version-string)
 
 [This article](https://www.baeldung.com/linux/compare-dot-separated-version-string) gives a lot of ways to do it. For my case the simplest is to use `dpkg` to compare two strings in dot-separated version format in bash.

@@ -80,6 +80,24 @@ ffmpeg -i video.mp4 -an mute-video.mp4
 
 # Convert
 
+## [Reduce the video size](https://unix.stackexchange.com/questions/28803/how-can-i-reduce-a-videos-size-with-ffmpeg)
+If you don't mind using `H.265` replace the libx264 codec with libx265, and push the compression lever further by increasing the CRF value — add, say, 4 or 6, since a reasonable range for H.265 may be 24 to 30. Note that lower CRF values correspond to higher bitrates, and hence produce higher quality videos.
+
+```bash
+ffmpeg -i input.mp4 -vcodec libx265 -crf 28 output.mp4
+```
+
+If you want to stick to H.264 reduce the bitrate. You can check the current one with `ffprobe input.mkv`. Once you've chosen the new rate change it with:
+
+```bash 
+ffmpeg -i input.mp4 -b 3000k output.mp4
+```
+
+Additional options that might be worth considering is setting the Constant Rate Factor, which lowers the average bit rate, but retains better quality. Vary the CRF between around 18 and 24 — the lower, the higher the bitrate.
+
+```bash
+ffmpeg -i input.mp4 -vcodec libx264 -crf 20 output.mp4
+```
 ## Convert video from one format to another
 
 You can use the `-vcodec` parameter to specify the encoding format to be used for
@@ -147,7 +165,6 @@ done
       -codec:s copy \
       output.mkv
     ```
-
 
 ## [Convert a video into animated GIF](https://superuser.com/questions/556029/how-do-i-convert-a-video-to-gif-using-ffmpeg-with-reasonable-quality)
 

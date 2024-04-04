@@ -874,6 +874,10 @@ FastAPI can
 or similar [application loggers](python_logging.md) through the
 [ASGI middleware](https://fastapi.tiangolo.com/advanced/middleware/#other-middlewares).
 
+# [Prometheus metrics](https://github.com/trallnag/prometheus-fastapi-instrumentator)
+
+Use [`prometheus-fastapi-instrumentator`](https://github.com/trallnag/prometheus-fastapi-instrumentator)
+
 # [Run a FastAPI server in the background for testing purposes](https://stackoverflow.com/questions/57412825/how-to-start-a-uvicorn-fastapi-in-background-when-testing-with-pytest)
 
 Sometimes you want to launch a web server with a simple API to test a program

@@ -152,6 +152,7 @@ about those in order to make progress.
 
 # References
 
+* [Diátaxis: A systematic approach to technical documentation authoring](https://diataxis.fr/)
 * [divio's documentation wiki](https://documentation.divio.com/introduction/)
 * [Vue's guidelines](https://v3.vuejs.org/guide/contributing/writing-guide.html#principles)
 * [FastAPI awesome docs](https://fastapi.tiangolo.com/tutorial/)

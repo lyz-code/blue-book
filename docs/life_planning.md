@@ -59,8 +59,7 @@ Create the month objectives in your roadmap file after addressing each element o
 
 - Your last month review document.
 - The trimester objectives of your roadmap.
-
-Once they are ready, copy them to the description of your `todo.org` file. That way you'll see it every day.
+  - You can add notes on the trimester objectives 
 
 ## Decide the next steps
 
@@ -72,7 +71,7 @@ Once they are ready, copy them to the description of your `todo.org` file. That 
   - Taking into account the month objectives select the are you want to work on in each week day.
   - Document the week distribution in your roadmap document and make it visible in your weekly planning process.
 
-- Refine the roadmap of each of the selected areas 
+- Refine the roadmap of each of the selected areas (maybe for the trimestral? too soon to do it in the monthly planning IMHO) 
 - Define the todo of each device (mobile, tablet, laptop)
 - Tweak your *things to think about list*.
 - Tweak your *investigations list*.

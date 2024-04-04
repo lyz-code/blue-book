@@ -85,8 +85,8 @@ Then create the secrets file with the command `sops secrets.enc.json` somewhere 
 terraform {
   required_providers {
     gitea = {
-      source  = "Lerentis/gitea"
-      version = "~> 0.12.1"
+      source  = "go-gitea/gitea"
+      version = "~> 0.3.0"
     }
     sops = {
       source = "carlpett/sops"

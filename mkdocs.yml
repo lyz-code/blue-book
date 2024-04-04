@@ -35,6 +35,7 @@ nav:
         - Roadmap Adjustment: 
           - roadmap_adjustment.md
           - Strategy: strategy.md
+          - Systems Thinking: systems_thinking.md
         - Task Management:
             - task_management.md
             - Task Management Tools:
@@ -576,6 +577,7 @@ nav:
               - GadgetBridge: gadgetbridge.md
               - LibreTube: libretube.md
               - HappyCow: happycow.md
+              - ICSx5: icsx5.md
               - Orgzly: orgzly.md
               - OsmAnd: osmand.md
               - Seedvault: seedvault.md

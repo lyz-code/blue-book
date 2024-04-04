@@ -194,6 +194,35 @@ scrape_configs:
         regex: '/(.*)'
         target_label: 'container'
 ```
+## Set the hostname label on all logs
+
+There are many ways to do it:
+
+- [Setting the label in the promtail launch command](https://community.grafana.com/t/how-to-add-variable-hostname-label-to-static-config-in-promtail/68352/11)
+  ```bash
+  sudo ./promtail-linux-amd64 --client.url=http://xxxx:3100/loki/api/v1/push --client.external-labels=hostname=$(hostname) --config.file=./config.yaml
+    ```
+
+  This won't work if you're using promtail within a docker-compose because you can't use bash expansion in the `docker-compose.yaml` file
+- [Allowing env expansion and setting it in the promtail conf](https://github.com/grafana/loki/issues/634). You can launch the promtail command with `-config.expand-env` and then set in each scrape jobs:
+  ```yaml 
+  labels:
+      host: ${HOSTNAME}
+  ```
+  This won't work either if you're using `promtail` within a docker as it will give you the ID of the docker
+- Set it in the `promtail_config_clients` field as `external_labels` of each promtail config:
+  ```yaml
+  promtail_config_clients:
+    - url: "http://{{ loki_url }}:3100/loki/api/v1/push"
+      external_labels:
+        hostname: "{{ ansible_hostname }}"
+  ```
+- Hardcode it for each promtail config scraping config as static labels. If you're using ansible or any deployment method that supports jinja expansion set it that way
+  ```yaml 
+  labels:
+      host: {{ ansible_hostname }}
+  ```
+
 # Pipeline building
 
 In [this issue](https://github.com/grafana/loki/issues/6165) there are nice examples on different pipelines.

@@ -23,7 +23,7 @@ These adjustments have to reflect ourselves and our environment. As we change co
 I've gone for full blown adjustments of locking myself up for a week to not doing any for months. And that is just fine, these tools are there to help us only if we want to use them.
 
 ## Heavily orgmode oriented
-This article heavily uses [orgmode](orgmode.md), my currently chosen [task tool](task_tools.md), but that doesn't mean that the concepts can be applicable to other tools.
+This article heavily uses [orgmode](orgmode.md), my currently chosen [action tool](action_tools.md), but that doesn't mean that the concepts can be applicable to other tools.
 # Roadmap adjustment types
 
 There are three types of roadmap adjustment if we split them by process type:
@@ -42,7 +42,7 @@ Sometimes refinements can be empowering, but they always are time and energy con
 We need a process to review each level of abstraction:
 
 - [Step refinement](#step-refinement)
-- [Task refinement](#task-refinement)
+- [Action refinement](#action-refinement)
 - [Project refinement](#project-refinement)
 - [Area refinement](#area-refinement)
 ## Reviews
@@ -89,16 +89,16 @@ It can be done:
 
 - When you create a new step.
 - Each time you read a step and feel that it doesn't meet the criteria.
-## [Task](time_management_abstraction_levels.md#task)
-### Task refinement
+## [Action](time_management_abstraction_levels.md#action)
+### Action refinement
 
 It fulfills these purposes: 
 
-- Define the steps required to finish a task.
-- Make sure that the task still reflects a real need.
-- Make sure that there is always a refined next step to finish the task.
+- Define the steps required to finish a action.
+- Make sure that the action still reflects a real need.
+- Make sure that there is always a refined next step to finish the action.
 - Clean up all the done elements than don't add value.
-- Ease the overwhelm feeling when faced with a daunting task.
+- Ease the overwhelm feeling when faced with a daunting action.
 
 When done well, you'll better understand what you need to do, it will prevent
 you from wasting time at dead ends as you'll think before acting, and you'll
@@ -106,9 +106,9 @@ develop the invaluable skill of breaking big problems into smaller ones.
 
 It can be done differently at different moments:
 
-- When you create a new task:
-  - Decide what do you want to achieve when the task is finished.
-  - Create a descriptive task title.
+- When you create a new action:
+  - Decide what do you want to achieve when the action is finished.
+  - Create a descriptive action title.
   - Analyze the possible ways to arrive to that outcome. Try to assess different
     solutions before choosing one.
   - Create a list of [refined steps](#step-refinement) for each of them. 
@@ -117,8 +117,8 @@ It can be done differently at different moments:
   - Mark the done steps as done.
   - Do the [step refinement](#step-refinement) of the immediate next one.
 
-- When you're working on the task and feel that it needs an update: It can be because:
-  - You've been working for a while on steps of a task that are not defined in the plan and feel that you've passed several bifurcations that you want to investigate and are afraid to forget them. For example imagine that your task plan looks like this:
+- When you're working on the action and feel that it needs an update: It can be because:
+  - You've been working for a while on steps of a action that are not defined in the plan and feel that you've passed several bifurcations that you want to investigate and are afraid to forget them. For example imagine that your action plan looks like this:
       
     ```orgmode
     - [ ] Do A
@@ -138,38 +138,54 @@ It can be done differently at different moments:
     - [ ] Do B
     ```
     
-    If you find yourself doing 'Do A.2.2' but are afraid of loosing 'Investigate A.2.3' and 'Investigate A.3', go back to the task plan and update it to meet the current state. There is no need to fill in the things that you've done. Only the ones that you still want to do.
+    If you find yourself doing 'Do A.2.2' but are afraid of loosing 'Investigate A.2.3' and 'Investigate A.3', go back to the action plan and update it to meet the current state. There is no need to fill in the things that you've done. Only the ones that you still want to do.
 
-  - When you realize that the circumstances have changed enough that you need to update the task step list or title.
+  - When you realize that the circumstances have changed enough that you need to update the action step list or title.
 
-  - When you need to switch context to another task: this is specially necessary when you are going to stop working on the task. You never know when you're going to be able to work again on it, so it's crucial to at least refine the next step. It's also a good moment to do some [task cleaning](#task-cleaning).
+  - When you need to switch context to another action: this is specially necessary when you are going to stop working on the action. You never know when you're going to be able to work again on it, so it's crucial to at least refine the next step. It's also a good moment to do some [action cleaning](#action-cleaning).
 
 - When you read the title and need to take a look at the steps list to understand what is it about. Once you grasped the idea clarify the title.
 
-- When the task step list has so many done items that you need to search for the next actionable step [requires some cleaning](#task-cleaning).
+- When the action step list has so many done items that you need to search for the next actionable step [requires some cleaning](#action-cleaning).
 
-- When the task step list gets too complex: TBC
+- When the action step list gets too complex: TBC
 
 The refinement precision needs to be incremental. It doesn't make sense to have a perfect plan because you often don't have all the information required to make it well, and you'll surely need to adapt it. All time spent refining steps that are going to be discarded in plan adaptations, is wasted time.
 
-#### Task cleaning
+#### Action cleaning
 
-Marking steps as done make help you get an idea of the evolution of the task. It can also be useful if you want to do some kind of reporting. On the other hand, having a long list of done steps (specially if you have many levels of step indentation may make the finding of the next actionable step difficult. It's a good idea then to often clean up all done items. 
+Marking steps as done make help you get an idea of the evolution of the action. It can also be useful if you want to do some kind of reporting. On the other hand, having a long list of done steps (specially if you have many levels of step indentation may make the finding of the next actionable step difficult. It's a good idea then to often clean up all done items. 
 
 If you don't care about the traceability of what you've done simply delete the done lines. If you do, until there is a more automated way: 
 
-- Archive the todo element.
-- Undo the archive. 
-- Clean up the done items.
+- For non recurring actions use the `LOGBOOK` to move the done steps. for example:
+  ```orgmode
+  ** DOING Do X 
+     :LOGBOOK:
+     - [x] Done step 1
+     - [-] Doing step 2
+       - [x] Done substep 1
+     :END:
+     - [-] Doing step 2
+       - [ ] substep 2
+  ```
 
-This way you have a snapshot of the state of the task in your archive.
+  This way the `LOGBOOK` will be automatically folded so you won't see the progress but it's at hand in case you need it.
+
+- For recurring actions:
+  - Mark the steps as done
+  - Archive the todo element.
+  - Undo the archive. 
+  - Clean up the done items.
+
+This way you have a snapshot of the state of the action in your archive.
 ## [Project](time_management_abstraction_levels.md#project)
 ### Project refinement
 
 The purpose is to ensure that given the current circumstances:
 
 - The project description represents the reality and is clear enough.
-- The project roadmap defined by the task plan is the optimal path to reach the project outcome.
+- The project roadmap defined by the action plan is the optimal path to reach the project outcome.
 
 We can do it in two ways:
 
@@ -178,20 +194,32 @@ We can do it in two ways:
 
 #### Rabbit hole project refinement
 
-This kind of refinement allows you to dig deeper in whichever path you're heading to. It's mechanical and require a limit level of creativity. It's then perfect to apply when you just finished doing a project's task.
+This kind of refinement allows you to dig deeper in whichever path you're heading to. It's mechanical and require a limit level of creativity. It's then perfect to apply when you just finished doing a project's action.
 
-- Read the task titles to make sure that they still make sense following the next guidelines:
-  - If the task title doesn't give you enough information, read the task steps and then tweak the task title to make it clearer.
-  - Mark done tasks as done and archive them.
-- If you need create new tasks with the minimal refinement to register your idea.
-- Change the order of the tasks to meet current priorities.
-- Do a [task refinement](#task-refinement) for the most imminent one. 
+- Read the action titles to make sure that they still make sense following the next guidelines:
+  - If the action title doesn't give you enough information, read the action steps and then tweak the action title to make it clearer.
+  - Mark done actions as done and archive them.
+- If you need create new actions with the minimal refinement to register your idea.
+- Change the order of the actions to meet current priorities.
+- Do a [action refinement](#action-refinement) for the most imminent one. 
 
 #### Think outside the box project refinement
 
 [Rabbit hole project refinement](#rabbit-hole-project-refinement) is the best way to reach the destination you're heading to. It may not be the optimal one though. As you have you're head deep into the rabbit hole it's easy to miss better alternative paths to reach the project objective. 
 
 It could be interesting to use techniques that help you discover these paths for example in a [weekly planning](#the-weekly-planning).
+
+### Project cleaning
+
+Similar to [action cleaning](#action-cleaning) we want to keep the state clean. If there are not that many actions under the project we can leave the done elements as `DONE`, once they start to get clobbered up we can create a `Closed` section.
+
+For recurring projects:
+
+  - Mark the actions as done
+  - Archive the project element.
+  - Undo the archive. 
+  - Clean up the done items.
+
 ## [Area](time_management_abstraction_levels.md#area)
 
 ### Area refinement
@@ -220,18 +248,18 @@ At this level you're with your eyes closed and only react when life throws stuff
 
 This adjustment is split in the next parts:
 
-- [Get used to work with simple tasks](#get-used-to-work-with-simple-tasks)
+- [Get used to work with simple actions](#get-used-to-work-with-simple-actions)
 - [Make a day plan](#make-a-day-plan)
 - [Follow the day plan](#follow-the-day-plan)
 - [Control your inbox](#control-your-inbox)
-### Get used to work with simple tasks
+### Get used to work with simple actions
 We'll start building a system that helps us not to die in agony at life aggressions with the spare energy left. 
 
-One way to do it is to choose the tools to manage your life. Start small, only trying to manage the [step](#step) and [task](#task) roadmap adjustments. [The simplest task manager](task_tools.md#the-simplest-task-manager) is a good start.
+One way to do it is to choose the tools to manage your life. Start small, only trying to manage the [step](#step) and [action](#action) roadmap adjustments. [The simplest action manager](action_tools.md#the-simplest-action-manager) is a good start.
 
 ### Make a day plan
 
-This plan defines at day level which tasks are you going to work on and schedules when are you going to address them. The goal is to survive the day. It's a good starting point if you forget to do tasks that need to be done in the day or if you miss appointments.
+This plan defines at day level which actions are you going to work on and schedules when are you going to address them. The goal is to survive the day. It's a good starting point if you forget to do actions that need to be done in the day or if you miss appointments.
 
 It's interesting to make your plan at the start of the day. 
 
@@ -246,7 +274,7 @@ I follow the next steps:
     - The month objectives if you have them.
   - How much uninterrupted time you have between calendar events.
   - Your mental and physical state.
-- Check if you can transition the `WAITING` tasks to `DOING` or `TODO`.
+- Check if you can transition the `WAITING` actions to `DOING` or `TODO`.
 - Write the objectives of the day
 
 To make it easy to follow I use a bash script that asks me to follow these steps.
@@ -255,11 +283,11 @@ To make it easy to follow I use a bash script that asks me to follow these steps
 There are two tools that will help to follow the day plan:
 
 - [The calendar event notification system](calendar_management.md#calendar-event-notification-system) to avoid spending mental load tracking when the next appointment starts and to reduce the chances of missing it.
-- Periodic checks of the day plan: If you use the [pomodoro technique](task_tools.md#pomodoro), after each iteration check your day objectives and assess whether you're going to finish what you proposed yourself or if you need to tweak the task steps to do so.
+- Periodic checks of the day plan: If you use the [pomodoro technique](action_tools.md#pomodoro), after each iteration check your day objectives and assess whether you're going to finish what you proposed yourself or if you need to tweak the action steps to do so.
 
 ### Control your inbox
 
-The [Inbox](task_tools.md#inbox) is a nasty daemon that loves to get out of control. You need to develop your inbox cleaning skills and proceses up to the point that you're sure that the important stuff tracked where it should be tracked. So far aiming to have a  element inbox is unrealistic though, at least for me.
+The [Inbox](action_tools.md#inbox) is a nasty daemon that loves to get out of control. You need to develop your inbox cleaning skills and proceses up to the point that you're sure that the important stuff tracked where it should be tracked. So far aiming to have a  element inbox is unrealistic though, at least for me.
 ## Survive the week
 At this level you're able to open your myopic eyes, so you start to guess what life throws at you. This may be enough to be able to gracefully handle some of the small stuff. The fast ones will still hit you though as you still don't have too much time or definition to react. 
 
@@ -270,7 +298,7 @@ This adjustment is whatever you need to do to get your head empty again and get 
 
 No matter how good our intentions or system may be, you're going to take in more opportunities than you can handle. The more efficient you become, the more ground you'll try to grasp. You're going to have to learn to say no faster, and to more things, in order to stay afloat and comfortable. Having some dedicated time in the week to at least get up to the project level of thinking goes a long way towards making that easier.
 
-The plan defines at a 9 day time scale which projects are you going to work on. It's the next roadmap level to address a group of tasks. The goal changes from surviving the day to start planning your life. It's a good starting point if you are comfortable working with the pomodoro, task and day plans, and want to start deciding where you're heading to.
+The plan defines at a 9 day time scale which projects are you going to work on. It's the next roadmap level to address a group of actions. The goal changes from surviving the day to start planning your life. It's a good starting point if you are comfortable working with the pomodoro, action and day plans, and want to start deciding where you're heading to.
 
 Make your plan at meaningful days both to make it more effective and to make it more difficult to skip it. Maybe you can do it at the start of the week. I personally do it on Thursdays because it's when I have more information about the weekend events and I have some free time. 
 
@@ -279,9 +307,9 @@ I follow the next steps:
 - Clean your agenda for the next 9 days: Refiling or rescheduling items as you need. If you are using your calendar well you shouldn't need to do any change, just load in your mind the things you are meant to do.
 
 - If you're already at the ride the month adjustment:
-  - Refine your month objective plans. For each objective decide the tasks/projects to be worked on and refactor them in the roadmap section of the `todo.org`.
+  - Refine your month objective plans. For each objective decide the actions/projects to be worked on and refactor them in the roadmap section of the `todo.org`.
 
-When doing the plan try to minimize the number of tasks and calendar appointments so as not to get overwhelmed. It's better to eventually fall short on tasks, than never reaching your goal.
+When doing the plan try to minimize the number of actions and calendar appointments so as not to get overwhelmed. It's better to eventually fall short on actions, than never reaching your goal.
 
 To make it easy to follow I use a bash script that asks me to follow these steps.
 ## Ride the month
@@ -338,7 +366,7 @@ To record the results of the review create the file `references/reviews/YYYY_MM.
 It's important that you prepare your environment for the review. You need to be present and fully focused on the process itself. To do so you can:
 
 - Make sure you don't get interrupted: 
-    - Check your task manager tools to make sure that you don't have anything urgent to address in the next hour.
+    - Check your action manager tools to make sure that you don't have anything urgent to address in the next hour.
     - Disable all notifications
 - Set your analysis environment:
     - Put on the music that helps you get *in the zone*. I found it meaningful to select the best new music I've discovered this month.
@@ -358,13 +386,14 @@ There are different paths to discover actionable items:
 
 - Analyze what is in your mind: Take 10 minutes to answer to the next questions (you don't need to answer them all):
 
+  - What did you enjoy most this last month?
+  - What do you want right now?
+  - What worries you right now?
   - Where is your mind these days?
   - What did drain your energy or brought you down emotionally this last month?
-  - What worries you right now?
   - What did help you most this last month?
-  - What did you enjoy most this last month?
 
-  Notice that we do not need to review our life logging tools (diary, task manager, ...) to answer these questions. This means that we're doing an analysis of what is in our minds right now, not throughout the month. It's flawed but as we do this analysis often, it's probably fine. We add more importance to the latest events in our life anyway.
+  Notice that we do not need to review our life logging tools (diary, action manager, ...) to answer these questions. This means that we're doing an analysis of what is in our minds right now, not throughout the month. It's flawed but as we do this analysis often, it's probably fine. We add more importance to the latest events in our life anyway.
 
 - Empty the elements you added to the `review box`.
 
@@ -394,7 +423,7 @@ Then allocate 20 minutes to think about them. Go from top to bottom transitionin
 For the last question you can resort to:
 
 - Habits change
-- Projects change: start or stop doing a series of tasks.
+- Projects change: start or stop doing a series of actions.
 - Roadmap change
 
 Once you have analyzed an element copy all the decisions you've made in the `Decide` section of your review document.
@@ -405,7 +434,7 @@ Once you have a clear definition of the current state, the new and how to reach 
 
 - Identify hard deadlines: Add a warning days before the deadline to make sure you're reminded until it's done.
 - Create or tweak a habit
-- Tweak your project and tasks definitions
+- Tweak your project and actions definitions
 - Create *checks* to make sure that they are not overseen. 
 - Create objectives that will be checked in the next reviews (weekly and monthly).
 - Create [Anki](anki.md) cards to keep the idea in your mind.

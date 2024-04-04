@@ -241,7 +241,10 @@ Sometimes you have two traces at the same time, so each time you run a PDB
 command it jumps from pdb trace. Quite confusing. Try to `c` the one you don't
 want so that you're left with the one you want. Or put the `pdb` trace in a
 conditional that only matches one of both threads.
+# Monitorization
+## [Prometheus metrics](https://github.com/alephdata/aleph/pull/3216)
 
+Aleph now exposes prometheus metrics on the port 9100
 # References
 
 - [Source](https://github.com/alephdata/aleph)

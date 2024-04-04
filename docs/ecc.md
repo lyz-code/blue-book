@@ -61,3 +61,20 @@ Other people ([1](https://www.memtest86.com/ecc.htm), [2](https://www.reddit.com
 [They also suggest](https://www.memtest86.com/ecc.htm) to disable "Quick Boot". In order to initialize ECC, memory has to be written before it can be used. Usually this is done by BIOS, but with some motherboards this step is skipped if "Quick Boot" is enabled. 
 
 The people behind [memtest](memtest.md) have a [paid tool to test ECC](https://www.passmark.com/products/ecc-tester/index.php)
+
+Another way is to run `dmidecode`. For ECC support you'll see:
+```bash
+$: dmidecode -t memory | grep ECC
+  Error Correction Type: Single-bit ECC
+  # or
+  Error Correction Type: Multi-bit ECC
+```
+
+No ECC:
+
+```bash
+$: dmidecode -t memory | grep ECC
+  Error Correction Type: None
+```
+
+You can also test it with [`rasdaemon`](rasdaemon.md)

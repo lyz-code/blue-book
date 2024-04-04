@@ -470,10 +470,10 @@ With the `+1m` cookie, the date shift is always exactly one month. So if you hav
 
 Quite often you may not meet the `SCHEDULED` or `DEADLINE` date. If it's not a recurring task and you have it already in your `todo.org` list, then you can safely remove the SCHEDULED or DEADLINE line.
 
-If it's a recurring task you may want to keep the line for future iterations. That doesn't mean that it has to show in your agenda. If you have it already tracked you may want to hide it. One way I'm managing it is by deactivating the date (transforming the `<>` into `[]`) and adding a special state (`RDEACTIVATED`) so I don't mark the task as done by error. For example if we have:
+If it's a recurring task you may want to keep the line for future iterations. That doesn't mean that it has to show in your agenda. If you have it already tracked you may want to hide it. One way I'm managing it is by deactivating the date (transforming the `<>` into `[]` {you can do that by pressing `C-a` over the `<` or `[`}) and adding a special state (`READY`) so I don't mark the task as done by error. For example if we have:
 
 ```orgmode
-** RDEACTIVATED Check the batteries in the smoke detectors
+** READY Check the batteries in the smoke detectors
    SCHEDULED: [2005-11-01 Tue .+1m]
    Marking this DONE shifts the date to one month after today.
 ```
@@ -508,6 +508,28 @@ For those tasks that you want to always check before closing you can add a `(CHE
   - [ ] Adjust the date to match the first thursday of the month
 ```
 
+##### How to deal with recurring tasks that are not yet ready to be acted upon
+
+By default when you mark a recurrent task as `DONE` it will transition the date (either appointment, `SCHEDULED` or `DEADLINE`) to the next date and change the state to `TODO`. I found it confusing because for me `TODO` actions are the ones that can be acted upon right now. That's why I'm using the next states instead:
+
+- `INACTIVE`: Recurrent task which date is not yet close so you should not take care of it.
+- `READY`: Recurrent task which date [is overdue](#how-to-deal-with-overdue-SCHEDULED-and-DEADLINE-tasks), we acknowledge the fact and mark the date as inactive (so that it doesn't clobber the agenda).
+
+The idea is that once an INACTIVE task reaches your agenda, either because the warning days of the `DEADLINE` make it show up, or because it's the `SCHEDULED` date you need to decide whether to change it to `TODO` if it's to be acted upon immediately or to `READY` and deactivate the date.
+
+
+`INACTIVE` then should be the default state transition for the recurring tasks once you mark it as `DONE`. To do this, set in your config:
+
+```lua
+org_todo_repeat_to_state = "INACTIVE",
+```
+
+If a project gathers a list of recurrent subprojects or subactions it can have the next states:
+
+- `READY`: If there is at least one subelement in state `READY` and the rest are `INACTIVE`
+- `TODO`:  If there is at least one subelement in state `TODO` and the rest may have `READY` or `INACTIVE`
+- `INACTIVE`: The project is not planned to be acted upon soon. 
+- `WAITING`: The project is planned to be acted upon but all its subelements are in `INACTIVE` state.
 #### Date management
 
 ```lua
@@ -1507,7 +1529,7 @@ local org = require('orgmode').setup({
   org_agenda_files = {
     "./*"
   },
-  org_todo_keywords = { 'TODO(t)', 'CHECK(c)', 'DOING(d)', 'RDEACTIVATED(r)', 'WAITING(w)', '|', 'DONE(e)', 'REJECTED(j)', 'DUPLICATE(u)' },
+  org_todo_keywords = { 'TODO(t)', 'CHECK(c)', 'DOING(d)', 'READY(r)', 'WAITING(w)', '|', 'DONE(e)', 'REJECTED(j)', 'DUPLICATE(u)' },
   org_hide_leading_stars = true,
   org_deadline_warning_days = 0,
   win_split_mode = "horizontal",
@@ -1722,6 +1744,7 @@ If you make it work please [tell me how you did it!](contact.md)
 * [Getting started guide](https://github.com/nvim-orgmode/orgmode/wiki/Getting-Started)
 * [Docs](https://nvim-orgmode.github.io/)
 * [Developer docs](https://github.com/nvim-orgmode/orgmode/blob/master/DOCS.md)
+* [Default configuration file](https://github.com/nvim-orgmode/orgmode/blob/master/lua/orgmode/config/defaults.lua)
 * [List of supported commands](https://github.com/nvim-orgmode/orgmode/wiki/Feature-Completeness#nvim-org-commands-not-in-emacs)
 * [Default mappings](https://github.com/nvim-orgmode/orgmode/blob/master/lua/orgmode/config/mappings/init.lua)
 * [Python library: Org-rw](https://github.com/kenkeiras/org-rw)

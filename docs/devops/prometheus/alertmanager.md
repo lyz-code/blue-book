@@ -306,6 +306,8 @@ time_intervals:
             end_time: 07:00
 ```
 
+If that doesn't work for you, you can use the [sleep peacefully guidelines](https://samber.github.io/awesome-prometheus-alerts/sleep-peacefully) to tackle it at query level.
+
 ## Alert rules
 
 Alert rules are a special kind of Prometheus Rules that trigger alerts based on
@@ -343,8 +345,6 @@ alerting:
       static_configs:
         - targets: [ 'alertmanager:9093' ]
 ```
-
-
 # Silences
 
 To silence an alert with a regular expression use the matcher
