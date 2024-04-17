@@ -131,3 +131,4 @@ Some people are blacklisting the module so that it's not loaded and therefore it
 
 - [0pointer post on systemd watchdogs](https://0pointer.de/blog/projects/watchdog.html)
 - [Heckel post on how to reboot using watchdogs](https://blog.heckel.io/2020/10/08/reliably-rebooting-ubuntu-using-watchdogs/)
+\n\n[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

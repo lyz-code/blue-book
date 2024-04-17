@@ -13,3 +13,4 @@ sudo apt install python3-systemd
 
 # References
 - [Source](https://github.com/systemd/python_systemd)
+\n\n[![](not-by-ai.svg){: .center}](https://notbyai.fyi)
