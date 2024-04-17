@@ -23,7 +23,7 @@ These adjustments have to reflect ourselves and our environment. As we change co
 I've gone for full blown adjustments of locking myself up for a week to not doing any for months. And that is just fine, these tools are there to help us only if we want to use them.
 
 ## Heavily orgmode oriented
-This article heavily uses [orgmode](orgmode.md), my currently chosen [action tool](action_tools.md), but that doesn't mean that the concepts can be applicable to other tools.
+This article heavily uses [orgmode](orgmode.md), my currently chosen [action tool](roadmap_tools.md), but that doesn't mean that the concepts can be applicable to other tools.
 # Roadmap adjustment types
 
 There are three types of roadmap adjustment if we split them by process type:
@@ -112,6 +112,7 @@ It can be done differently at different moments:
   - Analyze the possible ways to arrive to that outcome. Try to assess different
     solutions before choosing one.
   - Create a list of [refined steps](#step-refinement) for each of them. 
+  - Optionally add [context tags](orgmode.md#tags)
 
 - When you finish a step, don't know how to go on so you need to look at the step lists and the next one is not refined enough:
   - Mark the done steps as done.
@@ -202,6 +203,7 @@ This kind of refinement allows you to dig deeper in whichever path you're headin
 - If you need create new actions with the minimal refinement to register your idea.
 - Change the order of the actions to meet current priorities.
 - Do a [action refinement](#action-refinement) for the most imminent one. 
+- Optionally add [context tags](orgmode.md#tags)
 
 #### Think outside the box project refinement
 
@@ -255,7 +257,7 @@ This adjustment is split in the next parts:
 ### Get used to work with simple actions
 We'll start building a system that helps us not to die in agony at life aggressions with the spare energy left. 
 
-One way to do it is to choose the tools to manage your life. Start small, only trying to manage the [step](#step) and [action](#action) roadmap adjustments. [The simplest action manager](action_tools.md#the-simplest-action-manager) is a good start.
+One way to do it is to choose the tools to manage your life. Start small, only trying to manage the [step](#step) and [action](#action) roadmap adjustments. [The simplest action manager](roadmap_tools.md#the-simplest-action-manager) is a good start.
 
 ### Make a day plan
 
@@ -283,11 +285,11 @@ To make it easy to follow I use a bash script that asks me to follow these steps
 There are two tools that will help to follow the day plan:
 
 - [The calendar event notification system](calendar_management.md#calendar-event-notification-system) to avoid spending mental load tracking when the next appointment starts and to reduce the chances of missing it.
-- Periodic checks of the day plan: If you use the [pomodoro technique](action_tools.md#pomodoro), after each iteration check your day objectives and assess whether you're going to finish what you proposed yourself or if you need to tweak the action steps to do so.
+- Periodic checks of the day plan: If you use the [pomodoro technique](roadmap_tools.md#pomodoro), after each iteration check your day objectives and assess whether you're going to finish what you proposed yourself or if you need to tweak the action steps to do so.
 
 ### Control your inbox
 
-The [Inbox](action_tools.md#inbox) is a nasty daemon that loves to get out of control. You need to develop your inbox cleaning skills and proceses up to the point that you're sure that the important stuff tracked where it should be tracked. So far aiming to have a  element inbox is unrealistic though, at least for me.
+The [Inbox](roadmap_tools.md#inbox) is a nasty daemon that loves to get out of control. You need to develop your inbox cleaning skills and proceses up to the point that you're sure that the important stuff tracked where it should be tracked. So far aiming to have a  element inbox is unrealistic though, at least for me.
 ## Survive the week
 At this level you're able to open your myopic eyes, so you start to guess what life throws at you. This may be enough to be able to gracefully handle some of the small stuff. The fast ones will still hit you though as you still don't have too much time or definition to react. 
 

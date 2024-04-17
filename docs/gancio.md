@@ -13,5 +13,5 @@ Telegram bridge to republish Gancio events
 - [Source](https://framagit.org/les/gancio)
 - [Home](https://gancio.org/)
 - [Radar Squat](https://radar.squat.net)
-
+- [Create A3 paper flyers with Gancio agenda](https://git.lattuga.net/balotta/gancio-flyers)
 [![](not-by-ai.svg){: .center}](https://notbyai.fyi)

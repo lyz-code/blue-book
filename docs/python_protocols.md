@@ -41,8 +41,92 @@ If you want to define a docstring on the method use the next syntax:
         ...
 ```
 
+## [Make subprotocols and subclassing protocols](https://mypy.readthedocs.io/en/stable/protocols.html#defining-subprotocols-and-subclassing-protocols)
+
+You can also define subprotocols. Existing protocols can be extended and merged using multiple inheritance. Example:
+
+```python
+# ... continuing from the previous example
+
+class SupportsRead(Protocol):
+    def read(self, amount: int) -> bytes: ...
+
+class TaggedReadableResource(SupportsClose, SupportsRead, Protocol):
+    label: str
+
+class AdvancedResource(Resource):
+    def __init__(self, label: str) -> None:
+        self.label = label
+
+    def read(self, amount: int) -> bytes:
+        # some implementation
+        ...
+
+resource: TaggedReadableResource
+resource = AdvancedResource('handle with care')  # OK
+```
+
+Note that inheriting from an existing protocol does not automatically turn the subclass into a protocol – it just creates a regular (non-protocol) class or ABC that implements the given protocol (or protocols). The `Protocol` base class must always be explicitly present if you are defining a protocol:
+
+```python
+class NotAProtocol(SupportsClose):  # This is NOT a protocol
+    new_attr: int
+
+class Concrete:
+   new_attr: int = 0
+
+   def close(self) -> None:
+       ...
+
+# Error: nominal subtyping used by default
+x: NotAProtocol = Concrete()  # Error!
+```
+You can also include default implementations of methods in protocols. If you explicitly subclass these protocols you can inherit these default implementations.
+
+Explicitly including a protocol as a base class is also a way of documenting that your class implements a particular protocol, and it forces mypy to verify that your class implementation is actually compatible with the protocol. In particular, omitting a value for an attribute or a method body will make it implicitly abstract:
+
+```python
+class SomeProto(Protocol):
+    attr: int  # Note, no right hand side
+    def method(self) -> str: ...  # Literally just ... here
+
+class ExplicitSubclass(SomeProto):
+    pass
+
+ExplicitSubclass()  # error: Cannot instantiate abstract class 'ExplicitSubclass'
+                    # with abstract attributes 'attr' and 'method'
+```
+
+Similarly, explicitly assigning to a protocol instance can be a way to ask the type checker to verify that your class implements a protocol:
+
+```python
+_proto: SomeProto = cast(ExplicitSubclass, None)
+```
+
 ## [Make protocols work with `isinstance`](https://mypy.readthedocs.io/en/stable/protocols.html#using-isinstance-with-protocols)
 To check an instance against the protocol using `isinstance`, we need to decorate our protocol with `@runtime_checkable`
+
+```python
+from typing_extensions import Protocol, runtime_checkable
+
+@runtime_checkable
+class Portable(Protocol):
+    handles: int
+
+class Mug:
+    def __init__(self) -> None:
+        self.handles = 1
+
+def use(handles: int) -> None: ...
+
+mug = Mug()
+if isinstance(mug, Portable):  # Works at runtime!
+   use(mug.handles)
+```
+
+`isinstance()` with protocols is not completely safe at runtime. For example, signatures of methods are not checked. The runtime implementation only checks that all protocol members exist, not that they have the correct type. `issubclass()` with protocols will only check for the existence of methods.
+
+`isinstance()` with protocols can also be surprisingly slow. In many cases, you’re better served by using `hasattr()` to check for the presence of attributes.
 
 ## [Make a protocol property variable](https://mypy.readthedocs.io/en/stable/protocols.html#invariance-of-protocol-attributes)
 

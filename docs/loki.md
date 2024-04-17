@@ -270,7 +270,7 @@ More examples of alert rules can be found in the next articles:
 - [ECC error alerts](rasdaemon.md#monitorization)
 - [ZFS errors](zfs.md#zfs-pool-is-stuck)
 - [Sanoid errors](sanoid.md#monitorization)
-
+- [ZFS watchdog errors](zfs.md#monitor-the-watchdog)
 #### Alert when query returns no data
 
 Sometimes the queries you want to alert happen when the return value is NaN or No Data. For example if you want to monitory the happy path by setting an alert if a string is not found in some logs in a period of time.

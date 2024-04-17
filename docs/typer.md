@@ -276,8 +276,8 @@ But you can access the context by declaring a function parameter of type
 The context is also used to store objects that you may need for all the
 commands, for example a [repository](repository_pattern.md).
 
-Tiangolo (`typer`s main
 developer)[suggests to use global variables or a function with `lru_cache`](https://github.com/tiangolo/typer/issues/232).
+Tiangolo (`typer`s main
 
 ## [Using short option names](https://typer.tiangolo.com/tutorial/options/name/)
 

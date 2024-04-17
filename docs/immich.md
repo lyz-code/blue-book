@@ -81,7 +81,7 @@ Where :
 Then run the script in a cron and log the output to [`journald`](journald.md):
 
 ```cron
-0 0 * * * /bin/bash /usr/local/bin/archive-photos.sh | /usr/bin/logger -t archive_fotos
+0 0 * * * systemd-cat -t archive_fotos /bin/bash /usr/local/bin/archive-photos.sh 
 ```
 
 Make sure to configure the update library cron job to run after this script has ended.

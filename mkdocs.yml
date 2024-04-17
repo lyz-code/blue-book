@@ -32,19 +32,20 @@ nav:
       - Time management:
         - time_management.md
         - Time management abstraction levels: time_management_abstraction_levels.md
+        - Action Management: action_management.md
         - Roadmap Adjustment: 
           - roadmap_adjustment.md
+          - Life planning: life_planning.md
+          - Life review: life_review.md
           - Strategy: strategy.md
           - Systems Thinking: systems_thinking.md
-        - Task Management:
-            - task_management.md
-            - Task Management Tools:
-                - task_tools.md
-                - Org Mode: 
-                  - orgmode.md
-                  - Org-rw: org_rw.md
-                  - Orgzly: orgzly.md
-                - OpenProject: openproject.md
+        - Roadmap Management Tools:
+            - roadmap_tools.md
+            - Org Mode: 
+              - orgmode.md
+              - Org-rw: org_rw.md
+              - Orgzly: orgzly.md
+            - OpenProject: openproject.md
         - Habit management: habit_management.md
         - Interruption Management:
             - interruption_management.md
@@ -188,6 +189,7 @@ nav:
                   - Requests: requests.md
                   - Requests-mock: coding/python/requests_mock.md
                   - Rq: coding/python/rq.md
+                  - python_systemd: python_systemd.md
                   - sh: python_sh.md
                   - Talkey: talkey.md
                   - Tenacity: tenacity.md
@@ -649,6 +651,7 @@ nav:
               data_analysis/recommender_systems/recommender_systems.md
           - Parsers: parsers.md
       - Psychology:
+          - psychology.md
           - The XY Problem: psychology/the_xy_problem.md
           - Game Theory: game_theory.md
       - Botany:

@@ -51,6 +51,10 @@ network-attached storage device, application server, and virtualization host.
 I've heard that it can do wonders like tweaking the speed of disks based on the
 need. It's not "that expensive" but still it's a proprietary so nope.
 
+## synology
+
+Avoid it at all costs, it does weird stuff with the disks that may result in data loss
+
 ## Debian with ZFS
 
 This solution gives you the most freedom and if you're used to use Linux like

@@ -27,7 +27,7 @@ I interact with messaging applications in two ways:
 
 The passively reading for new items works perfectly with the [interruption
 management](interruption_management.md) processes. Each time you decide to check
-for new messages, follow the [inbox processing guidelines](task_tools.md#inbox)
+for new messages, follow the [inbox processing guidelines](roadmap_tools.md#inbox)
 to extract the information to the appropriate system (task manager, calendar or
 knowledge manager). If you answer someone or if you start a new conversation,
 assume that any work done in the next 5 to 10 minutes will probably be

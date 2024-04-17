@@ -72,6 +72,8 @@ pip install uvicorn[standard]
       uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
     ```
 
+    [Below you have a production ready way to start it](#manage-the-uvicorn-server)
+
 - Open your browser at http://127.0.0.1:8000/items/5?q=somequery. You will see
   the JSON response as:
 
@@ -541,6 +543,38 @@ async def read_elements():
     return [{"item_id": "Foo"}]
 ```
 
+# Manage the uvicorn server
+## [Start up the server](https://stackoverflow.com/questions/57412825/how-to-start-a-uvicorn-fastapi-in-background-when-testing-with-pytest)
+
+If you want to start the server with python you need to use `multiprocessing` similar to [the testing case](#run-a-FastAPI-server-in-the-background-for-testing-purposes).:
+
+```python  
+
+from multiprocessing import Process
+import time
+
+def serve(
+    host: str = "127.0.0.1",
+    port: int = 8000,
+    log_level: str = "info",
+) -> Process:
+    """Start the efficiency API backend."""
+    process = Process(
+        target=uvicorn.run,
+        args=(api,),
+        kwargs={
+            "host": host,
+            "port": port,
+            "log_level": log_level,
+        },
+        daemon=True,
+    )
+    process.start()
+
+    # Wait for the server to start
+    time.sleep(0.1)
+    return process
+```
 # [Deploy with Docker](https://fastapi.tiangolo.com/deployment/docker/).
 
 FastAPI has it's own optimized
@@ -953,11 +987,9 @@ against `http://localhost:8000`.
 # References
 
 - [Docs](https://fastapi.tiangolo.com/)
-
 - [Git](https://github.com/tiangolo/fastapi)
-
 - [Awesome FastAPI](https://github.com/mjhea0/awesome-fastapi)
-
 - [Testdriven.io course](https://testdriven.io/courses/tdd-fastapi/): suggested
   by the developer.
+
 [![](not-by-ai.svg){: .center}](https://notbyai.fyi)

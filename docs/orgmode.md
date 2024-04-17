@@ -604,6 +604,45 @@ The final heading has the tags `work`, `boss`, `notes`, and `action` even though
 
 If you plan to use the [Capture](#capture) function on the file, add the `FILETAGS` like at the top of the file, otherwise it will end up in the middle of it as you capture new elements.
 
+Tags are useful for [Agenda searches](#agenda-searches). I've found interesting to create tags based on:
+
+- Temporal context:
+  - lunch 
+  - dinner
+  - night
+- Spatial context:
+  - kitchen
+  - couch
+  - mobile 
+  - bathroom 
+- Event context:
+  - daily
+  - retro 
+  - planning
+- Mental context:
+  - down
+  - sad
+  - strategic
+  - design
+  - inspired
+- People context:
+  - mom 
+  - dad 
+  - ...
+- Roadmap area context:
+  - activism 
+  - well-being 
+  - care
+  - work 
+- Focus area context:
+  - maintenance 
+  - improvement
+- Knowledge area context:
+  - efficiency 
+  - politics
+  - ...
+
+So that it's easy to find elements to work on based on each context.
 ### `Lists
 
 Lists start with a dash:
@@ -876,8 +915,8 @@ So far the `nvim-orgmode` agenda view lacks the next features:
 
 * `.`: Go to Today
 * `J`: Opens a popup that allows you to select the date to jump to.
-* `<c-n>`: Next agenda span (Default `f`). For example if you are in the week view it will go to the next week.
-* `<c-p>`: Previous agenda span (Default `b`).
+* `f`: Next agenda span. For example if you are in the week view it will go to the next week.
+* `b`: Previous agenda span .
 * `/`: Opens a prompt that allows filtering current agenda view by category, tags and title. 
   
   For example, having a `todos.org` file with headlines that have tags `mytag` or `myothertag`, and some of them have check in content, searching by `todos+mytag/check/` returns all headlines that are in `todos.org` file, that have `mytag` tag, and have `check` in headline title. 
@@ -887,13 +926,6 @@ So far the `nvim-orgmode` agenda view lacks the next features:
   Pressing `<TAB>` in filter prompt autocompletes categories and tags.
 
 * `q`: Quit                                                                                                
-
-```lua
-  agenda = {
-    org_agenda_later = '<c-n>',
-    org_agenda_earlier = '<c-p>',
-  },
-```
 
 ### Act on the agenda elements
 

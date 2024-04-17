@@ -136,7 +136,7 @@ environment (and data!) before you start analyzing everything.
   music, binaries... everything! until you have an empty mobile and empty
   `Downloads` directory.
 - Update [your ledger](beancount.md) so that it reflects the reality.
-- Update [your task manager](task_management.md) systems so that it reflects the
+- Update [your task manager](action_management.md) systems so that it reflects the
   latest state.
 - Update [your digital garden](digital_garden.md) so that you don't have any
   uncommited changes.

@@ -4,6 +4,65 @@ date: 20220119
 author: Lyz
 ---
 
+# [Loop over dict fails when only one element detected](https://github.com/ansible/ansible/issues/73329)
+If you see the `If you passed a list/dict of just one element, try adding wantlist=True to your lookup invocation or use q/query instead of lookup."` error in an Ansible log it means that the content of the variable is not the type you expect it to be. This can happen for example for lists that have only one or zero elements, which gets translated into a string thus breaking the `loop` structure.
+
+So instead of:
+```yaml
+- name: Create filesystem on device
+  community.general.filesystem:
+    fstype: ext4
+    dev: "/dev/disk/by-id/nvme-Amazon_Elastic_Block_Store_vol{{ item.id | split('-') | last }}"
+  loop: "{{ volumes }}"
+```
+
+You can use:
+
+```yaml
+- name: Create filesystem on device
+  community.general.filesystem:
+    fstype: ext4
+    dev: "/dev/disk/by-id/nvme-Amazon_Elastic_Block_Store_vol{{ item.id | split('-') | last }}"
+  loop: "{{ lookup('list', volumes, wantlist=True) }}"
+```
+
+If that gives you issues you can use this other construction instead:
+
+```yaml
+
+- name: Save the required volume data
+  set_fact:
+    volumes: "{{ volume_tags_data | json_query('results[0].volumes[].{id: id, mount_point: tags.mount_point}') }}"
+
+- name: Get result type for the volumes
+  set_fact:
+    volumes_type: "{{ volumes | type_debug }}"
+
+- name: Display volumes type
+  debug:
+    msg: "{{ volumes_type }}"
+
+# zero results
+- name: Force list of volumes if it's a string
+  set_fact:
+    volumes: "{{ [] }}"
+  when:
+    - volumes_type == 'str'
+    
+# single result
+- name: Force list of volumes if it's a dictionary
+  set_fact:
+    volumes: "{{ [volumes] }}"
+  when:
+    - volumes_type == 'dict'
+
+- name: Create filesystem on device
+  community.general.filesystem:
+    fstype: ext4
+    dev: "/dev/disk/by-id/nvme-Amazon_Elastic_Block_Store_vol{{ item.id | split('-') | last }}"
+  loop: "{{ volumes }}"
+```
+
 # [Filter json data](https://docs.ansible.com/ansible/latest/collections/community/general/docsite/filter_guide_selecting_json_data.html) 
 To select a single element or a data subset from a complex data structure in JSON format (for example, Ansible facts), use the `community.general.json_query` filter. The `community.general.json_query` filter lets you query a complex JSON structure and iterate over it using a loop structure.
 

@@ -64,7 +64,7 @@ cooking or cleaning, instead of listening directly from the mobile, I use
 a bluetooth loudspeaker that I carry everywhere I go (at home! use headphones
 when you are outside. people with loudspeakers on the public transport or
 streets are hateful), if there is a reference I want to save, I write it down in
-the mobile [inbox](task_tools.md#inbox) and process it later with
+the mobile [inbox](roadmap_tools.md#inbox) and process it later with
 [pynbox](projects.md#pynbox).
 
 # The perfect software solution

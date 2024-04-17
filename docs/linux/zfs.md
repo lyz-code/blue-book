@@ -447,13 +447,13 @@ systemctl enable zfs-load-key.service
 reboot
 ```
 
-# [Configure NFS](https://pthree.org/2012/12/31/zfs-administration-part-xv-iscsi-nfs-and-samba/)
+## [Configure NFS](https://pthree.org/2012/12/31/zfs-administration-part-xv-iscsi-nfs-and-samba/)
 
 With ZFS you can share a specific dataset via NFS. If for whatever reason the dataset does not mount, then the export will not be available to the application, and the NFS client will be blocked.
 
 You still must install the necessary daemon software to make the share available. For example, if you wish to share a dataset via NFS, then you need to install the NFS server software, and it must be running. Then, all you need to do is flip the sharing NFS switch on the dataset, and it will be immediately available.
 
-## Install NFS 
+### Install NFS 
 
 To share a dataset via NFS, you first need to make sure the NFS daemon is running. On Debian and Ubuntu, this is the `nfs-kernel-server` package. 
 
@@ -506,6 +506,206 @@ mount -t nfs hostname.example.com:/srv /mnt
 
 To permanently mount it you need to add it to your `/etc/fstab`, check [this section for more details](linux_snippets.md#configure-fstab-to-mount-nfs).
 
+## Configure a watchdog
+[Watchdogs](watchdog.md) are programs that make sure that the services are working as expected. This is useful for example if you're suffering the [ZFS pool is stuck](#zfs-pool-is-stuck) error. 
+
+- Install [Python bindings for systemd](python_systemd.md) to get logging functionality.
+
+  ```bash
+  sudo apt install python3-systemd
+  ```
+
+- Create the next script:
+
+  ```python
+  #!/usr/bin/env python3
+
+  """
+  ZFS watchdog service
+  """
+
+  import os
+  import socket
+  import time
+  import sys
+  import signal
+  from datetime import datetime
+  from pathlib import Path
+  from systemd import journal
+
+
+  def log(message: str) -> None:
+      """Log message to journal."""
+      journal.send(message)
+
+
+  def get_notify_socket() -> socket.socket:
+      """Connect to the notify socket."""
+      notify_socket = os.environ.get("NOTIFY_SOCKET", None)
+      assert notify_socket is not None, "NOTIFY_SOCKET needs to be defined"
+      internal_notify_socket = socket.socket(
+          socket.AF_UNIX, socket.SOCK_DGRAM | socket.SOCK_CLOEXEC
+      )
+      internal_notify_socket.connect(notify_socket)
+      return internal_notify_socket
+
+
+  def get_wait_period() -> int:
+      """Deduce the wait period between checks.
+
+      Get WATCHDOG_USEC, convert it to seconds and get ~0.75 of it (update watchdog every 3s if WATCHDOG_USEC is 5s).
+      With a minimum of 1 second.
+      """
+      watchdog_usec = os.environ.get("WATCHDOG_USEC", None)
+      assert watchdog_usec is not None, "WATCHDOG_USEC needs to be defined"
+      return max(int(int(watchdog_usec) / 1000000 * 0.75), 1)
+
+
+  def send_socket_message(message: bytes) -> None:
+      """Send message over socket"""
+      notify_socket = get_notify_socket()
+      notify_socket.send(message)
+
+
+  def socket_notify_ready() -> None:
+      """Mark service as ready"""
+      send_socket_message(b"STATUS=Ready")
+      send_socket_message(b"READY=1")
+      log("ZFS watchdog is ready")
+
+
+  def socket_notify_stop(*args) -> None:
+      """Mark service as stopping and exit.
+
+      We need the args argument to be compatible with the signal.signal signature.
+      """
+      send_socket_message(b"STATUS=Stopping")
+      send_socket_message(b"STOPPING=1")
+      log("ZFS watchdog is stopped")
+      sys.exit(0)
+
+
+  def socket_notify_running() -> None:
+      """Mark service as running"""
+      send_socket_message(
+          ("STATUS=Running, checking every %is" % get_wait_period()).encode("utf8")
+      )
+      log("ZFS watchdog is running")
+
+
+  def watchdog_continue(
+      last_journal_update: datetime, journal_update_frequency: int = 600
+  ) -> datetime:
+      """Update watchdog timestamp."""
+      send_socket_message(b"WATCHDOG=1")
+      now = datetime.now()
+      if (now - last_journal_update).seconds > journal_update_frequency:
+          log("ZFS watchdog is still alive")
+          return now
+      return last_journal_update
+
+
+  def watchdog_skip() -> None:
+      log("Watchdog timestamp not updated.")
+
+
+  def check_condition() -> bool:
+      """Check ZFS is working as expected.
+
+      We're able to:
+      - Write a new file
+      - Read from the file
+      - Remove the file.
+
+      In a decent amount of time. If any of the operations gets hanged up for longer than
+      the WATCHDOG_USEC the server will be restarted.
+      """
+      check_path = os.environ.get("ZFS_FILE_CHECK_PATH", None)
+      assert check_path is not None, "ZFS_FILE_CHECK_PATH needs to be defined"
+      check_path = Path(check_path)
+
+      # Write a new file
+      check_path.write_text("Alive")
+      # Read the file
+      assert check_path.read_text() == "Alive"
+      # Remove the file
+      os.remove(check_path)
+      return True
+
+
+  def wait() -> None:
+      wait_period = get_wait_period()
+      time.sleep(wait_period)
+
+
+  if __name__ == "__main__":
+      for send_signal in (signal.SIGINT, signal.SIGABRT, signal.SIGTERM):
+          signal.signal(send_signal, socket_notify_stop)
+      socket_notify_ready()
+      socket_notify_running()
+      last_journal_update = datetime.now()
+      while True:
+          if check_condition():
+              last_journal_update = watchdog_continue(last_journal_update)
+          wait()
+  ```
+
+  If you're creating another python watchdog, you can copy-paste the whole script and only tweak the `check_condition` to check whatever you want to check.
+
+- Create a systemd service `systemctl edit --full -force zfs_watchdog` and add:
+
+  ```ini 
+  [Unit]
+  Description=ZFS watchdog
+
+  [Service]
+  ExecStart=/usr/bin/zfs_watchdog.py
+  WatchdogSec=60s
+  Restart=on-failure
+  NotifyAccess=all
+  StartLimitInterval=5min
+  StartLimitBurst=4
+  StartLimitAction=reboot
+  Environment="ZFS_FILE_CHECK_PATH=/path/to/your/mountpoint/zfs_test"
+  ```
+
+  If you're debugging still the script use `StartLimitAction=` instead so that you don't get unexpected reboots.
+- Start the service with `systemctl start zfs_watchdog`.
+- Check that it's working as expected with `journalctl -feu zfs_watchdog`
+- Once you're ready everything is fine enable the service `systemctl enable zfs_watchdog`
+
+### Monitor the watchdog
+If you're using [Prometheus](prometheus.md) with the [Node exporter](node_exporter.md) in theory if the watchdog fails it will show up as a failed service. For the sake of redundancy we can create a Loki alert that checks that the watchdog is still alive, if the watchdog fails or if it restarts the server.
+
+```yaml
+groups: 
+  - name: zfs_watchdog
+    rules:
+      - alert: ZFSWatchdogIsDeadError
+        expr: |
+          (count_over_time({unit="zfs_watchdog.service"} |= `is still alive` [11m]) or on() vector(0)) == 0
+        for: 0m
+        labels:
+          severity: critical
+        annotations:
+          summary: "The ZFS watchdog is dead at {{ $labels.hostname}}"
+      - alert: ZFSWatchdogError
+        expr: |
+          count_over_time({job="systemd-journal", syslog_identifier="systemd"} |= `Watchdog timeout` [10m]) > 0
+        for: 0m
+        labels:
+          severity: warning
+        annotations:
+          summary: "The ZFS watchdog did not complete successfully at {{ $labels.hostname}}"
+      - alert: ZFSWatchdogRebooting
+        expr: |
+          count_over_time({job="systemd-journal", syslog_identifier="systemd"} |= `Rebooting: unit zfs_watchdog.service failed`[10m]) > 0
+        for: 0m
+        labels:
+          severity: info
+        annotations:
+          summary: "The server {{ $labels.hostname}} is being rebooted by the ZFS watchdog"
+```
 # Backup
 
 Please remember that [RAID is not a backup](https://serverfault.com/questions/2888/why-is-raid-not-a-backup), it guards against one kind of hardware failure. There's lots of failure modes that it doesn't guard against though:
@@ -666,8 +866,6 @@ If you use [loki](loki.md) remember to monitor the `/proc/spl/kstat/zfs/dbgmsg` 
           job: zfs
           __path__: /proc/spl/kstat/zfs/dbgmsg
 ```
-
-
 # [Troubleshooting](https://openzfs.github.io/openzfs-docs/Basic%20Concepts/Troubleshooting.html)
 
 To debug ZFS errors you can check:
@@ -682,7 +880,7 @@ Likely cause: kernel thread hung or panic
 
 If a kernel thread is stuck, then a backtrace of the stuck thread can be in the logs. In some cases, the stuck thread is not logged until the deadman timer expires. 
 
-The only way I've yet found to solve this is rebooting the machine (not ideal). I even have to use the magic keys -.- . A solution may be to [Reboot server on kernel panic ](linux_snippets.md#reboot-server-on-kernel-panic).
+The only way I've yet found to solve this is rebooting the machine (not ideal). I even have to use the magic keys -.- . A solution would be to [reboot server on kernel panic ](linux_snippets.md#reboot-server-on-kernel-panic) but it's not the kernel who does the panic but a module of the kernel, so that solution doesn't work.
 
 You can monitor this issue with loki using the next alerts:
 
@@ -701,19 +899,18 @@ groups:
           message: "This usually happens before the ZFS becomes unresponsible"
 ```
 
+And to patch it you can use a [software watchdog that reproduces the error](#configure-a-watchdog) and automatically resets the server 
+
 ## [kernel NULL pointer dereference in zap_lockdir](https://github.com/openzfs/zfs/issues/11804)
 
 There are many issues open with this behaviour: [1](https://github.com/openzfs/zfs/issues/11804), [2](https://github.com/openzfs/zfs/issues/6639)
 
 In my case I feel it happens when running `syncoid` to send the backups to the backup server.
-
 ## [Clear a permanent ZFS error in a healthy pool](https://serverfault.com/questions/576898/clear-a-permanent-zfs-error-in-a-healthy-pool)
 
 Sometimes when you do a `zpool status` you may see that the pool is healthy but that there are "Permanent errors" that may point to files themselves or directly to memory locations.
 
-You can read [this long discussion](https://github.com/openzfs/zfs/discussions/9705) on what does these permanent errors mean, but what solved the issue for me was to run a new scrub
-
-`zpool scrub my_pool`
+The idea is that you analyze the problem and [check your hard drives health](hard_drive_health.md). Once you've done that clear the errors with `zpool clear my_pool` and run [two scrubs](https://github.com/openzfs/zfs/discussions/9705) `zpool scrub my_pool` to clear the errors.
 
 It takes a long time to run, so be patient.
 
@@ -723,6 +920,19 @@ If you want [to stop a scrub](https://sotechdesign.com.au/zfs-stopping-a-scrub/)
 zpool scrub -s my_pool
 ```
 
+If you're close to the event that made the error you can check the `zpool events -v` to shed some light.
+
+
+A few notes:
+
+- repaired errors are shown in the counters, but won't elicit a "permanent errors" message
+- "permanent" isn't the best word to use, because all of the error data is historical, based on time when an I/O operation failed. In some cases, transient errors (eg cable unplugged for a few minutes, or iSCSI network reconfiguration) can result in a "permanent" error message, but the data can be accessible and fine.
+- scrubbing can fix problems, but so can reading or writing. So the difference between a read and a scrub is the scrub goes through everything and reads all copies, sides of mirrors, and parity blocks for verification. For example, if a mirrored data is read, but one side of the mirror was corrupted, then the other side will be read, verified, and if successfully verified the repair is made.
+- on large systems, scrubs can take days, weeks, or months, so it isn't practical to run a scrub just to make an error notice go away. Of particular note, you don't want to delete the previous error data at the start of a scrub that can take a month.
+- `zpool status` is not a replacement for async system monitoring. For the latter, use zpool events or configure a zed monitor (zed watches the events)
+- similarly, if you want detailed information on a specific failure, zpool events -v shows detailed information about both correctable and uncorrectable errors.
+
+You can read [this long discussion](https://github.com/openzfs/zfs/discussions/9705) if you want more info.
 ## ZFS pool is in suspended mode
 
 Probably because you've unplugged a device without unmounting it.
@@ -742,7 +952,28 @@ sudo zpool import WD_1TB
 ```
 
 If you don't care about the zpool anymore, sadly your only solution is to [reboot the server](https://github.com/openzfs/zfs/issues/5242). Real ugly, so be careful when you umount zpools.
+## Cannot receive incremental stream: invalid backup stream Error
+This is usually caused when you try to send a snapshot that is corrupted.
 
+To solve it:
+- Look at the context on loki to identify the snapshot in question. 
+- Delete it 
+- Run the sync again
+
+This can be monitored with loki through the next alert:
+
+```yaml 
+      - alert: SyncoidCorruptedSnapshotSendError
+        expr: |
+          count_over_time({syslog_identifier="syncoid_send_backups"} |= `cannot receive incremental stream: invalid backup stream` [15m]) > 0
+        for: 0m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Error tryig to send a corrupted snapshot at {{ $labels.hostname}}"
+          message: "Look at the context on loki to identify the snapshot in question. Delete it and then run the sync again"
+
+```
 # Learning
 
 I've found that learning about ZFS was an interesting, intense and time

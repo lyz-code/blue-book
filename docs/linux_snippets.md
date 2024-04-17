@@ -4,6 +4,28 @@ date: 20200826
 author: Lyz
 ---
 
+# [Send logs of a cronjob to journal](https://stackoverflow.com/questions/52200878/crontab-journalctl-extra-messages)
+You can use `systemd-cat` to send the logs of a script or cron to the journal to the unit specified after the `-t` flag. It works better than piping the output to `logger -t`
+```bash
+systemd-cat -t syncoid_send_backups /root/send_backups.sh
+```
+# [Set dependencies between systemd services](https://stackoverflow.com/questions/21830670/start-systemd-service-after-specific-service)
+Use `Wants` or `Requires`:
+
+```ini 
+website.service
+[Unit]
+Wants=mongodb.service
+After=mongodb.service
+```
+# [Set environment variable in systemd service](https://www.baeldung.com/linux/systemd-services-environment-variables)
+
+```ini 
+[Service]
+# ...
+Environment="FOO=foo"
+```
+
 # [Get info of a mkv file](https://superuser.com/questions/595177/how-to-retrieve-video-file-information-from-command-line-under-linux)
 ```bash
 ffprobe file.mkv
@@ -19,7 +41,7 @@ notify-send "Title" "This is the first line.\nAnd this is the second.")
 ```bash 
 dmidecode | less
 ```
-# [Reboot server on kernel panic ](https://unix.stackexchange.com/questions/29567/how-to-early-configure-linux-kernel-to-reboot-on-panic ) 
+# [Reboot server on kernel panic ](https://www.supertechcrew.com/kernel-panics-and-lockups/) 
 The `proc/sys/kernel/panic` file gives read/write access to the kernel variable `panic_timeout`. If this is zero, the kernel will loop on a panic; if nonzero it indicates that the kernel should autoreboot after this number of seconds. When you use the software watchdog device driver, the recommended setting is `60`.
 
 To set the value add the next contents to the `/etc/sysctl.d/99-panic.conf`
@@ -39,7 +61,40 @@ Or with an ansible task:
     create: true
     state: present
 ```
- 
+There are other things that can cause a machine to lock up or become unstable. Some of them will even make a machine responsive to pings and network heartbeat monitors, but will cause programs to crash and internal systems to lockup.
+
+If you want the machine to automatically reboot, make sure you set `kernel.panic` to something above 0. Otherwise these settings could cause a hung machine that you will have to reboot manually.
+
+```
+# Panic if the kernel detects an I/O channel
+# check (IOCHK). 0=no | 1=yes
+kernel.panic_on_io_nmi = 1
+
+# Panic if a hung task was found. 0=no, 1=yes
+kernel.hung_task_panic = 1
+
+# Setup timeout for hung task,
+# in seconds (suggested 300)
+kernel.hung_task_timeout_secs = 300
+
+# Panic on out of memory.
+# 0=no | 1=usually | 2=always
+vm.panic_on_oom=2
+
+# Panic when the kernel detects an NMI
+# that usually indicates an uncorrectable
+# parity or ECC memory error. 0=no | 1=yes
+kernel.panic_on_unrecovered_nmi=1
+
+# Panic if the kernel detects a soft-lockup
+# error (1). Otherwise it lets the watchdog
+# process skip it's update (0)
+# kernel.softlockup_panic=0
+
+# Panic on oops too. Use with caution.
+# kernel.panic_on_oops=30
+```
+
 # [Share a calculated value between github actions steps](https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#setting-an-output-parameter) 
 
 You need to set a step's output parameter. Note that the step will need an `id` to be defined to later retrieve the output value.

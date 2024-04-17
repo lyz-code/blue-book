@@ -222,7 +222,21 @@ There are many ways to do it:
   labels:
       host: {{ ansible_hostname }}
   ```
+## Monitorization
+Promtail exposes prometheus metrics on port 80 [under the `/metrics` endpoint](https://grafana.com/docs/loki/latest/send-data/promtail/configuration/#metrics) if you're using docker or 9080 if you're using the program directly. The most interesting [metrics are](https://grafana.com/docs/loki/latest/operations/observability/):
 
+- `promtail_read_bytes_total`(Gauge): Number of bytes read.
+- `promtail_read_lines_total`(Counter): Number of lines read.
+- `promtail_dropped_bytes_total`(Counter): Number of bytes dropped because failed to be sent to the ingester after all retries.
+- `promtail_dropped_entries_total`(Counter): Number of log entries dropped because failed to be sent to the ingester after all retries.
+- `promtail_encoded_bytes_total`(Counter): Number of bytes encoded and ready to send.
+- `promtail_file_bytes_total`(Gauge): Number of bytes read from files.
+- `promtail_files_active_total`(Gauge): Number of active files.
+- `promtail_request_duration_seconds`(Histogram): Number of send requests.
+- `promtail_sent_bytes_total`(Counter): Number of bytes sent.
+- `promtail_sent_entries_total`(Counter): Number of log entries sent to the ingester.
+- `promtail_targets_active_total`(Gauge): Number of total active targets.
+- `promtail_targets_failed_total`(Counter): Number of total failed targets.
 # Pipeline building
 
 In [this issue](https://github.com/grafana/loki/issues/6165) there are nice examples on different pipelines.
@@ -238,7 +252,6 @@ pipeline_stages:
       value: docker-compose
 ```
 # Basic concepts
-
 ## API
 
 Promtail features an embedded web server exposing a web console at `/` and the following API endpoints:
@@ -253,4 +266,5 @@ Sometimes if you are not seeing the logs in loki it's because the query you're r
 # References
 
 - [Docs](https://grafana.com/docs/loki/latest/send-data/promtail/)
+
 [![](not-by-ai.svg){: .center}](https://notbyai.fyi)

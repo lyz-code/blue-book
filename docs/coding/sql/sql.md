@@ -94,7 +94,6 @@ WHERE condition;
 ```sql
 SELECT * FROM Table ORDER BY ID DESC LIMIT 1
 ```
-## [Get all columns but one in SELECT](url) 
 ## [Update host permissions for a mysql user](https://serverfault.com/questions/483339/changing-host-permissions-for-mysql-users)
 # [Table relationships](https://launchschool.com/books/sql/read/table_relationships)
 

@@ -33,14 +33,14 @@ We'll divide the planning process in these phases:
 It's important that you prepare your environment for the planning. You need to be present and fully focused on the process itself. To do so you can:
 
 - Make sure you don't get interrupted: 
-    - Check your task manager tools to make sure that you don't have anything urgent to address in the next hour.
+    - Check your action manager tools to make sure that you don't have anything urgent to address in the next hour.
     - Disable all notifications
 - Set your analysis environment:
     - Put on the music that helps you get *in the zone*.
     - Get all the things you may need for the review:
         - The checklist that defines the process of your planning (this document in my case).
         - Somewhere to write down the insights.
-        - Your task manager system
+        - Your action manager system
         - Your habit manager system
         - Your *Objective list*.
         - Your *Thinking list*.
@@ -68,7 +68,7 @@ Create the month objectives in your roadmap file after addressing each element o
   - Create a clear plan of action for this month on that objective
 - Tweak your week distribution 
   - Check your calendar to see how many free days you have.
-  - Taking into account the month objectives select the are you want to work on in each week day.
+  - Taking into account the month objectives select the are you want to focus on in each week day.
   - Document the week distribution in your roadmap document and make it visible in your weekly planning process.
 
 - Refine the roadmap of each of the selected areas (maybe for the trimestral? too soon to do it in the monthly planning IMHO) 
@@ -80,7 +80,7 @@ Create the month objectives in your roadmap file after addressing each element o
 
 ## Monthly planning
 
-- Analyze the current circumstances to decide which areas is best to work on
+- Analyze the current circumstances to decide which areas is best to focus on
 - Do the [area refinement](#area-refinement) of the selected areas.
 
 - Make the whole system meet the new objectives:

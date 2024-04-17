@@ -3,6 +3,10 @@ Easy to install and low maintenance, it just does the job. The awful name comes 
 
 Brought to you by an inclusive community under the umbrella of [Codeberg e.V.](https://forgejo.org/faq/#what-is-codeberg-ev), a democratic non-profit organization, Forgejo can be trusted to be exclusively Free Software. It is a ["soft" fork of Gitea](https://codeberg.org/forgejo/forgejo/src/branch/forgejo/CONTRIBUTING/WORKFLOW.md#feature-branches) with a focus on scaling, federation and privacy. 
 
+The forgejo instance at [codeberg](https://codeberg.org) looks to be production ready they have forgejo actions and [static pages](#host-static-pages-site). What else can you ask for?
+
+I want to migrate everything from github to their server... Let's see how soon I manage to do it xD.
+
 # History
 
 In October 2022 the domains and trademark of Gitea were transferred to a for-profit company without knowledge or approval of the community. Despite [writing an open letter](https://gitea-open-letter.coding.social/), the takeover was later confirmed. The goal of Forgejo is to continue developing the code with a healthy democratic governance.
@@ -34,6 +38,10 @@ Gitea on the other hand has the next advantages:
 - Quicker releases. As Forgejo needs to review and incorporate Gitea's contributions, it takes longer to do a release.
 
 Being a soft-fork has it's disadvantages too, for example deciding where to open the issues and pull requests, [they haven't yet decided which is their policy around this topic](https://codeberg.org/forgejo/meta/issues/114).
+
+# [Host static pages site](https://codeberg.page/)
+
+Now you can use static pages similar to Github Pages in forgejo/gitea! check [how they do it at codeberg](https://codeberg.page/).
 
 # References
 

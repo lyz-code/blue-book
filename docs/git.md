@@ -796,6 +796,36 @@ $: git-fame --since 1.year --cost hour --loc ins -w -M -C
 
 You can use `pipx install git-fame` to install it.
 
+# Troubleshooting
+## [fatal: A git directory for X is found locally with remote](https://stackoverflow.com/questions/20929336/git-submodule-add-a-git-directory-is-found-locally-issue)
+
+If you get this error when you're adding a `git submodule` follow the next steps:
+
+- Remove the submodule files
+  ```bash
+  git rm --cached path_to_submodule (no trailing slash) as well as
+  rm -rf path_to_submodule
+  ```
+- Delete the relevant lines from the `.gitmodules`
+  ```init
+  [submodule "path_to_submodule"]
+    path = path_to_submodule
+    url = https://github.com/path_to_submodule
+  ```
+- Delete the relevant section from `.git/config`
+  ```init
+  [submodule "path_to_submodule"]
+    url = https://github.com/path_to_submodule
+  ```
+- Remove the cached submodule
+  ```bash
+  rm -rf .git/modules/path_to_submodule
+  ```
+- Then you can add the submodule again
+  ```bash
+  git submodule add https://github.com/path_to_submodule
+  ```
+
 # References
 
 - [FAQ](https://github.com/k88hudson/git-flight-rules)

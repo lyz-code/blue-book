@@ -51,18 +51,19 @@ If you're out of luck and your hardware doesn't support it you can delegate the 
 # [Systemd watchdog](https://0pointer.de/blog/projects/watchdog.html)
 
 Starting with version 183 systemd provides full support for hardware watchdogs (as exposed in /dev/watchdog to userspace), as well as supervisor (software) watchdog support for invidual system services. The basic idea is the following: if enabled, systemd will regularly ping the watchdog hardware. If systemd or the kernel hang this ping will not happen anymore and the hardware will automatically reset the system. This way systemd and the kernel are protected from boundless hangs -- by the hardware. To make the chain complete, systemd then exposes a software watchdog interface for individual services so that they can also be restarted (or some other action taken) if they begin to hang. This software watchdog logic can be configured individually for each service in the ping frequency and the action to take. Putting both parts together (i.e. hardware watchdogs supervising systemd and the kernel, as well as systemd supervising all other services) we have a reliable way to watchdog every single component of the system.
-
-
 # [Configuring the watchdog](https://0pointer.de/blog/projects/watchdog.html)
+
+## Configuring the hardware watchdog
 To make use of the hardware watchdog it is sufficient to set the `RuntimeWatchdogSec=` option in `/etc/systemd/system.conf`. It defaults to `0` (i.e. no hardware watchdog use). Set it to a value like `20s` and the watchdog is enabled. After 20s of no keep-alive pings the hardware will reset itself. Note that `systemd` will send a ping to the hardware at half the specified interval, i.e. every 10s.
 
 Note that the hardware watchdog device (`/dev/watchdog`) is single-user only. That means that you can either enable this functionality in systemd, or use a separate external watchdog daemon, such as the aptly named `watchdog`. Although the built-in hardware watchdog support of systemd does not conflict with other watchdog software by default. systemd does not make use of `/dev/watchdog` by default, and you are welcome to use external watchdog daemons in conjunction with systemd, if this better suits your needs.
 
 `ShutdownWatchdogSec=`` is another option that can be configured in `/etc/systemd/system.conf`. It controls the watchdog interval to use during reboots. It defaults to 10min, and adds extra reliability to the system reboot logic: if a clean reboot is not possible and shutdown hangs, we rely on the watchdog hardware to reset the system abruptly, as extra safety net.
 
+## Configuring the service watchdog
 Now, let's have a look how to add watchdog logic to individual services.
 
-First of all, to make software watchdog-supervisable it needs to be patched to send out "I am alive" signals in regular intervals in its event loop. Patching this is relatively easy. First, a daemon needs to read the `WATCHDOG_USEC=` environment variable. If it is set, it will contain the watchdog interval in usec formatted as ASCII text string, as it is configured for the service. The daemon should then issue `sd_notify("WATCHDOG=1")` calls every half of that interval. A daemon patched this way should transparently support watchdog functionality by checking whether the environment variable is set and honouring the value it is set to.
+First of all, to make software watchdog-supervisable it needs to be patched to send out "I am alive" signals in regular intervals in its event loop. Patching this is relatively easy. First, a daemon needs to read the `WATCHDOG_USEC=` environment variable. If it is set, it will contain the watchdog interval in usec formatted as ASCII text string, as it is configured for the service. The daemon should then issue `sd_notify("WATCHDOG=1")` calls every half of that interval. A daemon patched this way should transparently support watchdog functionality by checking whether the environment variable is set and honoring the value it is set to.
 
 To enable the software watchdog logic for a service (which has been patched to support the logic pointed out above) it is sufficient to set the `WatchdogSec=` to the desired failure latency. See `systemd.service(5)` for details on this setting. This causes `WATCHDOG_USEC=` to be set for the service's processes and will cause the service to enter a failure state as soon as no keep-alive ping is received within the configured interval.
 
@@ -92,11 +93,17 @@ StartLimitAction=reboot-force
 
 This service will automatically be restarted if it hasn't pinged the system manager for longer than 30s or if it fails otherwise. If it is restarted this way more often than 4 times in 5min action is taken and the system quickly rebooted, with all file systems being clean when it comes up again.
 
+# Developing a watchdog 
 To write the code of the watchdog service you can follow one of these guides:
 
-- [Python based watchdog](https://sleeplessbeastie.eu/2022/08/15/how-to-create-watchdog-for-systemd-service/)
+- [Python based watchdog](#python-based-watchdog)
 - [Bash based watchdog](https://www.medo64.com/2019/01/systemd-watchdog-for-any-service/)
-# [Testing a watchdog](https://serverfault.com/questions/375220/how-to-check-what-if-hardware-watchdogs-are-available-in-linux)
+## [Python based watchdog](https://sleeplessbeastie.eu/2022/08/15/how-to-create-watchdog-for-systemd-service/)
+
+Check the steps under the [watchdog to monitor zfs](zfs.md#configure-a-watchdog) article.
+
+# Testing watchdogs
+## [Testing a hardware watchdog](https://serverfault.com/questions/375220/how-to-check-what-if-hardware-watchdogs-are-available-in-linux)
 One simple way to test a watchdog is to trigger a kernel panic. This can be done as root with:
 
 ```bash
@@ -108,10 +115,11 @@ The kernel will stop responding to the watchdog pings, so the watchdog will trig
 SysRq is a 'magical' key combo you can hit which the kernel will respond to regardless of whatever else it is doing, unless it is completely locked up. It can also be used by echoing letters to /proc/sysrq-trigger, like we're doing here.
 
 In this case, the letter c means perform a system crash and take a crashdump if configured.
-  
+# Monitoring a watchdog
+## Monitoring a software watchdog
 
+Check the steps under the [watchdog to monitor zfs](zfs.md#monitor-the-watchdog) article.
 # Troubleshooting
-
 ## Watchdog hardware is disabled error on boot
 
 According to the discussion at [the kernel mailing list](https://lore.kernel.org/linux-watchdog/20220509163304.86-1-mario.limonciello@amd.com/T/#u) it means that the system contains hardware watchdog but it has been disabled (probably by BIOS) and Linux cannot enable the hardware.
@@ -119,7 +127,6 @@ According to the discussion at [the kernel mailing list](https://lore.kernel.org
 If your BIOS doesn't have a switch to enable it, consider the watchdog hardware broken for your system.
 
 Some people are blacklisting the module so that it's not loaded and therefore it doesn't return the error ([1](https://www.reddit.com/r/openSUSE/comments/a3nmg5/watchdog_hardware_is_disabled_on_boot/), [2](https://bbs.archlinux.org/viewtopic.php?id=239075)
-
 # References
 
 - [0pointer post on systemd watchdogs](https://0pointer.de/blog/projects/watchdog.html)

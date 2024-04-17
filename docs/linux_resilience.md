@@ -1,5 +1,3 @@
-Increasing the resilience of the servers is critical when hosting services for others. This is the roadmap I'm following for my servers.
-
 # Autostart services if the system reboots
 Using init system services to manage your services
 # Get basic metrics traceability and alerts 

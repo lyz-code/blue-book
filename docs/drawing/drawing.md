@@ -214,7 +214,7 @@ Check the [ellipse exercises](exercise_pool.md#ellipses) to practice your
 skills.
 
 
-# Links
+# References
 
 * [Drawabox](https://drawabox.com)
 * [Ctrl+Paint](https://www.ctrlpaint.com/)
@@ -222,4 +222,8 @@ skills.
 ## Dive deeper
 
 * [Pool of drawing exercises](exercise_pool.md)
+
+## Books
+
+- [Drawing on the Right Side of the Brain  by Betty Edwards ](https://bookshop.org/p/books/drawing-on-the-right-side-of-the-brain-betty-edwards/16199928?ean=9781585429202&ref=https%3A%2F%2Fncase.me%2F&source=IndieBound&title=): Recommended by ncase.me
 [![](not-by-ai.svg){: .center}](https://notbyai.fyi)

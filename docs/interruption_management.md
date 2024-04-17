@@ -83,5 +83,5 @@ You can schedule the next interruption events:
 ## Process the interruption event information
 
 When an interruption event arrives, process sequentially each source
-following [the inbox emptying guidelines](task_tools.md#inbox).
+following [the inbox emptying guidelines](roadmap_tools.md#inbox).
 [![](not-by-ai.svg){: .center}](https://notbyai.fyi)

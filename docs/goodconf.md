@@ -105,6 +105,7 @@ class YamlStorage(GoodConf):
     def save(self) -> None:
         """Save the contents of the authentication store."""
         with open(self.config_file, "w+", encoding="utf-8") as file_cursor:
+
             yaml = YAML()
             yaml.default_flow_style = False
             yaml.dump(self.dict(), file_cursor)

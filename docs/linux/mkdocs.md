@@ -603,7 +603,7 @@ Once they are closed:
 - [Git](https://github.com/mkdocs/mkdocs/)
 - [Homepage](https://www.mkdocs.org/).
 - [Material theme configuration guide](https://squidfunk.github.io/mkdocs-material/getting-started/)
-
+- [Internal developers and plugin maintainers discussion forum](https://github.com/mkdocs/mkdocs-team-space/discussions)
 ## Plugin development
 
 - [User guide](https://www.mkdocs.org/user-guide/plugins/)

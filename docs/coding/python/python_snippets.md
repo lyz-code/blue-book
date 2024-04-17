@@ -4,6 +4,82 @@ date: 20200717
 author: Lyz
 ---
 
+# [Kill a process by it's PID](https://stackoverflow.com/questions/17856928/how-to-terminate-process-from-python-using-pid)
+
+```python
+import os
+import signal
+
+os.kill(pid, signal.SIGTERM) #or signal.SIGKILL 
+```
+
+# [Convert the parameter of an API get request to a valid field](https://stackoverflow.com/questions/68718960/how-to-convert-a-string-into-url-in-python)
+For example if the argument has `/`:
+
+```python
+from urllib.parse import quote 
+
+quote("value/with/slashes")
+```
+
+Will return `value%2Fwith%2Fslashes`
+# [Get the type hints of an object](https://stackoverflow.com/questions/62723766/how-to-get-type-hints-for-an-objects-attributes)
+```python
+from typing import get_type_hints
+
+Student(NamedTuple):
+    name: Annotated[str, 'some marker']
+
+get_type_hints(Student) == {'name': str}
+get_type_hints(Student, include_extras=False) == {'name': str}
+get_type_hints(Student, include_extras=True) == {
+    'name': Annotated[str, 'some marker']
+}
+````
+
+# [Type hints of a python module](https://stackoverflow.com/questions/53780735/what-is-the-type-hint-for-a-any-python-module)
+```python
+from types import ModuleType
+import os
+
+assert isinstance(os, ModuleType)
+```
+# [Get all the classes of a python module](https://stackoverflow.com/questions/1796180/how-can-i-get-a-list-of-all-classes-within-current-module-in-python)
+
+```python
+def _load_classes_from_directory(self, directory):
+    classes = []
+    for file_name in os.listdir(directory):
+        if file_name.endswith(".py") and file_name != "__init__.py":
+            module_name = os.path.splitext(file_name)[0]
+            module_path = os.path.join(directory, file_name)
+
+            # Import the module dynamically
+            spec = spec_from_file_location(module_name, module_path)
+            if spec is None or spec.loader is None:
+                raise ValueError(
+                    f"Error loading the spec of {module_name} from {module_path}"
+                )
+            module = module_from_spec(spec)
+            spec.loader.exec_module(module)
+
+            # Retrieve all classes from the module
+            module_classes = inspect.getmembers(module, inspect.isclass)
+            classes.extend(module_classes)
+```
+
+# [Import files from other directories](https://stackoverflow.com/questions/20309456/how-do-i-call-a-function-from-another-py-file)
+
+Add the directory where you have your function to `sys.path`
+
+```python
+import sys
+
+sys.path.append("**Put here the directory where you have the file with your function**")
+
+from file import function
+```
+
 # [Investigate a class attributes](https://docs.python.org/3/library/inspect.html)
 
 # [Expire the cache of the lru_cache](https://stackoverflow.com/questions/31771286/python-in-memory-cache-with-time-to-live)

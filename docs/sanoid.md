@@ -53,12 +53,31 @@ What I don't like:
 
 # Installation
 
+## Stable version
 The tool is in the official repositories so:
 
 ```bash
 sudo apt-get install sanoid
 ```
+## Latest version
 
+```bash
+cd /tmp
+git clone https://github.com/jimsalterjrs/sanoid.git
+cd sanoid
+# checkout latest stable release or stay on master for bleeding edge stuff (but expect bugs!)
+git checkout $(git tag | grep "^v" | tail -n 1)
+ln -s packages/debian .
+dpkg-buildpackage -uc -us
+sudo apt install ../sanoid_*_all.deb
+```
+
+Enable sanoid timer:
+```bash
+# enable and start the sanoid timer
+sudo systemctl enable --now sanoid.timer
+```
+# Configuration
 You can find the example config file at `/usr/share/doc/sanoid/examples/sanoid.conf` and can copy it to `/etc/sanoid/sanoid.conf`
 
 ```bash

@@ -356,6 +356,6 @@ pass_command('show', 'new_file')
 
 # References
 
-* [Docs](https://amoffat.github.io/sh/index.html)
+* [Docs](https://sh.readthedocs.io/en/latest/)
 * [Git](https://github.com/amoffat/sh)
 [![](not-by-ai.svg){: .center}](https://notbyai.fyi)

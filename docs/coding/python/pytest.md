@@ -303,7 +303,7 @@ You can also resort to record_tuples if all you want to do is to ensure that
 certain messages have been logged under a given logger name with a given
 severity and message:
 
-```python
+```pythonpytest
 def test_foo(caplog: LogCaptureFixture):
     logging.getLogger().info("boo %s", "arg")
 
