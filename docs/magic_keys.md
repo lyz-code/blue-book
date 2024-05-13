@@ -65,3 +65,4 @@ It can also be used by echoing letters to `/proc/sysrq-trigger`, for example to 
 ```bash 
 echo c > /proc/sysrq-trigger
 ```
+\n\n[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

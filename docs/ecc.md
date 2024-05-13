@@ -78,3 +78,4 @@ $: dmidecode -t memory | grep ECC
 ```
 
 You can also test it with [`rasdaemon`](rasdaemon.md)
+\n\n[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

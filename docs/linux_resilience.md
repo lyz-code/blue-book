@@ -24,3 +24,4 @@ If you're still using `ext4` for your filesystems instead of [`zfs`](zfs.md) you
 
 # Future undeveloped improvements
 - Handle the system reboots after kernel upgrades
+\n\n[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

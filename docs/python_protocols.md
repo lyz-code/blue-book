@@ -135,3 +135,4 @@ if isinstance(mug, Portable):  # Works at runtime!
 # References
 - [Mypy article on protocols](https://mypy.readthedocs.io/en/stable/protocols.html)
 - [Predefined protocols reference](https://mypy.readthedocs.io/en/stable/protocols.html#predefined-protocol-reference)
+\n\n[![](not-by-ai.svg){: .center}](https://notbyai.fyi)
