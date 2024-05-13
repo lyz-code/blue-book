@@ -390,6 +390,7 @@ There are different paths to discover actionable items:
 
   - What did you enjoy most this last month?
   - What do you want right now?
+  - What motivates you right now?
   - What worries you right now?
   - Where is your mind these days?
   - What did drain your energy or brought you down emotionally this last month?

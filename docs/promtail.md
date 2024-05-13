@@ -237,6 +237,15 @@ Promtail exposes prometheus metrics on port 80 [under the `/metrics` endpoint](h
 - `promtail_sent_entries_total`(Counter): Number of log entries sent to the ingester.
 - `promtail_targets_active_total`(Gauge): Number of total active targets.
 - `promtail_targets_failed_total`(Counter): Number of total failed targets.
+
+Once you add the target on prometheus you'll be able to monitor if the service is down. Other alerts can be:
+
+### Monitor errors when sending logs
+You can monitor this either through loki or prometheus. I feel that using loki may give you more insights. Then you can monitor it either on the promtail logs or the loki logs. After checking the traces on both sides I feel that the labels of the promtail one are cleaner.
+
+```yaml
+
+```
 # Pipeline building
 
 In [this issue](https://github.com/grafana/loki/issues/6165) there are nice examples on different pipelines.
@@ -263,6 +272,8 @@ Promtail features an embedded web server exposing a web console at `/` and the f
 Find where is the `positions.yaml` file and see if it evolves. 
 
 Sometimes if you are not seeing the logs in loki it's because the query you're running is not correct.
+
+## [Entry too far behind, oldest acceptable timestamp]
 # References
 
 - [Docs](https://grafana.com/docs/loki/latest/send-data/promtail/)

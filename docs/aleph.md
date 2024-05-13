@@ -135,7 +135,7 @@ psql postgresql://aleph@postgres/aleph
 select * from role where is_admin = 't';
 
 # If you want to make another user admin run the next command:
-UPDATE role SET is_admin = true WHERE email = 'keng@pulitzercenter.org';
+UPDATE role SET is_admin = true WHERE email = 'admin@site.org';
 ```
 
 You may also need to run `aleph update` afterwards to refresh some cached information.

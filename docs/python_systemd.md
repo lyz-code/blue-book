@@ -12,4 +12,4 @@ sudo apt install python3-systemd
 ```
 
 # References
-- [Source](https://github.com/systemd/python_systemd)
+- [Source](https://github.com/systemd/python-systemd)

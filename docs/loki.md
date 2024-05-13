@@ -271,6 +271,8 @@ More examples of alert rules can be found in the next articles:
 - [ZFS errors](zfs.md#zfs-pool-is-stuck)
 - [Sanoid errors](sanoid.md#monitorization)
 - [ZFS watchdog errors](zfs.md#monitor-the-watchdog)
+- [ZFS event errors](https://codeberg.org/lyz/zfs_events/src/branch/main/zfs_events.yaml)
+- [Linux alerts](linux.md#linux-loki-alerts)
 #### Alert when query returns no data
 
 Sometimes the queries you want to alert happen when the return value is NaN or No Data. For example if you want to monitory the happy path by setting an alert if a string is not found in some logs in a period of time.
@@ -398,6 +400,17 @@ Some key metrics to note are:
 # Troubleshooting
 - `loki_ruler_wal_prometheus_remote_storage_queue_highest_sent_timestamp_seconds`: highest timestamp of sample sent to remote storage.
 
+## [Maximum of series reached for a single query](https://github.com/grafana/loki/issues/3045)
+
+Go to the loki-local-config.yaml, then find the limits_config configuration.
+Then modify this to the limits_config:
+
+```yaml
+limits_config:
+   max_query_series: 100000
+```
+
+But probably you're doing something wrong.
 # Things that don't still work
 ## [Get a useful Source link in the alertmanager](https://github.com/grafana/loki/issues/4722)
 Currently for the ruler `external_url` if you use the URL of your Grafana installation: e.g. `external_url: "https://grafana.example.com"` it creates a Source link in alertmanager similar to https://grafana.example.com/graph?g0.expr=%28sum+by%28thing%29%28count_over_time%28%7Bnamespace%3D%22foo%22%7D+%7C+json+%7C+bar%3D%22maxRetries%22%5B5m%5D%29%29+%3E+0%29&g0.tab=1, which isn't valid.

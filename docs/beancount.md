@@ -12,7 +12,6 @@ line tool similar to `ledger`.
 ```bash
 pip3 install beancount
 ```
-
 # Tools
 
 `beancount` is the core component, it's a declarative language. It parses a text
@@ -80,7 +79,7 @@ bean-report {{ path/to/file.beancount }} accounts
 ## bean-query
 
 `bean-query` is a command-line tool that acts like a client to that in-memory
-database in which you can type queries in a variant of SQL. It has it's own
+database in which you can type [queries in a variant of SQL](bean_sql.md). It has it's own
 document
 
 ```bash
@@ -303,9 +302,7 @@ Some importer examples:
 * `bean-file` filing documents. It si able to identify which document belongs to
   which account, it can move the downloaded file to the documents archive
   automatically.
-
 # Basic concepts
-
 ## Beancount transaction
 
 ```
@@ -509,7 +506,6 @@ Any text on a line after the character `;` is ignored, text like this:
   Assets:Cash      -20 USD  ; inline comment
   Expenses:Taxi
 ```
-
 # Library usage
 
 Beancount can also be used as a Python library.
@@ -522,6 +518,24 @@ contributions](https://beancount.github.io/docs/external_contributions.html) and
 the [api reference](https://beancount.github.io/docs/api_reference/index.html).
 Although I found it more pleasant to read the source code itself as it's really
 well documented (both by docstrings and type hints).
+# Building your own dashboards
+I was wondering whether to create [fava dashboards](fava_dashboards.md) or to create them directly in [grafana](grafana.md).
+
+Pros of fava dashboards:
+- They are integrated in fava so it would be easy to browse other beancount data. Although this could be done as well in another window if I used grafana.
+- There is no need to [create the beancount grafana data source logic](https://groups.google.com/g/beancount/c/R3C9c-BPOGI).
+- It's already a working project, I would need just to tweak an existent example.
+
+Cons:
+- I may need to learn echarts and write JavaScript to tweak some of the dashboards.
+- I wouldn't have all my dashboards in the same place.
+- It only solves part of the problem, I'd still need to write the [bean-sql queries](bean_sql.md). But using beanql is probably the best way to extract data from beancount anyway.
+- It involves more magic than using grafana.
+- grafana dashboards are prettier.
+- I wouldn't use the grafana knowledge.
+- I'd learn a new tool only to use it here instead of taking the chance to improve my grafana skillset.
+ 
+I'm going to try with [fava dashboards](fava_dashboards.md) and see how it goes
 
 # References
 

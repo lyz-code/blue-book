@@ -4,6 +4,37 @@ date: 20200717
 author: Lyz
 ---
 
+# [Use Path of pathlib write_text in append mode](https://stackoverflow.com/questions/57296168/pathlib-path-write-text-in-append-mode)
+It's not supported you need to `open` it:
+
+```python
+with my_path.open("a") as f:
+    f.write("...")
+```
+# [Suppress ANN401 for dynamically typed *args and **kwargs](https://github.com/astral-sh/ruff/issues/677)
+
+Use `object` instead:
+
+```python
+def function(*args: object, **kwargs: object) -> None:
+```
+# [One liner conditional](https://stackoverflow.com/questions/2802726/putting-a-simple-if-then-else-statement-on-one-line)
+To write an if-then-else statement in Python so that it fits on one line you can use:
+
+```python
+fruit = 'Apple'
+isApple = True if fruit == 'Apple' else False
+```
+
+# [Get package data relative path](https://stackoverflow.com/questions/1011337/relative-file-paths-in-python-packages)
+
+If you want to reference files from the foo/package1/resources folder you would want to use the __file__ variable of the module. Inside foo/package1/__init__.py:
+
+```python
+from os import path
+resources_dir = path.join(path.dirname(__file__), 'resources')
+```
+
 # [Kill a process by it's PID](https://stackoverflow.com/questions/17856928/how-to-terminate-process-from-python-using-pid)
 
 ```python
@@ -1264,6 +1295,8 @@ from dateutil import parser
 
 parser.parse("Aug 28 1999 12:00AM")  # datetime.datetime(1999, 8, 28, 0, 0)
 ```
+
+If you're using ambiguous date such as `03/05/24` and want the `3` to be the day and not the month use `parser.parse("03/05/24", dayfirst=True)`.
 
 If you don't want to use `dateutil` use `datetime`
 

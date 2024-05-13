@@ -63,7 +63,12 @@ nav:
         - Food Management: food_management.md
         - Stock Management:
           - Grocy: grocy_management.md
-        - Money Management: money_management.md
+        - Money Management: 
+          - money_management.md
+          - beancount: 
+            - beancount.md
+            - bean-sql: bean_sql.md
+            - Fava Dashboards: fava_dashboards.md
         - Tools Management:
           - tool_management.md
           - Email Management:
@@ -169,6 +174,7 @@ nav:
                       - Pydantic Factories: pydantic_factories.md
                       - Pydantic Mypy Plugin: coding/python/pydantic_mypy_plugin.md
                   - Pypika: coding/python/pypika.md
+                  - psycopg2: psycopg2.md
                   - Elasticsearch: python_elasticsearch.md
                   - python-gnupg: python_gnupg.md
                   - Python Mysql: python_mysql.md
@@ -500,7 +506,6 @@ nav:
           - aleph: aleph.md
           - alot: alot.md
           - ActivityWatch: activitywatch.md
-          - beancount: beancount.md
           - Beets: beets.md
           - Bookwyrm: bookwyrm.md
           - brew: linux/brew.md
@@ -561,6 +566,7 @@ nav:
               - torrents.md
               - qBittorrent: qbittorrent.md
               - Rtorrent: rtorrent.md
+              - Unpackerr: unpackerr.md
           - Tahoe-LAFS: tahoe.md
           - vdirsyncer: vdirsyncer.md
           - Wake on Lan: wake_on_lan.md

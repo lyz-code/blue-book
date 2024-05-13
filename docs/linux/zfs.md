@@ -85,6 +85,31 @@ zpool get all {{ pool_name }}
 zfs get all {{ pool_name }}
 ```
 
+## [Set zfs module parameters or options](https://openzfs.github.io/openzfs-docs/Performance%20and%20Tuning/Module%20Parameters.html)
+Most of the ZFS kernel module parameters are accessible in the SysFS `/sys/module/zfs/parameters` directory. Current values can be observed by
+
+```bash
+cat /sys/module/zfs/parameters/PARAMETER
+```
+
+Many of these can be changed by writing new values. These are denoted by Change|Dynamic in the PARAMETER details below.
+
+```bash
+echo NEWVALUE >> /sys/module/zfs/parameters/PARAMETER
+```
+
+If the parameter is not dynamically adjustable, an error can occur and the value will not be set. It can be helpful to check the permissions for the `PARAMETER` file in SysFS.
+
+In some cases, the parameter must be set prior to loading the kernel modules or it is desired to have the parameters set automatically at boot time. For many distros, this can be accomplished by creating a file named `/etc/modprobe.d/zfs.conf` containing a text line for each module parameter using the format:
+
+```bash
+# change PARAMETER for workload XZY to solve problem PROBLEM_DESCRIPTION
+# changed by YOUR_NAME on DATE
+options zfs PARAMETER=VALUE
+```
+
+Some parameters related to ZFS operations are located in module parameters other than in the zfs kernel module. These are documented in the individual parameter description. Unless otherwise noted, the tunable applies to the zfs kernel module. For example, the `icp` kernel module parameters are visible in the `/sys/module/icp/parameters` directory and can be set by default at boot time by changing the `/etc/modprobe.d/icp.conf` file.
+
 ## [Get compress ratio of a filesystem](https://www.sotechdesign.com.au/zfs-how-to-check-compression-efficiency/)
 
 ```bash
@@ -657,6 +682,8 @@ To permanently mount it you need to add it to your `/etc/fstab`, check [this sec
   ```ini 
   [Unit]
   Description=ZFS watchdog
+  Requires=zfs.target
+  After=zfs.target
 
   [Service]
   ExecStart=/usr/bin/zfs_watchdog.py
@@ -667,6 +694,9 @@ To permanently mount it you need to add it to your `/etc/fstab`, check [this sec
   StartLimitBurst=4
   StartLimitAction=reboot
   Environment="ZFS_FILE_CHECK_PATH=/path/to/your/mountpoint/zfs_test"
+
+  [Install]
+  WantedBy=multi-user.target
   ```
 
   If you're debugging still the script use `StartLimitAction=` instead so that you don't get unexpected reboots.
@@ -706,6 +736,17 @@ groups:
         annotations:
           summary: "The server {{ $labels.hostname}} is being rebooted by the ZFS watchdog"
 ```
+
+## Configure the deadman failsafe measure
+ZFS has a safety measure called the [zfs_deadman_failmode](https://openzfs.github.io/openzfs-docs/man/master/4/zfs.4.html#zfs_deadman_enabled). When a pool sync operation takes longer than `zfs_deadman_synctime_ms`, or when an individual I/O operation takes longer than `zfs_deadman_ziotime_ms`, then the operation is considered to be "hung". If `zfs_deadman_enabled` is set, then the deadman behavior is invoked as described by `zfs_deadman_failmode`. By default, the deadman is enabled and set to wait which results in "hung" I/O operations only being logged. The deadman is automatically disabled when a pool gets suspended.
+
+`zfs_deadman_failmode` configuration can have the next values:
+
+- `wait`: Wait for a "hung" operation to complete. For each "hung" operation a "deadman" event will be posted describing that operation.
+- `continue`: Attempt to recover from a "hung" operation by re-dispatching it to the I/O pipeline if possible.
+- `panic`: Panic the system. This can be used to facilitate automatic fail-over to a properly configured fail-over partner.
+
+Follow the guides under [Set zfs module parameters or options](#set-zfs-module-parameters-or-options) to change this value.
 # Backup
 
 Please remember that [RAID is not a backup](https://serverfault.com/questions/2888/why-is-raid-not-a-backup), it guards against one kind of hardware failure. There's lots of failure modes that it doesn't guard against though:
@@ -852,9 +893,11 @@ To do it:
   ```bash
   zpool create cold-backup-01 /dev/sde2
   ```
-
 # Monitorization
 
+## Monitor the ZFS events
+You can see the ZFS events using `zpool events -v`. If you want to be alerted on these events you can use [this service](https://codeberg.org/lyz/zfs_events) to ingest them into Loki and raise alerts.
+## Monitor the `dbgmsg` file
 If you use [loki](loki.md) remember to monitor the `/proc/spl/kstat/zfs/dbgmsg` file:
 
 ```yaml
@@ -899,7 +942,7 @@ groups:
           message: "This usually happens before the ZFS becomes unresponsible"
 ```
 
-And to patch it you can use a [software watchdog that reproduces the error](#configure-a-watchdog) and automatically resets the server 
+And to patch it you can use a [software watchdog that reproduces the error](#configure-a-watchdog) and automatically resets the server. Another patch can be to [Configure the deadman failsafe measure](#configure-the-deadman-failsafe-measure) to `panic`.
 
 ## [kernel NULL pointer dereference in zap_lockdir](https://github.com/openzfs/zfs/issues/11804)
 

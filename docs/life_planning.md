@@ -61,14 +61,17 @@ Create the month objectives in your roadmap file after addressing each element o
 - The trimester objectives of your roadmap.
   - You can add notes on the trimester objectives 
 
+Then reorder the objectives in order of priority.
+
 ## Decide the next steps
 
 - For each of your month objectives:
   - Decide whether it makes sense to address it this month. If not, archive it
   - Create a clear plan of action for this month on that objective
+
 - Tweak your week distribution 
   - Check your calendar to see how many free days you have.
-  - Taking into account the month objectives select the are you want to focus on in each week day.
+  - Taking into account the month objectives select what do you want to focus on in each week day.
   - Document the week distribution in your roadmap document and make it visible in your weekly planning process.
 
 - Refine the roadmap of each of the selected areas (maybe for the trimestral? too soon to do it in the monthly planning IMHO) 

@@ -4,6 +4,14 @@ date: 20200826
 author: Lyz
 ---
 
+# [Clean the logs of a unit of the journal](https://stackoverflow.com/questions/36718019/journalctl-remove-logs-of-a-specific-unit)
+
+```bash
+journalctl --vacuum-time=1s --unit=your.service
+
+```
+
+If you wish to clear all logs use `journalctl --vacuum-time=1s`
 # [Send logs of a cronjob to journal](https://stackoverflow.com/questions/52200878/crontab-journalctl-extra-messages)
 You can use `systemd-cat` to send the logs of a script or cron to the journal to the unit specified after the `-t` flag. It works better than piping the output to `logger -t`
 ```bash

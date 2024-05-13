@@ -306,6 +306,51 @@ time_intervals:
             end_time: 07:00
 ```
 
+
+The values of `time_intervals` can be:
+
+```yaml
+- times:
+  [ - <time_range> ...]
+  weekdays:
+  [ - <weekday_range> ...]
+  days_of_month:
+  [ - <days_of_month_range> ...]
+  months:
+  [ - <month_range> ...]
+  years:
+  [ - <year_range> ...]
+  location: <string>
+```
+
+All fields are lists. Within each non-empty list, at least one element must be satisfied to match the field. If a field is left unspecified, any value will match the field. For an instant of time to match a complete time interval, all fields must match. Some fields support ranges and negative indices, and are detailed below. If a time zone is not specified, then the times are taken to be in UTC.
+
+- `time_range`: Ranges inclusive of the starting time and exclusive of the end time to make it easy to represent times that start/end on hour boundaries. For example, `start_time: '17:00'` and `end_time: '24:00'` will begin at 17:00 and finish immediately before 24:00. They are specified like so:
+  ```yaml
+  times:
+  - start_time: HH:MM
+    end_time: HH:MM
+  ```
+
+- `weekday_range`: A list of days of the week, where the week begins on Sunday and ends on Saturday. Days should be specified by name (e.g. 'Sunday'). For convenience, ranges are also accepted of the form `<start_day>:<end_day>` and are inclusive on both ends. For example: `['monday:wednesday','saturday', 'sunday']`
+
+- `days_of_month_range`: A list of numerical days in the month. Days begin at `1`. Negative values are also accepted which begin at the end of the month, e.g. `-1` during January would represent January 31. For example: `['1:5', '-3:-1']`. Extending past the start or end of the month will cause it to be clamped. E.g. specifying `['1:31']` during February will clamp the actual end date to 28 or 29 depending on leap years. Inclusive on both ends.
+
+- `month_range`: A list of calendar months identified by a case-insensitive name (e.g. 'January') or by number, where `January = 1`. Ranges are also accepted. For example, `['1:3', 'may:august', 'december']`. Inclusive on both ends.
+
+- `year_range`: A numerical list of years. Ranges are accepted. For example, `['2020:2022', '2030']`. Inclusive on both ends.
+
+- `location`: A string that matches a location in the IANA time zone database. For example, `'Australia/Sydney'`. The location provides the time zone for the time interval. For example, a time interval with a location of `'Australia/Sydney'` that contained something like:
+
+  ```yaml
+  times:
+  - start_time: 09:00
+    end_time: 17:00
+  weekdays: ['monday:friday']
+  ```
+
+  Would include any time that fell between the hours of 9:00AM and 5:00PM, between Monday and Friday, using the local time in Sydney, Australia. You may also use `'Local'` as a location to use the local time of the machine where Alertmanager is running, or `'UTC'` for UTC time. If no timezone is provided, the time interval is taken to be in UTC.
+
 If that doesn't work for you, you can use the [sleep peacefully guidelines](https://samber.github.io/awesome-prometheus-alerts/sleep-peacefully) to tackle it at query level.
 
 ## Alert rules

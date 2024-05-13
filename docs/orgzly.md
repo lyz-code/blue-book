@@ -21,7 +21,8 @@ Other interesting solutions:
 
 - [org-orgzly](https://codeberg.org/anoduck/org-orgzly): Script to parse a chosen org file or files, check if an entry meets required parameters, and if it does, write the entry in a new file located inside the folder you desire to sync with orgzly.
 - [Git synchronization](https://github.com/orgzly/orgzly-android/issues/24): I find it more cumbersome than syncthing but maybe it's interesting for you.
-
+## [Both local and remote notebook have been modified](https://github.com/orgzly/orgzly-android/issues/35)
+You can force load or force save a single note with a long tap.
 # References
 
 - [Docs](https://orgzly.com/docs)

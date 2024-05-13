@@ -37,6 +37,16 @@ This query will:
 
 `journald` promtail parser is known to fail between upgrades, it's useful too to make an alert to make sure that all your hosts are sending the traces. You can do it with: `sum(count by(host) (rate({job="systemd-journal"} [24h])) > bool 0)`
 
+## [Compare the values of a metric with the past](https://grafana.com/docs/loki/latest/query/metric_queries/#offset-modifier)
+The offset modifier allows changing the time offset for individual range vectors in a query.
+
+For example, the following expression counts all the logs within the last ten minutes to five minutes rather than last five minutes for the MySQL job. Note that the offset modifier always needs to follow the range vector selector immediately.
+
+```logql
+count_over_time({job="mysql"}[5m] offset 5m) // GOOD
+count_over_time({job="mysql"}[5m]) offset 5m // INVALID
+```
+
 # References
 
 - [Docs](https://grafana.com/docs/loki/latest/logql/)

@@ -442,7 +442,7 @@ As it reacts to all events it will build and push:
 
           - name: Push changes
             run: |
-              git remote add ssh git@gitea-production.cloud.icij.org:templates/ansible-role.git
+              git remote add ssh git@gitea.org:templates/ansible-role.git
               git pull ssh main
               git push ssh main
               git push ssh --tags

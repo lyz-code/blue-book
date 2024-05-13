@@ -1,5 +1,6 @@
 [Gotify](https://github.com/gotify/server) is a simple server for sending and receiving messages in real-time per WebSocket. 
 
+# [Installation](https://gotify.net/docs/install)
 # Not there yet
 
 - [Reactions on the notifications](https://github.com/gotify/server/issues/494)

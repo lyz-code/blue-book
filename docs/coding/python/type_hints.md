@@ -161,20 +161,22 @@ the heterogeneous, structure-oriented use of dictionaries. As of Python 3.8, it
 was adopted into the standard library.
 
 ```python
-try:
-    from typing import TypedDict  # >=3.8
-except ImportError:
-    from mypy_extensions import TypedDict  # <=3.7
+from typing import TypedDict 
 
 Movie = TypedDict('Movie', {'name': str, 'year': int})
 ```
 
 A class-based type constructor is also available:
-
 ```python
+
 class Movie(TypedDict):
     name: str
     year: int
+
+movie: Movie = {
+  'name': 'Blade Runner',
+  'year': 1982
+}
 ```
 
 By default, all keys must be present in a `TypedDict`. It is possible to override

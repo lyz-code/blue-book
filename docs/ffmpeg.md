@@ -278,6 +278,9 @@ Additional options that might be worth considering is setting the Constant Rate 
 ```bash
 ffmpeg -i input.mp4 -vcodec libx264 -crf 20 output.mp4
 ```
+### Reduce a video to a defined size 
+
+There is no way to tell `ffmpeg` that you want to convert a video to a defined size (64MB) you'd need to play with the resize factors explained above until you have your desired size.
 # Presentation
 
 ## Create video slideshow from images
