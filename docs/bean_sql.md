@@ -20,3 +20,6 @@ It will return the quarter in the format `YYYY-QX`.
 # References
 - [Docs](https://beancount.github.io/docs/beancount_query_language.html#introduction)
 - [Examples](https://aumayr.github.io/beancount-sql-queries/)
+
+
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

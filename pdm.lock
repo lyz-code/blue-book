@@ -252,15 +252,6 @@ files = [
 ]
 
 [[package]]
-name = "future"
-version = "0.18.2"
-requires_python = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
-summary = "Clean single-source support for Python 3 and 2"
-files = [
-    {file = "future-0.18.2.tar.gz", hash = "sha256:b1bead90b70cf6ec3f0710ae53a525360fa360d306a86583adc6bf83a4db537d"},
-]
-
-[[package]]
 name = "ghp-import"
 version = "2.1.0"
 summary = "Copy your docs directly to the gh-pages branch."
@@ -568,7 +559,7 @@ files = [
 
 [[package]]
 name = "mkdocs-material"
-version = "9.5.22"
+version = "9.5.25"
 requires_python = ">=3.8"
 summary = "Documentation that simply works"
 dependencies = [
@@ -585,8 +576,8 @@ dependencies = [
     "requests~=2.26",
 ]
 files = [
-    {file = "mkdocs_material-9.5.22-py3-none-any.whl", hash = "sha256:8c7a377d323567934e6cd46915e64dc209efceaec0dec1cf2202184f5649862c"},
-    {file = "mkdocs_material-9.5.22.tar.gz", hash = "sha256:22a853a456ae8c581c4628159574d6fc7c71b2c7569dc9c3a82cc70432219599"},
+    {file = "mkdocs_material-9.5.25-py3-none-any.whl", hash = "sha256:68fdab047a0b9bfbefe79ce267e8a7daaf5128bcf7867065fcd201ee335fece1"},
+    {file = "mkdocs_material-9.5.25.tar.gz", hash = "sha256:d0662561efb725b712207e0ee01f035ca15633f29a64628e24f01ec99d7078f4"},
 ]
 
 [[package]]
@@ -723,17 +714,15 @@ files = [
 
 [[package]]
 name = "proselint"
-version = "0.13.0"
-requires_python = ">=3.6.1,<4.0.0"
+version = "0.14.0"
+requires_python = "<4.0.0,>=3.8.1"
 summary = "A linter for prose."
 dependencies = [
     "click<9.0.0,>=8.0.0",
-    "future<0.19.0,>=0.18.2",
-    "six<2.0.0,>=1.15.0",
 ]
 files = [
-    {file = "proselint-0.13.0-py3-none-any.whl", hash = "sha256:5799a26c79e52aed18a1b7671f74381c035b3f62a565b478306298fb134c80c4"},
-    {file = "proselint-0.13.0.tar.gz", hash = "sha256:7dd2b63cc2aa390877c4144fcd3c80706817e860b017f04882fbcd2ab0852a58"},
+    {file = "proselint-0.14.0-py3-none-any.whl", hash = "sha256:f003f5558af7034d1fd39157afd1bf22509d2ccb48ce1aaad1fa58959c15679f"},
+    {file = "proselint-0.14.0.tar.gz", hash = "sha256:624964272bea14767e5df2561d87dd30767938c8cb52fb23585bc37580680e86"},
 ]
 
 [[package]]

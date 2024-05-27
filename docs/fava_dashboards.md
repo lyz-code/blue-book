@@ -254,3 +254,6 @@ Add `console.log` strings in the javascript code to debug it.
 
 - [Fava Portfolio returns](https://github.com/andreasgerstmayr/fava-portfolio-returns)
 - [Fava investor](https://github.com/andreasgerstmayr/fava-portfolio-returns)
+
+
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)
