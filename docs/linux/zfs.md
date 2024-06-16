@@ -141,7 +141,7 @@ In this example, the `maybee` file system is relocated from `tank/home` to `tank
 
 The rename operation attempts an unmount/remount sequence for the file system and any descendent file systems. The rename command fails if the operation is unable to unmount an active file system. If this problem occurs, you must forcibly unmount the file system.
 
-You'll loose the snapshots though, as explained below.
+You'll lose the snapshots though, as explained below.
 
 ### [Rename the topmost dataset](https://www.solaris-cookbook.eu/solaris/solaris-zpool-rename/)
 
@@ -869,7 +869,7 @@ The following table summarizes the file or directory changes that are identified
 
 ## Create a cold backup of a series of datasets
 
-If you've used the `-o keyformat=raw -o keylocation=file:///etc/zfs/keys/home.key` arguments to encrypt your datasets you can't use a `keyformat=passphase` encryption on the cold storage device. You need to copy those keys on the disk. One way of doing it is to:
+If you've used the `-o keyformat=raw -o keylocation=file:///etc/zfs/keys/home.key` arguments to encrypt your datasets you can't use a `keyformat=passphrase` encryption on the cold storage device. You need to copy those keys on the disk. One way of doing it is to:
 
 - Create a 100M LUKS partition protected with a passphrase where you store the keys.
   
