@@ -543,7 +543,7 @@ datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%S")
 | %S   | Second as a zero-padded decimal number. 05                                                                                                                                           |
 | %-S  | Second as a decimal number. (Platform specific) 5                                                                                                                                    |
 | %f   | Microsecond as a decimal number, zero-padded on the left. 000000                                                                                                                     |
-| %z   | UTC offset in the form +HHMM or -HHMM (empty string if the the object is naive).                                                                                                     |
+| %z   | UTC offset in the form +HHMM or -HHMM (empty string if the object is naive).                                                                                                     |
 | %Z   | Time zone name (empty string if the object is naive).                                                                                                                                |
 | %j   | Day of the year as a zero-padded decimal number.  273                                                                                                                                |
 | %-j  | Day of the year as a decimal number. (Platform specific)  273                                                                                                                        |
