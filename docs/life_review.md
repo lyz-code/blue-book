@@ -7,61 +7,7 @@ author: Lyz
 
 # Type of reviews
 
-# Trimester review
 
-The objectives of the trimester review are:
-
-- Review the previous trimester tactics 
-- Identify the areas to focus on for the trimester
-- Identify the tactics you want to use on those areas.
-
-The objectives are not:
-
-- To review what you've done or why you didn't get there.
-
-## When to do the trimester reviews
-
-As with [month reviews](#month-review), it's interesting to do analysis at representative moments. It gives it an emotional weight. You can for example use the solstices or my personal version of the solstices:
-
-- Spring analysis (1st of March): For me the spring is the real start of the year, it's when life explodes after the stillness of the winter. The sun starts to set later enough so that you have light in the afternoons, the climate gets warmer thus inviting you to be more outside, the nature is blooming new leaves and flowers. It is then a moment to build new projects and set the current year on track. 
-
-- Summer analysis (1st of June): I hate heat, so summer is a moment of retreat. Everyone temporarily stop their lives, we go on holidays and all social projects slow their pace. Even the news have even less interesting things to report. It's so hot outside that some of us seek the cold refuge of home or remote holiday places. Days are long and people love to hang out till late, so usually you wake up later, thus having less time to actually do stuff. Even in the moments when you are alone the heat drains your energy to be productive. It is then a moment to relax and gather forces for the next trimester. It's also perfect to develop *easy* and *chill* personal projects that have been forgotten in a drawer. Lower your expectations and just flow with what your body asks you.
-
-- Autumn analysis (1st of September): September it's another key moment for many people. We have it hardcoded in our life since we were children as it was the start of school. People feel energized after the summer holidays and are eager to get back to their lives and stopped projects. You're already 6 months into the year, so it's a good moment to review your year plan and decide how you want to invest your energy reserves.
-
-- Winter analysis (1st of December): December is the cue that the year is coming to an end. The days grow shorter and colder, they basically invite you to enjoy a cup of tea under a blanket. It is then a good time to get into your cave and do an introspection analysis on the whole year and prepare the ground for the coming year. Some of the goals of this season are:
-  - Think everything you need to guarantee a good, solid and powerful spring start.
-  - Do the year review to adjust your principles.
-
-The year is then divided in two sets of an expansion trimester and a retreat one. We can use this information to adjust our life plan accordingly. In the expansion trimester we could invest more energies in the planning, and in the retreat ones we can do more throughout reviews.
-
-## Trimester review tools
-
-With a new level of abstraction we need tools:
-
-- [Area documents](time_management_abstraction_levels.md#areas).
-- [The life path document](time_management_abstraction_levels.md#life-path).
-- The notes gathered throughout the last days on the thoughts about the trimester (probably in `think.org`).
-## Trimester review phases
-
-We'll divide the review process in these phases:
-
-- Prepare
-- Discover
-- Analyze
-- Decide
-
-### Trimester prepare
-
-The trimester review requires an analysis that doesn't fill in a day session. It requires slow thinking over some time. So I'm creating a task 10 days before the actual review to start thinking about the next trimester. Whether it's ideas, plans, desires, objectives, or principles.
-
-Is useful for that document to be available wherever you go, so that in any spare time you can pop it up and continue with the train of thought. 
-
-Doing the reflection without seeing your life path prevents you from being tainted by it, thus representing the real you of right now. 
-
-On the day to actually do the review, follow the steps of the [Month review prepare](#month-prepare) adjusting them to the trimester case.
-### Trimester discover
-If you've followed the prepare steps, you've already been making up your mind on what do you want the next trimester to look like. Now it's the time to refine those thoughts.
 #### Define the areas' objectives
 I've had a hard time choosing how must those objectives be defined. Should they be generic? or would it be better for them to be concrete and measurable?
 
@@ -200,4 +146,5 @@ Follow the
 
 With the analysis of what I've read I research for new books and create an
 ordered list per genre.
+
 [![](not-by-ai.svg){: .center}](https://notbyai.fyi)

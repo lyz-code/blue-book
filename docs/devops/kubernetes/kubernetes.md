@@ -61,9 +61,7 @@ now](https://github.com/ramitsurana/awesome-kubernetes#starting-point):
 
 # [Tools to test](https://filippobuletto.github.io/kubernetes-toolbox/)
 
-* [Velero](https://velero.io/): To backup and migrate Kubernetes resources and
-    persistent volumes.
-
+* [stakater/reloader](https://github.com/stakater/Reloader): A Kubernetes controller to watch changes in ConfigMap and Secrets and do rolling upgrades on Pods with their associated Deployment, StatefulSet, DaemonSet and DeploymentConfig. Useful for not that clever applications that need a reboot when a configmap changes.
 * [Popeye](https://github.com/derailed/popeye) is a utility that scans live
     Kubernetes cluster and reports potential issues with deployed resources and
     configurations. It sanitizes your cluster based on what's deployed and not

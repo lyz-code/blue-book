@@ -3,7 +3,6 @@
 Unlike other logging systems, Loki is built around the idea of only indexing metadata about your logs: labels (just like Prometheus labels). Log data itself is then compressed and stored in chunks in object stores such as Amazon Simple Storage Service (S3) or Google Cloud Storage (GCS), or even locally on the filesystem.
 
 A small index and highly compressed chunks simplifies the operation and significantly lowers the cost of Loki.
-
 # [Installation](https://grafana.com/docs/loki/latest/setup/install/docker/)
 
 There are [many ways to install Loki](https://grafana.com/docs/loki/latest/setup/install/), we're going to do it using `docker-compose` taking [their example as a starting point](https://raw.githubusercontent.com/grafana/loki/v2.9.1/production/docker-compose.yaml) and complementing our already existent [grafana docker-compose](grafana.md#installation). It uses [the official loki docker](https://hub.docker.com/r/grafana/loki)
@@ -285,6 +284,23 @@ This won't trigger the alert because the `count_over_time` doesn't return a `0` 
 ```logql
 (count_over_time({filename="/var/log/mail.log"} |= `Mail is sent` [24h]) or on() vector(0)) < 1
 ```
+
+If you're doing an aggregation over a label this approach won't work because it will add a new time series with value 0. In those cases use a broader search that includes other logs from the label you're trying to aggregate and multiply it by 0. For example:
+
+```logql
+(
+sum by (hostname) (
+  count_over_time({job="systemd-journal", syslog_identifier="sanoid"}[1h])
+)
+or 
+sum by (hostname) (
+  count_over_time({job="systemd-journal"}[1h]) * 0
+)
+) < 1
+```
+
+The first part of the query returns all log lines of the service `sanoid` for each `hostname`. If one hostname were not to return any line that query alone won't show anything for that host. The second part of the query counts all the log lines of each `hostname`, so if it's up it will probably be sending at least one line per hour. As we're not interested in those number of lines we multiply it by 0, so that the target is shown. 
+
 ### Recording rules
 Recording rules allow you to precompute frequently needed or computationally expensive expressions and save their result as a new set of time series.
 
@@ -319,6 +335,30 @@ ruler:
       url: http://localhost:9090/api/v1/write
 ```
 ## [Build dashboards](https://grafana.com/blog/2020/04/08/loki-quick-tip-how-to-create-a-grafana-dashboard-for-searching-logs-using-loki-and-prometheus/)
+# Usage
+## Interact with loki through python
+
+There is [no client library for python](https://community.grafana.com/t/how-could-i-pull-loki-records-from-a-python-script/111483/4) ([1](https://stackoverflow.com/questions/75056462/querying-loki-logs-using-python), [2](https://stackoverflow.com/questions/75056462/querying-loki-logs-using-python)) they suggest to interact with the [API](https://grafana.com/docs/loki/latest/reference/loki-http-api/) with `requests`. Although I'd rather use [`logcli`](logcli.md) with the [`sh`](python_sh.md) library.
+## [Download the logs](https://github.com/grafana/loki/issues/409)
+
+The web UI only allows you to download the logs that are loaded in the view, if you want to download big amounts of logs you need to either use [`logcli`](logcli.md) or interact with the [API](https://grafana.com/docs/loki/latest/reference/loki-http-api/).
+
+One user did a query on loop:
+
+```bash
+#!/bin/bash
+
+set -x
+
+JOB_ID=9079dc54-2f5c-4d74-a9aa-1d9eb39dd3c2
+
+for I in `seq 0 655`; do
+    FILE=logs_$I.txt
+    ID="$JOB_ID:$I"
+    QUERY="{aws_job_id=\"$ID\",job=\"varlogs\"}"
+    docker run grafana/logcli:main-1b6d0bf-amd64 --addr=http://localhost:3100/ -o raw -q query $QUERY --limit 100000 --batch 100 --forward --from "2022-09-25T10:00:00Z" > $FILE
+done
+```
 # Monitoring
 ## Monitor loki metrics
 Since Loki reuses the Prometheus code for recording rules and WALs, it also gains all of Prometheus’ observability.
@@ -396,7 +436,6 @@ Some key metrics to note are:
 - `loki_ruler_wal_prometheus_remote_storage_samples_dropped_total`: samples dropped by relabel configurations
 - `loki_ruler_wal_prometheus_remote_storage_samples_retried_total`: samples re-resent to remote storage
 - `loki_ruler_wal_prometheus_remote_storage_highest_timestamp_in_seconds`: highest timestamp of sample appended to WAL
-
 # Troubleshooting
 - `loki_ruler_wal_prometheus_remote_storage_queue_highest_sent_timestamp_seconds`: highest timestamp of sample sent to remote storage.
 

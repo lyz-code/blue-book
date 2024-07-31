@@ -350,6 +350,11 @@ If you create a git repository where you have your calendars you can do a `git
 diff` and see the files that have changed. If you do a commit after each sync
 you can have all the history.
 
+# Troubleshooting
+
+## [Database is locked](https://github.com/pimutils/vdirsyncer/issues/720)
+First try to kill all stray vdirsyncer processes, if that doesn't work check for more solutions in [this issue](https://github.com/pimutils/vdirsyncer/issues/720)
+
 # References
 
 * [Docs](https://vdirsyncer.pimutils.org/en/stable/)

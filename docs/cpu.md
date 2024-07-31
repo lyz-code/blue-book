@@ -286,6 +286,7 @@ When installing an AM4 CPU in the motherboard, rotate the CPU so that the small
 arrow on one of the corners of the chip matches the arrow on the corner of the
 motherboard socket.
 
+# Load test
 # References
 
 * [Tom's hardware CPU guide](https://www.tomshardware.com/reviews/cpu-buying-guide,5643.html)

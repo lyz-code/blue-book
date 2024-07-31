@@ -53,6 +53,9 @@ To be able to make a good decision on your month's path you need to sort out whi
 
 - Clean your inbox: If it's feasible in a short period of time refile each item until it's empty otherwise quickly overview it to see if there is any thing that needs to be addressed this month.
 - Clean your todo: Review each todo element by deciding if they should still be in the todo. If they do and they belong to a month objective, add it. If they don't need to be in the todo, refile it.
+- Clean your agenda and get an feeling of the busyness of the month: 
+  - Open the orgmode month view agenda and clean it
+  - Read the rest of your calendars
 ## Decide the month objectives
 
 Create the month objectives in your roadmap file after addressing each element of:
@@ -61,21 +64,25 @@ Create the month objectives in your roadmap file after addressing each element o
 - The trimester objectives of your roadmap.
   - You can add notes on the trimester objectives 
 
-Then reorder the objectives in order of priority.
+Then reorder the objectives in order of priority. Try to have at least one objective that improves your life.
 
 ## Decide the next steps
 
-- For each of your month objectives:
-  - Decide whether it makes sense to address it this month. If not, archive it
-  - Create a clear plan of action for this month on that objective
+- For each of your month and trimester objectives:
+  - Decide whether it makes sense to address it this month. If not, mark it as inactive
+  - Create a clear plan of action for this month on that objective. 
+    - Reorder the projects as needed 
+    - Mark as INACTIVE the ones that you don't feel need to be focused on this month.
 
 - Tweak your week distribution 
   - Check your calendar to see how many free days you have.
   - Taking into account the month objectives select what do you want to focus on in each week day.
   - Document the week distribution in your roadmap document and make it visible in your weekly planning process.
 
-- Refine the roadmap of each of the selected areas (maybe for the trimestral? too soon to do it in the monthly planning IMHO) 
+- Refine the roadmap of each of the selected areas (change this to the trimestral planning) 
 - Define the todo of each device (mobile, tablet, laptop)
+- Select at least one coding project in case you enter in programming mode
+- Clean your mobile browser tabs
 - Tweak your *things to think about list*.
 - Tweak your *investigations list*.
 - Tweak your *reading list*.
@@ -90,18 +97,5 @@ Then reorder the objectives in order of priority.
   - The think document
   - The investigate document
   - The learn document
-# Trimester plan
 
-The objectives of the trimester plan are to adjust your life path to meet the semester plan:
-
-- Define the trimester direction:
-  - Refine all area documents
-    - Clean the roadmaps without priority change
-    - Refine the area objectives
-  - Review the trimester review document
-  - Define the trimester objectives
-
-# References
-
-- [Pomodoro article](https://en.wikipedia.org/wiki/Pomodoro_Technique).
 [![](not-by-ai.svg){: .center}](https://notbyai.fyi)

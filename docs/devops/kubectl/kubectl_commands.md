@@ -462,6 +462,11 @@ kubectl top pod {{ pod_name }} --containers
 ```bash
 kubectl cp {{ container_id }}:{{ path_to_file }} {{ path_to_local_file }}
 ```
+## Upload a file to a pod
+
+```bash
+kubectl cp {{ path_to_local_file }} {{ container_id }}:{{ path_to_file }}
+```
 
 # Scaling resources
 

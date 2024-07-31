@@ -374,6 +374,13 @@ To specify the version of a plugin, add the version number to the `GF_INSTALL_PL
 
 To install a plugin from a custom URL, use the following convention to specify the URL: `<url to plugin zip>;<plugin install folder name>`. For example: `GF_INSTALL_PLUGINS=https://github.com/VolkovLabs/custom-plugin.zip;custom-plugin`.
 
+# Usage
+## [Copy panels between dashboards](https://community.grafana.com/t/copy-panel-between-dasboards/13014/4)
+
+On each panel on the top right you can select `copy`, then on the menu to add a new panel you can click on `Paste panel from clipboard`.
+
+So far you [can't do this for rows](https://github.com/grafana/grafana/issues/23762).
+
 # References
 
 - [Home](https://grafana.com/grafana)

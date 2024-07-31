@@ -4,6 +4,24 @@ date: 20220827
 author: Lyz
 ---
 
+# [Fix docker error: KeyError ContainerConfig](https://askubuntu.com/questions/1508129/docker-compose-giving-containerconfig-errors-after-update-today)
+You need to run `docker-compose down` and then up again.
+# [Set static ip with nmcli](https://www.clearlinux.org/clear-linux-documentation/guides/network/assign-static-ip.html)
+```bash
+nmcli con mod "your-ssid" ipv4.addresses 
+  ipv4.method "manual" \
+  ipv4.addresses "your_desired_ip" \
+  ipv4.gateway "your_desired_gateway" \
+  ipv4.dns "1.1.1.1,2.2.2.2" \ 
+  ipv4.routes "192.168.32.0 0.0.0.0" \
+```
+
+The last one is to be able to connect to your LAN, change the value accordingly.
+# [Fix unbound variable error](https://unix.stackexchange.com/questions/463034/bash-throws-error-line-8-1-unbound-variable)
+You can check if the variable is set and non-empty with:
+```bash
+[ -n "${myvariable-}" ] 
+```
 # [Do relative import of a bash library](https://code-maven.com/bash-shell-relative-path)
 If you want to import a file `lib.sh` that lives in the same directory as the file that is importing it you can use the next snippet:
 
@@ -51,6 +69,14 @@ There are some possibilities to do this:
 
 # [Compare two semantic versions](https://www.baeldung.com/linux/compare-dot-separated-version-string)
 
+## With sort 
+If you want to make it work in non-Debian based systems you can use `sort -V -C`
+
+```bash
+printf "2.0.0\n2.1.0\n" | sort -V -C  # Return code 0
+printf "2.2.0\n2.1.0\n" | sort -V -C  # Return code 1
+```
+## With dpkg
 [This article](https://www.baeldung.com/linux/compare-dot-separated-version-string) gives a lot of ways to do it. For my case the simplest is to use `dpkg` to compare two strings in dot-separated version format in bash.
 
 ```bash

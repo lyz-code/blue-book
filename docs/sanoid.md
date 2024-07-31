@@ -258,6 +258,23 @@ You can monitor this issue with loki using the next alerts:
 groups: 
   - name: zfs
     rules:
+      - alert: SyncoidCorruptedSnapshotSendError
+        expr: |
+          count_over_time({syslog_identifier="syncoid_send_backups"} |= `cannot receive incremental stream: invalid backup stream` [15m]) > 0
+        for: 0m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Error trying to send a corrupted snapshot at {{ $labels.hostname}}"
+          message: "Look at the context on loki to identify the snapshot in question. Delete it and then run the sync again"
+      - alert: SanoidNotRunningError
+        expr: |
+          sum by (hostname) (count_over_time({job="systemd-journal", syslog_identifier="sanoid"}[1h])) or sum by (hostname) (count_over_time({job="systemd-journal"}[1h]) * 0)
+        for: 0m
+        labels:
+            severity: critical
+        annotations:
+            summary: "Sanoid has not shown signs to be alive for the last hour at least in arva and helm"
       - alert: ErrorInSanoidLogs
         expr: |
           count_over_time({job="systemd-journal", syslog_identifier="sanoid"} |= `ERROR` [5m]) 
@@ -266,7 +283,18 @@ groups:
             severity: critical
         annotations:
             summary: "Errors found on sanoid log at {{ $labels.hostname}}"
+      - alert: SlowSpaSyncZFSError
+        expr: |
+          count_over_time({job="zfs"} |~ `spa_deadman.*slow spa_sync` [10m]) > 0
+        for: 0m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Slow sync traces found in the ZFS debug logs at {{ $labels.hostname}}"
+          message: "This usually happens before the ZFS becomes unresponsible"
 ```
+
+The `SanoidNotRunningError` alert uses a broader search that ensures that all hosts are included and multiplies it to 0 to raise the alert if none is shown for the `sanoid` service.
 # Troubleshooting
 
 ## [Syncoid no tty present and no askpass program specified](https://sidhion.com/blog/posts/zfs-syncoid-slow/)

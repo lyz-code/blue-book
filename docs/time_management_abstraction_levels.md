@@ -122,7 +122,7 @@ Model an action that gathers a list of actions towards a common greater outcome.
 
 ## Area
 
-Model a group of projects and actions that follow the same interest, roles or accountabilities. These are not things to finish but rather to use as criteria for analyzing, defining a specific aspect of your life and to prioritize the projects to reach a higher outcome. We'll use areas to maintain balance and sustainability on our responsibilities as we operate in the world. 
+Model a group of projects that follow the same interest, roles or accountabilities. These are not things to finish but rather to use as criteria for analyzing, defining a specific aspect of your life and to prioritize its projects to reach a higher outcome. We'll use areas to maintain balance and sustainability on our responsibilities as we operate in the world. Areas' titles don't contain verbs as they don't model actions. An example of areas can be *health*, *travels* or *economy*.
 
 I use specific orgmode files with the next structure:
 
@@ -132,18 +132,18 @@ I use specific orgmode files with the next structure:
 Objectives:
 - [ ] ...
 
-* Area roadmap
+* TODO Area project 1
   ...
 * Area backlog
-  ...
+** TODO Backlog Area project 1
+   ...
 ```
 
-To find them easily I add a section in the `index.org` of the documentation repository. For example:
+To filter the projects by area I set an area tag that propagates downstream. To find the area documents easily I add a section in the `index.org` of the documentation repository. For example:
 
 ```orgmode
 * Areas
 ** [[file:./happiness.org][Happiness]]
-*** Project 1 of happiness
 ** [[file:./activism.org][Activism]]
 ** [[file:./efficiency.org][Efficiency]]
 ** [[file:./work.org][Work]]

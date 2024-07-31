@@ -11,17 +11,14 @@ Before you dive in here are some warnings
 
 ## Build your own proceses 
 Each of the adjustments defined below describe my curated process developed over the years, you can use them as a starting point to define what works for you or to get some ideas. Each of us is different and want to spend on this a different amount of time. 
-
 ## Keep them simple 
 
 It's important for the proceses to be light enough that you want to actually do them, so you see it as a help instead of a burden. It's always better to do a small and quick ones rather than nothing at all. At the start of the process analyze yourself to assess how much energy and time do you have and decide which steps of the guides below you want to follow.
-
 ## Alive proceses
 
 These adjustments have to reflect ourselves and our environment. As we change continuously, so will our adjustment proceses.
 
 I've gone for full blown adjustments of locking myself up for a week to not doing any for months. And that is just fine, these tools are there to help us only if we want to use them.
-
 ## Heavily orgmode oriented
 This article heavily uses [orgmode](orgmode.md), my currently chosen [action tool](roadmap_tools.md), but that doesn't mean that the concepts can be applicable to other tools.
 # Roadmap adjustment types
@@ -221,7 +218,6 @@ For recurring projects:
   - Archive the project element.
   - Undo the archive. 
   - Clean up the done items.
-
 ## [Area](time_management_abstraction_levels.md#area)
 
 ### Area refinement
@@ -317,7 +313,7 @@ To make it easy to follow I use a bash script that asks me to follow these steps
 ## Ride the month
 At this level you not only had time to polish your roadmap adjustment skills, but also had the chance the buy some glasses for your myopic eyes! The increase in definition and time to react to what life throws at you lets to now get almost no hits `＼\ ٩( ᐛ )و /／`. 
 
-Now that you have stopped worrying for your integrity, you start to hear a little voice from within yourself that gives you reports from your body and brain about what worries you, what makes you happy, what makes you mad, ... Has it been yelling all this time?  `(¬º-°)¬`.
+Now that you have stopped worrying for your integrity, you start to hear a little voice from within yourself that gives you signals from your body and brain about what worries you, what makes you happy, what makes you mad, ... Has it been yelling all this time?  `(¬º-°)¬`.
 
 At this adjustment level we'll start using the next abstraction level, the [objectives] is whatever you need to do to get your head empty again and get oriented for the next 9 days. It's split in the next phases:
 ### Personal integrity review
@@ -345,7 +341,6 @@ With a new level of abstraction we need tools:
 - The *Month checks*: It's a list of elements you want to periodically check its evolution throughout time. It's useful to analyze the validity of theories or new processes. I use the heading `Month checks` in a file called `life_checks.org`.
 
 - The *Objective list*: It's a list of elements you want to focus your energies on. It should be easy to consult. I started with a list per month in a file called `objectives.org` and then migrated to the [life path document](#the-life-path-document).
-
 ### Personal integrity review phases
 
 We'll divide the review process in these phases:
@@ -429,7 +424,7 @@ For the last question you can resort to:
 - Projects change: start or stop doing a series of actions.
 - Roadmap change
 
-Once you have analyzed an element copy all the decisions you've made in the `Decide` section of your review document.
+Once you have analyzed an element copy all the decisions you've made in the `Decide` section of your review document in an orgmode checkbox list.
 
 #### Personal integrity review decide
 
@@ -447,3 +442,68 @@ Finally:
 - Check the last month checks and complete this month ones.
 - Pat yourself in the shoulder as you've finished the review ^^.
 [![](not-by-ai.svg){: .center}](https://notbyai.fyi)
+## Dream about the trimester 
+
+Now that we know how to read and react to the signals our inner self sends we are in a better position to align our roadmap with what we understand for a fulfilling life. We'll get into the philosophical ground of thinking about life's meaning. I wanted to say answer the question, but I'm increasingly convinced that there is no answer and that the best we can aim to is to leave our thoughts guide us without any certainty.
+
+### Trimester review
+The objectives of the trimester review are:
+
+- Identify the areas to focus on for the trimester
+- Identify the tactics you want to use on those areas.
+- Review the previous trimester tactics 
+
+The objectives are not:
+
+- To review what you've done or why you didn't get there.
+#### When to do the trimester reviews
+
+As with [personal integrity review](#personal-integrity-review), it's interesting to do analysis at representative moments. It gives it an emotional weight. You can for example use the solstices or my personal version of the solstices:
+
+- Spring analysis (1st of March): For me the spring is the real start of the year, it's when life explodes after the stillness of the winter. The sun starts to set later enough so that you have light in the afternoons, the climate gets warmer thus inviting you to be more outside, the nature is blooming new leaves and flowers. It is then a moment to build new projects and set the current year on track. 
+
+- Summer analysis (1st of June): I hate heat, so summer is a moment of retreat. Everyone temporarily stop their lives, we go on holidays and all social projects slow their pace. Even the news have even less interesting things to report. It's so hot outside that some of us seek the cold refuge of home or remote holiday places. Days are long and people love to hang out till late, so usually you wake up later, thus having less time to actually do stuff. Even in the moments when you are alone the heat drains your energy to be productive. It is then a moment to relax and gather forces for the next trimester. It's also perfect to develop *easy* and *chill* personal projects that have been forgotten in a drawer. Lower your expectations and just flow with what your body asks you.
+
+- Autumn analysis (1st of September): September it's another key moment for many people. We have it hardcoded in our life since we were children as it was the start of school. People feel energized after the summer holidays and are eager to get back to their lives and stopped projects. You're already 6 months into the year, so it's a good moment to review your year plan and decide how you want to invest your energy reserves.
+
+- Winter analysis (1st of December): December is the cue that the year is coming to an end. The days grow shorter and colder, they basically invite you to enjoy a cup of tea under a blanket. It is then a good time to get into your cave and do an introspection analysis on the whole year and prepare the ground for the coming year. Some of the goals of this season are:
+  - Think everything you need to guarantee a good, solid and powerful spring start.
+  - Do the year review to adjust your principles.
+
+The year is then divided in two sets of an expansion trimester and a retreat one. We can use this information to adjust our life plan accordingly. In the expansion trimester we could invest more energies in the planning, and in the retreat ones we can do more throughout reviews.
+
+#### Listen to your desires
+The trimester review requires an analysis that doesn't fill in a day session. It requires slow thinking over some time. So I'm creating a task 10 days before the actual review to start thinking about the next trimester. Whether it's ideas, plans, desires, objectives, values, or principles.
+
+Is useful for that document to be available wherever you go, so that in any spare time you can pop it up and continue with the train of thought. 
+
+Doing the reflection without seeing your life path prevents you from being tainted by it, thus representing the real you of right now. 
+
+On the day to actually do the review, follow the steps of the [Month review prepare](#month-prepare) adjusting them to the trimester case.
+
+#### Answer some meaningful guided questions
+
+To be done,  until then you can read chapters 13, 14 and the epilogue of the book Four thousand weeks by Oliver Burkman.
+#### Refactor your gathered thoughts
+If you've followed the prepare steps, you've already been making up your mind on what do you want the next trimester to look like. Now it's the time to refine those thoughts.
+
+In your roadmap document add a new section for the incoming trimester similar to:
+
+```orgmode
+* Roadmap
+** 2024
+*** Summer 2024
+**** Essential intent
+**** Trimester analysis
+**** Trimester objectives
+***** TODO Objective 1
+****** TODO SubObjective 1
+```
+Go *one by one* (don't peek!) of your gathered items and translate them in the next sections:
+
+- `Trimester analysis`: A text with as many paragraphs as you need to order your thoughts 
+- `Trimester objectives`: These can be concrete emotional projects you want to carry through.
+- `Essential intent`: This is the main headline of your trimester, probably you won't be able to define it until the last parts of the review process. It should be concrete and emotional too, it's going to be the idea that gives you strength on your weak moments and your guide to decide which projects to do and which not to.
+
+Don't be too concerned on the format of the content of the objectives, this is the first draft, and we'll refine it through the planning.
+### Trimester planning

@@ -783,6 +783,13 @@ It seems that the state of the art of ZFS backups is not changing too much in th
 zfs list -t snapshot -o name path/to/dataset | tail -n+2 | tac | xargs -n 1 zfs destroy -r
 ```
 
+## [Manually create a backup](https://docs.oracle.com/cd/E19253-01/819-5461/gbcya/index.html)
+To create a snapshot of `tank/home/ahrens` that is named `friday` run:
+
+```bash
+zfs snapshot tank/home/ahrens@friday
+```
+
 ## [Restore a backup](https://pthree.org/2012/12/19/zfs-administration-part-xii-snapshots-and-clones/)
 
 You can list the available snapshots of a filesystem with `zfs list -t snapshot {{ pool_or_filesystem_name }}`, if you don't specify the `pool_or_filesystem_name` it will show all available snapshots.

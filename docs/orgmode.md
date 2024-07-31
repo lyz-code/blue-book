@@ -602,7 +602,7 @@ The final heading has the tags `work`, `boss`, `notes`, and `action` even though
 #+FILETAGS: :Peter:Boss:Secret:
 ```
 
-If you plan to use the [Capture](#capture) function on the file, add the `FILETAGS` like at the top of the file, otherwise it will end up in the middle of it as you capture new elements.
+If you plan refile elements to the root of a file (such as using a bare [Capture](#capture)), add the `FILETAGS` like at the top of the file, otherwise it will end up in the middle of it as you capture new elements. For the rest of cases leave it at the bottom, that way you will only see it when you need it and you skip one `j` movement each time you browse the file.
 
 Tags are useful for [Agenda searches](#agenda-searches). I've found interesting to create tags based on:
 
@@ -1267,6 +1267,10 @@ Some interesting features for the future are:
 * [Effort estimates](https://orgmode.org/manual/Effort-Estimates.html)
 * [Clocking](https://orgmode.org/manual/Clocking-Work-Time.html)
 # Troubleshooting
+## <c-i> doesn't go up in the jump list
+It's because [<c-i> is a synonym of <tab>](https://github.com/neovim/neovim/issues/5916), and `org_cycle` is [mapped by default as <tab>](https://github.com/nvim-orgmode/orgmode/blob/c0584ec5fbe472ad7e7556bc97746b09aa7b8221/lua/orgmode/config/defaults.lua#L146)
+If you're used to use `zc` then you can disable the `org_cycle` by setting the mapping `org_cycle = "<nop>"`.
+
 ## [Prevent Enter to create `*` on headings](https://github.com/LazyVim/LazyVim/discussions/2529)
 With a clean install of LazyVim distribution when pressing `<CR>` from a heading it creates a new heading instead of moving the cursor to the body of the heading:
 
@@ -1770,6 +1774,63 @@ If you make it work please [tell me how you did it!](contact.md)
 - [Refiling from the agenda](https://github.com/nvim-orgmode/orgmode/issues/657)
 - [Interacting with the logbook](https://github.com/nvim-orgmode/orgmode/issues/149)
 - [Easy list item management](https://github.com/nvim-orgmode/orgmode/issues/472)
+# Python libraries
+## [org-rw](https://code.codigoparallevar.com/kenkeiras/org-rw)
+`org-rw` is a library designed to handle Org-mode files, offering the ability to modify data and save it back to the disk. 
+
+- **Pros**:
+  - Allows modification of data and saving it back to the disk
+  - Includes tests to ensure functionality
+
+- **Cons**:
+  - Documentation is lacking, making it harder to understand and use
+  - The code structure is complex and difficult to read
+  - Uses `unittest` instead of `pytest`, which some developers may prefer
+  - Tests are not easy to read
+  - Last commit was made five months ago, indicating potential inactivity
+  - [Not very popular]( https://github.com/kenkeiras/org-rw), with only one contributor, three stars, and no forks
+
+## [orgparse](https://github.com/karlicoss/orgparse)
+`orgparse` is a more popular library for parsing Org-mode files, with better community support and more contributors. However, it has significant limitations in terms of editing and saving changes.
+
+- **Pros**:
+  - More popular with 13 contributors, 43 forks, and 366 stars
+  - Includes tests to ensure functionality
+  - Provides some documentation, available [here](https://orgparse.readthedocs.io/en/latest/)
+
+- **Cons**:
+  - Documentation is not very comprehensive
+  - Cannot write back to Org-mode files, limiting its usefulness for editing content
+    - The author suggests using [inorganic](https://github.com/karlicoss/inorganic) to convert Org-mode entities to text, with examples available in doctests and the [orger](https://github.com/karlicoss/orger) library.
+      - `inorganic` is not popular, with one contributor, four forks, 24 stars, and no updates in five years
+      - The library is only 200 lines of code
+    - The `ast` is geared towards single-pass document reading. While it is possible to modify the document object tree, writing back changes is more complicated and not a common use case for the author.
+
+## [Tree-sitter](https://tree-sitter.github.io/tree-sitter/)
+Tree-sitter is a powerful parser generator tool and incremental parsing library. It can build a concrete syntax tree for a source file and efficiently update the syntax tree as the source file is edited.
+
+- **Pros**:
+  - General enough to parse any programming language
+  - Fast enough to parse on every keystroke in a text editor
+  - Robust enough to provide useful results even in the presence of syntax errors
+  - Dependency-free, with a runtime library written in pure C
+  - Supports multiple languages through community-maintained parsers
+  - Used by Neovim, indicating its reliability and effectiveness
+  - Provides good documentation, available [here](https://tree-sitter.github.io/tree-sitter/using-parsers)
+  - Python library, [py-tree-sitter](https://github.com/tree-sitter/py-tree-sitter), simplifies the installation process
+
+- **Cons**:
+  - Requires installation of Tree-sitter and the Org-mode language parser separately
+  - The Python library does not handle the Org-mode language parser directly
+
+To get a better grasp of Tree-sitter you can check their talks:
+
+- [Strange Loop 2018](https://www.thestrangeloop.com/2018/tree-sitter---a-new-parsing-system-for-programming-tools.html)
+- [FOSDEM 2018](https://www.youtube.com/watch?v=0CGzC_iss-8)
+- [Github Universe 2017](https://www.youtube.com/watch?v=a1rC79DHpmY).
+
+## [lazyblorg orgparser.py](https://github.com/novoid/lazyblorg/blob/master/lib/orgparser.py)
+`lazyblorg orgparser.py` is another tool for working with Org-mode files. However, I didn't look at it.
 # References
 
 * [Source](https://github.com/nvim-orgmode/orgmode)
@@ -1779,6 +1840,5 @@ If you make it work please [tell me how you did it!](contact.md)
 * [Default configuration file](https://github.com/nvim-orgmode/orgmode/blob/master/lua/orgmode/config/defaults.lua)
 * [List of supported commands](https://github.com/nvim-orgmode/orgmode/wiki/Feature-Completeness#nvim-org-commands-not-in-emacs)
 * [Default mappings](https://github.com/nvim-orgmode/orgmode/blob/master/lua/orgmode/config/mappings/init.lua)
-* [Python library: Org-rw](https://github.com/kenkeiras/org-rw)
 * [List of plugins](https://github.com/topics/orgmode-nvim)
 [![](not-by-ai.svg){: .center}](https://notbyai.fyi)

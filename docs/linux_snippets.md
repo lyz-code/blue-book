@@ -4,6 +4,27 @@ date: 20200826
 author: Lyz
 ---
 
+# [Set the vim filetype syntax in a comment](https://unix.stackexchange.com/questions/19867/is-there-a-way-to-place-a-comment-in-a-file-which-vim-will-process-in-order-to-s)
+Add somewhere in your file:
+
+```
+# vi: ft=yaml
+```
+# Export environment variables in a crontab
+If you need to expand the `PATH` in theory you can do it like this:
+
+```
+PATH=$PATH:/usr/local/bin
+
+* * * * * /path/to/my/script
+```
+
+I've found however that sometimes this doesn't work and you need to specify it in the crontab line:
+
+```
+* * * * * PATH=$PATH:/usr/local/bin /path/to/my/script
+```
+
 # [Clean the logs of a unit of the journal](https://stackoverflow.com/questions/36718019/journalctl-remove-logs-of-a-specific-unit)
 
 ```bash
@@ -349,7 +370,10 @@ That will fill up the usage of 2 cpus. To run 1 vm stressor using 1GB of virtual
 stress --vm 1 --vm-bytes 1G --vm-keep -t 60s
 ```
 
-You can also stress io with `--io 4`, for example to spawn 4 workers.
+You can also stress:
+
+- io with `--io 4`, for example to spawn 4 workers.
+- hard drives with `--hdd 2 --hdd-bytes 1G` which will spawn 2 workers that will write 1G
 
 # [Get the latest tag of a git repository](https://stackoverflow.com/questions/1404796/how-can-i-get-the-latest-tag-name-in-current-branch-in-git)
 

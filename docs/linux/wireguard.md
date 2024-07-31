@@ -206,7 +206,6 @@ sudo vi /etc/wireguard/wg0.conf
 PrivateKey = CLIENT_PRIVATE_KEY
 Address = 10.0.0.2/24
 
-
 [Peer]
 PublicKey = SERVER_PUBLIC_KEY
 Endpoint = SERVER_IP_ADDRESS:51820

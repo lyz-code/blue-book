@@ -43,6 +43,8 @@ food left trapped after eating and saliva and fluoride have no access to
 neutralize acid and remineralize demineralized teeth, unlike easy-to-clean parts
 of the tooth, where fewer cavities occur.
 
+When choosing a toothpaste choose the one that has a higher percent of fluoride.
+
 ## Teeth brushing
 
 Routine tooth brushing is the principal method of preventing many oral diseases,

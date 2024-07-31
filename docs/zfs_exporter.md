@@ -137,7 +137,7 @@ The people of [Awesome Prometheus Alerts](https://samber.github.io/awesome-prome
       description: "Disk is almost full (< 10% left)\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
 
   - alert: ZfsPoolUnhealthy
-    expr: zfs_pool_health > 0
+    expr: last_over_time(zfs_pool_health[1h]) > 0
     for: 5m
     labels:
       severity: critical

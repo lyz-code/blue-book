@@ -39,8 +39,6 @@ require('telescope').setup{
     },
   ...
 ```
-
-
 # Telescope changes working directory when opening a file
 
 In my case was due to a snippet I have to remember the folds:

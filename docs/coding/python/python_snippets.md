@@ -4,6 +4,29 @@ date: 20200717
 author: Lyz
 ---
 
+# [Compare file and directories](https://docs.python.org/3/library/filecmp.html)
+The filecmp module defines functions to compare files and directories, with various optional time/correctness trade-offs. For comparing files, see also the difflib module.
+
+```python
+from filecmp import dircmp
+
+def print_diff_files(dcmp):
+
+    for name in dcmp.diff_files:
+
+        print("diff_file %s found in %s and %s" % (name, dcmp.left,
+
+              dcmp.right))
+
+    for sub_dcmp in dcmp.subdirs.values():
+
+        print_diff_files(sub_dcmp)
+
+
+dcmp = dircmp('dir1', 'dir2') 
+
+print_diff_files(dcmp)
+```
 # [Use Path of pathlib write_text in append mode](https://stackoverflow.com/questions/57296168/pathlib-path-write-text-in-append-mode)
 It's not supported you need to `open` it:
 

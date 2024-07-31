@@ -26,6 +26,7 @@ nav:
       - Environmentalism: environmentalism.md
       - Laboral: laboral.md
       - Collaborating tools: collaborating_tools.md
+      - Conference organisation: conference_organisation.md
       - Ludditest: luddites.md 
   - Life Management:
       - life_management.md
@@ -53,7 +54,11 @@ nav:
               - Work Interruption Analysis: work_interruption_analysis.md
               - Personal Interruption Analysis: personal_interruption_analysis.md
         - Week Management: week_management.md
-        - Calendar Management: calendar_management.md
+        - Calendar Management: 
+          - calendar_management.md
+          - Gancio: gancio.md
+          - vdirsyncer: vdirsyncer.md
+          - Khal: khal.md
         - Time management theories:
           - Getting Things Done: gtd.md
       - Life Chores Management:
@@ -74,16 +79,48 @@ nav:
           - Email Management:
             - email_management.md
             - Email Automation: email_automation.md
-          - Instant Messages Management: instant_messages_management.md
+            - afew: afew.md
+            - alot: alot.md
+            - mbsync: mbsync.md
+            - notmuch: notmuch.md
+          - Instant Messages Management: 
+            - instant_messages_management.md
+            - XMPP/Jabber:
+              - Dino: dino.md
+              - Gajim: gajim.md
+              - Profanity: profanity.md
+            - Matrix: 
+              - matrix.md
+              - Matrix Highlight: matrix_highlight.md
+            - Rocketchat: rocketchat.md
           - Computer configuration management: configuration_management.md
       - Content Management:
         - Music Management:
-            - music_management.md
-            - MusicBrainz: musicbrainz.md
-        - Book Management: book_management.md
+          - music_management.md
+          - MusicBrainz: musicbrainz.md
+          - Mopidy: mopidy.md
+          - Beets: beets.md
+          - Koel: koel.md
+          - yt-dlp: yt-dlp.md
+        - Book Management: 
+          - book_management.md
+          - Bookwyrm: bookwyrm.md
+        - Movies Management: 
+          - Jellyfin: jellyfin.md
+          - Ombi: ombi.md
+          - Mediatracker: mediatracker.md
+          - ffmpeg: ffmpeg.md
+          - Kodi: kodi.md
         - News Management: 
           - news_management.md
           - RSS: rss.md
+          - Wallabag: wallabag.md
+        - Photo management:
+          - photo_self_hosted.md
+          - Immich: immich.md
+        - Videogames management:
+          - moonlight: moonlight.md
+          - retroarch: retroarch.md
       - Knowledge Management:
         - knowledge_management.md
         - Spaced Repetition: 
@@ -92,11 +129,27 @@ nav:
         - Analytical web reading: 
           - analytical_web_reading.md
           - Hypothesis: linux/hypothesis.md
-      - Relationship Management: relationship_management.md
+        - Digital Gardens:
+          - digital_garden.md
+          - mkdocs: linux/mkdocs.md
+          - Build your own Digital Garden: writing/build_your_own_wiki.md
+          - Forking this garden: forking_this_wiki.md
+        - Aleph: aleph.md
+        - Wordpress: wordpress.md
+      - Relationship Management: 
+        - relationship_management.md
+        - monica: linux/monica.md
       - Process Automation:
-          - process_automation.md
-          - Virtual Assistant: virtual_assistant.md
-      - Life logging: life_logging.md
+        - process_automation.md
+        - Virtual Assistant: virtual_assistant.md
+      - Torrent management:
+        - torrents.md
+        - qBittorrent: qbittorrent.md
+        - Rtorrent: rtorrent.md
+        - Unpackerr: unpackerr.md
+      - Life logging: 
+        - life_logging.md
+        - ActivityWatch: activitywatch.md
   - Health:
       - Sleep: sleep.md
       - Teeth:
@@ -209,10 +262,11 @@ nav:
               - Properties: python_properties.md
               - Protocols: python_protocols.md 
               - Package Management:
-                  - python_package_management.md
-                  - PDM: pdm.md
-                  - Pipenv: pipenv.md
-                  - Poetry: python_poetry.md
+                - python_package_management.md
+                - PDM: pdm.md
+                - pipx: pipx.md
+                - Pipenv: pipenv.md
+                - Poetry: python_poetry.md
               - Lazy loading: lazy_loading.md
               - Plugin System: python_plugin_system.md
               - Profiling: python_profiling.md
@@ -252,51 +306,69 @@ nav:
               - Javascript snippets: javascript_snippets.md
               - MermaidJS: mermaidjs.md
           - Latex: latex.md
+          - Graphql: graphql.md
           - Qwik: qwik.md
+          - nodejs: linux/nodejs.md
           - JWT: devops/jwt.md
           - React: coding/react/react.md
-      - IDES:
-          - Vim:
-              - vim.md
-              - Vim configuration: 
-                - vim_config.md
-                - Vim Keymaps: vim_keymaps.md
-                - Vim Package Manager:
-                  - vim_plugin_managers.md
-                  - LazyVim: lazyvim.md
-                  - Packer: vim_packer.md
-                - UI management configuration: 
-                  - Vim foldings: vim_foldings.md
-                  - Vim movement: vim_movement.md
-                  - Tabs vs Buffers: vim_tabs.md
-                - File management configuration:
-                  - NeoTree: neotree.md
-                  - Telescope: telescope.md
-                - Editing specific configuration:
-                  - vim_editor_plugins.md
-                  - Vim markdown: vim_markdown.md
-                  - Vim spelling: vim_spelling.md
-                  - Vim autosave: vim_autosave.md
-                - Coding specific configuration:
-                  - vim_coding_plugins.md
-                  - Treesitter: vim_treesitter.md
-                  - LSP: vim_lsp.md
-                  - Snippets: luasnip.md
-                  - DAP: vim_dap.md
-                  - Git management configuration: 
-                    - vim_git.md
-                    - Diffview: diffview.md
-                    - gitsigns: gitsigns.md
-                  - Testing management configuration: vim_testing.md
-                - Email management: vim_email.md
-                - Other Vim Plugins: 
-                  - linux/vim/vim_plugins.md
-              - Vim Snippets: vim_snippets.md 
-              - Vim Troubleshooting: vim_troubleshooting.md 
-              - Neovim Plugin Development: vim_plugin_development.md
-              - Vi vs Vim vs Neovim: vim_vs_neovim.md
-              - Tridactyl: tridactyl.md
-          - VSCodium: vscodium.md
+      - Coding tools:
+        - IDES:
+            - Vim:
+                - vim.md
+                - Vim configuration: 
+                  - vim_config.md
+                  - Vim Keymaps: vim_keymaps.md
+                  - Vim Package Manager:
+                    - vim_plugin_managers.md
+                    - LazyVim: lazyvim.md
+                    - Packer: vim_packer.md
+                  - UI management configuration: 
+                    - Vim foldings: vim_foldings.md
+                    - Vim movement: vim_movement.md
+                    - Tabs vs Buffers: vim_tabs.md
+                  - File management configuration:
+                    - NeoTree: neotree.md
+                    - Telescope: telescope.md
+                  - Editing specific configuration:
+                    - vim_editor_plugins.md
+                    - Vim markdown: vim_markdown.md
+                    - Vim spelling: vim_spelling.md
+                    - Vim autosave: vim_autosave.md
+                  - Coding specific configuration:
+                    - vim_coding_plugins.md
+                    - Treesitter: vim_treesitter.md
+                    - LSP: vim_lsp.md
+                    - Snippets: luasnip.md
+                    - DAP: vim_dap.md
+                    - Git management configuration: 
+                      - vim_git.md
+                      - Diffview: diffview.md
+                      - gitsigns: gitsigns.md
+                    - Testing management configuration: vim_testing.md
+                  - Email management: vim_email.md
+                  - Other Vim Plugins: 
+                    - linux/vim/vim_plugins.md
+                - Vim Snippets: vim_snippets.md 
+                - Vim Troubleshooting: vim_troubleshooting.md 
+                - Neovim Plugin Development: vim_plugin_development.md
+                - Vi vs Vim vs Neovim: vim_vs_neovim.md
+                - Tridactyl: tridactyl.md
+            - VSCodium: vscodium.md
+        - Coding with AI: ai_coding.md
+        - Git: 
+          - git.md
+          - Github cli: gh.md
+          - Forgejo: forgejo.md
+          - Gitea: gitea.md
+        - Data orchestrators:
+          - data_orchestrators.md
+          - Kestra: kestra.md
+          - memorious: memorious.md
+        - Scrapers:
+          - morph.io: morph_io.md
+        - ETL:
+          - Singer: singer.md
+        - Espanso: espanso.md
       - Generic Coding Practices:
           - How to code: how_to_code.md
           - Program Versioning:
@@ -306,6 +378,7 @@ nav:
           - Use warnings to evolve your code: use_warnings.md
           - Keep a Changelog: changelog.md
           - Writing good documentation: documentation.md
+          - Conventional comments: conventional_comments.md
           - TDD: coding/tdd.md
           - Abstract Syntax Trees: abstract_syntax_trees.md
       - Software Architecture:
@@ -321,15 +394,12 @@ nav:
           - Restful APIS: architecture/restful_apis.md
           - Redis: architecture/redis.md
       - Frontend Development: frontend_development.md
-      - Git: git.md
       - Park programming: park_programming.md
       - Sponsor: sponsor.md
       - Issues: issues.md
   - DevOps:
       - devops/devops.md
       - Infrastructure as Code:
-          - Forgejo: forgejo.md
-          - Gitea: gitea.md
           - Helm:
               - devops/helm/helm.md
               - Helm Installation: devops/helm/helm_installation.md
@@ -423,8 +493,9 @@ nav:
           - Type Checkers:
               - Mypy: devops/mypy.md
           - Security Checkers:
-              - Safety: devops/safety.md
+              - pip-audit: pip_audit.md
               - Bandit: devops/bandit.md
+              - Safety: devops/safety.md
           - Dependency managers:
               - Pip-tools: devops/pip_tools.md
       - Automating Processes:
@@ -434,17 +505,19 @@ nav:
           - renovate: renovate.md
           - letsencrypt: letsencrypt.md
       - Storage:
-          - storage.md
-          - NAS: nas.md
-          - OpenZFS: 
-            - linux/zfs.md
-            - OpenZFS storage planning: zfs_storage_planning.md
-            - Sanoid: sanoid.md
-            - ZFS Prometheus exporter: zfs_exporter.md
+        - storage.md
+        - NAS: nas.md
+        - OpenZFS: 
+          - linux/zfs.md
+          - OpenZFS storage planning: zfs_storage_planning.md
+          - Sanoid: sanoid.md
+          - ZFS Prometheus exporter: zfs_exporter.md
+        - Hard drive health: hard_drive_health.md
       - Resilience: 
         - linux_resilience.md
         - Memtest: memtest.md 
         - watchdog: watchdog.md
+        - Magic keys: magic_keys.md
       - Monitoring:
           - Monitoring Comparison: monitoring_comparison.md
           - Prometheus:
@@ -463,7 +536,9 @@ nav:
                   devops/prometheus/prometheus_troubleshooting.md
           - Grafana: grafana.md
           - Log analysis:
-            - Loki: loki.md
+            - Loki: 
+              - loki.md
+              - Logcli: logcli.md
             - Promtail: promtail.md
             - Graylog: graylog.md
             - Elastic Security: elastic_security.md
@@ -474,13 +549,10 @@ nav:
           - Postgres operators: 
             - postgres_operators.md
             - Zalando Postgres operator: zalando_postgres_operator.md
+        - elasticsearch: linux/elasticsearch.md
+        - Oracle Database: oracle_database.md
       - Authentication:
           - Authentik: authentik.md
-      - Self-hosted services:
-          - Ombi: ombi.md
-          - Self-hosted Photo galleries: 
-            - photo_self_hosted.md
-            - Immich: immich.md
       - API Management:
           - devops/api_management.md
           - Kong: devops/kong/kong.md
@@ -502,81 +574,50 @@ nav:
       - Linux:
           - linux.md
           - Linux Snippets: linux_snippets.md
-          - afew: afew.md
-          - aleph: aleph.md
-          - alot: alot.md
-          - ActivityWatch: activitywatch.md
-          - Beets: beets.md
-          - Bookwyrm: bookwyrm.md
-          - brew: linux/brew.md
-          - detox: detox.md
-          - Dino: dino.md
-          - Docker: docker.md
-          - dunst: dunst.md
-          - Dynamic DNS: dynamicdns.md
-          - elasticsearch: linux/elasticsearch.md
-          - fail2ban: linux/fail2ban.md
-          - ferdium: ferdium.md
-          - finnix: finnix.md
-          - Gajim: gajim.md
-          - Gancio: gancio.md
-          - Github cli: gh.md
-          - goaccess: goaccess.md
-          - google chrome: linux/google_chrome.md
-          - Gotify: gotify.md
-          - Chromium: chromium.md
-          - HAProxy: linux/haproxy.md
-          - Hard drive health: hard_drive_health.md
-          - Hushboard: husboard.md
-          - i3wm: i3wm.md
-          - Jellyfin: jellyfin.md
-          - journald: journald.md
-          - ffmpeg: ffmpeg.md
-          - Khal: khal.md
-          - Kitty: kitty.md
-          - Kodi: kodi.md
-          - Koel: koel.md
-          - LUKS: linux/luks/luks.md
-          - Magic keys: magic_keys.md
-          - Matrix: matrix.md
-          - Matrix Highlight: matrix_highlight.md
-          - mbsync: mbsync.md
-          - Mediatracker: mediatracker.md
-          - Moonlight: moonlight.md
-          - mkdocs: linux/mkdocs.md
-          - Mopidy: mopidy.md
-          - monica: linux/monica.md
-          - notmuch: notmuch.md
-          - nodejs: linux/nodejs.md
-          - Oracle Database: oracle_database.md
-          - Outrun: outrun.md
-          - Pass: pass.md 
-          - Peek: peek.md
-          - Pipx: pipx.md
-          - Profanity: profanity.md
-          - retroarch: retroarch.md
-          - rm: linux/rm.md
-          - rofi: rofi.md
-          - Rocketchat: rocketchat.md
-          - sed: sed.md
-          - Syncthing: linux/syncthing.md
-          - Libreelec: libreelec.md
-          - Tails: tails.md
-          - Torrents:
-              - torrents.md
-              - qBittorrent: qbittorrent.md
-              - Rtorrent: rtorrent.md
-              - Unpackerr: unpackerr.md
-          - Tahoe-LAFS: tahoe.md
-          - vdirsyncer: vdirsyncer.md
-          - Wake on Lan: wake_on_lan.md
-          - Wallabag: wallabag.md
-          - Wireguard: linux/wireguard.md
-          - Wireshark: wireshark.md
-          - Wordpress: wordpress.md
-          - yq: yq.md
-          - yt-dlp: yt-dlp.md
-          - zip: linux/zip.md
+          - Distros:
+            - Libreelec: libreelec.md
+            - Tails: tails.md
+          - Recovery tools:
+            - finnix: finnix.md
+          - Security tools:
+            - fail2ban: linux/fail2ban.md
+            - pass: pass.md 
+            - Wireshark: wireshark.md
+          - Sysadmin tools:
+            - brew: linux/brew.md
+            - detox: detox.md
+            - Docker: docker.md
+            - Dynamic DNS: dynamicdns.md
+            - goaccess: goaccess.md
+            - Gotify: gotify.md
+            - HAProxy: linux/haproxy.md
+            - journald: journald.md
+            - LUKS: linux/luks/luks.md
+            - Outrun: outrun.md
+            - rm: linux/rm.md
+            - sed: sed.md
+            - Syncthing: linux/syncthing.md
+            - Tahoe-LAFS: tahoe.md
+            - Wake on Lan: wake_on_lan.md
+            - Wireguard: linux/wireguard.md
+            - yq: yq.md
+            - zip: linux/zip.md
+          - Window manager tools:
+            - dunst: dunst.md
+            - ferdium: ferdium.md
+            - i3wm: i3wm.md
+            - rofi: rofi.md
+          - User tools:
+            - Browsers:
+              - google chrome: linux/google_chrome.md
+              - Chromium: chromium.md
+            - Hushboard: husboard.md
+            - Peek: peek.md
+            - Terminals: 
+              - terminal_comparison.md
+              - Alacritty: alacritty.md
+              - Wezterm: wezterm.md
+              - Kitty: kitty.md
       - Android:
           - Android Tips: android_tips.md
           - GrapheneOS: grapheneos.md
@@ -595,10 +636,6 @@ nav:
           - writing/writing.md
           - Grammar and Orthography: writing/orthography.md
           - Writing Style: writing_style.md
-          - Digital Gardens:
-              - digital_garden.md
-              - Build your own Digital Garden: writing/build_your_own_wiki.md
-              - Forking this garden: forking_this_wiki.md
       - Cooking:
           - cooking.md
           - Cooking Basics: cooking_basics.md
@@ -650,7 +687,9 @@ nav:
   - Science:
       - Artificial Intelligence: 
         - ai.md
-        - Speech recognition: speech_recognition.md
+        - Speech to text:
+          - Whisper: whisper.md
+          - Speech recognition: speech_recognition.md
         - Coding by Voice: coding_by_voice.md
       - Data Analysis:
           - Recommender Systems: >-

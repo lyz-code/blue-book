@@ -4,6 +4,13 @@ date: 20220119
 author: Lyz
 ---
 
+# Set the ssh connection port using dynamic inventories
+To specify a custom SSH port, you can use a `host_vars` or `group_vars` file. For example, create a `group_vars` directory and a file named `all.yaml` inside it:
+
+```yaml
+ansible_port: 2222  # Specify your SSH port here
+```
+
 # [Loop over dict fails when only one element detected](https://github.com/ansible/ansible/issues/73329)
 If you see the `If you passed a list/dict of just one element, try adding wantlist=True to your lookup invocation or use q/query instead of lookup."` error in an Ansible log it means that the content of the variable is not the type you expect it to be. This can happen for example for lists that have only one or zero elements, which gets translated into a string thus breaking the `loop` structure.
 

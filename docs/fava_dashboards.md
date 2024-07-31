@@ -236,7 +236,7 @@ Please take a look at the [ECharts examples](https://echarts.apache.org/examples
 
 #### d3-sankey panel
 The `script` code of d3-sankey panels must return valid d3-sankey chart options.
-Please take a look at the example dashboard configuration [dashboards.yaml](example/dashboards.yaml).
+
 
 #### Jinja2 panel
 The `template` field of Jinja2 panels must contain valid Jinja2 template code.

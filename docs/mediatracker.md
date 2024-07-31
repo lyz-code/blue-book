@@ -41,6 +41,13 @@ Some tips:
 - Add the shows you want to watch to the watchlist so that it's easier to find them
 - When you're ending an episode, click on the episode number on the watchlist element and then rate the episode itself.
 
+## Add missing items
+### Add missing books
+
+- Register an account in openlibrary.com 
+- Add the book 
+- Then add it to mediatracker
+
 ## Lists
 
 You can create public lists to share with the rest of the users, the way to share it though [is a bit archaic so far](https://github.com/bonukai/MediaTracker/issues/527), it's only through the list link, in the interface they won't be able to see it.
@@ -85,8 +92,8 @@ Then you can use the `api/details/{mediaItemId}` endpoint to get all the informa
 [Ryot](https://github.com/IgnisDa/ryot) has a better web design, it also has a [jellyfin scrobbler](https://github.com/IgnisDa/ryot/pull/195), although it's not [yet stable](https://github.com/IgnisDa/ryot/issues/187). There are other UI tweaks that is preventing me from migrating to ryot such as [the easier media rating](https://github.com/IgnisDa/ryot/issues/284) and [the percentage over five starts rating system](https://github.com/IgnisDa/ryot/issues/283).
 
 # References
-
 - [Source](https://github.com/bonukai/MediaTracker)
 - [Issues](https://github.com/bonukai/MediaTracker/issues)
 - [Python library](https://github.com/jonkristian/pymediatracker)
+
 [![](not-by-ai.svg){: .center}](https://notbyai.fyi)

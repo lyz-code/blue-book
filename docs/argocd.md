@@ -10,10 +10,15 @@ Argo CD follows the GitOps pattern of using Git repositories as the source of tr
 
 Argo CD automates the deployment of the desired application states in the specified target environments. Application deployments can track updates to branches, tags, or pinned to a specific version of manifests at a Git commit. See tracking strategies for additional details about the different [tracking strategies available](https://argo-cd.readthedocs.io/en/stable/user-guide/tracking_strategies/).
 
+# Application configuration
+## [Access private git repositories with ssh keys](https://medium.com/@tiwarisan/argocd-how-to-access-private-github-repository-with-ssh-key-new-way-49cc4431971b)
 # [Using helmfile](https://github.com/travisghansen/argo-cd-helmfile)
 
-[`helmfile`](helmfile.md) is not yet supported officially, but you can use it through [this plugin](https://github.com/travisghansen/argo-cd-helmfile).
+[`helmfile`](helmfile.md) is not yet supported officially, but you can use it through [this plugin](https://github.com/travisghansen/argo-cd-helmfile). Although I wouldn't recommend it. 
 
+# Not there yet
+
+- [Support git webhook on Applicationsets for gitea/forgejo](https://github.com/argoproj/argo-cd/issues/18798): although you could use an ugly fix adding `spec.generators[i].requeueAfterSeconds` to change the interval that ArgoCD uses to refresh the repositories, which is 3 minutes by default.
 
 # References
 

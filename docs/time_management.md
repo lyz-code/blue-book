@@ -9,7 +9,7 @@ author: Lyz
 To be able to do time management, you first need to define how do you want to increase your effectiveness and efficiency. For me, it means increasing the amount and quality of actions per unit of time or effort. Understanding actions as any process that gets me closer to a goal. It shouldn't be related with professional work (abajo el trabajo!)but to personal projects, cleaning or hanging out with friends.
 
 # Anticapitalist approach to time management
-Time management is being used to perpetrate the now hegemonic capitalist values. Its a pity because the underlying concepts are pretty useful and interesting but they are oriented towards improving productivity and being able to deal with an increasing amount of work. Basically they're always telling you to be a better cog. It doesn't matter how good you are, there is always room for improvement. I've fallen on this trap for a long time (I'm still getting my head out of the hole) and I'm trying to amend things by applying the concepts on an anticapitalist mindset. The turning point was to read [Four thousand weeks: Time management for mortals by Oliver Burkeman](https://en.wikipedia.org/wiki/Four_Thousand_Weeks:_Time_Management_for_Mortals), the article will have book extracts mixed with my way of thinking.
+Time management is being used to perpetrate the now hegemonic capitalist values. Its a pity because the underlying concepts are pretty useful and interesting but they are oriented towards improving productivity and being able to deal with an increasing amount of work. Basically they're always telling you to be a better cog. It doesn't matter how good you are, there is always room for improvement. I've fallen on this trap for a long time (I'm still getting my head out of the hole) and I'm trying to amend things by applying the concepts on an Anticapitalist mindset. The turning point was to read [Four thousand weeks: Time management for mortals by Oliver Burkeman](https://en.wikipedia.org/wiki/Four_Thousand_Weeks:_Time_Management_for_Mortals), the article will have book extracts mixed with my way of thinking.
 
 Some (or most) of what's written in this article may not apply if you're not a male, white, young, cis, hetero, European, university graduated, able-bodied, """wealthy""" person. You need to be at a certain level of the social ladder to even start thinking in these terms. And depending on the number of oppressions you're suffering you'll have more or less room to maneuver. That margin is completely outside our control so by no means we should feel guilty of not being able to manage time. What follows are just guidelines to deal with this time anxiety imposed by the capitalist system with whatever air we have to breath.
 ## Changing the language
@@ -19,19 +19,16 @@ The easiest way to change the underlying meaning is to change the language. Some
 - `work` -> `focus`: Nowadays we use `work` everywhere even if it's not in the laboral environment. For example *I work very hard to achieve my goals*. Working is the action of selling your time and energies in order to get the resources you need to live. It has an intrinsic meaning of sacrifice, doing something we don't want to do to get another thing in return. That's a tainted way of thinking about your personal time. I find `focus` is a great substitute as it doesn't have all those connotations. There are similar substitutions based on the same argument, such as: `workspace` -> `space of focus`, `workflow` -> `action flow` or just `flow`.
 - `task` -> `action`: Similar to `work` a `task` is something you kind of feel obliged to do. It uses a negative mindset to set the perfect scenario to feel guilty when you fail to do them. But you're on your personal time, it should be fine not to do an action for whatever reason. `Action` on the other side fosters a positive way of thinking, it suggests change, movement in a way that helps you move forward. There are also other derived words such as `task manager` -> `action manager`. 
 - `productivity` -> `efficiency`: `Productivy` is the measurement of how fast or good you create products. And [products are](https://dictionary.cambridge.org/dictionary/english/product) something that is made to be sold. Again this introduces a monetary mindset on all aspects of our life. `Efficiency` on the other side is the quality of achieving the largest amount of change using as little time, energy or effort as possible ([Cambridge](https://dictionary.cambridge.org/dictionary/english/efficiency) doesn't agree with me though :P. It may be because universities are also another important vector of spreading the capitalist values `:(`). So using efficiency we're focusing more on improving the process itself, so it can be applied for example on how to optimize your enjoyment of doing nothing. Which is completely antagonistic to the concept of productivity.
-
- 
 ## Changing the mindset
 
 There is a widespread feeling that we're always short on time. We're obsessed with our overfilled inboxes and lengthening todo lists, haunted by the guilty feeling that we ought to be getting more done, or different things done, or both. At the same time we're deluged with advice on living the fully optimized life to squeeze the most from your time. And it get's worse as you age because time seems to speed up as you get older, steadily accelerating until months begging to flash by in what feels like minutes. 
 
 The real problem isn't our limited time. It's that we've unwittingly inherited, and feel pressured to live by a troublesome set of ideas about how to use our limited time, all of which are pretty much guaranteed to make things worse. What follows are a list of mindset changes from the traditional time management bibliography that can set the bases of a healthier Anticapitalist one. 
-
 ### Time is not a resource to spend
 
 Before timetables life rhythms emerged organically from the tasks they needed to do. You milked the cows when they needed milking and harvested the crops when it was harvest time. Anyone who would tried imposing an external schedule on any of that, for example, doing a month's milking in a single day to get it out of the way would rightly have been considered a lunatic.
 
-There was no need to think of time as something abstract and separate from life. In those days before clocks, when you did need to explain how long something might take, your only option was to compare it with some other concrete activity. They were untroubled by any notion of time "ticking away" thus living a heightened awareness of the vividness of things, the feeling of timelesness. Also known as living in deep time, or being in the flow, when the boundary separating the self from the rest of reality grows blurry and time stands still.
+There was no need to think of time as something abstract and separate from life. In those days before clocks, when you did need to explain how long something might take, your only option was to compare it with some other concrete activity. They were untroubled by any notion of time "ticking away" thus living a heightened awareness of the vividness of things, the feeling of timelessness. Also known as living in deep time, or being in the flow, when the boundary separating the self from the rest of reality grows blurry and time stands still.
 
 There's one huge drawback in giving so little thought to the abstract idea of time, though, which is that it severely limits what you can accomplish. As soon as you want to coordinate the actions of more than a handful of people, you need a reliable, agreed-upon method of measuring time. This is why the first mechanical clocks came to be invented. 
 
@@ -44,17 +41,17 @@ Soon your sense of self-worth gets completely bound up with how you're using tim
 The fundamental problem is that this attitude towards time sets up a rigged game in which it's impossible ever to feel as though you're doing well enough. Instead of simply living our lives as they unfold in time it becomes difficult not to value each moment primarily according to its usefulness for some future goal, or for some future oasis of relaxation you hope to reach once your tasks are finally "out of the way". 
 
 Ultimately it backfires. It wrenches us out of the present, leading to a life spent leaning into the future, worrying about whether things will work out, experiencing everything in terms of some later, hoped-for benefit, so that peace of mind never quite arrives. And it makes it all but impossible to experience *the flow*, that sense of timeless time which depends on forgetting the abstract yardstick and plunging back into the vividness of reality instead.
-
 ### Time is not a resource to be tamed
 You'll see everywhere the concept of `time management`. I feel it's daring to suggest that you have the power to actually manage time. No you can't as much as you can't tame the sea. [Time is not a resource to be spent or be managed](#time-is-not-a-resource-to-be-spent), the best we can do is to try to understand its flows and navigate it the best we can. 
 
-### If you don't disavow capitalism an increase in efficiency will only make things worse
+### Efficiency doesn't necessarily give you more time
+We're eager to believe the promises of time management frameworks (like [GTD](gtd.md)) that if you improve your efficiency you'll get more time to enjoy your life. If you follow the right time management system, build the right habits, and apply sufficient self-discipline, you will win the struggle with time. 
 
-All this context makes us eager to believe the promises of time management frameworks (like [GTD](gtd.md)) that if you improve your efficiency you'll get more time to enjoy your life. If you follow the right time management system, build the right habits, and apply sufficient self-discipline, you will win the struggle with time. 
-
-Reality then kicks in you never win the struggle and only feel more stressed and unhappy. You realize that all the time you've saved is automatically filled up by more things to do in a never ending feedback loop. It's true that you get more done, and yet, paradoxically, you only feel busier, more anxious and somehow emptier as a result. Time feels like an unstoppable conveyor belt, bringing us new actions as fast as we can dispatch the old ones; and becoming more efficient just seems to cause the belt to speed up. Or else, eventually, to break down.
+Reality then kicks in you never win the struggle and only feel more stressed and unhappy. You realize that all the time you've saved is automatically filled up by more things to do in a never ending feedback loop. Time feels like an unstoppable conveyor belt, bringing us new actions as fast as we can dispatch the old ones; and becoming more efficient just seems to cause the belt to speed up. Or else, eventually, to break down. It's true that you get more done, and yet, paradoxically, you only feel busier, more anxious and somehow emptier as a result. 
 
 It also has another side-effect. As life accelerates, everyone grows more impatient. It's somehow vastly more aggravating to wait two minutes for the microwave than two hours for the oven, or ten seconds for a slow loading web page versus three days to receive the same information by mail.
+
+It get's even worse because [importance is relative](#importance-is-relative) and you may fall into [efficiency traps](#be-mindful-of-the-efficiency-trap).
 
 Denying reality never works though. It may provide some immediate relief, because it allows you to go on thinking that at some point in the future you might, at last, feel totally in control. But it can't ever bring the sense that you're doing enough (that you *are* enough) because it defines *enough* as a kind of limitless control that no  human can attain. Instead, the endless struggle leads to more anxiety and less fulfilling life. For example, the more you believe yo might succeed in "fitting everything in", the more commitments you naturally take on, and the less you feel the need to ask whether each new commitment is truly worth a portion of your time, and so your days inevitably fill with more activities you don't especially value. The more you hurry, the more frustrating it is to encounter tasks that won't be hurried, the more compulsively you plan for the future, the more anxious you feel about any remaining uncertainties, of which there will always be plenty. 
 
@@ -62,7 +59,6 @@ Time management used this way serves as a distraction to numb our minds:
 
 - It may hide the sense of precariousness inherent to the capitalist world we live in. If you could meet every boss's demand, while launching various side projects on your own, maybe one day You'd finally feel secure in your career and your finances. 
 - Divert your energies from fully experiencing the reality in which you find yourself, holding at bay certain scary questions about what you're doing with your life, and whether major changes might not be needed. As long as you're always just on the cusp of mastering time, you can avoid the thought that what life is really demanding from you might involve surrendering the craving for mastery and diving into the unknown instead.
-
 ### Embrace the finitude of time
 
 We recoil from the notion that this is it. That *this life*, with all its flaws and inescapable vulnerabilities, its extreme brevity, and our limited influence over how it  unfolds, is the only one we'll get a shot at. Instead, we mentally fight against the way things are, so that we don't have to consciously participate in what it's like to feel claustrophobic, imprisoned, powerless, and constrained by reality.
@@ -72,6 +68,9 @@ Our troubled relationship with time arises largely from this same effort to avoi
 #### Heal yourself from FOMO
 In practical terms, a limit-embracing attitude to time means organizing your days with the understanding that you definitely won't have time for everything you want to do, or that other people want you to do, and so, at the very least, you can stop beating yourself up for failing. Since hard choices are unavoidable, what matters is learning to make them consciously, deciding what to focus on and what to neglect, rather than letting them get made by default, or deceiving yourself that, with enough hard work and the right time management tricks, you might not have to make them at all. It also means resisting the temptation to "keep your options open" in favour of deliberately making big, daunting, irreversible commitments, which you can't know in advance will turn out for the best, but which reliably prove more fulfilling in the end. And it means standing firm in the face of FOMO (fear of missing out) because you come to realize that missing out on something (indeed on almost everything) is basically guaranteed. Which isn't actually a problem anyway, it turns to, because "missing out" is what makes your choices meaningful in the first place. Every decision to use a portion of time on anything represents the sacrifice of all the other ways in which you could have spent that time, but didn't, and to willingly make that sacrifice is to take a stand, without reservation, on what matters most to you. 
 
+Another problem that FOMO brings us is that it leads us to lives where you "truly lived" only if you've lived all the experiences you could live. This leads to a frustrating life as the world has infinite of them, so getting a handful of them under your belt brings you no closer to a sense of having feasted on life's possibilities. You lead yourself in another [efficiency trap](#be-mindful-of-the-efficiency-trap) where the more you experience the more additional wonderful experiences you sarta to feel you could have on top of all those you've already had, with the result that the feeling of existential overwhelm gets worse. To fight this existential overwhelm you can resist the urge to consume more and more experiences and embrace the idea that you're going to miss most of them. You'll then be able to focus on fully enjoying the tiny slice of experiences you actually do have time for.
+
+This FOMO fever is normal given the facts that we're more conscious of the limits of our time (after deterring the after life), the increase of choices that the world has brought us, and the internet amplifier. 
 ### Embrace your control limits
 The more you try to manage your time with the goal of achieving a feeling of total control and freedom from the inevitable constrains of being human, the more stressful, empty, and frustrating life gets. But the more you confront the facts of finitude instead, and work with them, rather than against them, the more efficient, meaningful and joyful life becomes. Anxiety won't ever completely go away, we're even limited, apparently, in our capacity to embrace our limitations. But I'm aware of no other time management technique that's half as effective as just facing the way things truly are.
 
@@ -80,15 +79,43 @@ Time pressure comes largely from forces outside our control: from a cutthroat ec
 Seeing and accepting our limited powers over our time can prompt us to question the very idea that time is something you use in the first place. There is an alternative: the notion of letting time use you, approaching life not as an opportunity to implement your predetermined plans for success but as a matter of responding to the needs of your place and your moment in history.
 
 #### Embrace the community constrains 
-Moreover, most of us seek a specifically individualistic kind of mastery over time. Our culture's ideal is that you alone should control your schedule, doing whatever you prefer, whenever you want, because it's scary to confront the truth that almost everything worth doing depends on cooperating with others, and therefore on exposing yourself to the emotional uncertainties of relationships.  In the end the more individual sovereignty you achieve over your time, the lonelier you get. The truth then is that freedom sometimes is to be found not in achieving greater sovereignty over your own schedule but in allowing yourself to be constrained by the rhythms of community. Participating in forms of social life where you don't get to decide exactly what you do or when you doi it. And it leads to the insight that meaningful efficiency often comes not from hurrying things up but from letting them take the time they take. 
-
+Moreover, most of us seek a specifically individualistic kind of mastery over time. Our culture's ideal is that you alone should control your schedule, doing whatever you prefer, whenever you want, because it's scary to confront the truth that almost everything worth doing depends on cooperating with others, and therefore on exposing yourself to the emotional uncertainties of relationships.  In the end the more individual sovereignty you achieve over your time, the lonelier you get. The truth then is that freedom sometimes is to be found not in achieving greater sovereignty over your own schedule but in allowing yourself to be constrained by the rhythms of community. Participating in forms of social life where you don't get to decide exactly what you do or when you do it. And it leads to the insight that meaningful efficiency often comes not from hurrying things up but from letting them take the time they take. 
 ### Live for today not tomorrow
 
 It doesn't matter what you do, we all sense that there are always more important and fulfilling ways we could be spending our time, even if we can't say exactly what they are, yet we systematically spend our days doing other things instead. This feeling can take many forms: the desire to devote yourself to some larger cause, continuously demanding more from yourself, desiring to spend more time with your loved ones.
 
 Our attempts to become more efficient may have the effect of pushing the genuinely important stuff even further over the horizon. Our days are spent trying to "get through" tasks, in order to get them "out of the way", with the result that we live mentally in the future, waiting for when we'll finally get around to what really matters, and worrying in the meantime, that we don't measure up, that we might lack the drive or stamina to keep pace with the speed at which life now seems to move. We live in a constant spirit of joyless urgency.
+### You do what you can do 
+It's usual to feel as though you absolutely must do more than you can do. We live overwhelmed in a constant anxiety of fearing, or knowing for certain, that the actions we want to carry out won't fit on our available time. It looks like this feeling arises on every step of the economic ladder (shown in the works of Daniel Markovits).
 
-# How to manage time
+The thing is that the idea in itself doesn't make any sense. You can't do more than you can do even if you must. If you truly don't have time for everything you want to do, or feel you ought to do, or that others are badgering you to do, then, well, you don't have time, no matter how grave the consequences of failing to do it all might prove to be. So technically it's irrational to feel troubled by an overwhelming to-do list.  You'll do what you can, you won't do what you can't, and the tyrannical inner voice insisting that you must do everything is simply mistaken. We rarely stop to consider things so rationally, though, because that would mean confronting the painful truth of our limitations. We would be forced to acknowledge that there are hard choices to be made: which balls to let drop, which people to disappoint, which ambitions to abandon, which roles to fail at... Instead, in an attempt to avoid these unpleasant truths, we deploy the strategy that dominates most conventional advice on how to deal with busyness: we tell ourselves we'll just have to find a way to do more. So to address our busyness we're making ourselves busier still.
+### Importance is relative
+The problem here is that you'll never be able to make time for everything that feels important. A similar mindset of the section [Efficiency doesn't give you more time](#efficiency-doesnt-give-you-more-time) can be applied. The reason isn't that you haven't yet discovered the right time management tricks, or applied sufficient effort, or that you're generally useless. It's that the underlying assumption is unwarranted: there's no reason to believe you'll make time for everything that matters simply by getting more done. For a start, what "matters" is subjective, so you've no grounds for assuming that there will be time for everything that you, or anyone else deems important. But the other exasperating issue is that if you succeed in fitting more in, you'll find the goalposts start to shift: more things will begin to seem important, meaningful or obligatory. Acquire a reputation for doing your work at amazing speed, and you'll be given more of it. An example of this is gathered in Ruth Schwartz's book More work for mother, where it shows that when washing machines and vacuum cleaners appeared no time was saved at all, because society's standards of cleanliness rose to offset the benefits. What needs doing expands so as to fill the time available for its completion.
+### Be mindful of the efficiency trap
+
+Sometimes improving your efficiency may lead you to a worse scenario ("efficiency trap") where you won't generally result in the feeling of having "enough time", because, all else being equal, the demands will increase to offset any benefits. Far from getting things done, you'll be creating new things to do. A clear example of this is email management.  Every time you reply to an email, there's a good chance of provoking a reply to that email, which itself may require another reply, and so on and so on. At the same time, you'll become known as someone who responds promptly to email, so more people will consider it worth their while to message you to begin with. So it's not simply that you never get though your email; it's that the process of "getting through your email" actually generates more email.
+
+For most of us, most of the time, it isn't feasible to avoid the efficiency trap altogether, but you can stop believing you'll ever solve the challenge of busyness by cramming more in, because that just makes matters worse. And once you stop investing in the idea that you might one day achieve peace of mind that way, it becomes easier to find peace of mind in the present, in the midst of overwhelming demands, because you're no longer making your peace of mind dependent on dealing with all the demands. Once you stop believing that it might somehow be possible to avoid  hard choices about time, it gets easier to make better ones. 
+
+If you also have the knowledge of the existence of the efficiency traps you may detect them and try to get the benefits without the penalties.
+
+### Do the important stuff
+The worst aspect of the trap is that it's also a matter of quality. The harder you struggle to fit everything in, the more of your time you'll find yourself spending on the least meaningful things. This is because the more firmly you believe it ought to be possible to find time for everything, the less pressure you'll feel to ask whether any given activity sis the best use of a portion of your time. Each time something new shows up, you'll be strongly biased in favor of accepting it, because you'll assume you needn't sacrifice any other tasks or opportunities in order to make space for it. Soon your life will be automatically filled with not just more things but with more trivial or tedious things.
+
+The important stuff gets postponed because such tasks need your full focus, which means to wait until you have a good chunk of free time and fewer small-but-urgent tasks tugging at your attention. So you spend your energy into clearing the decks, cranking through the smaller stuff to get it out of the way, only to discover that doing so takes the whole day, that the decks are filled up again overnight and that the moment for doing the important stuff never arrives. One can waste years this way, systematically postponing precisely the things one cares the most.
+
+What's needed in these situations is to resist the urges of being on top of everything and learn to live with the anxiety of feeling overwhelmed without automatically responding by trying to fit more in. Instead of clearing the decks, decline to do so, focusing instead on what's truly of greatest consequence while tolerating the discomfort of knowing that, as you do so, the decks will be filling up further, with emails and errands and other to-dos, many of which you may never get around to at all.
+
+You'll sometimes still decide to drive yourself hard in an effort to squeeze more in, when circumstances absolutely require it. But that won't be your default mode, because you'll no longer be operating under the illusion of one day making time for everything.
+
+### Evaluate what you miss when you increase your efficiency
+
+Part of the benefits of efficiency is that you free yourself from tedious experiences, the side effect is that some times we're not conscious of being removing experiences that we valued. So even if everything runs more smoothly, smoothness is a dubious virtue, since it's often the unsmoothed textures of life that makes them livable, helping nurture the relationships that are crucial for mental and physical health, and for the resilience of our communities. For example if you buy online the groceries you miss the chance to regularly meet with your neighbours at your local grocery store.
+
+Convenience makes things easy, but without regard to whether easiness is truly what's most valuable in any given context. When you render the process more convenient you drain it of its meaning. The effect of convenience isn't just that the given activity starts to feel less valuable, but that we stop engaging in certain valuable activities altogether, in favour of more convenient ones. Because you can stay home, order food online, and watch sitcoms on a streaming service, you find yourself doing so although you might be perfectly aware that you'd have had a better time if you had met with your friends.
+
+Meanwhile, those aspects of life that resist being made to run more smoothly start to seem repellent. When you can skip the line and buy concert tickets on your phone, waiting in line to vote in an election is irritating. As convenience colonizes everyday life, activities gradually sort themselves into two types: the kind that are now far more convenient, but that feel empty or out of sync with our true preferences; and the kind that now seem intensely annoying because of how inconvenient they remain. Resisting all this is difficult because the Capital is winning this discourse and you'll have more pressure from your environment to stay convenient.
+# How to navigate time
 
 The rest of the article describes the approaches I use to apply this idea of efficiency. If you have a different understanding, goal or your brain works in a different way than mine, most of the guidelines may not apply to you, but they could spark some ideas that you can implement on your daily life.
 
@@ -168,7 +195,7 @@ well, the context switch toll gets smaller enough that whenever you hit a block
 in the action you're focusing on, you can switch to another one. A block can be
 caused by a long running process or waiting for someone to do something.
 
-!!! warning ""
+!!! Warning ""
     If you find concentrating difficult, don't do this, it's a hard skill to
     master.
 
@@ -179,19 +206,17 @@ plan](life_planning.md#action-plan) for the next step that could be done in
 parallel. As both processes act on the context of the same action, the switch is cheap. If there is none, go to the [day
 plan](life_planning.md#day-plan) to start the first step of the next action in the
 plan.
-
 ## Improve the way you carry out your actions
 
 Improve how you [manage your actions](action_management.md) to:
 
 * Reduce your mental load, so you can use those resources doing the actions you want to.
 * Improve your efficiency.
-* Make more realistic estimations, thus meeting the commited deadlines.
+* Make more realistic estimations, thus meeting the committed deadlines.
 * Finish what you start.
 * Know you're walking towards your ultimate goals
 * Stop feeling lost or overburdened.
 * Make context switches cheaper.
-
 ## [Improve how you manage your tools](tool_management.md)
 
 Most of the actions or processes we do involve some kind of tool. The better you
@@ -228,9 +253,8 @@ meeting, or taking turns to talk can help.
 
 There are more informal meetings where you don't need all these constrains and
 formality. For example in a coffee break. You know that they are going to be
-unproductive but that's ok too. Master your tools and apply them where you think
+unproductive but that's OK too. Master your tools and apply them where you think
 they are needed.
-
 ## Improve your state
 
 To be able to keep your efficiency, manage actions and change your habits you
@@ -255,7 +279,6 @@ Some of the vectors you can focus on to improve your state are:
 * [Don't be a slave of the interruptions](interruption_management.md).
 * Improve your [environment](remote_work.md).
 * Prevent illnesses through [hygiene](teeth.md) and [exercise](pilates.md).
-
 # References
 
 - [Four thousand weeks: Time management for mortals book by Oliver Burkeman](https://en.wikipedia.org/wiki/Four_Thousand_Weeks:_Time_Management_for_Mortals)

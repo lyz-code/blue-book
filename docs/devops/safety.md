@@ -4,6 +4,8 @@ date: 20201016
 author: Lyz
 ---
 
+WARNING: since 2024-05-27 it requires account to work, use [pip-audit](pip_audit.md) instead.
+
 [Safety](https://github.com/pyupio/safety) checks your installed dependencies
 for known security vulnerabilities.
 
@@ -56,7 +58,16 @@ Safety can be used through:
                 run: safety check
         ```
 
+## [Ignore some vulnerabilities](https://docs.safetycli.com/safety-docs/administration/safety-policy-files#safety-policy-file-structure)
+
+First create a security policy file:
+
+```bash
+safety generate policy_file
+```
+
 # References
 
-* [Git](https://github.com/pyupio/safety)
+* [Source](https://github.com/pyupio/safety)
+* [Docs](https://docs.safetycli.com/safety-docs)
 [![](not-by-ai.svg){: .center}](https://notbyai.fyi)

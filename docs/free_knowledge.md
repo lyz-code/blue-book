@@ -23,9 +23,7 @@ IPFS](https://www.reddit.com/r/DataHoarder/comments/ed9byj/library_genesis_proje
 to make it more difficult for the states to bring down this marvelous
 collection.
 
-A good way to start is to look at the [most ill
-torrents](https://phillm.net/torrent-health-frontend/seeds-needed.php) and
-fix their state. If you follow this path, take care of IP leaking, they're
+A good way to contribute is by seeding the ill torrents. You can [generate a list of torrents that need seeding](https://annas-archive.org/torrents#generate_torrent_list) up to a limit in TB. If you follow this path, take care of IP leaking, they're
 surely monitoring who's sharing.
 
 Another way to contribute is by following the guidelines of
@@ -33,14 +31,6 @@ Another way to contribute is by following the guidelines of
 library](https://freeread.org/ipfs/). Beware though, the guidelines don't
 explain how to install IPFS behind a VPN or Tor. This could be contributed to
 the site.
-
-Something that is needed is a command line tool that reads the [list of ill
-torrents](https://phillm.net/torrent-health-frontend/seeds-needed.php), and
-downloads the torrents that have a low number of seeders and DHT peers. The
-number of torrents to download could be limited by the amount the user wants to
-share. A second version could have an interaction with the torrent client so
-that when a torrent is no longer ill, it's automatically replaced with one that
-is.
 
 # References
 

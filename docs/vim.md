@@ -42,6 +42,9 @@ Configuring `vim` is a never ending life experience. As such, it deserves it's o
 
 When you run into problems run `:checkhealth` to see if it rings a bell. If that doesn't help you maybe [I've encountered your particular problem](vim_troubleshooting.md).
 
+## [<c-i> is not well mapped](https://github.com/neovim/neovim/issues/5916)
+It's because `<c-i>` is a synonym of `<TAB>`.
+
 # Resources
 
 - [Home](https://neovim.io/)

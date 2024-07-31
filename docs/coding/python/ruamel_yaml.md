@@ -34,8 +34,8 @@ the write of the data, the comments of the yaml will be lost.
 ## Load from file
 
 ```python
-from ruamel.yaml import YAML
-from ruamel.yaml.scanner import ScannerError
+from ruyaml import YAML
+from ruyaml.scanner import ScannerError
 
 try:
     with open(os.path.expanduser(file_path), 'r') as f:

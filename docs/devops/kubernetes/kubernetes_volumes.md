@@ -21,6 +21,19 @@ The `configMap` resource provides a way to inject configuration data into Pods.
 The data stored in a ConfigMap object can be referenced in a volume of type
 `configMap` and then consumed by containerized applications running in a Pod.
 
+### Specify a path of a configmap
+
+If you have a configmap with a key `ssh-known-hosts` and you want to mount it's content in a file, in the deployment `volumeMounts` section you can use the `subPath` field:
+
+```yaml
+      - mountPath: /home/argocd/.ssh/known_hosts
+        name: ssh-known-hosts
+        subPath: ssh_known_hosts
+        readOnly: true
+```
+```
+```
+
 ## [emptyDir](https://kubernetes.io/docs/concepts/storage/volumes/#emptydir)
 
 An `emptyDir` volume is first created when a Pod is assigned to a Node, and exists

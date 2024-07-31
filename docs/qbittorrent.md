@@ -88,6 +88,13 @@ can spawn it fast and import the torrents that are under the Hit and Run threat.
 
 - [qbittools](https://github.com/buroa/qbittools): a feature rich CLI for the management of torrents in qBittorrent. 
 - [qbit_manage](https://github.com/StuffAnThings/qbit_manage): tool will help manage tedious tasks in qBittorrent and automate them. 
+# Troubleshooting
+## Trackers stuck on Updating
+
+Sometimes the issue comes from an improvable configuration. In advanced:
+
+- Ensure that there are enough [Max concurrent http announces](https://github.com/qbittorrent/qBittorrent/issues/15744): I changed from 50 to 500
+- [Select the correct interface and Optional IP address to bind to](https://github.com/qbittorrent/qBittorrent/issues/14453). In my case I selected `tun0` as I'm using a vpn and `All IPv4 addresses` as I don't use IPv6.
 # References
 
 - [Home](https://www.qbittorrent.org/)

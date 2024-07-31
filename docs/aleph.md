@@ -244,9 +244,21 @@ conditional that only matches one of both threads.
 # Monitorization
 ## [Prometheus metrics](https://github.com/alephdata/aleph/pull/3216)
 
-Aleph now exposes prometheus metrics on the port 9100
+Aleph now exposes prometheus metrics on the port 9100.
+# Troubleshooting
+## Debug ingestion errors
+Assuming that you've [set up Loki to ingest your logs](https://github.com/alephdata/aleph/issues/2124) I've so far encountered the next ingest issues:
+
+- `Cannot open image data using Pillow: broken data stream when reading image files`: The log trace that has this message also contains a field `trace_id` which identifies the ingestion process. With that `trace_id` you can get the first log trace with the field `logger = "ingestors.manager"` which will contain the file path in the `message` field. Something similar to `Ingestor [<E('9972oiwobhwefoiwefjsldkfwefa45cf5cb585dc4f1471','path_to_the_file_to_ingest.pdf')>]`
+- A traceback with the next string `Failed to process: Could not extract PDF file: FileDataError('cannot open broken document')`: This log trace has the file path in the `message` field. Something similar to `[<E('9972oiwobhwefoiwefjsldkfwefa45cf5cb585dc4f1471','path_to_the_file_to_ingest.pdf')>] Failed to process: Could not extract PDF file: FileDataError('cannot open broken document')`
+
+I thought of making a [python script to automate the files that triggered an error](loki.md#interact-with-loki-through-python), but in the end I extracted the file names manually as they weren't many. 
+
+Once you have the files that triggered the errors, the best way to handle them is to delete them from your investigation and ingest them again.
+
 # References
 
 - [Source](https://github.com/alephdata/aleph)
 - [Docs](http://docs.alephdata.org/)
+- [Support chat](https://alephdata.slack.com)
 [![](not-by-ai.svg){: .center}](https://notbyai.fyi)

@@ -54,6 +54,9 @@ It's not very pleasant to use though.
   
 # Troubleshooting
 
+## [System.InvalidOperationException: There is an error in XML document (0, 0)](https://forum.jellyfin.org/t-system-invalidoperationexception-there-is-an-error-in-xml-document-0-0)
+This may happen if you run out of disk and some xml file in the jellyfin data directory becomes empty. The solution is to restore that file from backup.
+
 ## Forgot Password. Please try again within your home network to initiate the password reset process.
 
 If you're an external jellyfin user you can't reset your password unless you are part of the LAN. This is done because the reset password process is simple and insecure.
