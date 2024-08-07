@@ -282,6 +282,43 @@ ip route add 192.168.3.123 dev wg0
 
 # Operation
 
+## [Check the status of the tunnel](https://www.vmwaremine.com/2020/10/01/how-to-check-vpn-link-status-on-wireguard/)
+
+One method is to do ping between VPN IP addresses or run command `wg show`` from the server or from the client.
+Below you can see `wg show`` command output where VPN is *not* up.
+
+```bash
+```bash
+$: wg show
+interface: wg0
+  public key: qZ7+xNeXCjKdRNM33Diohj2Y/KSOXwvFfgTS1LRx+EE=
+  private key: (hidden)
+  listening port: 45703
+
+peer: mhLzGkqD1JujPjEfZ6gkbusf3sfFzy+1KXBwVNBRBHs=
+  endpoint: 3.133.147.235:51820
+  allowed ips: 10.100.100.1/32
+  transfer: 0 B received, 592 B sent
+  persistent keepalive: every 21 seconds
+```
+
+The below output from the `wg show` command indicates the VPN link is up. See the line with `last handshake time`
+
+```bash
+$: wg show
+interface: wg0
+  public key: qZ7+xNeXCjKdRNM33Diohj2Y/KSOXwvFfgTS1LRx+EE=
+  private key: (hidden)
+  listening port: 49785
+
+peer: 6lf4SymMbY+WboI4jEsM+P9DhogzebSULrkFowDTt0M=
+  endpoint: 3.133.147.235:51820
+  allowed ips: 10.100.100.1/32
+  latest handshake: 14 seconds ago
+  transfer: 732 B received, 820 B sent
+  persistent keepalive: every 21 seconds
+```
+
 ## [Remove a peer](https://forum.netgate.com/topic/165845/enable-disable-wireguard-peer-by-cli/5)
 
 ```bash 

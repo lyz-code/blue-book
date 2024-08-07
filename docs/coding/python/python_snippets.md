@@ -4,6 +4,27 @@ date: 20200717
 author: Lyz
 ---
 
+# Send a linux desktop notification
+
+## Using `notify2`
+
+To show a Linux desktop notification from a Python script, you can use the `notify2` library (although [it's last commit was done on 2017](https://pypi.org/project/notify2/). This library provides an easy way to send desktop notifications on Linux.
+
+Alternatively, you can use the `subprocess` module to call the `notify-send` command-line utility directly. This is a more straightforward method but requires `notify-send` to be installed.
+
+```python
+import subprocess
+
+def send_notification(title: str, message: str = "", urgency: str = "normal") -> None:
+    """Send a desktop notification using notify-send.
+
+    Args:
+        title (str): The title of the notification.
+        message (str): The message body of the notification. Defaults to an empty string.
+        urgency (str): The urgency level of the notification. Can be 'low', 'normal', or 'critical'. Defaults to 'normal'.
+    """
+    subprocess.run(["notify-send", "-u", urgency, title, message])
+```
 # [Compare file and directories](https://docs.python.org/3/library/filecmp.html)
 The filecmp module defines functions to compare files and directories, with various optional time/correctness trade-offs. For comparing files, see also the difflib module.
 
@@ -360,6 +381,23 @@ logging.log(level, "An exception was thrown!", exc_info=True)
 
 ## With the traceback module
 
+### Get the error string
+```python
+
+import traceback
+
+def cause_error():
+    return 1 / 0  # This will raise a ZeroDivisionError
+
+try:
+    cause_error()
+except Exception as error:
+    # Capture the exception traceback as a string
+    error_message = "".join(traceback.format_exception(None, error, error.__traceback__))
+    print("An error occurred:\n", error_message)
+```
+
+### Print directly the error
 The `traceback` module provides methods for formatting and printing exceptions
 and their tracebacks, e.g. this would print exception like the default handler
 does:

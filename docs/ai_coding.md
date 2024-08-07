@@ -35,6 +35,7 @@ matches:
 
       Following the next guidelines:
 
+      - Use pytest
       - Add type hints 
       - Follow the AAA style 
       - In the Act section if the function to test returns a value always name that variable returns. If the function to test doesn't return any value append an # act comment at the end of the line. 
@@ -54,5 +55,30 @@ matches:
         multiline: true
       conditions:
         multiline: true
+  - trigger: :polish
+    form: |
+     Polish the next code
+     [[code]] 
+     with the next conditions:
+     - Use type hints on all functions and methods
+     - Add or update the docstring using google style on all functions and methods
+    form_fields:
+      code:
+        multiline: true
+  - trigger: :commit
+    form: |
+     Act as an expert developer. Create a message commit with the next conditions:
+     - follow semantic versioning 
+     - create a semantic version comment per change
+     - include all comments in a raw code block so that it's easy to copy
+
+     for the following diff
+     [[text]] 
+    form_fields:
+      text:
+        multiline: true
 ```
 
+# References
+
+- [Awesome chatgpt prompts](https://prompts.chat/)

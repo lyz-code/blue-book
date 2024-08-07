@@ -17,7 +17,18 @@ with open('your_file.org', 'r') as f:
     doc = load(f)
 ```
 
+## [Change the default org-todo-keywords](https://github.com/kenkeiras/org-rw/issues/2)
+
+```python
+orig = '''* NEW_TODO_STATE First entry 
+
+* NEW_DONE_STATE Second entry''' 
+doc = loads(orig, environment={ 
+  'org-todo-keywords': "NEW_TODO_STATE | NEW_DONE_STATE" 
+}) 
+```
 # References
 
-- [Source](https://github.com/kenkeiras/org-rw)
+- [Source](https://code.codigoparallevar.com/kenkeiras/org-rw)
+- [Github](https://github.com/kenkeiras/org-rw)
 [![](not-by-ai.svg){: .center}](https://notbyai.fyi)

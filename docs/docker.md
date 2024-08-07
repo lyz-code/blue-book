@@ -385,6 +385,10 @@ The other way around works too.
 
 # Dockerfile creation
 
+## Minify the images
+
+[dive](https://github.com/wagoodman/dive) and [slim](https://github.com/slimtoolkit/slim) are two cli tools you can use to optimise the size of your dockers.
+
 ## [Remove the apt cache after installing a package](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
 
 ```

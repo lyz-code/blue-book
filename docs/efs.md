@@ -15,7 +15,7 @@ RECOVERY_POINTS=$(aws backup list-recovery-points-by-backup-vault --backup-vault
 echo -e "Creation Date\t\tRecovery Point ARN\t\t\t\t\t\t\t\t\tSize (TB)"
 echo "---------------------------------------------------------------------------------------------------------------------"
 
-while read -r RECOVERY_POINT_ARN BACKUP_SIZE_BYTES CREATION_DATE; do
+echo "$RECOVERY_POINTS" | while read -r RECOVERY_POINT_ARN BACKUP_SIZE_BYTES CREATION_DATE; do
     # Remove the decimal part from the epoch time
     EPOCH_TIME=$(echo $CREATION_DATE | cut -d'.' -f1)
     # Convert the creation date from epoch time to YYYY-MM-DD format
@@ -23,7 +23,7 @@ while read -r RECOVERY_POINT_ARN BACKUP_SIZE_BYTES CREATION_DATE; do
     SIZE_TB=$(echo "scale=6; $BACKUP_SIZE_BYTES / (1024^4)" | bc)
     # echo -e "$FORMATTED_DATE\t$RECOVERY_POINT_ARN\t$SIZE_TB"
    	printf "%-16s %-80s %10.6f\n" "$FORMATTED_DATE" "$RECOVERY_POINT_ARN" "$SIZE_TB"
-done <<< "$RECOVERY_POINTS"
+done 
 ```
 ## List the size of the jobs
 

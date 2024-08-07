@@ -37,7 +37,6 @@ They should be guidelines that help you define the direction of where do you wan
 ### Trimester decide
 #### Order, prioritize and choose the area objectives
 Gather them in the roadmap document.
-
 # Semester reviews
 
 The objectives of the trimester review are:

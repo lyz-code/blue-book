@@ -93,6 +93,158 @@ show_notifications: false
 Just type and you'll see the text expanded. 
 
 You can use the search bar if you don't remember your snippets.
+# Helpers
+## Desktop application to add words easily
+
+Going into the espanso config files to add words is cumbersome, to make things easier you can use the `espansadd` Python script.
+
+I'm going to assume that you have the following prerequisites:
+
+- A Linux distribution with i3 window manager installed.
+- Python 3 installed.
+- Espanso installed and configured.
+- `ruyaml` and `tkinter` Python libraries installed.
+- `notify-send` installed.
+- Basic knowledge of editing configuration files in i3.
+
+### Installation
+
+Create a new Python script named `espansadd.py` with the following content:
+
+```python
+import tkinter as tk
+from tkinter import simpledialog
+import traceback
+import subprocess
+import os
+import sys
+
+from ruyaml import YAML
+from ruyaml.scanner import ScannerError
+
+# Define the YAML file path
+file_path = os.path.expanduser("~/.config/espanso/match/typofixer_overwrite.yml")
+
+
+def append_to_yaml(file_path: str, trigger: str, replace: str) -> None:
+    """Appends a new entry to the YAML file.
+
+    Args:ath
+        file_path (str): The file to append the new entry.
+        trigger (str): The trigger string to be added.
+        replace (str): The replacement string to be added.
+    """
+
+    # Define the new snippet
+    new_entry = {
+        "trigger": trigger,
+        "replace": replace,
+        "propagate_case": True,
+        "word": True,
+    }
+
+    # Load existing data or initialize an empty list
+    try:
+        with open(os.path.expanduser(file_path), "r") as f:
+            try:
+                data = YAML().load(f)
+            except ScannerError as e:
+                send_notification(
+                    f"Error parsing yaml of configuration file {file_path}",
+                    f"{e.problem_mark}: {e.problem}",
+                    "critical",
+                )
+                sys.exit(1)
+    except FileNotFoundError:
+        send_notification(
+            f"Error opening the espanso file {file_path}", urgency="critical"
+        )
+        sys.exit(1)
+
+    data["matches"].append(new_entry)
+
+    # Write the updated data back to the file
+    with open(os.path.expanduser(file_path), "w+") as f:
+        yaml = YAML()
+        yaml.default_flow_style = False
+        yaml.dump(data, f)
+
+
+def send_notification(title: str, message: str = "", urgency: str = "normal") -> None:
+    """Send a desktop notification using notify-send.
+
+    Args:
+        title (str): The title of the notification.
+        message (str): The message body of the notification. Defaults to an empty string.
+        urgency (str): The urgency level of the notification. Can be 'low', 'normal', or 'critical'. Defaults to 'normal'.
+    """
+    subprocess.run(["notify-send", "-u", urgency, title, message])
+
+
+def main() -> None:
+    """Main function to prompt user for input and append to the YAML file."""
+    # Create the main Tkinter window (it won't be shown)
+    window = tk.Tk()
+    window.withdraw()  # Hide the main window
+
+    # Prompt the user for input
+    trigger = simpledialog.askstring("Espanso add input", "Enter trigger:")
+    replace = simpledialog.askstring("Espanso add input", "Enter replace:")
+
+    # Check if both inputs were provided
+    try:
+        if trigger and replace:
+            append_to_yaml(file_path, trigger, replace)
+            send_notification("Espanso snippet added successfully")
+        else:
+            send_notification(
+                "Both trigger and replace are required", urgency="critical"
+            )
+    except Exception as error:
+        error_message = "".join(
+            traceback.format_exception(None, error, error.__traceback__)
+        )
+        send_notification(
+            "There was an unknown error adding the espanso entry",
+            error_message,
+            urgency="critical",
+        )
+
+
+if __name__ == "__main__":
+    main()
+```
+
+Ensure the script has executable permissions. Run the following command:
+
+```bash
+chmod +x espansadd.py
+```
+
+To make the `espansadd` script easily accessible, we can configure a key binding in i3 to run the script. Open your i3 configuration file, typically located at `~/.config/i3/config` or `~/.i3/config`, and add the following lines:
+
+```bash
+# Bind Mod+Shift+E to run the espansadd script
+bindsym $mod+Shift+e exec --no-startup-id /path/to/your/espansadd.py
+```
+
+Replace `/path/to/your/espansadd.py` with the actual path to your script.
+
+If you also want the popup windows to be in floating mode add
+
+```bash
+for_window [title="Espanso add input"] floating enable
+```
+
+After editing the configuration file, reload i3 to apply the changes. You can do this by pressing `Mod` + `Shift` + `R` (where `Mod` is typically the `Super` or `Windows` key) or by running the following command:
+
+```bash
+i3-msg reload
+```
+
+### Usage
+
+Now that everything is set up, you can use the `espansadd` script by pressing `Mod` + `Shift` + `E`. This will open a dialog where you can enter the trigger and replacement text for the new Espanso snippet. After entering the information and pressing Enter, a notification will appear confirming the snippet has been added, or showing an error message if something went wrong.
 
 # References
 - [Code](https://github.com/espanso/espanso)

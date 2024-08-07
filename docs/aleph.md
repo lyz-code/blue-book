@@ -11,6 +11,47 @@ case. Aleph allows cross-referencing mentions of well-known entities (such as
 people and companies) against watchlists, e.g. from prior research or public
 datasets.
 
+# Usage
+## [API Usage](https://redocly.github.io/redoc/?url=https://aleph.occrp.org/api/openapi.json)
+
+The Aleph web interface is powered by a Flask HTTP API. Aleph supports an extensive API for searching documents and entities. It can also be used to retrieve raw metadata, source documents and other useful details. Aleph's API tries to follow a pragmatic approach based on the following principles:
+
+- All API calls are prefixed with an API version; this version is /api/2/.
+- Responses and requests are both encoded as JSON. Requests should have the Content-Type and Accept headers set to application/json.
+- The application uses Representational State Transfer (REST) principles where convenient, but also has some procedural API calls.
+- The API allows API Authorization via an API key or JSON Web Tokens.
+
+### [Authentication and authorization](https://redocly.github.io/redoc/?url=https://aleph.occrp.org/api/openapi.json#section/Authentication-and-Authorization)
+
+By default, any Aleph search will return only public documents in responses to API requests.
+
+If you want to access documents which are not marked public, you will need to sign into the tool. This can be done through the use on an API key. The API key for any account can be found by clicking on the "Profile" menu item in the navigation menu.
+
+The API key must be sent on all queries using the Authorization HTTP header:
+
+Authorization: ApiKey 363af1e2b03b41c6b3adc604956e2f66
+
+Alternatively, the API key can also be sent as a query parameter under the api_key key.
+
+Similarly, a JWT can be sent in the Authorization header, after it has been returned by the login and/or OAuth processes. Aleph does not use session cookies or any other type of stateful API.
+## Crossreferencing mentions with entities
+
+[Mentions](https://docs.aleph.occrp.org/developers/explanation/cross-referencing/#mentions) are names of people or companies that Aleph automatically extracts from files you upload. Aleph includes mentions when cross-referencing a collection, but only in one direction.
+
+Consider the following example:
+
+- "Collection A" contains a file. The file mentions "John Doe".
+- "Collection B" contains a Person entity named "John Doe".
+
+If you cross-reference “Collection A”, Aleph includes the mention of “John Doe” in the cross-referencing and will find a match for it in “Collection B”.
+
+However, if you cross-reference “Collection B”, Aleph doesn't consider mentions when trying to find a match for the Person entity.
+
+As long as you only want to compare the mentions in one specific collection against entities (but not mentions) in another collection, Aleph’s cross-ref should be able to do that. If you want to compare entities in a specific collection against other entities and mentions in other collections, you will have to do that yourself.
+
+If you have a limited number of collection, one option might be to fetch all mentions and automatically create entities for each mention using the API.
+
+To fetch a list of mentions for a collection you can use the `/api/2/entities?filter:collection_id=137&filter:schemata=Mention` API request.
 # [Install the development environment](https://docs.alephdata.org/developers/installation#getting-started)
 
 As a first step, check out the source code of Aleph from GitHub:
@@ -259,6 +300,7 @@ Once you have the files that triggered the errors, the best way to handle them i
 # References
 
 - [Source](https://github.com/alephdata/aleph)
-- [Docs](http://docs.alephdata.org/)
+- [Docs](https://docs.alephdata.org/)
 - [Support chat](https://alephdata.slack.com)
+- [API docs](https://redocly.github.io/redoc/?url=https://aleph.occrp.org/api/openapi.json)
 [![](not-by-ai.svg){: .center}](https://notbyai.fyi)

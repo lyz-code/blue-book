@@ -1,5 +1,5 @@
 
-## The weekly planning
+# The weekly planning
 
 I follows these steps:
 
@@ -56,6 +56,7 @@ To be able to make a good decision on your month's path you need to sort out whi
 - Clean your agenda and get an feeling of the busyness of the month: 
   - Open the orgmode month view agenda and clean it
   - Read the rest of your calendars
+
 ## Decide the month objectives
 
 Create the month objectives in your roadmap file after addressing each element of:
@@ -86,16 +87,7 @@ Then reorder the objectives in order of priority. Try to have at least one objec
 - Tweak your *things to think about list*.
 - Tweak your *investigations list*.
 - Tweak your *reading list*.
+- Tweak your learning list.
 - Tweak your *habit manager system*.
-
-## Monthly planning
-
-- Analyze the current circumstances to decide which areas is best to focus on
-- Do the [area refinement](#area-refinement) of the selected areas.
-
-- Make the whole system meet the new objectives:
-  - The think document
-  - The investigate document
-  - The learn document
 
 [![](not-by-ai.svg){: .center}](https://notbyai.fyi)

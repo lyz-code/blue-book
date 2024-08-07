@@ -316,7 +316,9 @@ At this level you not only had time to polish your roadmap adjustment skills, bu
 Now that you have stopped worrying for your integrity, you start to hear a little voice from within yourself that gives you signals from your body and brain about what worries you, what makes you happy, what makes you mad, ... Has it been yelling all this time?  `(¬º-°)¬`.
 
 At this adjustment level we'll start using the next abstraction level, the [objectives] is whatever you need to do to get your head empty again and get oriented for the next 9 days. It's split in the next phases:
+
 ### Personal integrity review
+
 The objectives of the personal integrity review are:
 
 - Identify how you feel and what worries you.
@@ -332,6 +334,7 @@ Doing this adjustment once per month is a good frequency given the speed of life
 It's interesting to do these reviews on meaningful days such as the last day of the month. Usually we don't have enough flexibility in our life to do it exactly that day, so schedule it the closest you can to that date. It's a good idea to do both the review and the planning on the same day.
 
 As it's a process we're going to do very often, we need it to be relatively quick and easy so as not to invest too much time or energies on it. Keep in mind that this should be an analysis at month level in terms of abstraction, here is not the place to ask yourself if you're fulfilling your life goals. As such, you don't need that much time either, just identifying the top things that pop out of your mind are more than enough.
+
 ### Personal integrity review tools
 
 With a new level of abstraction we need tools:
@@ -384,12 +387,25 @@ There are different paths to discover actionable items:
 - Analyze what is in your mind: Take 10 minutes to answer to the next questions (you don't need to answer them all):
 
   - What did you enjoy most this last month?
+    - [ ] 
+
   - What do you want right now?
+    - [ ] 
+
   - What motivates you right now?
+    - [ ] 
+
   - What worries you right now?
+    - [ ] 
   - Where is your mind these days?
+
+    - [ ] 
+
   - What did drain your energy or brought you down emotionally this last month?
+    - [ ] 
+
   - What did help you most this last month?
+    - [ ] 
 
   Notice that we do not need to review our life logging tools (diary, action manager, ...) to answer these questions. This means that we're doing an analysis of what is in our minds right now, not throughout the month. It's flawed but as we do this analysis often, it's probably fine. We add more importance to the latest events in our life anyway.
 
@@ -441,7 +457,6 @@ Finally:
 
 - Check the last month checks and complete this month ones.
 - Pat yourself in the shoulder as you've finished the review ^^.
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)
 ## Dream about the trimester 
 
 Now that we know how to read and react to the signals our inner self sends we are in a better position to align our roadmap with what we understand for a fulfilling life. We'll get into the philosophical ground of thinking about life's meaning. I wanted to say answer the question, but I'm increasingly convinced that there is no answer and that the best we can aim to is to leave our thoughts guide us without any certainty.
@@ -473,7 +488,17 @@ As with [personal integrity review](#personal-integrity-review), it's interestin
 The year is then divided in two sets of an expansion trimester and a retreat one. We can use this information to adjust our life plan accordingly. In the expansion trimester we could invest more energies in the planning, and in the retreat ones we can do more throughout reviews.
 
 #### Listen to your desires
-The trimester review requires an analysis that doesn't fill in a day session. It requires slow thinking over some time. So I'm creating a task 10 days before the actual review to start thinking about the next trimester. Whether it's ideas, plans, desires, objectives, values, or principles.
+The trimester review requires an analysis that doesn't fill in a day session. It requires slow thinking over some time. So I'm creating a task 30 days before the actual review to start thinking about the next trimester. Whether it's ideas, plans, desires, objectives, values, or principles.
+
+```org
+* TODO Think on the next trimester
+** Ideas
+** Plans
+** Desires
+** Objectives
+** Values
+** Principles
+```
 
 Is useful for that document to be available wherever you go, so that in any spare time you can pop it up and continue with the train of thought. 
 
@@ -483,7 +508,8 @@ On the day to actually do the review, follow the steps of the [Month review prep
 
 #### Answer some meaningful guided questions
 
-To be done,  until then you can read chapters 13, 14 and the epilogue of the book Four thousand weeks by Oliver Burkman.
+To be done, until then you can read chapters 13, 14 and the epilogue of the book Four thousand weeks by Oliver Burkman.
+
 #### Refactor your gathered thoughts
 If you've followed the prepare steps, you've already been making up your mind on what do you want the next trimester to look like. Now it's the time to refine those thoughts.
 
@@ -506,4 +532,7 @@ Go *one by one* (don't peek!) of your gathered items and translate them in the n
 - `Essential intent`: This is the main headline of your trimester, probably you won't be able to define it until the last parts of the review process. It should be concrete and emotional too, it's going to be the idea that gives you strength on your weak moments and your guide to decide which projects to do and which not to.
 
 Don't be too concerned on the format of the content of the objectives, this is the first draft, and we'll refine it through the planning.
+
 ### Trimester planning
+
+[![](not-by-ai.svg){: .center}](https://notbyai.fyi)
