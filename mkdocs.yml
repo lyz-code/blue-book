@@ -126,6 +126,7 @@ nav:
         - Spaced Repetition: 
           - spaced_repetition.md
           - Anki: anki.md
+          - Mochi: mochi.md
         - Analytical web reading: 
           - analytical_web_reading.md
           - Hypothesis: linux/hypothesis.md

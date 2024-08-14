@@ -31,6 +31,15 @@ pip install ruyaml
 Very similar to PyYAML. If invoked with `YAML(typ='safe')` either the load or
 the write of the data, the comments of the yaml will be lost.
 
+## Load from string
+
+```python
+from ruyaml import YAML
+
+yaml = YAML().load('a: 1')
+# Type <class 'ruyaml.comments.CommentedMap'>
+```
+
 ## Load from file
 
 ```python

@@ -228,7 +228,7 @@ Here is an example test usage:
 File: `test_tmpdir.py`:
 
 ```python
-from py._path.local import LocalPath
+from _pytest._py.path import LocalPath
 
 
 def test_create_file(tmpdir: LocalPath):
@@ -751,6 +751,8 @@ markers =
     slow: marks tests as slow (deselect with '-m "not slow"')
     secondary: mark tests that use functionality tested in the same file (deselect with '-m "not secondary"')
 ```
+
+If you wish not to run `slow` nor `secondary` you can use the flag `-m "not slow and not secondary`.
 
 # Snippets
 

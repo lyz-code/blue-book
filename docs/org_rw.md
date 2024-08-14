@@ -11,12 +11,26 @@ pip install org-rw
 ## Load an orgmode file
 
 ```python
+from org_rw import loads
+
+doc = loads(Path('your_file.org').read_text())
+
+# or 
+
 from org_rw import load
 
 with open('your_file.org', 'r') as f:
     doc = load(f)
+
 ```
 
+## Write to an orgmode file
+
+```python
+from org_rw import dumps
+
+Path('your_file.org').write_text(dumps(doc))
+```
 ## [Change the default org-todo-keywords](https://github.com/kenkeiras/org-rw/issues/2)
 
 ```python

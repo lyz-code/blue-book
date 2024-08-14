@@ -3,7 +3,7 @@ Easy to install and low maintenance, it just does the job. The awful name comes 
 
 Brought to you by an inclusive community under the umbrella of [Codeberg e.V.](https://forgejo.org/faq/#what-is-codeberg-ev), a democratic non-profit organization, Forgejo can be trusted to be exclusively Free Software. It is a ["soft" fork of Gitea](https://codeberg.org/forgejo/forgejo/src/branch/forgejo/CONTRIBUTING/WORKFLOW.md#feature-branches) with a focus on scaling, federation and privacy. 
 
-The forgejo instance at [codeberg](https://codeberg.org) looks to be production ready they have forgejo actions and [static pages](#host-static-pages-site). What else can you ask for?
+The forgejo instance at [codeberg](https://codeberg.org) looks to be production ready they [have forgejo actions](https://docs.codeberg.org/ci/actions/) (although you need to host the runners yourself or use Woodpecker CI :/) and [static pages](#host-static-pages-site). It looks [they won't be moving to forgejo actions soon](https://codeberg.org/Codeberg-CI/feedback/issues/192), if you wish to follow this topic subscribe to [this thread](https://codeberg.org/Codeberg/Community/issues/843). If you want to activate the Woodpecker actions on your repo you need to [file an issue here](https://codeberg.org/Codeberg-e.V./requests), and you can file feedback requests [here](https://codeberg.org/Codeberg-CI/feedback/issues)
 
 I want to migrate everything from github to their server... Let's see how soon I manage to do it xD.
 

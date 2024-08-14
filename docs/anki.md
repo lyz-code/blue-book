@@ -72,7 +72,7 @@ Although there are some python libraries:
 * [genanki](https://github.com/kerrickstaley/genanki)
 * [py-anki](https://pypi.org/project/py-anki/)
 
-I think the best way is to use [AnkiConnect](https://foosoft.net/projects/anki-connect/)
+I think the best way is to use [AnkiConnect](https://foosoft.net/projects/anki-connect/) as [they won't publish an API soon](https://forums.ankiweb.net/t/anki-public-api/22741/11). If AnkiConnect fails you can try [AnkiAPI](https://ankiweb.net/shared/info/530824608)
 
 The installation process is similar to other Anki plugins and can be accomplished in three steps:
 
@@ -147,7 +147,7 @@ class Anki:
         return response["result"]
 ```
 
-You can find the full adapter in the [fala](https://github.com/lyz-code/fala)
+You can find the full adapter in the [ebops](https://github.com/lyz-code/fala)
 project.
 
 ### Decks
@@ -176,7 +176,169 @@ self.requests("createDeck", {"deck": deck})
 
 NOTE: In the end I dropped this path and used Ankidroid alone with syncthing as I didn't need to interact with the decks from the computer. Also the ecosystem of synchronization in Anki at 2023-11-10 is confusing as there are many servers available, not all are compatible with the clients and Anki itself has released it's own so some of the community ones will eventually die.
 
-## [Install the server](https://github.com/ankicommunity/anki-devops-services#about-this-docker-image)
+## Install the server
+### [Install the official sync server](https://docs.ankiweb.net/sync-server.html)
+
+#### Using docker-compose
+
+On the server that holds Anki:
+
+* Create the data directories: 
+  ```bash
+  mkdir -p /data/apps/anki/data
+  chown -R 1000:1000 /data/apps/anki/data
+  ```
+* Copy the `docker/docker-compose.yaml` to `/data/apps/anki`.
+
+  ```yaml
+  ---
+  version: "3"
+
+  services:
+    anki:
+      image: jeankhawand/anki-sync-server:24.04.1
+      container_name: anki
+      restart: always
+      volumes:
+        - data:/home/anki/.syncserver
+      networks:
+        - nginx
+      env_file:
+        - .env
+
+  networks:
+    nginx:
+      external:
+        name: nginx
+
+  volumes:
+    data:
+      driver: local
+      driver_opts:
+        type: none
+        o: bind
+        device: /data/apps/anki/data
+  ```
+* Add your `.env` file with your credentials
+  ```
+  SYNC_USER1=user:password
+  ```
+* Clone the repository at `/data/apps/anki/src`
+* Copy the `service/anki.service` into `/etc/systemd/system/`
+  ```ini
+  [Unit]
+  Description=anki
+  Requires=docker.service
+  After=docker.service
+
+  [Service]
+  Restart=always
+  User=root
+  Group=docker
+  WorkingDirectory=/data/apps/anki
+  TimeoutStartSec=100
+  RestartSec=2s
+  ExecStart=/usr/local/bin/docker-compose -f docker-compose.yaml up
+  ExecStop=/usr/local/bin/docker-compose -f docker-compose.yaml down
+
+  [Install]
+  WantedBy=multi-user.target
+  ```
+* Copy the `swag/anki.conf` into your nginx site-confs directory.
+  ```nginx
+  # make sure that your dns has a cname set for anki and that your anki container is not using a base url
+
+  server {
+      listen 443 ssl;
+      listen [::]:443 ssl;
+
+      server_name anki.*;
+
+      include /config/nginx/ssl.conf;
+
+      client_max_body_size 0;
+
+      # enable for ldap auth, fill in ldap details in ldap.conf
+      #include /config/nginx/ldap.conf;
+
+      location / {
+          # enable the next two lines for http auth
+          #auth_basic "Restricted";
+          #auth_basic_user_file /config/nginx/.htpasswd;
+
+          # enable the next two lines for ldap auth
+          #auth_request /auth;
+          #error_page 401 =200 /login;
+
+          include /config/nginx/proxy.conf;
+          resolver 127.0.0.11 valid=30s;
+          set $upstream_anki anki;
+          proxy_pass http://$upstream_anki:8080;
+      }
+  }
+
+  ```
+* Build the docker with `docker-compose up --build`
+* Start the service `systemctl start anki`
+* If needed enable the service `systemctl enable anki`.
+
+##### Update
+
+* Go to the `/data/apps/anki/src` directory
+* Update the changes: `git pull`
+* Check which is the latest version
+* Update the `docker-compose.yaml`
+* Stop the service `systemctl start anki`
+* Rebuild the docker: `docker-compose up --build`
+* Start the service `systemctl start anki`
+
+#### [Using docker](https://github.com/ankitects/anki/tree/main/docs/syncserver)
+
+You can use the [official image](https://hub.docker.com/r/jeankhawand/anki-sync-server). It doesn't support the `latest` tag, but opening an issue is a bit cumbersome
+
+##### Building the image
+
+Use the output of `anki --version` to deduce the `<version>`
+```bash
+git clone https://github.com/ankitects/anki 
+cd anki/docs/syncserver/
+docker build --no-cache --build-arg ANKI_VERSION=<version> -t anki-sync-server .
+```
+Go make some tea, it takes a while to build the image.
+
+Once done with build, you can proceed with running this image with the following command:
+
+```bash
+# this will create anki server
+docker run -d  -e "SYNC_USER1=admin:admin" -p 8080:8080 --name anki-sync-server anki-sync-server
+```
+
+However, if you want to have multiple users, you have to use the following approach:
+
+```bash
+# this will create anki server with multiple users
+docker run -d -e "SYNC_USER1=test:test" -e "SYNC_USER2=test2:test2" -p 8080:8080 --name anki-sync-server anki-sync-server
+```
+
+Moreover, you can pass additional env vars mentioned [here](https://docs.ankiweb.net/sync-server.html)
+
+The server needs to store a copy of your collection and media in a directory. By default it is `~/.syncserver`; you can change this by defining a `SYNC_BASE`` environmental variable. This must not be the same location as your normal Anki data folder, as the server and client must store separate copies.
+
+The server listens on an unencrypted HTTP connection, so it's not a good idea to expose it directly to the internet. You'll want to either restrict usage to your local network, or place some form of encryption in front of the server, such as a VPN, or a HTTPS reverse proxy.
+
+You can define `SYNC_HOST` and `SYNC_PORT` to change the host and port that the server binds to.
+
+#### [Using pip](https://docs.ankiweb.net/sync-server.html#with-pip)
+
+To avoid downloading desktop Anki's GUI dependencies, you can run a standalone Anki sync server using a Python package downloaded from PyPI instead. Make sure you have Python 3.9+ installed.
+
+```bash
+python3 -m venv ~/syncserver
+~/syncserver/bin/pip install anki
+SYNC_USER1=user:pass ~/syncserver/bin/python -m anki.syncserver
+```
+
+### [Install the ankicommunity server](https://github.com/ankicommunity/anki-devops-services#about-this-docker-image)
 
 I'm going to install `anki-sync-server` as it's simpler to [`djankiserv`](https://github.com/ankicommunity/anki-api-server):
 
@@ -290,6 +452,14 @@ I'm going to install `anki-sync-server` as it's simpler to [`djankiserv`](https:
 * `lsuser`: list users
 * `passwd <username>`: change password of a user
 
+## Monitor the server
+
+In theory the docker has a [HEALTHCHECK](https://github.com/ankitects/anki/blob/main/docs/syncserver/Dockerfile#L30) but it's a lie, `/health` returns a 404 and is marked as unhealthy. The [official docker](https://hub.docker.com/r/jeankhawand/anki-sync-server/tags) doesn't yet support it, so we'd have to wait. I thought of opening an issue but you need to register on their forum.
+
+They don't expose an API, and I haven't found any endpoint to be able to monitor it with the blackbox exporter, so I'll only monitor the logs
+
+### Monitor the logs
+
 ## [Configure AnkiDroid](https://github.com/ankicommunity/anki-sync-server#ankidroid)
 
 * Add the dns you configured in your nginx reverse proxy into Advanced → Custom sync server.
@@ -304,8 +474,15 @@ Install addon from ankiweb (support 2.1)
 - Apply your server dns address
 - Press Sync in the main application page and enter your credentials
 
+# Running Anki in headless mode 
+
+If you want to interact with anki directly without opening the GUI application [you're out of luck](https://github.com/FooSoft/anki-connect/issues/411). You could try to [interact with the database directly](https://eshapard.github.io/anki/open-the-anki-database-from-python.html) but that's prone to errors if you use more than one client.
+
 # References
 
+* [Docs](https://docs.ankiweb.net/)
+* [Source](https://github.com/ankitects/anki)
 * [Homepage](https://apps.ankiweb.net/)
+* [Forums](https://forums.ankiweb.net/)
 * [Anki-Connect reference](https://foosoft.net/projects/anki-connect/)
 [![](not-by-ai.svg){: .center}](https://notbyai.fyi)

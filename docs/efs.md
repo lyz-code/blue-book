@@ -25,6 +25,10 @@ echo "$RECOVERY_POINTS" | while read -r RECOVERY_POINT_ARN BACKUP_SIZE_BYTES CRE
    	printf "%-16s %-80s %10.6f\n" "$FORMATTED_DATE" "$RECOVERY_POINT_ARN" "$SIZE_TB"
 done 
 ```
+
+However you can't trust the size you see from AWS backup console of the last snapshot as it's the size when the backup job created the recovery point, that is the size for the incremental data. 
+Unfortunately there is no method for customer to check the real size of the oldest recovery point via AWS Backup web console.
+
 ## List the size of the jobs
 
 To list AWS Backup jobs and display their completion dates and sizes in a human-readable format, you can use the following AWS CLI command combined with `jq` for parsing and formatting the output. This command handles cases where the backup size might be null and rounds the size to the nearest whole number in gigabytes.
@@ -58,3 +62,6 @@ To fix it go into the backup policy and remove the next line from the `Deny` pol
 ```json
 backup:StartRestoreJob
 ```
+
+# References
+- [Monitor the cost of the AWS Backup](https://aws.amazon.com/blogs/storage/cost-allocation-and-tracking-for-aws-centralized-backups/)

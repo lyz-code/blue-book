@@ -722,9 +722,18 @@ data "authentik_flow" "default_user_settings_flow" {
 }
 ```
 
-## [Hide and application from a user](https://goauthentik.io/docs/applications#authorization)
+## [Hide and application from a user](https://docs.goauthentik.io/docs/applications/manage_apps#authorization)
 
 Application access can be configured using (Policy) Bindings. Click on an application in the applications list, and select the Policy / Group / User Bindings tab. There you can bind users/groups/policies to grant them access. When nothing is bound, everyone has access. You can use this to grant access to one or multiple users/groups, or dynamically give access using policies.
+
+When nothing is bound, everyone has access. You can use this to grant access to one or multiple users/groups, or dynamically give access using policies.
+
+By default, all users can access applications when no policies are bound.
+
+When multiple policies/groups/users are attached, you can configure the Policy engine mode to either:
+
+- Require users to pass all bindings/be member of all groups (ALL), or
+- Require users to pass either binding/be member of either group (ANY)
 
 With terraform you can use `authentik_policy_binding`, for example:
 
@@ -889,7 +898,6 @@ This export can be triggered via the API or the Web UI by clicking the download 
 ## [Monitorization](https://goauthentik.io/docs/installation/monitoring)
 
 I've skimmed through the prometheus metrics exposed at `:9300/metrics` in the core and they aren't that useful :(
-
 
 # Troubleshooting
 
