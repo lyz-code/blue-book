@@ -941,6 +941,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/mochi/</loc>
+         <lastmod>2024-08-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/molecule/</loc>
          <lastmod>2024-08-14</lastmod>
          <changefreq>daily</changefreq>
