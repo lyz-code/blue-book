@@ -25,15 +25,19 @@ The Aleph web interface is powered by a Flask HTTP API. Aleph supports an extens
 
 By default, any Aleph search will return only public documents in responses to API requests.
 
-If you want to access documents which are not marked public, you will need to sign into the tool. This can be done through the use on an API key. The API key for any account can be found by clicking on the "Profile" menu item in the navigation menu.
+If you want to access documents which are not marked public, you will need to sign into the tool. This can be done through the use on an API key. The API key for any account can be found by clicking on the "Settings" menu item in the navigation menu.
 
 The API key must be sent on all queries using the Authorization HTTP header:
 
+```
 Authorization: ApiKey 363af1e2b03b41c6b3adc604956e2f66
+```
 
 Alternatively, the API key can also be sent as a query parameter under the api_key key.
 
 Similarly, a JWT can be sent in the Authorization header, after it has been returned by the login and/or OAuth processes. Aleph does not use session cookies or any other type of stateful API.
+
+
 ## Crossreferencing mentions with entities
 
 [Mentions](https://docs.aleph.occrp.org/developers/explanation/cross-referencing/#mentions) are names of people or companies that Aleph automatically extracts from files you upload. Aleph includes mentions when cross-referencing a collection, but only in one direction.
@@ -52,6 +56,242 @@ As long as you only want to compare the mentions in one specific collection agai
 If you have a limited number of collection, one option might be to fetch all mentions and automatically create entities for each mention using the API.
 
 To fetch a list of mentions for a collection you can use the `/api/2/entities?filter:collection_id=137&filter:schemata=Mention` API request.
+
+## Get all documents of a collection
+
+`list_aleph_collection_documents.py` is a Python script designed to interact with an API to 
+retrieve and analyze documents from specified collections. It offers a command-line interface 
+(CLI) to list and check documents within a specified collection.
+
+### Features
+
+- Retrieve documents from a specified collection.
+- Analyze document processing statuses and warn if any are not marked as successful.
+- Return a list of filenames from the retrieved documents.
+- Supports verbose output for detailed logging.
+- Environment variable support for API key management.
+
+### Installation
+
+To install the required dependencies, use `pip`:
+
+```bash
+pip install typer requests
+```
+
+Ensure you have Python 3.6 or higher installed.
+
+Create the file `list_aleph_collection_documents.py` with the next contents:
+
+```python
+import logging
+import requests
+from typing import List, Dict, Any, Optional
+import logging
+import typer
+from typing import List, Dict, Any
+
+
+log = logging.getLogger(__name__)
+app = typer.Typer()
+
+
+@app.command()
+def get_documents(
+    collection_name: str = typer.Argument(...),
+    api_key: Optional[str] = typer.Option(None, envvar="API_KEY"),
+    base_url: str = typer.Option("https://your.aleph.org"),
+    verbose: bool = typer.Option(
+        False, "--verbose", "-v", help="Enable verbose output"
+    ),
+):
+    """CLI command to retrieve documents from a specified collection."""
+    if verbose:
+        logging.basicConfig(level=logging.DEBUG)
+        log.debug("Verbose mode enabled.")
+    else:
+        logging.basicConfig(level=logging.INFO)
+    if api_key is None:
+        log.error(
+            "Please specify your api key either through the --api-key argument "
+            "or through the API_KEY environment variable"
+        )
+        raise typer.Exit(code=1)
+    try:
+        documents = list_collection_documents(api_key, base_url, collection_name)
+        filenames = check_documents(documents)
+        if filenames:
+            print("\n".join(filenames))
+        else:
+            log.warning("No documents found.")
+    except Exception as e:
+        log.error(f"Failed to retrieve documents: {e}")
+        raise typer.Exit(code=1)
+
+
+def list_collection_documents(
+    api_key: str, base_url: str, collection_name: str
+) -> List[Dict[str, Any]]:
+    """
+    Retrieve documents from a specified collection using pagination.
+
+    Args:
+        api_key (str): The API key for authentication.
+        base_url (str): The base URL of the API.
+        collection_name (str): The name of the collection to retrieve documents from.
+
+    Returns:
+        List[Dict[str, Any]]: A list of documents from the specified collection.
+
+    Example:
+        >>> docs = list_collection_documents("your_api_key", "https://api.example.com", "my_collection")
+        >>> print(len(docs))
+        1000
+    """
+    headers = {
+        "Authorization": f"ApiKey {api_key}",
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+    }
+
+    collections_url = f"{base_url}/api/2/collections"
+    documents_url = f"{base_url}/api/2/entities"
+    log.debug(f"Requesting collections list from {collections_url}")
+    collections = []
+    params = {"limit": 300}
+
+    while True:
+        response = requests.get(collections_url, headers=headers, params=params)
+        response.raise_for_status()
+        data = response.json()
+        collections.extend(data["results"])
+        log.debug(
+            f"Fetched {len(data['results'])} collections, "
+            f"page {data['page']} of {data['pages']}"
+        )
+        if not data["next"]:
+            break
+        params["offset"] = params.get("offset", 0) + data["limit"]
+
+    collection_id = next(
+        (c["id"] for c in collections if c["label"] == collection_name), None
+    )
+    if not collection_id:
+        log.error(f"Collection {collection_name} not found.")
+        return []
+
+    log.info(f"Found collection '{collection_name}' with ID {collection_id}")
+
+    documents = []
+    params = {
+        "q": "",
+        "filter:collection_id": collection_id,
+        "filter:schemata": "Document",
+        "limit": 300,
+    }
+
+    while True:
+        log.debug(f"Requesting documents from collection {collection_id}")
+        response = requests.get(documents_url, headers=headers, params=params)
+        response.raise_for_status()
+        data = response.json()
+        documents.extend(data["results"])
+        log.info(
+            f"Fetched {len(data['results'])} documents, "
+            f"page {data['page']} of {data['pages']}"
+        )
+        if not data["next"]:
+            break
+        params["offset"] = params.get("offset", 0) + data["limit"]
+
+    log.info(f"Retrieved {len(documents)} documents from collection {collection_name}")
+
+    return documents
+
+
+def check_documents(documents: List[Dict[str, Any]]) -> List[str]:
+    """Analyze the processing status of documents and return a list of filenames.
+
+    Args:
+        documents (List[Dict[str, Any]]): A list of documents in JSON format.
+
+    Returns:
+        List[str]: A list of filenames from documents with a successful processing status.
+
+    Raises:
+        None, but logs warnings if a document's processing status is not 'success'.
+
+    Example:
+        >>> docs = [{"properties": {"processingStatus": ["success"], "fileName": ["file1.txt"]}},
+        >>>         {"properties": {"processingStatus": ["failed"], "fileName": ["file2.txt"]}}]
+        >>> filenames = check_documents(docs)
+        >>> print(filenames)
+        ['file1.txt']
+    """
+    filenames = []
+
+    for doc in documents:
+        status = doc.get("properties", {}).get("processingStatus")[0]
+        filename = doc.get("properties", {}).get("fileName")[0]
+
+        if status != "success":
+            log.warning(
+                f"Document with filename {filename} has processing status: {status}"
+            )
+
+        if filename:
+            filenames.append(filename)
+
+    log.debug(f"Collected filenames: {filenames}")
+    return filenames
+
+
+if __name__ == "__main__":
+    app()
+```
+
+#### Get your API key
+
+By default, any Aleph search will return only public documents in responses to API requests.
+
+If you want to access documents which are not marked public, you will need to sign into the tool. This can be done through the use on an API key. The API key for any account can be found by clicking on the "Settings" menu item in the navigation menu.
+
+### Usage
+
+#### Running the Script
+
+You can run the script directly from the command line. Below are examples of usage:
+
+##### Basic Usage
+
+Retrieve and list documents from a collection:
+
+```bash
+python list_aleph_collection_documents.py --api-key "your-api-key" 'Name of your collection'
+```
+
+##### Using an Environment Variable for the API Key
+
+This is better from a security perspective.
+```bash
+export API_KEY=your_api_key
+python list_aleph_collection_documents.py 'Name of your collection'
+```
+
+##### Enabling Verbose Logging
+
+To enable detailed debug logs, use the `--verbose` or `-v` flag:
+
+```bash
+python list_aleph_collection_documents.py -v 'Name of your collection'
+```
+##### Getting help
+
+
+```bash
+python list_aleph_collection_documents.py --help
+```
+
 # [Install the development environment](https://docs.alephdata.org/developers/installation#getting-started)
 
 As a first step, check out the source code of Aleph from GitHub:

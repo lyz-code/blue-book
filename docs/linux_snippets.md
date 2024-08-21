@@ -1158,6 +1158,21 @@ more than it should. In those cases:
 In order not to loose your persisted data, you need to configure your dockers to
 mount the data from a directory that's not within `/var/lib/docker`.
 
+If you run this command in conjunction with [watchtower](watchtower.md) and manually defined networks you may run into the issue that the docker system prune acts just when the dockers are stopped and thus removing the networks, which will prevent the dockers to start. In those cases you can either make sure that docker system prune is never run when watchtower is doing the updates or you can split the command into the next script:
+
+```bash
+#!/bin/bash
+
+# Prune unused containers, images, and volumes, but preserve networks
+date
+echo "Pruning the containers"
+docker container prune -f --filter "label!=prune=false"
+echo "Pruning the images"
+docker image prune -f --filter "label!=prune=false"
+echo "Pruning the volumes"
+docker volume prune -f
+```
+
 ### [Set up docker logs rotation](https://medium.com/free-code-camp/how-to-setup-log-rotation-for-a-docker-container-a508093912b2)
 
 By default, the stdout and stderr of the container are written in a JSON file

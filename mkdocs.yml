@@ -394,6 +394,9 @@ nav:
           - Microservices: architecture/microservices.md
           - Restful APIS: architecture/restful_apis.md
           - Redis: architecture/redis.md
+      - OCR:
+        - Table parsing: 
+          - Camelot: camelot.md
       - Frontend Development: frontend_development.md
       - Park programming: park_programming.md
       - Sponsor: sponsor.md

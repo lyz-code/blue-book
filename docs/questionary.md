@@ -180,6 +180,83 @@ choice = select(
 
 # Testing
 
+Testing `questionary` code can be challenging because it involves interactive prompts that expect user input. However, there are ways to automate the testing process. You can use libraries like `pexpect`, `pytest`, and `pytest-mock` to simulate user input and test the behavior of your code.
+
+## Unit testing
+
+Here’s how you can approach testing `questionary` code using `pytest-mock` to mock `questionary` functions
+
+You can mock `questionary` functions like `questionary.select().ask()` to simulate user choices without actual user interaction.
+
+### Testing a single `questionary.text` prompt
+
+#### Function to Test
+Let's assume you have a function that asks the user for their name:
+
+```python
+import questionary
+
+def ask_name() -> str:
+    name = questionary.text("What's your name?").ask()
+    return name
+```
+
+#### Test Using `pytest-mock`
+
+You can test this function by mocking the `questionary.text` prompt to simulate the user's input.
+
+```python
+import pytest
+from your_module import ask_name
+
+def test_ask_name(mocker):
+    # Mock the text function to simulate user input
+    mock_text = mocker.patch('questionary.text')
+    
+    # Define the response for the prompt
+    mock_text.return_value.ask.return_value = "Alice"
+
+    result = ask_name()
+
+    assert result == "Alice"
+```
+### Test a function that has many questions
+
+Here’s an example of how to test a function that contains two `questionary.text` prompts using `pytest-mock`.
+
+#### Function to Test
+
+Let's assume you have a function that asks for the first and last names of a user:
+
+```python
+import questionary
+
+def ask_full_name() -> dict:
+    first_name = questionary.text("What's your first name?").ask()
+    last_name = questionary.text("What's your last name?").ask()
+    return {"first_name": first_name, "last_name": last_name}
+```
+
+#### Test Using `pytest-mock`
+
+You can mock both `questionary.text` calls to simulate user input for both the first and last names:
+
+```python
+import pytest
+from your_module import ask_full_name
+
+def test_ask_full_name(mocker):
+    # Mock the text function for the first name prompt
+    mock_text_first = mocker.patch('questionary.text')
+    # Define the response for the first name prompt
+    mock_text_first.side_effect = ["Alice", "Smith"]
+
+    result = ask_full_name()
+
+    assert result == {"first_name": "Alice", "last_name": "Smith"}
+```
+
+## Integration testing
 To test questionary code, follow the guidelines of
 [testing prompt_toolkit](prompt_toolkit_repl.md#testing).
 

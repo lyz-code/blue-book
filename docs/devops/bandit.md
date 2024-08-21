@@ -67,6 +67,66 @@ You can run bandit through:
                 run: bandit -r project
         ```
 
+# Solving warnings
+
+## B603: subprocess_without_shell_equals_true
+The `B603: subprocess_without_shell_equals_true` issue in Bandit is raised when the `subprocess` module is used without setting `shell=True`. Bandit flags this because using `shell=True` can be a security risk if the command includes user-supplied input, as it opens the door to shell injection attacks.
+
+To fix it:
+
+1. Avoid `shell=True` if possible: Instead, pass the command and its arguments as a list to `subprocess.Popen` (or `subprocess.run`, `subprocess.call`, etc.). This way, the command is executed directly without invoking the shell, reducing the risk of injection attacks.
+
+   Here's an example:
+
+   ```python
+   import subprocess
+
+   # Instead of this:
+   # subprocess.Popen("ls -l", shell=True)
+
+   # Do this:
+   subprocess.Popen(["ls", "-l"])
+   ```
+
+2. When you must use `shell=True`: - If you absolutely need to use `shell=True` (e.g., because you are running a complex shell command or using shell features like wildcards), ensure that the command is either hardcoded or sanitized to avoid security risks.
+
+   Example with `shell=True`:
+
+   ```python
+   import subprocess
+
+   # Command is hardcoded and safe
+   command = "ls -l | grep py"
+   subprocess.Popen(command, shell=True)
+   ```
+
+   If the command includes user input, sanitize the input carefully:
+
+   ```python
+   import subprocess
+
+   user_input = "some_directory"
+   command = f"ls -l {subprocess.list2cmdline([user_input])}"
+   subprocess.Popen(command, shell=True)
+   ```
+
+   **Note:** Even with precautions, using `shell=True` is risky with user input, so avoid it if possible.
+
+3. Explicitly tell bandit you have considered the risk: If you have reviewed the code and are confident that the code is safe in your particular case, you can mark the line with a `# nosec` comment to tell Bandit to ignore the issue:
+
+   ```python
+   import subprocess
+
+   command = "ls -l | grep py"
+   subprocess.Popen(command, shell=True)  # nosec
+   ```
+
+### Summary
+
+- **Preferred**: Avoid using `shell=True` and pass the command as a list of arguments.
+- **If Required**: Use `shell=True` carefully with sanitized input.
+- **Mark as Safe**: If you understand the risks and are confident in your use, mark the line with `# nosec` to suppress the Bandit warning.
+
 # References
 
 * [Docs](https://bandit.readthedocs.io/en/latest/)

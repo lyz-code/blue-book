@@ -228,7 +228,11 @@ used specified in the product information
     [2](https://github.com/grocy/grocy/issues/1188) and
     [3](https://github.com/grocy/grocy/issues/1387).
 
+# Python library
+
+There is no active python library, although it existed [pygrocy](https://github.com/SebRut/pygrocy)
 # References
 
 * [Homepage](https://grocy.info/)
+* [API Docs](https://demo.grocy.info/api)
 [![](not-by-ai.svg){: .center}](https://notbyai.fyi)

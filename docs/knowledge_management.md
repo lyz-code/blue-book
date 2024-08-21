@@ -86,7 +86,9 @@ The process goes as follows:
    - Review the mobile notes document for any additional thoughts.
    - Add personal reflections on the topic.
    - Use AI to polish the text.
-   - Ask AI to generate [Anki cards](anki.md) based on the content.
+   - Ask the AI to generate [Anki cards](anki.md) based on the content.
+   - Save those anki cards in an orgmode (`anki.org`) document
+   - Use [`ebops add-anki-notes`](https://codeberg.org/lyz/ebops) to automatically add them to Anki
 
 ### Analytical reading on books
 TBD
