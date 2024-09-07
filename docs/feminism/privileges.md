@@ -34,7 +34,7 @@ it desirable to remove that privilege to the privileged?
 As white cis males we can:
 
 * Make the different access to the basic security and dignity rights visible.
-* Raise awareness on yourself and others on this topic between our fellow
+* Raise awareness on yourself and others on this topic among our fellow
   privileged environment. It's more effective to address and permeate
   a privileged person from a privileged position.
 
