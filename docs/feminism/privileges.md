@@ -27,7 +27,7 @@ To differentiate between privileges and rights, we can answer the question: Is
 it desirable to remove that privilege to the privileged?
 
 * If the answer is yes, it is a privilege and we should fight to remove it.
-* If the answer is no, then we should fight for universalize the right.
+* If the answer is no, then we should fight to universalize the right.
 
 # What can we do to fight the privileges?
 
