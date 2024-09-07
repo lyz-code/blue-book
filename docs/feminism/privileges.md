@@ -40,7 +40,7 @@ As white cis males we can:
 
 # Unstructured ideas
 
-* It is really difficult to notice a privilege if you've always liven with it. Go
+* It is really difficult to notice a privilege if you've always lived with it. Go
 to the [Michael Kimmel book](https://www.goodreads.com/book/show/7400069-privilege) for more information.
 * The limits and barriers that slow us down is what is usually seen, unlike the
   facilities we have to run faster.
