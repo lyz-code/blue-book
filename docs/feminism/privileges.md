@@ -27,20 +27,20 @@ To differentiate between privileges and rights, we can answer the question: Is
 it desirable to remove that privilege to the privileged?
 
 * If the answer is yes, it is a privilege and we should fight to remove it.
-* If the answer is no, then we should fight for universalize the right.
+* If the answer is no, then we should fight to universalize the right.
 
 # What can we do to fight the privileges?
 
 As white cis males we can:
 
 * Make the different access to the basic security and dignity rights visible.
-* Raise awareness on yourself and others on this topic between our fellow
+* Raise awareness on yourself and others on this topic among our fellow
   privileged environment. It's more effective to address and permeate
   a privileged person from a privileged position.
 
 # Unstructured ideas
 
-* It is really difficult to notice a privilege if you've always liven with it. Go
+* It is really difficult to notice a privilege if you've always lived with it. Go
 to the [Michael Kimmel book](https://www.goodreads.com/book/show/7400069-privilege) for more information.
 * The limits and barriers that slow us down is what is usually seen, unlike the
   facilities we have to run faster.
