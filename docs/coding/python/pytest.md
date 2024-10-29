@@ -273,12 +273,11 @@ captured stdout and stderr.
 
 You can change the default logging level in the pytest configuration:
 
-File: `pytest.ini`:
+File: `pyproject.toml`:
 
-```ini
-[pytest]
-
-log_level = debug
+```toml
+[tool.pytest.ini_options]
+log_level = "debug"
 ```
 
 Although it may not be a good idea in most cases. It's better to change the log
@@ -360,6 +359,7 @@ function, or from the last time it was called.
 
 ### [freezegun](https://github.com/ktosiek/pytest-freezegun)
 
+NOTE: [pytest-freezegun has been deprecated](https://github.com/ktosiek/pytest-freezegun/issues/19#issuecomment-1500919278) in favour of [`pytest-freezer`](https://github.com/pytest-dev/pytest-freezer)
 [freezegun](https://github.com/spulec/freezegun) lets you freeze time in both
 the test and fixtures.
 

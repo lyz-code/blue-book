@@ -165,4 +165,11 @@ events.
 
 The first free open source application for managing collections I used, it has
 an old looking desktop interface and is no longer maintained.
+
+# [Convert pdf to epub](https://manual.calibre-ebook.com/conversion.html#convert-pdf-documents)
+
+This is a nasty operation, my suggestion is to export it with Calibre and then play with the [Search and replace](https://manual.calibre-ebook.com/conversion.html#search-replace) regular expressions with the wand. With this tool you can remove headers, footers, or other arbitrary text. Remember that they operate on the intermediate XHTML produced by the conversion pipeline. There is a wizard to help you customize the regular expressions for your document. Click the magic wand beside the expression box, and click the ‘Test’ button after composing your search expression. Successful matches will be highlighted in Yellow.
+
+The search works by using a Python regular expression. All matched text is simply removed from the document or replaced using the replacement pattern. The replacement pattern is optional, if left blank then text matching the search pattern will be deleted from the document.
+
 [![](not-by-ai.svg){: .center}](https://notbyai.fyi)

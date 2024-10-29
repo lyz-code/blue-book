@@ -291,7 +291,6 @@ python list_aleph_collection_documents.py -v 'Name of your collection'
 ```bash
 python list_aleph_collection_documents.py --help
 ```
-
 # [Install the development environment](https://docs.alephdata.org/developers/installation#getting-started)
 
 As a first step, check out the source code of Aleph from GitHub:
@@ -522,10 +521,49 @@ Sometimes you have two traces at the same time, so each time you run a PDB
 command it jumps from pdb trace. Quite confusing. Try to `c` the one you don't
 want so that you're left with the one you want. Or put the `pdb` trace in a
 conditional that only matches one of both threads.
+# Alephclient cli tool
+
+alephclient is a command-line client for Aleph. It can be used to bulk import structured data and files and more via the API, without direct access to the server.
+## [Installation](https://docs.aleph.occrp.org/developers/how-to/data/install-alephclient/#how-to-install-the-alephclient-cli)
+
+You can now install `alephclient` using pip although I recommend to use `pipx` instead:
+
+```bash
+pipx install alephclient
+```
+
+`alephclient` needs to know the URL of the Aleph instance to connect to. For privileged operations (e.g. accessing private datasets or writing data), it also needs your API key. You can find your API key in your user profile in the Aleph UI.
+
+Both settings can be provided by setting the environment variables `ALEPHCLIENT_HOST` and `ALEPHCLIENT_API_KEY`, respectively, or by passing them in with `--host` and `--api-key` options.
+
+```bash
+export ALEPHCLIENT_HOST=https://aleph.occrp.org/
+export ALEPHCLIENT_API_KEY=YOUR_SECRET_API_KEY
+```
+
+You can now start using `alephclient` for example to upload an entire directory to Aleph.
+
+## [Upload an entire directory to Aleph](https://docs.aleph.occrp.org/developers/how-to/data/upload-directory/)
+While you can upload multiple files and even entire directories at once via the Aleph UI, using the `alephclient` CLI allows you to upload files in bulk much quicker and more reliable.
+
+Run the following `alephclient` command to upload an entire directory to Aleph:
+
+```bash
+alephclient crawldir --foreign-id wikileaks-cable /Users/sunu/data/cable
+```
+
+This will upload all files in the directory `/Users/sunu/data/cable` (including its subdirectories) into an investigation with the foreign ID `wikileaks-cable`. If no investigation with this foreign ID exists, a new investigation is created (in theory, but it didn't work for me, so manually create the investigation and then copy it's foreign ID).
+
+If you’d like to import data into an existing investigation and do not know its foreign ID, you can find the foreign ID in the Aleph UI. Navigate to the investigation homepage. The foreign ID is listed in the sidebar on the right.
 # Monitorization
 ## [Prometheus metrics](https://github.com/alephdata/aleph/pull/3216)
 
 Aleph now exposes prometheus metrics on the port 9100.
+# Other tools for the ecosystem
+## [Investigraph](https://investigativedata.github.io/investigraph/)
+investigraph is an ETL framework that allows research teams to build their own data catalog themselves as easily and reproducable as possible. The investigraph framework provides logic for extracting, transforming and loading any data source into followthemoney entities.
+
+For most common data source formats, this process is possible without programming knowledge, by means of an easy yaml specification interface. However, if it turns out that a specific dataset can not be parsed with the built-in logic, a developer can plug in custom python scripts at specific places within the pipeline to fulfill even the most edge cases in data processing.
 # Troubleshooting
 ## Debug ingestion errors
 Assuming that you've [set up Loki to ingest your logs](https://github.com/alephdata/aleph/issues/2124) I've so far encountered the next ingest issues:
@@ -536,7 +574,6 @@ Assuming that you've [set up Loki to ingest your logs](https://github.com/alephd
 I thought of making a [python script to automate the files that triggered an error](loki.md#interact-with-loki-through-python), but in the end I extracted the file names manually as they weren't many. 
 
 Once you have the files that triggered the errors, the best way to handle them is to delete them from your investigation and ingest them again.
-
 # References
 
 - [Source](https://github.com/alephdata/aleph)

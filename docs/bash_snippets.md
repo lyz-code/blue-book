@@ -5,7 +5,8 @@ author: Lyz
 ---
 
 # [Fix docker error: KeyError ContainerConfig](https://askubuntu.com/questions/1508129/docker-compose-giving-containerconfig-errors-after-update-today)
-You need to run `docker-compose down` and then up again.
+A patch is to run `docker-compose down` and then up again. The solution is to upgrade docker and use `docker compose` instead.
+
 # [Set static ip with nmcli](https://www.clearlinux.org/clear-linux-documentation/guides/network/assign-static-ip.html)
 ```bash
 nmcli con mod "your-ssid" ipv4.addresses 

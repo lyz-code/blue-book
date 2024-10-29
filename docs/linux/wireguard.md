@@ -50,13 +50,14 @@ Plus it's created by the same guy as `pass`, which uses Gentoo, I like this guy.
 
 # [Installation](https://linuxize.com/post/how-to-set-up-wireguard-vpn-on-ubuntu-20-04/)
 
+## Debian
 WireGuard is available from the default repositories. To install it, run the following commands:
 
 ```bash
 sudo apt install wireguard
 ```
 
-## Configuring Wireguard
+### Configuring Wireguard
 The `wg` and `wg-quick` command-line tools allow you to configure and manage the WireGuard interfaces.
 
 Each device in the WireGuard VPN network needs to have a private and public key. Run the following command to generate the key pair:
@@ -157,7 +158,7 @@ To bring the WireGuard interface at boot time, run the following command:
 sudo systemctl enable wg-quick@wg0
 ```
 
-## [Server Networking and Firewall Configuration](https://linuxize.com/post/how-to-set-up-wireguard-vpn-on-ubuntu-20-04/#server-networking-and-firewall-configuration)
+### [Server Networking and Firewall Configuration](https://linuxize.com/post/how-to-set-up-wireguard-vpn-on-ubuntu-20-04/#server-networking-and-firewall-configuration)
 IP forwarding must be enabled for NAT to work. Open the `/etc/sysctl.conf` file and add or uncomment the following line:
 
 ```bash
@@ -182,7 +183,7 @@ If you are using UFW to manage your firewall you need to open UDP traffic on por
 sudo ufw allow 51820/udp
 ```
 
-## [Client setup ](https://linuxize.com/post/how-to-set-up-wireguard-vpn-on-ubuntu-20-04/#linux-and-macos-clients-setup) 
+### [Client setup ](https://linuxize.com/post/how-to-set-up-wireguard-vpn-on-ubuntu-20-04/#linux-and-macos-clients-setup) 
 
 Also install `wireguard` in your clients. The process for setting up a client is pretty much the same as you did for the server. 
 
@@ -225,7 +226,7 @@ The peer section contains the following fields:
 
 If you need to configure additional clients, just repeat the same steps using a different private IP address.
 
-## [Add the client IP to the server ](https://linuxize.com/post/how-to-set-up-wireguard-vpn-on-ubuntu-20-04/#add-the-client-peer-to-the-server) 
+### [Add the client IP to the server ](https://linuxize.com/post/how-to-set-up-wireguard-vpn-on-ubuntu-20-04/#add-the-client-peer-to-the-server) 
 The last step is to add the client’s public key and IP address to the server. To do that, run the following command on the Ubuntu server:
 
 ```bash
@@ -266,7 +267,7 @@ To stop the tunneling, bring down the wg0 interface:
 sudo wg-quick down wg0
 ```
 
-## [Allow the access to the local network](https://wiki.archlinux.org/title/WireGuard)
+### [Allow the access to the local network](https://wiki.archlinux.org/title/WireGuard)
 
 If you want to let the peer access a server of your local network you could add it to the `allowed-ips`.
 
@@ -280,6 +281,14 @@ Then you need to add the routes:
 ip route add 192.168.3.123 dev wg0
 ```
 
+## NixOS
+
+Follow the guides of the next references:
+
+- https://nixos.wiki/wiki/WireGuard
+- https://wiki.archlinux.org/title/WireGuard
+- https://alberand.com/nixos-wireguard-vpn.html
+
 # Operation
 
 ## [Check the status of the tunnel](https://www.vmwaremine.com/2020/10/01/how-to-check-vpn-link-status-on-wireguard/)
@@ -287,7 +296,6 @@ ip route add 192.168.3.123 dev wg0
 One method is to do ping between VPN IP addresses or run command `wg show`` from the server or from the client.
 Below you can see `wg show`` command output where VPN is *not* up.
 
-```bash
 ```bash
 $: wg show
 interface: wg0

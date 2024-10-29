@@ -28,6 +28,7 @@ If `git` or `gpg2` are not in your PATH you will have to specify them via
 `git_bin` and `gpg_bin` when creating the `store` object.  You can also create
 the store on a different folder, be passing `store_dir` along.
 
+## Initialise a password store
 To initialize the password store at `store_dir`, if it isn't
 already, use
 
@@ -41,6 +42,8 @@ be initialized in very much the same way.
 ```python
 store.init_git()
 ```
+
+## Set and get keys
 
 You are now ready to interact with the password store.  You can set and get keys
 using `passpy.store.Store.set_key` and `passpy.store.Store.get_key`.

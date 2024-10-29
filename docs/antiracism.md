@@ -1,6 +1,9 @@
 
 # Referencias
 
+Artículos:
+
+- [El origen antiracista de la palabra `woke`](https://www.lamarea.com/2024/08/27/el-origen-antirracista-de-lo-woke/)
 Videos:
 
 - [El racismo no se sostiene](https://youtube.com/shorts/5Y7novO2t_c?si=dqMGW4ALFLoXZiw3)

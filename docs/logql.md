@@ -46,6 +46,24 @@ For example, the following expression counts all the logs within the last ten mi
 count_over_time({job="mysql"}[5m] offset 5m) // GOOD
 count_over_time({job="mysql"}[5m]) offset 5m // INVALID
 ```
+## Make a regexp case insensitive
+
+To make a regex filter case insensitive, you can use the `(?i)` flag within the regex pattern.
+
+```
+(?i)(error|warning)
+```
+
+This pattern will match "error" or "warning" in any case (e.g., "Error", "WARNING", etc.). 
+
+When using it in a Loki query, it would look like this:
+
+```plaintext
+{job="your-job-name"} |=~ "(?i)(error|warning)"
+```
+
+This query will filter logs from `your-job-name` to show only those that contain "error" or "warning" in a case-insensitive manner.
+`(?i)(error|warning)`
 
 # References
 

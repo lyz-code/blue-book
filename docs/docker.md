@@ -409,8 +409,22 @@ ADD ./path/to/directory /path/to/destination
 ```
 ENV PATH="${PATH}:/opt/gtk/bin"
 ```
+# Monitorization
 
+You can [configure Docker to export prometheus metrics](https://docs.docker.com/engine/daemon/prometheus/), but they are not very useful. 
+
+## Using [cAdvisor](https://github.com/google/cadvisor)
+cAdvisor (Container Advisor) provides container users an understanding of the resource usage and performance characteristics of their running containers. It is a running daemon that collects, aggregates, processes, and exports information about running containers. Specifically, for each container it keeps resource isolation parameters, historical resource usage, histograms of complete historical resource usage and network statistics. This data is exported by container and machine-wide.
+
+### References
+- [Source](https://github.com/google/cadvisor?tab=readme-ov-file)
+- [Docs](https://github.com/google/cadvisor/tree/master/docs)
+
+## Monitor continuously restarting dockers
+Sometimes dockers are stuck in a never ending loop of crash and restart. The official docker metrics don't help here, and even though [in the past it existed a `container_restart_count`](https://github.com/google/cadvisor/issues/1312) (with a pretty issue number btw) for cadvisor, I've tried activating [all metrics](https://github.com/google/cadvisor/blob/master/docs/runtime_options.md#metrics) and it still doesn't show. I've opened [an issue](https://github.com/google/cadvisor/issues/3584) to see if I can activate it
 # Troubleshooting
+
+
 
 If you are using a VPN and docker, you're going to have a hard time.
 

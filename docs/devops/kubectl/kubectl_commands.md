@@ -631,4 +631,7 @@ kubectl get rs,secrets -o json --namespace old | jq '.items[].metadata.namespace
 ```bash
 -o=yaml
 ```
+# References
+
+- [kubectl hackery](https://clux.dev/post/2024-08-11-kubectl-hackery/)
 [![](not-by-ai.svg){: .center}](https://notbyai.fyi)

@@ -11,6 +11,9 @@ nav:
       - Antifascism:
           - antifascism.md
           - Antifascist Actions: antifascist_actions.md
+      - Hacktivism:
+        - Gatherings: hacktivist_gatherings.md
+        - Collectives: hacktivist_collectives.md
       - Anti-Colonialism: anticolonialism.md
       - Anti-Transphobia: antitransphobia.md
       - Anti-Racism: antiracism.md
@@ -19,7 +22,9 @@ nav:
           - Anonymous Feedback: anonymous_feedback.md
       - Feminism:
           - Privileges: feminism/privileges.md
+      - Palestine: palestine.md
       - Memoria histórica: memoria_historica.md
+      - Anti-Tourism: antitourism.md
       - Mentoring: mentoring.md
       - Free Knowledge: free_knowledge.md
       - Free Software: free_software.md
@@ -118,6 +123,7 @@ nav:
         - Photo management:
           - photo_self_hosted.md
           - Immich: immich.md
+        - Video management: video_management.md
         - Videogames management:
           - moonlight: moonlight.md
           - retroarch: retroarch.md
@@ -142,7 +148,14 @@ nav:
         - monica: linux/monica.md
       - Process Automation:
         - process_automation.md
+        - AI:
+          - Open WebUI: openwebui.md
+          - NLP:
+            - spacy: spacy.md
         - Virtual Assistant: virtual_assistant.md
+        - Monitor web changes:
+          - Changedetection.io: changedetection.md
+          - Monitorizar billetes de renfe: renfe.md
       - Torrent management:
         - torrents.md
         - qBittorrent: qbittorrent.md
@@ -188,6 +201,7 @@ nav:
               - Libraries:
                   - Alembic: coding/python/alembic.md
                   - asyncio: asyncio.md
+                  - Apprise: apprise.md
                   - aiohttp: aiohttp.md
                   - BeautifulSoup: beautifulsoup.md
                   - Boto3: boto3.md
@@ -207,6 +221,9 @@ nav:
                   - Goodconf: goodconf.md
                   - ICS: ics.md
                   - Inotify: python_inotify.md
+                  - IMAP:
+                    - IMAP library comparison: python_imap.md
+                    - imap-tools: imap_tools.md
                   - Jinja2: python_jinja2.md
                   - Maison: maison.md
                   - mkdocstrings: coding/python/mkdocstrings.md
@@ -238,11 +255,13 @@ nav:
                     - python-telegram.md
                     - pytelegrambotapi: pytelegrambotapi.md
                   - Python VLC: python_vlc.md
+                  - Playwright: playwright.md
                   - Plotly: coding/python/plotly.md
                   - questionary: questionary.md
                   - rich: rich.md
                   - Ruamel YAML: coding/python/ruamel_yaml.md
                   - Selenium: selenium.md
+                  - Streamlit: streamlit.md
                   - SQLAlchemy: coding/python/sqlalchemy.md
                   - sqlite3: sqlite3.md
                   - Redis-py: coding/python/redis-py.md
@@ -254,6 +273,7 @@ nav:
                   - Talkey: talkey.md
                   - Tenacity: tenacity.md
                   - TinyDB: coding/python/tinydb.md
+                  - Torch: torch.md
                   - Typer: typer.md
                   - Yoyo: coding/python/yoyo.md
               - Type Hints: coding/python/type_hints.md
@@ -381,6 +401,7 @@ nav:
           - Writing good documentation: documentation.md
           - Conventional comments: conventional_comments.md
           - TDD: coding/tdd.md
+          - GitOps: gitops.md
           - Abstract Syntax Trees: abstract_syntax_trees.md
       - Software Architecture:
           - SOLID: architecture/solid.md
@@ -401,7 +422,7 @@ nav:
       - Park programming: park_programming.md
       - Sponsor: sponsor.md
       - Issues: issues.md
-  - DevOps:
+  - DevSecOps:
       - devops/devops.md
       - Infrastructure as Code:
           - Helm:
@@ -476,10 +497,11 @@ nav:
                   - IAM Debugging: devops/aws/iam/iam_debug.md
               - S3: devops/aws/s3.md
               - WAF: aws_waf.md
+      - Continuous Deployment:
+          - ArgoCD: argocd.md
       - Continuous Integration:
           - devops/ci.md
           - Drone: drone.md
-          - ArgoCD: argocd.md
           - Linters:
               - Alex: devops/alex.md
               - Flakeheaven: flakeheaven.md
@@ -508,6 +530,8 @@ nav:
           - cruft: linux/cruft.md
           - renovate: renovate.md
           - letsencrypt: letsencrypt.md
+      - Threat modeling:
+        - Privacy threat modeling: privacy_threat_modeling.md
       - Storage:
         - storage.md
         - NAS: nas.md
@@ -531,6 +555,7 @@ nav:
               - Prometheus Install: devops/prometheus/prometheus_installation.md
               - AlertManager: devops/prometheus/alertmanager.md
               - Blackbox Exporter: devops/prometheus/blackbox_exporter.md
+              - cAdvisor: cadvisor.md
               - Elasticsearch Exporter: elasticsearch_exporter.md
               - Node Exporter: devops/prometheus/node_exporter.md
               - Process Exporter: process_exporter.md
@@ -574,6 +599,7 @@ nav:
           - Power Supply Unit: psu.md
           - GPU: gpu.md
           - Pedal PC: pedal_pc.md
+      - Pentesting: pentesting.md
   - Operating Systems:
       - Linux:
           - linux.md
@@ -622,9 +648,13 @@ nav:
               - Alacritty: alacritty.md
               - Wezterm: wezterm.md
               - Kitty: kitty.md
+            - Instant messaging apps: 
+              - Delta Chat: deltachat.md
       - Android:
           - Android Tips: android_tips.md
-          - GrapheneOS: grapheneos.md
+          - OS:
+              - GrapheneOS: grapheneos.md
+              - FuriOS: furios.md
           - Apps:
               - Cone: cone.md
               - GadgetBridge: gadgetbridge.md
@@ -657,6 +687,7 @@ nav:
               - Spins: dancing/shuffle_spins.md
           - Cutting Shapes: dancing/cutting_shapes_basics.md
       - Pilates: pilates.md
+      - Parkour: parkour.md
       - Aerial Silk: aerial_silk.md
       - Meditation: meditation.md
       - Maker:
@@ -671,6 +702,7 @@ nav:
               - Northeners: wesnoth_northerners.md
           - Age of Empires: age_of_empires.md
       - Board Gaming:
+          - board_games.md
           - Regicide: regicide.md
       - Music:
         - Sister Rosetta Tharpe: sister_rosetta_tharpe.md
@@ -699,6 +731,8 @@ nav:
           - Recommender Systems: >-
               data_analysis/recommender_systems/recommender_systems.md
           - Parsers: parsers.md
+          - CSV exploring:
+            - csvlens: csvlens.md
       - Psychology:
           - psychology.md
           - The XY Problem: psychology/the_xy_problem.md

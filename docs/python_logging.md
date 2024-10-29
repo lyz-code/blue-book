@@ -1,4 +1,4 @@
----
+--
 title: Python Logging
 date: 20210423
 author: Lyz
@@ -83,4 +83,46 @@ def load_logger(verbose: bool = False) -> None:  # pragma no cover
             stream=sys.stderr, level=logging.INFO, format="%(levelname)s %(message)s"
         )
 ```
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)
+
+## Configure the logging module to use logfmt
+
+To configure the Python `logging` module to use `logfmt` for logging output, you can use a custom logging formatter. The `logfmt` format is a structured logging format that uses key-value pairs, making it easier to parse logs. Here’s how you can set up logging with `logfmt` format:
+
+```python
+import logging
+
+class LogfmtFormatter(logging.Formatter):
+    """Custom formatter to output logs in logfmt style."""
+
+    def format(self, record: logging.LogRecord) -> str:
+        log_message = (
+            f"level={record.levelname.lower()} "
+            f"logger={record.name} "
+            f'msg="{record.getMessage()}"'
+        )
+        return log_message
+
+def setup_logging() -> None:
+    """Configure logging to use logfmt format."""
+    # Create a console handler
+    console_handler = logging.StreamHandler()
+    
+    # Create a LogfmtFormatter instance
+    logfmt_formatter = LogfmtFormatter()
+
+    # Set the formatter for the handler
+    console_handler.setFormatter(logfmt_formatter)
+
+    # Get the root logger and set the level
+    logger = logging.getLogger()
+    logger.setLevel(logging.INFO)
+    logger.addHandler(console_handler)
+
+if __name__ == "__main__":
+    setup_logging()
+    
+    # Example usage
+    logging.info("This is an info message")
+    logging.warning("This is a warning message")
+    logging.error("This is an error message")
+```

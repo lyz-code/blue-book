@@ -129,9 +129,6 @@ I use specific orgmode files with the next structure:
 ```orgmode
 #+FILETAGS: :area_name:
 
-Objectives:
-- [ ] ...
-
 * TODO Area project 1
   ...
 * Area backlog
@@ -149,9 +146,37 @@ To filter the projects by area I set an area tag that propagates downstream. To 
 ** [[file:./work.org][Work]]
 ```
 
+## Axis
+
+Sometimes the area documents start to grow, and you kind of get the feeling that an area has subareas, in this case the area that gathers the rest of subareas is identified as an axis. The structure of an axis document is similar to the area one.
+
+```orgmode
+#+FILETAGS: :axis_name:
+{{ axis essential intent }}
+
+* TODO Area project 1
+  ...
+* Axis backlog
+** Area 1
+*** TODO Backlog Area project 1
+   ...
+```
+
+If you have 4 o 5 axis and one of the documents only contains one area, it's also taken as an axis. 
+
+### Essential intent
+An essential intent is an inspirational and concrete statement that guides your greater sense of purpose, and helps you chart your life’s path. It needs to be meaningful and measurable to you. Its purpose is to adhere to one big decision that settles one thousand later decisions. To be able to do that it needs to align  your desire with the rational path you want to follow. 
+
+It might be helpful to define what essential intents are **not**:
+
+- They are not vision and mission statements like "We want to change the world", these sound inspirational but are so general they are almost entirely ignored. 
+- They aren't vague, general values like “innovation” or “teamwork”. These are typically too bland and generic to inspire any passion.
+- They aren't shorter-term quarterly objectives like “Pass maths”. These shorter-term tactics may be concrete enough to get our attention, but they often lack inspiration.
+
+
 ## Objective
 
-An [objective] is an idea of the future or desired result that a person or a group of people envision, plan, and commit to achieve.
+An objective is an idea of the future or desired result that a person or a group of people envision, plan, and commit to achieve.
 
 ## Strategy
 

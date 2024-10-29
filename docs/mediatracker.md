@@ -44,8 +44,8 @@ Some tips:
 ## Add missing items
 ### Add missing books
 
-- Register an account in openlibrary.com 
-- Add the book 
+- Register an account in openlibrary.org 
+- [Add the book](https://openlibrary.org/books/add)
 - Then add it to mediatracker
 
 ## Lists

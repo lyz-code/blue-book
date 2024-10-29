@@ -4,6 +4,8 @@ date: 20210624
 author: Lyz
 ---
 
+NOTE: Don't use selenium anymore, use [`playwright`](playwright.md) instead.
+
 [Selenium](https://en.wikipedia.org/wiki/Selenium_%28software%29) is a portable
 framework for testing web applications. It also provides a test domain-specific
 language (Selenese) to write tests in a number of popular programming

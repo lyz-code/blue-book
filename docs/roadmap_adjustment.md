@@ -220,6 +220,57 @@ For recurring projects:
   - Clean up the done items.
 ## [Area](time_management_abstraction_levels.md#area)
 
+### Area review
+
+It may be useful to ask the following questions of your own life. It doesn't matter if answers aren't immediately forthcoming; the point, is to "live the questions". Even to asking them with any sincerity is already a great step.
+
+#### What does your desire tell you about the area?
+
+Stop and really ask your gut about the area itself, if you're fine with your current path, if you really want to follow the direction you're headed to.
+
+#### What does your reason tell you about the area?
+#### Where are you currently pursuing comfort, when what's called for is a little discomfort?
+
+Pursuing the life projects that matter to you the most will almost always entail not feeling fully in control of your time, immune to the painful assaults of reality, or confident about the future, or maybe you've fallen into the inertia of the current situation.
+
+It means embarking on ventures that might fail, perhaps because you'll find you lacked sufficient talent. It means risking embarrassment, holding difficult conversations, disappointing others, and getting so deep into relationships that additional suffering may come. And so we naturally tend to make decisions about our daily use of time that prioritize anxiety-avoidance instead. Procrastination, distraction, commitment-phobia, clearing the decks, and taking on too many projects at once are all ways of trying to maintain the illusion that you’re in charge of things. In a subtler way, so too is compulsive worrying, which offers its own gloomy but comforting sense that you’re doing something constructive to try to stay in control.
+
+Avoiding anxiety is an understandable mechanism to be able to live, but once in a while it's good to stop and ask yourself if you really want to follow that path.
+
+So ask yourself "where in the area are you currently pursuing comfort, when what's called for is a little discomfort?". For each of the identified elements answer the question "Does this choice diminish me, or enlarge me?" The question circumvents the urge to make decisions in the service of alleviating anxiety and instead helps you make contact with your deeper intentions. Usually is more interesting to choose the uncomfortable enlargement over comfortable diminishment.
+
+#### Are you holding yourself to, and judging yourself by, standards that are impossible to meet?
+
+We often set ourselves inherently impossible targets. These must always be postponed into the future, since they can never be met in the present. The truth is that it’s impossible that you reach them. But there’s a deceptive feeling of comfort in believing that you’re in the process of constructing such a life, which is due to come into being any day now.
+
+There is a sort of cruelty in holding yourself to standards nobody could ever reach (and which many of us would never dream of demanding of other people). The more humane approach is to drop such efforts as completely as you can. Let your impossible standards crash to the ground. Then pick a few meaningful actions from the rubble and get started on them.
+
+For each identified standard ask yourself: *what would you do differently with your time, today, if you knew in your bones that salvation was never coming?*
+
+#### In what ways have you yet to accept the fact that you are who you are, not the person you think you ought to be?
+
+A closely related way to postpone the confrontation with finitude is to treat your present-day life as part of a journey toward becoming the kind of person you believe you ought to become.
+
+This quest to justify your existence in the eyes of some outside authority can continue long into adulthood. But at a certain age it finally dawns on us that, shockingly, no one really cares what we're doing with our life. This is a most unsettling discovery to those of us who have lived someone else’s life and eschewed our own: no one really cares except us. 
+
+The attempt to attain security by justifying your existence, it turns out, was both futile and unnecessary all along. Futile because life will always feel uncertain and out of your control. And unnecessary because, in consequence, there’s no point in waiting to live until you’ve achieved validation from someone or something else. Peace of mind, and an exhilarating sense of freedom, comes not from achieving the validation but from yielding to the reality that it wouldn’t bring security if you ever got it.
+
+I’m convinced, in any case, that it is from this position of not feeling as though you need to earn your time on the planet that you can do the most genuine good with it.  Once you no longer feel the stifling pressure to become a particular kind of person, you can confront the personality, the strengths and weaknesses, the talents and enthusiasms you find yourself with, here and now, and follow where they lead.
+
+#### Where are you holding back until you feel like you know what you’re doing?
+
+It’s easy to spend years treating your life as a dress rehearsal on the rationale that what you’re doing, for the time being, is acquiring the skills and experience that will permit you to assume authoritative control of things later on. But I sometimes think of my journey through adulthood to date as one of incrementally discovering the truth that there is no institution, no walk of life, in which everyone isn’t just winging it, all the time.
+
+It’s alarming to face the prospect that you might never truly feel as though you know what you’re doing. But it’s liberating, too, because it removes a central reason for feeling self-conscious or inhibited about your performance in those domains in the present moment: if the feeling of total authority is never going to arrive, you might as well not wait any longer to give such activities everything you have. 
+
+It's even more liberating to reflect that everyone else is in the same boat, whether they're aware of it or not.
+
+#### How would you spend your time differently in the area if you didn’t care so much about seeing your actions reach fruition?
+
+A final common manifestation of the desire for time mastery arises from the idea that the true value of how we spend our time is always and only to be judged by the results. It follows naturally enough from this outlook that you should focus your time on those actions for which you expect to be around to see the results. 
+
+Yet there is a sense in which that most meaningful projects aren't completable within our own lifetimes. All such activities always belong to a far bigger temporal context, with an ultimate value that will only be measurable long after we’re gone or perhaps never. And so it’s worth asking: What actions might it be meaningful to undertake today, if you could come to terms with never seeing the results?
+
 ### Area refinement
 
 ### Area planning
@@ -232,6 +283,28 @@ The purpose is to ensure that the area roadmap is the optimal way to reach the a
 - Adjust the roadmap (at project level) accordingly.
 
 This can't be done on the frenzy of everyday as you're prone to fall into any rabbit hole you're headed to. This is the first refinement that needs it's own time and reflection. As projects don't change very often, it makes sense to do it as part of the [monthly planning](#the-monthly-planning).
+## [Axis](time_management_abstraction_levels.md#axis)
+
+It's difficult to define a roadmap and even harder to follow it. 
+
+### Define it's essential intent
+
+It's tricky to define the [essential intent](time_management_abstraction_levels.md#essential-intent) as you have to create a statement that is inspirational, concrete, meaningful and measurable. It takes courage, insight, and foresight to see which projects will add up to your desired path. It takes asking tough questions, making real trade-offs, and exercising serious discipline to cut out the competing priorities that distract us from our true intention. Yet it is worth the effort because only with real clarity of purpose can people, teams, and organizations fully mobilize and walk towards a destination.
+
+When defining it don't get stuck in the wordsmithing. An essential intent doesn’t have to be elegantly crafted; it’s the substance, not the style that counts. When developing them there is a tendency to start obsessing about trivial stylistic details, this makes it all too easy to slip into meaningless clichés and buzzwords that lead to vague, meaningless statements.
+
+Answer the next questions:
+
+- What fires up your desire?
+- What will fill you with pleasure?
+- What's the most efficient and effective direction given your context? Or, if you could be truly excellent at only one thing, what would that be?
+- How will you know when you're done?
+
+### Eliminate the non essential
+
+It's not enough to simply determine which activities and efforts don't make the best possible contribution towards it; you still have to actively eliminate those that do not.
+
+The first type of nonessential to eliminate is any project or action that is misaligned with what you are intending to achieve.
 # Roadmap adjustments by purpose
 Given the level of control of your life you can do the next adjustments:
 
@@ -311,19 +384,18 @@ When doing the plan try to minimize the number of actions and calendar appointme
 
 To make it easy to follow I use a bash script that asks me to follow these steps.
 ## Ride the month
-At this level you not only had time to polish your roadmap adjustment skills, but also had the chance the buy some glasses for your myopic eyes! The increase in definition and time to react to what life throws at you lets to now get almost no hits `＼\ ٩( ᐛ )و /／`. 
+At this level you not only had time to polish your roadmap adjustment skills, but also had the chance the buy some glasses for your myopic eyes! The increase in definition and time to react to what life throws at you lets you get almost no hits `＼\ ٩( ᐛ )و /／`. 
 
 Now that you have stopped worrying for your integrity, you start to hear a little voice from within yourself that gives you signals from your body and brain about what worries you, what makes you happy, what makes you mad, ... Has it been yelling all this time?  `(¬º-°)¬`.
 
 At this adjustment level we'll start using the next abstraction level, the [objectives] is whatever you need to do to get your head empty again and get oriented for the next 9 days. It's split in the next phases:
 
-### Personal integrity review
 
+### Personal integrity review
 The objectives of the personal integrity review are:
 
 - Identify how you feel and what worries you.
 - Identify strong and weak points on your systems.
-- Identify deadlines.
 
 The objectives aren't to:
 
@@ -335,7 +407,7 @@ It's interesting to do these reviews on meaningful days such as the last day of 
 
 As it's a process we're going to do very often, we need it to be relatively quick and easy so as not to invest too much time or energies on it. Keep in mind that this should be an analysis at month level in terms of abstraction, here is not the place to ask yourself if you're fulfilling your life goals. As such, you don't need that much time either, just identifying the top things that pop out of your mind are more than enough.
 
-### Personal integrity review tools
+#### Personal integrity review tools
 
 With a new level of abstraction we need tools:
 
@@ -344,7 +416,7 @@ With a new level of abstraction we need tools:
 - The *Month checks*: It's a list of elements you want to periodically check its evolution throughout time. It's useful to analyze the validity of theories or new processes. I use the heading `Month checks` in a file called `life_checks.org`.
 
 - The *Objective list*: It's a list of elements you want to focus your energies on. It should be easy to consult. I started with a list per month in a file called `objectives.org` and then migrated to the [life path document](#the-life-path-document).
-### Personal integrity review phases
+#### Personal integrity review phases
 
 We'll divide the review process in these phases:
 
@@ -353,15 +425,7 @@ We'll divide the review process in these phases:
 - [Analyze](#survive-review-analyze)
 - [Decide](#survive-review-decide)
 
-To record the results of the review create the file `references/reviews/YYYY_MM.org`, where the month is the one that is ending with the following template:
-
-```org
-* Discover
-* Analyze
-* Decide
-```
-
-#### Personal integrity review prepare
+##### Personal integrity review prepare
 
 It's important that you prepare your environment for the review. You need to be present and fully focused on the process itself. To do so you can:
 
@@ -378,7 +442,15 @@ It's important that you prepare your environment for the review. You need to be 
     - Remove from your environment everything else that may distract you
         - Close all windows in your laptop that you're not going to use
 
-#### Personal integrity review discover
+To record the results of the review create the file `references/reviews/YYYY_MM.org`, where the month is the one that is ending with the following template:
+
+```org
+* Discover
+* Analyze
+* Decide
+```
+
+##### Personal integrity review discover
 
 Try not to, but if you think of decisions you want to make that address the elements you're discovering, write them down in the `Decide` section of your review document.
 
@@ -389,16 +461,13 @@ There are different paths to discover actionable items:
   - What did you enjoy most this last month?
     - [ ] 
 
-  - What do you want right now?
-    - [ ] 
-
-  - What motivates you right now?
+  - What do you desire right now?
     - [ ] 
 
   - What worries you right now?
     - [ ] 
-  - Where is your mind these days?
 
+  - Where is your mind these days?
     - [ ] 
 
   - What did drain your energy or brought you down emotionally this last month?
@@ -420,7 +489,7 @@ There are different paths to discover actionable items:
   - If you need, add action elements in the `Discover` section of the review.
   - If you won't need the objective in the next month, archive it.
 
-#### Personal integrity review analyze
+##### Personal integrity review analyze
 
 Of all the identified elements we need to understand them better to be able to choose the right path to address them. These elements are usually representations of a state of our lives that we want to change.
 
@@ -442,7 +511,7 @@ For the last question you can resort to:
 
 Once you have analyzed an element copy all the decisions you've made in the `Decide` section of your review document in an orgmode checkbox list.
 
-#### Personal integrity review decide
+##### Personal integrity review decide
 
 Once you have a clear definition of the current state, the new and how to reach it you need to process each of the decisions you've identified through the review process so that they are represented in your life management system, otherwise you won't arrive the desired state. To do so analyze what is the best way to process each of the elements you have written in the `Decide` section. It can be one or many of the following:
 
@@ -457,15 +526,26 @@ Finally:
 
 - Check the last month checks and complete this month ones.
 - Pat yourself in the shoulder as you've finished the review ^^.
+
+### Month's planning
+
+Objectives are: 
+
+- Identify deadlines.
 ## Dream about the trimester 
 
-Now that we know how to read and react to the signals our inner self sends we are in a better position to align our roadmap with what we understand for a fulfilling life. We'll get into the philosophical ground of thinking about life's meaning. I wanted to say answer the question, but I'm increasingly convinced that there is no answer and that the best we can aim to is to leave our thoughts guide us without any certainty.
+Now that we know how to read and react to the signals our inner self sends we are in a better position to align our roadmap with what we understand for a fulfilling life. We'll get into the philosophical ground of discovering life's meaning. I wanted to say answer the question, but I'm increasingly convinced that there is no answer and that the best we can aim to is to leave our thoughts guide us without any certainty.
+
+At this level we'll need to increase the level of abstraction, and for that we'll use the next artifacts:
+
+- [Axis](time_management_abstraction_levels.md#axis): A group of areas that fit together under the same umbrella. 
+- [Essential intent]()
 
 ### Trimester review
 The objectives of the trimester review are:
 
+- Identify the essential intent you want to follow on each [axis](time_management_abstraction_levels.md#axis) of your life.
 - Identify the areas to focus on for the trimester
-- Identify the tactics you want to use on those areas.
 - Review the previous trimester tactics 
 
 The objectives are not:
@@ -479,7 +559,7 @@ As with [personal integrity review](#personal-integrity-review), it's interestin
 
 - Summer analysis (1st of June): I hate heat, so summer is a moment of retreat. Everyone temporarily stop their lives, we go on holidays and all social projects slow their pace. Even the news have even less interesting things to report. It's so hot outside that some of us seek the cold refuge of home or remote holiday places. Days are long and people love to hang out till late, so usually you wake up later, thus having less time to actually do stuff. Even in the moments when you are alone the heat drains your energy to be productive. It is then a moment to relax and gather forces for the next trimester. It's also perfect to develop *easy* and *chill* personal projects that have been forgotten in a drawer. Lower your expectations and just flow with what your body asks you.
 
-- Autumn analysis (1st of September): September it's another key moment for many people. We have it hardcoded in our life since we were children as it was the start of school. People feel energized after the summer holidays and are eager to get back to their lives and stopped projects. You're already 6 months into the year, so it's a good moment to review your year plan and decide how you want to invest your energy reserves.
+- Autumn analysis (1st of September): September it's another key moment for many people. We have it hardcoded in our life since we were children as it was the start of school. People feel energized after the summer holidays and are eager to get back to their lives and stopped projects. You're already 6 months into the year, so it's a good moment to review your year plan and decide where you want to put your energy reserves.
 
 - Winter analysis (1st of December): December is the cue that the year is coming to an end. The days grow shorter and colder, they basically invite you to enjoy a cup of tea under a blanket. It is then a good time to get into your cave and do an introspection analysis on the whole year and prepare the ground for the coming year. Some of the goals of this season are:
   - Think everything you need to guarantee a good, solid and powerful spring start.
@@ -487,17 +567,29 @@ As with [personal integrity review](#personal-integrity-review), it's interestin
 
 The year is then divided in two sets of an expansion trimester and a retreat one. We can use this information to adjust our life plan accordingly. In the expansion trimester we could invest more energies in the planning, and in the retreat ones we can do more throughout reviews.
 
-#### Listen to your desires
-The trimester review requires an analysis that doesn't fill in a day session. It requires slow thinking over some time. So I'm creating a task 30 days before the actual review to start thinking about the next trimester. Whether it's ideas, plans, desires, objectives, values, or principles.
+#### Trimester review phases
+We'll divide the review process in these phases:
+
+
+- [Gather](#trimester-review-gather)
+- [Prepare](#trimester-review-prepare)
+- [Discover](#trimester-review-discover)
+- [Analyze](#trimester-review-analyze)
+- [Decide](#trimester-review-decide)
+
+##### Trimester review gather
+
+The trimester review requires an analysis that doesn't fill in a day session. It requires slow thinking and desire reading over some time. So I'm creating a task 30 days before the actual review to start gathering information about the next trimester. Whether it's ideas, plans, desires or objectives.
 
 ```org
 * TODO Think on the next trimester
-** Ideas
-** Plans
-** Desires
-** Objectives
-** Values
-** Principles
+** Axis 1
+*** Ideas
+*** Plans
+*** Desires
+*** Objectives
+** Axis 2
+...
 ```
 
 Is useful for that document to be available wherever you go, so that in any spare time you can pop it up and continue with the train of thought. 
@@ -506,11 +598,46 @@ Doing the reflection without seeing your life path prevents you from being taint
 
 On the day to actually do the review, follow the steps of the [Month review prepare](#month-prepare) adjusting them to the trimester case.
 
-#### Answer some meaningful guided questions
+##### Trimester review prepare
 
-To be done, until then you can read chapters 13, 14 and the epilogue of the book Four thousand weeks by Oliver Burkman.
+It's important that you prepare your environment for the review. You need to be present and fully focused on the process itself. To do so you can:
 
-#### Refactor your gathered thoughts
+- Make sure you don't get interrupted: 
+    - Check your action manager tools to make sure that you don't have anything urgent to address in the next hour.
+    - Disable all notifications
+- Set your analysis environment:
+    - Put on the music that helps you get *in the zone*. I found it meaningful to select the best new music I've discovered this month.
+    - Get all the things you may need for the review:
+        - The checklist that defines the process of your review (this document in my case).
+        - Somewhere to write down the insights.
+        - Your *Review box*.
+        - Your *life path document*.
+    - Remove from your environment everything else that may distract you
+        - Close all windows in your laptop that you're not going to use
+
+To record the results of the review create the file `references/reviews/YYYY_MM_SSSS.org`, where the month is the one that is starting and the `SSSS` is the season name with the following template:
+
+```org
+```
+##### Trimester review discover 
+
+###### Do an overall area review
+
+For each axis:
+
+- Do a quick review of the active areas:
+  - Check if you're missing an already active area. If you do, refactor it to the active areas 
+  - Review the areas in the backlog and decide if any of them should be activated.
+- For each active area of the axis:
+  - Ask yourself if it should be deactivated. If it should, refile it and move on with the next.
+  - Follow the steps of the [area review](#area-review).
+  - Summarise your insights in an "area intent".
+
+###### Define the essential intent of the axis
+[axis](time_management_abstraction_levels.md#axis)
+
+
+###### Refactor your gathered thoughts
 If you've followed the prepare steps, you've already been making up your mind on what do you want the next trimester to look like. Now it's the time to refine those thoughts.
 
 In your roadmap document add a new section for the incoming trimester similar to:
@@ -535,4 +662,10 @@ Don't be too concerned on the format of the content of the objectives, this is t
 
 ### Trimester planning
 
+# References
+
+## Books
+- "Four thousand weeks" by Oliver Burkeman
+
 [![](not-by-ai.svg){: .center}](https://notbyai.fyi)
+

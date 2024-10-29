@@ -6,6 +6,8 @@ author: Lyz
 
 # Network debugging
 
+NOTE: maybe [kubeshark](https://github.com/kubeshark/kubeshark) is a better solution 
+
 Sometimes you need to monitor the network traffic that goes between pods to
 solve an issue. There are different ways to see it:
 

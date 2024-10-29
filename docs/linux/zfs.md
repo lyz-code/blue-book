@@ -67,6 +67,59 @@ zpool list
 zfs list
 ```
 
+## Clean the space of a ZFS pool
+
+It doesn't matter how big your disks are, you'll eventually reach it's limit before you can buy new disks. It's then time to clean up some space.
+
+### Manually remove data
+
+#### See which datasets are using more space for their data
+
+To sort the datasets on the amount of space they use for their backups use `zfs list -o space -s usedds`
+
+#### Clean it up 
+
+Then you can go dataset by dataset using `ncdu` cleaning up.
+
+### See which datasets are using more space for their backups
+
+To sort the datasets on the amount of space they use for their backups use `zfs list -o space -s usedsnap`
+
+### See the differences between a snapshot and the contents of the dataset
+
+To compare the contents of a ZFS snapshot with the current dataset and identify files or directories that have been removed, you can use the `zfs diff` command. Here's how you can do it:
+
+- First, find the snapshot name using the following command:
+
+```bash
+zfs list -t snapshot dataset_name
+```
+
+- Then, compare the contents of the snapshot with the current dataset (replace `<snapshot_name>` with your snapshot name):
+
+```bash
+zfs diff <dataset>@<snapshot_name> <dataset>
+```
+
+For example:
+
+```bash
+zfs diff tank/mydataset@snap1
+```
+
+The output will show files and directories that have been removed (`-`), modified (`M`), or renamed (`R`). Here's an example:
+
+```
+-     4 /path/to/removedfile.txt
+```
+
+If you want to see only the deleted files, you can pipe the output through `grep`:
+
+```bash
+zfs diff <dataset>@<snapshot_name> | grep '^-'
+```
+
+This will help you identify which files or directories were in the snapshot but are no longer in the current dataset.
 ## Get read and write stats from pool
 
 ```bash
@@ -344,7 +397,6 @@ Follow [these instructions](hard_drive_health.md#check-the-disk-health).
 ### RMA the degraded disk
 
 Follow [these instructions](hard_drive_health.md#check-the-warranty-status).
-
 # Installation
 
 ## Install the required programs
@@ -589,6 +641,7 @@ To permanently mount it you need to add it to your `/etc/fstab`, check [this sec
   def send_socket_message(message: bytes) -> None:
       """Send message over socket"""
       notify_socket = get_notify_socket()
+      # log(f"Sending message {message} to the socket")
       notify_socket.send(message)
 
 
@@ -622,6 +675,7 @@ To permanently mount it you need to add it to your `/etc/fstab`, check [this sec
       last_journal_update: datetime, journal_update_frequency: int = 600
   ) -> datetime:
       """Update watchdog timestamp."""
+      # log("Sending the message to the watchdog")
       send_socket_message(b"WATCHDOG=1")
       now = datetime.now()
       if (now - last_journal_update).seconds > journal_update_frequency:
@@ -648,13 +702,18 @@ To permanently mount it you need to add it to your `/etc/fstab`, check [this sec
       check_path = os.environ.get("ZFS_FILE_CHECK_PATH", None)
       assert check_path is not None, "ZFS_FILE_CHECK_PATH needs to be defined"
       check_path = Path(check_path)
+      # log(f"Checking path {check_path}.")
 
       # Write a new file
+      # log(f"Writing to path {check_path}.")
       check_path.write_text("Alive")
       # Read the file
+      # log(f"Reading from path {check_path}.")
       assert check_path.read_text() == "Alive"
       # Remove the file
+      # log(f"Removing path {check_path}.")
       os.remove(check_path)
+      # log(f"Check passed.")
       return True
 
 
@@ -664,6 +723,8 @@ To permanently mount it you need to add it to your `/etc/fstab`, check [this sec
 
 
   if __name__ == "__main__":
+      
+      log(f"Using socket {os.environ.get('NOTIFY_SOCKET', None)}")
       for send_signal in (signal.SIGINT, signal.SIGABRT, signal.SIGTERM):
           signal.signal(send_signal, socket_notify_stop)
       socket_notify_ready()
@@ -672,10 +733,13 @@ To permanently mount it you need to add it to your `/etc/fstab`, check [this sec
       while True:
           if check_condition():
               last_journal_update = watchdog_continue(last_journal_update)
+              # log(f"Last journal update was: {last_journal_update")
           wait()
   ```
 
   If you're creating another python watchdog, you can copy-paste the whole script and only tweak the `check_condition` to check whatever you want to check.
+
+  If you need to debug the watchdog script, run it manually with python and exporting the needed variables, otherwise you run the risk of entering and never ending restart loop
 
 - Create a systemd service `systemctl edit --full -force zfs_watchdog` and add:
 

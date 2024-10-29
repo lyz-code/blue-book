@@ -161,6 +161,12 @@ Attestation can be done locally by pairing with another Android 8+ device or rem
 
 # Tips
 
+## Add call screening
+If you're tired of getting spam calls even if you've signed up in a no-spam list such as the Robinson list, then try out ["yetanothercallblocker"](https://f-droid.org/en/packages/dummydomain.yetanothercallblocker/).
+
+You can also enable the block unknown numbers in the Phone Settings, but [it only blocks calls that have an unknown id. Not the ones that are not in your agenda](https://www.reddit.com/r/GrapheneOS/comments/13yat8e/i_miss_call_screening/)
+A friend is using "carrion" although he says it's not being very effective.
+
 ## Disable Bluetooth and Wifi once it's disconnected
 
 If you don't want to go spreading your SSIDs you can configure graphene to disable wifi and bluetooth X minutes after loosing connection.
