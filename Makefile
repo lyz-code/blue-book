@@ -71,6 +71,8 @@ build-docs:
 	@echo "--------------------------"
 
   # I need to disable --strict this until we fix all the errors shown (too much work)
+	# 2024-10-29 issues are fixed but I'd rather not stop the future newsletters for this
+	# So I think I should not enable the --strict.
 	pdm run mkdocs build
 
 	@echo "\a"

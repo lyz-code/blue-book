@@ -617,6 +617,7 @@ nav:
             - brew: linux/brew.md
             - detox: detox.md
             - Docker: docker.md
+            - Watchtower: watchtower.md
             - Dynamic DNS: dynamicdns.md
             - goaccess: goaccess.md
             - Gotify: gotify.md
