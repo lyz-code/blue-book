@@ -101,7 +101,15 @@
          <lastmod>2024-10-29</lastmod>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/antitourism/</loc>
+         <lastmod>2024-10-29</lastmod>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/antitransphobia/</loc>
+         <lastmod>2024-10-29</lastmod>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/apprise/</loc>
          <lastmod>2024-10-29</lastmod>
     </url>
     <url>
@@ -153,6 +161,10 @@
          <lastmod>2024-10-29</lastmod>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/board_games/</loc>
+         <lastmod>2024-10-29</lastmod>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/book_binding/</loc>
          <lastmod>2024-10-29</lastmod>
     </url>
@@ -169,6 +181,10 @@
          <lastmod>2024-10-29</lastmod>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/cadvisor/</loc>
+         <lastmod>2024-10-29</lastmod>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/calendar_management/</loc>
          <lastmod>2024-10-29</lastmod>
     </url>
@@ -182,6 +198,10 @@
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/castellano/</loc>
+         <lastmod>2024-10-29</lastmod>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/changedetection/</loc>
          <lastmod>2024-10-29</lastmod>
     </url>
     <url>
@@ -257,11 +277,19 @@
          <lastmod>2024-10-29</lastmod>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/csvlens/</loc>
+         <lastmod>2024-10-29</lastmod>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/cypress/</loc>
          <lastmod>2024-10-29</lastmod>
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/data_orchestrators/</loc>
+         <lastmod>2024-10-29</lastmod>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/deltachat/</loc>
          <lastmod>2024-10-29</lastmod>
     </url>
     <url>
@@ -413,6 +441,10 @@
          <lastmod>2024-10-29</lastmod>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/furios/</loc>
+         <lastmod>2024-10-29</lastmod>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/gadgetbridge/</loc>
          <lastmod>2024-10-29</lastmod>
     </url>
@@ -450,6 +482,10 @@
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/gitea/</loc>
+         <lastmod>2024-10-29</lastmod>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/gitops/</loc>
          <lastmod>2024-10-29</lastmod>
     </url>
     <url>
@@ -501,6 +537,14 @@
          <lastmod>2024-10-29</lastmod>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/hacktivist_collectives/</loc>
+         <lastmod>2024-10-29</lastmod>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/hacktivist_gatherings/</loc>
+         <lastmod>2024-10-29</lastmod>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/happycow/</loc>
          <lastmod>2024-10-29</lastmod>
     </url>
@@ -538,6 +582,10 @@
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/icsx5/</loc>
+         <lastmod>2024-10-29</lastmod>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/imap_tools/</loc>
          <lastmod>2024-10-29</lastmod>
     </url>
     <url>
@@ -825,6 +873,10 @@
          <lastmod>2024-10-29</lastmod>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/openwebui/</loc>
+         <lastmod>2024-10-29</lastmod>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/oracle_database/</loc>
          <lastmod>2024-10-29</lastmod>
     </url>
@@ -853,7 +905,15 @@
          <lastmod>2024-10-29</lastmod>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/palestine/</loc>
+         <lastmod>2024-10-29</lastmod>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/park_programming/</loc>
+         <lastmod>2024-10-29</lastmod>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/parkour/</loc>
          <lastmod>2024-10-29</lastmod>
     </url>
     <url>
@@ -874,6 +934,10 @@
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/peek/</loc>
+         <lastmod>2024-10-29</lastmod>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/pentesting/</loc>
          <lastmod>2024-10-29</lastmod>
     </url>
     <url>
@@ -905,11 +969,19 @@
          <lastmod>2024-10-29</lastmod>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/playwright/</loc>
+         <lastmod>2024-10-29</lastmod>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/postgres/</loc>
          <lastmod>2024-10-29</lastmod>
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/postgres_operators/</loc>
+         <lastmod>2024-10-29</lastmod>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/privacy_threat_modeling/</loc>
          <lastmod>2024-10-29</lastmod>
     </url>
     <url>
@@ -990,6 +1062,10 @@
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/python_gnupg/</loc>
+         <lastmod>2024-10-29</lastmod>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/python_imap/</loc>
          <lastmod>2024-10-29</lastmod>
     </url>
     <url>
@@ -1097,6 +1173,10 @@
          <lastmod>2024-10-29</lastmod>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/renfe/</loc>
+         <lastmod>2024-10-29</lastmod>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/renovate/</loc>
          <lastmod>2024-10-29</lastmod>
     </url>
@@ -1197,6 +1277,10 @@
          <lastmod>2024-10-29</lastmod>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/spacy/</loc>
+         <lastmod>2024-10-29</lastmod>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/speech_recognition/</loc>
          <lastmod>2024-10-29</lastmod>
     </url>
@@ -1218,6 +1302,10 @@
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/strategy/</loc>
+         <lastmod>2024-10-29</lastmod>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/streamlit/</loc>
          <lastmod>2024-10-29</lastmod>
     </url>
     <url>
@@ -1277,6 +1365,10 @@
          <lastmod>2024-10-29</lastmod>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/torch/</loc>
+         <lastmod>2024-10-29</lastmod>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/torrents/</loc>
          <lastmod>2024-10-29</lastmod>
     </url>
@@ -1310,6 +1402,10 @@
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/vial/</loc>
+         <lastmod>2024-10-29</lastmod>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/video_management/</loc>
          <lastmod>2024-10-29</lastmod>
     </url>
     <url>
@@ -1442,6 +1538,10 @@
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/watchdog/</loc>
+         <lastmod>2024-10-29</lastmod>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/watchtower/</loc>
          <lastmod>2024-10-29</lastmod>
     </url>
     <url>
