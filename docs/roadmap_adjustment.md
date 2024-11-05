@@ -445,6 +445,7 @@ It's important that you prepare your environment for the review. You need to be 
 To record the results of the review create the file `references/reviews/YYYY_MM.org`, where the month is the one that is ending with the following template:
 
 ```org
+:inow: 
 * Discover
 * Analyze
 * Decide
@@ -467,10 +468,10 @@ There are different paths to discover actionable items:
   - What worries you right now?
     - [ ] 
 
-  - Where is your mind these days?
+  - What did drain your energy or brought you down emotionally this last month?
     - [ ] 
 
-  - What did drain your energy or brought you down emotionally this last month?
+  - Where is your mind these days?
     - [ ] 
 
   - What did help you most this last month?
@@ -481,8 +482,8 @@ There are different paths to discover actionable items:
 - Empty the elements you added to the `review box`.
 
 - Process your `Month checks`. For each of them:
-  - Think of whether you've met the check. 
   - If you need, add action elements in the `Discover` section of the review.
+  - Think of whether you've met the check. 
 
 - Process your `Month objectives`. For each of them:
   - Think of whether you've met the objective. 
@@ -505,9 +506,10 @@ Then allocate 20 minutes to think about them. Go from top to bottom transitionin
 
 For the last question you can resort to:
 
-- Habits change
-- Projects change: start or stop doing a series of actions.
-- Roadmap change
+   - What defines the state we want to change? 
+   - What are the underlying forces in your life that made you reach that state?
+   - To what state you want to transition to?
+   - What is the easiest way to reach that destination? 
 
 Once you have analyzed an element copy all the decisions you've made in the `Decide` section of your review document in an orgmode checkbox list.
 
@@ -520,12 +522,10 @@ Once you have a clear definition of the current state, the new and how to reach 
 - Tweak your project and actions definitions
 - Create *checks* to make sure that they are not overseen. 
 - Create objectives that will be checked in the next reviews (weekly and monthly).
+- Add an element to the `planning box` if it's not clear enough to be added as objective.
 - Create [Anki](anki.md) cards to keep the idea in your mind.
 
-Finally: 
-
-- Check the last month checks and complete this month ones.
-- Pat yourself in the shoulder as you've finished the review ^^.
+Finally pat yourself in the shoulder as you've finished the review ^^.
 
 ### Month's planning
 

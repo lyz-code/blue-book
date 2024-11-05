@@ -4,6 +4,37 @@ date: 20200717
 author: Lyz
 ---
 
+# Check if a pathlib Path is absolute or relative
+
+```python
+file_path.is_absolute()
+```
+
+# Remove a file using pathlib Path
+
+To remove a file using Python’s `pathlib` library, you can use the `unlink()` method on a `Path` object. Here’s how it works:
+
+```python
+from pathlib import Path
+
+file_path = Path("path/to/your/file.txt")
+
+# Check if the file exists before trying to delete it
+if file_path.exists():
+    file_path.unlink()
+```
+
+This `unlink()` method will delete the file at `file_path`. If you want to handle any errors that may occur (like if the file doesn’t exist), you can wrap it in a `try-except` block:
+
+```python
+try:
+    file_path.unlink()
+except FileNotFoundError:
+    print("The file does not exist.")
+except PermissionError:
+    print("Permission denied.")
+```
+
 # Send a linux desktop notification
 
 ## Using `notify2`
@@ -1509,6 +1540,13 @@ for entry in os.scandir(directory):
 
 ### Create directory
 
+With `pathlib`:
+```python
+if not dir_path.is_dir():
+    dir_path.mkdir(parents=True, exist_ok=True)
+```
+
+With `os`:
 ```python
 if not os.path.exists(directory):
     os.makedirs(directory)

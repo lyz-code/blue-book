@@ -728,7 +728,7 @@ nav:
           - Whisper: whisper.md
           - Speech recognition: speech_recognition.md
         - Coding by Voice: coding_by_voice.md
-      - Data Analysis:
+      - Data Analysis: data_analysis.md
           - Recommender Systems: >-
               data_analysis/recommender_systems/recommender_systems.md
           - Parsers: parsers.md

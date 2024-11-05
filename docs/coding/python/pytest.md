@@ -756,6 +756,38 @@ If you wish not to run `slow` nor `secondary` you can use the flag `-m "not slow
 
 # Snippets
 
+## Changing the directory when running tests but switching it back after the test ends
+
+In pytest, you can temporarily change the current working directory for a specific test function using a fixture. Here's how you can do it:
+
+1. Create a fixture that changes the current working directory before running the test and resets it afterward:
+
+```python
+import os
+import pytest
+from typing import Generator
+
+@pytest.fixture(name="work_dir")
+def work_dir_(tmp_path: Path) -> Generator[Path, None, None]:
+    """Create the work directory for the tests."""
+    old_cwd = os.getcwd()
+    os.chdir(tmp_path)
+
+    yield tmp_path
+
+    # Reset the current working directory after the test is done
+    os.chdir(old_cwd)
+```
+
+2. In your test function, use the `work_dir` fixture:
+
+```python
+def test_example(work_dir: Path):
+    assert os.getcwd() == str(tmp_path)
+```
+
+With this setup, whenever you run the `test_example` function, pytest will change into the temporary directory before running the test and then change back to the original directory once the test is complete.
+
 ## [Mocking sys.exit](https://medium.com/python-pandemonium/testing-sys-exit-with-pytest-10c6e5f7726f)
 
 ```python
