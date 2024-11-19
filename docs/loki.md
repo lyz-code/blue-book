@@ -450,6 +450,8 @@ limits_config:
 ```
 
 But probably you're doing something wrong.
+
+# [Upgrading loki](https://grafana.com/docs/loki/latest/setup/upgrade/)
 # Things that don't still work
 ## [Get a useful Source link in the alertmanager](https://github.com/grafana/loki/issues/4722)
 Currently for the ruler `external_url` if you use the URL of your Grafana installation: e.g. `external_url: "https://grafana.example.com"` it creates a Source link in alertmanager similar to https://grafana.example.com/graph?g0.expr=%28sum+by%28thing%29%28count_over_time%28%7Bnamespace%3D%22foo%22%7D+%7C+json+%7C+bar%3D%22maxRetries%22%5B5m%5D%29%29+%3E+0%29&g0.tab=1, which isn't valid.

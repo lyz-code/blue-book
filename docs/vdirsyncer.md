@@ -70,7 +70,7 @@ accounts.
 
 ### Syncing a calendar
 
-To sync to a nextcloud calendar:
+#### Sync to a nextcloud calendar:
 
 ```ini
 [pair my_calendars]
@@ -100,6 +100,25 @@ verify = true
 Read the [SSl and certificate validation](#ssl-and-certificate-validation)
 section to see how to create the `verify_fingerprint`.
 
+#### Sync to a read-only ics
+
+```ini
+[pair calendar_name]
+a = "calendar_name_local"
+b = "calendar_name_remote"
+collections = null
+conflict_resolution = ["command", "vimdiff"]
+metadata = ["displayname", "color"]
+ 
+[storage calendar_name_local]
+type = "filesystem"
+path = "~/.calendars/calendar_name"
+fileext = ".ics"
+
+[storage calendar_name_remote]
+type = "http"
+url = "https://example.org/calendar.ics"
+```
 ### Syncing an address book
 
 The following example synchronizes ownCloud’s addressbooks to `~/.contacts/`:
@@ -349,6 +368,10 @@ If the `redirect_ui` line has changed, you need to find in the code where does i
 If you create a git repository where you have your calendars you can do a `git
 diff` and see the files that have changed. If you do a commit after each sync
 you can have all the history.
+
+## Automatically sync calendars
+
+You can use the script shown in the [automatically sync emails](#script-to-sync-emails-and-calendars-with-different-frequencies)
 
 # Troubleshooting
 

@@ -284,4 +284,3 @@ Sometimes you don't mind if the size of the data saved in the filesystems doesn'
 # References
 
 - [Source](https://github.com/pdf/zfs_exporter)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

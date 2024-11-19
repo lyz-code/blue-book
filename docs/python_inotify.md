@@ -1,3 +1,5 @@
+DEPRECATED: As of 2024-11-15 it's been 4 years since the last commit. [watchdog](watchdog_python.md) has 6.6k stars and last commit was done 2 days ago.
+
 [inotify](https://pypi.org/project/inotify/) is a python library that acts as a bridge to the `inotify` linux kernel which allows you to register one or more directories for watching, and to simply block and wait for notification events. This is obviously far more efficient than polling one or more directories to determine if anything has changed.
 
 # Installation
@@ -67,4 +69,3 @@ The wait will be done in the `list(events)` line
 # References
 
 - [Source](https://github.com/dsoprea/PyInotify)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

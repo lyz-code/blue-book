@@ -4,6 +4,286 @@ date: 20200826
 author: Lyz
 ---
 
+# Create a systemd service for a non-root user
+
+To set up a systemd service as a **non-root user**, you can create a user-specific service file under your home directory. User services are defined in `~/.config/systemd/user/` and can be managed without root privileges.
+
+1. Create the service file:
+   
+   Open a terminal and create a new service file in `~/.config/systemd/user/`. For example, if you want to create a service for a script named `my_script.py`, follow these steps:
+
+   ```bash
+   mkdir -p ~/.config/systemd/user
+   nano ~/.config/systemd/user/my_script.service
+   ```
+
+2. Edit the service file:
+   
+   In the `my_script.service` file, add the following configuration:
+
+   ```ini
+   [Unit]
+   Description=My Python Script Service
+   After=network.target
+
+   [Service]
+   Type=simple
+   ExecStart=/usr/bin/python3 /path/to/your/script/my_script.py
+   WorkingDirectory=/path/to/your/script/
+   SyslogIdentifier=my_script
+   Restart=on-failure
+   StandardOutput=journal
+   StandardError=journal
+
+   [Install]
+   WantedBy=default.target
+   ```
+
+   - **Description**: A short description of what the service does.
+   - **ExecStart**: The command to run your script. Replace `/path/to/your/script/my_script.py` with the full path to your Python script. If you want to run the script within a virtualenv you can use `/path/to/virtualenv/bin/python` instead of `/usr/bin/python3`.
+
+      You'll need to add the virtualenv path to Path
+      ```ini
+      # Add virtualenv's bin directory to PATH
+      Environment="PATH=/path/to/virtualenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+      ```
+   - **WorkingDirectory**: Set the working directory to where your script is located (optional).
+   - **Restart**: Restart the service if it fails.
+   - **StandardOutput** and **StandardError**: This ensures that the output is captured in the systemd journal.
+   - **WantedBy**: Specifies the target to which this service belongs. `default.target` is commonly used for user services.
+
+3. Reload systemd to recognize the new service:
+   
+   Run the following command to reload systemd's user service files:
+
+   ```bash
+   systemctl --user daemon-reload
+   ```
+
+4. Enable and start the service:
+   
+   To start the service immediately and enable it to run on boot (for your user session), use the following commands:
+
+   ```bash
+   systemctl --user start my_script.service
+   systemctl --user enable my_script.service
+   ```
+
+5. Check the status and logs:
+
+   - To check if the service is running:
+     
+     ```bash
+     systemctl --user status my_script.service
+     ```
+
+   - To view logs specific to your service:
+     
+     ```bash
+     journalctl --user -u my_script.service -f
+     ```
+
+## If you need to use the graphical interface
+
+If your script requires user interaction (like entering a GPG passphrase), it’s crucial to ensure that the service is tied to your graphical user session, which ensures that prompts can be displayed and interacted with.
+
+To handle this situation, you should make a few adjustments to your systemd service:
+
+### Ensure service is bound to graphical session
+
+Change the `WantedBy` target to `graphical-session.target` instead of `default.target`. This makes sure the service waits for the full graphical environment to be available.
+
+### Use `Type=forking` instead of `Type=simple` (optional)
+
+If you need the service to wait until the user is logged in and has a desktop session ready, you might need to tweak the service type. Usually, `Type=simple` is fine, but you can also experiment with `Type=forking` if you notice any issues with user prompts.
+
+### Updated Service File
+
+Here’s how you should modify your `mbsync_syncer.service` file:
+
+```ini
+[Unit]
+Description=My Python Script Service
+After=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 /path/to/your/script/my_script.py
+WorkingDirectory=/path/to/your/script/
+Restart=on-failure
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=my_script
+# Environment variable to use the current user's DISPLAY and DBUS_SESSION
+Environment="DISPLAY=:0"
+Environment="DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus"
+
+[Install]
+WantedBy=graphical-session.target
+```
+
+After modifying the service, reload and restart it:
+
+```bash
+systemctl --user daemon-reload
+systemctl --user restart my_script.service
+```
+# Debugging high IOwait 
+
+High I/O wait (`iowait`) on the CPU, especially at 50%, typically indicates that your system is spending a large portion of its time waiting for I/O operations (such as disk access) to complete. This can be caused by a variety of factors, including disk bottlenecks, overloaded storage systems, or inefficient applications making disk-intensive operations.
+
+Here’s a structured approach to debug and analyze high I/O wait on your server:
+
+## Monitor disk I/O
+   First, verify if disk I/O is indeed the cause. Tools like `iostat`, `iotop`, and `dstat` can give you an overview of disk activity:
+
+   - **`iostat`**: This tool reports CPU and I/O statistics. You can install it with `apt-get install sysstat`. Run the following command to check disk I/O stats:
+
+     ```bash
+     iostat -x 1
+     ```
+     The `-x` flag provides extended statistics, and `1` means it will report every second. Look for high values in the `%util` and `await` columns, which represent:
+     - `%util`: Percentage of time the disk is busy (ideally should be below 90% for most systems).
+     - `await`: Average time for I/O requests to complete.
+
+     If either of these values is unusually high, it indicates that the disk subsystem is likely overloaded.
+
+   - **`iotop`**: If you want a more granular look at which processes are consuming disk I/O, use `iotop`:
+
+     ```bash
+     sudo iotop -o
+     ```
+
+     This will show you the processes that are actively performing I/O operations.
+
+   - **`dstat`**: Another useful tool for monitoring disk I/O in real-time:
+
+     ```bash
+     dstat -cdl 1
+     ```
+
+     This shows CPU, disk, and load stats, refreshing every second. Pay attention to the `dsk/await` value.
+
+### Check disk health
+   Disk issues such as bad sectors or failing drives can also lead to high I/O wait times. To check the health of your disks:
+
+   - **Use `smartctl`**: This tool can give you a health check of your disks if they support S.M.A.R.T.
+
+     ```bash
+     sudo smartctl -a /dev/sda
+     ```
+
+     Check for any errors or warnings in the output. Particularly look for things like reallocated sectors or increasing "pending sectors."
+
+   - **`dmesg` logs**: Look at the system logs for disk errors or warnings:
+
+     ```bash
+     dmesg | grep -i "error"
+     ```
+
+     If there are frequent disk errors, it may be time to replace the disk or investigate hardware issues.
+
+### Look for disk saturation
+   If the disk is saturated, no matter how fast the CPU is, it will be stuck waiting for data to come back from the disk. To further investigate disk saturation:
+
+   - **`df -h`**: Check if your disk partitions are full or close to full.
+
+     ```bash
+     df -h
+     ```
+
+   - **`lsblk`**: Check how your disks are partitioned and how much data is written to each partition:
+
+     ```bash
+     lsblk -o NAME,SIZE,TYPE,MOUNTPOINT
+     ```
+
+   - **`blktrace`**: For advanced debugging, you can use `blktrace`, which traces block layer events on your system.
+
+     ```bash
+     sudo blktrace -d /dev/sda -o - | blkparse -i -
+     ```
+
+     This will give you very detailed insights into how the system is interacting with the block device.
+
+### Check for heavy disk-intensive processes
+   Identify processes that might be using excessive disk I/O. You can use tools like `iotop` (as mentioned earlier) or `pidstat` to look for processes with high disk usage:
+
+   - **`pidstat`**: Track per-process disk activity:
+
+     ```bash
+     pidstat -d 1
+     ```
+
+     This command will give you I/O statistics per process every second. Look for processes with high `I/O` values (`r/s` and `w/s`).
+
+   - **`top`** or **`htop`**: While `top` or `htop` can show CPU usage, they can also show process-level disk activity. Focus on processes consuming high CPU or memory, as they might also be performing heavy I/O operations.
+
+### check file system issues
+   Sometimes the file system itself can be the source of I/O bottlenecks. Check for any file system issues that might be causing high I/O wait.
+
+   - **Check file system consistency**: If you suspect the file system is causing issues (e.g., due to corruption), run a file system check. For `ext4`:
+
+     ```bash
+     sudo fsck /dev/sda1
+     ```
+
+     Ensure you unmount the disk first or do this in single-user mode.
+
+   - **Check disk scheduling**: Some disk schedulers (like `cfq` or `deadline`) might perform poorly depending on your workload. You can check the scheduler used by your disk with:
+
+     ```bash
+     cat /sys/block/sda/queue/scheduler
+     ```
+
+     You can change the scheduler with:
+
+     ```bash
+     echo deadline > /sys/block/sda/queue/scheduler
+     ```
+
+     This might improve disk performance, especially for certain workloads.
+
+### Examine system logs
+   The system logs (`/var/log/syslog` or `/var/log/messages`) may contain additional information about hardware issues, I/O bottlenecks, or kernel-related warnings:
+
+   ```bash
+   sudo tail -f /var/log/syslog
+   ```
+
+   or
+
+   ```bash
+   sudo tail -f /var/log/messages
+   ```
+
+   Look for I/O or disk-related warnings or errors.
+
+### Consider hardware upgrades or tuning
+   - **SSD vs HDD**: If you're using HDDs, consider upgrading to SSDs. HDDs can be much slower in terms of I/O, especially if you have a high number of random read/write operations.
+   - **RAID Configuration**: If you are using RAID, check the RAID configuration and ensure it's properly tuned for performance (e.g., using RAID-10 for a good balance of speed and redundancy).
+   - **Memory and CPU Tuning**: If the server is swapping due to insufficient RAM, it can result in increased I/O wait. You might need to add more RAM or optimize the system to avoid excessive swapping.
+
+### Check for swapping issues
+   Excessive swapping can contribute to high I/O wait times. If your system is swapping (which happens when physical RAM is exhausted), I/O wait spikes as the system reads from and writes to swap space on disk.
+
+   - **Check swap usage**:
+
+     ```bash
+     free -h
+     ```
+
+     If swap usage is high, you may need to add more physical RAM or optimize applications to reduce memory pressure.
+
+---
+
+# Create a file with random data 
+
+Of 3.5 GB 
+
+```bash
+dd if=/dev/urandom of=random_file.bin bs=1M count=3584
+```
 # [Set the vim filetype syntax in a comment](https://unix.stackexchange.com/questions/19867/is-there-a-way-to-place-a-comment-in-a-file-which-vim-will-process-in-order-to-s)
 Add somewhere in your file:
 

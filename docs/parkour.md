@@ -7,10 +7,78 @@
 - [Strengthen your knees](#strengthen-your-knees)
 - [Know the most frequent injuries](#avoid-frequent-injuries)
 
-## Warming up
+## [Warming up](https://www.youtube.com/watch?app=desktop&v=qGSc-EUlyrQ)
 
-- Do [this routine](https://www.youtube.com/watch?app=desktop&v=qGSc-EUlyrQ) before your parkour session
-- Go by bike, skate, jogging to the parkour place
+Never do static stretches if you're cold, it's better to do dynamic stretches.
+
+### Take the joints through rotations
+
+- Head:
+  - Nod 10 times
+  - Say no 10 times
+  - Ear shoulder 10 times
+  - Circles 10 times each direction
+
+- Shoulders
+  - Circles back 10 times 
+  - Circles forward 10 times 
+
+- Elbows 
+  - Circles 10 each direction
+
+- Wrists:
+  - Circle 10 each direction
+
+- Chest:
+  - Chest out/in 10 times
+  - Chest one side to the other 10 times
+  - Chest in circles
+
+- Hips:
+  - Circles 10 each direction
+  - Figure eight 10 times each direction
+
+- Knees:
+  - Circular rotations 10 each direction feet and knees together
+  - 10 ups and downs with knees together
+  - Circular rotations 10 each direction feet waist width
+
+- Ankles:
+  - Circular 10 rotations each direction
+
+### Light exercises
+
+- 10 steps forward of walking on your toes, 10 back
+- 10 steps forward of walking on your toes feet rotated outwards, 10 back
+- 10 steps forward of walking on your toes feet rotated inwards, 10 back
+- 10 steps forward of walking on your heels feet rotated outwards, 10 back
+- 10 steps forward of walking on your heels feet rotated inwards, 10 back
+
+- 2 x 10 x Side step, carry the leg up (from out to in) while you turn 180, keep on moving on that direction
+- 2 x 10 x Front step carrying the leg up (from in to out)while you turn 45, then side step, keep on moving on that direction
+- 10 light skips on one leg: while walking forward lift your knee and arms and do a slight jump
+- 10 steps with high knees
+- 10 steps with heel to butt
+- 10 side shuffles (like basketball defense)
+
+- 5 lunges forward, 5 backwards
+
+- 10 rollups and downs from standing position
+- 5 push-ups
+- 10 rotations from the pushup position on each direction with straigth arms
+- 5 push-ups
+- 10 rotations from the pushup position on each direction with shoulders at ankle level
+- 3 downward monkeys: from piramid do a low pushup and go to cobra, then a pushup
+
+- 10 steps forward walking on all fours
+
+### Strengthen your knees
+
+Follow [there steps](#strengthen-your-knees)
+### Transit to the parkour place 
+
+Go by bike, skate, jogging to the parkour place
+
 ## [Stretching](https://www.youtube.com/playlist?list=PLtb634PJ9wDYDQh2koMeLkUBmx1jTiMbs)
 
 Stretching is necessary to maintain your flexibility and movement to prevent injuries. Keep in mind though that [static stretches doesn't help when warming up it does work after your workout](https://www.youtube.com/watch?v=DTZvg4yy-e4)
@@ -37,7 +105,7 @@ The hip flexors are the iliacus, psoas major and psoas minor, they are attached 
 
 Not stretching your hip flexors may result in: lower back pain, knee pain, it may pull your pelvis out of position and that can ricochet all the way up to your body.
 
-- From a lunges position (keep the knee just above the heel or behind it)
+- From a lunge position (keep the knee just above the heel or behind it)
 - Spine up to the ceiling
 - Then tuck under your pelvis while keeping your back straight (bum goes slightly forward)
 - then lean slightly forward. With this movement you're pulling up the part above the hip, and pulling down the part below the hip. 
@@ -131,7 +199,7 @@ You can stretch by:
 
 ### Glutes stretch
 
-- From lying down face up on tabletop
+- From lying on the floor face up on tabletop
 - Cross one leg over the other
 - Grab the other leg with both hands and bring it towards you while you push the other with one of the elbows
 
@@ -178,6 +246,7 @@ Another good stretch is the [butterfly](https://yewtu.be/watch?v=DWD8gY04JPo)
 - From sitting position join your feet
 - Bring the knees down
 - Bring your back straight forward
+
 ## [Strengthen your knees](https://www.youtube.com/watch?v=Tja6i5MysT8)
 Make sure you have the strength to do 3 sets of 20 squats or drops at each level before moving to the next step:
 

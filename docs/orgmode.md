@@ -1054,7 +1054,6 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 ```
-
 ## [Capture](https://orgmode.org/manual/Capture.html)
 
 Capture lets you quickly store notes with little interruption of your work flow. It works the next way:

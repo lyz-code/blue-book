@@ -4,6 +4,8 @@ date: 20210820
 author: Lyz
 ---
 
+DEPRECATED: Use [himalaya](himalaya.md) instead.
+
 [alot](https://github.com/pazz/alot) is a terminal-based mail user agent based
 on the [notmuch mail indexer](notmuch.md). It is written in python using the
 urwid toolkit and features a modular and command prompt driven interface to

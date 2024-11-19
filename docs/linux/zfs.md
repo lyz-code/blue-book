@@ -943,7 +943,6 @@ The following table summarizes the file or directory changes that are identified
 If you've used the `-o keyformat=raw -o keylocation=file:///etc/zfs/keys/home.key` arguments to encrypt your datasets you can't use a `keyformat=passphrase` encryption on the cold storage device. You need to copy those keys on the disk. One way of doing it is to:
 
 - Create a 100M LUKS partition protected with a passphrase where you store the keys.
-  
 - The rest of the space is left for a partition for the zpool.
 
 WARNING: substitute `/dev/sde` for the partition you need to work on in the next snippets
@@ -964,6 +963,56 @@ To do it:
   ```bash
   zpool create cold-backup-01 /dev/sde2
   ```
+
+### Sync an already created cold backup
+#### Mount the existent pool
+
+Imagine your pool is at `/dev/sdf2`:
+
+- Connect your device 
+- Check for available ZFS pools: First, check if the system detects any ZFS pools that can be imported:
+
+  ```bash
+  sudo zpool import
+  ```
+
+  This command will list all pools that are available for import, including the one stored in `/dev/sdf2`. Look for the pool name you want to import.
+
+- Import the pool: If you see the pool listed and you know its name (let's say the pool name is `mypool`), you can import it with:
+
+  ```bash
+  sudo zpool import mypool
+  ```
+
+- Import the pool from a specific device: If the pool isn't showing up or you want to specify the device directly, you can use:
+
+  ```bash
+  sudo zpool import -d /dev/sdf2
+  ```
+
+  This tells ZFS to look specifically at `/dev/sdf2` for any pools. If you don't know the name of the pool this is also the command to run.
+
+  This should list any pools found on the device. If it shows a pool, import it using:
+
+  ```bash
+  sudo zpool import -d /dev/sdf2 <pool_name>
+  ```
+
+- Mount the pool: Once the pool is imported, ZFS should automatically mount any datasets associated with the pool. You can check the status of the pool with:
+
+  ```bash
+  sudo zpool status
+  ```
+
+Additional options:
+
+- If the pool was exported cleanly, you can use `zpool import` without additional flags.
+- If the pool wasn’t properly exported or was interrupted, you might need to use `-f` (force) to import it:
+
+  ```bash
+  sudo zpool import -f mypool
+  ```
+
 # Monitorization
 
 ## Monitor the ZFS events

@@ -41,7 +41,6 @@ nav:
         - Action Management: action_management.md
         - Roadmap Adjustment: 
           - roadmap_adjustment.md
-          - Life planning: life_planning.md
           - Life review: life_review.md
           - Strategy: strategy.md
           - Systems Thinking: systems_thinking.md
@@ -53,41 +52,55 @@ nav:
               - Orgzly: orgzly.md
             - OpenProject: openproject.md
         - Habit management: habit_management.md
-        - Interruption Management:
+        - Interruption management:
             - interruption_management.md
             - Interruption Management Analysis:
               - Work Interruption Analysis: work_interruption_analysis.md
               - Personal Interruption Analysis: personal_interruption_analysis.md
-        - Week Management: week_management.md
-        - Calendar Management: 
+        - Week management: week_management.md
+        - Calendar management: 
           - calendar_management.md
+          - Calendar automation:
+            - vdirsyncer: vdirsyncer.md
+          - Calendar clients:
+            - Khal: khal.md
           - Gancio: gancio.md
-          - vdirsyncer: vdirsyncer.md
-          - Khal: khal.md
         - Time management theories:
           - Getting Things Done: gtd.md
-      - Life Chores Management:
-        - Trip Management:
-          - Route Management: route_management.md
-          - Map Management: map_management.md
-        - Food Management: food_management.md
-        - Stock Management:
+      - Life chores management:
+        - Trip management:
+          - Route management: route_management.md
+          - Map management: map_management.md
+        - Food management: food_management.md
+        - Stock management:
           - Grocy: grocy_management.md
-        - Money Management: 
+        - Money management: 
           - money_management.md
           - beancount: 
             - beancount.md
             - bean-sql: bean_sql.md
             - Fava Dashboards: fava_dashboards.md
-        - Tools Management:
+        - Tools management:
           - tool_management.md
-          - Email Management:
+          - Email management:
             - email_management.md
-            - Email Automation: email_automation.md
-            - afew: afew.md
-            - alot: alot.md
-            - mbsync: mbsync.md
-            - notmuch: notmuch.md
+            - Email automation: 
+              - email_automation.md
+              - Email automation tools: 
+                - mbsync: mbsync.md
+                - mirador: mirador.md
+                - afew: afew.md
+                - notmuch: notmuch.md
+              - Email automation libraries: 
+                - mailbox: mailbox.md
+                - IMAP:
+                  - IMAP library comparison: python_imap.md
+                  - imap-tools: imap_tools.md
+            - Email clients: 
+              - himalaya: himalaya.md
+              - alot: alot.md
+            - Email protocols: 
+              - Maildir: maildir.md
           - Instant Messages Management: 
             - instant_messages_management.md
             - XMPP/Jabber:
@@ -201,6 +214,7 @@ nav:
               - Libraries:
                   - Alembic: coding/python/alembic.md
                   - asyncio: asyncio.md
+                  - aiocron: aiocron.md
                   - Apprise: apprise.md
                   - aiohttp: aiohttp.md
                   - BeautifulSoup: beautifulsoup.md
@@ -221,9 +235,7 @@ nav:
                   - Goodconf: goodconf.md
                   - ICS: ics.md
                   - Inotify: python_inotify.md
-                  - IMAP:
-                    - IMAP library comparison: python_imap.md
-                    - imap-tools: imap_tools.md
+                  - watchdog: watchdog_python.md
                   - Jinja2: python_jinja2.md
                   - Maison: maison.md
                   - mkdocstrings: coding/python/mkdocstrings.md

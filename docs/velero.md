@@ -319,7 +319,6 @@ If you want to use an EBS snapshot that is not managed by `velero` you need to:
 
 Keep in mind that if you are trying to restore a backup created by an EBS lifecycle hook you'll receive an error when restoring because these snapshots have a tag that starts with `aws:` which is reserved for AWS only. The solution is to copy the snapshot into a new one, assign a tag, for example `Name`, and use that snapshot instead. If you don't define any tag you'll get another error :/.
 
-
 # [Overview of Velero](https://velero.io/docs/main/how-velero-works/)
 
 Each Velero operation – on-demand backup, scheduled backup, restore – is a custom resource, defined with a Kubernetes Custom Resource Definition (CRD) and stored in etcd. Velero also includes controllers that process the custom resources to perform backups, restores, and all related operations.

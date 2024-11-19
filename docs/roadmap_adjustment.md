@@ -358,13 +358,14 @@ There are two tools that will help to follow the day plan:
 
 ### Control your inbox
 
-The [Inbox](roadmap_tools.md#inbox) is a nasty daemon that loves to get out of control. You need to develop your inbox cleaning skills and proceses up to the point that you're sure that the important stuff tracked where it should be tracked. So far aiming to have a  element inbox is unrealistic though, at least for me.
+The [Inbox](roadmap_tools.md#inbox) is a nasty daemon that loves to get out of control. You need to develop your inbox cleaning skills and proceses up to the point that you're sure that the important stuff tracked where it should be tracked. So far aiming to have a 0 element inbox is unrealistic though, at least for me.
 ## Survive the week
 At this level you're able to open your myopic eyes, so you start to guess what life throws at you. This may be enough to be able to gracefully handle some of the small stuff. The fast ones will still hit you though as you still don't have too much time or definition to react. 
 
 This adjustment is whatever you need to do to get your head empty again and get oriented for the next 9 days. It's split in the next phases:
 
 - [Week plan](#week-plan)
+
 ### Week plan
 
 No matter how good our intentions or system may be, you're going to take in more opportunities than you can handle. The more efficient you become, the more ground you'll try to grasp. You're going to have to learn to say no faster, and to more things, in order to stay afloat and comfortable. Having some dedicated time in the week to at least get up to the project level of thinking goes a long way towards making that easier.
@@ -532,6 +533,76 @@ Finally pat yourself in the shoulder as you've finished the review ^^.
 Objectives are: 
 
 - Identify deadlines.
+- Define the month objectives according to the trimester plan and the insights gathered in the past month review. 
+- Make your backlog and todo list match the month objectives
+- Define the topics to learn
+- Define the habits to incorporate
+- Define the checks you want to do at the end of the month.
+
+It's interesting to do the plannings on meaningful days such as the first one of the month. Usually we don't have enough flexibility in our life to do it exactly that day, so schedule it the closest you can to that date. It's a good idea to do both the review and the planning on the same day.
+
+We'll divide the planning process in these phases:
+
+- Prepare
+- Clarify your state
+- Decide the month objectives
+
+#### Prepare
+
+It's important that you prepare your environment for the planning. You need to be present and fully focused on the process itself. To do so you can:
+
+- Make sure you don't get interrupted: 
+    - Check your action manager tools to make sure that you don't have anything urgent to address in the next hour.
+    - Disable all notifications
+- Set your analysis environment:
+    - Put on the music that helps you get *in the zone*.
+    - Get all the things you may need for the review:
+        - The checklist that defines the process of your planning (this document in my case).
+        - Somewhere to write down the insights.
+        - Your action manager system
+        - Your habit manager system
+        - Your *Objective list*.
+        - Your *Thinking list*.
+        - Your *Reading list*.
+    - Remove from your environment everything else that may distract you
+
+#### Clarify your state 
+
+To be able to make a good decision on your month's path you need to sort out which is your current state. To do so:
+
+- Clean your todo: Review each todo element by deciding if they should still be in the todo. If they do and they belong to a month objective, add it. If they don't need to be in the todo, refile it.
+- Clean your agenda and get an feeling of the busyness of the month: 
+  - Open the orgmode month view agenda and clean it
+  - Read the rest of your calendars
+
+#### Decide the month objectives
+
+Create the month objectives in your roadmap file after addressing each element of:
+
+- The trimester objectives of your roadmap.
+  - You can add notes on the trimester objectives 
+- The `planning_box.org` file
+
+Then reorder the objectives in order of priority. Try to have at least one objective that improves your life.
+
+#### Decide the next steps
+
+- For each of your month and trimester objectives:
+  - Decide whether it makes sense to address it this month. If not, mark it as inactive
+  - Create a clear plan of action for this month on that objective. 
+    - Reorder the projects as needed 
+    - Mark as INACTIVE the ones that you don't feel need to be focused on this month.
+
+- Refine the roadmap of each of the selected areas (change this to the trimestral planning) 
+- Define the todo of each device (mobile, tablet, laptop)
+- Select at least one coding project in case you enter in programming mode
+- Clean your mobile browser tabs
+- Tweak your *things to think about list*.
+- Tweak your *investigations list*.
+- Tweak your *reading list*.
+- Tweak your learning list.
+- Tweak your *habit manager system*.
+
 ## Dream about the trimester 
 
 Now that we know how to read and react to the signals our inner self sends we are in a better position to align our roadmap with what we understand for a fulfilling life. We'll get into the philosophical ground of discovering life's meaning. I wanted to say answer the question, but I'm increasingly convinced that there is no answer and that the best we can aim to is to leave our thoughts guide us without any certainty.
