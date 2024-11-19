@@ -45,6 +45,10 @@
          <lastmod>2024-11-19</lastmod>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/aiocron/</loc>
+         <lastmod>2024-11-19</lastmod>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/aiohttp/</loc>
          <lastmod>2024-11-19</lastmod>
     </url>
@@ -561,6 +565,10 @@
          <lastmod>2024-11-19</lastmod>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/himalaya/</loc>
+         <lastmod>2024-11-19</lastmod>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/home-manager/</loc>
          <lastmod>2024-11-19</lastmod>
     </url>
@@ -697,10 +705,6 @@
          <lastmod>2024-11-19</lastmod>
     </url>
     <url>
-         <loc>https://lyz-code.github.io/blue-book/life_planning/</loc>
-         <lastmod>2024-11-19</lastmod>
-    </url>
-    <url>
          <loc>https://lyz-code.github.io/blue-book/life_review/</loc>
          <lastmod>2024-11-19</lastmod>
     </url>
@@ -746,6 +750,14 @@
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/magic_keys/</loc>
+         <lastmod>2024-11-19</lastmod>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/mailbox/</loc>
+         <lastmod>2024-11-19</lastmod>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/maildir/</loc>
          <lastmod>2024-11-19</lastmod>
     </url>
     <url>
@@ -802,6 +814,10 @@
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/mermaidjs/</loc>
+         <lastmod>2024-11-19</lastmod>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/mirador/</loc>
          <lastmod>2024-11-19</lastmod>
     </url>
     <url>
@@ -1542,6 +1558,10 @@
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/watchdog/</loc>
+         <lastmod>2024-11-19</lastmod>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/watchdog_python/</loc>
          <lastmod>2024-11-19</lastmod>
     </url>
     <url>
