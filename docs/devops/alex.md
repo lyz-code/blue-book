@@ -27,4 +27,3 @@ a soft linter.
 # References
 
 * [Git](https://github.com/get-alex/alex)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

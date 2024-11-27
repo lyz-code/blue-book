@@ -43,4 +43,3 @@ By default:
 # References
 
 * [Docs](https://docs.renovatebot.com/)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

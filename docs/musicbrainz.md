@@ -158,4 +158,3 @@ Some notes on the release fields
 # References
 
 * [Home](https://musicbrainz.org)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

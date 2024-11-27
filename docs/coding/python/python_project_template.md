@@ -182,4 +182,3 @@ Trigger hooks:
 * [ionel packaging a python library
     post](https://blog.ionelmc.ro/2014/05/25/python-packaging/) and he's
     [cookiecutter template](https://github.com/ionelmc/cookiecutter-pylibrary)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

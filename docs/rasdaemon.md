@@ -101,4 +101,3 @@ groups:
 # References
 
 - [Source](https://github.com/mchehab/rasdaemon)
-\n\n[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

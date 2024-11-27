@@ -119,4 +119,3 @@ mkdocs serve
 ## Links
 
 * [Nikita's wiki workflow](https://wiki.nikitavoloboev.xyz/other/wiki-workflow)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

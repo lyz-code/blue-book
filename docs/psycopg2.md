@@ -13,4 +13,3 @@ pip install psycopg2
 ```
 
 
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

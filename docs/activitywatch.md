@@ -113,4 +113,3 @@ tweak it so it can be imported, or analyze the data through other processes.
 * [Home](https://activitywatch.net/)
 * [Docs](https://docs.activitywatch.net/en/latest/introduction.html)
 * [Git](https://github.com/ActivityWatch/activitywatch)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

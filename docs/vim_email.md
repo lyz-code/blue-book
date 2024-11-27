@@ -7,4 +7,3 @@ The best looking one is himalaya
 - [Nvim plugin](https://git.sr.ht/%7Esoywod/himalaya-vim)
 - [Source](https://github.com/soywod/himalaya)
 
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

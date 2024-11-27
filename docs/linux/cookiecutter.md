@@ -274,4 +274,3 @@ attribute but it doesn't seem to work for me.
 
 * [Git](https://github.com/cookiecutter/cookiecutter)
 * [Docs](https://cookiecutter.readthedocs.io/)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

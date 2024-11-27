@@ -118,4 +118,3 @@ Trigger hooks:
 # References
 
 * [Git](https://github.com/jazzband/pip-tools)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

@@ -183,4 +183,3 @@ Below there are some guides to differentiate it from the
 | Size                   | 30-45m                    | 10-15m (in Europe)       |
 | Same colour both sides | no (darker and glossy up) | yes                      |
 | Where they grow        | everywhere                | very close to each other |
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

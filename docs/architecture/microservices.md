@@ -27,4 +27,3 @@ backwards compatibility to avoid sudden dependency breakage.
 * [Hands-On RESTful Python Web Services by Gaston
     C.Hillar](https://www.packtpub.com/eu/application-development/hands-restful-python-web-services-second-edition):
     I didn't like it at all.
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

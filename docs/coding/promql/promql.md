@@ -171,4 +171,3 @@ You may need to specify a subquery range such as `[1w:1d]`.
 # Links
 
 - [Prometheus cheatsheet](https://promlabs.com/promql-cheat-sheet/)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

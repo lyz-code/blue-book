@@ -609,4 +609,3 @@ Once they are closed:
 - [User guide](https://www.mkdocs.org/user-guide/plugins/)
 - [List of events](https://www.mkdocs.org/user-guide/plugins/#events)
 - [Plugin testing example](https://github.com/andyoakley/mkdocs-blog/tree/master/tests)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

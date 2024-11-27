@@ -130,4 +130,3 @@ RAM fitment issues.
 # References
 
 - [How to choose RAM: Speed vs Capacity](https://www.cclonline.com/article/1884/Guide/Desktop-Memory/How-to-Choose-RAM-Speed-MHz-CL-vs-Capacity-GB-/?__cf_chl_f_tk=g_qEntxC5HyO6sQoJNGJGclCY0Iw3jCcjRpeVSpZbGM-1665758062-0-gaNycGzNBj0)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

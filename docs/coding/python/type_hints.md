@@ -810,4 +810,3 @@ setup(
 
 * [Bernat gabor article on the state of type hints in python](https://www.bernat.tech/the-state-of-type-hints-in-python/)
 * [Real python article on type checking](https://realpython.com/python-type-checking/#type-systems)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

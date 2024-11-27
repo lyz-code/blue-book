@@ -278,4 +278,3 @@ Sometimes if you are not seeing the logs in loki it's because the query you're r
 
 - [Docs](https://grafana.com/docs/loki/latest/send-data/promtail/)
 
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

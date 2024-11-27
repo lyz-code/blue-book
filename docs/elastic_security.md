@@ -4,4 +4,3 @@
 # References
 
 - [Home](https://www.elastic.co/security)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

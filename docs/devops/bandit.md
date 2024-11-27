@@ -130,4 +130,3 @@ To fix it:
 # References
 
 * [Docs](https://bandit.readthedocs.io/en/latest/)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

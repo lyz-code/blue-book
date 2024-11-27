@@ -31,4 +31,3 @@ chart with
 * [Documentation](https://github.com/kubernetes/dashboard/tree/master/docs)
 * [Kubernetes introduction to the dashboard](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/)
 * [Hasham Haider guide](https://www.replex.io/blog/how-to-install-access-and-add-heapster-metrics-to-the-kubernetes-dashboard)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

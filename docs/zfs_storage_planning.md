@@ -525,4 +525,3 @@ There are some caveats though. The point of the caveat list is by no means to di
 * Debian and Ubuntu will not start the NFS daemon without a valid export in the /etc/exports file. You must either modify the /etc/init.d/nfs init script to start without an export, or create a local dummy export.
 * When creating ZVOLs, make sure to set the block size as the same, or a multiple, of the block size that you will be formatting the ZVOL with. If the block sizes do not align, performance issues could arise.
 * When loading the "zfs" kernel module, make sure to set a maximum number for the ARC. Doing a lot of "zfs send" or snapshot operations will cache the data. If not set, RAM will slowly fill until the kernel invokes OOM killer, and the system becomes responsive. For example set in the `/etc/modprobe.d/zfs.conf` file "options zfs zfs_arc_max=2147483648", which is a 2 GB limit for the ARC.
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

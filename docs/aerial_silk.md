@@ -117,4 +117,3 @@ other direction until your wrists are between you and the tissue.
 
 * When rolling up silk over your legs, always leave room for the knee, do loops
     above and below but never over.
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

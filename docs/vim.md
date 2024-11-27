@@ -64,4 +64,3 @@ It's because `<c-i>` is a synonym of `<TAB>`.
       make you faster in Vim. It’s free and you don’t need to sign up. What are
       you waiting for?
 * [Openvim](http://www.openvim.com/): Interactive tutorial for vim.
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

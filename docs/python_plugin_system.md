@@ -12,4 +12,3 @@ until I tackle it.
 
 * [Beets plugin system](https://beets.readthedocs.io/en/stable/dev/plugins.html)
     looks awesome.
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

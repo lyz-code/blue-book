@@ -63,4 +63,3 @@ kubectl get MutatingWebhookConfiguration
 ```
 
 Before executing `helmfile apply` again.
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

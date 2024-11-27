@@ -96,4 +96,3 @@ Glasp is a “social web highlighter” for the desktop. This means that your h
 # References
 
 - [MakeUseof article](https://www.makeuseof.com/tools-annotate-highlight-web-pages-research-study/)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

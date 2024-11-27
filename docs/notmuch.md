@@ -42,4 +42,3 @@ notmuch new
 # References
 
 * [Docs](https://notmuchmail.org/)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

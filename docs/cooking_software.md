@@ -232,4 +232,3 @@ https://www.paprikaapp.com/
 https://docs.tandoor.dev/features/authentication/
 
 ## [Chef](https://esolangs.org/wiki/Chef)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

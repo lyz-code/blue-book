@@ -6,4 +6,3 @@
 
 - Save [this script](https://raw.githubusercontent.com/carnager/rofi-pass/master/rofi-pass) somewhere in your `$PATH`
 - Configure your window manager to launch it whenever you need a password.
-\n\n[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

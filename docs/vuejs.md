@@ -3291,4 +3291,3 @@ export default {
 * [Docs](https://axios-http.com/docs/intro)
 * [Git](https://github.com/axios/axios)
 * [Homepage](https://axios-http.com/)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

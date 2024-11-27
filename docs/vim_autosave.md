@@ -37,4 +37,3 @@ Besides running auto-save at startup (if you have `enabled = true` in your confi
 # References
 
 - [Source](https://github.com/okuuva/auto-save.nvim)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

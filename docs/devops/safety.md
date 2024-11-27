@@ -70,4 +70,3 @@ safety generate policy_file
 
 * [Source](https://github.com/pyupio/safety)
 * [Docs](https://docs.safetycli.com/safety-docs)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

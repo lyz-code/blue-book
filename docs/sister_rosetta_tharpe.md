@@ -8,4 +8,3 @@ In [this video](https://yewtu.be/watch?v=JeaBNAXfHfQ) you'll be able to understa
 - [Up Above my head](https://yewtu.be/watch?v=JeaBNAXfHfQ)
 - [Didn't it rain? 1964](https://yewtu.be/watch?v=Y9a49oFalZE)
 - [Nice Best of compilation](https://yewtu.be/watch?v=UnDMangsOMc)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

@@ -14,4 +14,3 @@ looks unmaintained.
 # References
 
 - [PedalPC Blog](https://www.pedalpc.com/blog/)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

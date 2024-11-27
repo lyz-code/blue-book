@@ -609,4 +609,3 @@ addopts = "--asyncio-mode=auto"
 ## Libraries to explore
 
 * [Asyncer](https://github.com/tiangolo/asyncer)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

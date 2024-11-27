@@ -259,4 +259,3 @@ To process an problematic IP:
 # References
 
 * [Homepage](https://aws.amazon.com/waf/)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

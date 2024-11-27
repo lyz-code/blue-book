@@ -50,4 +50,3 @@ I arrived to
 that has taken many datasets such as [Common
 Voice](https://commonvoice.mozilla.org/en/datasets) one and generated the
 [models](https://drive.google.com/drive/folders/1-3UgQBtzEf8QcH2qc8TJHkUqCBp5BBmO?usp=sharing).
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

@@ -170,4 +170,3 @@ def load_logger(verbose: bool = False) -> None:
 
 * [Git](https://github.com/willmcgugan/rich)
 * [Docs](https://rich.readthedocs.io/en/latest/)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

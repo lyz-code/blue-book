@@ -107,4 +107,3 @@ mandatory for all society, and shouldn't be used against the trans people.
 # References
 
 * [Wikipedia page on Transphobia](https://en.wikipedia.org/wiki/Transphobia)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

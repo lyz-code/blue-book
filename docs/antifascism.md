@@ -131,4 +131,3 @@ falls into a pity image then it may strengthen their victim role.
 ## Campañas 
 - [Crowdfunding para la libertad de los 6 de Zaragoza](https://www.goteo.org/project/libertad-6-de-zaragoza)
 
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

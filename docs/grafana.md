@@ -384,4 +384,3 @@ So far you [can't do this for rows](https://github.com/grafana/grafana/issues/23
 # References
 
 - [Home](https://grafana.com/grafana)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

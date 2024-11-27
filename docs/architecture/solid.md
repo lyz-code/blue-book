@@ -128,4 +128,3 @@ and less implementation dependent interaction schema.
 * [Architecture Patterns with
     Python](https://www.cosmicpython.com/book/preface.html) by
     Harry J.W. Percival and Bob Gregory.
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

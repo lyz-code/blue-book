@@ -133,4 +133,3 @@ even 5 or 10 minutes, and grow from there.
 ### Books
 
 * [The Mind Illuminated: A Complete Meditation Guide Integrating Buddhist Wisdom and Brain Science by Culadasa (John Yates)](https://www.goodreads.com/en/book/show/25942786-the-mind-illuminated)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

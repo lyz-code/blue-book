@@ -9,7 +9,6 @@ To be able to manage the complexity of the life roadmap we can use models for di
 - [Goal](#goal)
 - [Vision](#vision)
 - [Purpose and principles](#purpose-and-principles)
-
 ## Step
 
 Is the smallest unit in our model, it's a clear representation of an action you need to do. It needs to fit a phrase and usually starts in a verb. The scope of the action has to be narrow enough so that you can follow it without ambiguity. In orgmode they are represented as checklists:
@@ -33,7 +32,6 @@ There are cases where it's also interesting to record when you've completed a st
 ```orgmode
 - [x] Completed step [2023-12-12]
 ```
-
 ## Action
 
 Model an action that is defined by a list of steps that need to be completed. It has two possible representations in orgmode:
@@ -105,7 +103,6 @@ If you manage your actions from an agenda or only reading the action title, ther
 ```
 
 This is specially useful on recurring actions that have a defined workflow that needs to be followed, or on actions that have a defined validation criteria.
-
 ## Project
 
 Model an action that gathers a list of actions towards a common greater outcome.
@@ -119,7 +116,6 @@ Model an action that gathers a list of actions towards a common greater outcome.
 ** TODO Batch cook for the week
    - [ ] ...
 ```
-
 ## Area
 
 Model a group of projects that follow the same interest, roles or accountabilities. These are not things to finish but rather to use as criteria for analyzing, defining a specific aspect of your life and to prioritize its projects to reach a higher outcome. We'll use areas to maintain balance and sustainability on our responsibilities as we operate in the world. Areas' titles don't contain verbs as they don't model actions. An example of areas can be *health*, *travels* or *economy*.
@@ -145,7 +141,6 @@ To filter the projects by area I set an area tag that propagates downstream. To 
 ** [[file:./efficiency.org][Efficiency]]
 ** [[file:./work.org][Work]]
 ```
-
 ## Axis
 
 Sometimes the area documents start to grow, and you kind of get the feeling that an area has subareas, in this case the area that gathers the rest of subareas is identified as an axis. The structure of an axis document is similar to the area one.
@@ -172,8 +167,6 @@ It might be helpful to define what essential intents are **not**:
 - They are not vision and mission statements like "We want to change the world", these sound inspirational but are so general they are almost entirely ignored. 
 - They aren't vague, general values like “innovation” or “teamwork”. These are typically too bland and generic to inspire any passion.
 - They aren't shorter-term quarterly objectives like “Pass maths”. These shorter-term tactics may be concrete enough to get our attention, but they often lack inspiration.
-
-
 ## Objective
 
 An objective is an idea of the future or desired result that a person or a group of people envision, plan, and commit to achieve.
@@ -222,4 +215,3 @@ The purpose defines the reason and meaning of your existence, principles define 
 
 As we increase in the level of abstraction we need more time and energy (both mental and willpower) to adjust the path, it may also mean that the invested efforts so far are not aligned with the new direction, so we may need to throw away some of the advances made. That's why we need to support those changes with a higher levels of analysis and thought.
 
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

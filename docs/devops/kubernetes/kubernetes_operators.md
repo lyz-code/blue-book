@@ -49,4 +49,3 @@ with the etcd Operator a user can simply increase the etcd cluster size field by
 
 * [CoreOS introduction to Operators](https://coreos.com/blog/introducing-operators.html)
 * [Sysdig Prometheus Operator guide part 3](https://sysdig.com/blog/kubernetes-monitoring-prometheus-operator-part3/)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

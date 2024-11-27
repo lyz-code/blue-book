@@ -3,4 +3,3 @@
 # References
 - [Source](https://github.com/ncabatoff/process-exporter?tab=readme-ov-file )
 - [Grafana dashboard](https://grafana.com/grafana/dashboards/249-named-processes/)
-\n\n[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

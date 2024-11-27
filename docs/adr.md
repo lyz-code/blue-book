@@ -187,4 +187,3 @@ used to using other tools for the similar purpose, like Vim or grep.
 
 * [Joel Parker guide on ADRs](https://github.com/joelparkerhenderson/architecture_decision_record)
 * [Michael Nygard post on ARDs](https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

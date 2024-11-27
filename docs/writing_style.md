@@ -391,4 +391,3 @@ article](https://contentfiesta.com/books-on-writing/) for more suggestions.
 # References
 
 * [Ivan Kreimer's article](https://contentfiesta.com/books-on-writing/)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

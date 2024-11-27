@@ -755,4 +755,3 @@ soup = BeautifulSoup(s.replace(r"\"", '"').replace(r"\/", "/"), "html.parser")
 # References
 
 * [Docs](https://beautiful-soup-4.readthedocs.io/en/latest/)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

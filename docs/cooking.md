@@ -39,4 +39,3 @@ Estas frutas tienen un gran efecto antioxidante. Además, su gran contenido en v
 
 - [Por qué no vale con quitar la parte del moho de los alimentos](https://www.eldiario.es/consumoclaro/micotoxinas-alimentos-no-basta-quitar-parte-enmohecida_1_11275873.html)
 
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

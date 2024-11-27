@@ -846,4 +846,3 @@ If you get this error when you're adding a `git submodule` follow the next steps
 - [git-extras](https://github.com/tj/git-extras/blob/master/Commands.md)
 - [archaeologit](https://github.com/peterjaric/archaeologit): Tool to search
   strings in the history of a github user
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

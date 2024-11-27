@@ -944,4 +944,3 @@ aws_instance.server.*.id
 * [GCloud examples](https://github.com/mjuenema/Terraform-Up-and-Running-Code-Samples-Translated/)
 * [Good and bad sides of terraform](https://charity.wtf/2016/02/23/two-weeks-with-terraform/)
 * [Awesome Terraform](https://github.com/shuaibiyy/awesome-terraform)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

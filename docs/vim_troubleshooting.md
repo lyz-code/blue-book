@@ -54,4 +54,3 @@ vim.cmd[[
 ```
 
 It looks that it had saved a view with the other working directory so when a file was loaded the `cwd` changed. To solve it I created a new `mkview` in the correct directory.
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

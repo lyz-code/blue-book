@@ -27,4 +27,3 @@ You first need to:
   Accept all suggested fixes.
 
 * Mount again the partition.
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

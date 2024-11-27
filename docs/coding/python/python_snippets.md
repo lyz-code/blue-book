@@ -2023,4 +2023,3 @@ last_monday = today - datetime.timedelta(days=today.weekday())
 
 - [Pypi won't allow you to upload packages with direct dependencies](https://github.com/BaderLab/saber/issues/35):
   update the section above.
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

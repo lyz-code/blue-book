@@ -120,4 +120,3 @@ Good:
 
 * https://www.amazon.de/dp/0060891548/ref=as_li_tl?ie=UTF8&linkCode=gs2&linkId=39f2ab8ab47769b2a106e9667149df30&creativeASIN=0060891548&tag=gregdoesit03-21&creative=9325&camp=1789
 * https://www.amazon.de/dp/0143127799/ref=as_li_tl?ie=UTF8&linkCode=gs2&linkId=ff9322c17ca288b1d9d6b5fb8d6df619&creativeASIN=0143127799&tag=gregdoesit03-21&creative=9325&camp=1789
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

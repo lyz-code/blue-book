@@ -18,4 +18,3 @@ They have a nice installer that guides you step by step.
 
 - [Home](https://nixos.org)
 - [homelab nix configuration](https://github.com/badele/nix-homelab)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

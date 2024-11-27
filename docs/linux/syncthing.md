@@ -100,4 +100,3 @@ fingerprint ( what you put ) doesn't match ( actual fingerprint )`.
 
 * [Home](https://syncthing.net/)
 * [Getting Started](https://docs.syncthing.net/intro/getting-started.html)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

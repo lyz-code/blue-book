@@ -146,4 +146,3 @@ If you want to do more complex things uncomment the part of the attachments.
 - [Code]()
 - [End of life for the versions](https://docs.rocket.chat/docs/version-durability)
 
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

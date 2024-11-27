@@ -44,4 +44,3 @@ proposed tasks.
 With this proposed plan we'll:
 
 *
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

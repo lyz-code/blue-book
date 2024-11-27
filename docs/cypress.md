@@ -1686,4 +1686,3 @@ storage after each command to make sure everything happens as expected.
 * [Tutorial on writing
     tests](https://docs.cypress.io/guides/getting-started/writing-your-first-test)
 * [Video tutorials](https://docs.cypress.io/examples/examples/tutorials)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

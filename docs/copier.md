@@ -874,4 +874,3 @@ pipx inject copier copier-templates-extensions
 - [Source](https://github.com/copier-org/copier)
 - [Docs](https://copier.readthedocs.io/en/latest/)
 - [Example templates](https://github.com/topics/copier-template)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

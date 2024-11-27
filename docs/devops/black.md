@@ -104,4 +104,3 @@ You can use the comments `# fmt: off` and `# fmt: on`
 
 * [Docs](https://black.readthedocs.io/en/stable/)
 * [Git](https://github.com/psf/black)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

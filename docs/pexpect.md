@@ -93,4 +93,3 @@ assert "WARNING! you took 1 seconds to process the last element" in out
 # References
 
 * [Docs](https://pexpect.readthedocs.io)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

@@ -75,4 +75,3 @@ Where:
     [#260](https://github.com/copier-org/copier/pull/260/files) PR into
     [copier](https://github.com/copier-org/copier), and the comments of
     [#1243](https://github.com/prompt-toolkit/python-prompt-toolkit/issues/1243)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

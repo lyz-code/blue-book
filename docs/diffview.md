@@ -125,4 +125,3 @@ It may be because you have an outdated version of git. To fix it update to the l
 # References
 
 - [Source](https://github.com/sindrets/diffview.nvim)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

@@ -100,4 +100,3 @@ it, do so from a virtualenv that installs it directly without the `-e` flag.
 # References
 
 * [Satwik Kansal article on Scout APM](https://scoutapm.com/blog/identifying-bottlenecks-and-optimizing-performance-in-a-python-codebase)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

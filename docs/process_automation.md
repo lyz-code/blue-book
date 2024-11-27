@@ -35,4 +35,3 @@ pitfalls of process automation many times:
 
 * Using Grocy to maintain the house stock, shopping lists and meal
   plans.
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

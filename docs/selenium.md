@@ -554,4 +554,3 @@ of starting from scratch. Ugly I know...
     log](https://github.com/mozilla/geckodriver/issues/284): Update the section
     above and start using Firefox instead of Chrome when you need to get the
     status code of the responses.
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

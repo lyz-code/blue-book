@@ -344,4 +344,3 @@ Because `aiohttp` is asynchronous, its API is designed to make the most out of n
 # References
 
 - [Docs](https://docs.aiohttp.org/en/stable/)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

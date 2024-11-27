@@ -24,4 +24,3 @@ The source code of the plugin is [in the wp-plugin](https://framagit.org/les/gan
 - [List of gancio instances](http://demo.fedilist.com/instance?q=&ip=&software=gancio&registrations=&onion=)
 - [Radar Squat](https://radar.squat.net)
 - [Create A3 paper flyers with Gancio agenda](https://git.lattuga.net/balotta/gancio-flyers)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

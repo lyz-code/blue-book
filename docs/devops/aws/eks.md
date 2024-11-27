@@ -79,4 +79,3 @@ To upgrade a cluster follow these steps:
 # References
 
 * [Docs](https://docs.aws.amazon.com/eks/latest/userguide)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

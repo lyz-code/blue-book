@@ -22,4 +22,3 @@ Added to my lua/plugins directory:
     },
   },
 ```
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

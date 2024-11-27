@@ -20,4 +20,3 @@ To make it work, the definition of [pod resource
 consumption](https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/)
 needs to be specified.
 
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

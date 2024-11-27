@@ -58,4 +58,3 @@ Or `pip install pipenv`.
 # References
 
 * [Git](https://github.com/pypa/pipenv)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

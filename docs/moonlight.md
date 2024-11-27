@@ -4,4 +4,3 @@
 
 - [Home](https://moonlight-stream.org/)
 - [Docs](https://github.com/moonlight-stream/moonlight-docs/wiki)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

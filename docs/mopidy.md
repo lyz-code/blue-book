@@ -34,4 +34,3 @@ more.
 
 * [API reference](https://docs.mopidy.com/en/release-1.1/api/#api-ref)
 * [Write your own extension](https://docs.mopidy.com/en/release-1.1/#ext)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

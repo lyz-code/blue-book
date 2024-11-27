@@ -16,4 +16,3 @@ Each has it's advantages and disadvantages. After trying them all and given that
 Once the spike is over I'll wait for a new spike to come either because I have time or because something breaks and I need to fix it.
 
 If the code to edit is already at production quality level and has tests, then do a test for each of the changes with TDD.
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

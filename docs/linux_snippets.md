@@ -4,6 +4,10 @@ date: 20200826
 author: Lyz
 ---
 
+# How to debug a CPU Throttling high alert
+
+It may be because it has hit a limit set by kubernetes or docker. If the metrics don't show that it may be because the machine has run out of CPU credits.
+
 # Create a systemd service for a non-root user
 
 To set up a systemd service as a **non-root user**, you can create a user-specific service file under your home directory. User services are defined in `~/.config/systemd/user/` and can be managed without root privileges.
@@ -1603,4 +1607,3 @@ check that there is no output.
 ```bash
 for file in /proc/*/status ; do awk '/VmSwap|Name/{printf $2 " " $3}END{ print ""}' $file; done | sort -k 2 -n -r | less
 ```
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

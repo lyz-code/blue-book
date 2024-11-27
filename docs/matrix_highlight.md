@@ -13,4 +13,3 @@ I want to try it and investigate further specially if you can:
 
 - [Source](https://github.com/DanilaFe/matrix-highlight)
 
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

@@ -5,4 +5,3 @@
 
 Go into the plugin directory `cd ~/.local/share/nvim/site/pack/packer/start/your-plugin` and check it with git
 
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

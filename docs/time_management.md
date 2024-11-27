@@ -283,4 +283,3 @@ Some of the vectors you can focus on to improve your state are:
 
 - [Four thousand weeks: Time management for mortals book by Oliver Burkeman](https://en.wikipedia.org/wiki/Four_Thousand_Weeks:_Time_Management_for_Mortals)
 
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

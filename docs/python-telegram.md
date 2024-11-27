@@ -98,4 +98,3 @@ References:
 Even if `python-telegram-bot` is the most popular and with the best docs, I prefer one of the others due to the easier interface. `aiogram`s documentation is kind of crap, and as it's the first time I make a bot I'd rather have somewhere good to look at.
 
 So I'd say to go first with `pyTelegramBotAPI` and if it doesn't go well, fall back to `python-telegram-bot`.
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

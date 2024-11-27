@@ -92,4 +92,3 @@ Note that you just need to add `-A` for “don’t autotag”.
 * [Git](https://github.com/beetbox/beets)
 * [Docs](https://beets.readthedocs.io/en/stable/guides/main.html)
 * [Homepage](https://beets.io/)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

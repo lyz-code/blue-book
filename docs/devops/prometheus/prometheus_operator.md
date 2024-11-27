@@ -52,4 +52,3 @@ The Operator acts on the following [custom resource definitions](https://github.
 * [Homepage](https://github.com/coreos/prometheus-operator)
 * [CoreOS Prometheus operator presentation](https://coreos.com/blog/the-prometheus-operator.html)
 * [Sysdig Prometheus operator guide part 3](https://sysdig.com/blog/kubernetes-monitoring-prometheus-operator-part3/)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

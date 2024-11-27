@@ -84,4 +84,3 @@ You can schedule the next interruption events:
 
 When an interruption event arrives, process sequentially each source
 following [the inbox emptying guidelines](roadmap_tools.md#inbox).
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

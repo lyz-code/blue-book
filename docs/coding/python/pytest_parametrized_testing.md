@@ -200,4 +200,3 @@ test_add_variety.py::test_add_6[summary/owner]PASSED
 
 * [A deep dive into Pytest parametrization by George Shulkin](https://medium.com/opsops/deepdive-into-pytest-parametrization-cb21665c05b9)
 * Book [Python Testing with pytest by Brian Okken](https://www.oreilly.com/library/view/python-testing-with/9781680502848/).
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

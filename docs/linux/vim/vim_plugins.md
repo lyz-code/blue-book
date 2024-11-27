@@ -268,4 +268,3 @@ Some nice keymaps of the diff window:
 # References
 
 * [ALE supported tools](https://github.com/dense-analysis/ale/blob/master/supported-tools.md)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

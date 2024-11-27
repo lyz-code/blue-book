@@ -23,4 +23,3 @@ to the worker nodes. Then you can use the
 To test it worked follow [the
 steps](https://docs.aws.amazon.com/eks/latest/userguide/ebs-csi.html) under *To
 deploy a sample application and verify that the CSI driver is working*.
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

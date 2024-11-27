@@ -17,4 +17,3 @@ As a non root user you can
 can manually unplug it. Instead of leaving the mobile charge in the night and
 stay connected at 100% a lot of hours until you unplug, charge it throughout the
 day.
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

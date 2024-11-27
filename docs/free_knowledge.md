@@ -38,4 +38,3 @@ the site.
 * [Libgen reddit](https://www.reddit.com/r/libgen/)
 * [Sci-Hub reddit](https://www.reddit.com/r/scihub/)
 * [DataHoarder reddit](https://www.reddit.com/r/DataHoarder/)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

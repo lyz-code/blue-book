@@ -184,4 +184,3 @@ The table below shows built-in exceptions that are usually raised in Python:
 
 * [Musa 550](https://musa-550-fall-2020.github.io/) looks like a nice way to
     learn how to process geolocation data.
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

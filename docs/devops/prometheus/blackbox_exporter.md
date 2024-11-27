@@ -743,4 +743,3 @@ internal DNS server so the probe sees it exist.
   configuration](https://github.com/prometheus/blackbox_exporter/blob/master/CONFIGURATION.md).
 * [Devconnected introduction to blackbox
   exporter](https://devconnected.com/how-to-install-and-configure-blackbox-exporter-for-prometheus/).
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

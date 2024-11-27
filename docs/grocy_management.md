@@ -127,6 +127,7 @@ To do the inventory review I use a tablet and the [android app](https://github.c
 - [ ] Open the stock overview and iterate through the locations to:
   - [ ] Make sure that the number of products match the reality
     - [ ] Iterate over the list of products checking the quantity
+      - [ ] If you know the product is in many locations, check the stock entry quantity instead of the overall
     - [ ] Look at the location to see if there are missing products in the inventory
   - [ ] Adjust the product properties (default location, minimum amount)
 - [ ] Check the resulting shopping list and adjust the minimum values.
@@ -235,4 +236,3 @@ There is no active python library, although it existed [pygrocy](https://github.
 
 * [Homepage](https://grocy.info/)
 * [API Docs](https://demo.grocy.info/api)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

@@ -2,6 +2,16 @@
 
 # Troubleshooting
 
+## All files give conflicts when nothing has changed
+
+Thinks broke bad, so I exported and sent the files I knew had changed since it broke and then I cleared the orgzly by:
+
+- Removing the repositories connection (Settings / Sync / Repositories): Hard press (copy the path) and then remove
+- Removing the database (Settings / Application / Clean local database)
+- Restarting the app
+- Adding again the repository
+- Do a sync
+
 ## Avoid the conflicts in the files edited in two places
 
 If you use syncthing you may be seeing conflicts in your files. This happens specially if you use the Orgzly widget to add tasks, this is because it doesn't synchronize the files to the directory when using the widget. If you have a file that changes a lot in a device, for example the `inbox.org` of my mobile, it's interesting to have a specific file that's edited mainly in the mobile, and when you want to edit it elsewhere, you sync as specified below and then process with the editing. Once it's done manually sync the changes in orgzly again. The rest of the files synced to the mobile are for read only reference, so they rarely change.
@@ -31,4 +41,3 @@ You can force load or force save a single note with a long tap.
 - [Home](https://orgzly.com/)
 - [Alternative docs](https://github.com/orgzly/documentation)
 - [Alternative fork maintained by the community](https://github.com/orgzly-revived/orgzly-android-revived)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

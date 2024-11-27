@@ -163,4 +163,3 @@ https://neovim.discourse.group/t/how-to-create-an-auto-command-for-a-specific-fi
 [autocmd events](https://neovim.io/doc/user/autocmd.html#autocmd-events)
 
 
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

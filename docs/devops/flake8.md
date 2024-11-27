@@ -55,4 +55,3 @@ You can use it both with:
 # References
 
 * [Docs](https://flake8.pycqa.org/en/latest/)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

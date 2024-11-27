@@ -64,4 +64,3 @@ It uses the pip flag `upgrade-strategy` which can be one of:
 
 - [Docs](https://pypa.github.io/pipx/)
 - [Git](https://github.com/pypa/pipx/)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

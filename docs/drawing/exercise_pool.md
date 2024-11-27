@@ -112,4 +112,3 @@ Everything should fit in there snugly, and nothing should be floating around.
 As you get better, your ellipses will tighten up - the gaps between your
 successive passes will shrink and eventually your ellipses will appear much
 cleaner.
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

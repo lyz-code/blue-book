@@ -240,4 +240,3 @@ extended_default_ignore=[]
 
 * [Using Flake8 and pyproject.toml with Flakeheaven article by Jonathan
     Bowman](https://dev.to/bowmanjd/using-flake8-and-pyproject-toml-with-flakeheaven-1cn1)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

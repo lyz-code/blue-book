@@ -41,4 +41,3 @@ the `~/.config/proselint/config` file, such as:
 # References
 
 * [Git](https://github.com/amperser/proselint/)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

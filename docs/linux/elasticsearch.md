@@ -640,4 +640,3 @@ You can disable the replicas on the failing index and then enable replicas back.
 
 Please note that it will take some time for the shards to be completely assigned
 and hence you might see intermittent cluster status as YELLOW.
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

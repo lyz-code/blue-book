@@ -24,4 +24,3 @@ you'll get more information on why `rtorrent` is not starting.
 - [Source](https://github.com/rakshasa/rtorrent)
 - [Docs](https://github.com/rakshasa/rtorrent/wiki)
 - [Community docs](https://rtorrent-docs.readthedocs.io/en/latest/)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

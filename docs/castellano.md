@@ -7,4 +7,3 @@ Por su parte, el indefinido `una` toma generalmente la forma `un` cuando anteced
 
 Al tratarse de sustantivos femeninos, con los demostrativos este, ese, aquel o con cualquier otro adjetivo determinativo, como todo, mucho, poco, otro, etc., deben usarse las formas femeninas correspondientes: esta hacha, aquella misma arma, toda el agua, mucha hambre, etc. (y no este hacha, aquel mismo arma, todo el agua, mucho hambre, etc.)
 
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

@@ -26,4 +26,3 @@ It is not necessary to use multiple namespaces just to separate slightly
 different resources, such as different versions of the same software: use
 labels to distinguish resources within the same namespace.
 
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

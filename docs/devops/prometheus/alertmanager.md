@@ -400,4 +400,3 @@ To silence an alert with a regular expression use the matcher
 - [Source](https://github.com/prometheus/alertmanager)
 - [Docs](https://prometheus.io/docs/alerting/latest/alertmanager/
 - [Awesome prometheus alert rules](https://awesome-prometheus-alerts.grep.to/rules)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

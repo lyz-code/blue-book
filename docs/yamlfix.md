@@ -61,4 +61,3 @@ book_library:
 
 * [Git](https://github.com/lyz-code/yamlfix)
 * [Docs](https://lyz-code.github.io/yamlfix/)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

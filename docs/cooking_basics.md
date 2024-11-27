@@ -69,4 +69,3 @@ cook them as usual. When not using a fast pot, you'll need to periodically
 remove the foam that will be created. The problem with this method is that you
 don't discard the first water round, and they can be more indigestible. Another
 option is to cook them for an hour, change the water and then cook them again.
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

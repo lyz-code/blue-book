@@ -61,4 +61,3 @@ and import it again, as the scanning doesn't import the data from the nfos.
 # References
 
 - [Home](https://kodi.tv/)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

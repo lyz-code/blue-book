@@ -1171,4 +1171,3 @@ If you want to write a plugin, start
 
 - [Git](https://github.com/pdm-project/pdm/)
 - [Docs](https://pdm.fming.dev/)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

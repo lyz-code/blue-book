@@ -19,4 +19,3 @@ nodejs --version
 # Links
 
 * [Home](https://nodejs.org/en/)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

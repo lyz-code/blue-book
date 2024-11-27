@@ -18,4 +18,3 @@ discourage the use of cuts, glue, or markings on the paper.
     section](https://mark1626.github.io/knowledge/#origami), for example the
     [Clover and Hydrangea
     Tesslation](https://mark1626.github.io/knowledge/origami/tesslation/clover.html).
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

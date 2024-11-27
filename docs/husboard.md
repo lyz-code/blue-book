@@ -53,4 +53,3 @@ exec --no-startup-id ~/scripts/hushboard.sh
 # Reference
 
 * [M0wer Husboard article](https://m0wer.github.io/memento/computer_science/gnu_linux/hushboard/)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

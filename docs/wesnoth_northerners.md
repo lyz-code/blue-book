@@ -10,4 +10,3 @@ the Great Continent, thus their name. Northerners consist of the warrior orcs
 race, the enslaved goblins, trolls who are tricked into combat by the orcs, and
 the serpentine naga. The Northerners play best by taking advantage of having
 many low-cost and high HP soldiers.
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

@@ -463,4 +463,3 @@ This url templating (via `/graph?g0.expr=%s&g0.tab=1`) appears to be coming from
 - [Docs](https://grafana.com/docs/loki/latest/)
 - [Source](https://github.com/grafana/loki)
 
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

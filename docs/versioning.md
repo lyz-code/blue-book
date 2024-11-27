@@ -608,4 +608,3 @@ hence why some other ecosystems do things differently.
 * [Should You Use Upper Bound Version Constraints? by Henry Schreiner](https://iscinumpy.dev/post/bound-version-constraints/)
 * [Why I don't like SemVer anymore by Snarky](https://snarky.ca/why-i-dont-like-semver/)
 * [Versioning Software by donald stufft](https://caremad.io/posts/2016/02/versioning-software/)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

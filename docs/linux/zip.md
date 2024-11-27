@@ -39,4 +39,3 @@ cat {{ files_to_compress.txt }} | zip -er {{ destination_zip }} -@
 ```bash
 unzip {{ zip_file }}
 ```
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

@@ -1,42 +1,3 @@
----
-title: Life review
-date: 20221227
-author: Lyz
----
-
-
-# Type of reviews
-
-
-#### Define the areas' objectives
-I've had a hard time choosing how must those objectives be defined. Should they be generic? or would it be better for them to be concrete and measurable?
-
-Given the mindset of this review, it's better to have generic open goals. As you climb up the abstraction ladder and work with greater time slots you need to reduce the precision because you have more uncertainty. You don't know what's going to happen tomorrow so adding hard [SMART goals](https://en.wikipedia.org/wiki/SMART_criteria) is unrealistic and a certain path to frustration.
-
-They should be guidelines that help you define the direction of where do you want to go and leave to the lower abstraction level reviews particularize those principles into more specific goals. 
-
-- Create a new review document with the next structure:
-
-  ```orgmode
-  * Area objectives
-  ** Area 1
-  ```
-- Put a timer of 20 mins and for each of the areas answer the next questions (remember to make it general and not project dependent):
-  - What differences will the area have in three months?
-
-- Complete your gathered results by:
-  - Reading the current area document objectives
-  - Gather more objectives through skimming through the projects of the areas
-  - Your gathered notes in `think.org`.
-#### Review the previous trimester area tactics
-- Review what are you doing in the area
-- Review what you should be doing
-
-### Trimester analyze
-#### Choose the trimester area tactics
-### Trimester decide
-#### Order, prioritize and choose the area objectives
-Gather them in the roadmap document.
 # Semester reviews
 
 The objectives of the trimester review are:
@@ -146,4 +107,3 @@ Follow the
 With the analysis of what I've read I research for new books and create an
 ordered list per genre.
 
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

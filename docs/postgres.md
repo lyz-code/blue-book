@@ -428,4 +428,3 @@ pg_dump books > /dump/books.out
 # References
 
 - [Postgresql tutorial](https://www.postgresqltutorial.com/)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

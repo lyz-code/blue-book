@@ -42,4 +42,3 @@ firmware](https://codeberg.org/Freeyourgadget/Gadgetbridge/wiki/Amazfit-Band-5-F
 you need to get the firmware from the [geek doing
 forum](https://geekdoing.com/threads/amazfit-band-5-original-firmwares-resources-fonts.2331/)
 though, so it is interesting to create an account and watch the post.
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

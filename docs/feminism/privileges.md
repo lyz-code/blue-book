@@ -96,4 +96,3 @@ to the [Michael Kimmel book](https://www.goodreads.com/book/show/7400069-privile
 ## Videos
 
 - [La intuición femenina, gracias al lenguaje](https://twitter.com/almuariza/status/1772889815131807765?t=HH1W17VGbQ7K-_XmoCy_SQ&s=19)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

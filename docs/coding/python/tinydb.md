@@ -435,4 +435,3 @@ prettified JSON files like this:
 * [Git](https://github.com/msiemens/tinydb)
 * [Issues](https://github.com/msiemens/tinydb/issues)
 * [Reference](https://tinydb.readthedocs.io/en/latest/api.html)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

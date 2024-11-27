@@ -16,4 +16,3 @@ pip install outrun
 # References
 
 * [Git](https://github.com/Overv/outrun)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

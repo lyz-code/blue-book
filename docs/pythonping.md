@@ -122,4 +122,3 @@ You can also tune your ping by using some of its additional parameters:
 
 - [Git](https://github.com/alessandromaggio/pythonping)
 - [ictshore article on pythonping](https://www.ictshore.com/python/python-ping-tutorial/)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

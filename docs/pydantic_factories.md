@@ -287,4 +287,3 @@ class CustomFactory(ModelFactory[Any]):
 
 * [Git](https://github.com/Goldziher/pydantic-factories)
 * [Docs](https://starlite-api.github.io/pydantic-factories/)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

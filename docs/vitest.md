@@ -37,4 +37,3 @@ To run the tests use `npx vitest`, to see the coverage use `npx vitest
 # References
 
 * [Home](https://vitest.dev/)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

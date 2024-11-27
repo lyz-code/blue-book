@@ -64,4 +64,3 @@ I'm available through:
     ```
 * XMPP at `lyz` at `disroot.org`
 * Through Github by [opening an issue](https://github.com/lyz-code/blue-book/issues).
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

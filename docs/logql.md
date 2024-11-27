@@ -68,4 +68,3 @@ This query will filter logs from `your-job-name` to show only those that contain
 # References
 
 - [Docs](https://grafana.com/docs/loki/latest/logql/)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

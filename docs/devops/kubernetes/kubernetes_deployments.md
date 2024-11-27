@@ -95,4 +95,3 @@ Concrete examples: fluentd, linkerd
 Jobs are the controller to run batch processing workloads. It creates multiple
 pods running in parallel to process independent but related work items. This can
 be the emails to be sent or frames to be rendered.
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

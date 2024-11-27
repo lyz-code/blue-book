@@ -24,4 +24,3 @@ With [kitty](kitty.md) it works though :)
 # References
 
 * [Git](https://github.com/phw/peek)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

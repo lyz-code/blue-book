@@ -100,4 +100,3 @@ Sometimes the issue comes from an improvable configuration. In advanced:
 - [Home](https://www.qbittorrent.org/)
 - [Source](https://github.com/qbittorrent/qBittorrent/)
 - [FAQ](https://github.com/qbittorrent/qBittorrent/wiki/Frequently-Asked-Questions#will-private-torrent-be-affected-by-dht-and-pex-in-qbittorrent)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

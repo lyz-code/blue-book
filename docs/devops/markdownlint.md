@@ -66,4 +66,3 @@ merged you need to change the `let l:pattern=.*` file to make the linting work t
 # References
 
 * [Git](https://github.com/igorshubovych/markdownlint-cli)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

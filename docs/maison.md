@@ -46,4 +46,3 @@ config = ProjectConfig(project_name="acme", source_files=["acme.ini", "pyproject
 
 - [Git](https://github.com/dbatten5/maison)
 - [Docs](https://dbatten5.github.io/maison/)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

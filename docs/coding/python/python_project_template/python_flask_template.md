@@ -62,4 +62,3 @@ book to glue everything together.
 Finally, I'll follow Jaime's book to merge the different microservices into an
 integrated project. As well as defining the deployment process, CI definition,
 logging, metrics and integration with Kubernetes.
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

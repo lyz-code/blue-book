@@ -105,4 +105,3 @@ bit more your work, or get your product ready faster, this is a great way to
 show your appreciation. Thanks for that!
 
 [![CC0](https://img.shields.io/badge/license-CC0-0a0a0a.svg?style=flat&colorA=0a0a0a)](https://creativecommons.org/publicdomain/zero/1.0/)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

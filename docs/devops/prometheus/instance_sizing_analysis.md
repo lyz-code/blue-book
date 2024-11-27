@@ -385,4 +385,3 @@ metrics.
 
 * [Gitlab post on anomaly detection using
     Prometheus](https://about.gitlab.com/blog/2019/07/23/anomaly-detection-using-prometheus/).
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

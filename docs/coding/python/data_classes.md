@@ -396,4 +396,3 @@ Furthermore, **a slots class may not have default values**.
 # References
 
 * [Real Python Data classes article](https://realpython.com/python-data-classes/)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

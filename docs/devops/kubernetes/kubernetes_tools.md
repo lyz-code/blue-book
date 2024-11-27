@@ -34,4 +34,3 @@ Kubernetes.
   cluster.
 * [kubeview](https://learnk8s.io/visualise-dependencies-kubernetes/): Visualize
   dependencies kubernetes.
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

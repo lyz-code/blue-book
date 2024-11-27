@@ -35,4 +35,3 @@ aws iam get-role --role-name {{ role_name }}
 ```bash
 aws iam list-role-policies --role-name {{ role_name }}
 ```
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

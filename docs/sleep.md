@@ -351,4 +351,3 @@ of information at different moments in time and in different ways.
 * [Why we sleep book by Matthew Walker](https://www.goodreads.com/book/show/34466963-why-we-sleep)
 - [The forgotten medieval habit of two sleeps](https://www.bbc.com/future/article/20220107-the-lost-medieval-habit-of-biphasic-sleep)
 - [Jet lag calculator](https://www.sleepjunkie.com/jet-lag-calculator/)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

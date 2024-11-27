@@ -113,4 +113,3 @@ dashboard](https://grafana.com/grafana/dashboards/7424) you can also use.
 
 * [Homepage](https://konghq.com/)
 * [Docs](https://docs.konghq.com/?itm_source=website&itm_medium=nav)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

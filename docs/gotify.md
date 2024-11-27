@@ -189,4 +189,3 @@ Here are some guides to connect it to authentik. The problem is that the clients
 
 - [Source](https://github.com/gotify/server)
 - [Docs](https://gotify.net/docs/)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

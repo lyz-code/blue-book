@@ -188,4 +188,3 @@ def do_something():
 
 * [Git](https://github.com/jd/tenacity)
 * [Docs](https://tenacity.readthedocs.io/en/latest/)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

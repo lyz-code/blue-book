@@ -1,0 +1,84 @@
+[Android SDK Platform tools](https://developer.android.com/tools/releases/platform-tools) is a component for the Android SDK. It includes tools that interface with the Android platform, primarily adb and fastboot.
+
+# [Installation](https://developer.android.com/tools/releases/platform-tools)
+
+While many Linux distributions already package Android Platform Tools (for example `android-platform-tools-base` on Debian), it is preferable to install the most recent version from the official website. Packaged versions might be outdated and incompatible with most recent Android handsets.
+
+- Download [the latest toolset](https://dl.google.com/android/repository/platform-tools-latest-linux.zip)
+- Extract it somewhere in your filesystem
+- Create links to the programs you want to use in your `$PATH`
+
+Next you will need to enable debugging on the Android device you are testing. [Please follow the official instructions on how to do so.](https://developer.android.com/studio/command-line/adb)
+
+# Usage
+
+
+## Connecting over USB
+
+To use `adb` with a device connected over USB, you must enable USB debugging in the device system settings, under Developer options. On Android 4.2 (API level 17) and higher, the Developer options screen is hidden by default. 
+
+### Enable the Developer options
+
+To make it visible, [enable Developer options](https://developer.android.com/studio/debug/dev-options#enable). On Android 4.1 and lower, the Developer options screen is available by default. On Android 4.2 and higher, you must enable this screen.
+
+- On your device, find the Build number option (Settings > About phone > Build number)
+- Tap the Build Number option seven times until you see the message You are now a developer! This enables developer options on your device.
+- Return to the previous screen to find Developer options at the bottom.
+
+### Enable USB debugging
+
+Before you can use the debugger and other tools, you need to enable USB debugging, which allows Android Studio and other SDK tools to recognize your device when connected via USB.
+
+Enable USB debugging in the device system settings under Developer options. You can find this option in one of the following locations, depending on your Android version:
+
+- Android 9 (API level 28) and higher: Settings > System > Advanced > Developer Options > USB debugging
+- Android 8.0.0 (API level 26) and Android 8.1.0 (API level 27): Settings > System > Developer Options > USB debugging
+- Android 7.1 (API level 25) and lower: Settings > Developer Options > USB debugging
+
+### Test it works
+
+If everything is configured appropriately you should see your device when launching the command `adb devices`.
+
+#### Create udev rules if it fails
+
+If you see the next error:
+
+```
+failed to open device: Access denied (insufficient permissions)
+
+* failed to start daemon
+adb: failed to check server version: cannot connect to daemon
+```
+
+It indicates an issue with permissions when `adb` tries to communicate with the device via USB. Here are some steps you can take to resolve this issue:
+
+- Check USB permissions
+  - Ensure that you have the necessary permissions to access the USB device. If you're running on Linux, check if the device has appropriate udev rules. 
+  - You can try adding your user to the `plugdev` group:
+
+    ```bash
+    sudo usermod -aG plugdev $USER
+    ```
+
+  - Make sure you have a `udev` rule for Android devices in `/etc/udev/rules.d/`. If not, you can create one by adding a file like `51-android.rules`:
+
+    ```bash
+    sudo touch /etc/udev/rules.d/51-android.rules
+    ```
+
+  - Add this line to the file to grant access to Android devices:
+
+    ```bash
+    SUBSYSTEM=="usb", ATTR{idVendor}=="18d1", MODE="0666", GROUP="plugdev"
+    ```
+
+  - Reload the `udev` rules:
+
+    ```bash
+    sudo udevadm control --reload-rules
+    sudo service udev restart
+    ```
+
+  - Unplug and reconnect the USB device.
+# References
+- [Home](https://developer.android.com/tools/releases/platform-tools)

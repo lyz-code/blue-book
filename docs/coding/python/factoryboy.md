@@ -257,4 +257,3 @@ dataclasses.
 * [Docs](https://factoryboy.readthedocs.io/en/latest/)
 * [Git](https://github.com/FactoryBoy/factory_boy)
 * [Common recipes](https://factoryboy.readthedocs.io/en/latest/recipes.html#dependent-objects-foreignkey)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

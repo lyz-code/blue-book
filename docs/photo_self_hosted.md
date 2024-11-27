@@ -217,4 +217,3 @@ Too simple
 
 Low number of maintainers
 Too simple
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

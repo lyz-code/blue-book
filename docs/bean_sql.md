@@ -22,4 +22,3 @@ It will return the quarter in the format `YYYY-QX`.
 - [Examples](https://aumayr.github.io/beancount-sql-queries/)
 
 
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

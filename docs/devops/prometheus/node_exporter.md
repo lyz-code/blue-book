@@ -525,4 +525,3 @@ printf "%.0f" $value }}` transmit errors in the last five minutes.
 * [Git](https://github.com/prometheus/node_exporter)
 * [Prometheus node exporter guide](https://prometheus.io/docs/guides/node-exporter/)
 * [Node exporter alerts](https://awesome-prometheus-alerts.grep.to/rules)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

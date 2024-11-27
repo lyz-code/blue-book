@@ -30,4 +30,3 @@ TBD
 
 [`pyparsing`](https://github.com/pyparsing/pyparsing/) looks to be a good
 candidate to implement ASTs.
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

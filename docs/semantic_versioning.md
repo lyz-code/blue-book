@@ -436,4 +436,3 @@ These libraries can be used to interact with a git history of commits that
 follow the semantic versioning [commit guidelines](#commit-message-guidelines).
 
 * [python-semantic-release](https://python-semantic-release.readthedocs.io)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

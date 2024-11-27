@@ -14,6 +14,8 @@ nav:
       - Hacktivism:
         - Gatherings: hacktivist_gatherings.md
         - Collectives: hacktivist_collectives.md
+        - Tools: 
+          - Mobile Verification Toolkit: mobile_verification_toolkit.md
       - Anti-Colonialism: anticolonialism.md
       - Anti-Transphobia: antitransphobia.md
       - Anti-Racism: antiracism.md
@@ -426,7 +428,6 @@ nav:
           - ORM, Query Builder or Raw SQL: architecture/orm_builder_query_or_raw_sql.md
           - Microservices: architecture/microservices.md
           - Restful APIS: architecture/restful_apis.md
-          - Redis: architecture/redis.md
       - OCR:
         - Table parsing: 
           - Camelot: camelot.md
@@ -509,6 +510,9 @@ nav:
                   - IAM Debugging: devops/aws/iam/iam_debug.md
               - S3: devops/aws/s3.md
               - WAF: aws_waf.md
+          - Databases:
+            - Redis: architecture/redis.md
+            - RabbitMQ: rabbitmq.md
       - Continuous Deployment:
           - ArgoCD: argocd.md
       - Continuous Integration:
@@ -678,6 +682,7 @@ nav:
               - OsmAnd: osmand.md
               - Seedvault: seedvault.md
               - Signal: signal.md
+          - Android SDK Platform tools: android_sdk.md
   - Arts:
       - Writing:
           - writing/writing.md

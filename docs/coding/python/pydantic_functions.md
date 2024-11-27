@@ -65,4 +65,3 @@ other attributes will require `type: ignore`.
 # References
 
 * [Pydantic validation decorator docs](https://pydantic-docs.helpmanual.io/usage/validation_decorator/)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

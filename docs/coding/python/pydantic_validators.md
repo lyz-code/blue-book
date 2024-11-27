@@ -399,4 +399,3 @@ the `validator` decorator.
 # References
 
 * [Pydantic validators](https://pydantic-docs.helpmanual.io/usage/validators/)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

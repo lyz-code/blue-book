@@ -54,4 +54,3 @@ calendar.serialize()
 # References
 
 * [Docs](https://icspy.readthedocs.io/en/stable/index.html)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

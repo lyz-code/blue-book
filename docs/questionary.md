@@ -264,4 +264,3 @@ To test questionary code, follow the guidelines of
 
 - [Docs](https://questionary.readthedocs.io)
 - [Git](https://github.com/tmbo/questionary)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

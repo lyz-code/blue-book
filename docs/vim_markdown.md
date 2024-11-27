@@ -39,4 +39,3 @@ How the hell this works?
 - `:` switches to Command line mode, to type commands.
 - `!` specifies a filter command. This means we will send data to a command to modify it (or to filter) and replace the original lines. In this case we are in Visual mode, we defined the input text (the selected lines) and we will use an external command to modify the data.
 - `column` is the filter command we are using, from the `util-linux` package. column’s purpose is to “columnate”. The `-t` flag tells column to use the Table mode. The `-s` flag specifies the delimiters in the input data (the default is whitespace). And the `-o` flag is to specify the output delimiter to use (we need that because the default is two whitespaces).
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

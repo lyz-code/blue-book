@@ -209,4 +209,3 @@ https://github.com/janeczku/haproxy-acme-validation-plugin
 * [Aloha load balancer: HAProxy based LB appliance](http://www.haproxy.com/en/aloha-load-balancer-appliance-rack-1u "Aloha load balancer")
 * [HAPEE: HAProxy Enterprise Edition](http://www.haproxy.com/en/haproxy-enterprise-edition-hapee "HAPEE: HAProxy Enterprise Edition")
 * [Guidelines for HAProxy termination in AWS](https://github.com/jvehent/haproxy-aws)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

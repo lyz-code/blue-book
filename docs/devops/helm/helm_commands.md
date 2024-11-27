@@ -117,4 +117,3 @@ helm repo add {{ repo_name }} {{ repo_url }}
 ```bash
 helm repo update
 ```
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

@@ -45,4 +45,3 @@ require("neotest").setup({ -- https://github.com/nvim-neotest/neotest
 
 It also needs a font that supports icons. If you don't see them [install one of these](https://github.com/ryanoasis/nerd-fonts).
 
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

@@ -45,4 +45,3 @@ I've created a small tool that:
 - Tells me the number of [pomodoros](roadmap_tools.md#pomodoro) that I have until the next event.
 - Once a pomodoro finishes it makes me focus on the amount left so that I can prepare for the event
 - Catches my attention when the event is starting.
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

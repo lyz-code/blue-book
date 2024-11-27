@@ -21,4 +21,3 @@ Sometimes one specific user continuously asks for a better quality of the conten
 
 - [Homepage](https://ombi.io/)
 - [Docs](https://docs.ombi.app/guides/installation/)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

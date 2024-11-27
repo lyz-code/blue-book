@@ -115,4 +115,3 @@ class YamlStorage(GoodConf):
 
 - [Source](https://github.com/lincolnloop/goodconf/)
 
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

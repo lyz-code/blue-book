@@ -50,4 +50,3 @@ Now you can use static pages similar to Github Pages in forgejo/gitea! check [ho
 - [Docs](https://forgejo.org/docs/latest)
 - [Home](https://forgejo.org/)
 - [News](https://forgejo.org/news/)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

@@ -218,4 +218,3 @@ And [memray](https://bloomberg.github.io/memray/) looks very promising.
 # References
 
 * [Antonio Molner article on Python Profiling](https://medium.com/@antoniomdk1/hpc-with-python-part-1-profiling-1dda4d172cdf)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

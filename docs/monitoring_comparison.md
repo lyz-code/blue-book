@@ -410,4 +410,3 @@ containers or Kubernetes) where whitebox monitoring is desired.
 # References
 
 * [Logz io post on Prometheus vs Nagios](https://logz.io/blog/prometheus-vs-nagios-metrics/)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

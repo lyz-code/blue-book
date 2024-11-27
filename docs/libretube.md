@@ -31,4 +31,3 @@ Both are great clients for watching YouTube videos. It depends on the individual
 # References
 
 - [Source](https://github.com/libre-tube/LibreTube)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

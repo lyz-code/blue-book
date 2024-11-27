@@ -36,4 +36,3 @@ google-chrome --profile-directory="Profile Name"
 
 Where `Profile Name` is one of the profiles listed under `ls ~/.config/chromium | grep -i profile`.
 
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

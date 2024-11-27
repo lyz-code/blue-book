@@ -85,10 +85,38 @@ nvim.current.window.cursor
 ```
 # Neovim plugin debug
 
-If you use [packer](#packer) your plugins will be installed in `~/.local/share/nvim/site/pack/packer/start/`. You can manually edit those files to develop new feature or fix issues on the plugins.
+If you use [packer](#packer) your plugins will be installed in `~/.local/share/nvim/site/pack/packer/start/`. 
+If you use `lazy` your plugins will be installed in `~/.local/share/nvim/lazy/pack/packer/start/`. 
+
+You can manually edit those files to develop new feature or fix issues on the plugins.
 
 To debug a plugin read it's source code and try to load in a lua shell the relevant code. If you are in a vim window you can run lua code with `:lua your code here`, for example `:lua Files = require('orgmode.parser.files')`, you can then do stuff with the `Files` object.
 
+## [Debugging using Snacks](https://github.com/folke/snacks.nvim/blob/main/docs/debug.md)
+Utility functions you can use in your code.
+
+Personally, I have the code below at the top of my `init.lua`:
+
+```lua
+_G.dd = function(...)
+  Snacks.debug.inspect(...)
+end
+_G.bt = function()
+  Snacks.debug.backtrace()
+end
+vim.print = _G.dd
+```
+
+What this does:
+
+- Add a global `dd(...)` you can use anywhere to quickly show a
+  notification with a pretty printed dump of the object(s)
+  with lua treesitter highlighting
+- Add a global `bt()` to show a notification with a pretty
+  backtrace.
+- Override Neovim's `vim.print`, which is also used by `:= {something = 123}`
+
+![image](https://github.com/user-attachments/assets/0517aed7-fbd0-42ee-8058-c213410d80a7)
 ## Debugging with prints
 
 Remember that if you need to print the contents of a table [you can use `vim.inspect`](lua.md#inspect-contents-of-Lua-table-in-Neovim).
@@ -128,4 +156,3 @@ You will debug the plugin by:
 - [Simple plugin example](https://github.com/massix/org-checkbox.nvim/blob/trunk/lua/orgcheckbox/init.lua)
 - [Miguel Crespo tutorial](https://miguelcrespo.co/posts/how-to-write-a-neovim-plugin-in-lua)
 
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

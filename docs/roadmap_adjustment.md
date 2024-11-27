@@ -48,7 +48,7 @@ Reviews are proceses to stop your daily life and do introspections to gather ins
 Reviews can be done at different levels of purpose, each level gives you different benefits.
 
 - [Personal integrity review](#personal-integrity-review)
-- [Trimester review](#trimester-review)
+- [Quarter review](#quarter-review)
 - [Year review](#year-review)
 ### Reviews guidelines
 
@@ -71,7 +71,7 @@ Life planning can be done at different levels. All of them help you in different
 - [Day plan](#make-a-day-plan).
 - [Week plan](#week-plan)
 - Month plan.
-- Trimester plan.
+- Quarter plan.
 - Year plan.
 # Roadmap adjustments by abstraction level
 ## [Step](time_management_abstraction_levels.md#step)
@@ -533,7 +533,7 @@ Finally pat yourself in the shoulder as you've finished the review ^^.
 Objectives are: 
 
 - Identify deadlines.
-- Define the month objectives according to the trimester plan and the insights gathered in the past month review. 
+- Define the month objectives according to the quarter plan and the insights gathered in the past month review. 
 - Make your backlog and todo list match the month objectives
 - Define the topics to learn
 - Define the habits to incorporate
@@ -579,15 +579,15 @@ To be able to make a good decision on your month's path you need to sort out whi
 
 Create the month objectives in your roadmap file after addressing each element of:
 
-- The trimester objectives of your roadmap.
-  - You can add notes on the trimester objectives 
+- The quarter objectives of your roadmap.
+  - You can add notes on the quarter objectives 
 - The `planning_box.org` file
 
 Then reorder the objectives in order of priority. Try to have at least one objective that improves your life.
 
 #### Decide the next steps
 
-- For each of your month and trimester objectives:
+- For each of your month and quarter objectives:
   - Decide whether it makes sense to address it this month. If not, mark it as inactive
   - Create a clear plan of action for this month on that objective. 
     - Reorder the projects as needed 
@@ -602,8 +602,7 @@ Then reorder the objectives in order of priority. Try to have at least one objec
 - Tweak your *reading list*.
 - Tweak your learning list.
 - Tweak your *habit manager system*.
-
-## Dream about the trimester 
+## Dream about the quarter 
 
 Now that we know how to read and react to the signals our inner self sends we are in a better position to align our roadmap with what we understand for a fulfilling life. We'll get into the philosophical ground of discovering life's meaning. I wanted to say answer the question, but I'm increasingly convinced that there is no answer and that the best we can aim to is to leave our thoughts guide us without any certainty.
 
@@ -612,23 +611,23 @@ At this level we'll need to increase the level of abstraction, and for that we'l
 - [Axis](time_management_abstraction_levels.md#axis): A group of areas that fit together under the same umbrella. 
 - [Essential intent]()
 
-### Trimester review
-The objectives of the trimester review are:
+### Quarter review
+The objectives of the quarter review are:
 
 - Identify the essential intent you want to follow on each [axis](time_management_abstraction_levels.md#axis) of your life.
-- Identify the areas to focus on for the trimester
-- Review the previous trimester tactics 
+- Identify the areas to focus on for the quarter
+- Review the previous quarter tactics 
 
 The objectives are not:
 
 - To review what you've done or why you didn't get there.
-#### When to do the trimester reviews
+#### When to do the quarter reviews
 
 As with [personal integrity review](#personal-integrity-review), it's interesting to do analysis at representative moments. It gives it an emotional weight. You can for example use the solstices or my personal version of the solstices:
 
 - Spring analysis (1st of March): For me the spring is the real start of the year, it's when life explodes after the stillness of the winter. The sun starts to set later enough so that you have light in the afternoons, the climate gets warmer thus inviting you to be more outside, the nature is blooming new leaves and flowers. It is then a moment to build new projects and set the current year on track. 
 
-- Summer analysis (1st of June): I hate heat, so summer is a moment of retreat. Everyone temporarily stop their lives, we go on holidays and all social projects slow their pace. Even the news have even less interesting things to report. It's so hot outside that some of us seek the cold refuge of home or remote holiday places. Days are long and people love to hang out till late, so usually you wake up later, thus having less time to actually do stuff. Even in the moments when you are alone the heat drains your energy to be productive. It is then a moment to relax and gather forces for the next trimester. It's also perfect to develop *easy* and *chill* personal projects that have been forgotten in a drawer. Lower your expectations and just flow with what your body asks you.
+- Summer analysis (1st of June): I hate heat, so summer is a moment of retreat. Everyone temporarily stop their lives, we go on holidays and all social projects slow their pace. Even the news have even less interesting things to report. It's so hot outside that some of us seek the cold refuge of home or remote holiday places. Days are long and people love to hang out till late, so usually you wake up later, thus having less time to actually do stuff. Even in the moments when you are alone the heat drains your energy to be productive. It is then a moment to relax and gather forces for the next quarter. It's also perfect to develop *easy* and *chill* personal projects that have been forgotten in a drawer. Lower your expectations and just flow with what your body asks you.
 
 - Autumn analysis (1st of September): September it's another key moment for many people. We have it hardcoded in our life since we were children as it was the start of school. People feel energized after the summer holidays and are eager to get back to their lives and stopped projects. You're already 6 months into the year, so it's a good moment to review your year plan and decide where you want to put your energy reserves.
 
@@ -636,25 +635,44 @@ As with [personal integrity review](#personal-integrity-review), it's interestin
   - Think everything you need to guarantee a good, solid and powerful spring start.
   - Do the year review to adjust your principles.
 
-The year is then divided in two sets of an expansion trimester and a retreat one. We can use this information to adjust our life plan accordingly. In the expansion trimester we could invest more energies in the planning, and in the retreat ones we can do more throughout reviews.
+The year is then divided in two sets of an expansion quarter and a retreat one. We can use this information to adjust our life plan accordingly. In the expansion quarter we could invest more energies in the planning, and in the retreat ones we can do more throughout reviews.
 
-#### Trimester review phases
+#### Quarter review phases
 We'll divide the review process in these phases:
 
 
-- [Gather](#trimester-review-gather)
-- [Prepare](#trimester-review-prepare)
-- [Discover](#trimester-review-discover)
-- [Analyze](#trimester-review-analyze)
-- [Decide](#trimester-review-decide)
+- [Gather](#quarter-review-gather)
+- [Prepare](#quarter-review-prepare)
+- [Discover](#quarter-review-discover)
+- [Analyze](#quarter-review-analyze)
+- [Decide](#quarter-review-decide)
 
-##### Trimester review gather
+##### Quarter review gather
 
-The trimester review requires an analysis that doesn't fill in a day session. It requires slow thinking and desire reading over some time. So I'm creating a task 30 days before the actual review to start gathering information about the next trimester. Whether it's ideas, plans, desires or objectives.
+The quarter review requires an analysis that doesn't fill in a day session. It requires slow thinking and desire reading over some time. So I'm creating a task 30 days before the actual review to start gathering information about the next quarter. Whether it's ideas, plans, desires or objectives.
 
 ```org
-* TODO Think on the next trimester
+* TODO Think on the next quarter
+** How to improve the next review
+** How would you change your week distribution
+*** Constraints
+*** Possibilities
+*** Conclusion
+**** Monday
+**** Tuesday
+**** Wednesday
+**** Thursday
+**** Friday
+**** Saturday
+**** Sunday
+**** Notes
+** Quarter essential intent
 ** Axis 1
+*** Essential intent
+*** Areas
+**** Area 1
+***** Area question 1
+***** ...
 *** Ideas
 *** Plans
 *** Desires
@@ -663,13 +681,18 @@ The trimester review requires an analysis that doesn't fill in a day session. It
 ...
 ```
 
+Where:
+
+- The area questions can be chosen from the ones in the [area review section](#area-review)
+- The week distribution review sections are explained below
+
 Is useful for that document to be available wherever you go, so that in any spare time you can pop it up and continue with the train of thought. 
 
 Doing the reflection without seeing your life path prevents you from being tainted by it, thus representing the real you of right now. 
 
-On the day to actually do the review, follow the steps of the [Month review prepare](#month-prepare) adjusting them to the trimester case.
+On the day to actually do the review, follow the steps of the [Month review prepare](#month-prepare) adjusting them to the quarter case.
 
-##### Trimester review prepare
+##### Quarter review prepare
 
 It's important that you prepare your environment for the review. You need to be present and fully focused on the process itself. To do so you can:
 
@@ -690,7 +713,7 @@ To record the results of the review create the file `references/reviews/YYYY_MM_
 
 ```org
 ```
-##### Trimester review discover 
+##### Quarter review discover 
 
 ###### Do an overall area review
 
@@ -704,39 +727,81 @@ For each axis:
   - Follow the steps of the [area review](#area-review).
   - Summarise your insights in an "area intent".
 
+####### Define the areas' objectives
+I've had a hard time choosing how must those objectives be defined. Should they be generic? or would it be better for them to be concrete and measurable?
+
+Given the mindset of this review, it's better to have generic open goals. As you climb up the abstraction ladder and work with greater time slots you need to reduce the precision because you have more uncertainty. You don't know what's going to happen tomorrow so adding hard [SMART goals](https://en.wikipedia.org/wiki/SMART_criteria) is unrealistic and a certain path to frustration.
+
+They should be guidelines that help you define the direction of where do you want to go and leave to the lower abstraction level reviews particularize those principles into more specific goals. 
+
+- Create a new review document with the next structure:
+
+  ```orgmode
+  * Area objectives
+  ** Area 1
+  ```
+- Put a timer of 20 mins and for each of the areas answer the next questions (remember to make it general and not project dependent):
+  - What differences will the area have in three months?
+
+- Complete your gathered results by:
+  - Reading the current area document objectives
+  - Gather more objectives through skimming through the projects of the areas
+  - Your gathered notes in `think.org`.
+###### Review the previous quarter area tactics
+- Review what are you doing in the area
+- Review what you should be doing
+
 ###### Define the essential intent of the axis
 [axis](time_management_abstraction_levels.md#axis)
 
 
 ###### Refactor your gathered thoughts
-If you've followed the prepare steps, you've already been making up your mind on what do you want the next trimester to look like. Now it's the time to refine those thoughts.
+If you've followed the prepare steps, you've already been making up your mind on what do you want the next quarter to look like. Now it's the time to refine those thoughts.
 
-In your roadmap document add a new section for the incoming trimester similar to:
+In your roadmap document add a new section for the incoming quarter similar to:
 
 ```orgmode
 * Roadmap
 ** 2024
 *** Summer 2024
 **** Essential intent
-**** Trimester analysis
-**** Trimester objectives
+**** Quarter analysis
+**** Quarter objectives
 ***** TODO Objective 1
 ****** TODO SubObjective 1
 ```
 Go *one by one* (don't peek!) of your gathered items and translate them in the next sections:
 
-- `Trimester analysis`: A text with as many paragraphs as you need to order your thoughts 
-- `Trimester objectives`: These can be concrete emotional projects you want to carry through.
-- `Essential intent`: This is the main headline of your trimester, probably you won't be able to define it until the last parts of the review process. It should be concrete and emotional too, it's going to be the idea that gives you strength on your weak moments and your guide to decide which projects to do and which not to.
+- `Quarter analysis`: A text with as many paragraphs as you need to order your thoughts 
+- `Quarter objectives`: These can be concrete emotional projects you want to carry through.
+- `Essential intent`: This is the main headline of your quarter, probably you won't be able to define it until the last parts of the review process. It should be concrete and emotional too, it's going to be the idea that gives you strength on your weak moments and your guide to decide which projects to do and which not to.
 
 Don't be too concerned on the format of the content of the objectives, this is the first draft, and we'll refine it through the planning.
 
-### Trimester planning
+### Quarter planning
 
+#### Week distribution planning
+
+Choosing what you do each day of your week greatly affects what will you end up doing at the end of the quarter. It's easy to follow life's inertia without questioning if your perfect week distribution keeps on making sense. You may feel friction without realising it. 
+
+Reviewing your distribution quarterly makes a lot of sense as it's the order of magnitude of the characteristic time length of the changes that affect your week. This is true both to the factors that make you need the change and to test that the introduced changes results.
+
+In the quarter review gathering document we're recording:
+
+- Constraints: Here is the place to list all the things you need to keep in mind in order to build the schedule: recurrent appointments, activities you want to pursue, ...
+- Possibilities: This is your draft to think about the constrains and propose possible solutions to meet the most part of them
+- Conclusion: Is the final design of your week day by day, hour by hour (if you need it!)
+
+In theory all this analysis should be done the month before the planning, so at that moment you'll only need to refactor your decision into the `decisions.org` file.
+
+#### Quarter analyze
+##### Choose the quarter area tactics
+#### Quarter decide
+##### Order, prioritize and choose the area objectives
+#Gather them in the roadmap document.
 # References
 
 ## Books
 - "Four thousand weeks" by Oliver Burkeman
 
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)
 

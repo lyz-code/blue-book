@@ -71,7 +71,7 @@ Once you've set it then you need to [fix the INBOX directory](#cannot-find-maild
 
 Then you can check if it works by running `himalaya envelopes list -a lyz-example`
 
-## Vim plugin installation
+## [Vim plugin installation](https://github.com/pimalaya/himalaya-vim)
 
 Using lazy:
 
@@ -85,6 +85,22 @@ return {
 
 You can then run `:Himalaya account_name` and it will open himalaya in your editor.
 
+### Configure navigation bindings
+
+The default bindings conflict with my git bindings, and to make them similar to orgmode agenda I'm changing the next and previous page:
+
+```lua
+return {
+  {
+    "pimalaya/himalaya-vim",
+    keys = {
+      { "b", "<plug>(himalaya-folder-select-previous-page)", desc = "Go to the previous email page" },
+      { "f", "<plug>(himalaya-folder-select-next-page)", desc = "Go to the next email page" },
+    },
+  },
+}
+
+```
 ### Configure the account bindings
 
 To avoid typing `:Himalaya account_name` each time you want to check the email you can set some bindings:
@@ -111,9 +127,12 @@ The default plugin doesn't yet have all the bindings I'd like so I've added the 
   - `dd` in normal mode or `d` in visual: Delete emails
   - `q`: exit the program
 
-- In the email view:
+- In the email read view:
   - `d`: Delete email
   - `q`: Return to the list of emails view 
+
+- In the email write view:
+  - `q` or `<c-s>`: Save and send the email
 
 If you want them too set the next config:
 
@@ -140,8 +159,18 @@ return {
         group = "HimalayaEmailCustomBindings",
         pattern = "mail",
         callback = function()
-          -- Bind `q` to close the window
-          vim.api.nvim_buf_set_keymap(0, "n", "q", ":q<CR>", { noremap = true, silent = true })
+          -- Get the current buffer's full file path
+          local filepath = vim.api.nvim_buf_get_name(0)
+
+          -- Bind `q` and `<c-s>` to close the window
+          if string.match(filepath, "write") then
+            vim.api.nvim_buf_set_keymap(0, "n", "<c-s>", ":w<CR>:bd<CR>", { noremap = true, silent = true })
+            vim.api.nvim_buf_set_keymap(0, "n", "q", ":w<CR>:bd<CR>", { noremap = true, silent = true })
+          else
+            -- In read mode you can't save the buffer
+            vim.api.nvim_buf_set_keymap(0, "n", "q", ":bd<CR>", { noremap = true, silent = true })
+          end
+
           -- Bind `d` to delete the email and close the window
           vim.api.nvim_buf_set_keymap(
             0,
@@ -167,16 +196,22 @@ return {
     "pimalaya/himalaya-vim",
     keys = {
       -- Email refreshing bindings
-      { "<leader>rj", ':lua FetchEmails("lyz")<CR>', desc = "Fetch lyz@example.org" },
+      { "r", ":lua FetchEmails()<CR>", desc = "Fetch emails" },
     },
     config = function()
-      function FetchEmails(account)
+      function FetchEmails()
+        local account = vim.api.nvim_eval("himalaya#domain#account#current()")
+
         vim.notify("Fetching emails for " .. account .. ", please wait...", vim.log.levels.INFO)
         vim.cmd("redraw")
+
+        -- Start the mbsync job
         vim.fn.jobstart("mbsync " .. account, {
           on_exit = function(_, exit_code, _)
             if exit_code == 0 then
               vim.notify("Emails for " .. account .. " fetched successfully!", vim.log.levels.INFO)
+              -- Reload Himalaya only after successful mbsync
+              vim.cmd("Himalaya " .. account)
             else
               vim.notify("Failed to fetch emails for " .. account .. ". Check the logs.", vim.log.levels.ERROR)
             end
@@ -188,8 +223,6 @@ return {
 }
 ```
 
-You still need to open again `:Himalaya account_name` as the plugin does not reload if there are new emails.
-
 ## Show notifications when emails arrive
 
 You can set up [mirador](mirador.md) to get those notifications.
@@ -200,6 +233,14 @@ You can set up [mirador](mirador.md) to get those notifications.
 - [Fetching emails from within vim](https://github.com/pimalaya/himalaya-vim/issues/13)
 
 # Troubleshooting
+
+## Emails are shown with different timezones
+
+Set the account configuration `envelope.list.datetime-local-tz = true`
+
+## Emails are not being copied to Sent 
+
+Set the account configuration `message.send.save-copy = true`
 
 ## [Cannot find maildir matching name INBOX](https://github.com/pimalaya/himalaya/issues/490)
 

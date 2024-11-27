@@ -96,4 +96,3 @@ Then you can use the `api/details/{mediaItemId}` endpoint to get all the informa
 - [Issues](https://github.com/bonukai/MediaTracker/issues)
 - [Python library](https://github.com/jonkristian/pymediatracker)
 
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

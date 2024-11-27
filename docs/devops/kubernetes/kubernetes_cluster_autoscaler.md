@@ -16,4 +16,3 @@ it](https://docs.aws.amazon.com/eks/latest/userguide/cluster-autoscaler.html).
 But I'd use the
 [`cluster-autoscaler`](https://github.com/helm/charts/tree/master/stable/cluster-autoscaler)
 [helm](helm.md) chart.
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

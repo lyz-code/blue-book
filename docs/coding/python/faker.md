@@ -211,4 +211,3 @@ provider method.
 * [Docs](https://faker.readthedocs.io/en/master/)
 * [Faker python
    providers](https://faker.readthedocs.io/en/master/providers/faker.providers.python.html)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

@@ -136,4 +136,3 @@ more options.
 # Links
 
 * [Git](https://github.com/jkroepke/helm-secrets)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

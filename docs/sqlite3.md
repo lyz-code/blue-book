@@ -203,4 +203,3 @@ The error message **"database or disk is full"** in SQLite typically indicates t
 # References
 
 * [Docs](https://docs.python.org/3/library/sqlite3.html)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

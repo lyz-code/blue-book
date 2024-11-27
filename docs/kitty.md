@@ -200,4 +200,3 @@ sudo copy -r ~/.terminfo /root
 # References
 
 * [Homepage](https://sw.kovidgoyal.net/)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

@@ -22,4 +22,3 @@ see the latest changes.
 The newsletters and the RSS feeds are automatically created from the message commits of
 the repository thanks to the
 [mkdocs-newsletter](https://lyz-code.github.io/mkdocs-newsletter/) plugin.
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

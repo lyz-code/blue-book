@@ -18,4 +18,3 @@ Recently I've found [Monica](monica.md) a popular open source personal CRM that
 helps in the same direction.
 
 So I'm going to migrate all my information to the system and see how it goes.
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

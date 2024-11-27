@@ -148,4 +148,3 @@ Check the Dash documentation for more
 * [Docs](https://dash.plotly.com/)
 * [Gallery](https://dash-gallery.plotly.host/Portal)
 * [Introduction video](https://www.youtube.com/watch?v=5BAthiN0htc)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

@@ -37,4 +37,3 @@ looks good too but wasp-os is lacking touch screen support.
 So if I had to choose now, I'd try the Colmi P8, the only thing that I'd miss is
 the possible voice assistant support. They say that you can take one for 18$ in
 aliexpress.
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

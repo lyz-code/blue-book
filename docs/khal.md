@@ -316,4 +316,3 @@ export = meta e
 
 - [Docs](https://khal.readthedocs.io/en/latest/index.html)
 - [Git](https://github.com/pimutils/khal)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

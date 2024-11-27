@@ -75,4 +75,3 @@ Other interesting references are:
 - [Source](https://github.com/davatorium/rofi?tab=readme-ov-file)
 - [Docs](https://davatorium.github.io/rofi/)
 - [Plugins](https://github.com/davatorium/rofi/wiki/User-scripts)
-\n\n[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

@@ -100,4 +100,3 @@ You can see some plugin examples
 
 - [Docs](https://mdformat.readthedocs.io/en/stable/)
 - [Source](https://github.com/executablebooks/mdformat)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

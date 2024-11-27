@@ -648,4 +648,3 @@ Count: 42
 - [Homepage](https://click.palletsprojects.com/)
 
 - [Click vs other argument parsers](https://click.palletsprojects.com/en/7.x/why/)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

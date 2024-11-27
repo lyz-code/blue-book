@@ -52,4 +52,3 @@ Upgrade your [wireshark](wireshark.md) to a version greater or equal to `3.3.0`.
 # References
 
 * [Git](https://github.com/eldadru/ksniff)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

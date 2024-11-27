@@ -58,4 +58,3 @@ tts.say("La cabra siempre tira al monte")
 
 * [Git](https://github.com/grigi/talkey)
 * [Docs](http://talkey.readthedocs.org/)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

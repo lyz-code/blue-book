@@ -580,4 +580,3 @@ Once you have the files that triggered the errors, the best way to handle them i
 - [Docs](https://docs.alephdata.org/)
 - [Support chat](https://alephdata.slack.com)
 - [API docs](https://redocly.github.io/redoc/?url=https://aleph.occrp.org/api/openapi.json)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

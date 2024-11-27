@@ -403,4 +403,3 @@ And then you'll have:
   "other_property": "value"
 }
 ```
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

@@ -50,4 +50,3 @@ In that playbook I use roles in these ways:
   issues than using the `roles` directory directly.
 
 ## Home configuration
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

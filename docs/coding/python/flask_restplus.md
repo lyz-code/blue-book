@@ -36,4 +36,3 @@ pip install flask-restplus
 
 * [Docs](https://flask-restplus.readthedocs.io/en/stable/)
 * [Git](https://github.com/noirbizarre/flask-restplus)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

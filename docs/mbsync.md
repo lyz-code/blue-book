@@ -81,4 +81,3 @@ mv '1568901502.26338_1.hostname,U=3:2,S' '1568901502.26338_1.hostname'
 # References
 
 * [Homepage](https://isync.sourceforge.io/mbsync.html)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

@@ -604,4 +604,3 @@ To make the `command` idempotent you can use a `stat` task before.
   command: mv /path/to/foo /path/to/bar
   when: foo_stat.stat.exists
 ```
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

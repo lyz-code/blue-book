@@ -14,4 +14,3 @@ TBC
 # References
 
 * [Homebrew formula for a Go app](https://gist.github.com/mickep76/ca29cca70f0b458aee4d)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

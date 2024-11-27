@@ -954,8 +954,6 @@ So far the `nvim-orgmode` agenda view lacks the next features:
 
 Once you open one of the views you can do most of the same stuff that you on othe org mode file:
 
-There is still no easy way to define your [custom agenda views](https://orgmode.org/manual/Custom-Agenda-Views.html), but it looks possible [1](https://github.com/nvim-orgmode/orgmode/issues/478) and [2](https://github.com/nvim-orgmode/orgmode/issues/135).
-
 ### [Agenda searches](https://orgmode.org/worg/org-tutorials/advanced-searching.html#property-searches)
 
 When using the search agenda view you can:
@@ -1007,6 +1005,26 @@ When using the search agenda view you can:
 
 * [Search by properties](https://orgmode.org/worg/org-tutorials/advanced-searching.html#property-searches): You can search by properties with the `PROPERTY="value"` syntax. Properties with numeric values can be queried with inequalities `PAGES>100`. To search by partial searches use a regular expression, for example if the entry had `:BIB_TITLE: Mysteries of the Amazon` you could use `BIB_TITLE={Amazon}`
 
+### Custom agendas 
+
+There is still no easy way to define your [custom agenda views](https://orgmode.org/manual/Custom-Agenda-Views.html), but it looks possible [1](https://github.com/nvim-orgmode/orgmode/issues/478) and [2](https://github.com/nvim-orgmode/orgmode/issues/135).
+
+I've made an [ugly fix](https://github.com/nvim-orgmode/orgmode/pull/831) to be able to use it with the `tags` agenda. Until it's solved you can use [my fork](https://github.com/lyz-code/orgmode). To define your custom agenda you can set for example:
+
+```Lua
+    keys = {
+      {
+        "<leader>gt",
+        function()
+          require("orgmode.api.agenda").tags({
+            query = "+today/-INACTIVE-DONE-REJECTED",
+            todo_only = true,
+          })
+        end,
+        desc = "Open orgmode agenda for today",
+      },
+    }
+```
 
 ### [Reload the agenda con any file change](https://github.com/nvim-orgmode/orgmode/issues/656)
 There are two ways of doing this:
@@ -1078,6 +1096,16 @@ mappings = {
   },
 }
 ```
+
+If you're outside vim you can trigger the capture (if you're using i3) by adding this config:
+
+
+```bash
+for_window [title="Capture"] floating enable, resize set 50 ppt 30 ppt
+bindsym $mod+c exec PATH="$PATH:/home/lyz/.local/bin" kitty --title Capture nvim +"lua require('orgmode').action('capture.prompt')"
+```
+
+By pressing `alt+c` a floating terminal will open with the capture template.
 
 ### Configure the capture templates
 
@@ -1259,6 +1287,28 @@ There are many tools that do this:
 They import an `ics` file
 
 #### Exporting from orgmode to ics
+## Clocking
+There is partial support for [Clocking work time](https://orgmode.org/manual/Clocking-Work-Time.html).
+
+I've changed the default bindings to make them more comfortable:
+
+```lua
+mappings = {
+  org = {
+    org_clock_in = "<leader>ci",
+    org_clock_out = "<leader>co",
+    org_clock_cancel = "<leader>cx",
+    org_clock_goto = "<leader>cj",
+  },
+  agenda = {
+    org_agenda_clock_in = "i",
+    org_agenda_clock_out = "o",
+    org_agenda_clock_cancel = "x",
+    org_agenda_clock_goto = "<leader>cj",
+  },
+```
+
+In theory you can use the key `R` in any agenda to report the time, although I still find it kind of buggy.
 ## Other interesting features
 
 Some interesting features for the future are:
@@ -1840,4 +1890,3 @@ To get a better grasp of Tree-sitter you can check their talks:
 * [List of supported commands](https://github.com/nvim-orgmode/orgmode/wiki/Feature-Completeness#nvim-org-commands-not-in-emacs)
 * [Default mappings](https://github.com/nvim-orgmode/orgmode/blob/master/lua/orgmode/config/mappings/init.lua)
 * [List of plugins](https://github.com/topics/orgmode-nvim)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

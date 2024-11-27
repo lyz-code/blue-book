@@ -119,4 +119,3 @@ You can use [`bruteforce-luks`](https://github.com/glv2/bruteforce-luks)
   ```bash
   cryptsetup luksClose {{ device_name }}
   ```
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

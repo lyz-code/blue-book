@@ -170,4 +170,3 @@ class C(ABC):
 If you want to use an abstract setter, you'll encounter the mypy `Decorated
 property not supported` error, you'll need to add a `# type: ignore` until [this
 issue is solved](https://github.com/python/mypy/issues/1362).
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

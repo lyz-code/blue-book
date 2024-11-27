@@ -4,4 +4,3 @@
 
 - [Home](https://joinbookwyrm.com/)
 - [Popular instances](https://joinbookwyrm.com/instances/)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

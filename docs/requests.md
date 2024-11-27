@@ -94,4 +94,3 @@ r = requests.get(url, headers=headers, proxies=proxies)
 # References
 
 * [Docs](https://requests.readthedocs.io)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

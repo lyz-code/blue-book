@@ -490,4 +490,3 @@ Once you do that, you’ll be able to see WireGuard log messages in the kernel m
 # References
 
 - [Home](https://www.wireguard.com/)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

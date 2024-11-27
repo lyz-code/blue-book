@@ -250,4 +250,3 @@ for [click command line tests](click.md#injecting-fake-dependencies).
 
 * Domain-Driven Design by Eric Evans.
 * Implementing Domain-Driven Design by Vaughn Vermon.
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

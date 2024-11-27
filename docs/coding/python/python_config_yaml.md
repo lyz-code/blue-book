@@ -348,4 +348,3 @@ Variables to substitute in both files:
 
 It's also necessary to add the `ruamel.yaml` pip package to your `setup.py` and
 `requirements.txt` files.
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

@@ -222,4 +222,3 @@ documentation.
 # References
 
 * [Real Python post on docstrings by James Mertz](https://realpython.com/documenting-python-code/)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

@@ -37,4 +37,3 @@ done
 
 - [Source](https://github.com/mikefarah/yq)
 - [Docs](https://mikefarah.gitbook.io/yq)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

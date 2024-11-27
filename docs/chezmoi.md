@@ -167,4 +167,3 @@ the `velero` binary and save it to `~/.local/bin/velero`.
 # References
 
 - [Home](https://www.chezmoi.io/)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

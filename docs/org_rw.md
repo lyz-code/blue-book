@@ -45,4 +45,3 @@ doc = loads(orig, environment={
 
 - [Source](https://code.codigoparallevar.com/kenkeiras/org-rw)
 - [Github](https://github.com/kenkeiras/org-rw)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

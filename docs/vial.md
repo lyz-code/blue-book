@@ -17,4 +17,3 @@ export USER_GID=`id -g`; sudo --preserve-env=USER_GID sh -c 'echo "KERNEL==\"hid
 ```
 
 This command will automatically create a `udev` rule and reload the `udev` system.
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

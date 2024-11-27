@@ -68,4 +68,3 @@ apt-get install python-idna
 * [Git](https://github.com/tahoe-lafs/tahoe-lafs)
 * [Docs](https://tahoe-lafs.readthedocs.io/en/latest/)
 * [Issues](https://tahoe-lafs.org/trac/tahoe-lafs)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

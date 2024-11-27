@@ -37,4 +37,3 @@ UI](https://getmizu.io/docs/mizu/mizu-ui).
 
 * [Homepage](https://getmizu.io/)
 * [Docs](https://getmizu.io/docs/)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

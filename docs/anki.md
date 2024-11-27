@@ -485,4 +485,3 @@ If you want to interact with anki directly without opening the GUI application [
 * [Homepage](https://apps.ankiweb.net/)
 * [Forums](https://forums.ankiweb.net/)
 * [Anki-Connect reference](https://foosoft.net/projects/anki-connect/)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

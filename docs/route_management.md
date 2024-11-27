@@ -28,4 +28,3 @@ To analyze which hiking routes are available in a zone I'm following the next pr
 - [ ] For each of the chosen routes
   - [ ] Search the track in wikiloc if it's missing
   - [ ] Import the track in [OsmAnd+](osmand.md)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

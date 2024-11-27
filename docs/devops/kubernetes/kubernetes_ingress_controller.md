@@ -199,4 +199,3 @@ service account will be able to do so.
 * [ITNext ingress controller
   comparison](https://itnext.io/kubernetes-ingress-controllers-how-to-choose-the-right-one-part-1-41d3554978d2)
 * [Flant ingress controller comparison](https://medium.com/flant-com/comparing-ingress-controllers-for-kubernetes-9b397483b46b)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

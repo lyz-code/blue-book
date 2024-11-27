@@ -47,4 +47,3 @@ built upon, that means learning the basics of:
 
 If you follow other [learning methods](code_learning.md#learning-methods), make
 sure that they cover more less the same concepts.
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

@@ -745,4 +745,3 @@ this is solved.
 * [Home](https://vuetifyjs.com/en/)
 * [Git](https://github.com/vuetifyjs/vuetify)
 * [Discord](https://community.vuetifyjs.com/)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

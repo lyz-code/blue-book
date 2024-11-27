@@ -266,4 +266,3 @@ There are some features that are still lacking:
 - [Source](https://github.com/immich-app/immich).
 - [Blog](https://immich.app/blog)
 - [Demo](https://demo.immich.app/photos) 
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

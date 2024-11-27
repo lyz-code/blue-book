@@ -56,4 +56,3 @@ typically found in API management products:
     APIs. This functionality can include support for setting up pricing rules,
     based on usage, load and functionality, issuing invoices and collecting
     payments including multiple types of credit card payments.
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

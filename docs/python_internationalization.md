@@ -35,4 +35,3 @@ help extract and generate message catalogs from the source code.
 
 * [Phrase blog on Localizing with GNU gettext](https://phrase.com/blog/posts/translate-python-gnu-gettext/)
 * [Phrase blog on internationalization](https://phrase.com/lp/i18n-manager/)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

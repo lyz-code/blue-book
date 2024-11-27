@@ -390,4 +390,3 @@ which components to update. A component cannot inquire about its `key`.
 
 * [How to create a react + flask project](https://blog.miguelgrinberg.com/post/how-to-create-a-react--flask-project)
 * [How to deploy a react + flask project](https://blog.miguelgrinberg.com/post/how-to-deploy-a-react--flask-project)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

@@ -35,4 +35,3 @@ apt-get install jq
 ```
 
 Vim supports this linter through [ALE](vim_plugins.md#ale).
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

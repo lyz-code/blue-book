@@ -22,4 +22,3 @@ and action of Metal Slug, brought to you by the creators of Soldat.
 ## Builder guides
 
 * [Turtlebutt and Bunnie](https://deynarde.github.io/kag-builder-guide)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

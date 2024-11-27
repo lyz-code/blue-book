@@ -61,9 +61,7 @@ To automatically add the badge to all your content you can use the next script:
 
 echo "Checking the Not by AI badge"
 find docs -iname '*md' -print0 | while read -r -d $'\0' file; do
-	if ! grep -q not-by-ai.svg "$file"; then
 		echo "Adding the Not by AI badge to $file"
-		echo "[![](not-by-ai.svg){: .center}](https://notbyai.fyi)" >>"$file"
 	fi
 done
 ```
@@ -82,4 +80,3 @@ archive.org has an API and a python library.
 
 * [Joel Hooks article on Digital Gardens](https://joelhooks.com/digital-garden)
 * [Tom Critchlow article on Digital Gardens](https://tomcritchlow.com/2019/02/17/building-digital-garden/)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

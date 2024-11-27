@@ -12,4 +12,3 @@ The tokens are signed either using a private secret or a public/private key.
 # References
 
 * [Hasura.io best practices using jwt](https://hasura.io/blog/best-practices-of-using-jwt-with-graphql/)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

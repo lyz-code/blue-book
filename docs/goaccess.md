@@ -42,4 +42,3 @@ goaccess \
 * [Docs](https://goaccess.io/man)
 
 * [Tweaking goaccess for analytics post](https://www.thedroneely.com/posts/tweaking-goaccess-for-analytics/)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

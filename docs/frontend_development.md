@@ -133,4 +133,3 @@ Some interesting cases and their solutions:
 
 * [Welcome wizard](https://docs.cypress.io/guides/core-concepts/conditional-testing#Use-your-server-or-database)
 * [A/B Campaign](https://docs.cypress.io/guides/core-concepts/conditional-testing#A-B-campaign)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

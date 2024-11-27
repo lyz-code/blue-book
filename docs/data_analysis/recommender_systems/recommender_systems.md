@@ -267,4 +267,3 @@ book recommender systems.
 ## Awesome recommender systems
 
 * [Grahamjenson](https://github.com/grahamjenson/list_of_recommender_systems)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

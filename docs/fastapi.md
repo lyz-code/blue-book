@@ -992,4 +992,3 @@ against `http://localhost:8000`.
 - [Testdriven.io course](https://testdriven.io/courses/tdd-fastapi/): suggested
   by the developer.
 
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

@@ -15,4 +15,3 @@ which do not directly imply semantics to the core system.
   "key2" : "value2"
 }
 ```
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

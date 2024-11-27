@@ -47,4 +47,3 @@ In addition if you're on Linux the process metrics expose CPU, memory and other 
 
 - [Source](https://github.com/prometheus/client_python)
 - [Docs](https://github.com/prometheus/client_python)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

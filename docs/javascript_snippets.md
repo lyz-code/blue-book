@@ -53,4 +53,3 @@ Math.round(2.5)
 ```javascript
 document.activeElement.blur();
 ```
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

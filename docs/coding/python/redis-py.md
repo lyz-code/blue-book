@@ -49,4 +49,3 @@ is 16 by default.
 * [Real Python introduction to Redis-py](https://realpython.com/python-redis/)
 * [Git](https://github.com/andymccurdy/redis-py)
 * [Docs](https://redis-py.readthedocs.io/en/stable/#): Very technical and small.
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

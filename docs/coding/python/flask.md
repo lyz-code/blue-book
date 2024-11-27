@@ -41,4 +41,3 @@ Blueprint.
 
 * [Flask docs on blueprints](https://flask.palletsprojects.com/en/1.1.x/blueprints)
 * [Explore flask article on Blueprints](https://exploreflask.com/en/latest/blueprints.html#functional-structure)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

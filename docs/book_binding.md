@@ -23,4 +23,3 @@ along one edge with a thick needle and sturdy thread.
 * https://www.youtube.com/watch?v=Av_rU-yOPd4
 * https://www.youtube.com/watch?v=9O4kFTOEh6k
 * https://www.youtube.com/watch?v=XGQ5P8QVHSg
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

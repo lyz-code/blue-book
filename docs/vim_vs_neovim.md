@@ -47,4 +47,3 @@ These patches were included because they:
 * Received thoughtful review by other contributors.
 
 One downside though is that it's not able to [work with "big" files](https://github.com/neovim/neovim/issues/614) for me 110kb file broke it. Although after [some debugging](#Deal-with-big-files) it worked.
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

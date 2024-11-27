@@ -294,4 +294,3 @@ This is tricky, because ingress is one of theses cases were you have to delete t
 # References
 
 * [Docs](https://argo-cd.readthedocs.io/en/stable/)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

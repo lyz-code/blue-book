@@ -85,4 +85,3 @@ This serves two purposes:
 # References
 
 * [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

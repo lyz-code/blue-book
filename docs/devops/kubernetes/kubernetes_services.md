@@ -39,4 +39,3 @@ you can call a service of another namespace with the following nomenclature.
 ```bash
 curl {{ service_name}}.{{ service_namespace }}.svc.cluster.local
 ```
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

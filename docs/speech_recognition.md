@@ -60,4 +60,3 @@ text = recognizer.recognize_whisper(audio, initial_prompt="your desired words")
 # References
 - [Source](https://github.com/Uberi/speech_recognition?tab=readme-ov-file)
 - [Real Python introduction](https://realpython.com/python-speech-recognition/)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

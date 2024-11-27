@@ -20,4 +20,3 @@
     - [Compromise - agreement in the moment](https://youtu.be/3DhD2u5Eyv8?si=2WKisSvEB3Z8TVMy)
     - [Lindy hop improv](https://www.youtube.com/watch?v=qkdxcdeicLE)
 
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

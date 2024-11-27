@@ -122,4 +122,3 @@ To unset the namespace use `kubectl config set-context --current --namespace=""`
 * [Overview](https://kubernetes.io/docs/reference/kubectl/overview/).
 * [Cheatsheet](https://kubernetes.io/docs/user-guide/kubectl-cheatsheet/).
 * [Kbenv](https://github.com/alexppg/kbenv): Virtualenv for kubectl.
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

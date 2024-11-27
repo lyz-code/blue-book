@@ -14,4 +14,3 @@ It will run by itself. For 64GB of ECC RAM it took aproximately 100 minutes to r
 
 ## [Check ECC errors](https://www.memtest86.com/ecc.htm)
 MemTest86 directly polls ECC errors logged in the chipset/memory controller registers and displays it to the user on-screen. In addition, ECC errors are written to the log and report file.
-\n\n[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

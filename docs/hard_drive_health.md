@@ -248,4 +248,3 @@ to be failing then read-only mode is probably still the safest.
     count](https://harddrivegeek.com/current-pending-sector-count/).
 * [Hiddencode guide on how to check bad sectors](https://hiddenc0de.wordpress.com/2015/06/12/how-to-check-bad-sectors-or-bad-blocks-on-hard-disk-in-linux/)
 * [Hiddencode guide on how to fix bad sectors](https://hiddenc0de.wordpress.com/2015/06/12/how-to-fix-bad-sectors-or-bad-blocks-on-hard-disk/)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

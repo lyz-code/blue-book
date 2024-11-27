@@ -7,4 +7,3 @@ author: Lyz
 I understand life management as the act of analyzing yourself and your
 interactions with the world to define processes and automations that shape the
 way to efficiently achieve your goals.
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

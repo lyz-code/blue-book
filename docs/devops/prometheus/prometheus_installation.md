@@ -390,4 +390,3 @@ And some basic rules:
 * [Error: apiVersion 'v2' is not valid.  The value must be
     "v1"](https://github.com/prometheus-community/helm-charts/issues/607):
     Update the warning above and update the clusters.
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

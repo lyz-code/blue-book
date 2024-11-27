@@ -172,4 +172,3 @@ This is a nasty operation, my suggestion is to export it with Calibre and then p
 
 The search works by using a Python regular expression. All matched text is simply removed from the document or replaced using the replacement pattern. The replacement pattern is optional, if left blank then text matching the search pattern will be deleted from the document.
 
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

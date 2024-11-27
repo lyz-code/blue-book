@@ -175,4 +175,3 @@ except ImportError:
 * [Docs](https://mypy.readthedocs.io/en/stable/)
 * [Git](https://github.com/python/mypy)
 * [Homepage](http://mypy-lang.org/)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

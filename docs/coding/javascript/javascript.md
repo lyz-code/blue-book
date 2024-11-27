@@ -1802,4 +1802,3 @@ document.getElementById("demo").innerHTML = x;
 * [Re-introduction to JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript)
 * [Chikwekwe's articles on cookies vs LocalStorage](https://medium.com/swlh/cookies-vs-localstorage-whats-the-difference-d99f0eb09b44)
 * [Jeff's post on xmlhttprequest vs Fetch API](https://jeffdevslife.com/p/xmlhttprequest-vs-fetch-api/)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

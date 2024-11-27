@@ -357,4 +357,3 @@ different CNI backends. Which from my point of view, seems a bad and ugly idea.
 article](https://www.stackrox.com/post/2020/01/kubernetes-networking-demystified/).
 * [Writing your own simple CNI plug
   in](https://www.altoros.com/blog/kubernetes-networking-writing-your-own-simple-cni-plug-in-with-bash/).
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

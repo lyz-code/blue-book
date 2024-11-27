@@ -22,4 +22,3 @@ Delete the conflictive one
 ```bash
 aws iam delete-virtual-mfa-device --serial-number {{ mfa_arn }}
 ```
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

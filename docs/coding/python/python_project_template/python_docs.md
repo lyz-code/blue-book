@@ -14,4 +14,3 @@ Follow the steps under [Installation](mkdocs.md#installation) to configure it.
 !!! note ""
     I've automated the creation of the mkdocs site in [this cookiecutter
     template](https://github.com/lyz-code/cookiecutter-python-project).
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)

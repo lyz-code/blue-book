@@ -127,4 +127,3 @@ now](https://github.com/ramitsurana/awesome-kubernetes#starting-point):
 
 * [References](https://kubernetes.io/docs/reference/)
 * [API conventions](https://github.com/kubernetes/community/blob/master/contributors/devel/api-conventions.md)
-[![](not-by-ai.svg){: .center}](https://notbyai.fyi)
