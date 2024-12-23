@@ -129,7 +129,7 @@ The last pitfall to avoid is shingled magnetic recording (SMR) technology. ZFS
 [performs poorly on SMR drives](https://www.servethehome.com/wd-red-smr-vs-cmr-tested-avoid-red-smr/),
 so if you’re building a NAS, avoid
 [known SMR drives](https://www.truenas.com/community/resources/list-of-known-smr-drives.141/).
-If the drive is labeled as CMR, that’s conventional magnetic recording, which is
+If the drive is labeled as CMR ([or PMR](https://en.m.wikipedia.org/wiki/Perpendicular_recording)), that’s conventional magnetic recording, which is
 fine for ZFS.
 
 SMR is well suited for high-capacity, low-cost use where writes are few and
@@ -158,6 +158,21 @@ same RPM and size.
 
 Disks are going to fail, so it's good to have a good warranty to return them.
 
+### Data disk gas
+
+Manufacturers have adopted helium as the internal gas for mechanical hard drives with capacities of 4TB and above in a 3.5-inch format. While this change improves energy efficiency by reducing aerodynamic drag, it also introduces a long-term reliability concern.
+
+Over time (typically around 10 years), helium atoms gradually escape through even perfectly hermetic metal enclosures due to their small size. This causes:
+
+1. Decreasing internal helium pressure
+2. Increased likelihood of head-platter contact and erosion
+3. Potential data loss
+
+External air cannot re-enter the drive to refill these gaps, as air atoms are too large to pass through metal. Consequently, heads require sufficient helium pressure to fly above platters without touching them. Once the internal helium pressure drops too low, heads will land on platters, causing erosion and eventual failure.
+
+Hard drive manufacturers offer limited warranties (typically 5 years) for helium-sealed drives, acknowledging this gradual performance degradation. While under warranty, these issues are unlikely to manifest; however, all units will eventually succumb to helium escape and increased head-disk interference.
+
+You can read more of this issue in [1](https://www.truenas.com/community/threads/helium-drives-long-term-use.96649/), [2](https://linustechtips.com/topic/1359644-helium-hdd-health-update-after-5-years/), [3](https://foro.noticias3d.com/vbulletin/showthread.php?t=468562), [4](https://blog.westerndigital.com/helium-hard-drives-explained/)
 ### [Data disk brands](https://www.nasmaster.com/best-nas-drives/)
 
 #### [Western Digital](https://www.nasmaster.com/wd-red-vs-red-plus-vs-red-pro-nas-hdd/)
@@ -167,26 +182,26 @@ offering and you should consider these if you can find them at more affordable
 prices. WD splits its NAS drives into three sub-categories, normal, Plus, and
 Pro.
 
-| Specs                  | WD Red    | WD Red Plus        | WD Red Pro      |
-| ---------------------- | --------- | ------------------ | --------------- |
-| Technology             | SMR       | CMR                | CMR             |
-| Bays                   | 1-8       | 1-8                | 1-24            |
-| Capacity               | 2-6TB     | 1-14TB             | 2-18TB          |
-| Speed                  | 5,400 RPM | 5,400 RPM (1-4TB)  | 7200 RPM        |
-| Speed                  | 5,400 RPM | 5,640 RPM (6-8TB)  | 7200 RPM        |
-| Speed                  | 5,400 RPM | 7,200 RPM (8-14TB) | 7200 RPM        |
-| Speed                  | ?         | 210MB/s            | 235MB/s         |
-| Cache                  | 256MB     | 16MB (1TB)         |                 |
-| Cache                  | 256MB     | 64MB (1TB)         | 64MB (2TB)      |
-| Cache                  | 256MB     | 128MB (2-8TB)      | 256MB (4-12TB)  |
-| Cache                  | 256MB     | 256MB (8-12TB)     | 512MB (14-18TB) |
-| Cache                  | 256MB     | 512MB (14TB)       |                 |
-| Workload               | 180TB/yr  | 180TB/yr           | 300TB/yr        |
-| MTBF                   | 1 million | 1 million          | 1 million       |
-| Warranty               | 3 years   | 3 years            | 5 years         |
-| Power Consumption      | ?         | ?                  | 8.8 W           |
-| Power Consumption Rest | ?         | ?                  | 4.6 W           |
-| Price                  | From $50  | From $45           | From $78        |
+| Specs                  | WD Red    | WD Red Plus        | WD Red Pro      |  WD Ultrastar HC520 |
+| ---------------------- | --------- | ------------------ | --------------- | --- |
+| Technology             | SMR       | CMR                | CMR             | PMR |
+| Bays                   | 1-8       | 1-8                | 1-24            |  |
+| Capacity               | 2-6TB     | 1-14TB             | 2-18TB          |  12TB |
+| Speed                  | 5,400 RPM | 5,400 RPM (1-4TB)  | 7200 RPM        | 7200 RPM |
+| Speed                  | 5,400 RPM | 5,640 RPM (6-8TB)  | 7200 RPM        |  7200 RPM |
+| Speed                  | 5,400 RPM | 7,200 RPM (8-14TB) | 7200 RPM        |  7200 RPM |
+| Speed                  | ?         | 210MB/s            | 235MB/s         | 255 MB/s |
+| Cache                  | 256MB     | 16MB (1TB)         |                 | 256 MB |
+| Cache                  | 256MB     | 64MB (1TB)         | 64MB (2TB)      |  256 MB |
+| Cache                  | 256MB     | 128MB (2-8TB)      | 256MB (4-12TB)  |  256 MB |
+| Cache                  | 256MB     | 256MB (8-12TB)     | 512MB (14-18TB) |  256 MB |
+| Cache                  | 256MB     | 512MB (14TB)       |                 |  256 MB |
+| Workload               | 180TB/yr  | 180TB/yr           | 300TB/yr        |   |
+| MTBF                   | 1 million | 1 million          | 1 million       | 2.5 M |
+| Warranty               | 3 years   | 3 years            | 5 years         | 5  years |
+| Power Consumption      | ?         | ?                  | 8.8 W           | 5.0 W |
+| Power Consumption Rest | ?         | ?                  | 4.6 W           | 6.9 W |
+| Price                  | From $50  | From $45           | From $78        | |
 
 #### Seagate
 

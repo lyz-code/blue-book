@@ -559,11 +559,25 @@ If you’d like to import data into an existing investigation and do not know it
 ## [Prometheus metrics](https://github.com/alephdata/aleph/pull/3216)
 
 Aleph now exposes prometheus metrics on the port 9100.
+# Available datasets
+OpenSanctions helps investigators find leads, allows companies to manage risk and enables technologists to build data-driven products.
+
+You can check [their datasets](https://www.opensanctions.org/datasets/). 
 # Other tools for the ecosystem
 ## [Investigraph](https://investigativedata.github.io/investigraph/)
 investigraph is an ETL framework that allows research teams to build their own data catalog themselves as easily and reproducable as possible. The investigraph framework provides logic for extracting, transforming and loading any data source into followthemoney entities.
 
 For most common data source formats, this process is possible without programming knowledge, by means of an easy yaml specification interface. However, if it turns out that a specific dataset can not be parsed with the built-in logic, a developer can plug in custom python scripts at specific places within the pipeline to fulfill even the most edge cases in data processing.
+## [offshore-graph](https://github.com/opensanctions/offshore-graph)
+
+It contains scripts that will merge the OpenSanctions Due Diligence dataset with the ICIJ OffshoreLeaks database in order create a combined graph for analysis.
+
+The result is a Cypher script to load the full graph into the Neo4J database and then browse it using the Linkurious investigation platform.
+
+Based on name-based entity matching between the datasets, an analyst can use this graph to find offshore holdings linked to politically exposed and sanctioned individuals.
+
+As a general alternative, you can easily export and convert entities from an Aleph instance to visualize them in Neo4j or Gephi using the ftm CLI: https://docs.aleph.occrp.org/developers/how-to/data/export-network-graphs/
+
 # Troubleshooting
 ## Debug ingestion errors
 Assuming that you've [set up Loki to ingest your logs](https://github.com/alephdata/aleph/issues/2124) I've so far encountered the next ingest issues:

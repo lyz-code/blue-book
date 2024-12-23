@@ -274,6 +274,24 @@ Also check out the [Is parkour killing your joints?](https://www.youtube.com/wat
 - Make sure that there are no joints with the wall where you want to grab the pipe
 - Grab first with your arms and then land your feet
 - Land your feet in a different angle than the pipe (45 degrees askew for example) to prevent each of your legs to go different sides of the pipe if you were to slip
+
+## Vaults
+
+## [Safety vault](https://yewtu.be/watch?v=f65H4Rr0oD0)
+
+I'm going to describe one way of doing it, but it could also be done as a mirror image.
+
+- Advance towards the fence
+- Place your left hand on the fence with your fingers pointing in the direction you're going
+- Jump while placing your right foot on the fence
+- Pass your left foot over the fence by pulling your knee close to your chest to prevent your foot from catching on the fence
+- Once your left foot is over, let go of your right foot
+- Advance with your right hand in the direction of movement (not upwards), until it rests on the bar (your hand should be facing opposite to the left, with fingers pointing downwards)
+- Once both feet are free and hands supported, push yourself forward.
+
+## [Thief vault](https://yewtu.be/watch?v=f65H4Rr0oD0)
+## [Speed vault](https://yewtu.be/watch?v=f65H4Rr0oD0)
+## [Kong vault or Cat](https://yewtu.be/watch?v=f65H4Rr0oD0)
 # [Learning parkour being an adult](https://learnmoreparkour.com/how-to-parkour-am-i-too-old.htm/)
 
 If you're thinking on starting to learn parkour when you're an adult there are some things that you need to take into account:

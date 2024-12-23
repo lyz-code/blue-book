@@ -32,7 +32,7 @@ Himalaya CLI `v1.0.0` can be installed with a pre-built binary. Find the latest 
 Himalaya CLI `v1.0.0` can also be installed with [cargo](https://doc.rust-lang.org/cargo/):
 
 ```bash
-$ cargo install --git https://github.com/pimalaya/himalaya.git --force himalaya
+cargo install --git https://github.com/pimalaya/himalaya.git --force himalaya
 ```
 # [Configuration](https://github.com/pimalaya/himalaya?tab=readme-ov-file#configuration)
 
@@ -90,16 +90,14 @@ You can then run `:Himalaya account_name` and it will open himalaya in your edit
 The default bindings conflict with my git bindings, and to make them similar to orgmode agenda I'm changing the next and previous page:
 
 ```lua
-return {
-  {
-    "pimalaya/himalaya-vim",
-    keys = {
-      { "b", "<plug>(himalaya-folder-select-previous-page)", desc = "Go to the previous email page" },
-      { "f", "<plug>(himalaya-folder-select-next-page)", desc = "Go to the next email page" },
-    },
-  },
-}
-
+      vim.api.nvim_create_autocmd("FileType", {
+        group = "HimalayaCustomBindings",
+        pattern = "himalaya-email-listing",
+        callback = function()
+          vim.api.nvim_buf_set_keymap(0, "n", "b", "<plug>(himalaya-folder-select-previous-page)", { noremap = true, silent = true })
+          vim.api.nvim_buf_set_keymap(0, "n", "f", "<plug>(himalaya-folder-select-next-page)", { noremap = true, silent = true })
+        end,
+      })
 ```
 ### Configure the account bindings
 
@@ -149,6 +147,16 @@ return {
           -- Bindings to delete emails
           vim.api.nvim_buf_set_keymap(0, "n", "dd", "<plug>(himalaya-email-delete)", { noremap = true, silent = true })
           vim.api.nvim_buf_set_keymap(0, "x", "d", "<plug>(himalaya-email-delete)", { noremap = true, silent = true })
+          -- Refresh emails
+          vim.api.nvim_buf_set_keymap(0, "n", "r", ":lua FetchEmails()<CR>", { noremap = true, silent = true })
+          -- Email list view bindings
+          vim.api.nvim_buf_set_keymap(0, "n", "b", "<plug>(himalaya-folder-select-previous-page)", { noremap = true, silent = true })
+          vim.api.nvim_buf_set_keymap(0, "n", "f", "<plug>(himalaya-folder-select-next-page)", { noremap = true, silent = true })
+          vim.api.nvim_buf_set_keymap(0, "n", "R", "<plug>(himalaya-email-reply-all)", { noremap = true, silent = true })
+          vim.api.nvim_buf_set_keymap(0, "n", "F", "<plug>(himalaya-email-forward)", { noremap = true, silent = true })
+          vim.api.nvim_buf_set_keymap(0, "n", "m", "<plug>(himalaya-folder-select)", { noremap = true, silent = true })
+          vim.api.nvim_buf_set_keymap(0, "n", "M", "<plug>(himalaya-email-move)", { noremap = true, silent = true })
+          vim.api.nvim_buf_set_keymap(0, "n", "w", "<plug>(himalaya-email-write)", { noremap = true, silent = true })
           -- Bind `q` to close the window
           vim.api.nvim_buf_set_keymap(0, "n", "q", ":bd<CR>", { noremap = true, silent = true })
         end,
@@ -226,13 +234,63 @@ return {
 ## Show notifications when emails arrive
 
 You can set up [mirador](mirador.md) to get those notifications.
+# Usage
+
+## Searching emails
+
+You can use the `g/` binding from within nvim to search for emails. The query syntax supports filtering and sorting query.
+
+I've tried changing it to `/` without success :'(
+
+### Filters
+
+A filter query is composed of operators and conditions. There is 3 operators and 8 conditions:
+
+- `not <condition>`: filter envelopes that do not match the condition
+- `<condition> and <condition>`: filter envelopes that match both conditions
+- `<condition> or <condition>`: filter envelopes that match one of the conditions
+- `date <yyyy-mm-dd>`: filter envelopes that match the given date
+- `before <yyyy-mm-dd>`: filter envelopes with date strictly before the given one
+- `after <yyyy-mm-dd>`: filter envelopes with date stricly after the given one
+- `from <pattern>`: filter envelopes with senders matching the given pattern
+- `to <pattern>`: filter envelopes with recipients matching the given pattern
+- `subject <pattern>`: filter envelopes with subject matching the given pattern
+- `body <pattern>`: filter envelopes with text bodies matching the given pattern
+- `flag <flag>`: filter envelopes matching the given flag
+
+### Sorting 
+A sort query starts by "order by", and is composed of kinds and orders. There is 4 kinds and 2 orders:
+
+- `date [order]`: sort envelopes by date
+- `from [order]`: sort envelopes by sender
+- `to [order]`: sort envelopes by recipient
+- `subject [order]`: sort envelopes by subject
+- `<kind> asc`: sort envelopes by the given kind in ascending order
+- `<kind> desc`: sort envelopes by the given kind in descending order
+
+### Examples
+
+`subject foo and body bar`: filter envelopes containing "foo" in their subject and "bar" in their text bodies
+`order by date desc subject`: sort envelopes by descending date (most recent first), then by ascending subject
+`subject foo and body bar order by date desc subject`: combination of the 2 previous examples
+
 # Not there yet
 
+- [Replying an email doesn't mark it as replied](https://github.com/pimalaya/himalaya-vim/issues/14) 
 - [With the vim plugin you can't switch accounts](https://github.com/pimalaya/himalaya-vim/issues/8)
 - [Let the user delete emails without confirmation](https://github.com/pimalaya/himalaya-vim/issues/12)
-- [Fetching emails from within vim](https://github.com/pimalaya/himalaya-vim/issues/13)
-
 # Troubleshooting
+
+## Cannot install
+
+Sometimes [the installation steps fail](https://github.com/pimalaya/himalaya/issues/513) as it's still not in stable. A workaround is to download the binary created by the [pre-release CI](https://github.com/pimalaya/himalaya/actions/workflows/pre-releases.yml). You can do it by:
+
+- Click on the latest job
+- Click on jobs 
+- Click on the job of your architecture
+- Click on "Upload release"
+- Search for "Artifact download URL" and download the file
+- Unpack it and add it somewhere in your `$PATH`
 
 ## Emails are shown with different timezones
 
@@ -252,3 +310,4 @@ That's because the `Trash` directory does not follow the Maildir structure. I ha
 # References
 - [Source](https://github.com/pimalaya/himalaya)
 - [Vim plugin source](https://github.com/pimalaya/himalaya-vim)
+- [Home](https://pimalaya.org/)

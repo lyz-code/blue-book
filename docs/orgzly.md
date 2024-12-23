@@ -1,4 +1,4 @@
-[Orgzly](https://orgzly.com/) is an android application to interact with [orgmode](orgmode.md) files.
+[Orgzly](https://www.orgzlyrevived.com/) is an android application to interact with [orgmode](orgmode.md) files.
 
 # Troubleshooting
 
@@ -35,9 +35,10 @@ Other interesting solutions:
 You can force load or force save a single note with a long tap.
 # References
 
+- [Home](https://www.orgzlyrevived.com/)
 - [Docs](https://orgzly.com/docs)
-- [F-droid page](https://f-droid.org/app/com.orgzly)
-- [Source](https://github.com/orgzly/orgzly-android)
-- [Home](https://orgzly.com/)
+- [F-droid page](https://f-droid.org/en/packages/com.orgzlyrevived/)
+- [Source](https://github.com/orgzly-revived/orgzly-android-revived)
+- [Old Home](https://orgzly.com/)
 - [Alternative docs](https://github.com/orgzly/documentation)
 - [Alternative fork maintained by the community](https://github.com/orgzly-revived/orgzly-android-revived)

@@ -4,9 +4,52 @@ date: 20200826
 author: Lyz
 ---
 
+# Convert an html to a pdf
+
+## Using weasyprint
+
+Install it with `pip install weasyprint PyMuPDF`
+
+```bash
+weasyprint input.html output.pdf
+```
+
+It gave me better result than `wkhtmltopdf`
+  
+## Using wkhtmltopdf
+To convert the given HTML into a PDF with proper styling and formatting using a simple method on Linux, you can use `wkhtmltopdf` with some custom options. 
+
+First, ensure that you have `wkhtmltopdf` installed on your system. If not, install it using your package manager (e.g., Debian: `sudo apt-get install wkhtmltopdf`).
+
+Then, convert the HTML to PDF using `wkhtmltopdf` with the following command:
+
+```bash
+wkhtmltopdf --page-size A4 --margin-top 15mm --margin-bottom 15mm --encoding utf8 input.html output.pdf
+```
+
+In this command:
+- `--page-size A4`: Sets the paper size to A4.
+- `--margin-top 15mm` and `--margin-bottom 15mm`: Adds top and bottom margins of 15 mm to the PDF.
+
+After running the command, you should have a nicely formatted `output.pdf` file in your current directory. This method preserves most of the original HTML styling while providing a simple way to export it as a PDF on Linux.
+
+If you need to zoom in, you can use the `--zoom 1.2` flag. For this to work you need your css to be using the `em` sizes.
+# Format a drive to use a FAT32 system
+```bash
+sudo mkfs.vfat -F 32 /dev/sdX
+```
+Replace /dev/sdX with your actual drive identifier
+# Get the newest file of a directory with nested directories and files
+
+```bash
+find . -type f -printf '%T@ %p\n' | sort -n | tail -1 | cut -f2- -d" "
+```
+
 # How to debug a CPU Throttling high alert
 
 It may be because it has hit a limit set by kubernetes or docker. If the metrics don't show that it may be because the machine has run out of CPU credits.
+
+If the docker is using less resources than the limits but they are still small (for example 0.1 CPUs) the issue may be that the CPU spikes are being throttle before they are shown in the CPU usage, the solution is then to increase the CPU limits
 
 # Create a systemd service for a non-root user
 
@@ -1452,10 +1495,18 @@ date
 echo "Pruning the containers"
 docker container prune -f --filter "label!=prune=false"
 echo "Pruning the images"
-docker image prune -f --filter "label!=prune=false"
+docker image prune -a -f --filter "label!=prune=false"
 echo "Pruning the volumes"
 docker volume prune -f
 ```
+
+You can check the remaining docker images sorted by size with:
+
+```bash
+docker images --format "{{.Repository}}:{{.Tag}}\t{{.Size}}" | sort -k2 -h
+```
+
+You can also use the builtin `docker system df -v` to get a better understanding of the usage of disk space.
 
 ### [Set up docker logs rotation](https://medium.com/free-code-camp/how-to-setup-log-rotation-for-a-docker-container-a508093912b2)
 

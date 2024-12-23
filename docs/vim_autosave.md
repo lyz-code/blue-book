@@ -27,6 +27,42 @@ It has some nice features
 },
 ```
 
+## [Disable for specific filetypes](https://github.com/okuuva/auto-save.nvim?tab=readme-ov-file#condition)
+
+The `condition` field of the configuration allows the user to exclude **auto-save** from saving specific buffers. This can be useful for example if you have a broken LSP that is making editing the markdown files an absolute hell.
+
+Here is an example that disables auto-save for specified file types:
+
+```lua
+{
+  condition = function(buf)
+    local filetype = vim.fn.getbufvar(buf, "&filetype")
+
+    -- don't save for `sql` file types
+    if vim.list_contains({ "markdown" }, filetype) then
+      return false
+    end
+    return true
+  end
+}
+```
+
+You may also exclude `special-buffers` see (`:h buftype` and `:h special-buffers`):
+
+```lua
+{
+  condition = function(buf)
+    -- don't save for special-buffers
+    if vim.fn.getbufvar(buf, "&buftype") ~= '' then
+      return false
+    end
+    return true
+  end
+}
+```
+
+Buffers that are `nomodifiable` are not saved by default.
+
 # Usage
 
 

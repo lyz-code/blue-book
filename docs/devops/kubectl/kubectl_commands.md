@@ -70,6 +70,12 @@ kubectl delete pod,service {{ pod_names }} {{ service_names }}
 kubectl delete pod,services -l {{ label_name }}={{ label_value }}
 ```
 
+## Delete pods that are stuck in terminating state for a while
+
+```bash
+kubectl delete pod <pod-name> --grace-period=0 --force
+```
+
 ## Delete all pods and services in namespace
 
 ```bash

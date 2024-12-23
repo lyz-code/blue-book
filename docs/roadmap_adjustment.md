@@ -19,8 +19,9 @@ It's important for the proceses to be light enough that you want to actually do 
 These adjustments have to reflect ourselves and our environment. As we change continuously, so will our adjustment proceses.
 
 I've gone for full blown adjustments of locking myself up for a week to not doing any for months. And that is just fine, these tools are there to help us only if we want to use them.
-## Heavily orgmode oriented
-This article heavily uses [orgmode](orgmode.md), my currently chosen [action tool](roadmap_tools.md), but that doesn't mean that the concepts can be applicable to other tools.
+## These guides are heavily orgmode oriented
+These guides heavily uses [orgmode](orgmode.md), my currently chosen [action tool](roadmap_tools.md), but that doesn't mean that the concepts can be applicable to other tools.
+
 # Roadmap adjustment types
 
 There are three types of roadmap adjustment if we split them by process type:
@@ -51,8 +52,6 @@ Reviews can be done at different levels of purpose, each level gives you differe
 - [Quarter review](#quarter-review)
 - [Year review](#year-review)
 ### Reviews guidelines
-
-
 #### Review approaches
 
 In the past I used the [life logging](life_logging.md) tools to analyze the past in order to understand what I achieved and take it as a base to learn from my mistakes. It was useful when I needed the endorphines boost of seeing all the progress done. Once I assumed that progress speed and understood that we always do the best we can given how we are, I started to feel that the review process was too cumbersome and that it was holding me into the past.
@@ -311,6 +310,8 @@ Given the level of control of your life you can do the next adjustments:
 - [Survive the day](#survive-the-day)
 - [Survive the week](#survive-the-week)
 - [Ride the month](#ride-the-month)
+- [Dream about the quarter](#dream-about-the-quarter)
+- [Review the year](#review-the-year)
 
 As you master a purpose level you will have more experience and tools to manage more efficiently your life at the same time that you have less stress and mental load due to the reduction of uncertainty. This new state in theory (if life lets you) will eventually give you the energy to jump to the next purpose levels.
 
@@ -472,12 +473,17 @@ There are different paths to discover actionable items:
   - What did drain your energy or brought you down emotionally this last month?
     - [ ] 
 
+  - What month accomplishments are you proud of?
+    - [ ] 
+
   - Where is your mind these days?
     - [ ] 
 
   - What did help you most this last month?
     - [ ] 
 
+  - What do you want for the next month?
+    - [ ] 
   Notice that we do not need to review our life logging tools (diary, action manager, ...) to answer these questions. This means that we're doing an analysis of what is in our minds right now, not throughout the month. It's flawed but as we do this analysis often, it's probably fine. We add more importance to the latest events in our life anyway.
 
 - Empty the elements you added to the `review box`.
@@ -728,6 +734,7 @@ For each axis:
   - Summarise your insights in an "area intent".
 
 ####### Define the areas' objectives
+
 I've had a hard time choosing how must those objectives be defined. Should they be generic? or would it be better for them to be concrete and measurable?
 
 Given the mindset of this review, it's better to have generic open goals. As you climb up the abstraction ladder and work with greater time slots you need to reduce the precision because you have more uncertainty. You don't know what's going to happen tomorrow so adding hard [SMART goals](https://en.wikipedia.org/wiki/SMART_criteria) is unrealistic and a certain path to frustration.
@@ -799,6 +806,105 @@ In theory all this analysis should be done the month before the planning, so at 
 #### Quarter decide
 ##### Order, prioritize and choose the area objectives
 #Gather them in the roadmap document.
+
+## Review the year
+
+Year reviews are meant to give you an idea of:
+
+- How much have you and your workflows evolved
+- What roadmap decisions were right, which ones were wrong
+- With the context you have now, you can think of how you could have avoided the
+  bad decisions.
+
+If you have the year's planning you can analyze it against your task management
+tools and life logs and create a review document analyzing all.
+
+The process then has many phases:
+
+- [Housekeeping](#housekeeping)
+- [Analysis](#analysis)
+- [Planning](#planning)
+
+### Housekeeping
+
+As they are time expensive, probably lot of time may have passed since your last
+year review, it's a good time to do some housekeeping tasks to have a tidy
+environment (and data!) before you start analyzing everything.
+
+- Extract all your media (photos, videos, text) from all your devices (mobiles,
+  laptops, servers) to your central archive. For the portable devices I use
+  [`syncthing`](syncthing.md) to sync all the important data to the
+  [NAS](nas.md), although it's usually untidy.
+- Once it's extracted tidy them all. For example you could group the pictures
+  and videos in a tree of directories (`trips`, `trips/2022-06-Glasgow`,
+  `trips/2022-06-Glasgow/2022-06-10-hiking-trail-lakes`, ...). As this is an
+  unpleasant task I've created `claspy` a command line tool that helps you
+  categorize the files into their desired paths. Do the same for the documents,
+  music, binaries... everything! until you have an empty mobile and empty
+  `Downloads` directory.
+- Update [your ledger](beancount.md) so that it reflects the reality.
+- Update [your task manager](action_management.md) systems so that it reflects the
+  latest state.
+- Update [your digital garden](digital_garden.md) so that you don't have any
+  uncommited changes.
+
+### Analysis
+
+To do it I gather all the information from my
+[life logging](https://en.wikipedia.org/wiki/Lifelog) sources and start thinking
+of what do I want to change. It helps me to write a markdown document with the
+insights gathered in this process.
+
+#### What you have learned
+
+It's always interesting to look back and see what you've learned throughout the
+year. I have these sources of data:
+
+- [Digital garden](#digital-garden)
+- [Anki](#anki)
+
+##### Digital garden
+
+If you happen to have a [digital garden](digital_garden.md) you can look at your
+git history to know what has changed since the last year. That's cumbersome and
+ugly though, it's better to review
+[your newsletters](https://lyz-code.github.io/blue-book/newsletter/0_newsletter_index/),
+although you may need to use something like
+[`mkdocs-newsletter`](https://lyz-code.github.io/mkdocs-newsletter/).
+
+While you skim through the newsletters you can add to the analysis report the
+highlights of what you've learned.
+
+You can also check
+[your repository insights](git.md#get-interesting-stats-of-the-repo).
+
+##### Anki
+
+I use [`anki`](anki.md) to record the knowledge that I need to have in my mind.
+The program has a "Stats" tab where you can see your insights of the last years
+to understand how are you learning. You can also go to the "Browse" tab to sort
+the cards by created and get an idea of which ones have been the most used
+decks.
+
+#### What you've read
+
+Each time I finish a book I register it in a document with a rating and
+optionally a review. When doing the review I check which ones I read, which ones
+I liked more, what genres have been the most popular for me, which authors. With
+these data I create an analysis of what seems promising to read in the future.
+
+I also update the section of "what you've learnt" with the insights of these
+books.
+
+### Planning
+
+
+#### What to read
+With the analysis of what I've read I research for new books and create an
+ordered list per genre.
+
+## Life review
+
 # References
 
 ## Books

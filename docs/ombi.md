@@ -21,3 +21,4 @@ Sometimes one specific user continuously asks for a better quality of the conten
 
 - [Homepage](https://ombi.io/)
 - [Docs](https://docs.ombi.app/guides/installation/)
+- [Source](https://github.com/Ombi-app/Ombi)

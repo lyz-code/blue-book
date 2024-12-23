@@ -47,7 +47,61 @@ It's not very pleasant to use though.
 - Select "Install from Repository"
 - Choose "Kodi Jellyfin Add-ons", followed by "Video Add-ons"
 - Select the JellyCon add-on and choose install
+# Installation
+## [Enable hardware transcoding](https://jellyfin.org/docs/general/administration/hardware-acceleration/)
 
+### [Enable NVIDIA hardware transcoding](https://jellyfin.org/docs/general/administration/hardware-acceleration/nvidia)
+
+#### Remove the artificial limit of concurrent NVENC transcodings
+
+Consumer targeted [Geforce and some entry-level Quadro cards](https://developer.nvidia.com/video-encode-and-decode-gpu-support-matrix-new) have an artificial limit on the number of concurrent NVENC encoding sessions (max of 8 on most modern ones). This restriction can be circumvented by applying an unofficial patch to the NVIDIA Linux and Windows driver.
+
+To apply the patch:
+
+First check that your current version is supported `nvidia-smi`, if it's not try to upgrade the drivers to a supported one, or think if you need more than 8 transcodings.
+```bash
+# Download the patch
+wget https://raw.githubusercontent.com/keylase/nvidia-patch/refs/heads/master/patch.sh
+chmod +x patch.sh
+./patch.sh
+```
+
+If you need to rollback the changes run `./patch.sh -r`.
+
+You can also patch it [within the docker itself](https://github.com/keylase/nvidia-patch?tab=readme-ov-file#docker-support)
+
+```yaml
+services:
+  jellyfin:
+    image: jellyfin/jellyfin
+    user: 1000:1000
+    network_mode: 'host'
+    volumes:
+      - /path/to/config:/config
+      - /path/to/cache:/cache
+      - /path/to/media:/media
+    runtime: nvidia
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+```
+
+Restart the docker and then check that you can access the graphics card with:
+
+```bash
+docker exec -it jellyfin nvidia-smi
+```
+
+Enable NVENC in Jellyfin and uncheck the unsupported codecs.
+#### Tweak the docker-compose
+
+The official Docker image doesn't include any NVIDIA proprietary driver.
+
+You have to install the NVIDIA driver and NVIDIA Container Toolkit on the host system to allow Docker access to your GPU.
 # Missing features
 
 - Hide movie or tv show from my gallery: Tracked by these feature requests [1](https://features.jellyfin.org/posts/1072/let-the-user-hide-a-movie-or-tv-show) and [2](https://features.jellyfin.org/posts/116/add-hide-ignore-for-series-seasons-episodes-as-an-alternative-to-favorite)

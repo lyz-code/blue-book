@@ -12,7 +12,9 @@ nav:
           - antifascism.md
           - Antifascist Actions: antifascist_actions.md
       - Hacktivism:
-        - Gatherings: hacktivist_gatherings.md
+        - Gatherings: 
+          - hacktivist_gatherings.md
+          - Chaos Communication Congress: ccc.md
         - Collectives: hacktivist_collectives.md
         - Tools: 
           - Mobile Verification Toolkit: mobile_verification_toolkit.md
@@ -43,7 +45,6 @@ nav:
         - Action Management: action_management.md
         - Roadmap Adjustment: 
           - roadmap_adjustment.md
-          - Life review: life_review.md
           - Strategy: strategy.md
           - Systems Thinking: systems_thinking.md
         - Roadmap Management Tools:
@@ -130,6 +131,9 @@ nav:
           - Ombi: ombi.md
           - Mediatracker: mediatracker.md
           - ffmpeg: ffmpeg.md
+          - transcoding: 
+            - transcoding.md
+            - unmanic: unmanic.md
           - Kodi: kodi.md
         - News Management: 
           - news_management.md
@@ -366,6 +370,8 @@ nav:
                     - Telescope: telescope.md
                   - Editing specific configuration:
                     - vim_editor_plugins.md
+                    - Vim formatters: vim_formatters.md
+                    - Vim autocomplete: vim_completion.md
                     - Vim markdown: vim_markdown.md
                     - Vim spelling: vim_spelling.md
                     - Vim autosave: vim_autosave.md

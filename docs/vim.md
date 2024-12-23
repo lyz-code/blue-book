@@ -42,9 +42,45 @@ Configuring `vim` is a never ending life experience. As such, it deserves it's o
 
 When you run into problems run `:checkhealth` to see if it rings a bell. If that doesn't help you maybe [I've encountered your particular problem](vim_troubleshooting.md).
 
+## [Disable autoformat for some buffers](https://www.lazyvim.org/configuration/tips#disable-autoformat-for-some-buffers)
+
+If you want to disable autoformat for a certain buffer, then set `vim.b.autoformat = false` for that buffer.
+```lua
+-- Disable autoformat for lua files
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = { "lua" },
+  callback = function()
+    vim.b.autoformat = false
+  end,
+})
+
+```
+
+If you change your mind you can do <leader>uf to enable autoformat anyway for that buffer.
 ## [<c-i> is not well mapped](https://github.com/neovim/neovim/issues/5916)
 It's because `<c-i>` is a synonym of `<TAB>`.
 
+# Debugging
+
+## Debugging with prints
+
+Add `echom` statements. For example:
+
+```vim
+function! himalaya#domain#email#list_with(account, folder, page, query) abort
+  echom "Account: " . a:account
+  echom "Folder: " . a:folder
+  echom "Page: " . a:page
+  echom "Query: " . a:query
+  call himalaya#request#plain({
+  \ 'cmd': 'envelope list --folder %s --account %s --max-width %d --page-size %d --page %d %s',
+  \ 'args': [shellescape(a:folder), shellescape(a:account), s:bufwidth(), winheight(0) - 1, a:page, a:query],
+  \ 'msg': printf('Fetching %s envelopes', a:folder),
+  \ 'on_data': {data -> s:list_with(a:folder, a:page, data)}
+  \})
+endfunction
+
+```
 # Resources
 
 - [Home](https://neovim.io/)
