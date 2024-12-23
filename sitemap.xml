@@ -209,6 +209,10 @@
          <lastmod>2024-12-23</lastmod>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/ccc/</loc>
+         <lastmod>2024-12-23</lastmod>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/changedetection/</loc>
          <lastmod>2024-12-23</lastmod>
     </url>
@@ -706,10 +710,6 @@
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/life_management/</loc>
-         <lastmod>2024-12-23</lastmod>
-    </url>
-    <url>
-         <loc>https://lyz-code.github.io/blue-book/life_review/</loc>
          <lastmod>2024-12-23</lastmod>
     </url>
     <url>
@@ -1405,11 +1405,19 @@
          <lastmod>2024-12-23</lastmod>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/transcoding/</loc>
+         <lastmod>2024-12-23</lastmod>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/tridactyl/</loc>
          <lastmod>2024-12-23</lastmod>
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/typer/</loc>
+         <lastmod>2024-12-23</lastmod>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/unmanic/</loc>
          <lastmod>2024-12-23</lastmod>
     </url>
     <url>
@@ -1453,6 +1461,10 @@
          <lastmod>2024-12-23</lastmod>
     </url>
     <url>
+         <loc>https://lyz-code.github.io/blue-book/vim_completion/</loc>
+         <lastmod>2024-12-23</lastmod>
+    </url>
+    <url>
          <loc>https://lyz-code.github.io/blue-book/vim_config/</loc>
          <lastmod>2024-12-23</lastmod>
     </url>
@@ -1470,6 +1482,10 @@
     </url>
     <url>
          <loc>https://lyz-code.github.io/blue-book/vim_foldings/</loc>
+         <lastmod>2024-12-23</lastmod>
+    </url>
+    <url>
+         <loc>https://lyz-code.github.io/blue-book/vim_formatters/</loc>
          <lastmod>2024-12-23</lastmod>
     </url>
     <url>
