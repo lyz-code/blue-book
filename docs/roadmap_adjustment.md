@@ -7,19 +7,25 @@ Roadmap adjustment can be categorized by the next approaches:
 - [Purpose](#roadmap-adjustments-by-purpose)
 
 # Roadmap adjustment thoughts
+
 Before you dive in here are some warnings
 
-## Build your own proceses 
-Each of the adjustments defined below describe my curated process developed over the years, you can use them as a starting point to define what works for you or to get some ideas. Each of us is different and want to spend on this a different amount of time. 
-## Keep them simple 
+## Build your own proceses
+
+Each of the adjustments defined below describe my curated process developed over the years, you can use them as a starting point to define what works for you or to get some ideas. Each of us is different and want to spend on this a different amount of time.
+
+## Keep them simple
 
 It's important for the proceses to be light enough that you want to actually do them, so you see it as a help instead of a burden. It's always better to do a small and quick ones rather than nothing at all. At the start of the process analyze yourself to assess how much energy and time do you have and decide which steps of the guides below you want to follow.
+
 ## Alive proceses
 
 These adjustments have to reflect ourselves and our environment. As we change continuously, so will our adjustment proceses.
 
 I've gone for full blown adjustments of locking myself up for a week to not doing any for months. And that is just fine, these tools are there to help us only if we want to use them.
+
 ## These guides are heavily orgmode oriented
+
 These guides heavily uses [orgmode](orgmode.md), my currently chosen [action tool](roadmap_tools.md), but that doesn't mean that the concepts can be applicable to other tools.
 
 # Roadmap adjustment types
@@ -31,6 +37,7 @@ There are three types of roadmap adjustment if we split them by process type:
 - [Plannings](#plannings): Update your roadmap given the changes in your life
 
 ## Refinements
+
 The real trick to ensuring the trustworthiness of the whole time management system lies in regularly refreshing your thinking and your system from a more elevated perspective. That's impossible to do if your lists fall too far behind your reality. A good way to update the system is through periodic refinements.
 
 At some point you may feel the need to clarify the larger outcomes, the long-term goals, the visions and principles that ultimately drive your decisions. I'd advice against taking this step until you can keep your everyday world under control, otherwise you may undermine your motivation and energy rather than enhance them. Once you feel that you have an abstraction level under control jump to the next. Keep in mind that abstraction conquests are not permanent, life may break havoc and make you loose control of the lower levels, it's good then to step down and tidy things up even if it means disregarding higher abstractions.
@@ -43,7 +50,9 @@ We need a process to review each level of abstraction:
 - [Action refinement](#action-refinement)
 - [Project refinement](#project-refinement)
 - [Area refinement](#area-refinement)
+
 ## Reviews
+
 Reviews are proceses to stop your daily life and do introspections to gather insights about your environment and yourself to better build an efficient and effective roadmap.
 
 Reviews can be done at different levels of purpose, each level gives you different benefits.
@@ -51,7 +60,9 @@ Reviews can be done at different levels of purpose, each level gives you differe
 - [Personal integrity review](#personal-integrity-review)
 - [Quarter review](#quarter-review)
 - [Year review](#year-review)
+
 ### Reviews guidelines
+
 #### Review approaches
 
 In the past I used the [life logging](life_logging.md) tools to analyze the past in order to understand what I achieved and take it as a base to learn from my mistakes. It was useful when I needed the endorphines boost of seeing all the progress done. Once I assumed that progress speed and understood that we always do the best we can given how we are, I started to feel that the review process was too cumbersome and that it was holding me into the past.
@@ -60,11 +71,12 @@ Nowadays I try not to look back but forward, analyze the present: how I feel, ho
 
 The reviews below then follow that second approach.
 
-
 #### Reviews as deadlines
 
 Reviews can also be used as deadlines. Sometimes deadlines helps us get motivation and energy to achieve what we want if we feel low. But remember not to push yourself too hard. If deadlines do you more wrong than right, don't use them. All these tools are meant to help us, not to bring us down.
+
 ## Plannings
+
 Life planning can be done at different levels. All of them help you in different ways to reduce the mental load, each also gives you extra benefits that can't be gained by the others. Going from lowest to highest abstraction level we have:
 
 - [Day plan](#make-a-day-plan).
@@ -72,8 +84,11 @@ Life planning can be done at different levels. All of them help you in different
 - Month plan.
 - Quarter plan.
 - Year plan.
+
 # Roadmap adjustments by abstraction level
+
 ## [Step](time_management_abstraction_levels.md#step)
+
 ### Step refinement
 
 The purpose is to make sure that the step description meets the next criteria:
@@ -85,10 +100,12 @@ It can be done:
 
 - When you create a new step.
 - Each time you read a step and feel that it doesn't meet the criteria.
+
 ## [Action](time_management_abstraction_levels.md#action)
+
 ### Action refinement
 
-It fulfills these purposes: 
+It fulfills these purposes:
 
 - Define the steps required to finish a action.
 - Make sure that the action still reflects a real need.
@@ -103,27 +120,30 @@ develop the invaluable skill of breaking big problems into smaller ones.
 It can be done differently at different moments:
 
 - When you create a new action:
+
   - Decide what do you want to achieve when the action is finished.
   - Create a descriptive action title.
   - Analyze the possible ways to arrive to that outcome. Try to assess different
     solutions before choosing one.
-  - Create a list of [refined steps](#step-refinement) for each of them. 
+  - Create a list of [refined steps](#step-refinement) for each of them.
   - Optionally add [context tags](orgmode.md#tags)
 
 - When you finish a step, don't know how to go on so you need to look at the step lists and the next one is not refined enough:
+
   - Mark the done steps as done.
   - Do the [step refinement](#step-refinement) of the immediate next one.
 
 - When you're working on the action and feel that it needs an update: It can be because:
+
   - You've been working for a while on steps of a action that are not defined in the plan and feel that you've passed several bifurcations that you want to investigate and are afraid to forget them. For example imagine that your action plan looks like this:
-      
+
     ```orgmode
     - [ ] Do A
     - [ ] Do B
     ```
 
     But while working on A you've actually done:
-    
+
     ```orgmode
     - [ ] Do A
       - [x] Do A.1
@@ -134,7 +154,7 @@ It can be done differently at different moments:
       - [ ] Investigate A.3
     - [ ] Do B
     ```
-    
+
     If you find yourself doing 'Do A.2.2' but are afraid of loosing 'Investigate A.2.3' and 'Investigate A.3', go back to the action plan and update it to meet the current state. There is no need to fill in the things that you've done. Only the ones that you still want to do.
 
   - When you realize that the circumstances have changed enough that you need to update the action step list or title.
@@ -151,13 +171,14 @@ The refinement precision needs to be incremental. It doesn't make sense to have 
 
 #### Action cleaning
 
-Marking steps as done make help you get an idea of the evolution of the action. It can also be useful if you want to do some kind of reporting. On the other hand, having a long list of done steps (specially if you have many levels of step indentation may make the finding of the next actionable step difficult. It's a good idea then to often clean up all done items. 
+Marking steps as done make help you get an idea of the evolution of the action. It can also be useful if you want to do some kind of reporting. On the other hand, having a long list of done steps (specially if you have many levels of step indentation may make the finding of the next actionable step difficult. It's a good idea then to often clean up all done items.
 
-If you don't care about the traceability of what you've done simply delete the done lines. If you do, until there is a more automated way: 
+If you don't care about the traceability of what you've done simply delete the done lines. If you do, until there is a more automated way:
 
 - For non recurring actions use the `LOGBOOK` to move the done steps. for example:
+
   ```orgmode
-  ** DOING Do X 
+  ** DOING Do X
      :LOGBOOK:
      - [x] Done step 1
      - [-] Doing step 2
@@ -172,11 +193,13 @@ If you don't care about the traceability of what you've done simply delete the d
 - For recurring actions:
   - Mark the steps as done
   - Archive the todo element.
-  - Undo the archive. 
+  - Undo the archive.
   - Clean up the done items.
 
 This way you have a snapshot of the state of the action in your archive.
+
 ## [Project](time_management_abstraction_levels.md#project)
+
 ### Project refinement
 
 The purpose is to ensure that given the current circumstances:
@@ -198,12 +221,12 @@ This kind of refinement allows you to dig deeper in whichever path you're headin
   - Mark done actions as done and archive them.
 - If you need create new actions with the minimal refinement to register your idea.
 - Change the order of the actions to meet current priorities.
-- Do a [action refinement](#action-refinement) for the most imminent one. 
+- Do a [action refinement](#action-refinement) for the most imminent one.
 - Optionally add [context tags](orgmode.md#tags)
 
 #### Think outside the box project refinement
 
-[Rabbit hole project refinement](#rabbit-hole-project-refinement) is the best way to reach the destination you're heading to. It may not be the optimal one though. As you have you're head deep into the rabbit hole it's easy to miss better alternative paths to reach the project objective. 
+[Rabbit hole project refinement](#rabbit-hole-project-refinement) is the best way to reach the destination you're heading to. It may not be the optimal one though. As you have you're head deep into the rabbit hole it's easy to miss better alternative paths to reach the project objective.
 
 It could be interesting to use techniques that help you discover these paths for example in a [weekly planning](#the-weekly-planning).
 
@@ -213,10 +236,11 @@ Similar to [action cleaning](#action-cleaning) we want to keep the state clean. 
 
 For recurring projects:
 
-  - Mark the actions as done
-  - Archive the project element.
-  - Undo the archive. 
-  - Clean up the done items.
+- Mark the actions as done
+- Archive the project element.
+- Undo the archive.
+- Clean up the done items.
+
 ## [Area](time_management_abstraction_levels.md#area)
 
 ### Area review
@@ -228,6 +252,7 @@ It may be useful to ask the following questions of your own life. It doesn't mat
 Stop and really ask your gut about the area itself, if you're fine with your current path, if you really want to follow the direction you're headed to.
 
 #### What does your reason tell you about the area?
+
 #### Where are you currently pursuing comfort, when what's called for is a little discomfort?
 
 Pursuing the life projects that matter to you the most will almost always entail not feeling fully in control of your time, immune to the painful assaults of reality, or confident about the future, or maybe you've fallen into the inertia of the current situation.
@@ -244,35 +269,36 @@ We often set ourselves inherently impossible targets. These must always be postp
 
 There is a sort of cruelty in holding yourself to standards nobody could ever reach (and which many of us would never dream of demanding of other people). The more humane approach is to drop such efforts as completely as you can. Let your impossible standards crash to the ground. Then pick a few meaningful actions from the rubble and get started on them.
 
-For each identified standard ask yourself: *what would you do differently with your time, today, if you knew in your bones that salvation was never coming?*
+For each identified standard ask yourself: _what would you do differently with your time, today, if you knew in your bones that salvation was never coming?_
 
 #### In what ways have you yet to accept the fact that you are who you are, not the person you think you ought to be?
 
 A closely related way to postpone the confrontation with finitude is to treat your present-day life as part of a journey toward becoming the kind of person you believe you ought to become.
 
-This quest to justify your existence in the eyes of some outside authority can continue long into adulthood. But at a certain age it finally dawns on us that, shockingly, no one really cares what we're doing with our life. This is a most unsettling discovery to those of us who have lived someone else’s life and eschewed our own: no one really cares except us. 
+This quest to justify your existence in the eyes of some outside authority can continue long into adulthood. But at a certain age it finally dawns on us that, shockingly, no one really cares what we're doing with our life. This is a most unsettling discovery to those of us who have lived someone else’s life and eschewed our own: no one really cares except us.
 
 The attempt to attain security by justifying your existence, it turns out, was both futile and unnecessary all along. Futile because life will always feel uncertain and out of your control. And unnecessary because, in consequence, there’s no point in waiting to live until you’ve achieved validation from someone or something else. Peace of mind, and an exhilarating sense of freedom, comes not from achieving the validation but from yielding to the reality that it wouldn’t bring security if you ever got it.
 
-I’m convinced, in any case, that it is from this position of not feeling as though you need to earn your time on the planet that you can do the most genuine good with it.  Once you no longer feel the stifling pressure to become a particular kind of person, you can confront the personality, the strengths and weaknesses, the talents and enthusiasms you find yourself with, here and now, and follow where they lead.
+I’m convinced, in any case, that it is from this position of not feeling as though you need to earn your time on the planet that you can do the most genuine good with it. Once you no longer feel the stifling pressure to become a particular kind of person, you can confront the personality, the strengths and weaknesses, the talents and enthusiasms you find yourself with, here and now, and follow where they lead.
 
 #### Where are you holding back until you feel like you know what you’re doing?
 
 It’s easy to spend years treating your life as a dress rehearsal on the rationale that what you’re doing, for the time being, is acquiring the skills and experience that will permit you to assume authoritative control of things later on. But I sometimes think of my journey through adulthood to date as one of incrementally discovering the truth that there is no institution, no walk of life, in which everyone isn’t just winging it, all the time.
 
-It’s alarming to face the prospect that you might never truly feel as though you know what you’re doing. But it’s liberating, too, because it removes a central reason for feeling self-conscious or inhibited about your performance in those domains in the present moment: if the feeling of total authority is never going to arrive, you might as well not wait any longer to give such activities everything you have. 
+It’s alarming to face the prospect that you might never truly feel as though you know what you’re doing. But it’s liberating, too, because it removes a central reason for feeling self-conscious or inhibited about your performance in those domains in the present moment: if the feeling of total authority is never going to arrive, you might as well not wait any longer to give such activities everything you have.
 
 It's even more liberating to reflect that everyone else is in the same boat, whether they're aware of it or not.
 
 #### How would you spend your time differently in the area if you didn’t care so much about seeing your actions reach fruition?
 
-A final common manifestation of the desire for time mastery arises from the idea that the true value of how we spend our time is always and only to be judged by the results. It follows naturally enough from this outlook that you should focus your time on those actions for which you expect to be around to see the results. 
+A final common manifestation of the desire for time mastery arises from the idea that the true value of how we spend our time is always and only to be judged by the results. It follows naturally enough from this outlook that you should focus your time on those actions for which you expect to be around to see the results.
 
 Yet there is a sense in which that most meaningful projects aren't completable within our own lifetimes. All such activities always belong to a far bigger temporal context, with an ultimate value that will only be measurable long after we’re gone or perhaps never. And so it’s worth asking: What actions might it be meaningful to undertake today, if you could come to terms with never seeing the results?
 
 ### Area refinement
 
 ### Area planning
+
 The purpose is to ensure that the area roadmap is the optimal way to reach the area goal given the current circumstances. We do it by following the next steps:
 
 - Check the goals of the area
@@ -282,9 +308,10 @@ The purpose is to ensure that the area roadmap is the optimal way to reach the a
 - Adjust the roadmap (at project level) accordingly.
 
 This can't be done on the frenzy of everyday as you're prone to fall into any rabbit hole you're headed to. This is the first refinement that needs it's own time and reflection. As projects don't change very often, it makes sense to do it as part of the [monthly planning](#the-monthly-planning).
+
 ## [Axis](time_management_abstraction_levels.md#axis)
 
-It's difficult to define a roadmap and even harder to follow it. 
+It's difficult to define a roadmap and even harder to follow it.
 
 ### Define it's essential intent
 
@@ -304,7 +331,9 @@ Answer the next questions:
 It's not enough to simply determine which activities and efforts don't make the best possible contribution towards it; you still have to actively eliminate those that do not.
 
 The first type of nonessential to eliminate is any project or action that is misaligned with what you are intending to achieve.
+
 # Roadmap adjustments by purpose
+
 Given the level of control of your life you can do the next adjustments:
 
 - [Survive the day](#survive-the-day)
@@ -315,8 +344,13 @@ Given the level of control of your life you can do the next adjustments:
 
 As you master a purpose level you will have more experience and tools to manage more efficiently your life at the same time that you have less stress and mental load due to the reduction of uncertainty. This new state in theory (if life lets you) will eventually give you the energy to jump to the next purpose levels.
 
+The idea of each adjustment is that it's not cumbersome, so I've decided to set a fixed time for each one, I assume that I'll do my best on both processes and wherever I reach is just fine (remember, better done than perfect).
+
+I believe on the power of constant small changes, so the next review will be built on top of the current one, and thus it will be done better and faster.
+
 ## Survive the day
-At this level you're with your eyes closed and only react when life throws stuff at you. You'll surely be surprised of what and how hard it hits you, so probably you won't be able to address them the best way. You just want it to stop. This adjustment level aims to let you handle those hits without missing the stuff you need to do. 
+
+At this level you're with your eyes closed and only react when life throws stuff at you. You'll surely be surprised of what and how hard it hits you, so probably you won't be able to address them the best way. You just want it to stop. This adjustment level aims to let you handle those hits without missing the stuff you need to do.
 
 This adjustment is split in the next parts:
 
@@ -324,8 +358,12 @@ This adjustment is split in the next parts:
 - [Make a day plan](#make-a-day-plan)
 - [Follow the day plan](#follow-the-day-plan)
 - [Control your inbox](#control-your-inbox)
+
+This review could be done between 10 and 30 minutes.
+
 ### Get used to work with simple actions
-We'll start building a system that helps us not to die in agony at life aggressions with the spare energy left. 
+
+We'll start building a system that helps us not to die in agony at life aggressions with the spare energy left.
 
 One way to do it is to choose the tools to manage your life. Start small, only trying to manage the [step](#step) and [action](#action) roadmap adjustments. [The simplest action manager](roadmap_tools.md#the-simplest-action-manager) is a good start.
 
@@ -333,7 +371,7 @@ One way to do it is to choose the tools to manage your life. Start small, only t
 
 This plan defines at day level which actions are you going to work on and schedules when are you going to address them. The goal is to survive the day. It's a good starting point if you forget to do actions that need to be done in the day or if you miss appointments.
 
-It's interesting to make your plan at the start of the day. 
+It's interesting to make your plan at the start of the day.
 
 I follow the next steps:
 
@@ -350,6 +388,7 @@ I follow the next steps:
 - Write the objectives of the day
 
 To make it easy to follow I use a bash script that asks me to follow these steps.
+
 ### Follow the day plan
 
 There are two tools that will help to follow the day plan:
@@ -360,12 +399,16 @@ There are two tools that will help to follow the day plan:
 ### Control your inbox
 
 The [Inbox](roadmap_tools.md#inbox) is a nasty daemon that loves to get out of control. You need to develop your inbox cleaning skills and proceses up to the point that you're sure that the important stuff tracked where it should be tracked. So far aiming to have a 0 element inbox is unrealistic though, at least for me.
+
 ## Survive the week
-At this level you're able to open your myopic eyes, so you start to guess what life throws at you. This may be enough to be able to gracefully handle some of the small stuff. The fast ones will still hit you though as you still don't have too much time or definition to react. 
+
+At this level you're able to open your myopic eyes, so you start to guess what life throws at you. This may be enough to be able to gracefully handle some of the small stuff. The fast ones will still hit you though as you still don't have too much time or definition to react.
 
 This adjustment is whatever you need to do to get your head empty again and get oriented for the next 9 days. It's split in the next phases:
 
 - [Week plan](#week-plan)
+
+This review could be done between 20 and 40 minutes.
 
 ### Week plan
 
@@ -373,7 +416,7 @@ No matter how good our intentions or system may be, you're going to take in more
 
 The plan defines at a 9 day time scale which projects are you going to work on. It's the next roadmap level to address a group of actions. The goal changes from surviving the day to start planning your life. It's a good starting point if you are comfortable working with the pomodoro, action and day plans, and want to start deciding where you're heading to.
 
-Make your plan at meaningful days both to make it more effective and to make it more difficult to skip it. Maybe you can do it at the start of the week. I personally do it on Thursdays because it's when I have more information about the weekend events and I have some free time. 
+Make your plan at meaningful days both to make it more effective and to make it more difficult to skip it. Maybe you can do it at the start of the week. I personally do it on Thursdays because it's when I have more information about the weekend events and I have some free time.
 
 I follow the next steps:
 
@@ -385,15 +428,22 @@ I follow the next steps:
 When doing the plan try to minimize the number of actions and calendar appointments so as not to get overwhelmed. It's better to eventually fall short on actions, than never reaching your goal.
 
 To make it easy to follow I use a bash script that asks me to follow these steps.
-## Ride the month
-At this level you not only had time to polish your roadmap adjustment skills, but also had the chance the buy some glasses for your myopic eyes! The increase in definition and time to react to what life throws at you lets you get almost no hits `＼\ ٩( ᐛ )و /／`. 
 
-Now that you have stopped worrying for your integrity, you start to hear a little voice from within yourself that gives you signals from your body and brain about what worries you, what makes you happy, what makes you mad, ... Has it been yelling all this time?  `(¬º-°)¬`.
+## Ride the month
+
+At this level you not only had time to polish your roadmap adjustment skills, but also had the chance the buy some glasses for your myopic eyes! The increase in definition and time to react to what life throws at you lets you get almost no hits `＼\ ٩( ᐛ )و /／`.
+
+Now that you have stopped worrying for your integrity, you start to hear a little voice from within yourself that gives you signals from your body and brain about what worries you, what makes you happy, what makes you mad, ... Has it been yelling all this time? `(¬º-°)¬`.
 
 At this adjustment level we'll start using the next abstraction level, the [objectives] is whatever you need to do to get your head empty again and get oriented for the next 9 days. It's split in the next phases:
 
+- Personal integrity review
+- Month's planning
+
+This review could be done between 1 and 2 hours.
 
 ### Personal integrity review
+
 The objectives of the personal integrity review are:
 
 - Identify how you feel and what worries you.
@@ -413,11 +463,12 @@ As it's a process we're going to do very often, we need it to be relatively quic
 
 With a new level of abstraction we need tools:
 
-- The *Review box*: It's the place you leave notes for yourself when you do the review, it can be for example a physical folder or a computer text file. I use a file called `review_box.org`. It's filled after the refile of review elements captured in the rest of my inboxes.
+- The _Review box_: It's the place you leave notes for yourself when you do the review, it can be for example a physical folder or a computer text file. I use a file called `review_box.org`. It's filled after the refile of review elements captured in the rest of my inboxes.
 
-- The *Month checks*: It's a list of elements you want to periodically check its evolution throughout time. It's useful to analyze the validity of theories or new processes. I use the heading `Month checks` in a file called `life_checks.org`.
+- The _Month checks_: It's a list of elements you want to periodically check its evolution throughout time. It's useful to analyze the validity of theories or new processes. I use the heading `Month checks` in a file called `life_checks.org`.
 
-- The *Objective list*: It's a list of elements you want to focus your energies on. It should be easy to consult. I started with a list per month in a file called `objectives.org` and then migrated to the [life path document](#the-life-path-document).
+- The _Objective list_: It's a list of elements you want to focus your energies on. It should be easy to consult. I started with a list per month in a file called `objectives.org` and then migrated to the [life path document](#the-life-path-document).
+
 #### Personal integrity review phases
 
 We'll divide the review process in these phases:
@@ -431,23 +482,23 @@ We'll divide the review process in these phases:
 
 It's important that you prepare your environment for the review. You need to be present and fully focused on the process itself. To do so you can:
 
-- Make sure you don't get interrupted: 
-    - Check your action manager tools to make sure that you don't have anything urgent to address in the next hour.
-    - Disable all notifications
+- Make sure you don't get interrupted:
+  - Check your action manager tools to make sure that you don't have anything urgent to address in the next hour.
+  - Disable all notifications
 - Set your analysis environment:
-    - Put on the music that helps you get *in the zone*. I found it meaningful to select the best new music I've discovered this month.
-    - Get all the things you may need for the review:
-        - The checklist that defines the process of your review (this document in my case).
-        - Somewhere to write down the insights.
-        - Your *Review box*.
-        - Your *life path document*.
-    - Remove from your environment everything else that may distract you
-        - Close all windows in your laptop that you're not going to use
+  - Put on the music that helps you get _in the zone_. I found it meaningful to select the best new music I've discovered this month.
+  - Get all the things you may need for the review:
+    - The checklist that defines the process of your review (this document in my case).
+    - Somewhere to write down the insights.
+    - Your _Review box_.
+    - Your _life path document_.
+  - Remove from your environment everything else that may distract you
+    - Close all windows in your laptop that you're not going to use
 
 To record the results of the review create the file `references/reviews/YYYY_MM.org`, where the month is the one that is ending with the following template:
 
 ```org
-:inow: 
+:inow:
 * Discover
 * Analyze
 * Decide
@@ -462,38 +513,45 @@ There are different paths to discover actionable items:
 - Analyze what is in your mind: Take 10 minutes to answer to the next questions (you don't need to answer them all):
 
   - What did you enjoy most this last month?
-    - [ ] 
+
+    - [ ]
 
   - What do you desire right now?
-    - [ ] 
+
+    - [ ]
 
   - What worries you right now?
-    - [ ] 
+
+    - [ ]
 
   - What did drain your energy or brought you down emotionally this last month?
-    - [ ] 
+
+    - [ ]
 
   - What month accomplishments are you proud of?
-    - [ ] 
+
+    - [ ]
 
   - Where is your mind these days?
-    - [ ] 
+
+    - [ ]
 
   - What did help you most this last month?
-    - [ ] 
+
+    - [ ]
 
   - What do you want for the next month?
-    - [ ] 
-  Notice that we do not need to review our life logging tools (diary, action manager, ...) to answer these questions. This means that we're doing an analysis of what is in our minds right now, not throughout the month. It's flawed but as we do this analysis often, it's probably fine. We add more importance to the latest events in our life anyway.
+    - [ ] Notice that we do not need to review our life logging tools (diary, action manager, ...) to answer these questions. This means that we're doing an analysis of what is in our minds right now, not throughout the month. It's flawed but as we do this analysis often, it's probably fine. We add more importance to the latest events in our life anyway.
 
 - Empty the elements you added to the `review box`.
 
 - Process your `Month checks`. For each of them:
+
   - If you need, add action elements in the `Discover` section of the review.
-  - Think of whether you've met the check. 
+  - Think of whether you've met the check.
 
 - Process your `Month objectives`. For each of them:
-  - Think of whether you've met the objective. 
+  - Think of whether you've met the objective.
   - If you need, add action elements in the `Discover` section of the review.
   - If you won't need the objective in the next month, archive it.
 
@@ -501,22 +559,22 @@ There are different paths to discover actionable items:
 
 Of all the identified elements we need to understand them better to be able to choose the right path to address them. These elements are usually representations of a state of our lives that we want to change.
 
-- For each of them if you can think of an immediate solution to address the element add it to the `Decide` section otherwise add them to the `Analyze`. 
+- For each of them if you can think of an immediate solution to address the element add it to the `Decide` section otherwise add them to the `Analyze`.
 - Order the elements in `Analyze` in order of priority
 
 Then allocate 20 minutes to think about them. Go from top to bottom transitioning once you feel it's analyzed enough. You may not have time to analyze all of them. That's fine. Answering the next questions may help you:
 
-- What defines the state we want to change? 
+- What defines the state we want to change?
 - What are the underlying forces in your life that made you reach that state?
 - To what state you want to transition to?
-- What is the easiest way to reach that destination? 
+- What is the easiest way to reach that destination?
 
 For the last question you can resort to:
 
-   - What defines the state we want to change? 
-   - What are the underlying forces in your life that made you reach that state?
-   - To what state you want to transition to?
-   - What is the easiest way to reach that destination? 
+- What defines the state we want to change?
+- What are the underlying forces in your life that made you reach that state?
+- To what state you want to transition to?
+- What is the easiest way to reach that destination?
 
 Once you have analyzed an element copy all the decisions you've made in the `Decide` section of your review document in an orgmode checkbox list.
 
@@ -527,7 +585,7 @@ Once you have a clear definition of the current state, the new and how to reach 
 - Identify hard deadlines: Add a warning days before the deadline to make sure you're reminded until it's done.
 - Create or tweak a habit
 - Tweak your project and actions definitions
-- Create *checks* to make sure that they are not overseen. 
+- Create _checks_ to make sure that they are not overseen.
 - Create objectives that will be checked in the next reviews (weekly and monthly).
 - Add an element to the `planning box` if it's not clear enough to be added as objective.
 - Create [Anki](anki.md) cards to keep the idea in your mind.
@@ -536,10 +594,10 @@ Finally pat yourself in the shoulder as you've finished the review ^^.
 
 ### Month's planning
 
-Objectives are: 
+Objectives are:
 
 - Identify deadlines.
-- Define the month objectives according to the quarter plan and the insights gathered in the past month review. 
+- Define the month objectives according to the quarter plan and the insights gathered in the past month review.
 - Make your backlog and todo list match the month objectives
 - Define the topics to learn
 - Define the habits to incorporate
@@ -557,27 +615,27 @@ We'll divide the planning process in these phases:
 
 It's important that you prepare your environment for the planning. You need to be present and fully focused on the process itself. To do so you can:
 
-- Make sure you don't get interrupted: 
-    - Check your action manager tools to make sure that you don't have anything urgent to address in the next hour.
-    - Disable all notifications
+- Make sure you don't get interrupted:
+  - Check your action manager tools to make sure that you don't have anything urgent to address in the next hour.
+  - Disable all notifications
 - Set your analysis environment:
-    - Put on the music that helps you get *in the zone*.
-    - Get all the things you may need for the review:
-        - The checklist that defines the process of your planning (this document in my case).
-        - Somewhere to write down the insights.
-        - Your action manager system
-        - Your habit manager system
-        - Your *Objective list*.
-        - Your *Thinking list*.
-        - Your *Reading list*.
-    - Remove from your environment everything else that may distract you
+  - Put on the music that helps you get _in the zone_.
+  - Get all the things you may need for the review:
+    - The checklist that defines the process of your planning (this document in my case).
+    - Somewhere to write down the insights.
+    - Your action manager system
+    - Your habit manager system
+    - Your _Objective list_.
+    - Your _Thinking list_.
+    - Your _Reading list_.
+  - Remove from your environment everything else that may distract you
 
-#### Clarify your state 
+#### Clarify your state
 
 To be able to make a good decision on your month's path you need to sort out which is your current state. To do so:
 
 - Clean your todo: Review each todo element by deciding if they should still be in the todo. If they do and they belong to a month objective, add it. If they don't need to be in the todo, refile it.
-- Clean your agenda and get an feeling of the busyness of the month: 
+- Clean your agenda and get an feeling of the busyness of the month:
   - Open the orgmode month view agenda and clean it
   - Read the rest of your calendars
 
@@ -586,7 +644,7 @@ To be able to make a good decision on your month's path you need to sort out whi
 Create the month objectives in your roadmap file after addressing each element of:
 
 - The quarter objectives of your roadmap.
-  - You can add notes on the quarter objectives 
+  - You can add notes on the quarter objectives
 - The `planning_box.org` file
 
 Then reorder the objectives in order of priority. Try to have at least one objective that improves your life.
@@ -594,46 +652,53 @@ Then reorder the objectives in order of priority. Try to have at least one objec
 #### Decide the next steps
 
 - For each of your month and quarter objectives:
+
   - Decide whether it makes sense to address it this month. If not, mark it as inactive
-  - Create a clear plan of action for this month on that objective. 
-    - Reorder the projects as needed 
+  - Create a clear plan of action for this month on that objective.
+    - Reorder the projects as needed
     - Mark as INACTIVE the ones that you don't feel need to be focused on this month.
 
-- Refine the roadmap of each of the selected areas (change this to the trimestral planning) 
+- Refine the roadmap of each of the selected areas (change this to the trimestral planning)
 - Define the todo of each device (mobile, tablet, laptop)
 - Select at least one coding project in case you enter in programming mode
 - Clean your mobile browser tabs
-- Tweak your *things to think about list*.
-- Tweak your *investigations list*.
-- Tweak your *reading list*.
+- Tweak your _things to think about list_.
+- Tweak your _investigations list_.
+- Tweak your _reading list_.
 - Tweak your learning list.
-- Tweak your *habit manager system*.
-## Dream about the quarter 
+  - Have always something to read in the mobile
+- Tweak your _habit manager system_.
+
+## Dream about the quarter
 
 Now that we know how to read and react to the signals our inner self sends we are in a better position to align our roadmap with what we understand for a fulfilling life. We'll get into the philosophical ground of discovering life's meaning. I wanted to say answer the question, but I'm increasingly convinced that there is no answer and that the best we can aim to is to leave our thoughts guide us without any certainty.
 
 At this level we'll need to increase the level of abstraction, and for that we'll use the next artifacts:
 
-- [Axis](time_management_abstraction_levels.md#axis): A group of areas that fit together under the same umbrella. 
+- [Axis](time_management_abstraction_levels.md#axis): A group of areas that fit together under the same umbrella.
 - [Essential intent]()
 
+This review could be done throughout one month of thinking, and a week of actually doing it. So currently I'm leaving the last day of the month for the month's adjustment, and the previous 6 days to the quarter adjustment.
+
 ### Quarter review
+
 The objectives of the quarter review are:
 
 - Identify the essential intent you want to follow on each [axis](time_management_abstraction_levels.md#axis) of your life.
 - Identify the areas to focus on for the quarter
-- Review the previous quarter tactics 
+- Review the previous quarter tactics
 
 The objectives are not:
 
 - To review what you've done or why you didn't get there.
+
 #### When to do the quarter reviews
 
 As with [personal integrity review](#personal-integrity-review), it's interesting to do analysis at representative moments. It gives it an emotional weight. You can for example use the solstices or my personal version of the solstices:
 
-- Spring analysis (1st of March): For me the spring is the real start of the year, it's when life explodes after the stillness of the winter. The sun starts to set later enough so that you have light in the afternoons, the climate gets warmer thus inviting you to be more outside, the nature is blooming new leaves and flowers. It is then a moment to build new projects and set the current year on track. 
+- Spring analysis (1st of March): For me the spring is the real start of the year, it's when life explodes after the stillness of the winter. The sun starts to set later enough so that you have light in the afternoons, the climate gets warmer thus inviting you to be more outside, the nature is blooming new leaves and flowers. It is then a moment to build new projects and set the current year on track.
 
-- Summer analysis (1st of June): I hate heat, so summer is a moment of retreat. Everyone temporarily stop their lives, we go on holidays and all social projects slow their pace. Even the news have even less interesting things to report. It's so hot outside that some of us seek the cold refuge of home or remote holiday places. Days are long and people love to hang out till late, so usually you wake up later, thus having less time to actually do stuff. Even in the moments when you are alone the heat drains your energy to be productive. It is then a moment to relax and gather forces for the next quarter. It's also perfect to develop *easy* and *chill* personal projects that have been forgotten in a drawer. Lower your expectations and just flow with what your body asks you.
+- Summer analysis (1st of June): I hate heat, so summer is a moment of retreat. Everyone temporarily stop their lives, we go on holidays and all social projects slow their pace. Even the news have even less interesting things to report. It's so hot outside that some of us seek the cold refuge of home or remote holiday places. Days are long and people love to hang out till late, so usually you wake up later, thus having less time to actually do stuff. Even in the moments when you are alone the heat drains your energy to be productive. It is then a moment to relax and gather forces for the next quarter. It's also perfect to develop _easy_ and _chill_ personal projects that have been forgotten in a drawer. Lower your expectations and just flow with what your body asks you.
 
 - Autumn analysis (1st of September): September it's another key moment for many people. We have it hardcoded in our life since we were children as it was the start of school. People feel energized after the summer holidays and are eager to get back to their lives and stopped projects. You're already 6 months into the year, so it's a good moment to review your year plan and decide where you want to put your energy reserves.
 
@@ -644,8 +709,8 @@ As with [personal integrity review](#personal-integrity-review), it's interestin
 The year is then divided in two sets of an expansion quarter and a retreat one. We can use this information to adjust our life plan accordingly. In the expansion quarter we could invest more energies in the planning, and in the retreat ones we can do more throughout reviews.
 
 #### Quarter review phases
-We'll divide the review process in these phases:
 
+We'll divide the review process in these phases:
 
 - [Gather](#quarter-review-gather)
 - [Prepare](#quarter-review-prepare)
@@ -692,9 +757,9 @@ Where:
 - The area questions can be chosen from the ones in the [area review section](#area-review)
 - The week distribution review sections are explained below
 
-Is useful for that document to be available wherever you go, so that in any spare time you can pop it up and continue with the train of thought. 
+Is useful for that document to be available wherever you go, so that in any spare time you can pop it up and continue with the train of thought.
 
-Doing the reflection without seeing your life path prevents you from being tainted by it, thus representing the real you of right now. 
+Doing the reflection without seeing your life path prevents you from being tainted by it, thus representing the real you of right now.
 
 On the day to actually do the review, follow the steps of the [Month review prepare](#month-prepare) adjusting them to the quarter case.
 
@@ -702,31 +767,33 @@ On the day to actually do the review, follow the steps of the [Month review prep
 
 It's important that you prepare your environment for the review. You need to be present and fully focused on the process itself. To do so you can:
 
-- Make sure you don't get interrupted: 
-    - Check your action manager tools to make sure that you don't have anything urgent to address in the next hour.
-    - Disable all notifications
+- Make sure you don't get interrupted:
+  - Check your action manager tools to make sure that you don't have anything urgent to address in the next hour.
+  - Disable all notifications
 - Set your analysis environment:
-    - Put on the music that helps you get *in the zone*. I found it meaningful to select the best new music I've discovered this month.
-    - Get all the things you may need for the review:
-        - The checklist that defines the process of your review (this document in my case).
-        - Somewhere to write down the insights.
-        - Your *Review box*.
-        - Your *life path document*.
-    - Remove from your environment everything else that may distract you
-        - Close all windows in your laptop that you're not going to use
+  - Put on the music that helps you get _in the zone_. I found it meaningful to select the best new music I've discovered this month.
+  - Get all the things you may need for the review:
+    - The checklist that defines the process of your review (this document in my case).
+    - Somewhere to write down the insights.
+    - Your _Review box_.
+    - Your _life path document_.
+  - Remove from your environment everything else that may distract you
+    - Close all windows in your laptop that you're not going to use
 
 To record the results of the review create the file `references/reviews/YYYY_MM_SSSS.org`, where the month is the one that is starting and the `SSSS` is the season name with the following template:
 
 ```org
+
 ```
-##### Quarter review discover 
+
+##### Quarter review discover
 
 ###### Do an overall area review
 
 For each axis:
 
 - Do a quick review of the active areas:
-  - Check if you're missing an already active area. If you do, refactor it to the active areas 
+  - Check if you're missing an already active area. If you do, refactor it to the active areas
   - Review the areas in the backlog and decide if any of them should be activated.
 - For each active area of the axis:
   - Ask yourself if it should be deactivated. If it should, refile it and move on with the next.
@@ -739,7 +806,7 @@ I've had a hard time choosing how must those objectives be defined. Should they 
 
 Given the mindset of this review, it's better to have generic open goals. As you climb up the abstraction ladder and work with greater time slots you need to reduce the precision because you have more uncertainty. You don't know what's going to happen tomorrow so adding hard [SMART goals](https://en.wikipedia.org/wiki/SMART_criteria) is unrealistic and a certain path to frustration.
 
-They should be guidelines that help you define the direction of where do you want to go and leave to the lower abstraction level reviews particularize those principles into more specific goals. 
+They should be guidelines that help you define the direction of where do you want to go and leave to the lower abstraction level reviews particularize those principles into more specific goals.
 
 - Create a new review document with the next structure:
 
@@ -747,22 +814,27 @@ They should be guidelines that help you define the direction of where do you wan
   * Area objectives
   ** Area 1
   ```
+
 - Put a timer of 20 mins and for each of the areas answer the next questions (remember to make it general and not project dependent):
+
   - What differences will the area have in three months?
 
 - Complete your gathered results by:
   - Reading the current area document objectives
   - Gather more objectives through skimming through the projects of the areas
   - Your gathered notes in `think.org`.
+
 ###### Review the previous quarter area tactics
+
 - Review what are you doing in the area
 - Review what you should be doing
 
 ###### Define the essential intent of the axis
+
 [axis](time_management_abstraction_levels.md#axis)
 
-
 ###### Refactor your gathered thoughts
+
 If you've followed the prepare steps, you've already been making up your mind on what do you want the next quarter to look like. Now it's the time to refine those thoughts.
 
 In your roadmap document add a new section for the incoming quarter similar to:
@@ -777,9 +849,10 @@ In your roadmap document add a new section for the incoming quarter similar to:
 ***** TODO Objective 1
 ****** TODO SubObjective 1
 ```
-Go *one by one* (don't peek!) of your gathered items and translate them in the next sections:
 
-- `Quarter analysis`: A text with as many paragraphs as you need to order your thoughts 
+Go _one by one_ (don't peek!) of your gathered items and translate them in the next sections:
+
+- `Quarter analysis`: A text with as many paragraphs as you need to order your thoughts
 - `Quarter objectives`: These can be concrete emotional projects you want to carry through.
 - `Essential intent`: This is the main headline of your quarter, probably you won't be able to define it until the last parts of the review process. It should be concrete and emotional too, it's going to be the idea that gives you strength on your weak moments and your guide to decide which projects to do and which not to.
 
@@ -789,7 +862,7 @@ Don't be too concerned on the format of the content of the objectives, this is t
 
 #### Week distribution planning
 
-Choosing what you do each day of your week greatly affects what will you end up doing at the end of the quarter. It's easy to follow life's inertia without questioning if your perfect week distribution keeps on making sense. You may feel friction without realising it. 
+Choosing what you do each day of your week greatly affects what will you end up doing at the end of the quarter. It's easy to follow life's inertia without questioning if your perfect week distribution keeps on making sense. You may feel friction without realising it.
 
 Reviewing your distribution quarterly makes a lot of sense as it's the order of magnitude of the characteristic time length of the changes that affect your week. This is true both to the factors that make you need the change and to test that the introduced changes results.
 
@@ -802,14 +875,74 @@ In the quarter review gathering document we're recording:
 In theory all this analysis should be done the month before the planning, so at that moment you'll only need to refactor your decision into the `decisions.org` file.
 
 #### Quarter analyze
+
 ##### Choose the quarter area tactics
+
 #### Quarter decide
+
 ##### Order, prioritize and choose the area objectives
+
 #Gather them in the roadmap document.
 
 ## Review the year
 
-Year reviews are meant to give you an idea of:
+As the year comes to an end it can be a good idea to review stuff that has a year cadence of change and that people are reviewing, for example:
+
+- [How the world has changed](#how-the-world-has-changed)
+- Relevant content stuff
+- Life experiences
+- Your toolset
+- Your economical year review
+
+I'm not going to review the year roadmap or how I've changed or my tactics or strategies right now as I feel it makes more sense to do it in the [life review](#life-review) just before spring comes. In fact, we'll be able to do a better life review once we have the output of the review of the year.
+
+### Year review timeline
+
+As you can see the amount of stuff to review is not something that can be done in a day, my current plan is to prepare the review of the year throughout December and carry it out on the first two weeks of January.
+
+So I've scheduled an action each 1st of December with deadline on the 31st to:
+
+- Create a new entry in `think.org` with the next format:
+  ```org
+  * Year review (YYYY)
+  ** Review adjustments
+  ** Sections
+  *** How the world has changed
+  *** ...
+  ```
+
+Then I created another action from the 1st of January to the 15th to actually do the review.
+
+### Year review phases
+
+#### How the world has changed
+
+You don't live alone in a bubble, your life is affected by what is going on around you, so if you can it's always good to analyse it so that you can adjust your roadmap accordingly.
+
+Doing this on January makes a lot of sense because most newspapers and important people do a year review which synthesizes the most important year events and how it has changed throughout the year.
+
+I'm usually gathering the analysis on the [Year reviews](year_reviews.md) article.
+
+#### How did my economy change this year
+
+I take the chance to do a last review of the year through the lenses of my accounting system ([beancount](beancount.md)). I've made some fava dashboards that gather the most interesting information.
+
+#### Review the relevant content I've consumed
+
+With the use of [mediatracker](mediatracker.md) and other life logging tools I take a look at what content I've enjoyed the most. I want to share it also with all of you through these articles:
+
+- [Books](books.md)
+- [Movies](movies.md)
+- [TV shows](tv_shows.md)
+- [Podcasts](podcasts.md)
+- [Streaming channels](streaming_channels.md)
+- [Music](music.md)
+- [Videogames](videogames.md)
+- [Boardgames](board_games.md)
+
+## Life review
+
+Life reviews are meant to give you an idea of:
 
 - How much have you and your workflows evolved
 - What roadmap decisions were right, which ones were wrong
@@ -819,95 +952,12 @@ Year reviews are meant to give you an idea of:
 If you have the year's planning you can analyze it against your task management
 tools and life logs and create a review document analyzing all.
 
-The process then has many phases:
+### Life review timeline
 
-- [Housekeeping](#housekeeping)
-- [Analysis](#analysis)
-- [Planning](#planning)
-
-### Housekeeping
-
-As they are time expensive, probably lot of time may have passed since your last
-year review, it's a good time to do some housekeeping tasks to have a tidy
-environment (and data!) before you start analyzing everything.
-
-- Extract all your media (photos, videos, text) from all your devices (mobiles,
-  laptops, servers) to your central archive. For the portable devices I use
-  [`syncthing`](syncthing.md) to sync all the important data to the
-  [NAS](nas.md), although it's usually untidy.
-- Once it's extracted tidy them all. For example you could group the pictures
-  and videos in a tree of directories (`trips`, `trips/2022-06-Glasgow`,
-  `trips/2022-06-Glasgow/2022-06-10-hiking-trail-lakes`, ...). As this is an
-  unpleasant task I've created `claspy` a command line tool that helps you
-  categorize the files into their desired paths. Do the same for the documents,
-  music, binaries... everything! until you have an empty mobile and empty
-  `Downloads` directory.
-- Update [your ledger](beancount.md) so that it reflects the reality.
-- Update [your task manager](action_management.md) systems so that it reflects the
-  latest state.
-- Update [your digital garden](digital_garden.md) so that you don't have any
-  uncommited changes.
-
-### Analysis
-
-To do it I gather all the information from my
-[life logging](https://en.wikipedia.org/wiki/Lifelog) sources and start thinking
-of what do I want to change. It helps me to write a markdown document with the
-insights gathered in this process.
-
-#### What you have learned
-
-It's always interesting to look back and see what you've learned throughout the
-year. I have these sources of data:
-
-- [Digital garden](#digital-garden)
-- [Anki](#anki)
-
-##### Digital garden
-
-If you happen to have a [digital garden](digital_garden.md) you can look at your
-git history to know what has changed since the last year. That's cumbersome and
-ugly though, it's better to review
-[your newsletters](https://lyz-code.github.io/blue-book/newsletter/0_newsletter_index/),
-although you may need to use something like
-[`mkdocs-newsletter`](https://lyz-code.github.io/mkdocs-newsletter/).
-
-While you skim through the newsletters you can add to the analysis report the
-highlights of what you've learned.
-
-You can also check
-[your repository insights](git.md#get-interesting-stats-of-the-repo).
-
-##### Anki
-
-I use [`anki`](anki.md) to record the knowledge that I need to have in my mind.
-The program has a "Stats" tab where you can see your insights of the last years
-to understand how are you learning. You can also go to the "Browse" tab to sort
-the cards by created and get an idea of which ones have been the most used
-decks.
-
-#### What you've read
-
-Each time I finish a book I register it in a document with a rating and
-optionally a review. When doing the review I check which ones I read, which ones
-I liked more, what genres have been the most popular for me, which authors. With
-these data I create an analysis of what seems promising to read in the future.
-
-I also update the section of "what you've learnt" with the insights of these
-books.
-
-### Planning
-
-
-#### What to read
-With the analysis of what I've read I research for new books and create an
-ordered list per genre.
-
-## Life review
+As you can see the amount of stuff to review is not something that can be done in a day, my current plan is to prepare the review from the 15th of December till the 15th of January and then carry it out until the 23rd of February, to leave space to do the spring quarter and March month reviews.
 
 # References
 
 ## Books
+
 - "Four thousand weeks" by Oliver Burkeman
-
-

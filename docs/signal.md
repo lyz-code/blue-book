@@ -94,7 +94,9 @@ sudo apt update && sudo apt install signal-desktop
 # Backup extraction
 
 I'd first try to use [signal-black](https://github.com/xeals/signal-back).
+# Signal bots
 
+To write signal bots you can use [this library](https://github.com/JeremyGDiamond/signal-info-bot)
 # References
 
 * [Home]()

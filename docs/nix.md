@@ -4,6 +4,7 @@
 - *Declarative*: Nix makes it trivial to share development and build environments for your projects, regardless of what programming languages and tools you’re using.
 - *Reliable*: Nix ensures that installing or upgrading one package cannot break other packages. It allows you to roll back to previous versions, and ensures that no package is in an inconsistent state during an upgrade. 
 
+Think about using [sixos](https://media.ccc.de/v/38c3-sixos-a-nix-os-without-systemd) instead, a nixos without systemd
 # [Installation](https://nixos.org/download)
 Install Nix via the recommended multi-user installation:
 

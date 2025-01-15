@@ -50,7 +50,7 @@ docs:
 	@echo "- Serving documentation -"
 	@echo "-------------------------"
 
-	pdm run mkdocs serve --strict
+	pdm run mkdocs serve # --strict
 
 	@echo ""
 

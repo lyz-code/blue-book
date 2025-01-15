@@ -872,6 +872,11 @@ Interesting to test the accepted format of
 datetime.datetime(1997, 3, 9, 13, 45, tzinfo=datetime.timezone(datetime.timedelta(-1, 68400)))
 ```
 
+# Convert a datetime into a date
+
+```python
+datetime.now().date()
+```
 # [Convert a datetime to RFC2822](https://stackoverflow.com/questions/3453177/convert-python-datetime-to-rfc-2822)
 
 Interesting as it's the accepted format of

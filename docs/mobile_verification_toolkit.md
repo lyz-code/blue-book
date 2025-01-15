@@ -210,3 +210,4 @@ It's the signal app.
 
 - [Source](https://github.com/mvt-project/mvt)
 - [Docs](https://docs.mvt.re/en/latest/)
+- [38C3 talk: From Pegasus to Predator - The evolution of Commercial Spyware on iOS](https://media.ccc.de/v/38c3-from-pegasus-to-predator-the-evolution-of-commercial-spyware-on-ios)

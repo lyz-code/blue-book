@@ -13,6 +13,18 @@ You can use either the Fahrplan app or giggity, I've been using the second for a
 
 `c3nav` is an application to get around the congress. The official F-droid is outdated, so add [their repository](https://f-droid.c3nav.de/fdroid/repo/?fingerprint=C1EC2D062F67A43F87CCF95B8096630285E1B2577DC803A0826539DF6FB4C95D) to get the latest version.
 
+## Remember these useful things
+
+### Use c3lingo for german talks
+
+There are many talks in german, this may deter you from attending them, but don't worry, if they are hosted in the main tracks you can hear the translation in english live.
+
+You can access them [here](https://c3lingo.org/), they work best with the ccc wifi.
+
+### [Chaos mentors](https://events.ccc.de/congress/2024/infos/mentors.html)
+
+At Chaos Mentors, they connect experienced mentors with first-time visitors of Congress. Their goal is to make Congress more inclusive by supporting those who might not usually attend, including people with special needs.
+
 # [Angel's system](https://angelguide.c3heaven.de/)
 
 Angels are participants who volunteer to make the event happen. They are neither getting paid for their work nor do they get free admission.
@@ -27,7 +39,6 @@ Helping at our events also comes with some simple, but important expectations of
 - Live our moral values:
   - Be excellent to each other.
   - All creatures are welcome.
-
 ## [Quickstart](https://angelguide.c3heaven.de/#_quick_start)
 
 - Create yourself an [Engelsystem account](https://engel.events.ccc.de/)
@@ -48,6 +59,12 @@ Helping at our events also comes with some simple, but important expectations of
 And always, have a lot of fun.
 
 To get more insights read [this article](https://jascha.wtf/angels-at-chaos-about-volunteering-and-fitting-in/)
+## First time angel tips
+
+If you're lost on what shifts you might want to take here is the ones I've found easy to do:
+- Talk access shifts: You will be on the access of the talks making sure that the doors are opened and closed when it should and that people do not linger in the corridors, whenever you want to see a talk in one of the main tracks take these shifts as you'll be able to watch it fine and also help the organisation. If you know for sure you'll be attending one of these talks, reserve the shift the day before as they usually fly away soon.
+- Standby angel: You just stay in heaven for a couple of hours waiting for someone to tell you what you need to do. It's a good shift to know people and to find your place in heaven. If you know for sure you'll have a free slot between talks and workshops, reserve the shift the day before as they usually fly away soon.
+- At teardown: If you can stay after the congress has ended, help in the tear down, I first go to the assemblies that have attracted me the most and then go to heaven to see what else is needed.
 ## [The engelsystem](https://angelguide.c3heaven.de/#_the_engelsystem)
 The [Engelsystem](https://engel.events.ccc.de/) is the central place to distribute the work to all the helping angels. It can be a bit overwhelming at the beginning but you will get used to it and find your way around.
 
@@ -58,7 +75,6 @@ Most restrictions really only need a meeting or some unrestricted shifts at the 
 Especially the restricted shifts are tempting because after all we want to get the event running, aren’t we? From our personal experience what gets the event running are the most common things: Guarding a door, collecting bottle/trash, washing dishes in the angel kitchen, being on standby to hop in when spontaneous help is needed or check the wrist band at the entrance.
 
 If there are any further questions about angeltypes, the description of the angeltype usually includes contact data such as a DECT number or an e-mail address that can be used. Alternatively, you can also ask one of the persons of the respective angeltype mentioned under "Supporter".
-
 ## [Teams](https://angelguide.c3heaven.de/#_teams)
 
 Congress is organized from different teams, each with its own area of expertise.
@@ -86,7 +102,7 @@ Being an angel also comes with some perks. While we hope that participation is r
 If you have contributed a certain amount of time, you may receive access to:
 
 - Fantastic hot vegan and vegetarian meals
-- The famous limited™ angel T-shirt in Congress design
+- The famous limited™ angel T-shirt in Congress design (last year were rewarded after 15h of angel work)
 - Maybe some other perks
 
 # Reference

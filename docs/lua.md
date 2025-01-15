@@ -1,3 +1,25 @@
+# Syntax
+
+## Boolean operations
+
+### Not equal operation
+In Lua, you can perform a "not equal" comparison using the `~=` operator:
+
+```lua
+a ~= b  -- true if a is not equal to b
+```
+
+## List operations
+
+### Length of a list
+
+```lua
+local current_slide = {}
+
+if #current_slide > 0 then
+  -- code
+end
+```
 # Tips
 
 ## [Inspect contents of Lua table in Neovim](https://doriankarter.com/inspect-contents-of-lua-table-in-neovim/)

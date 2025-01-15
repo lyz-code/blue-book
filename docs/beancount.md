@@ -154,9 +154,14 @@ chase.Importer(),
 
 ### Writing an importer
 
+NOTE: since 3.0.0 the importers need to be done with [`beangulp`](https://github.com/beancount/beangulp?tab=readme-ov-file). I've tried using it but found it confusing so I fell back to 2.x  e
 Each of the importers must comply with a particular protocol and implement at
 least some of its methods. The full detail of the protocol is in the source of
 [importer.py](https://bitbucket.org/blais/beancount/src/tip/beancount/ingest/importer.py?fileviewer=file-view-default)
+
+Check a list of already existing importers [here](https://tariochbctools.readthedocs.io/en/latest/importers.html#)
+
+Once you have your importer built up you might want to spice it up with [smart_importer](https://github.com/beancount/smart_importer/?tab=readme-ov-file)
 
 ```python
 """Importer protocol.

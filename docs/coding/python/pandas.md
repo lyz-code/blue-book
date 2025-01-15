@@ -4,6 +4,7 @@ date: 20200616
 author: Lyz
 ---
 
+NOTE: you might as well use [FireDucks](https://fireducks-dev.github.io/) as it has the same API interface and is [waaay faster](https://fireducks-dev.github.io/docs/benchmarks/). The good thing is that you only need to add to the top of your code `import fireducks.pandas as pd` and everything should work (I haven't tried myself).
 [Pandas](https://pandas.pydata.org/) is a fast, powerful, flexible and easy to
 use open source data analysis and manipulation tool, built on top of the Python
 programming language.

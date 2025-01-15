@@ -1,4 +1,3 @@
-
 # Package manager usage
 
 ## [Adding plugins configuration](https://www.lazyvim.org/configuration/plugins)
@@ -11,9 +10,9 @@ LazyVim comes with a list of preconfigured plugins, check them [here](https://ww
 
 ### Adding a plugin
 
-Adding a plugin is as simple as adding the plugin spec to one of the files under `lua/plugins/*.lua``. You can create as many files there as you want.
+Adding a plugin is as simple as adding the plugin spec to one of the files under `lua/plugins/\*.lua``. You can create as many files there as you want.
 
-You can structure your `lua/plugins`` folder with a file per plugin, or a separate file containing all the plugin specs for some functionality. For example: `lua/plugins/lsp.lua`
+You can structure your `lua/plugins`` folder with a file per plugin, or a separate file containing all the plugin specs for some functionality. For example:`lua/plugins/lsp.lua`
 
 ```lua
 return {
@@ -29,17 +28,18 @@ return {
   },
 }
 ```
+
 ### Customizing plugin specs
 
 Defaults merging rules:
 
-- cmd: the list of commands will be extended with your custom commands
-- event: the list of events will be extended with your custom events
-- ft: the list of filetypes will be extended with your custom filetypes
-- keys: the list of keymaps will be extended with your custom keymaps
-- opts: your custom opts will be merged with the default opts
-- dependencies: the list of dependencies will be extended with your custom dependencies
-- any other property will override the defaults
+* cmd: the list of commands will be extended with your custom commands
+* event: the list of events will be extended with your custom events
+* ft: the list of filetypes will be extended with your custom filetypes
+* keys: the list of keymaps will be extended with your custom keymaps
+* opts: your custom opts will be merged with the default opts
+* dependencies: the list of dependencies will be extended with your custom dependencies
+* any other property will override the defaults
 
 For ft, event, keys, cmd and opts you can instead also specify a values function that can make changes to the default values, or return new values to be used instead.
 
@@ -86,7 +86,7 @@ return {
 },
 ```
 
-Make sure to use the exact same mode as the keymap you want to disable. 
+Make sure to use the exact same mode as the keymap you want to disable.
 
 ```lua
 return {
@@ -97,8 +97,9 @@ return {
   },
 }
 ```
+
 You can also return a whole new set of keymaps to be used instead. Or return `{}` to disable all keymaps for a plugin.
- 
+
 ```lua
 return {
   "nvim-telescope/telescope.nvim",
@@ -131,6 +132,7 @@ vim.api.nvim_create_autocmd("VimEnter", {
 ```
 
 ## [Disabling plugins](https://www.lazyvim.org/configuration/plugins#-disabling-plugins)
+
 In order to disable a plugin, add a spec with enabled=false
 lua/plugins/disabled.lua
 
@@ -140,9 +142,24 @@ return {
   { "folke/trouble.nvim", enabled = false },
 }
 ```
+
+## [Load a plugin on startup](https://lazy.folke.io/spec/lazy_loading)
+
+You can [define the `lazy = false` in your plugin spec](https://lazy.folke.io/spec/examples)
+
+```lua
+return {
+  -- the colorscheme should be available when starting Neovim
+  {
+    "folke/tokyonight.nvim",
+    lazy = false, -- make sure we load this during startup if it is your main colorscheme
+  }
+}
+```
+
 # References
 
-- [Source](https://github.com/LazyVim/LazyVim)
-- [Docs](https://lazyvim.github.io/)
-- [Home](https://lazyvim.github.io/)
-- [Keymaps](https://www.lazyvim.org/keymaps)
+* [Docs](https://lazyvim.github.io/)
+* [Home](https://lazyvim.github.io/)
+* [Source](https://github.com/LazyVim/LazyVim)
+* [Keymaps](https://www.lazyvim.org/keymaps)

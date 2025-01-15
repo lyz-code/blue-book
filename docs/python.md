@@ -179,6 +179,7 @@ The table below shows built-in exceptions that are usually raised in Python:
     networking service scraper in Python.
 * [tweepy](https://github.com/tweepy/tweepy): Twitter for Python.
 * [python-whatsapp-bot](https://pypi.org/project/python-whatsapp-bot/)
+- [Fireduck](https://fireducks-dev.github.io/docs/benchmarks/) Compiler Accelerated DataFrame Library for Python with fully-compatible pandas API
 
 # Interesting sources
 

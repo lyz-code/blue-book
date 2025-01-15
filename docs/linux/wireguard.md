@@ -16,41 +16,42 @@ VPN solution in the industry.
 
 Features:
 
-* Simple and easy to use: WireGuard aims to be as easy to configure and deploy
-    as SSH. A VPN connection is made by exchanging public keys – exactly like
-    exchanging SSH keys – and all the rest is transparently handled by
-    WireGuard. It's even capable of roaming between IP addresses, like
-    Mosh. There is no need to manage connections, worry about state,
-    manage daemons, or worry about what's under the hood. WireGuard presents a
-    basic yet powerful interface.
+- Simple and easy to use: WireGuard aims to be as easy to configure and deploy
+  as SSH. A VPN connection is made by exchanging public keys – exactly like
+  exchanging SSH keys – and all the rest is transparently handled by
+  WireGuard. It's even capable of roaming between IP addresses, like
+  Mosh. There is no need to manage connections, worry about state,
+  manage daemons, or worry about what's under the hood. WireGuard presents a
+  basic yet powerful interface.
 
-* Cryptographically Sound: WireGuard uses state-of-the-art cryptography, such as
-    the Noise protocol framework, Curve25519, ChaCha20, Poly1305, BLAKE2,
-    SipHash24, HKDF, and secure trusted constructions. It makes conservative and
-    reasonable choices and has been reviewed by cryptographers.
+- Cryptographically Sound: WireGuard uses state-of-the-art cryptography, such as
+  the Noise protocol framework, Curve25519, ChaCha20, Poly1305, BLAKE2,
+  SipHash24, HKDF, and secure trusted constructions. It makes conservative and
+  reasonable choices and has been reviewed by cryptographers.
 
-* Minimal Attack Surface: WireGuard is designed with ease-of-implementation and
-    simplicity in mind. It's meant to be implemented in very few lines of code,
-    and auditable for security vulnerabilities. Compared to behemoths like
-    *Swan/IPsec or OpenVPN/OpenSSL, in which auditing the gigantic codebases is
-    an overwhelming task even for large teams of security experts, WireGuard is
-    meant to be comprehensively reviewable by single individuals.
+- Minimal Attack Surface: WireGuard is designed with ease-of-implementation and
+  simplicity in mind. It's meant to be implemented in very few lines of code,
+  and auditable for security vulnerabilities. Compared to behemoths like
+  \*Swan/IPsec or OpenVPN/OpenSSL, in which auditing the gigantic codebases is
+  an overwhelming task even for large teams of security experts, WireGuard is
+  meant to be comprehensively reviewable by single individuals.
 
-* High Performance: A combination of extremely high-speed cryptographic
-    primitives and the fact that WireGuard lives inside the Linux kernel means
-    that secure networking can be very high-speed. It is suitable for both small
-    embedded devices like smartphones and fully loaded backbone routers.
+- High Performance: A combination of extremely high-speed cryptographic
+  primitives and the fact that WireGuard lives inside the Linux kernel means
+  that secure networking can be very high-speed. It is suitable for both small
+  embedded devices like smartphones and fully loaded backbone routers.
 
-* Well Defined & Thoroughly Considered: WireGuard is the result of a lengthy and
-    thoroughly considered academic process, resulting in the technical
-    whitepaper, an academic research paper which clearly defines the protocol
-    and the intense considerations that went into each decision.
+- Well Defined & Thoroughly Considered: WireGuard is the result of a lengthy and
+  thoroughly considered academic process, resulting in the technical
+  whitepaper, an academic research paper which clearly defines the protocol
+  and the intense considerations that went into each decision.
 
 Plus it's created by the same guy as `pass`, which uses Gentoo, I like this guy.
 
 # [Installation](https://linuxize.com/post/how-to-set-up-wireguard-vpn-on-ubuntu-20-04/)
 
 ## Debian
+
 WireGuard is available from the default repositories. To install it, run the following commands:
 
 ```bash
@@ -58,6 +59,7 @@ sudo apt install wireguard
 ```
 
 ### Configuring Wireguard
+
 The `wg` and `wg-quick` command-line tools allow you to configure and manage the WireGuard interfaces.
 
 Each device in the WireGuard VPN network needs to have a private and public key. Run the following command to generate the key pair:
@@ -66,7 +68,7 @@ Each device in the WireGuard VPN network needs to have a private and public key.
 wg genkey | sudo tee /etc/wireguard/privatekey | wg pubkey | sudo tee /etc/wireguard/publickey
 ```
 
-The files will be generated in the `/etc/wireguard` directory. 
+The files will be generated in the `/etc/wireguard` directory.
 
 Wireguard also supports a pre-shared key, which adds an additional layer of symmetric-key cryptography. This key is optional and must be unique for each peer pair.
 
@@ -79,7 +81,6 @@ Create a new file named `wg0.conf` and add the following contents:
 ```bash
 sudo nano /etc/wireguard/wg0.conf
 ```
-
 
 ```ini
 [Interface]
@@ -145,7 +146,7 @@ You can also run `ip` a show `wg0` to verify the interface state:
 ip a show wg0
 
 4: wg0: <POINTOPOINT,NOARP,UP,LOWER_UP> mtu 1420 qdisc noqueue state UNKNOWN group default qlen 1000
-    link/none 
+    link/none
     inet 10.0.0.1/24 scope global wg0
        valid_lft forever preferred_lft forever
 ```
@@ -159,6 +160,7 @@ sudo systemctl enable wg-quick@wg0
 ```
 
 ### [Server Networking and Firewall Configuration](https://linuxize.com/post/how-to-set-up-wireguard-vpn-on-ubuntu-20-04/#server-networking-and-firewall-configuration)
+
 IP forwarding must be enabled for NAT to work. Open the `/etc/sysctl.conf` file and add or uncomment the following line:
 
 ```bash
@@ -183,13 +185,11 @@ If you are using UFW to manage your firewall you need to open UDP traffic on por
 sudo ufw allow 51820/udp
 ```
 
-### [Client setup ](https://linuxize.com/post/how-to-set-up-wireguard-vpn-on-ubuntu-20-04/#linux-and-macos-clients-setup) 
+### [Client setup ](https://linuxize.com/post/how-to-set-up-wireguard-vpn-on-ubuntu-20-04/#linux-and-macos-clients-setup)
 
-Also install `wireguard` in your clients. The process for setting up a client is pretty much the same as you did for the server. 
-
+Also install `wireguard` in your clients. The process for setting up a client is pretty much the same as you did for the server.
 
 If the client is on Android, [the official app](https://www.wireguard.com/install/) is not on F-droid, but you can get it through the Aurora store
-
 
 First generate the public and private keys:
 
@@ -202,6 +202,7 @@ Create the file `wg0.conf` and add the following contents:
 ```bash
 sudo vi /etc/wireguard/wg0.conf
 ```
+
 ```ini
 [Interface]
 PrivateKey = CLIENT_PRIVATE_KEY
@@ -226,7 +227,8 @@ The peer section contains the following fields:
 
 If you need to configure additional clients, just repeat the same steps using a different private IP address.
 
-### [Add the client IP to the server ](https://linuxize.com/post/how-to-set-up-wireguard-vpn-on-ubuntu-20-04/#add-the-client-peer-to-the-server) 
+### [Add the client IP to the server ](https://linuxize.com/post/how-to-set-up-wireguard-vpn-on-ubuntu-20-04/#add-the-client-peer-to-the-server)
+
 The last step is to add the client’s public key and IP address to the server. To do that, run the following command on the Ubuntu server:
 
 ```bash
@@ -294,7 +296,7 @@ Follow the guides of the next references:
 ## [Check the status of the tunnel](https://www.vmwaremine.com/2020/10/01/how-to-check-vpn-link-status-on-wireguard/)
 
 One method is to do ping between VPN IP addresses or run command `wg show`` from the server or from the client.
-Below you can see `wg show`` command output where VPN is *not* up.
+Below you can see `wg show`` command output where VPN is _not_ up.
 
 ```bash
 $: wg show
@@ -329,10 +331,11 @@ peer: 6lf4SymMbY+WboI4jEsM+P9DhogzebSULrkFowDTt0M=
 
 ## [Remove a peer](https://forum.netgate.com/topic/165845/enable-disable-wireguard-peer-by-cli/5)
 
-```bash 
+```bash
 wg show (find the peer, note the interface and peer key)
 wg set <interface> peer <key> remove
 ```
+
 # [Conceptual Overview](https://www.wireguard.com/)
 
 WireGuard securely encapsulates IP packets over UDP. You add a WireGuard
@@ -353,25 +356,25 @@ configured using the `wg` tool. This interface acts as a tunnel interface.
 WireGuard associates tunnel IP addresses with public keys and remote endpoints.
 When the interface sends a packet to a peer, it does the following:
 
-* This packet is meant for 192.168.30.8. Which peer is that? Let me look...
-    Okay, it's for peer ABCDEFGH. (Or if it's not for any configured peer, drop
-    the packet.)
-* Encrypt entire IP packet using peer ABCDEFGH's public key.
-* What is the remote endpoint of peer ABCDEFGH? Let me look... Okay, the
-    endpoint is UDP port 53133 on host 216.58.211.110.
-* Send encrypted bytes from step 2 over the Internet to 216.58.211.110:53133
-    using UDP.
+- This packet is meant for 192.168.30.8. Which peer is that? Let me look...
+  Okay, it's for peer ABCDEFGH. (Or if it's not for any configured peer, drop
+  the packet.)
+- Encrypt entire IP packet using peer ABCDEFGH's public key.
+- What is the remote endpoint of peer ABCDEFGH? Let me look... Okay, the
+  endpoint is UDP port 53133 on host 216.58.211.110.
+- Send encrypted bytes from step 2 over the Internet to 216.58.211.110:53133
+  using UDP.
 
 When the interface receives a packet, this happens:
 
-* I just got a packet from UDP port 7361 on host 98.139.183.24. Let's decrypt
-    it!
-* It decrypted and authenticated properly for peer LMNOPQRS. Okay, let's
-    remember that peer LMNOPQRS's most recent Internet endpoint is
-    98.139.183.24:7361 using UDP.
-* Once decrypted, the plain-text packet is from 192.168.43.89. Is peer LMNOPQRS
-    allowed to be sending us packets as 192.168.43.89?
-* If so, accept the packet on the interface. If not, drop it.
+- I just got a packet from UDP port 7361 on host 98.139.183.24. Let's decrypt
+  it!
+- It decrypted and authenticated properly for peer LMNOPQRS. Okay, let's
+  remember that peer LMNOPQRS's most recent Internet endpoint is
+  98.139.183.24:7361 using UDP.
+- Once decrypted, the plain-text packet is from 192.168.43.89. Is peer LMNOPQRS
+  allowed to be sending us packets as 192.168.43.89?
+- If so, accept the packet on the interface. If not, drop it.
 
 Behind the scenes there is much happening to provide proper privacy,
 authenticity, and perfect forward secrecy, using state-of-the-art cryptography.
@@ -472,6 +475,7 @@ endpoint for which they authentically decrypted data. Thus, there is full IP
 roaming on both ends.
 
 # [Improve logging](https://www.procustodibus.com/blog/2021/03/wireguard-logs/)
+
 WireGuard doesn’t do any logging by default. If you use the WireGuard Linux kernel module (on kernel versions 5.6 or newer), you can turn on WireGuard’s dyndbg logging, which sends log messages to the kernel message buffer, kmsg. You can then use the standard dmesg utility to read these messages. Also, many Linux systems have a logging daemon like rsyslogd or journald that automatically captures and stores these messages.
 
 First, enable WireGuard `dyndbg` logging with the following commands:
@@ -487,6 +491,37 @@ Once you do that, you’ll be able to see WireGuard log messages in the kernel m
 
 - https://www.procustodibus.com/blog/2021/01/how-to-monitor-wireguard-activity/
 - https://techoverflow.net/2021/12/31/how-to-check-if-wireguard-client-peer-is-connected/
+
+# [Configure the kill switch](https://git.zx2c4.com/wireguard-tools/about/src/man/wg-quick.8)
+
+You can configure a kill-switch in order to prevent the flow of unencrypted packets through the non-WireGuard interfaces, by adding the following two lines ‘PostUp‘ and ‘PreDown‘ lines to the ‘[Interface]‘ section:
+
+```
+PostUp = iptables -I OUTPUT ! -o %i -m mark ! --mark $(wg show %i fwmark) -m addrtype ! --dst-type LOCAL -j REJECT
+PreDown = iptables -D OUTPUT ! -o %i -m mark ! --mark $(wg show %i fwmark) -m addrtype ! --dst-type LOCAL -j REJECT
+```
+
+The ‘PostUp’ and ‘PreDown’ fields have been added to specify an iptables command which, when used with interfaces that have a peer that specifies 0.0.0.0/0 as part of the ‘AllowedIPs’, works together with wg-quick’s fwmark usage in order to drop all packets that are either not coming out of the tunnel encrypted or not going through the tunnel itself. Note that this continues to allow most DHCP traffic through, since most DHCP clients make use of PF_PACKET sockets, which bypass Netfilter. When IPv6 is in use, additional similar lines could be added using ip6tables.
+
+If you want to allow the traffic to your LAN while keeping your kill-switch you can use:
+
+```
+PostUp = iptables -I OUTPUT ! -o %i -m mark ! --mark $(wg show %i fwmark) -m addrtype ! --dst-type LOCAL -j REJECT && iptables -I OUTPUT -p tcp -d 192.168.0.0/24 -j ACCEPT
+PreDown = iptables -D OUTPUT ! -o %i -m mark ! --mark $(wg show %i fwmark) -m addrtype ! --dst-type LOCAL -j REJECT && iptables -D OUTPUT -p tcp -d 192.168.0.0/24 -j ACCEPT
+```
+
+Here I'm assuming that your LAN is defined by `192.168.0.0/24`.
+
+[One way to test if the kill switch works](https://www.ivpn.net/knowledgebase/linux/linux-wireguard-kill-switch/) is by deleting the IP address from the wireguard interface
+
+```bash
+sudo ip a del [IP address] dev [interface]
+```
+
+Where the `[IP address]` can be seen using the `ip a` command.
+
+To gracefully recover from this, you will likely have to use the wg-quick command to take the connection down, then bring it back up.
+
 # References
 
 - [Home](https://www.wireguard.com/)

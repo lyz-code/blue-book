@@ -10,142 +10,149 @@ Argo CD follows the GitOps pattern of using Git repositories as the source of tr
 
 Argo CD automates the deployment of the desired application states in the specified target environments. Application deployments can track updates to branches, tags, or pinned to a specific version of manifests at a Git commit. See tracking strategies for additional details about the different [tracking strategies available](https://argo-cd.readthedocs.io/en/stable/user-guide/tracking_strategies/).
 
-
 I'm using Argo CD as the GitOps tool, because:
 
 1. It is a CNCF project, so it is a well maintained project.
-3. I have positive feedback from other mates that are using it.
-4. It is a mature project, so you can expect a good support from the community.
+2. I have positive feedback from other mates that are using it.
+3. It is a mature project, so you can expect a good support from the community.
 
 I also took in consideration other tools like
 [Flux](https://fluxcd.io/), [spinnaker](https://spinnaker.io/) or
 [Jenkins X](https://jenkins-x.io/) before taking this decision.
 
 # Basic concepts
-## Difference between sync and refresh
-TBD
 
-- https://danielms.site/zet/2023/argocd-refresh-v-sync/
-- https://argo-cd.readthedocs.io/en/stable/core_concepts/
-- https://github.com/argoproj/argo-cd/discussions/8260
-- https://github.com/argoproj/argo-cd/discussions/12237
+## [Difference between sync and refresh](https://danielms.site/zet/2023/argocd-refresh-v-sync/)
+
+- Sync: Reconciles the current cluster state with the target state in git.
+- Refresh: Fetches the latest manifests from git and compares the diff with the live state.
+- Hard Refresh: Clears any caches and does a refresh.
+
+For more information read [1](https://argo-cd.readthedocs.io/en/stable/core_concepts/), [2](https://github.com/argoproj/argo-cd/discussions/8260), [3](https://github.com/argoproj/argo-cd/discussions/12237)
 # Application configuration
 
 ## [Access private git repositories with ssh keys](https://medium.com/@tiwarisan/argocd-how-to-access-private-github-repository-with-ssh-key-new-way-49cc4431971b)
+
 ## [Using helmfile](https://github.com/travisghansen/argo-cd-helmfile)
 
-[`helmfile`](helmfile.md) is not yet supported officially, but you can use it through [this plugin](https://github.com/travisghansen/argo-cd-helmfile). Although I wouldn't recommend it. 
+[`helmfile`](helmfile.md) is not yet supported officially, but you can use it through [this plugin](https://github.com/travisghansen/argo-cd-helmfile). Although I wouldn't recommend it.
 
 ## [Configure the git webhook to speed up the sync](https://argo-cd.readthedocs.io/en/stable/operator-manual/webhook/)
 
 It doesn't still work [for git webhook on Applicationsets for gitea/forgejo](https://github.com/argoproj/argo-cd/issues/18798)
 
-# ArgoCD Operations 
+# ArgoCD Operations
+
 ## Import already deployed helm
+
 TBD
 
 - https://github.com/argoproj/argo-cd/issues/10168
 - https://github.com/argoproj/argo-cd/discussions/8647
 - https://github.com/argoproj/argo-cd/issues/2437#issuecomment-542244149
-## Migrate from helmfile to argocd 
+
+## Migrate from helmfile to argocd
 
 ### Migration steps
 
 This section provides a step-by-step guide to migrate an imaginary deployment, it is not real, should be adapted to the real deployment you want to migrate, it tries to be as simpler as posible, there are some tips and tricks later in this document for complex scenarios.
 
 1. **Select a deployment to migrate**
-    Once you have decided the deployment to migrate, you have to decide where it belongs to (bootstrap, kube-system, monitoring, applications or is managed by a team).
-    Go to the helmfile repository and find the deployment you want to migrate.
+   Once you have decided the deployment to migrate, you have to decide where it belongs to (bootstrap, kube-system, monitoring, applications or is managed by a team).
+   Go to the helmfile repository and find the deployment you want to migrate.
 2. **Use any of the previous created deployments in the same section as a template**
-    Just copy it with the new name, ensure it has all the components you will need:
-      - The `Chart.yaml` file will handle the chart repository, version, and, in some cases, the name.
-      - The `values.yaml` file will handle the shared values among environments for the deployment.
-      - The `values-<env>.yaml` file will handle the environment-specific values.
-      - The `secrets.yaml` file will handle the secrets for the deployment (for the current environment).
-      - The `templates` folder will handle the Kubernetes resources for the deployment, in helmfile we use the raw chart for this.
+   Just copy it with the new name, ensure it has all the components you will need:
+   - The `Chart.yaml` file will handle the chart repository, version, and, in some cases, the name.
+   - The `values.yaml` file will handle the shared values among environments for the deployment.
+   - The `values-<env>.yaml` file will handle the environment-specific values.
+   - The `secrets.yaml` file will handle the secrets for the deployment (for the current environment).
+   - The `templates` folder will handle the Kubernetes resources for the deployment, in helmfile we use the raw chart for this.
 3. **Create the `Chart.yaml` file**
-    This file is composed by the following fields:
-    ```yaml
-    apiVersion: v2
-    name: kube-system # The name of the deployment
-    version: 1.0.0 # The version of the deployment
-    dependencies: # The dependencies of the deployment
-      - name: ingress-nginx # The name of the chart to deploy
-        version: "4.9.1" # The version of the chart to deploy
-        repository: "https://kubernetes.github.io/ingress-nginx" # The repository of the chart to deploy
-    ```
-    You can find the name of the chart in the `helmfile.yaml` file in the helmfile repository, it is under the `chart`  key of the release. If it is named something like `ingress-nginx/ingress-nginx` , it is second part of the value, the first part is the local alias for the repository.
-    For the version and the repository, the more straightforward way is to go to the `helmfile.lock` within the `helmfile.yaml` and search for its entry. The version is under the `version` key and the repository is under the `repository` key.
+   This file is composed by the following fields:
+
+   ```yaml
+   apiVersion: v2
+   name: kube-system # The name of the deployment
+   version: 1.0.0 # The version of the deployment
+   dependencies: # The dependencies of the deployment
+     - name: ingress-nginx # The name of the chart to deploy
+       version: "4.9.1" # The version of the chart to deploy
+       repository: "https://kubernetes.github.io/ingress-nginx" # The repository of the chart to deploy
+   ```
+
+   You can find the name of the chart in the `helmfile.yaml` file in the helmfile repository, it is under the `chart` key of the release. If it is named something like `ingress-nginx/ingress-nginx` , it is second part of the value, the first part is the local alias for the repository.
+   For the version and the repository, the more straightforward way is to go to the `helmfile.lock` within the `helmfile.yaml` and search for its entry. The version is under the `version` key and the repository is under the `repository` key.
 
 4. **Create the `values.yaml` and `values-<env>.yaml` files**
-    For the `values.yaml` file, you can copy the `values.yaml` file from the helmfile repository, but it has to be under a key named like the chart name in the `Chart.yaml` file.
-    ```yaml
-    ingress-nginx:
-      controller:
-        service:
-          annotations:
-            service.beta.kubernetes.io/aws-load-balancer-backend-protocol: http
-    [...]
-    ```
-    with the migration we have lost the go templating capabilities, so I would recommend to open the new `values.yaml`  side by side with the new `values-<env>.yaml`  and move the values from the `values.yaml` to the `values-<env>.yaml` when needed and fill the templated values with the real values. It is a pity, we know. Also remember that the `values-<env>.yaml`  content needs to be under the same key as the `values.yaml` content.
-    ```yaml
-    ingress-nginx:
-      controller:
-        service:
-          annotations:
-            service.beta.kubernetes.io/aws-load-balancer-ssl-cert: arn:aws:acm:us-west-2:123456789012:certificate/12345678-1234-1234-1234-123456789012
-    [...]
-    ```
-    After this you can copy the content of the environment-specific values from the helmfile to the new `values-<env>.yaml` file. Remember to resolve the templated values with the real values.
+   For the `values.yaml` file, you can copy the `values.yaml` file from the helmfile repository, but it has to be under a key named like the chart name in the `Chart.yaml` file.
+   ```yaml
+   ingress-nginx:
+     controller:
+       service:
+         annotations:
+           service.beta.kubernetes.io/aws-load-balancer-backend-protocol: http
+   [...]
+   ```
+   with the migration we have lost the go templating capabilities, so I would recommend to open the new `values.yaml` side by side with the new `values-<env>.yaml` and move the values from the `values.yaml` to the `values-<env>.yaml` when needed and fill the templated values with the real values. It is a pity, we know. Also remember that the `values-<env>.yaml` content needs to be under the same key as the `values.yaml` content.
+   ```yaml
+   ingress-nginx:
+     controller:
+       service:
+         annotations:
+           service.beta.kubernetes.io/aws-load-balancer-ssl-cert: arn:aws:acm:us-west-2:123456789012:certificate/12345678-1234-1234-1234-123456789012
+   [...]
+   ```
+   After this you can copy the content of the environment-specific values from the helmfile to the new `values-<env>.yaml` file. Remember to resolve the templated values with the real values.
 5. **Create the `secrets.yaml` file**
-    The `secrets.yaml` file is a file that contains the secrets for the deployment. You can copy the secrets from the helmfile repository to the `secrets.yaml` file in the Argo CD repository. But you have to do the same as we did in the `values.yaml` and `values-<env>.yaml` files, everything that is to configure the deployment of the chart has to be in a key named like the chart name.
-    Just a heads up, the secrets are not shared among environments, so you have to create this file for each environment you have (staging, production, etc.).
+   The `secrets.yaml` file is a file that contains the secrets for the deployment. You can copy the secrets from the helmfile repository to the `secrets.yaml` file in the Argo CD repository. But you have to do the same as we did in the `values.yaml` and `values-<env>.yaml` files, everything that is to configure the deployment of the chart has to be in a key named like the chart name.
+   Just a heads up, the secrets are not shared among environments, so you have to create this file for each environment you have (staging, production, etc.).
 6. **Create the `templates` folder**
-    If there is any use of the raw chart in the helmfile repository, you have to copy the content of the values file used by the raw chart in a file per resource in the `templates` folder. Remember that the raw chart, requieres to have everything under a key and this is a template so you have to remove that key and unindent the file.
-    As a best practice, if there were some variables in the raw chart, you still can use them here, you just have to create the variables in the `values.yaml`  or `values-<env>.yaml`  files at the top level of the yaml hierarchy, and the templates will be able to use them, This also works for the secrets. This helps a lot to not repeat ourselves. As an example for this you can check the next template:
+   If there is any use of the raw chart in the helmfile repository, you have to copy the content of the values file used by the raw chart in a file per resource in the `templates` folder. Remember that the raw chart, requieres to have everything under a key and this is a template so you have to remove that key and unindent the file.
+   As a best practice, if there were some variables in the raw chart, you still can use them here, you just have to create the variables in the `values.yaml` or `values-<env>.yaml` files at the top level of the yaml hierarchy, and the templates will be able to use them, This also works for the secrets. This helps a lot to not repeat ourselves. As an example for this you can check the next template:
 
-    ```yaml
-    apiVersion: cert-manager.io/v1
-    kind: ClusterIssuer
-    metadata:
-      name: letsencrypt-prod
-    spec:
-      acme:
-        email: your-email@example.org
-        server: https://acme-v02.api.letsencrypt.org/directory
-        privateKeySecretRef:
-          name: letsencrypt-prod
-        solvers:
-        - selector:
-            dnsZones:
-              - service-{{.Values.environment}}.example.org
-          dns01:
-            route53:
-              region: us-east-1
-    ```
+   ```yaml
+   apiVersion: cert-manager.io/v1
+   kind: ClusterIssuer
+   metadata:
+     name: letsencrypt-prod
+   spec:
+     acme:
+       email: your-email@example.org
+       server: https://acme-v02.api.letsencrypt.org/directory
+       privateKeySecretRef:
+         name: letsencrypt-prod
+       solvers:
+         - selector:
+             dnsZones:
+               - service-{{.Values.environment}}.example.org
+           dns01:
+             route53:
+               region: us-east-1
+   ```
 
-    And this `values-staging.yaml` file:
+   And this `values-staging.yaml` file:
 
-    ```yaml
-    environment: staging
-    cert-manager:
-      serviceAccount:
-        annotations:
-          eks.amazonaws.com/role-arn: arn:aws:iam::XXXXXXXXXXXX:role/staging-cert-manager
-    ```
+   ```yaml
+   environment: staging
+   cert-manager:
+     serviceAccount:
+       annotations:
+         eks.amazonaws.com/role-arn: arn:aws:iam::XXXXXXXXXXXX:role/staging-cert-manager
+   ```
+
 7. **Commit your changes**
-    Once you have created all the files, you have to commit them to the Argo CD repository. You can use the following commands to commit the changes:
-    ```bash
-    git add .
-    git commit -m "Migrate deployment <my deployment> from Helmfile to Argo CD"
-    git push
-    ```
+   Once you have created all the files, you have to commit them to the Argo CD repository. You can use the following commands to commit the changes:
+   ```bash
+   git add .
+   git commit -m "Migrate deployment <my deployment> from Helmfile to Argo CD"
+   git push
+   ```
 8. **Create the PR and wait for the review**
-    Once you have committed the changes, you have to create a PR in the Argo CD repository.
-    After creating the PR, you have to wait for the review and approval from the team.
+   Once you have committed the changes, you have to create a PR in the Argo CD repository.
+   After creating the PR, you have to wait for the review and approval from the team.
 9. **Merge the PR and wait for the deployment**
-    Once the PR has been approved, you have to merge it and wait for the refresh to be triggered by Argo CD.
-    We don't have auto-sync yet, so you have to go to the deployment, manually check the diff and sync the deployment if everything is fine.
+   Once the PR has been approved, you have to merge it and wait for the refresh to be triggered by Argo CD.
+   We don't have auto-sync yet, so you have to go to the deployment, manually check the diff and sync the deployment if everything is fine.
 10. **Check the deployment**
     Once the deployment has been synced, you have to check the deployment in the Kubernetes cluster to ensure that everything is working as expected.
 
@@ -155,12 +162,13 @@ This section provides a step-by-step guide to migrate an imaginary deployment, i
 
 This is a common scenario, you have to deploy a chart that uses a docker image from a private registry. You have to create a template file with the credentials secret and keep the secret in the `secrets.yaml` file.
 
-`registry-credentials.yaml`: 
+`registry-credentials.yaml`:
+
 ```yaml
 ---
 apiVersion: v1
 data:
-  .dockerconfigjson: {{ .Values.regcred }}
+  .dockerconfigjson: { { .Values.regcred } }
 kind: Secret
 metadata:
   name: regcred
@@ -232,13 +240,14 @@ docker-registry-proxy:
 ### You need to deploy a chart in an OCI registry
 
 It is pretty straightforward, you just have to keep in mind that the helmfile repository specifies the chart in the url and our ArgoCD definition just needs the repository and the chart name is defined in the name of the dependency. So in helmfile you will find something like this:
+
 ```yaml
-  - name: karpenter
-    chart: oci://public.ecr.aws/karpenter/karpenter
-    version: v0.32.7
-    namespace: kube-system
-    values:
-      - karpenter/values.yaml.gotmpl
+- name: karpenter
+  chart: oci://public.ecr.aws/karpenter/karpenter
+  version: v0.32.7
+  namespace: kube-system
+  values:
+    - karpenter/values.yaml.gotmpl
 ```
 
 And in the ArgoCD repository you will find something like this:
@@ -267,8 +276,9 @@ argo-cd:
           kinds:
           - Backup
           clusters:
-          - "*"        
+          - "*"
 ```
+
 # Not there yet
 
 - [Support git webhook on Applicationsets for gitea/forgejo](https://github.com/argoproj/argo-cd/issues/18798): although you could use an ugly fix adding `spec.generators[i].requeueAfterSeconds` to change the interval that ArgoCD uses to refresh the repositories, which is 3 minutes by default.
@@ -280,11 +290,12 @@ argo-cd:
 If something is not syncing, you can check the logs in the `sync status` button in the Argo CD UI, this will give you a hint of what is happening. For common scenarios you can:
 
 - Delete the failing resource (deployment, configmap, secret) and sync it again. **Never delete a statefulset** as it will delete the data.
-- Set some "advanced" options in the sync, like `force`,  `prune` or `replace` to force the sync of the objects unwilling to sync.
+- Set some "advanced" options in the sync, like `force`, `prune` or `replace` to force the sync of the objects unwilling to sync.
 
 ## You have to deploy the ingress so you will lost the access to the Argocd UI
 
 This is tricky, because ingress is one of theses cases were you have to delete the deployments and sync them again, but once you delete the deployment there is no ingress so no way to access the Argo CD UI. You can handle this situation by at least two ways:
+
 - Set a retry option in the synchronization of the deployment, so you can delete the deployment and the sync will happen again in a few seconds.
 - Force a sync using kubectl, instead of the UI. You can do this by running the following command:
   ```bash
@@ -293,4 +304,4 @@ This is tricky, because ingress is one of theses cases were you have to delete t
 
 # References
 
-* [Docs](https://argo-cd.readthedocs.io/en/stable/)
+- [Docs](https://argo-cd.readthedocs.io/en/stable/)

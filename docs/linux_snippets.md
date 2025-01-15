@@ -4,6 +4,77 @@ date: 20200826
 author: Lyz
 ---
 
+# [Prevent the screen from turning off](https://wiki.archlinux.org/title/Display_Power_Management_Signaling#Runtime_settings)
+VESA Display Power Management Signaling (DPMS) enables power saving behaviour of monitors when the computer is not in use. The time of inactivity before the monitor enters into a given saving power level—standby, suspend or off—can be set as described in DPMSSetTimeouts(3).
+
+It is possible to turn off your monitor with the xset command
+
+```bash
+xset s off -dpms
+```
+It will disable DPMS and prevent screen from blanking
+
+To query the current settings:
+
+```bash
+xset q
+```
+
+If that doesn't work you can use the [keep-presence](https://github.com/carrot69/keep-presence/) program
+
+```bash
+pip install keep-presence
+keep-presence -c 
+```
+
+That will move the cursor one pixel in circles each 300s, if you need to move it more often use the `-s` flag.
+
+# [Protect the edition of a pdf with a password](https://askubuntu.com/questions/258848/is-there-a-tool-that-can-add-a-password-to-a-pdf-file)
+
+Use `pdftk`. From its man page:
+
+Encrypt a PDF using 128-Bit Strength (the Default) and Withhold All Permissions (the Default)
+
+```bash
+$ pdftk [mydoc].pdf output [mydoc.128].pdf owner_pw [foopass]
+```
+
+Same as Above, Except a Password is Required to Open the PDF
+
+```bash
+$ pdftk [mydoc].pdf output [mydoc.128].pdf owner_pw [foo] user_pw [baz]
+```
+
+Same as Above, Except Printing is Allowed (after the PDF is Open)
+
+```bash
+$ pdftk [mydoc].pdf output [mydoc.128].pdf owner_pw [foo] user_pw [baz] allow pri
+```
+
+To check if it has set the password correctly you [can run](https://stackoverflow.com/questions/4039659/is-it-possible-to-check-if-pdf-is-password-protected-using-ghostscript):
+
+```bash
+pdftk "input.pdf" dump_data output /dev/null dont_ask
+```
+# [Reduce the size of an image](https://www.digitalocean.com/community/tutorials/reduce-file-size-of-images-linux)
+
+The simplest way of reducing the size of the image is by degrading the quality of the image.
+
+```bash
+convert <INPUT_FILE> -quality 50% <OUTPUT_FILE>
+```
+
+The main difference between `convert` and `mogrify` command is that `mogrify` command applies the operations on the original image file, whereas convert does not.
+
+```bash
+mogrify -quality 50 *.jpg
+```
+# Change the default shell of a user using the command line
+
+```bash
+chsh -s /usr/bin/zsh lyz
+```
+
 # Convert an html to a pdf
 
 ## Using weasyprint
