@@ -14,7 +14,7 @@ Esta misa roja ha creado una verdadera religión a lo largo de los programas, no
 
 ## [Punzadas sonoras](https://punzadas.com/punzadas-sonoras/)
 
-Paula Ducay e Inés García me han recordado la importancia de la Filosofía como nadie. Gracias a ellas he descubierto nuevas maneras de ver, me han regalado palabras que describen a la percepción pensamientos y sensaciones que tengo y gracias con ellas he conseguido esclarecer un poco más mi entendimiento del mundo y de mi mismo. En especial han sido la base para desenterrar pilares imprescindibles de mi vida como son el deambular creativo y la solitud.
+Paula Ducay e Inés García me han recordado la importancia de la Filosofía como nadie. Gracias a ellas he descubierto nuevas maneras de ver, me han regalado palabras que describen a la percepción pensamientos y sensaciones que tengo y gracias a ellas he conseguido esclarecer un poco más mi entendimiento del mundo y de mi mismo. En especial han sido la base para desenterrar pilares imprescindibles de mi vida como son el deambular creativo y la solitud.
 
 ![cover](punzadas_sonoras.jpeg)
 
