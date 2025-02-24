@@ -239,6 +239,31 @@ kubectl -n <namespace> exec <pod-name> -- df -ah
 
 You may need to use `kubectl get pod <pod-name> -o yaml` to know what volume is mounted where.
 
+### Get the node architecture of the pods of a deployment
+
+Here are a few ways to check the node architecture of pods in a deployment:
+
+1. Get the nodes where the pods are running:
+```bash
+kubectl get pods -l app=your-deployment-label -o wide
+```
+This will show which nodes are running your pods.
+
+2. Then check the architecture of those nodes:
+```bash
+kubectl get nodes -o custom-columns=NAME:.metadata.name,ARCH:.status.nodeInfo.architecture
+```
+
+Or you can combine this into a single command:
+```bash
+kubectl get pods -l app=your-deployment-label -o json | jq -r '.items[].spec.nodeName' | xargs -I {} kubectl get node {} -o custom-columns=NAME:.metadata.name,ARCH:.status.nodeInfo.architecture
+```
+
+You can also check if your deployment is explicitly targeting specific architectures through node selectors or affinity rules:
+```bash
+kubectl get deployment your-deployment-name -o yaml | grep -A 5 nodeSelector
+```
+
 ## Services
 
 ### List services in namespace

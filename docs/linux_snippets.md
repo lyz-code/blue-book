@@ -4,7 +4,32 @@ date: 20200826
 author: Lyz
 ---
 
+# Record the audio from your computer
+
+You can record audio being played in a browser using `ffmpeg`
+
+1. Check your default audio source:
+
+   ```sh
+   pactl list sources | grep -E 'Name|Description'
+   ```
+
+2. Record using `ffmpeg`:
+
+   ```sh
+   ffmpeg -f pulse -i <your_monitor_source> output.wav
+   ```
+
+   Example:
+
+   ```sh
+   ffmpeg -f pulse -i alsa_output.pci-0000_00_1b.0.analog-stereo.monitor output.wav
+   ```
+
+3. Stop recording with **Ctrl+C**.
+
 # [Prevent the screen from turning off](https://wiki.archlinux.org/title/Display_Power_Management_Signaling#Runtime_settings)
+
 VESA Display Power Management Signaling (DPMS) enables power saving behaviour of monitors when the computer is not in use. The time of inactivity before the monitor enters into a given saving power level—standby, suspend or off—can be set as described in DPMSSetTimeouts(3).
 
 It is possible to turn off your monitor with the xset command
@@ -12,6 +37,7 @@ It is possible to turn off your monitor with the xset command
 ```bash
 xset s off -dpms
 ```
+
 It will disable DPMS and prevent screen from blanking
 
 To query the current settings:
@@ -24,7 +50,7 @@ If that doesn't work you can use the [keep-presence](https://github.com/carrot69
 
 ```bash
 pip install keep-presence
-keep-presence -c 
+keep-presence -c
 ```
 
 That will move the cursor one pixel in circles each 300s, if you need to move it more often use the `-s` flag.
@@ -56,6 +82,7 @@ To check if it has set the password correctly you [can run](https://stackoverflo
 ```bash
 pdftk "input.pdf" dump_data output /dev/null dont_ask
 ```
+
 # [Reduce the size of an image](https://www.digitalocean.com/community/tutorials/reduce-file-size-of-images-linux)
 
 The simplest way of reducing the size of the image is by degrading the quality of the image.
@@ -69,6 +96,7 @@ The main difference between `convert` and `mogrify` command is that `mogrify` co
 ```bash
 mogrify -quality 50 *.jpg
 ```
+
 # Change the default shell of a user using the command line
 
 ```bash
@@ -86,9 +114,10 @@ weasyprint input.html output.pdf
 ```
 
 It gave me better result than `wkhtmltopdf`
-  
+
 ## Using wkhtmltopdf
-To convert the given HTML into a PDF with proper styling and formatting using a simple method on Linux, you can use `wkhtmltopdf` with some custom options. 
+
+To convert the given HTML into a PDF with proper styling and formatting using a simple method on Linux, you can use `wkhtmltopdf` with some custom options.
 
 First, ensure that you have `wkhtmltopdf` installed on your system. If not, install it using your package manager (e.g., Debian: `sudo apt-get install wkhtmltopdf`).
 
@@ -99,17 +128,22 @@ wkhtmltopdf --page-size A4 --margin-top 15mm --margin-bottom 15mm --encoding utf
 ```
 
 In this command:
+
 - `--page-size A4`: Sets the paper size to A4.
 - `--margin-top 15mm` and `--margin-bottom 15mm`: Adds top and bottom margins of 15 mm to the PDF.
 
 After running the command, you should have a nicely formatted `output.pdf` file in your current directory. This method preserves most of the original HTML styling while providing a simple way to export it as a PDF on Linux.
 
 If you need to zoom in, you can use the `--zoom 1.2` flag. For this to work you need your css to be using the `em` sizes.
+
 # Format a drive to use a FAT32 system
+
 ```bash
 sudo mkfs.vfat -F 32 /dev/sdX
 ```
+
 Replace /dev/sdX with your actual drive identifier
+
 # Get the newest file of a directory with nested directories and files
 
 ```bash
@@ -127,7 +161,7 @@ If the docker is using less resources than the limits but they are still small (
 To set up a systemd service as a **non-root user**, you can create a user-specific service file under your home directory. User services are defined in `~/.config/systemd/user/` and can be managed without root privileges.
 
 1. Create the service file:
-   
+
    Open a terminal and create a new service file in `~/.config/systemd/user/`. For example, if you want to create a service for a script named `my_script.py`, follow these steps:
 
    ```bash
@@ -136,7 +170,7 @@ To set up a systemd service as a **non-root user**, you can create a user-specif
    ```
 
 2. Edit the service file:
-   
+
    In the `my_script.service` file, add the following configuration:
 
    ```ini
@@ -160,18 +194,20 @@ To set up a systemd service as a **non-root user**, you can create a user-specif
    - **Description**: A short description of what the service does.
    - **ExecStart**: The command to run your script. Replace `/path/to/your/script/my_script.py` with the full path to your Python script. If you want to run the script within a virtualenv you can use `/path/to/virtualenv/bin/python` instead of `/usr/bin/python3`.
 
-      You'll need to add the virtualenv path to Path
-      ```ini
-      # Add virtualenv's bin directory to PATH
-      Environment="PATH=/path/to/virtualenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-      ```
+     You'll need to add the virtualenv path to Path
+
+     ```ini
+     # Add virtualenv's bin directory to PATH
+     Environment="PATH=/path/to/virtualenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+     ```
+
    - **WorkingDirectory**: Set the working directory to where your script is located (optional).
    - **Restart**: Restart the service if it fails.
    - **StandardOutput** and **StandardError**: This ensures that the output is captured in the systemd journal.
    - **WantedBy**: Specifies the target to which this service belongs. `default.target` is commonly used for user services.
 
 3. Reload systemd to recognize the new service:
-   
+
    Run the following command to reload systemd's user service files:
 
    ```bash
@@ -179,7 +215,7 @@ To set up a systemd service as a **non-root user**, you can create a user-specif
    ```
 
 4. Enable and start the service:
-   
+
    To start the service immediately and enable it to run on boot (for your user session), use the following commands:
 
    ```bash
@@ -190,13 +226,13 @@ To set up a systemd service as a **non-root user**, you can create a user-specif
 5. Check the status and logs:
 
    - To check if the service is running:
-     
+
      ```bash
      systemctl --user status my_script.service
      ```
 
    - To view logs specific to your service:
-     
+
      ```bash
      journalctl --user -u my_script.service -f
      ```
@@ -246,169 +282,184 @@ After modifying the service, reload and restart it:
 systemctl --user daemon-reload
 systemctl --user restart my_script.service
 ```
-# Debugging high IOwait 
+
+# Debugging high IOwait
 
 High I/O wait (`iowait`) on the CPU, especially at 50%, typically indicates that your system is spending a large portion of its time waiting for I/O operations (such as disk access) to complete. This can be caused by a variety of factors, including disk bottlenecks, overloaded storage systems, or inefficient applications making disk-intensive operations.
 
 Here’s a structured approach to debug and analyze high I/O wait on your server:
 
 ## Monitor disk I/O
-   First, verify if disk I/O is indeed the cause. Tools like `iostat`, `iotop`, and `dstat` can give you an overview of disk activity:
 
-   - **`iostat`**: This tool reports CPU and I/O statistics. You can install it with `apt-get install sysstat`. Run the following command to check disk I/O stats:
+First, verify if disk I/O is indeed the cause. Tools like `iostat`, `iotop`, and `dstat` can give you an overview of disk activity:
 
-     ```bash
-     iostat -x 1
-     ```
-     The `-x` flag provides extended statistics, and `1` means it will report every second. Look for high values in the `%util` and `await` columns, which represent:
-     - `%util`: Percentage of time the disk is busy (ideally should be below 90% for most systems).
-     - `await`: Average time for I/O requests to complete.
+- **`iostat`**: This tool reports CPU and I/O statistics. You can install it with `apt-get install sysstat`. Run the following command to check disk I/O stats:
 
-     If either of these values is unusually high, it indicates that the disk subsystem is likely overloaded.
+  ```bash
+  iostat -x 1
+  ```
 
-   - **`iotop`**: If you want a more granular look at which processes are consuming disk I/O, use `iotop`:
+  The `-x` flag provides extended statistics, and `1` means it will report every second. Look for high values in the `%util` and `await` columns, which represent:
 
-     ```bash
-     sudo iotop -o
-     ```
+  - `%util`: Percentage of time the disk is busy (ideally should be below 90% for most systems).
+  - `await`: Average time for I/O requests to complete.
 
-     This will show you the processes that are actively performing I/O operations.
+  If either of these values is unusually high, it indicates that the disk subsystem is likely overloaded.
 
-   - **`dstat`**: Another useful tool for monitoring disk I/O in real-time:
+- **`iotop`**: If you want a more granular look at which processes are consuming disk I/O, use `iotop`:
 
-     ```bash
-     dstat -cdl 1
-     ```
+  ```bash
+  sudo iotop -o
+  ```
 
-     This shows CPU, disk, and load stats, refreshing every second. Pay attention to the `dsk/await` value.
+  This will show you the processes that are actively performing I/O operations.
+
+- **`dstat`**: Another useful tool for monitoring disk I/O in real-time:
+
+  ```bash
+  dstat -cdl 1
+  ```
+
+  This shows CPU, disk, and load stats, refreshing every second. Pay attention to the `dsk/await` value.
 
 ### Check disk health
-   Disk issues such as bad sectors or failing drives can also lead to high I/O wait times. To check the health of your disks:
 
-   - **Use `smartctl`**: This tool can give you a health check of your disks if they support S.M.A.R.T.
+Disk issues such as bad sectors or failing drives can also lead to high I/O wait times. To check the health of your disks:
 
-     ```bash
-     sudo smartctl -a /dev/sda
-     ```
+- **Use `smartctl`**: This tool can give you a health check of your disks if they support S.M.A.R.T.
 
-     Check for any errors or warnings in the output. Particularly look for things like reallocated sectors or increasing "pending sectors."
+  ```bash
+  sudo smartctl -a /dev/sda
+  ```
 
-   - **`dmesg` logs**: Look at the system logs for disk errors or warnings:
+  Check for any errors or warnings in the output. Particularly look for things like reallocated sectors or increasing "pending sectors."
 
-     ```bash
-     dmesg | grep -i "error"
-     ```
+- **`dmesg` logs**: Look at the system logs for disk errors or warnings:
 
-     If there are frequent disk errors, it may be time to replace the disk or investigate hardware issues.
+  ```bash
+  dmesg | grep -i "error"
+  ```
+
+  If there are frequent disk errors, it may be time to replace the disk or investigate hardware issues.
 
 ### Look for disk saturation
-   If the disk is saturated, no matter how fast the CPU is, it will be stuck waiting for data to come back from the disk. To further investigate disk saturation:
 
-   - **`df -h`**: Check if your disk partitions are full or close to full.
+If the disk is saturated, no matter how fast the CPU is, it will be stuck waiting for data to come back from the disk. To further investigate disk saturation:
 
-     ```bash
-     df -h
-     ```
+- **`df -h`**: Check if your disk partitions are full or close to full.
 
-   - **`lsblk`**: Check how your disks are partitioned and how much data is written to each partition:
+  ```bash
+  df -h
+  ```
 
-     ```bash
-     lsblk -o NAME,SIZE,TYPE,MOUNTPOINT
-     ```
+- **`lsblk`**: Check how your disks are partitioned and how much data is written to each partition:
 
-   - **`blktrace`**: For advanced debugging, you can use `blktrace`, which traces block layer events on your system.
+  ```bash
+  lsblk -o NAME,SIZE,TYPE,MOUNTPOINT
+  ```
 
-     ```bash
-     sudo blktrace -d /dev/sda -o - | blkparse -i -
-     ```
+- **`blktrace`**: For advanced debugging, you can use `blktrace`, which traces block layer events on your system.
 
-     This will give you very detailed insights into how the system is interacting with the block device.
+  ```bash
+  sudo blktrace -d /dev/sda -o - | blkparse -i -
+  ```
+
+  This will give you very detailed insights into how the system is interacting with the block device.
 
 ### Check for heavy disk-intensive processes
-   Identify processes that might be using excessive disk I/O. You can use tools like `iotop` (as mentioned earlier) or `pidstat` to look for processes with high disk usage:
 
-   - **`pidstat`**: Track per-process disk activity:
+Identify processes that might be using excessive disk I/O. You can use tools like `iotop` (as mentioned earlier) or `pidstat` to look for processes with high disk usage:
 
-     ```bash
-     pidstat -d 1
-     ```
+- **`pidstat`**: Track per-process disk activity:
 
-     This command will give you I/O statistics per process every second. Look for processes with high `I/O` values (`r/s` and `w/s`).
+  ```bash
+  pidstat -d 1
+  ```
 
-   - **`top`** or **`htop`**: While `top` or `htop` can show CPU usage, they can also show process-level disk activity. Focus on processes consuming high CPU or memory, as they might also be performing heavy I/O operations.
+  This command will give you I/O statistics per process every second. Look for processes with high `I/O` values (`r/s` and `w/s`).
+
+- **`top`** or **`htop`**: While `top` or `htop` can show CPU usage, they can also show process-level disk activity. Focus on processes consuming high CPU or memory, as they might also be performing heavy I/O operations.
 
 ### check file system issues
-   Sometimes the file system itself can be the source of I/O bottlenecks. Check for any file system issues that might be causing high I/O wait.
 
-   - **Check file system consistency**: If you suspect the file system is causing issues (e.g., due to corruption), run a file system check. For `ext4`:
+Sometimes the file system itself can be the source of I/O bottlenecks. Check for any file system issues that might be causing high I/O wait.
 
-     ```bash
-     sudo fsck /dev/sda1
-     ```
+- **Check file system consistency**: If you suspect the file system is causing issues (e.g., due to corruption), run a file system check. For `ext4`:
 
-     Ensure you unmount the disk first or do this in single-user mode.
+  ```bash
+  sudo fsck /dev/sda1
+  ```
 
-   - **Check disk scheduling**: Some disk schedulers (like `cfq` or `deadline`) might perform poorly depending on your workload. You can check the scheduler used by your disk with:
+  Ensure you unmount the disk first or do this in single-user mode.
 
-     ```bash
-     cat /sys/block/sda/queue/scheduler
-     ```
+- **Check disk scheduling**: Some disk schedulers (like `cfq` or `deadline`) might perform poorly depending on your workload. You can check the scheduler used by your disk with:
 
-     You can change the scheduler with:
+  ```bash
+  cat /sys/block/sda/queue/scheduler
+  ```
 
-     ```bash
-     echo deadline > /sys/block/sda/queue/scheduler
-     ```
+  You can change the scheduler with:
 
-     This might improve disk performance, especially for certain workloads.
+  ```bash
+  echo deadline > /sys/block/sda/queue/scheduler
+  ```
+
+  This might improve disk performance, especially for certain workloads.
 
 ### Examine system logs
-   The system logs (`/var/log/syslog` or `/var/log/messages`) may contain additional information about hardware issues, I/O bottlenecks, or kernel-related warnings:
 
-   ```bash
-   sudo tail -f /var/log/syslog
-   ```
+The system logs (`/var/log/syslog` or `/var/log/messages`) may contain additional information about hardware issues, I/O bottlenecks, or kernel-related warnings:
 
-   or
+```bash
+sudo tail -f /var/log/syslog
+```
 
-   ```bash
-   sudo tail -f /var/log/messages
-   ```
+or
 
-   Look for I/O or disk-related warnings or errors.
+```bash
+sudo tail -f /var/log/messages
+```
+
+Look for I/O or disk-related warnings or errors.
 
 ### Consider hardware upgrades or tuning
-   - **SSD vs HDD**: If you're using HDDs, consider upgrading to SSDs. HDDs can be much slower in terms of I/O, especially if you have a high number of random read/write operations.
-   - **RAID Configuration**: If you are using RAID, check the RAID configuration and ensure it's properly tuned for performance (e.g., using RAID-10 for a good balance of speed and redundancy).
-   - **Memory and CPU Tuning**: If the server is swapping due to insufficient RAM, it can result in increased I/O wait. You might need to add more RAM or optimize the system to avoid excessive swapping.
+
+- **SSD vs HDD**: If you're using HDDs, consider upgrading to SSDs. HDDs can be much slower in terms of I/O, especially if you have a high number of random read/write operations.
+- **RAID Configuration**: If you are using RAID, check the RAID configuration and ensure it's properly tuned for performance (e.g., using RAID-10 for a good balance of speed and redundancy).
+- **Memory and CPU Tuning**: If the server is swapping due to insufficient RAM, it can result in increased I/O wait. You might need to add more RAM or optimize the system to avoid excessive swapping.
 
 ### Check for swapping issues
-   Excessive swapping can contribute to high I/O wait times. If your system is swapping (which happens when physical RAM is exhausted), I/O wait spikes as the system reads from and writes to swap space on disk.
 
-   - **Check swap usage**:
+Excessive swapping can contribute to high I/O wait times. If your system is swapping (which happens when physical RAM is exhausted), I/O wait spikes as the system reads from and writes to swap space on disk.
 
-     ```bash
-     free -h
-     ```
+- **Check swap usage**:
 
-     If swap usage is high, you may need to add more physical RAM or optimize applications to reduce memory pressure.
+  ```bash
+  free -h
+  ```
+
+  If swap usage is high, you may need to add more physical RAM or optimize applications to reduce memory pressure.
 
 ---
 
-# Create a file with random data 
+# Create a file with random data
 
-Of 3.5 GB 
+Of 3.5 GB
 
 ```bash
 dd if=/dev/urandom of=random_file.bin bs=1M count=3584
 ```
+
 # [Set the vim filetype syntax in a comment](https://unix.stackexchange.com/questions/19867/is-there-a-way-to-place-a-comment-in-a-file-which-vim-will-process-in-order-to-s)
+
 Add somewhere in your file:
 
 ```
 # vi: ft=yaml
 ```
+
 # Export environment variables in a crontab
+
 If you need to expand the `PATH` in theory you can do it like this:
 
 ```
@@ -431,44 +482,56 @@ journalctl --vacuum-time=1s --unit=your.service
 ```
 
 If you wish to clear all logs use `journalctl --vacuum-time=1s`
+
 # [Send logs of a cronjob to journal](https://stackoverflow.com/questions/52200878/crontab-journalctl-extra-messages)
+
 You can use `systemd-cat` to send the logs of a script or cron to the journal to the unit specified after the `-t` flag. It works better than piping the output to `logger -t`
+
 ```bash
 systemd-cat -t syncoid_send_backups /root/send_backups.sh
 ```
+
 # [Set dependencies between systemd services](https://stackoverflow.com/questions/21830670/start-systemd-service-after-specific-service)
+
 Use `Wants` or `Requires`:
 
-```ini 
+```ini
 website.service
 [Unit]
 Wants=mongodb.service
 After=mongodb.service
 ```
+
 # [Set environment variable in systemd service](https://www.baeldung.com/linux/systemd-services-environment-variables)
 
-```ini 
+```ini
 [Service]
 # ...
 Environment="FOO=foo"
 ```
 
 # [Get info of a mkv file](https://superuser.com/questions/595177/how-to-retrieve-video-file-information-from-command-line-under-linux)
+
 ```bash
 ffprobe file.mkv
 ```
-# [Send multiline messages with notify-send](https://stackoverflow.com/questions/35628702/display-multi-line-notification-using-notify-send-in-python) 
+
+# [Send multiline messages with notify-send](https://stackoverflow.com/questions/35628702/display-multi-line-notification-using-notify-send-in-python)
+
 The title can't have new lines, but the body can.
 
 ```bash
 notify-send "Title" "This is the first line.\nAnd this is the second.")
 ```
+
 # [Find BIOS version](https://www.cyberciti.biz/faq/check-bios-version-linux/)
 
-```bash 
+```bash
 dmidecode | less
 ```
-# [Reboot server on kernel panic ](https://www.supertechcrew.com/kernel-panics-and-lockups/) 
+
+# [Reboot server on kernel panic ](https://www.supertechcrew.com/kernel-panics-and-lockups/)
+
 The `proc/sys/kernel/panic` file gives read/write access to the kernel variable `panic_timeout`. If this is zero, the kernel will loop on a panic; if nonzero it indicates that the kernel should autoreboot after this number of seconds. When you use the software watchdog device driver, the recommended setting is `60`.
 
 To set the value add the next contents to the `/etc/sysctl.d/99-panic.conf`
@@ -488,6 +551,7 @@ Or with an ansible task:
     create: true
     state: present
 ```
+
 There are other things that can cause a machine to lock up or become unstable. Some of them will even make a machine responsive to pings and network heartbeat monitors, but will cause programs to crash and internal systems to lockup.
 
 If you want the machine to automatically reboot, make sure you set `kernel.panic` to something above 0. Otherwise these settings could cause a hung machine that you will have to reboot manually.
@@ -522,7 +586,7 @@ kernel.panic_on_unrecovered_nmi=1
 # kernel.panic_on_oops=30
 ```
 
-# [Share a calculated value between github actions steps](https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#setting-an-output-parameter) 
+# [Share a calculated value between github actions steps](https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#setting-an-output-parameter)
 
 You need to set a step's output parameter. Note that the step will need an `id` to be defined to later retrieve the output value.
 
@@ -542,7 +606,8 @@ For example:
   run: echo "The selected color is $SELECTED_COLOR"
 ```
 
-# [Split a zip into sizes with restricted size ](https://unix.stackexchange.com/questions/198982/zip-files-with-size-limit) 
+# [Split a zip into sizes with restricted size ](https://unix.stackexchange.com/questions/198982/zip-files-with-size-limit)
+
 Something like:
 
 ```bash
@@ -551,11 +616,13 @@ zipsplit -n 250000000 myfile.zip
 ```
 
 Would produce `myfile1.zip`, `myfile2.zip`, etc., all independent of each other, and none larger than 250MB (in powers of ten). `zipsplit` will even try to organize the contents so that each resulting archive is as close as possible to the maximum size.
-# [find files that were modified between dates](https://unix.stackexchange.com/questions/29245/how-to-list-files-that-were-changed-in-a-certain-range-of-time) 
+
+# [find files that were modified between dates](https://unix.stackexchange.com/questions/29245/how-to-list-files-that-were-changed-in-a-certain-range-of-time)
+
 The best option is the `-newerXY`. The m and t flags can be used.
 
-- `m`   The modification time of the file reference
-- `t`   reference is interpreted directly as a time
+- `m` The modification time of the file reference
+- `t` reference is interpreted directly as a time
 
 So the solution is
 
@@ -563,8 +630,10 @@ So the solution is
 find . -type f -newermt 20111222 \! -newermt 20111225
 ```
 
-The lower bound in inclusive, and upper bound is exclusive, so I added 1 day to it. And it is recursive. 
-# [Rotate image with the command line ](https://askubuntu.com/questions/591733/rotate-images-from-terminal) 
+The lower bound in inclusive, and upper bound is exclusive, so I added 1 day to it. And it is recursive.
+
+# [Rotate image with the command line ](https://askubuntu.com/questions/591733/rotate-images-from-terminal)
+
 If you want to overwrite in-place, `mogrify` from the ImageMagick suite seems to be the easiest way to achieve this:
 
 ```bash
@@ -574,14 +643,19 @@ mogrify -rotate -90 *.jpg
 # clockwise:
 mogrify -rotate 90 *.jpg
 ```
+
 # [Configure desktop icons in gnome](https://gitlab.gnome.org/GNOME/nautilus/-/issues/158#instructions)
+
 Latest versions of gnome dont have desktop icons [read this article to fix this](https://gitlab.gnome.org/GNOME/nautilus/-/issues/158#instructions)
-# [Make a file executable in a git repository ](https://docs.github.com/en/actions/creating-actions/creating-a-docker-container-action) 
-```bash 
+
+# [Make a file executable in a git repository ](https://docs.github.com/en/actions/creating-actions/creating-a-docker-container-action)
+
+```bash
 git add entrypoint.sh
 git update-index --chmod=+x entrypoint.sh
 ```
-# [Configure autologin in Debian with Gnome](https://linux.how2shout.com/enable-or-disable-automatic-login-in-debian-11-bullseye/) 
+
+# [Configure autologin in Debian with Gnome](https://linux.how2shout.com/enable-or-disable-automatic-login-in-debian-11-bullseye/)
 
 Edit the `/etc/gdm3/daemon.conf` file and include:
 
@@ -590,16 +664,19 @@ AutomaticLoginEnable = true
 AutomaticLogin = <your user>
 ```
 
-# [See errors in the journalctl ](https://unix.stackexchange.com/questions/332886/how-to-see-error-message-in-journald ) 
+# [See errors in the journalctl ](https://unix.stackexchange.com/questions/332886/how-to-see-error-message-in-journald)
 
 To get all errors for running services using journalctl:
 
 ```bash
 journalctl -p 3 -xb
 ```
+
 where `-p 3` means priority err, `-x` provides extra message information, and `-b` means since last boot.
+
 # [Fix rsyslog builtin:omfile suspended error](https://ubuntu-mate.community/t/rsyslogd-action-action-0-builtin-omfile-resumed-module-builtin-omfile/24105/21)
-It may be a permissions error. I have not been able to pinpoint the reason behind it. 
+
+It may be a permissions error. I have not been able to pinpoint the reason behind it.
 
 What did solve it though is to remove the [aledgely deprecated paramenters](https://www.rsyslog.com/doc/configuration/modules/omfile.html) from `/etc/rsyslog.conf`:
 
@@ -607,10 +684,10 @@ What did solve it though is to remove the [aledgely deprecated paramenters](http
 # $FileOwner syslog
 # $FileGroup adm
 # $FileCreateMode 0640
-# $DirCreateMode 0755 
-# $Umask 0022 
-# $PrivDropToUser syslog 
-# $PrivDropToGroup syslog 
+# $DirCreateMode 0755
+# $Umask 0022
+# $PrivDropToUser syslog
+# $PrivDropToGroup syslog
 ```
 
 I hope that as they are the default parameters, they don't need to be set.
@@ -621,12 +698,12 @@ I hope that as they are the default parameters, they don't need to be set.
 server {
     listen 80;
     server_name yourdomain.com;
-    
+
     location / {
         if ($request_method !~ ^(GET|POST)$ ) {
             return 405;
         }
-        
+
         try_files $uri $uri/ =404;
     }
 }
@@ -639,6 +716,7 @@ location ~* /share/[\w-]+ {
   root /home/project_root;
 }
 ```
+
 # [Configure nginx location to accept many paths](https://serverfault.com/questions/564127/nginx-location-regex-for-multiple-paths)
 
 ```
@@ -648,6 +726,7 @@ location ~ ^/(static|media)/ {
 ```
 
 # [Remove image metadata](https://stackoverflow.com/questions/66192531/exiftool-how-to-remove-all-metadata-from-all-files-possible-inside-a-folder-an)
+
 ```bash
 exiftool -all:all= /path/to/file
 ```
@@ -664,7 +743,7 @@ It finds all the files in that directory that were created in the 2023, it only 
 
 # [Makefile use bash instead of sh](https://stackoverflow.com/questions/589276/how-can-i-use-bash-syntax-in-makefile-targets)
 
-The program used as the shell is taken from the variable `SHELL`.  If
+The program used as the shell is taken from the variable `SHELL`. If
 this variable is not set in your makefile, the program `/bin/sh` is
 used as the shell.
 
@@ -714,7 +793,7 @@ Probably, your `ls` is aliased or defined as a function in your config files.
 Use the full path to `ls` like:
 
 ```bash
-/bin/ls /var/lib/mysql/ 
+/bin/ls /var/lib/mysql/
 ```
 
 # [Convert png to svg](https://askubuntu.com/questions/470495/how-do-i-convert-a-png-to-svg)
@@ -740,7 +819,7 @@ Once you are comfortable with the tracing options. You can automate it by using 
 
 # Error when unmounting a device: Target is busy
 
-- Check the processes that are using the mountpoint with `lsof /path/to/mountpoint` 
+- Check the processes that are using the mountpoint with `lsof /path/to/mountpoint`
 - Kill those processes
 - Try the umount again
 
@@ -781,11 +860,9 @@ git describe --tags --abbrev=0
 
 # [Configure gpg-agent cache ttl](https://superuser.com/questions/624343/keep-gnupg-credentials-cached-for-entire-user-session)
 
-
 The user configuration (in `~/.gnupg/gpg-agent.conf`) can only define the default and maximum caching duration; it can't be disabled.
 
 The `default-cache-ttl` option sets the timeout (in seconds) after the last GnuPG activity (so it resets if you use it), the `max-cache-ttl` option set the timespan (in seconds) it caches after entering your password. The default value is 600 seconds (10 minutes) for `default-cache-ttl` and 7200 seconds (2 hours) for max-cache-ttl.
-
 
 ```
 default-cache-ttl 21600
@@ -850,11 +927,10 @@ Pin-Priority: 990
 
 # [Rename multiple files matching a pattern](https://stackoverflow.com/questions/6840332/rename-multiple-files-by-replacing-a-particular-pattern-in-the-filenames-using-a)
 
-
 There is `rename` that looks nice, but you need to install it. Using only `find` you can do:
 
 ```bash
-find . -name '*yml' -exec bash -c 'echo mv $0 ${0/yml/yaml}' {} \; 
+find . -name '*yml' -exec bash -c 'echo mv $0 ${0/yml/yaml}' {} \;
 ```
 
 If it shows what you expect, remove the `echo`.
@@ -864,6 +940,7 @@ If it shows what you expect, remove the `echo`.
 ```bash
 ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no exampleUser@example.com
 ```
+
 # [Do a tail -f with grep](https://stackoverflow.com/questions/23395665/tail-f-grep)
 
 ```bash
@@ -918,7 +995,7 @@ sudo update-grub
 
 This will make your machine display the boot options for 5 seconds before it boot the default option (instead of waiting forever for you to choose one).
 
-# SSH tunnel 
+# SSH tunnel
 
 ```bash
 ssh -D 9090 -N -f user@host
@@ -968,21 +1045,21 @@ Server:/path/to/export /local_mountpoint nfs <options> 0 0
 
 Where:
 
-* `Server`: The hostname or IP address of the NFS server where the exported directory resides.
-* `/path/to/export`: The shared directory (exported folder) path.
-* `/local_mountpoint`: Existing directory in the host where you want to mount the NFS share.
+- `Server`: The hostname or IP address of the NFS server where the exported directory resides.
+- `/path/to/export`: The shared directory (exported folder) path.
+- `/local_mountpoint`: Existing directory in the host where you want to mount the NFS share.
 
 You can specify a number of options that you want to set on the NFS mount:
 
-* `soft/hard`: When the mount option `hard` is set, if the NFS server crashes or becomes unresponsive, the NFS requests will be retried indefinitely. You can set the mount option `intr`, so that the process can be interrupted. When the NFS server comes back online, the process can be continued from where it was while the server became unresponsive.
+- `soft/hard`: When the mount option `hard` is set, if the NFS server crashes or becomes unresponsive, the NFS requests will be retried indefinitely. You can set the mount option `intr`, so that the process can be interrupted. When the NFS server comes back online, the process can be continued from where it was while the server became unresponsive.
 
   When the option `soft` is set, the process will be reported an error when the NFS server is unresponsive after waiting for a period of time (defined by the `timeo` option). In certain cases `soft` option can cause data corruption and loss of data. So, it is recommended to use `hard` and `intr` options.
 
-* `noexec`: Prevents execution of binaries on mounted file systems. This is useful if the system is mounting a non-Linux file system via NFS containing incompatible binaries.
-* `nosuid`: Disables set-user-identifier or set-group-identifier bits. This prevents remote users from gaining higher privileges by running a setuid program.
-* `tcp`: Specifies the NFS mount to use the TCP protocol.
-* `udp`: Specifies the NFS mount to use the UDP protocol.
-* `nofail`: Prevent issues when rebooting the host. The downside is that if you have services that depend on the volume to be mounted they won't behave as expected.
+- `noexec`: Prevents execution of binaries on mounted file systems. This is useful if the system is mounting a non-Linux file system via NFS containing incompatible binaries.
+- `nosuid`: Disables set-user-identifier or set-group-identifier bits. This prevents remote users from gaining higher privileges by running a setuid program.
+- `tcp`: Specifies the NFS mount to use the TCP protocol.
+- `udp`: Specifies the NFS mount to use the UDP protocol.
+- `nofail`: Prevent issues when rebooting the host. The downside is that if you have services that depend on the volume to be mounted they won't behave as expected.
 
 # [Fix limit on the number of inotify watches](https://stackoverflow.com/questions/47075661/error-user-limit-of-inotify-watches-reached-extreact-build)
 
@@ -1008,19 +1085,19 @@ Where `100000` is the desired number of inotify watches.
 
 # Manage users
 
-* Change main group of user
+- Change main group of user
 
   ```bash
   usermod -g {{ group_name }} {{ user_name }}
   ```
 
-* Add user to group
+- Add user to group
 
   ```bash
   usermod -a -G {{ group_name }} {{ user_name }}
   ```
 
-* Remove user from group.
+- Remove user from group.
 
   ```bash
   usermod -G {{ remaining_group_names }} {{ user_name }}
@@ -1028,7 +1105,7 @@ Where `100000` is the desired number of inotify watches.
 
   You have to execute `groups {{ user }}` get the list and pass the remaining to the above command
 
-* Change uid and gid of the user
+- Change uid and gid of the user
 
   ```bash
   usermod -u {{ newuid }} {{ login }}
@@ -1040,37 +1117,37 @@ Where `100000` is the desired number of inotify watches.
 
 # Manage ssh keys
 
-*  Generate ed25519 key
+- Generate ed25519 key
 
-   ```bash
-   ssh-keygen -t ed25519 -f {{ path_to_keyfile }}
-   ```
+  ```bash
+  ssh-keygen -t ed25519 -f {{ path_to_keyfile }}
+  ```
 
-* Generate RSA key
+- Generate RSA key
 
   ```bash
   ssh-keygen -t rsa -b 4096 -o -a 100 -f {{ path_to_keyfile }}
   ```
 
-* Generate different comment
+- Generate different comment
 
   ```bash
   ssh-keygen -t ed25519 -f {{ path_to_keyfile }} -C {{ email }}
   ```
 
-* Generate key headless, batch
+- Generate key headless, batch
 
   ```bash
   ssh-keygen -t ed25519 -f {{ path_to_keyfile }} -q -N ""
   ```
 
-* Generate public key from private key
+- Generate public key from private key
 
   ```bash
   ssh-keygen -y -f {{ path_to_keyfile }} > {{ path_to_public_key_file }}
   ```
 
-* Get fingerprint of key
+- Get fingerprint of key
   ```bash
   ssh-keygen -lf {{ path_to_key }}
   ```
@@ -1087,8 +1164,8 @@ server#: iperf3 -i 10 -s
 
 Where:
 
-* `-i`: the interval to provide periodic bandwidth updates
-* `-s`: listen as a server
+- `-i`: the interval to provide periodic bandwidth updates
+- `-s`: listen as a server
 
 On the client system:
 
@@ -1098,20 +1175,19 @@ client#: iperf3 -i 10 -w 1M -t 60 -c [server hostname or ip address]
 
 Where:
 
-* `-i`: the interval to provide periodic bandwidth updates
-* `-w`: the socket buffer size (which affects the TCP Window). The buffer size is also set on the server by this client command.
-* `-t`: the time to run the test in seconds
-* `-c`: connect to a listening server at…
-
+- `-i`: the interval to provide periodic bandwidth updates
+- `-w`: the socket buffer size (which affects the TCP Window). The buffer size is also set on the server by this client command.
+- `-t`: the time to run the test in seconds
+- `-c`: connect to a listening server at…
 
 Sometimes is interesting to test both ways as they may return different outcomes
 
 I've got the next results at home:
 
-* From new NAS to laptop through wifi 67.5 MB/s
-* From laptop to new NAS 59.25 MB/s
-* From intel Nuc to new NAS 116.75 MB/s (934Mbit/s)
-* From old NAS to new NAS 11 MB/s
+- From new NAS to laptop through wifi 67.5 MB/s
+- From laptop to new NAS 59.25 MB/s
+- From intel Nuc to new NAS 116.75 MB/s (934Mbit/s)
+- From old NAS to new NAS 11 MB/s
 
 # [Measure the performance, IOPS of a disk](https://woshub.com/check-disk-performance-iops-latency-linux/)
 
@@ -1123,7 +1199,7 @@ apt-get install fio
 
 Then you need to go to the directory where your disk is mounted. The test is done by performing read/write operations in this directory.
 
-To do a random read/write operation test an 8 GB file will be created. Then `fio` will read/write a 4KB block (a standard block size) with the 75/25% by the number of reads and writes operations and measure the performance. 
+To do a random read/write operation test an 8 GB file will be created. Then `fio` will read/write a 4KB block (a standard block size) with the 75/25% by the number of reads and writes operations and measure the performance.
 
 ```bash
 fio --randrepeat=1 --ioengine=libaio --direct=1 --gtod_reduce=1 --name=fiotest --filename=testfio --bs=4k --iodepth=64 --size=8G --readwrite=randrw --rwmixread=75
@@ -1131,7 +1207,8 @@ fio --randrepeat=1 --ioengine=libaio --direct=1 --gtod_reduce=1 --name=fiotest -
 
 I've run this test in different environments with awesome results:
 
-* New NAS server NVME: 
+- New NAS server NVME:
+
   ```
   read: IOPS=297k, BW=1159MiB/s (1215MB/s)(3070MiB/2649msec)
    bw (  MiB/s): min= 1096, max= 1197, per=99.80%, avg=1156.61, stdev=45.31, samples=5
@@ -1142,7 +1219,7 @@ I've run this test in different environments with awesome results:
   cpu          : usr=15.67%, sys=67.18%, ctx=233314, majf=0, minf=8
   ```
 
-* New NAS server ZFS pool with RAIDZ:
+- New NAS server ZFS pool with RAIDZ:
 
   ```
   read: IOPS=271k, BW=1059MiB/s (1111MB/s)(3070MiB/2898msec)
@@ -1154,7 +1231,7 @@ I've run this test in different environments with awesome results:
   cpu          : usr=12.84%, sys=63.20%, ctx=234345, majf=0, minf=6
   ```
 
-* Laptop NVME:
+- Laptop NVME:
 
   ```
   read: IOPS=36.8k, BW=144MiB/s (151MB/s)(3070MiB/21357msec)
@@ -1166,8 +1243,8 @@ I've run this test in different environments with awesome results:
   cpu          : usr=14.32%, sys=32.17%, ctx=356674, majf=0, minf=7
   ```
 
-* Laptop ZFS pool through NFS (running in parallel with other network processes):
-  
+- Laptop ZFS pool through NFS (running in parallel with other network processes):
+
   ```
   read: IOPS=4917, BW=19.2MiB/s (20.1MB/s)(3070MiB/159812msec)
    bw (  KiB/s): min=16304, max=22368, per=100.00%, avg=19681.46, stdev=951.52, samples=319
@@ -1178,7 +1255,8 @@ I've run this test in different environments with awesome results:
   cpu          : usr=5.21%, sys=10.59%, ctx=175825, majf=0, minf=8
   ```
 
-* Intel Nuc server disk SSD:
+- Intel Nuc server disk SSD:
+
   ```
     read: IOPS=11.0k, BW=46.9MiB/s (49.1MB/s)(3070MiB/65525msec)
    bw (  KiB/s): min=  280, max=73504, per=100.00%, avg=48332.30, stdev=25165.49, samples=130
@@ -1189,11 +1267,13 @@ I've run this test in different environments with awesome results:
   cpu          : usr=8.04%, sys=25.87%, ctx=268055, majf=0, minf=8
   ```
 
-* Intel Nuc server external HD usb disk :
-  ```
+- Intel Nuc server external HD usb disk :
+
   ```
 
-* Intel Nuc ZFS pool through NFS (running in parallel with other network processes):
+  ```
+
+- Intel Nuc ZFS pool through NFS (running in parallel with other network processes):
 
   ```
     read: IOPS=18.7k, BW=73.2MiB/s (76.8MB/s)(3070MiB/41929msec)
@@ -1205,7 +1285,7 @@ I've run this test in different environments with awesome results:
   cpu          : usr=6.29%, sys=13.21%, ctx=575927, majf=0, minf=10
   ```
 
-* Old NAS with RAID5:
+- Old NAS with RAID5:
   ```
   read : io=785812KB, bw=405434B/s, iops=98, runt=1984714msec
   write: io=262764KB, bw=135571B/s, iops=33, runt=1984714msec
@@ -1214,15 +1294,15 @@ I've run this test in different environments with awesome results:
 
 Conclusions:
 
-* New NVME are **super fast** (1215MB/s read, 406MB/s write)
-* ZFS rocks, with a RAIDZ1, L2ARC and ZLOG it returned almost the same performance as the NVME ( 1111MB/s read, 371MB/s write)
-* Old NAS with RAID is **super slow** (0.4KB/s read, 0.1KB/s write!)
-* I should replace the laptop's NVME, the NAS one has 10x performace both on read and write.
+- New NVME are **super fast** (1215MB/s read, 406MB/s write)
+- ZFS rocks, with a RAIDZ1, L2ARC and ZLOG it returned almost the same performance as the NVME ( 1111MB/s read, 371MB/s write)
+- Old NAS with RAID is **super slow** (0.4KB/s read, 0.1KB/s write!)
+- I should replace the laptop's NVME, the NAS one has 10x performace both on read and write.
 
 There is a huge difference between ZFS in local and through NFS. In local you get (1111MB/s read and 371MB/s write) while through NFS I got (20.1MB/s read and 6.7MB/s write). I've measured the network performance between both machines with `iperf3` and got:
 
-* From NAS to laptop 67.5 MB/s
-* From laptop to NAS 59.25 MB/s
+- From NAS to laptop 67.5 MB/s
+- From laptop to NAS 59.25 MB/s
 
 It was because I was running it over wifi.
 
@@ -1251,7 +1331,6 @@ sudo bash -c "openvpn --config config.ovpn  --auth-user-pass <(echo -e 'user_nam
 ```
 
 Assuming that `vpn` is an entry of your `pass` password store.
-
 
 # Download TS streams
 
@@ -1384,20 +1463,21 @@ Without the `-n` it won't work well.
 
 - Configure `apt` to only use `unstable` when specified
 
-    File: `/etc/apt/preferences`
-    ```
-    Package: * 
-    Pin: release a=stable
-    Pin-Priority: 700
+  File: `/etc/apt/preferences`
 
-    Package: *
-    Pin: release  a=testing
-    Pin-Priority: 600
+  ```
+  Package: *
+  Pin: release a=stable
+  Pin-Priority: 700
 
-    Package: *
-    Pin: release a=unstable
-    Pin-Priority: 100
-    ```
+  Package: *
+  Pin: release  a=testing
+  Pin-Priority: 600
+
+  Package: *
+  Pin: release a=unstable
+  Pin-Priority: 100
+  ```
 
 - Update the package data with `apt-get update`.
 - See that the new versions are available with

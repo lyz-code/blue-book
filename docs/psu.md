@@ -92,7 +92,6 @@ manufacturers offer warranties.
         Calculator](https://www.bequiet.com/en/psucalculator)
     * [Cooler Master Power Calculator](http://www.coolermaster.com/power-supply-calculator/)
     * [Seasonic Wattage Calculator](https://seasonic.com/wattage-calculator)
-    * [MSI PSU Calculator](https://www.msi.com/calculator)
     * [Newegg PSU Calculator](https://www.newegg.com/tools/power-supply-calculator/)
 
 * *Consider upcoming GPU power requirements*: Although the best graphics cards

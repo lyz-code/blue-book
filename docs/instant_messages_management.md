@@ -155,3 +155,7 @@ Sometimes the client applications don't give enough granularity, or you would
 like to show notifications based on more complex conditions, that's why
 I created the seed project to [improve the notification management in
 Linux](projects.md#improve-the-notification-management-in-linux).
+
+# Merge all your instant message apps into one
+
+You can [use bridges to merge all into matrix](https://technicallyrural.ca/2021/04/05/unify-signal-whatsapp-and-sms-in-a-personal-matrix-server-part-1-matrix/)

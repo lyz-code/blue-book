@@ -51,7 +51,7 @@ choosing two different models of disk from two different manufacturers. To
 reduce the chances of getting disks from the same manufacturing batch, you can
 buy them from different vendors.
 
-# Choosing the disks 
+# Choosing the disks
 
 There are many things to take into account when choosing the different disks for your pool.
 
@@ -173,6 +173,7 @@ External air cannot re-enter the drive to refill these gaps, as air atoms are to
 Hard drive manufacturers offer limited warranties (typically 5 years) for helium-sealed drives, acknowledging this gradual performance degradation. While under warranty, these issues are unlikely to manifest; however, all units will eventually succumb to helium escape and increased head-disk interference.
 
 You can read more of this issue in [1](https://www.truenas.com/community/threads/helium-drives-long-term-use.96649/), [2](https://linustechtips.com/topic/1359644-helium-hdd-health-update-after-5-years/), [3](https://foro.noticias3d.com/vbulletin/showthread.php?t=468562), [4](https://blog.westerndigital.com/helium-hard-drives-explained/)
+
 ### [Data disk brands](https://www.nasmaster.com/best-nas-drives/)
 
 #### [Western Digital](https://www.nasmaster.com/wd-red-vs-red-plus-vs-red-pro-nas-hdd/)
@@ -182,26 +183,26 @@ offering and you should consider these if you can find them at more affordable
 prices. WD splits its NAS drives into three sub-categories, normal, Plus, and
 Pro.
 
-| Specs                  | WD Red    | WD Red Plus        | WD Red Pro      |  WD Ultrastar HC520 |
-| ---------------------- | --------- | ------------------ | --------------- | --- |
-| Technology             | SMR       | CMR                | CMR             | PMR |
-| Bays                   | 1-8       | 1-8                | 1-24            |  |
-| Capacity               | 2-6TB     | 1-14TB             | 2-18TB          |  12TB |
-| Speed                  | 5,400 RPM | 5,400 RPM (1-4TB)  | 7200 RPM        | 7200 RPM |
-| Speed                  | 5,400 RPM | 5,640 RPM (6-8TB)  | 7200 RPM        |  7200 RPM |
-| Speed                  | 5,400 RPM | 7,200 RPM (8-14TB) | 7200 RPM        |  7200 RPM |
-| Speed                  | ?         | 210MB/s            | 235MB/s         | 255 MB/s |
-| Cache                  | 256MB     | 16MB (1TB)         |                 | 256 MB |
-| Cache                  | 256MB     | 64MB (1TB)         | 64MB (2TB)      |  256 MB |
-| Cache                  | 256MB     | 128MB (2-8TB)      | 256MB (4-12TB)  |  256 MB |
-| Cache                  | 256MB     | 256MB (8-12TB)     | 512MB (14-18TB) |  256 MB |
-| Cache                  | 256MB     | 512MB (14TB)       |                 |  256 MB |
-| Workload               | 180TB/yr  | 180TB/yr           | 300TB/yr        |   |
-| MTBF                   | 1 million | 1 million          | 1 million       | 2.5 M |
-| Warranty               | 3 years   | 3 years            | 5 years         | 5  years |
-| Power Consumption      | ?         | ?                  | 8.8 W           | 5.0 W |
-| Power Consumption Rest | ?         | ?                  | 4.6 W           | 6.9 W |
-| Price                  | From $50  | From $45           | From $78        | |
+| Specs                  | WD Red    | WD Red Plus        | WD Red Pro      | WD Ultrastar HC520 |
+| ---------------------- | --------- | ------------------ | --------------- | ------------------ |
+| Technology             | SMR       | CMR                | CMR             | PMR                |
+| Bays                   | 1-8       | 1-8                | 1-24            |                    |
+| Capacity               | 2-6TB     | 1-14TB             | 2-18TB          | 12TB               |
+| Speed                  | 5,400 RPM | 5,400 RPM (1-4TB)  | 7200 RPM        | 7200 RPM           |
+| Speed                  | 5,400 RPM | 5,640 RPM (6-8TB)  | 7200 RPM        | 7200 RPM           |
+| Speed                  | 5,400 RPM | 7,200 RPM (8-14TB) | 7200 RPM        | 7200 RPM           |
+| Speed                  | ?         | 210MB/s            | 235MB/s         | 255 MB/s           |
+| Cache                  | 256MB     | 16MB (1TB)         |                 | 256 MB             |
+| Cache                  | 256MB     | 64MB (1TB)         | 64MB (2TB)      | 256 MB             |
+| Cache                  | 256MB     | 128MB (2-8TB)      | 256MB (4-12TB)  | 256 MB             |
+| Cache                  | 256MB     | 256MB (8-12TB)     | 512MB (14-18TB) | 256 MB             |
+| Cache                  | 256MB     | 512MB (14TB)       |                 | 256 MB             |
+| Workload               | 180TB/yr  | 180TB/yr           | 300TB/yr        |                    |
+| MTBF                   | 1 million | 1 million          | 1 million       | 2.5 M              |
+| Warranty               | 3 years   | 3 years            | 5 years         | 5 years            |
+| Power Consumption      | ?         | ?                  | 8.8 W           | 5.0 W              |
+| Power Consumption Rest | ?         | ?                  | 4.6 W           | 6.9 W              |
+| Price                  | From $50  | From $45           | From $78        |                    |
 
 #### Seagate
 
@@ -212,25 +213,27 @@ advanced than IronWolf Pro and are best suited for server environments. They
 sport incredible levels of performance and reliability, including a workload
 rate of 550TB per year.
 
-| Specs                        | IronWolf           | IronWolf Pro         | Exos 7E8 8TB | Exos 7E10 8TB | Exos X18 16TB | Enterpri. Capacity |
-| ---------------------------- | ------------------ | -------------------- | ------------ | ------------- | ------------- | --- |
-| Technology                   | CMR                | CMR                  | CMR          | SMR           | CMR           |
-| Bays                         | 1-8                | 1-24                 | ?            | ?             | ?             | ? | 
-| Capacity                     | 1-12TB             | 2-20TB               | 8TB          | 8TB           | 16 TB         | 10 TB |
-| RPM                          | 5,400 RPM (3-6TB)  | 7200 RPM             | 7200 RPM     | 7200 RPM      | 7200 RPM      | 7200 RPM |
-| RPM                          | 5,900 RPM (1-3TB)  | 7200 RPM             | 7200 RPM     | 7200 RPM      | 7200 RPM      | 7200 RPM |
-| RPM                          | 7,200 RPM (8-12TB) | 7200 RPM             | 7200 RPM     | 7200 RPM      | 7200 RPM      | 7200 RPM |
-| Speed                        | 180MB/s (1-12TB)   | 214-260MB/s (4-18TB) | 249 MB/s     | 255 MB/s      | 258 MB/s      | 254 MB/s |
-| Cache                        | 64MB (1-4TB)       | 256 MB               | 256 MB       | 256 MB        | 256 MB        | 256 MB |
-| Cache                        | 256MB (3-12TB)     | 256 MB               | 256 MB       | 256 MB        | 256 MB        | 256 MB |
-| Power Consumption            | 10.1 W             | 10.1 W               | 12.81 W      | 11.03 W       | 9.31 W        | 8 W |
-| Power Consumption Rest       | 7.8 W              | 7.8 W                | 7.64 W       | 7.06 W        | 5.08 W        | 4.5 W |
-| Workload                     | 180TB/yr           | 300TB/yr             | 550TB/yr     | 550TB/yr      | 550TB/yr      | < 550TB/yr |
-| MTBF                         | 1 million          | 1 million            | 2 millions   | 2 millions    | 2.5 millions  | 2.5 millions |
-| Noise idle                          | ?                  | ?                    | ?            | ?             | ?             | 3.0 bels max |
-| Noise performance seek              | ?                  | ?                    | ?            | ?             | ?             | 3.4 bels max |
-| Warranty                     | 3 years            | 5 years              | 5 years      | 5 years       | 5 years       |
-| Price                        | From $60 (2022)    | From $83  (2022)     | 249$ (2022)  | 249$ (2022)   | 249$ (2023)   |
+| Specs                  | IronWolf           | IronWolf Pro         | Exos 7E8 8TB | Exos 7E10 8TB | Exos X18 16TB | Enterpri. Capacity |
+| ---------------------- | ------------------ | -------------------- | ------------ | ------------- | ------------- | ------------------ |
+| Technology             | CMR                | CMR                  | CMR          | SMR           | CMR           | CMR\*              |
+| Bays                   | 1-8                | 1-24                 | ?            | ?             | ?             | ?                  |
+| Capacity               | 1-12TB             | 2-20TB               | 8TB          | 8TB           | 16 TB         | 10 TB              |
+| RPM                    | 5,400 RPM (3-6TB)  | 7200 RPM             | 7200 RPM     | 7200 RPM      | 7200 RPM      | 7200 RPM           |
+| RPM                    | 5,900 RPM (1-3TB)  | 7200 RPM             | 7200 RPM     | 7200 RPM      | 7200 RPM      | 7200 RPM           |
+| RPM                    | 7,200 RPM (8-12TB) | 7200 RPM             | 7200 RPM     | 7200 RPM      | 7200 RPM      | 7200 RPM           |
+| Speed                  | 180MB/s (1-12TB)   | 214-260MB/s (4-18TB) | 249 MB/s     | 255 MB/s      | 258 MB/s      | 254 MB/s           |
+| Cache                  | 64MB (1-4TB)       | 256 MB               | 256 MB       | 256 MB        | 256 MB        | 256 MB             |
+| Cache                  | 256MB (3-12TB)     | 256 MB               | 256 MB       | 256 MB        | 256 MB        | 256 MB             |
+| Power Consumption      | 10.1 W             | 10.1 W               | 12.81 W      | 11.03 W       | 9.31 W        | 8 W                |
+| Power Consumption Rest | 7.8 W              | 7.8 W                | 7.64 W       | 7.06 W        | 5.08 W        | 4.5 W              |
+| Workload               | 180TB/yr           | 300TB/yr             | 550TB/yr     | 550TB/yr      | 550TB/yr      | < 550TB/yr         |
+| MTBF                   | 1 million          | 1 million            | 2 millions   | 2 millions    | 2.5 millions  | 2.5 millions       |
+| Noise idle             | ?                  | ?                    | ?            | ?             | ?             | 3.0 bels max       |
+| Noise performance seek | ?                  | ?                    | ?            | ?             | ?             | 3.4 bels max       |
+| Warranty               | 3 years            | 5 years              | 5 years      | 5 years       | 5 years       | ?                  |
+| Price                  | From $60 (2022)    | From $83 (2022)      | 249$ (2022)  | 249$ (2022)   | 249$ (2023)   | ?                  |
+
+I was not able to find if the Enterprise capacity of 10TB ST10000NM0046 is CMR or SMR on their specifications, but in [this page](https://www.seagate.com/es/es/products/cmr-smr-list/) all exos are CMR and there is no SMR over 8TB. And according to [this page](https://nascompares.com/answer/list-of-wd-cmr-and-smr-hard-drives-hdd/) is CMR, so I'm betting it is.
 
 Exos 7E10 is SMR so it's ruled out.
 
@@ -363,18 +366,18 @@ won't break so I don't feel like having a spare one.
 
 ## Pool configuration
 
-* [Use `ashift=12` or `ashift=13`](https://wiki.debian.org/ZFS) when creating the pool if applicable (though ZFS can detect correctly for most cases). Value of `ashift` is exponent of 2, which should be aligned to the physical sector size of disks, for example `2^9=512`, `2^12=4096`, `2^13=8192`. Some disks are reporting a logical sector size of 512 bytes while having 4KiB physical sector size , and some SSDs have 8KiB physical sector size. 
+- [Use `ashift=12` or `ashift=13`](https://wiki.debian.org/ZFS) when creating the pool if applicable (though ZFS can detect correctly for most cases). Value of `ashift` is exponent of 2, which should be aligned to the physical sector size of disks, for example `2^9=512`, `2^12=4096`, `2^13=8192`. Some disks are reporting a logical sector size of 512 bytes while having 4KiB physical sector size , and some SSDs have 8KiB physical sector size.
 
-  Consider using `ashift=12` or `ashift=13` even if currently using only disks with 512 bytes sectors. Adding devices with bigger sectors to the same VDEV can severely impact performance due to wrong alignment, while a device with 512 sectors will work also with a higher `ashift`. 
+  Consider using `ashift=12` or `ashift=13` even if currently using only disks with 512 bytes sectors. Adding devices with bigger sectors to the same VDEV can severely impact performance due to wrong alignment, while a device with 512 sectors will work also with a higher `ashift`.
 
-* Set "autoexpand" to on, so you can expand the storage pool automatically after all disks in the pool have been replaced with larger ones. Default is off.
+- Set "autoexpand" to on, so you can expand the storage pool automatically after all disks in the pool have been replaced with larger ones. Default is off.
 
 ## [ZIL or SLOG](https://pthree.org/2012/12/06/zfs-administration-part-iii-the-zfs-intent-log/)
 
 Before we can begin, we need to get a few terms out of the way that seem to be confusing:
 
-* ZFS Intent Log, or ZIL is a logging mechanism where all of the data to be the written is stored, then later flushed as a transactional write. Similar in function to a journal for journaled filesystems, like `ext3` or `ext4`. Typically stored on platter disk. Consists of a ZIL header, which points to a list of records, ZIL blocks and a ZIL trailer. The ZIL behaves differently for different writes. For writes smaller than 64KB (by default), the ZIL stores the write data. For writes larger, the write is not stored in the ZIL, and the ZIL maintains pointers to the synched data that is stored in the log record.
-* Separate Intent Log, or SLOG, is a separate logging device that caches the synchronous parts of the ZIL before flushing them to slower disk. This would either be a battery-backed DRAM drive or a fast SSD. The SLOG only caches synchronous data, and does not cache asynchronous data. Asynchronous data will flush directly to spinning disk. Further, blocks are written a block-at-a-time, rather than as simultaneous transactions to the SLOG. If the SLOG exists, the ZIL will be moved to it rather than residing on platter disk. Everything in the SLOG will always be in system memory.
+- ZFS Intent Log, or ZIL is a logging mechanism where all of the data to be the written is stored, then later flushed as a transactional write. Similar in function to a journal for journaled filesystems, like `ext3` or `ext4`. Typically stored on platter disk. Consists of a ZIL header, which points to a list of records, ZIL blocks and a ZIL trailer. The ZIL behaves differently for different writes. For writes smaller than 64KB (by default), the ZIL stores the write data. For writes larger, the write is not stored in the ZIL, and the ZIL maintains pointers to the synched data that is stored in the log record.
+- Separate Intent Log, or SLOG, is a separate logging device that caches the synchronous parts of the ZIL before flushing them to slower disk. This would either be a battery-backed DRAM drive or a fast SSD. The SLOG only caches synchronous data, and does not cache asynchronous data. Asynchronous data will flush directly to spinning disk. Further, blocks are written a block-at-a-time, rather than as simultaneous transactions to the SLOG. If the SLOG exists, the ZIL will be moved to it rather than residing on platter disk. Everything in the SLOG will always be in system memory.
 
 When you read online about people referring to "adding an SSD ZIL to the pool", they are meaning adding an SSD SLOG, of where the ZIL will reside. The ZIL is a subset of the SLOG in this case. The SLOG is the device, the ZIL is data on the device. Further, not all applications take advantage of the ZIL. Applications such as databases (MySQL, PostgreSQL, Oracle), NFS and iSCSI targets do use the ZIL. Typical copying of data around the filesystem will not use it. Lastly, the ZIL is generally never read, except at boot to see if there is a missing transaction. The ZIL is basically "write-only", and is very write-intensive.
 
@@ -386,7 +389,7 @@ If you use a SLOG you will see improved disk latencies, disk utilization and sys
 
 WARNING: Some motherboards will not present disks in a consistent manner to the Linux kernel across reboots. As such, a disk identified as `/dev/sda` on one boot might be `/dev/sdb` on the next. For the main pool where your data is stored, this is not a problem as ZFS can reconstruct the VDEVs based on the metadata geometry. For your L2ARC and SLOG devices, however, no such metadata exists. So, rather than adding them to the pool by their `/dev/sd?` names, you should use the `/dev/disk/by-id/*` names, as these are symbolic pointers to the ever-changing `/dev/sd?` files. If you don't heed this warning, your SLOG device may not be added to your hybrid pool at all, and you will need to re-add it later. This could drastically affect the performance of the applications depending on the existence of a fast SLOG.
 
-Adding a SLOG to your existing zpool is not difficult. However, it is considered best practice to mirror the SLOG. Suppose that there are 4 platter disks in the pool, and two NVME. 
+Adding a SLOG to your existing zpool is not difficult. However, it is considered best practice to mirror the SLOG. Suppose that there are 4 platter disks in the pool, and two NVME.
 
 First you need to create a partition of 5 GB on each the nvme drive:
 
@@ -401,10 +404,11 @@ Then mirror the partitions as SLOG
 ```bash
 zpool add tank log mirror \
 /dev/disk/by-id/nvme0n1-part1 \
-/dev/disk/by-id/nvme1n1-part1 
+/dev/disk/by-id/nvme1n1-part1
 ```
 
 Check that it worked with
+
 ```bash
 # zpool status
   pool: tank
@@ -429,7 +433,7 @@ You will likely not need a large ZIL, take into account that zfs dumps it's cont
 
 ## [Adjustable Replacement Cache](https://pthree.org/2012/12/07/zfs-administration-part-iv-the-adjustable-replacement-cache/)
 
-The ZFS adjustable replacement cache (ARC) is one such caching mechanism that caches both recent block requests as well as frequent block requests. 
+The ZFS adjustable replacement cache (ARC) is one such caching mechanism that caches both recent block requests as well as frequent block requests.
 It will occupy 1/2 of available RAM. However, this isn't static. If you have 32 GB of RAM in your server, this doesn't mean the cache will always be 16 GB. Rather, the total cache will adjust its size based on kernel decisions. If the kernel needs more RAM for a scheduled process, the ZFS ARC will be adjusted to make room for whatever the kernel needs. However, if there is space that the ZFS ARC can occupy, it will take it up.
 
 The ARC can be extended using the level 2 ARC or L2ARC. This means that as the MRU (the most recently requested blocks from the filesystem) or MFU (the most frequently requested blocks from the filesystem) grow, they don't both simultaneously share the ARC in RAM and the L2ARC on your SSD. Instead, when a page is about to be evicted, a walking algorithm will evict the MRU and MFU pages into an 8 MB buffer, which is later set as an atomic write transaction to the L2ARC. The advantage is that the latency of evicting pages from the cache is not impacted. Further, if a large read of data blocks is sent to the cache, the blocks are evicted before the L2ARC walk, rather than sent to the L2ARC. This minimizes polluting the L2ARC with massive sequential reads. Filling the L2ARC can also be very slow, or very fast, depending on the access to your data.
@@ -451,10 +455,11 @@ It is recommended that you stripe the L2ARC to maximize both size and speed.
 ```bash
 zpool add tank cache \
 /dev/disk/by-id/nvme0n1-part2 \
-/dev/disk/by-id/nvme1n1-part2 
+/dev/disk/by-id/nvme1n1-part2
 ```
 
 Check that it worked with
+
 ```bash
 # zpool status
   pool: tank
@@ -480,65 +485,201 @@ To check hte size of the L2ARC use `zpool iostat -v`.
 
 As with all recommendations, some of these guidelines carry a great amount of weight, while others might not. You may not even be able to follow them as rigidly as you would like. Regardless, you should be aware of them. The idea of "best practices" is to optimize space efficiency, performance and ensure maximum data integrity.
 
-* Keep pool capacity under 80% for best performance. Due to the copy-on-write nature of ZFS, the filesystem gets heavily fragmented.
-* Only run ZFS on 64-bit kernels. It has 64-bit specific code that 32-bit kernels cannot do anything with.
-* Install ZFS only on a system with lots of RAM. 1 GB is a bare minimum, 2 GB is better, 4 GB would be preferred to start. Remember, ZFS will use 1/2 of the available RAM for the ARC.
-* Use ECC RAM when possible for scrubbing data in registers and maintaining data consistency. The ARC is an actual read-only data cache of valuable data in RAM.
-* Use whole disks rather than partitions. ZFS can make better use of the on-disk cache as a result. If you must use partitions, backup the partition table, and take care when reinstalling data into the other partitions, so you don't corrupt the data in your pool.
-* Keep each VDEV in a storage pool the same size. If VDEVs vary in size, ZFS will favor the larger VDEV, which could lead to performance bottlenecks.
-* Use redundancy when possible, as ZFS can and will want to correct data errors that exist in the pool. You cannot fix these errors if you do not have a redundant good copy elsewhere in the pool. Mirrors and RAID-Z levels accomplish this.
-* Do not use raidz1 for disks 1TB or greater in size.
-* For raidz1, do not use less than 3 disks, nor more than 7 disks in each vdev 
-* For raidz2, do not use less than 6 disks, nor more than 10 disks in each vdev (8 is a typical average).
-* For raidz3, do not use less than 7 disks, nor more than 15 disks in each vdev (13 & 15 are typical average).
-* Consider using RAIDZ-2 or RAIDZ-3 over RAIDZ-1. You've heard the phrase "when it rains, it pours". This is true for disk failures. If a disk fails in a RAIDZ-1, and the hot spare is getting resilvered, until the data is fully copied, you cannot afford another disk failure during the resilver, or you will suffer data loss. With RAIDZ-2, you can suffer two disk failures, instead of one, increasing the probability you have fully resilvered the necessary data before the second, and even third disk fails.
-* Perform regular (at least weekly) backups of the full storage pool. It's not a backup, unless you have multiple copies. Just because you have redundant disk, does not ensure live running data in the event of a power failure, hardware failure or disconnected cables.
-* Use hot spares to quickly recover from a damaged device. Set the "autoreplace" property to on for the pool.
-* Consider using a hybrid storage pool with fast SSDs or NVRAM drives. Using a fast SLOG and L2ARC can greatly improve performance.
-* If using a hybrid storage pool with multiple devices, mirror the SLOG and stripe the L2ARC.
-* If using a hybrid storage pool, and partitioning the fast SSD or NVRAM drive, unless you know you will need it, 1 GB is likely sufficient for your SLOG. Use the rest of the SSD or NVRAM drive for the L2ARC. The more storage for the L2ARC, the better.
-* If possible, scrub consumer-grade SATA and SCSI disks weekly and enterprise-grade SAS and FC disks monthly. Depending on a lot factors, this might not be possible, so your mileage may vary. But, you should scrub as frequently as possible, basically.
-* Email reports of the storage pool health weekly for redundant arrays, and bi-weekly for non-redundant arrays.
-* When using advanced format disks that read and write data in 4 KB sectors, set the "ashift" value to 12 on pool creation for maximum performance. Default is 9 for 512-byte sectors.
-* Set "autoexpand" to on, so you can expand the storage pool automatically after all disks in the pool have been replaced with larger ones. Default is off.
-* Always export your storage pool when moving the disks from one physical system to another.
-* When considering performance, know that for sequential writes, mirrors will always outperform RAID-Z levels. For sequential reads, RAID-Z levels will perform more slowly than mirrors on smaller data blocks and faster on larger data blocks. For random reads and writes, mirrors and RAID-Z seem to perform in similar manners. Striped mirrors will outperform mirrors and RAID-Z in both sequential, and random reads and writes.
-* Compression is disabled by default. This doesn't make much sense with today's hardware. ZFS compression is extremely cheap, extremely fast, and barely adds any latency to the reads and writes. In fact, in some scenarios, your disks will respond faster with compression enabled than disabled. A further benefit is the massive space benefits.
-* Unless you have the RAM, avoid using deduplication. Unlike compression, deduplication is very costly on the system. The deduplication table consumes massive amounts of RAM.
-* Avoid running a ZFS root filesystem on GNU/Linux for the time being. It's a bit too experimental for /boot and GRUB. However, do create datasets for /home/, /var/log/ and /var/cache/.
-* Snapshot frequently and regularly. Snapshots are cheap, and can keep a plethora of file versions over time.
-* Snapshots are not a backup. Use "zfs send" and "zfs receive" to send your ZFS snapshots to an external storage.
-* If using NFS, use ZFS NFS rather than your native exports. This can ensure that the dataset is mounted and online before NFS clients begin sending data to the mountpoint.
-* Don't mix NFS kernel exports and ZFS NFS exports. This is difficult to administer and maintain.
-* For /home/ ZFS installations, setting up nested datasets for each user. For example, pool/home/atoponce and pool/home/dobbs. Consider using quotas on the datasets.
-*  When using "zfs send" and "zfs receive", send incremental streams with the "zfs send -i" switch. This can be an exceptional time saver.
-* Consider using "zfs send" over "rsync", as the "zfs send" command can preserve dataset properties.
+- Keep pool capacity under 80% for best performance. Due to the copy-on-write nature of ZFS, the filesystem gets heavily fragmented.
+- Only run ZFS on 64-bit kernels. It has 64-bit specific code that 32-bit kernels cannot do anything with.
+- Install ZFS only on a system with lots of RAM. 1 GB is a bare minimum, 2 GB is better, 4 GB would be preferred to start. Remember, ZFS will use 1/2 of the available RAM for the ARC.
+- Use ECC RAM when possible for scrubbing data in registers and maintaining data consistency. The ARC is an actual read-only data cache of valuable data in RAM.
+- Use whole disks rather than partitions. ZFS can make better use of the on-disk cache as a result. If you must use partitions, backup the partition table, and take care when reinstalling data into the other partitions, so you don't corrupt the data in your pool.
+- Keep each VDEV in a storage pool the same size. If VDEVs vary in size, ZFS will favor the larger VDEV, which could lead to performance bottlenecks.
+- Use redundancy when possible, as ZFS can and will want to correct data errors that exist in the pool. You cannot fix these errors if you do not have a redundant good copy elsewhere in the pool. Mirrors and RAID-Z levels accomplish this.
+- Do not use raidz1 for disks 1TB or greater in size.
+- For raidz1, do not use less than 3 disks, nor more than 7 disks in each vdev
+- For raidz2, do not use less than 6 disks, nor more than 10 disks in each vdev (8 is a typical average).
+- For raidz3, do not use less than 7 disks, nor more than 15 disks in each vdev (13 & 15 are typical average).
+- Consider using RAIDZ-2 or RAIDZ-3 over RAIDZ-1. You've heard the phrase "when it rains, it pours". This is true for disk failures. If a disk fails in a RAIDZ-1, and the hot spare is getting resilvered, until the data is fully copied, you cannot afford another disk failure during the resilver, or you will suffer data loss. With RAIDZ-2, you can suffer two disk failures, instead of one, increasing the probability you have fully resilvered the necessary data before the second, and even third disk fails.
+- Perform regular (at least weekly) backups of the full storage pool. It's not a backup, unless you have multiple copies. Just because you have redundant disk, does not ensure live running data in the event of a power failure, hardware failure or disconnected cables.
+- Use hot spares to quickly recover from a damaged device. Set the "autoreplace" property to on for the pool.
+- Consider using a hybrid storage pool with fast SSDs or NVRAM drives. Using a fast SLOG and L2ARC can greatly improve performance.
+- If using a hybrid storage pool with multiple devices, mirror the SLOG and stripe the L2ARC.
+- If using a hybrid storage pool, and partitioning the fast SSD or NVRAM drive, unless you know you will need it, 1 GB is likely sufficient for your SLOG. Use the rest of the SSD or NVRAM drive for the L2ARC. The more storage for the L2ARC, the better.
+- If possible, scrub consumer-grade SATA and SCSI disks weekly and enterprise-grade SAS and FC disks monthly. Depending on a lot factors, this might not be possible, so your mileage may vary. But, you should scrub as frequently as possible, basically.
+- Email reports of the storage pool health weekly for redundant arrays, and bi-weekly for non-redundant arrays.
+- When using advanced format disks that read and write data in 4 KB sectors, set the "ashift" value to 12 on pool creation for maximum performance. Default is 9 for 512-byte sectors.
+- Set "autoexpand" to on, so you can expand the storage pool automatically after all disks in the pool have been replaced with larger ones. Default is off.
+- Always export your storage pool when moving the disks from one physical system to another.
+- When considering performance, know that for sequential writes, mirrors will always outperform RAID-Z levels. For sequential reads, RAID-Z levels will perform more slowly than mirrors on smaller data blocks and faster on larger data blocks. For random reads and writes, mirrors and RAID-Z seem to perform in similar manners. Striped mirrors will outperform mirrors and RAID-Z in both sequential, and random reads and writes.
+- Compression is disabled by default. This doesn't make much sense with today's hardware. ZFS compression is extremely cheap, extremely fast, and barely adds any latency to the reads and writes. In fact, in some scenarios, your disks will respond faster with compression enabled than disabled. A further benefit is the massive space benefits.
+- Unless you have the RAM, avoid using deduplication. Unlike compression, deduplication is very costly on the system. The deduplication table consumes massive amounts of RAM.
+- Avoid running a ZFS root filesystem on GNU/Linux for the time being. It's a bit too experimental for /boot and GRUB. However, do create datasets for /home/, /var/log/ and /var/cache/.
+- Snapshot frequently and regularly. Snapshots are cheap, and can keep a plethora of file versions over time.
+- Snapshots are not a backup. Use "zfs send" and "zfs receive" to send your ZFS snapshots to an external storage.
+- If using NFS, use ZFS NFS rather than your native exports. This can ensure that the dataset is mounted and online before NFS clients begin sending data to the mountpoint.
+- Don't mix NFS kernel exports and ZFS NFS exports. This is difficult to administer and maintain.
+- For /home/ ZFS installations, setting up nested datasets for each user. For example, pool/home/atoponce and pool/home/dobbs. Consider using quotas on the datasets.
+- When using "zfs send" and "zfs receive", send incremental streams with the "zfs send -i" switch. This can be an exceptional time saver.
+- Consider using "zfs send" over "rsync", as the "zfs send" command can preserve dataset properties.
 
 There are some caveats though. The point of the caveat list is by no means to discourage you from using ZFS. Instead, as a storage administrator planning out your ZFS storage server, these are things that you should be aware of. If you don't head these warnings, you could end up with corrupted data. The line may be blurred with the "best practices" list above.
 
-* Your VDEVs determine the IOPS of the storage, and the slowest disk in that VDEV will determine the IOPS for the entire VDEV.
-* ZFS uses 1/64 of the available raw storage for metadata. So, if you purchased a 1 TB drive, the actual raw size is 976 GiB. After ZFS uses it, you will have 961 GiB of available space. The "zfs list" command will show an accurate representation of your available storage. Plan your storage keeping this in mind.
-* ZFS wants to control the whole block stack. It checksums, resilvers live data instead of full disks, self-heals corrupted blocks, and a number of other unique features. If using a RAID card, make sure to configure it as a true JBOD (or "passthrough mode"), so ZFS can control the disks. If you can't do this with your RAID card, don't use it. Best to use a real HBA.
-* Do not use other volume management software beneath ZFS. ZFS will perform better, and ensure greater data integrity, if it has control of the whole block device stack. As such, avoid using dm-crypt, mdadm or LVM beneath ZFS.
-* Do not share a SLOG or L2ARC DEVICE across pools. Each pool should have its own physical DEVICE, not logical drive, as is the case with some PCI-Express SSD cards. Use the full card for one pool, and a different physical card for another pool. If you share a physical device, you will create race conditions, and could end up with corrupted data.
-* Do not share a single storage pool across different servers. ZFS is not a clustered filesystem. Use GlusterFS, Ceph, Lustre or some other clustered filesystem on top of the pool if you wish to have a shared storage backend.
-* Other than a spare, SLOG and L2ARC in your hybrid pool, do not mix VDEVs in a single pool. If one VDEV is a mirror, all VDEVs should be mirrors. If one VDEV is a RAIDZ-1, all VDEVs should be RAIDZ-1. Unless of course, you know what you are doing, and are willing to accept the consequences. ZFS attempts to balance the data across VDEVs. Having a VDEV of a different redundancy can lead to performance issues and space efficiency concerns, and make it very difficult to recover in the event of a failure.
-* Do not mix disk sizes or speeds in a single VDEV. Do mix fabrication dates, however, to prevent mass drive failure.
-* In fact, do not mix disk sizes or speeds in your storage pool at all.
-* Do not mix disk counts across VDEVs. If one VDEV uses 4 drives, all VDEVs should use 4 drives.
-* Do not put all the drives from a single controller in one VDEV. Plan your storage, such that if a controller fails, it affects only the number of disks necessary to keep the data online.
-* When using advanced format disks, you must set the ashift value to 12 at pool creation. It cannot be changed after the fact. Use "zpool create -o ashift=12 tank mirror sda sdb" as an example.
-* Hot spare disks will not be added to the VDEV to replace a failed drive by default. You MUST enable this feature. Set the autoreplace feature to on. Use "zpool set autoreplace=on tank" as an example.
- * The storage pool will not auto resize itself when all smaller drives in the pool have been replaced by larger ones. You MUST enable this feature, and you MUST enable it before replacing the first disk. Use "zpool set autoexpand=on tank" as an example.
-* ZFS does not restripe data in a VDEV nor across multiple VDEVs. Typically, when adding a new device to a RAID array, the RAID controller will rebuild the data, by creating a new stripe width. This will free up some space on the drives in the pool, as it copies data to the new disk. ZFS has no such mechanism. Eventually, over time, the disks will balance out due to the writes, but even a scrub will not rebuild the stripe width.
-* You cannot shrink a zpool, only grow it. This means you cannot remove VDEVs from a storage pool.
-* You can only remove drives from mirrored VDEV using the "zpool detach" command. You can replace drives with another drive in RAIDZ and mirror VDEVs however.
-* Do not create a storage pool of files or ZVOLs from an existing zpool. Race conditions will be present, and you will end up with corrupted data. Always keep multiple pools separate.
-* The Linux kernel may not assign a drive the same drive letter at every boot. Thus, you should use the /dev/disk/by-id/ convention for your SLOG and L2ARC. If you don't, your zpool devices could end up as a SLOG device, which would in turn clobber your ZFS data.
-* Don't create massive storage pools "just because you can". Even though ZFS can create 78-bit storage pool sizes, that doesn't mean you need to create one.
-* Don't put production directly into the zpool. Use ZFS datasets instead.
-* Don't commit production data to file VDEVs. Only use file VDEVs for testing scripts or learning the ins and outs of ZFS.
-* A "zfs destroy" can cause downtime for other datasets. A "zfs destroy" will touch every file in the dataset that resides in the storage pool. The larger the dataset, the longer this will take, and it will use all the possible IOPS out of your drives to make it happen. Thus, if it take 2 hours to destroy the dataset, that's 2 hours of potential downtime for the other datasets in the pool.
-* Debian and Ubuntu will not start the NFS daemon without a valid export in the /etc/exports file. You must either modify the /etc/init.d/nfs init script to start without an export, or create a local dummy export.
-* When creating ZVOLs, make sure to set the block size as the same, or a multiple, of the block size that you will be formatting the ZVOL with. If the block sizes do not align, performance issues could arise.
-* When loading the "zfs" kernel module, make sure to set a maximum number for the ARC. Doing a lot of "zfs send" or snapshot operations will cache the data. If not set, RAM will slowly fill until the kernel invokes OOM killer, and the system becomes responsive. For example set in the `/etc/modprobe.d/zfs.conf` file "options zfs zfs_arc_max=2147483648", which is a 2 GB limit for the ARC.
+- Your VDEVs determine the IOPS of the storage, and the slowest disk in that VDEV will determine the IOPS for the entire VDEV.
+- ZFS uses 1/64 of the available raw storage for metadata. So, if you purchased a 1 TB drive, the actual raw size is 976 GiB. After ZFS uses it, you will have 961 GiB of available space. The "zfs list" command will show an accurate representation of your available storage. Plan your storage keeping this in mind.
+- ZFS wants to control the whole block stack. It checksums, resilvers live data instead of full disks, self-heals corrupted blocks, and a number of other unique features. If using a RAID card, make sure to configure it as a true JBOD (or "passthrough mode"), so ZFS can control the disks. If you can't do this with your RAID card, don't use it. Best to use a real HBA.
+- Do not use other volume management software beneath ZFS. ZFS will perform better, and ensure greater data integrity, if it has control of the whole block device stack. As such, avoid using dm-crypt, mdadm or LVM beneath ZFS.
+- Do not share a SLOG or L2ARC DEVICE across pools. Each pool should have its own physical DEVICE, not logical drive, as is the case with some PCI-Express SSD cards. Use the full card for one pool, and a different physical card for another pool. If you share a physical device, you will create race conditions, and could end up with corrupted data.
+- Do not share a single storage pool across different servers. ZFS is not a clustered filesystem. Use GlusterFS, Ceph, Lustre or some other clustered filesystem on top of the pool if you wish to have a shared storage backend.
+- Other than a spare, SLOG and L2ARC in your hybrid pool, do not mix VDEVs in a single pool. If one VDEV is a mirror, all VDEVs should be mirrors. If one VDEV is a RAIDZ-1, all VDEVs should be RAIDZ-1. Unless of course, you know what you are doing, and are willing to accept the consequences. ZFS attempts to balance the data across VDEVs. Having a VDEV of a different redundancy can lead to performance issues and space efficiency concerns, and make it very difficult to recover in the event of a failure.
+- Do not mix disk sizes or speeds in a single VDEV. Do mix fabrication dates, however, to prevent mass drive failure.
+- In fact, do not mix disk sizes or speeds in your storage pool at all.
+- Do not mix disk counts across VDEVs. If one VDEV uses 4 drives, all VDEVs should use 4 drives.
+- Do not put all the drives from a single controller in one VDEV. Plan your storage, such that if a controller fails, it affects only the number of disks necessary to keep the data online.
+- When using advanced format disks, you must set the ashift value to 12 at pool creation. It cannot be changed after the fact. Use "zpool create -o ashift=12 tank mirror sda sdb" as an example.
+- Hot spare disks will not be added to the VDEV to replace a failed drive by default. You MUST enable this feature. Set the autoreplace feature to on. Use "zpool set autoreplace=on tank" as an example.
+- The storage pool will not auto resize itself when all smaller drives in the pool have been replaced by larger ones. You MUST enable this feature, and you MUST enable it before replacing the first disk. Use "zpool set autoexpand=on tank" as an example.
+- ZFS does not restripe data in a VDEV nor across multiple VDEVs. Typically, when adding a new device to a RAID array, the RAID controller will rebuild the data, by creating a new stripe width. This will free up some space on the drives in the pool, as it copies data to the new disk. ZFS has no such mechanism. Eventually, over time, the disks will balance out due to the writes, but even a scrub will not rebuild the stripe width.
+- You cannot shrink a zpool, only grow it. This means you cannot remove VDEVs from a storage pool.
+- You can only remove drives from mirrored VDEV using the "zpool detach" command. You can replace drives with another drive in RAIDZ and mirror VDEVs however.
+- Do not create a storage pool of files or ZVOLs from an existing zpool. Race conditions will be present, and you will end up with corrupted data. Always keep multiple pools separate.
+- The Linux kernel may not assign a drive the same drive letter at every boot. Thus, you should use the /dev/disk/by-id/ convention for your SLOG and L2ARC. If you don't, your zpool devices could end up as a SLOG device, which would in turn clobber your ZFS data.
+- Don't create massive storage pools "just because you can". Even though ZFS can create 78-bit storage pool sizes, that doesn't mean you need to create one.
+- Don't put production directly into the zpool. Use ZFS datasets instead.
+- Don't commit production data to file VDEVs. Only use file VDEVs for testing scripts or learning the ins and outs of ZFS.
+- A "zfs destroy" can cause downtime for other datasets. A "zfs destroy" will touch every file in the dataset that resides in the storage pool. The larger the dataset, the longer this will take, and it will use all the possible IOPS out of your drives to make it happen. Thus, if it take 2 hours to destroy the dataset, that's 2 hours of potential downtime for the other datasets in the pool.
+- Debian and Ubuntu will not start the NFS daemon without a valid export in the /etc/exports file. You must either modify the /etc/init.d/nfs init script to start without an export, or create a local dummy export.
+- When creating ZVOLs, make sure to set the block size as the same, or a multiple, of the block size that you will be formatting the ZVOL with. If the block sizes do not align, performance issues could arise.
+- When loading the "zfs" kernel module, make sure to set a maximum number for the ARC. Doing a lot of "zfs send" or snapshot operations will cache the data. If not set, RAM will slowly fill until the kernel invokes OOM killer, and the system becomes responsive. For example set in the `/etc/modprobe.d/zfs.conf` file "options zfs zfs_arc_max=2147483648", which is a 2 GB limit for the ARC.
+
+## Thoughts on adding new disks to ZFS
+
+When it comes to expanding an existing ZFS storage system, careful consideration is crucial. In my case, I faced a decision point with my storage cluster: after two years of reliable service from my 8TB drives, I needed more capacity. This led me to investigate the best way to integrate newly acquired refurbished 12TB drives into the system. Here's my journey through this decision-making process and the insights gained along the way.
+
+### The Starting Point
+
+My existing setup consisted of 8TB drives purchased new, which had been running smoothly for two years. The need for expansion led me to consider refurbished 12TB drives as a cost-effective solution. However, mixing new and refurbished drives, especially of different capacities, raised several important considerations that needed careful analysis.
+
+### Initial Drive Assessment
+
+The first step was to evaluate the reliability of all drives. Using `smartctl`, I analyzed the SMART data across both the existing and new drives:
+
+```bash
+for disk in a b c d e f g h i; do
+    echo "/dev/sd$disk: old $(smartctl -a /dev/sd$disk | grep Old | wc -l) pre-fail: $(smartctl -a /dev/sd$disk | grep Pre- | wc -l)"
+done
+```
+
+The results showed similar values across all drives, with "Old_Age" attributes ranging from 14-17 and "Pre-fail" attributes between 3-6. While this indicated all drives were aging, they were still functioning with acceptable parameters. However, raw SMART data doesn't tell the whole story, especially when comparing new versus refurbished drives.
+
+### Drive Reliability Considerations
+
+After careful evaluation, I found myself trusting the existing 8TB drives more than the newer refurbished 12TB ones. This conclusion was based on several factors:
+
+- The 8TB drives had a proven track record in my specific environment
+- Their smaller size meant faster resilver times, reducing the window of vulnerability during recovery
+- One of the refurbished 12TB drives was already showing concerning symptoms (8 reallocated sectors, although a badblocks didn't increase that number), which reduced confidence in the entire batch
+- The existing drives were purchased new, while the 12TB drives were refurbished, adding an extra layer of uncertainty
+
+### Layout Options Analysis
+
+When expanding a ZFS system, there's always the temptation to simply add more vdevs to the existing pool. However, I investigated two main approaches:
+
+1. Creating a new separate ZFS pool with the new disks
+2. Add another vdev to the existent pool
+
+#### Resilver time
+
+Adding the 12TB drives to the pool and redistributing the data across all 8 drives will help reduce the resilver time. Here's a detailed breakdown:
+
+1. **Current Situation**
+
+- 4x 8TB drives at 95% capacity means each drive is heavily packed
+- High data density means longer resilver times
+- Limited free space for data movement and reconstruction
+
+2. **After Adding 12TB Drives**
+
+- Total pool capacity increases significantly
+- ZFS will automatically start rebalancing data across all 8 drives
+- This process (sometimes called "data shuffling" or "data redistribution") has several benefits:
+  - Reduces data density per drive
+  - Creates more free space
+  - Improves overall pool performance
+  - Potentially reduces future resilver times
+
+3. **Resilver Time Reduction Mechanism**
+
+- With data spread across more drives, each individual drive has less data to resilver
+- Less data per drive = faster resilver process
+- The redistribution happens gradually and in the background
+
+#### Understanding Failure Scenarios
+
+The key differentiator between these approaches came down to failure scenarios:
+
+##### Single Drive Failure
+
+Both configurations handle single drive failures similarly, though the 12TB drives' longer resilver time creates a longer window of vulnerability in the two-vdev configuration if the data load is evenly shared between the disks. This is particularly concerning with refurbished drives, where the failure probability might be higher.
+
+However if as soon as you add the other vdev to the pool you defragment the data inside zfs, the 8TB drives will be less filled, so until more data is added you may reduce the resilver time as they have less data.
+
+##### Double Drive Failure
+
+This is where the configurations differ significantly:
+
+- In a two-vdev pool, losing two drives from the same vdev would cause complete pool failure
+- With separate pools, a double drive failure would only affect one pool, allowing the other to continue operating. This way you can store the critical data on the pool you trust more.
+- Given the mixed drive origins (new vs refurbished), isolating potential failures becomes more critical
+
+#### Performance Considerations
+
+While investigating performance implications, I found several interesting points about IOPS and throughput:
+
+- ZFS stripes data across vdevs, meaning more vdevs generally means better IOPS
+- In RAIDZ configurations, IOPS are limited by the slowest drive in the vdev
+- Multiple mirrored vdevs provide the best combined IOPS performance
+- Streaming speeds scale with the number of data disks in a RAIDZ vdev
+- When mixing drive sizes, ZFS tends to favor larger vdevs, which could lead to uneven wear
+
+#### Easiness of configuration
+
+##### Cache and log
+
+If you already have a zpool with a cache and logs in nvme, then if you were to use two pools, you'd need to reformat your nvme drives to create space for the new partitions needed for the new zpool.
+
+This would allow you to specify different cache sizes for each pool. But it comes at the cost of a more complex operation.
+
+##### New pool creation
+
+Adding a vdev to an existing pool is quicker and easier than to create a zpool. You need to make sure that you initialise it with the correct configuration.
+
+##### Storage management
+
+Having two pools doubles the operation tasks. One of the pools are to be filled soon, so you may need to manually move files and directories around to rebalance it.
+
+### Final Decision
+
+After weighing all factors, if you favour reliability over easiness of your life implement two separate ZFS pools. This statement is primarily driven by:
+
+1. **Enhanced Reliability**: By separating the pools, we can maintain service availability even if one pool fails completely
+2. **Data Prioritization**: This allows placing critical application data on the more reliable pool (8TB drives), while using the refurbished drives for less critical data like media files
+3. **Risk Isolation**: Keeping the proven, new-purchased drives separate from the refurbished ones minimizes the impact of potential issues with the refurbished drives
+4. **Consistent Performance**: Following the best practice of keeping same-sized drives together in pools
+
+However I'm currently favouring easiness of life and trust my backup solution (I hope not to read this line in the future with regret :P), so I'll go with two vdevs.
+
+### Key Takeaways
+
+Through this investigation, I learned several important lessons about ZFS storage design:
+
+1. Raw parity drive count isn't the only reliability metric - configuration matters more than simple redundancy numbers
+2. Pool layout significantly impacts both performance and failure scenarios
+3. Sometimes simpler configurations (like separate pools) can provide better overall reliability than more complex ones
+4. Consider the full lifecycle of the storage, including maintenance operations like resilver times
+5. When expanding storage, don't underestimate the value of isolating different generations or sources of hardware
+6. The history and source of drives (new vs refurbished) should influence your pool design decisions
+
+This investigation reinforced that storage design isn't just about maximizing space or performance - it's about finding the right balance of reliability, performance, and manageability for your specific needs. When dealing with mixed drive sources and different capacities, this balance becomes even more critical.
+
+### References and further reading
+
+- [Truenas post](https://www.truenas.com/blog/zfs-pool-performance-2/)
+- [Freebsd post](https://forums.freebsd.org/threads/when-does-it-make-more-sense-to-use-multiple-vdevs-in-a-zfs-pool.83586/)
+- [Klarasystems post](https://klarasystems.com/articles/choosing-the-right-zfs-pool-layout/)

@@ -495,65 +495,67 @@ It's important that you prepare your environment for the review. You need to be 
   - Remove from your environment everything else that may distract you
     - Close all windows in your laptop that you're not going to use
 
-To record the results of the review create the file `references/reviews/YYYY_MM.org`, where the month is the one that is ending with the following template:
+To record the results of the review create the section in `pages/reviews.org` with the following template:
 
 ```org
-:inow:
-* Discover
-* Analyze
-* Decide
+* winter
+** january review
+*** work
+*** personal
+**** month review
+***** mental dump
+****** What worries you right now?
+****** What drained your energy or brought you down emotionally this last month?
+****** What are the little things that burden you or slow you down?
+****** What do you desire right now?
+****** Where is your mind these days?
+****** What did you enjoy most this last month?
+****** What did help you most this last month?
+****** What things would you want to finish throughout the month so you can carry them to the next?
+****** What things do you feel you need to do?
+****** What are you most proud of this month?
+***** month checks
+***** analyze
+***** decide
 ```
 
-##### Personal integrity review discover
+I'm assuming it's the january's review and that you have two kinds of reviews, one personal and one for work.
+
+##### Dump your mind
+
+The first thing we want to do in the review is to dump all that's in our mind into our system to free up mental load.
 
 Try not to, but if you think of decisions you want to make that address the elements you're discovering, write them down in the `Decide` section of your review document.
 
 There are different paths to discover actionable items:
 
-- Analyze what is in your mind: Take 10 minutes to answer to the next questions (you don't need to answer them all):
+- Analyze what is in your mind: Take 10 minutes to answer to the questions of the template under the "mental dump" section (you don't need to answer them all). Notice that we do not need to review our life logging tools (diary, action manager, ...) to answer these questions. This means that we're doing an analysis of what is in our minds right now, not throughout the month. It's flawed but as we do this analysis often, it's probably fine. We add more importance to the latest events in our life anyway.
 
-  - What did you enjoy most this last month?
+##### Clean your notebook
 
-    - [ ]
+- Empty the elements you added to the `review box`. I have them in my inbox with the tag `:review:` (you have it in the month agenda view `gM`)
 
-  - What do you desire right now?
+- Clean your life notebook by:
 
-    - [ ]
+  - Iterate over the areas of `proyects.org` only checking the first level of projects, don't go deeper and for each element:
+    - Move the done elements either to `archive.org` or `logbook.org`.
+    - Move to `backlog.org` the elements that don't make sense to be active anymore
+  - Check if you have any `DONE` element in `calendar.org`.
+  - Empty the `inbox.org`
+  - Empty the `DONE` elements of `talk.org`
+  - Clean the elements that don't make sense anymore from `think.org`
 
-  - What worries you right now?
+- Process your `month checks`. For each of them:
 
-    - [ ]
-
-  - What did drain your energy or brought you down emotionally this last month?
-
-    - [ ]
-
-  - What month accomplishments are you proud of?
-
-    - [ ]
-
-  - Where is your mind these days?
-
-    - [ ]
-
-  - What did help you most this last month?
-
-    - [ ]
-
-  - What do you want for the next month?
-    - [ ] Notice that we do not need to review our life logging tools (diary, action manager, ...) to answer these questions. This means that we're doing an analysis of what is in our minds right now, not throughout the month. It's flawed but as we do this analysis often, it's probably fine. We add more importance to the latest events in our life anyway.
-
-- Empty the elements you added to the `review box`.
-
-- Process your `Month checks`. For each of them:
-
-  - If you need, add action elements in the `Discover` section of the review.
+  - If you need, add action elements in the `mental dump` section of the review.
   - Think of whether you've met the check.
 
-- Process your `Month objectives`. For each of them:
-  - Think of whether you've met the objective.
-  - If you need, add action elements in the `Discover` section of the review.
-  - If you won't need the objective in the next month, archive it.
+##### Refresh your idea of how the month go
+
+- Open your `bitácora.org` agenda view to see what has been completed in the last month `match = 'CLOSED>"<-30d>"-work-steps-done',` ordered by name `org_agenda_sorting_strategy = { "category-keep" },` and change the priority of the elements according to the impact.
+- Open your `recurrent.org` agenda view to see what has been done the last month `match = 'LAST_REPEAT>"<-30d>"-work'`
+- Check what has been left of your month objectives `+m` and refile the elements that don't make sense anymore.
+- Check the reports of your weekly reviews of the month in the `reviews.org` document.
 
 ##### Personal integrity review analyze
 
@@ -630,14 +632,12 @@ It's important that you prepare your environment for the planning. You need to b
     - Your _Reading list_.
   - Remove from your environment everything else that may distract you
 
-#### Clarify your state
+#### Check your close compromises
 
-To be able to make a good decision on your month's path you need to sort out which is your current state. To do so:
+Check all your action management tools (in my case `orgmode` and `ikhal`) to identify:
 
-- Clean your todo: Review each todo element by deciding if they should still be in the todo. If they do and they belong to a month objective, add it. If they don't need to be in the todo, refile it.
-- Clean your agenda and get an feeling of the busyness of the month:
-  - Open the orgmode month view agenda and clean it
-  - Read the rest of your calendars
+- Arranged compromises
+- trips
 
 #### Decide the month objectives
 
@@ -750,6 +750,7 @@ The quarter review requires an analysis that doesn't fill in a day session. It r
 *** Objectives
 ** Axis 2
 ...
+
 ```
 
 Where:
@@ -781,10 +782,6 @@ It's important that you prepare your environment for the review. You need to be 
     - Close all windows in your laptop that you're not going to use
 
 To record the results of the review create the file `references/reviews/YYYY_MM_SSSS.org`, where the month is the one that is starting and the `SSSS` is the season name with the following template:
-
-```org
-
-```
 
 ##### Quarter review discover
 
@@ -940,7 +937,7 @@ With the use of [mediatracker](mediatracker.md) and other life logging tools I t
 - [Videogames](videogames.md)
 - [Boardgames](board_games.md)
 
-## Life review
+## Life roadmap adjustment
 
 Life reviews are meant to give you an idea of:
 
@@ -949,12 +946,48 @@ Life reviews are meant to give you an idea of:
 - With the context you have now, you can think of how you could have avoided the
   bad decisions.
 
-If you have the year's planning you can analyze it against your task management
-tools and life logs and create a review document analyzing all.
+It's also the time to set your life goals for this year.
 
 ### Life review timeline
 
 As you can see the amount of stuff to review is not something that can be done in a day, my current plan is to prepare the review from the 15th of December till the 15th of January and then carry it out until the 23rd of February, to leave space to do the spring quarter and March month reviews.
+
+### Create next stage's life notebook
+
+After reading "The Bulletproof Journal", I was drawn to the idea of changing notebooks each year, carrying over only the necessary things.
+
+I find this to be a powerful concept since you start each stage with a clean canvas. This brings you closer to desire versus duty as it removes the commitments you made to yourself, freeing up significant mental load. From this point, it's much easier to allow yourself to dream about what you want to do in this new stage.
+
+I want to apply this concept to my digital life notebook as I see the following advantages:
+
+- It lightens my files making them easier to manage and faster to process with orgmode
+- It's a very easy way to clean up
+- It's an elegant way to preserve what you've recorded without it becoming a hindrance
+- In each stage, you can start with a different notebook structure, meaning new axes, tools, and structures. This helps avoid falling into the rigidity of a constrained system or artifacts defined by inertia rather than conscious decision
+- It allows you to avoid maintaining files that follow an old scheme or having to migrate them to the new system
+- Additionally, you get rid of all those actions you've been reluctant to delete in one fell swoop
+
+The notebook change can be done in two phases:
+
+- Notebook Construction
+- Stage Closure
+
+#### Notebook Construction
+
+This phase spans from when you start making stage adjustments until you finally close the current stage.
+You can follow these steps:
+
+- Create a directory with the name of the new stage. In my case, it's the number of my predominant age during the stage
+- Create a directory for the current stage's notebook within "notebooks" in your references. Here we'll move everything that doesn't make sense to maintain. It's important that this directory isn't within your agenda files
+- Quickly review the improvements you've noted that you want to implement in next year's notebook to keep them in mind. You can note the references in the "Create new notebook" action
+
+As you review the stage, decide if it makes sense for the file you're viewing to exist as-is in the new notebook. Remember that the idea is to migrate minimal structure and data.
+
+- If it makes sense:
+  - Create a symbolic link in the new notebook. When closing the stage, we'll replace the link with the file's final state
+- If the file no longer makes sense, move it to `references/notebooks`
+
+#### Stage Closure
 
 # References
 

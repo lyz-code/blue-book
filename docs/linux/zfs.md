@@ -77,7 +77,7 @@ It doesn't matter how big your disks are, you'll eventually reach it's limit bef
 
 To sort the datasets on the amount of space they use for their backups use `zfs list -o space -s usedds`
 
-#### Clean it up 
+#### Clean it up
 
 Then you can go dataset by dataset using `ncdu` cleaning up.
 
@@ -120,6 +120,7 @@ zfs diff <dataset>@<snapshot_name> | grep '^-'
 ```
 
 This will help you identify which files or directories were in the snapshot but are no longer in the current dataset.
+
 ## Get read and write stats from pool
 
 ```bash
@@ -139,6 +140,7 @@ zfs get all {{ pool_name }}
 ```
 
 ## [Set zfs module parameters or options](https://openzfs.github.io/openzfs-docs/Performance%20and%20Tuning/Module%20Parameters.html)
+
 Most of the ZFS kernel module parameters are accessible in the SysFS `/sys/module/zfs/parameters` directory. Current values can be observed by
 
 ```bash
@@ -198,7 +200,7 @@ You'll lose the snapshots though, as explained below.
 
 ### [Rename the topmost dataset](https://www.solaris-cookbook.eu/solaris/solaris-zpool-rename/)
 
-If you want to rename the topmost dataset you [need to rename the pool too](https://github.com/openzfs/zfs/issues/4681) as these two are tied. 
+If you want to rename the topmost dataset you [need to rename the pool too](https://github.com/openzfs/zfs/issues/4681) as these two are tied.
 
 ```bash
 $: zpool status -v
@@ -272,7 +274,7 @@ The following snapshot rename operation is not supported because the target pool
 
 ```bash
 $: zfs rename tank/home/cindys@today pool/home/cindys@saturday
-cannot rename to 'pool/home/cindys@today': snapshots must be part of same 
+cannot rename to 'pool/home/cindys@today': snapshots must be part of same
 dataset
 ```
 
@@ -305,9 +307,19 @@ users/home/neil@2daysago       0      -    18K  -
 
 ## [Repair a DEGRADED pool](https://blog.cavelab.dev/2021/01/zfs-replace-disk-expand-pool/)
 
-First you need to make sure that it is in fact a problem of the disk. Check the `dmesg` to see if there are any traces of reading errors, or SATA cable errors. 
+First you need to make sure that it is in fact a problem of the disk. Check the `dmesg` to see if there are any traces of reading errors, or SATA cable errors.
 
 A friend suggested to mark the disk as healthy and do a resilver on the same disk. If the error is reproduced in the next days, then replace the disk. A safer approach is to resilver on a new disk, analyze the disk when it's not connected to the pool, and if you feel it's safe then save it as a cold spare.
+
+A resilver process will try to rebuild the missing disk from the data of the rest of the disks of the VDEV, the rest of disks of the zpool don't take part of this process.
+
+### Removing a disk from the pool
+
+```bash
+zpool remove tank0 sda
+```
+
+This will trigger the data evacuation from the disk. Check `zpool status` to see when it finishes.
 
 ### Replacing a disk in the pool
 
@@ -335,7 +347,7 @@ tank0                                           DEGRADED     0     0     0
     ata-ST4000VX007-2DT166_xxxxxxxx             ONLINE       0     0     0
 ```
 
-Sweet, the device is offline (last time it didn't show as offline for me, but the offline command returned a status code of 0). 
+Sweet, the device is offline (last time it didn't show as offline for me, but the offline command returned a status code of 0).
 
 Time to shut the server down and physically replace the disk.
 
@@ -397,16 +409,170 @@ Follow [these instructions](hard_drive_health.md#check-the-disk-health).
 ### RMA the degraded disk
 
 Follow [these instructions](hard_drive_health.md#check-the-warranty-status).
+
+## [Encrypting ZFS Drives with LUKS](https://www.ogselfhosting.com/index.php/2022/06/24/zfs-on-luks/)
+
+### Warning: Proceed with Extreme Caution
+
+**IMPORTANT SAFETY NOTICE:**
+
+- These instructions will COMPLETELY WIPE the target drive
+- Do NOT attempt on production servers
+- Experiment only on drives with no valuable data
+- Seek professional help if anything is unclear
+
+### Prerequisites
+
+- A drive you want to encrypt (will be referred to as `/dev/sdx`)
+- Root access
+- Basic understanding of Linux command line
+- Backup of all important data
+
+### Step 1: Create LUKS Encryption Layer
+
+First, format the drive with LUKS encryption:
+
+```bash
+sudo cryptsetup luksFormat /dev/sdx
+```
+
+- You'll be prompted for a sudo password
+- Create a strong encryption password (mix of uppercase, lowercase, numbers, symbols)
+- Note the precise capitalization in commands
+
+### Step 2: Open the Encrypted Disk
+
+Open the newly encrypted disk:
+
+```bash
+sudo cryptsetup luksOpen /dev/sdx sdx_crypt
+```
+
+This creates a mapped device at `/dev/mapper/sdx_crypt`
+
+### Step 3: Create ZFS Pool or the vdev
+
+For example to create a ZFS pool on the encrypted device:
+
+```bash
+sudo zpool create -f -o ashift=12 \
+    -O compression=lz4 \
+    zpool /dev/mapper/sdx_crypt
+```
+
+Check the [create zpool section](#create-your-pool) to know which configuration flags to use.
+
+### Step 4: Set Up Automatic Unlocking
+
+#### Generate a Keyfile
+
+Create a random binary keyfile:
+
+```bash
+sudo dd bs=1024 count=4 if=/dev/urandom of=/etc/zfs/keys/sdx.key
+sudo chmod 0400 /etc/zfs/keys/sdx.key
+```
+
+#### Add Keyfile to LUKS
+
+Add the keyfile to the LUKS disk:
+
+```bash
+sudo cryptsetup luksAddKey /dev/sdx /etc/zfs/keys/sdx.key
+```
+
+- You'll be asked to enter the original encryption password
+- This adds the binary file to the LUKS disk header
+- Now you can unlock the drive using either the password or the keyfile
+
+### Step 5: Configure Automatic Mounting
+
+#### Find Drive UUID
+
+Get the drive's UUID:
+
+```bash
+sudo blkid
+```
+
+Look for the line with `TYPE="crypto_LUKS"`. Copy the UUID.
+
+#### Update Crypttab
+
+Edit the crypttab file:
+
+```bash
+sudo vim /etc/crypttab
+```
+
+Add an entry like:
+
+```
+sdx_crypt UUID=your-uuid-here /etc/zfs/keys/sdx.key luks,discard
+```
+
+### Final Step: Reboot
+
+- Reboot your system
+- The drive will be automatically decrypted and imported
+
+### Best Practices
+
+- Keep your keyfile and encryption password secure
+- Store keyfiles with restricted permissions
+- Consider backing up the LUKS header
+
+### Troubleshooting
+
+- Double-check UUIDs
+- Verify keyfile permissions
+- Ensure cryptsetup and ZFS are installed
+
+### Security Notes
+
+- This method provides full-disk encryption at rest
+- Data is inaccessible without the key or password
+- Protects against physical drive theft
+
+### Disclaimer
+
+While these instructions are comprehensive, they come with inherent risks. Always:
+
+- Have backups
+- Test in non-critical environments first
+- Understand each step before executing
+
+### Further reading
+
+- [Setting up ZFS on LUKS - Alpine Linux Wiki](https://wiki.alpinelinux.org/wiki/Setting_up_ZFS_on_LUKS)
+- [Decrypt Additional LUKS Encrypted Volumes on Boot](https://www.malachisoord.com/2023/11/04/decrypt-additiona-luks-encrypted-volumes-on-boot/)
+- [Auto-Unlock LUKS Encrypted Drive - Dradis Support Guide](https://dradis.com/support/guides/customization/auto-unlock-luks-encrypted-drive.html)
+- [How do I automatically decrypt an encrypted filesystem on the next reboot? - Ask Ubuntu](https://askubuntu.com/questions/996155/how-do-i-automatically-decrypt-an-encrypted-filesystem-on-the-next-reboot)
+
+## Add a disk to an existing vdev
+
+```bash
+zpool add tank /dev/sdx
+```
+
+## Add a vdev to an existing pool
+
+```bash
+zpool add main raidz1-1 /dev/disk-1 /dev/disk-2 /dev/disk-3 /dev/disk-4
+```
+
+You don't need to specify the `ashift` or the `autoexpand` as they are set on zpool creation.
+
 # Installation
 
 ## Install the required programs
 
-OpenZFS is not in the mainline kernel for license issues (fucking capitalism...) so it's not yet suggested to use it for the root of your filesystem. 
+OpenZFS is not in the mainline kernel for license issues (fucking capitalism...) so it's not yet suggested to use it for the root of your filesystem.
 
 To install it in a Debian device:
 
-* ZFS packages are included in the `contrib` repository, but the `backports` repository often provides newer releases of ZFS. You can use it as follows.
-  
+- ZFS packages are included in the `contrib` repository, but the `backports` repository often provides newer releases of ZFS. You can use it as follows.
+
   Add the backports repository:
 
   ```bash
@@ -428,7 +594,7 @@ To install it in a Debian device:
   Pin-Priority: 990
   ```
 
-* Install the packages:
+- Install the packages:
 
 ```bash
 apt update
@@ -444,8 +610,8 @@ First read the [ZFS storage planning](zfs_storage_planning.md) article and then 
 
 ```bash
 zpool create \
-  -o ashift=12 \ 
-  -o autoexpand=on \ 
+  -o ashift=12 \
+  -o autoexpand=on \
 main raidz /dev/sda /dev/sdb /dev/sdc /dev/sdd \
   log mirror \
     /dev/disk/by-id/nvme-eui.e823gqkwadgp32uhtpobsodkjfl2k9d0-part4 \
@@ -457,10 +623,10 @@ main raidz /dev/sda /dev/sdb /dev/sdc /dev/sdd \
 
 Where:
 
-* `-o ashift=12`: Adjusts the disk sector size to the disks in use.
-* `/dev/sda /dev/sdb /dev/sdc /dev/sdd` are the rotational data disks configured in RAIDZ1
-* We set two partitions in mirror for the ZLOG
-* We set two partitions in stripe for the L2ARC
+- `-o ashift=12`: Adjusts the disk sector size to the disks in use.
+- `/dev/sda /dev/sdb /dev/sdc /dev/sdd` are the rotational data disks configured in RAIDZ1
+- We set two partitions in mirror for the ZLOG
+- We set two partitions in stripe for the L2ARC
 
 If you don't want the main pool to be mounted use `zfs set mountpoint=none main`.
 
@@ -479,7 +645,7 @@ dd if=/dev/random of=/etc/zfs/keys/home.key bs=1 count=32
 Then create the filesystem:
 
 ```bash
-zfs create \ 
+zfs create \
   -o mountpoint=/home/lyz \
   -o encryption=on \
   -o keyformat=raw \
@@ -530,9 +696,9 @@ With ZFS you can share a specific dataset via NFS. If for whatever reason the da
 
 You still must install the necessary daemon software to make the share available. For example, if you wish to share a dataset via NFS, then you need to install the NFS server software, and it must be running. Then, all you need to do is flip the sharing NFS switch on the dataset, and it will be immediately available.
 
-### Install NFS 
+### Install NFS
 
-To share a dataset via NFS, you first need to make sure the NFS daemon is running. On Debian and Ubuntu, this is the `nfs-kernel-server` package. 
+To share a dataset via NFS, you first need to make sure the NFS daemon is running. On Debian and Ubuntu, this is the `nfs-kernel-server` package.
 
 ```bash
 sudo apt-get install nfs-kernel-server
@@ -584,7 +750,8 @@ mount -t nfs hostname.example.com:/srv /mnt
 To permanently mount it you need to add it to your `/etc/fstab`, check [this section for more details](linux_snippets.md#configure-fstab-to-mount-nfs).
 
 ## Configure a watchdog
-[Watchdogs](watchdog.md) are programs that make sure that the services are working as expected. This is useful for example if you're suffering the [ZFS pool is stuck](#zfs-pool-is-stuck) error. 
+
+[Watchdogs](watchdog.md) are programs that make sure that the services are working as expected. This is useful for example if you're suffering the [ZFS pool is stuck](#zfs-pool-is-stuck) error.
 
 - Install [Python bindings for systemd](python_systemd.md) to get logging functionality.
 
@@ -723,7 +890,7 @@ To permanently mount it you need to add it to your `/etc/fstab`, check [this sec
 
 
   if __name__ == "__main__":
-      
+
       log(f"Using socket {os.environ.get('NOTIFY_SOCKET', None)}")
       for send_signal in (signal.SIGINT, signal.SIGABRT, signal.SIGTERM):
           signal.signal(send_signal, socket_notify_stop)
@@ -743,7 +910,7 @@ To permanently mount it you need to add it to your `/etc/fstab`, check [this sec
 
 - Create a systemd service `systemctl edit --full -force zfs_watchdog` and add:
 
-  ```ini 
+  ```ini
   [Unit]
   Description=ZFS watchdog
   Requires=zfs.target
@@ -764,15 +931,17 @@ To permanently mount it you need to add it to your `/etc/fstab`, check [this sec
   ```
 
   If you're debugging still the script use `StartLimitAction=` instead so that you don't get unexpected reboots.
+
 - Start the service with `systemctl start zfs_watchdog`.
 - Check that it's working as expected with `journalctl -feu zfs_watchdog`
 - Once you're ready everything is fine enable the service `systemctl enable zfs_watchdog`
 
 ### Monitor the watchdog
+
 If you're using [Prometheus](prometheus.md) with the [Node exporter](node_exporter.md) in theory if the watchdog fails it will show up as a failed service. For the sake of redundancy we can create a Loki alert that checks that the watchdog is still alive, if the watchdog fails or if it restarts the server.
 
 ```yaml
-groups: 
+groups:
   - name: zfs_watchdog
     rules:
       - alert: ZFSWatchdogIsDeadError
@@ -802,6 +971,7 @@ groups:
 ```
 
 ## Configure the deadman failsafe measure
+
 ZFS has a safety measure called the [zfs_deadman_failmode](https://openzfs.github.io/openzfs-docs/man/master/4/zfs.4.html#zfs_deadman_enabled). When a pool sync operation takes longer than `zfs_deadman_synctime_ms`, or when an individual I/O operation takes longer than `zfs_deadman_ziotime_ms`, then the operation is considered to be "hung". If `zfs_deadman_enabled` is set, then the deadman behavior is invoked as described by `zfs_deadman_failmode`. By default, the deadman is enabled and set to wait which results in "hung" I/O operations only being logged. The deadman is automatically disabled when a pool gets suspended.
 
 `zfs_deadman_failmode` configuration can have the next values:
@@ -811,20 +981,21 @@ ZFS has a safety measure called the [zfs_deadman_failmode](https://openzfs.githu
 - `panic`: Panic the system. This can be used to facilitate automatic fail-over to a properly configured fail-over partner.
 
 Follow the guides under [Set zfs module parameters or options](#set-zfs-module-parameters-or-options) to change this value.
+
 # Backup
 
 Please remember that [RAID is not a backup](https://serverfault.com/questions/2888/why-is-raid-not-a-backup), it guards against one kind of hardware failure. There's lots of failure modes that it doesn't guard against though:
 
-* File corruption
-* Human error (deleting files by mistake)
-* Catastrophic damage (someone dumps water onto the server)
-* Viruses and other malware
-* Software bugs that wipe out data
-* Hardware problems that wipe out data or cause hardware damage (controller malfunctions, firmware bugs, voltage spikes, ...)
+- File corruption
+- Human error (deleting files by mistake)
+- Catastrophic damage (someone dumps water onto the server)
+- Viruses and other malware
+- Software bugs that wipe out data
+- Hardware problems that wipe out data or cause hardware damage (controller malfunctions, firmware bugs, voltage spikes, ...)
 
 That's why you still need to make backups.
 
-ZFS has the builtin feature to make snapshots of the pool. A snapshot is a first class read-only filesystem. It is a mirrored copy of the state of the filesystem at the time you took the snapshot. They are persistent across reboots, and they don't require any additional backing store; they use the same storage pool as the rest of your data. 
+ZFS has the builtin feature to make snapshots of the pool. A snapshot is a first class read-only filesystem. It is a mirrored copy of the state of the filesystem at the time you took the snapshot. They are persistent across reboots, and they don't require any additional backing store; they use the same storage pool as the rest of your data.
 
 If you remember [ZFS's awesome nature of copy-on-write](https://pthree.org/2012/12/14/zfs-administration-part-ix-copy-on-write/) filesystems, you will remember the discussion about Merkle trees. A ZFS snapshot is a copy of the Merkle tree in that state, except we make sure that the snapshot of that Merkle tree is never modified.
 
@@ -834,10 +1005,10 @@ Creating snapshots is near instantaneous, and they are cheap. However, once the 
 
 ZFS doesn't though have a clean way to manage the lifecycle of those snapshots. There are many tools to fill the gap:
 
-* [`sanoid`](sanoid.md): Made in Perl, 2.4k stars, last commit April 2022, last release April 2021
-* [zfs-auto-snapshot](https://github.com/zfsonlinux/zfs-auto-snapshot): Made in Bash, 767 stars, last commit/release on September 2019
-* [pyznap](https://github.com/yboetz/pyznap): Made in Python, 176 stars, last commit/release on September 2020
-* Custom scripts.
+- [`sanoid`](sanoid.md): Made in Perl, 2.4k stars, last commit April 2022, last release April 2021
+- [zfs-auto-snapshot](https://github.com/zfsonlinux/zfs-auto-snapshot): Made in Bash, 767 stars, last commit/release on September 2019
+- [pyznap](https://github.com/yboetz/pyznap): Made in Python, 176 stars, last commit/release on September 2020
+- Custom scripts.
 
 It seems that the state of the art of ZFS backups is not changing too much in the last years, possibly because the functionality is covered so there is no need for further development. So I'm going to manage the backups with [`sanoid`](sanoid.md) despite it being done in Perl because [it's the most popular, it looks simple but flexible for complex cases, and it doesn't look I'd need to tweak the code](sanoid.md).
 
@@ -848,6 +1019,7 @@ zfs list -t snapshot -o name path/to/dataset | tail -n+2 | tac | xargs -n 1 zfs 
 ```
 
 ## [Manually create a backup](https://docs.oracle.com/cd/E19253-01/819-5461/gbcya/index.html)
+
 To create a snapshot of `tank/home/ahrens` that is named `friday` run:
 
 ```bash
@@ -860,7 +1032,7 @@ You can list the available snapshots of a filesystem with `zfs list -t snapshot 
 
 You have two ways to restore a backup:
 
-* [Mount the snapshot in a directory and manually copy the needed files](https://askubuntu.com/questions/103369/ubuntu-how-to-mount-zfs-snapshot):
+- [Mount the snapshot in a directory and manually copy the needed files](https://askubuntu.com/questions/103369/ubuntu-how-to-mount-zfs-snapshot):
 
   ```bash
   mount -t zfs main/lyz@autosnap_2023-02-17_13:15:06_hourly /mnt
@@ -868,7 +1040,7 @@ You have two ways to restore a backup:
 
   To umount the snapshot run `umount /mnt`.
 
-* Rolling back the filesystem to the snapshot state: Rolling back to a previous snapshot will discard any data changes between that snapshot and the current time. Further, by default, you can only rollback to the most recent snapshot. In order to rollback to an earlier snapshot, you must destroy all snapshots between the current time and that snapshot you wish to rollback to. If that's not enough, the filesystem must be unmounted before the rollback can begin. This means downtime.
+- Rolling back the filesystem to the snapshot state: Rolling back to a previous snapshot will discard any data changes between that snapshot and the current time. Further, by default, you can only rollback to the most recent snapshot. In order to rollback to an earlier snapshot, you must destroy all snapshots between the current time and that snapshot you wish to rollback to. If that's not enough, the filesystem must be unmounted before the rollback can begin. This means downtime.
 
   To rollback the "tank/test" dataset to the "tuesday" snapshot, we would issue:
 
@@ -905,19 +1077,18 @@ rpool/ROOT/solaris/var@install       -  2.51M         -       -              -  
 
 From this output, you can see the amount of space that is:
 
-* AVAIL: The amount of space available to the dataset and all its children, assuming that there is no other activity in the pool. 
-* USED: The amount of space consumed by this dataset and all its descendants. This is the value that is checked against this dataset's quota and reservation. The space used does not include this dataset's reservation, but does take into account the reservations of any descendants datasets.
-    
-    The used space of a snapshot is the space referenced exclusively by this snapshot. If this snapshot is destroyed, the amount of `used` space will be freed. Space that is shared by multiple snapshots isn't accounted for in this metric. 
-* USEDSNAP: Space being consumed by snapshots of each data set
-* USEDDS: Space being used by the dataset itself
-* USEDREFRESERV: Space being used by a refreservation set on the dataset that would be freed if it was removed.
-* USEDCHILD: Space being used by the children of this dataset.
+- AVAIL: The amount of space available to the dataset and all its children, assuming that there is no other activity in the pool.
+- USED: The amount of space consumed by this dataset and all its descendants. This is the value that is checked against this dataset's quota and reservation. The space used does not include this dataset's reservation, but does take into account the reservations of any descendants datasets.
+  The used space of a snapshot is the space referenced exclusively by this snapshot. If this snapshot is destroyed, the amount of `used` space will be freed. Space that is shared by multiple snapshots isn't accounted for in this metric.
+- USEDSNAP: Space being consumed by snapshots of each data set
+- USEDDS: Space being used by the dataset itself
+- USEDREFRESERV: Space being used by a refreservation set on the dataset that would be freed if it was removed.
+- USEDCHILD: Space being used by the children of this dataset.
 
 Other space properties are:
 
-* LUSED: The amount of space that is "logically" consumed by this dataset and all its descendents. It ignores the effect of `compression` and `copies` properties, giving a quantity closer to the amount of data that aplication ssee. However it does include space consumed by metadata.
-* REFER: The amount of data that is accessible by this dataset, which may or may not be shared with other dataserts in the pool. When a snapshot or clone is created, it initially references the same amount of space as the filesystem or snapshot it was created from, since its contents are identical.
+- LUSED: The amount of space that is "logically" consumed by this dataset and all its descendents. It ignores the effect of `compression` and `copies` properties, giving a quantity closer to the amount of data that aplication ssee. However it does include space consumed by metadata.
+- REFER: The amount of data that is accessible by this dataset, which may or may not be shared with other dataserts in the pool. When a snapshot or clone is created, it initially references the same amount of space as the filesystem or snapshot it was created from, since its contents are identical.
 
 ## [See the differences between two backups](https://docs.oracle.com/cd/E36784_01/html/E36835/gkkqz.html)
 
@@ -931,12 +1102,12 @@ M       /tank/home/tim/
 
 The following table summarizes the file or directory changes that are identified by the `zfs diff` command.
 
-| File or Directory Change | Identifier | 
-| --- | --- |
-| File or directory has been modified or file or directory link has changed | M |
-| File or directory is present in the older snapshot but not in the more recent snapshot | — |
-| File or directory is present in the more recent snapshot but not in the older snapshot | + |
-| File or directory has been renamed | R |
+| File or Directory Change                                                               | Identifier |
+| -------------------------------------------------------------------------------------- | ---------- |
+| File or directory has been modified or file or directory link has changed              | M          |
+| File or directory is present in the older snapshot but not in the more recent snapshot | —          |
+| File or directory is present in the more recent snapshot but not in the older snapshot | +          |
+| File or directory has been renamed                                                     | R          |
 
 ## Create a cold backup of a series of datasets
 
@@ -948,7 +1119,8 @@ If you've used the `-o keyformat=raw -o keylocation=file:///etc/zfs/keys/home.ke
 WARNING: substitute `/dev/sde` for the partition you need to work on in the next snippets
 
 To do it:
-- Create the partitions: 
+
+- Create the partitions:
 
   ```bash
   fdisk /dev/sde
@@ -965,11 +1137,12 @@ To do it:
   ```
 
 ### Sync an already created cold backup
+
 #### Mount the existent pool
 
 Imagine your pool is at `/dev/sdf2`:
 
-- Connect your device 
+- Connect your device
 - Check for available ZFS pools: First, check if the system detects any ZFS pools that can be imported:
 
   ```bash
@@ -1016,8 +1189,11 @@ Additional options:
 # Monitorization
 
 ## Monitor the ZFS events
+
 You can see the ZFS events using `zpool events -v`. If you want to be alerted on these events you can use [this service](https://codeberg.org/lyz/zfs_events) to ingest them into Loki and raise alerts.
+
 ## Monitor the `dbgmsg` file
+
 If you use [loki](loki.md) remember to monitor the `/proc/spl/kstat/zfs/dbgmsg` file:
 
 ```yaml
@@ -1029,6 +1205,7 @@ If you use [loki](loki.md) remember to monitor the `/proc/spl/kstat/zfs/dbgmsg` 
           job: zfs
           __path__: /proc/spl/kstat/zfs/dbgmsg
 ```
+
 # [Troubleshooting](https://openzfs.github.io/openzfs-docs/Basic%20Concepts/Troubleshooting.html)
 
 To debug ZFS errors you can check:
@@ -1037,23 +1214,24 @@ To debug ZFS errors you can check:
 - ZFS Kernel Module Debug Messages: The ZFS kernel modules use an internal log buffer for detailed logging information. This log information is available in the pseudo file `/proc/spl/kstat/zfs/dbgmsg` for ZFS builds where ZFS module parameter `zfs_dbgmsg_enable = 1`
 
 ## [ZFS pool is stuck](https://openzfs.github.io/openzfs-docs/Basic%20Concepts/Troubleshooting.html#unkillable-process)
+
 Symptom: zfs or zpool command appear hung, does not return, and is not killable
 
 Likely cause: kernel thread hung or panic
 
-If a kernel thread is stuck, then a backtrace of the stuck thread can be in the logs. In some cases, the stuck thread is not logged until the deadman timer expires. 
+If a kernel thread is stuck, then a backtrace of the stuck thread can be in the logs. In some cases, the stuck thread is not logged until the deadman timer expires.
 
 The only way I've yet found to solve this is rebooting the machine (not ideal). I even have to use the magic keys -.- . A solution would be to [reboot server on kernel panic ](linux_snippets.md#reboot-server-on-kernel-panic) but it's not the kernel who does the panic but a module of the kernel, so that solution doesn't work.
 
 You can monitor this issue with loki using the next alerts:
 
 ```yaml
-groups: 
+groups:
   - name: zfs
     rules:
       - alert: SlowSpaSyncZFSError
         expr: |
-          count_over_time({job="zfs"} |~ `spa_deadman.*slow spa_sync` [5m]) 
+          count_over_time({job="zfs"} |~ `spa_deadman.*slow spa_sync` [5m])
         for: 1m
         labels:
           severity: critical
@@ -1069,6 +1247,7 @@ And to patch it you can use a [software watchdog that reproduces the error](#con
 There are many issues open with this behaviour: [1](https://github.com/openzfs/zfs/issues/11804), [2](https://github.com/openzfs/zfs/issues/6639)
 
 In my case I feel it happens when running `syncoid` to send the backups to the backup server.
+
 ## [Clear a permanent ZFS error in a healthy pool](https://serverfault.com/questions/576898/clear-a-permanent-zfs-error-in-a-healthy-pool)
 
 Sometimes when you do a `zpool status` you may see that the pool is healthy but that there are "Permanent errors" that may point to files themselves or directly to memory locations.
@@ -1085,7 +1264,6 @@ zpool scrub -s my_pool
 
 If you're close to the event that made the error you can check the `zpool events -v` to shed some light.
 
-
 A few notes:
 
 - repaired errors are shown in the counters, but won't elicit a "permanent errors" message
@@ -1096,6 +1274,7 @@ A few notes:
 - similarly, if you want detailed information on a specific failure, zpool events -v shows detailed information about both correctable and uncorrectable errors.
 
 You can read [this long discussion](https://github.com/openzfs/zfs/discussions/9705) if you want more info.
+
 ## ZFS pool is in suspended mode
 
 Probably because you've unplugged a device without unmounting it.
@@ -1115,28 +1294,31 @@ sudo zpool import WD_1TB
 ```
 
 If you don't care about the zpool anymore, sadly your only solution is to [reboot the server](https://github.com/openzfs/zfs/issues/5242). Real ugly, so be careful when you umount zpools.
+
 ## Cannot receive incremental stream: invalid backup stream Error
+
 This is usually caused when you try to send a snapshot that is corrupted.
 
 To solve it:
-- Look at the context on loki to identify the snapshot in question. 
-- Delete it 
+
+- Look at the context on loki to identify the snapshot in question.
+- Delete it
 - Run the sync again
 
 This can be monitored with loki through the next alert:
 
-```yaml 
-      - alert: SyncoidCorruptedSnapshotSendError
-        expr: |
-          count_over_time({syslog_identifier="syncoid_send_backups"} |= `cannot receive incremental stream: invalid backup stream` [15m]) > 0
-        for: 0m
-        labels:
-          severity: critical
-        annotations:
-          summary: "Error tryig to send a corrupted snapshot at {{ $labels.hostname}}"
-          message: "Look at the context on loki to identify the snapshot in question. Delete it and then run the sync again"
-
+```yaml
+- alert: SyncoidCorruptedSnapshotSendError
+  expr: |
+    count_over_time({syslog_identifier="syncoid_send_backups"} |= `cannot receive incremental stream: invalid backup stream` [15m]) > 0
+  for: 0m
+  labels:
+    severity: critical
+  annotations:
+    summary: "Error tryig to send a corrupted snapshot at {{ $labels.hostname}}"
+    message: "Look at the context on loki to identify the snapshot in question. Delete it and then run the sync again"
 ```
+
 # Learning
 
 I've found that learning about ZFS was an interesting, intense and time
@@ -1155,3 +1337,7 @@ pleasant to read. For further information check
 - [Docs](https://openzfs.github.io/openzfs-docs/)
 - [JRS articles](https://jrs-s.net/category/open-source/zfs/)
 - [ZFS basic introduction video](https://yewtu.be/watch?v=MsY-BafQgj4)
+
+## Books
+
+- [FreeBSD Mastery: ZFS by Michael W Lucas and Allan Jude](https://mwl.io/nonfiction/os#fmzfs)

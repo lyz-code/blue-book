@@ -1,5 +1,14 @@
 # 2025
 
+## Fascismo
+
+En el acto de toma de posesión del cargo de trump, elon musk hace el saludo nazi.
+
+![elon nazi](x.mp4)
+
+## Feminismo
+
+- [trump nada más llegar al poder restablece el género de nacimiento a las personas trans y amenaza con terminar los programas de diversidad, inclusión e igualdad](https://www.usnews.com/news/business/articles/2025-01-20/trump-orders-reflect-his-promises-to-roll-back-transgender-protections-and-end-dei-programs)
 ## Cambio climático
 
 ![](2025-california-fire.jpg)

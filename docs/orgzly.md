@@ -1,5 +1,11 @@
 [Orgzly](https://www.orgzlyrevived.com/) is an android application to interact with [orgmode](orgmode.md) files.
 
+# Tips
+
+## Not adding a todo state when creating a new element by default
+
+The default state `NOTE` doesn't add any state.
+
 # Troubleshooting
 
 ## All files give conflicts when nothing has changed

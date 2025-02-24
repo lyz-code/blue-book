@@ -592,5 +592,5 @@ Once you have the files that triggered the errors, the best way to handle them i
 
 - [Source](https://github.com/alephdata/aleph)
 - [Docs](https://docs.alephdata.org/)
-- [Support chat](https://alephdata.slack.com)
+- [Support](https://aleph.discourse.group/)
 - [API docs](https://redocly.github.io/redoc/?url=https://aleph.occrp.org/api/openapi.json)

@@ -4,6 +4,8 @@ date: 20211217
 author: Lyz
 ---
 
+Note: Maybe use [uv](https://astral.sh/blog/uv) instead (although so far I'm still using `pdm`)
+
 [PDM](https://pdm.fming.dev/) is a modern Python package manager with
 [PEP 582](https://www.python.org/dev/peps/pep-0582/) support. It installs and
 manages packages in a similar way to npm that doesn't need to create a

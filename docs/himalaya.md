@@ -234,6 +234,19 @@ return {
 ## Show notifications when emails arrive
 
 You can set up [mirador](mirador.md) to get those notifications.
+
+## Configure GPG
+
+Himalaya relies on cargo features to enable gpg. You can see the default enabled features in the [Cargo.toml](https://github.com/pimalaya/himalaya/blob/master/Cargo.toml#L18) file. As of 2025-01-27 the `pgp-commands` is enabled.
+
+You only need to add the next section to your config:
+
+```ini
+pgp.type = "commands"
+```
+
+And then you can use both the cli and the vim plugin with gpg. Super easy
+
 # Usage
 
 ## Searching emails

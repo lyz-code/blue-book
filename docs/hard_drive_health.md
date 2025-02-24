@@ -57,50 +57,7 @@ hard drive, such as:
 
 # Check the disk health
 
-You can run at least two tests, one with `smartctl` and another with `badblocks`
-
-## Check the health of a disk with smartctl
-
-Start with a long self test with `smartctl`. Assuming the disk to test is
-`/dev/sdd`:
-
-```bash
-smartctl -t long /dev/sdd
-```
-
-The command will respond with an estimate of how long it thinks the test will
-take to complete.
-
-To check progress use:
-
-```bash
-smartctl -A /dev/sdd | grep remaining
-# or
-smartctl -c /dev/sdd | grep remaining
-```
-
-Don't check too often because it can abort the test with some drives. If you
-receive an empty output, examine the reported status with:
-
-```bash
-smartctl -l selftest /dev/sdd
-```
-
-If errors are shown, check the `dmesg` as there are usually useful traces of the error.
-
-## Check the health of a disk with badblocks
-
-The `badblocks` command will write and read the disk with different patterns, thus overwriting the whole disk, so you will loose all the data in the disk.
-
-This test is good for rotational disks as there is no disk degradation on massive writes, do not use it on SSD though.
-
-WARNING: be sure that you specify the correct disk!!
-
-```bash
-badblocks -wsv -b 4096 /dev/sde | tee disk_analysis_log.txt
-```
-
-If errors are shown is that all of the spare sectors of the disk are used, so you must not use this disk anymore. Again, check `dmesg` for traces of disk errors.
+You can run at least two tests, one with [`smartctl`](smartctl.md) and another with [`badblocks`](badblocks.md).
 
 # Check the warranty status
 

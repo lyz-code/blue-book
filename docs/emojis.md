@@ -17,6 +17,8 @@ Curated list of emojis to copy paste.
 
 ＼\ ٩( ᐛ )و /／
 
+(•‿•)
+
 (✿◠‿◠)
 
 (/ﾟДﾟ)/

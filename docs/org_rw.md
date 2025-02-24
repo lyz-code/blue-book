@@ -23,7 +23,6 @@ with open('your_file.org', 'r') as f:
     doc = load(f)
 
 ```
-
 ## Write to an orgmode file
 
 ```python

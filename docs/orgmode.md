@@ -1,11 +1,12 @@
 [`nvim-orgmode`](https://github.com/nvim-orgmode/orgmode#agenda) is a Orgmode clone written in Lua for Neovim. Org-mode is a flexible note-taking system that was originally created for Emacs. It has gained wide-spread acclaim and was eventually ported to Neovim. This page is heavily focused to the nvim plugin, but you can follow the concepts for emacs as well.
 
 If you use Android try [orgzly](orgzly.md).
+
 # [Installation](https://github.com/nvim-orgmode/orgmode#installation)
 
 ## Using lazyvim
 
-```lua
+````lua
 return {
   'nvim-orgmode/orgmode',
   ```lua
@@ -35,14 +36,15 @@ return {
       })
   end,
   }
-  ```
-  dependencies = {
-    { 'nvim-treesitter/nvim-treesitter', lazy = true },
-  },
-  event = 'VeryLazy',
-  config = function()
-    -- Load treesitter grammar for org
-    require('orgmode').setup_ts_grammar()
+````
+
+dependencies = {
+{ 'nvim-treesitter/nvim-treesitter', lazy = true },
+},
+event = 'VeryLazy',
+config = function()
+-- Load treesitter grammar for org
+require('orgmode').setup_ts_grammar()
 
     -- Setup treesitter
     require('nvim-treesitter.configs').setup({
@@ -58,9 +60,11 @@ return {
       org_agenda_files = '~/orgfiles/**/*',
       org_default_notes_file = '~/orgfiles/refile.org',
     })
-  end,
+
+end,
 }
-```
+
+````
 ## Using packer
 
 Add to your plugin config:
@@ -70,7 +74,7 @@ use {'nvim-orgmode/orgmode', config = function()
   require('orgmode').setup{}
 end
 }
-```
+````
 
 Then install it with `:PackerInstall`.
 
@@ -107,10 +111,10 @@ You can check the default configuration file [here](https://github.com/nvim-orgm
 
 Mappings or Key bindings can be changed on the `mappings` attribute of the `setup`. The program has these kinds of mappings:
 
-* [Org](https://github.com/nvim-orgmode/orgmode/blob/master/DOCS.md#org-mappings)
-* [Agenda](https://github.com/nvim-orgmode/orgmode/blob/master/DOCS.md#agenda-mappings)
-* [Capture](https://github.com/nvim-orgmode/orgmode/blob/master/DOCS.md#capture-mappings)
-* [Global](https://github.com/nvim-orgmode/orgmode/blob/master/DOCS.md#global-mappings)
+- [Org](https://github.com/nvim-orgmode/orgmode/blob/master/DOCS.md#org-mappings)
+- [Agenda](https://github.com/nvim-orgmode/orgmode/blob/master/DOCS.md#agenda-mappings)
+- [Capture](https://github.com/nvim-orgmode/orgmode/blob/master/DOCS.md#capture-mappings)
+- [Global](https://github.com/nvim-orgmode/orgmode/blob/master/DOCS.md#global-mappings)
 
 For example the `global` mappings live under `mappings.global` and can be overridden like this:
 
@@ -128,6 +132,7 @@ require('orgmode').setup({
 ## Be ready when breaking changes come
 
 The developers have [created an issue](https://github.com/nvim-orgmode/orgmode/issues/217) to track breaking changes, subscribe to it so you're notified in advance.
+
 # Usage
 
 If you are new to Orgmode, check the [vim Dotoo video](https://www.youtube.com/watch?v=nsv33iOnH34), it's another plugin but the developers say it's the same. If you, like me, prefer written tutorials check the hands-on [tutorial](https://github.com/nvim-orgmode/orgmode/wiki/Getting-Started).
@@ -194,10 +199,10 @@ STARS KEYWORD PRIORITY TITLE TAGS
 
 Where:
 
-* `KEYWORD`: if present, turns the heading into a [`TODO` item](#todo-items). 
-* `PRIORITY` sets a [priority level](#priority) to be used in the Agenda.
-* `TITLE` is the main body of the heading.
-* `TAGS` is a colon surrounded and delimited list of [tags](#tags) used in searching in the Agenda.
+- `KEYWORD`: if present, turns the heading into a [`TODO` item](#todo-items).
+- `PRIORITY` sets a [priority level](#priority) to be used in the Agenda.
+- `TITLE` is the main body of the heading.
+- `TAGS` is a colon surrounded and delimited list of [tags](#tags) used in searching in the Agenda.
 
 #### Toogle line to headline
 
@@ -213,7 +218,7 @@ If you have a checkbox inside a TODO item, it will transform it to a children TO
 
 #### Change heading level
 
-To change the heading level use `<<` or `>>`. It doesn't work in visual mode though, if you want to change the level of the whole subtree you can use `<S` and `>S`. 
+To change the heading level use `<<` or `>>`. It doesn't work in visual mode though, if you want to change the level of the whole subtree you can use `<S` and `>S`.
 
 ```lua
 org = {
@@ -257,9 +262,9 @@ To fold the headings you can use either the normal vim bindings `zc`, `zo`, `zM`
 
 It's easy to navigate through your heading tree with:
 
-* Next/previous heading of any level with `<control>j`/`<control>k` (Default `}`/`{`)
-* Next/previous heading of the same level with `<control>n`/`<control>p` (Default `]]`/`[[`)
-* Go to the parent heading with `gp` (Default `g{`)
+- Next/previous heading of any level with `<control>j`/`<control>k` (Default `}`/`{`)
+- Next/previous heading of the same level with `<control>n`/`<control>p` (Default `]]`/`[[`)
+- Go to the parent heading with `gp` (Default `g{`)
 
 ```lua
 org = {
@@ -284,12 +289,12 @@ vim.cmd[[
 
 ### TODO items
 
-`TODO` items are meant to model tasks that evolve between states.  Check [this article](time_management_abstraction_levels.md) to see advanced uses of `TODO` items.
+`TODO` items are meant to model tasks that evolve between states. Check [this article](time_management_abstraction_levels.md) to see advanced uses of `TODO` items.
 
 As creating `TODO` items is quite common you can:
 
-* Create an item with the same level as the item above in the current position with `;t` (by default is `<leader>oit`).
-* Create an item with the same level as the item above after all the children of the item above with `;T` (by default is `<leader>oit`).
+- Create an item with the same level as the item above in the current position with `;t` (by default is `<leader>oit`).
+- Create an item with the same level as the item above after all the children of the item above with `;T` (by default is `<leader>oit`).
 
 ```lua
 org = {
@@ -318,7 +323,7 @@ org = {
 
 #### TODO state customization
 
-By default they are `TODO` or `DONE` but you can define your own using the `org_todo_keywords` configuration. It accepts a list of *unfinished* states and *finished* states separated by a `'|'`. For example:
+By default they are `TODO` or `DONE` but you can define your own using the `org_todo_keywords` configuration. It accepts a list of _unfinished_ states and _finished_ states separated by a `'|'`. For example:
 
 ```lua
 org_todo_keywords = { 'TODO', 'NEXT', '|', 'DONE' }
@@ -370,16 +375,16 @@ TODO items can also have [timestamps](https://orgmode.org/manual/Timestamps.html
 
 ##### Appointments
 
-Meant to be used for elements of the org file that have a defined date to occur, think of a calendar appointment. In the [agenda](#agenda) display, the headline of an entry associated with a plain timestamp is shown exactly on that date. 
+Meant to be used for elements of the org file that have a defined date to occur, think of a calendar appointment. In the [agenda](#agenda) display, the headline of an entry associated with a plain timestamp is shown exactly on that date.
 
 ```org
 * TODO Meet with Marie
 <2023-02-24 Fri>
 ```
 
-When you insert the timestamps with the date popup picker with `;d` (Default: `<leader>oi.`) you can only select the day and not the time, but you can add it manually. 
+When you insert the timestamps with the date popup picker with `;d` (Default: `<leader>oi.`) you can only select the day and not the time, but you can add it manually.
 
-You can also define a timestamp range that spans through many days `<2023-02-24 Fri>--<2023-02-26 Sun>`. The headline then is shown on the first and last day of the range, and on any dates that are displayed and fall in the range.  
+You can also define a timestamp range that spans through many days `<2023-02-24 Fri>--<2023-02-26 Sun>`. The headline then is shown on the first and last day of the range, and on any dates that are displayed and fall in the range.
 
 ##### Start working on a task dates
 
@@ -392,9 +397,9 @@ The headline is listed under the given date. In addition, a reminder that the sc
     SCHEDULED: <2004-12-25 Sat>
 ```
 
-Although is not a good idea (as it promotes the can pushing through the street), if you want to delay the display of this task in the agenda, use `SCHEDULED: <2004-12-25 Sat -2d>` the task is still scheduled on the 25th but will appear two days later. In case the task contains a repeater, the delay is considered to affect all occurrences; if you want the delay to only affect the first scheduled occurrence of the task, use `--2d` instead. 
+Although is not a good idea (as it promotes the can pushing through the street), if you want to delay the display of this task in the agenda, use `SCHEDULED: <2004-12-25 Sat -2d>` the task is still scheduled on the 25th but will appear two days later. In case the task contains a repeater, the delay is considered to affect all occurrences; if you want the delay to only affect the first scheduled occurrence of the task, use `--2d` instead.
 
-Scheduling an item in Org mode should not be understood in the same way that we understand scheduling a meeting. Setting a date for a meeting is just [a simple appointment](#appointments), you should mark this entry with a simple plain timestamp, to get this item shown on the date where it applies. This is a frequent misunderstanding by Org users. In Org mode, scheduling means setting a date when you want to start working on an action item. 
+Scheduling an item in Org mode should not be understood in the same way that we understand scheduling a meeting. Setting a date for a meeting is just [a simple appointment](#appointments), you should mark this entry with a simple plain timestamp, to get this item shown on the date where it applies. This is a frequent misunderstanding by Org users. In Org mode, scheduling means setting a date when you want to start working on an action item.
 
 You can set it with `<leader>s` (Default: `<leader>ois`)
 
@@ -405,15 +410,15 @@ You can set it with `<leader>s` (Default: `<leader>ois`)
 An example:
 
 ```org
-* TODO Do this 
+* TODO Do this
 DEADLINE: <2023-02-24 Fri>
 ```
 
 You can set it with `<leader>d` (Default: `<leader>oid`).
 
-If you need a different warning period for a special task, you can specify it. For example setting a warning period of 5 days `DEADLINE: <2004-02-29 Sun -5d>`.  
+If you need a different warning period for a special task, you can specify it. For example setting a warning period of 5 days `DEADLINE: <2004-02-29 Sun -5d>`.
 
-If you're as me, you may want to remove the warning feature of `DEADLINES` to be able to keep your agenda clean. Most of times you are able to finish the task in the day, and for those that you can't specify a `SCHEDULED` date. To do so set the default number of days to `0`. 
+If you're as me, you may want to remove the warning feature of `DEADLINES` to be able to keep your agenda clean. Most of times you are able to finish the task in the day, and for those that you can't specify a `SCHEDULED` date. To do so set the default number of days to `0`.
 
 ```lua
 require('orgmode').setup({
@@ -434,7 +439,7 @@ A timestamp may contain a repeater interval, indicating that it applies not only
 
 When you mark a recurring task with the TODO keyword ‘DONE’, it no longer produces entries in the agenda. The problem with this is, however, is that then also the next instance of the repeated entry will not be active. Org mode deals with this in the following way: when you try to mark such an entry as done, it shifts the base date of the repeating timestamp by the repeater interval, and immediately sets the entry state back to TODO.
 
-As a consequence of shifting the base date, this entry is no longer visible in the agenda when checking past dates, but all future instances will be visible. 
+As a consequence of shifting the base date, this entry is no longer visible in the agenda when checking past dates, but all future instances will be visible.
 
 With the `+1m` cookie, the date shift is always exactly one month. So if you have not paid the rent for three months, marking this entry DONE still keeps it as an overdue deadline. Depending on the task, this may not be the best way to handle it. For example, if you forgot to call your father for 3 weeks, it does not make sense to call him 3 times in a single day to make up for it. For these tasks you can use the `++` operator, for example `++1m`. Finally, there are tasks, like changing batteries, which should always repeat a certain time after the last time you did it you can use the `.+` operator. For example:
 
@@ -500,7 +505,7 @@ For those tasks that you want to always check before closing you can add a `(CHE
 ```orgmode
 * TODO Do X the first thursday of the month (CHECK)
   DEADLINE: <2024-01-04 ++1m>
-  
+
   - [ ] Step 1
   - [ ] Step 2
   - [ ] Step ...
@@ -517,7 +522,6 @@ By default when you mark a recurrent task as `DONE` it will transition the date 
 
 The idea is that once an INACTIVE task reaches your agenda, either because the warning days of the `DEADLINE` make it show up, or because it's the `SCHEDULED` date you need to decide whether to change it to `TODO` if it's to be acted upon immediately or to `READY` and deactivate the date.
 
-
 `INACTIVE` then should be the default state transition for the recurring tasks once you mark it as `DONE`. To do this, set in your config:
 
 ```lua
@@ -527,9 +531,10 @@ org_todo_repeat_to_state = "INACTIVE",
 If a project gathers a list of recurrent subprojects or subactions it can have the next states:
 
 - `READY`: If there is at least one subelement in state `READY` and the rest are `INACTIVE`
-- `TODO`:  If there is at least one subelement in state `TODO` and the rest may have `READY` or `INACTIVE`
-- `INACTIVE`: The project is not planned to be acted upon soon. 
+- `TODO`: If there is at least one subelement in state `TODO` and the rest may have `READY` or `INACTIVE`
+- `INACTIVE`: The project is not planned to be acted upon soon.
 - `WAITING`: The project is planned to be acted upon but all its subelements are in `INACTIVE` state.
+
 #### Date management
 
 ```lua
@@ -542,9 +547,9 @@ If a project gathers a list of recurrent subprojects or subactions it can have t
 
 To edit existing dates you can:
 
-* Increase/decrease the date under the cursor by 1 day with `<shift><up>`/<shift><down>`
-* Increase/decrease the part of the date under the cursor with `<control>a`/`<control>x`
-* Bring the date pop up with `<control>e` (Default `cid`)
+- Increase/decrease the date under the cursor by 1 day with `<shift><up>`/<shift><down>`
+- Increase/decrease the part of the date under the cursor with `<control>a`/`<control>x`
+- Bring the date pop up with `<control>e` (Default `cid`)
 
 ```lua
   org = {
@@ -563,10 +568,10 @@ vim.cmd[[
 
 You can also use the next [abbreviations](https://github.com/nvim-orgmode/orgmode/blob/master/DOCS.md#abbreviations):
 
-* `:today:`: expands to today's date (example: <2021-06-29 Tue>)
-* `:itoday:`: expands to an invactive version of today's date (example: [2021-06-29 Tue])
-* `:now:`: expands to today's date and current time (example: <2021-06-29 Tue 15:32>)
-* `:inow:`: expands to invactive version of today's date and current time (example: [2021-06-29 Tue 15:32]
+- `:today:`: expands to today's date (example: <2021-06-29 Tue>)
+- `:itoday:`: expands to an invactive version of today's date (example: [2021-06-29 Tue])
+- `:now:`: expands to today's date and current time (example: <2021-06-29 Tue 15:32>)
+- `:inow:`: expands to invactive version of today's date and current time (example: [2021-06-29 Tue 15:32]
 
 ### [Tags](https://orgmode.org/manual/Tag-Inheritance.html)
 
@@ -580,9 +585,9 @@ You can also use tags to organize your items. To edit them use `<leader>g` (Defa
 
 When you press that key you can type:
 
-* `tag1`: It will add `:tag1:`.
-* `tag1:tag2`: It will add `:tag1:tag2:`.
-* Press `ESC`: It will remove all tags from the item.
+- `tag1`: It will add `:tag1:`.
+- `tag1:tag2`: It will add `:tag1:tag2:`.
+- Press `ESC`: It will remove all tags from the item.
 
 Tags are seen as `:tag1:tag2:` on the right of the TODO item description.
 
@@ -607,17 +612,17 @@ If you plan refile elements to the root of a file (such as using a bare [Capture
 Tags are useful for [Agenda searches](#agenda-searches). I've found interesting to create tags based on:
 
 - Temporal context:
-  - lunch 
+  - lunch
   - dinner
   - night
 - Spatial context:
   - kitchen
   - couch
-  - mobile 
-  - bathroom 
+  - mobile
+  - bathroom
 - Event context:
   - daily
-  - retro 
+  - retro
   - planning
 - Mental context:
   - down
@@ -626,23 +631,24 @@ Tags are useful for [Agenda searches](#agenda-searches). I've found interesting 
   - design
   - inspired
 - People context:
-  - mom 
-  - dad 
+  - mom
+  - dad
   - ...
 - Roadmap area context:
-  - activism 
-  - well-being 
+  - activism
+  - well-being
   - care
-  - work 
+  - work
 - Focus area context:
-  - maintenance 
+  - maintenance
   - improvement
 - Knowledge area context:
-  - efficiency 
+  - efficiency
   - politics
   - ...
 
 So that it's easy to find elements to work on based on each context.
+
 ### `Lists
 
 Lists start with a dash:
@@ -653,7 +659,7 @@ Lists start with a dash:
 
 To create new list item press `<control><enter>`.
 
-### Checkboxes 
+### Checkboxes
 
 Checkboxes or checklists are a special type of [list](#lists):
 
@@ -664,7 +670,7 @@ Checkboxes or checklists are a special type of [list](#lists):
 - [ ] Item 2
 ```
 
-If you're over an item you can create new ones with `<control><enter>` (if you have the `org_meta_return = '<c-cr>'` binding set). 
+If you're over an item you can create new ones with `<control><enter>` (if you have the `org_meta_return = '<c-cr>'` binding set).
 
 You can change the checkbox state with `<control><space>`, if you check a subitem the parent item will be marked as started `<3` automatically:
 
@@ -683,8 +689,8 @@ Follow [this issue](https://github.com/nvim-orgmode/orgmode/issues/305) if you w
 
 One final aspect of the org file syntax are links. Links are of the form `[[link][description]]`, where link can be an:
 
-* [Internal reference](#internal-document-links)
-* [External reference](#external-links)
+- [Internal reference](#internal-document-links)
+- [External reference](#external-links)
 
 A link that does not look like a URL refers to the current document. You can follow it with `gx` when point is on the link (Default `<leader>oo`) if you use the next configuration.
 
@@ -698,8 +704,8 @@ org = {
 
 Org provides several refinements to internal navigation within a document. Most notably:
 
-* `[[Some section]]`: points to a headline with the name `Some section`.
-* `[[#my-custom-id]]`: targets the entry with the `CUSTOM_ID` property set to `my-custom-id`. 
+- `[[Some section]]`: points to a headline with the name `Some section`.
+- `[[#my-custom-id]]`: targets the entry with the `CUSTOM_ID` property set to `my-custom-id`.
 
 When the link does not belong to any of the cases above, Org looks for a dedicated target: the same string in double angular brackets, like `<<My Target>>`.
 
@@ -716,14 +722,13 @@ Ultimately, if none of the above succeeds, Org searches for a headline that is e
 
 Note that you must make sure custom IDs, dedicated targets, and names are unique throughout the document. Org provides a linter to assist you in the process, if needed, but I have not searched yet one for nvim.
 
-
 #### [External links](https://orgmode.org/guide/Hyperlinks.html)
 
-* URL (`http://`, `https://`)
-* Path to a file (`file:/path/to/org/file`). File links can contain additional information to jump to a particular location in the file when following a link. This can be:
-  * `file:~/code/main.c::255`: A line number 
-  * `file:~/xx.org::*My Target`: A search for `<<My Target>>` heading.
-  * `file:~/xx.org::#my-custom-id`: A	search for-  a custom ID
+- URL (`http://`, `https://`)
+- Path to a file (`file:/path/to/org/file`). File links can contain additional information to jump to a particular location in the file when following a link. This can be:
+  - `file:~/code/main.c::255`: A line number
+  - `file:~/xx.org::*My Target`: A search for `<<My Target>>` heading.
+  - `file:~/xx.org::#my-custom-id`: A search for- a custom ID
 
 ### [Properties](https://orgmode.org/guide/Properties.html)
 
@@ -762,9 +767,11 @@ This can be interesting for example if you want to track when was a header creat
 ```org
 *** Title of header
    :PROPERTIES:
-   :CREATED: <2023-03-03 Fri 12:11> 
+   :CREATED: <2023-03-03 Fri 12:11>
    :END:
 ```
+
+You can [define the properties that an be inherited with the `org_use_property_inheritance` configuration](https://github.com/nvim-orgmode/orgmode/commit/544e347c9ee12042234f6a2e3d741bd3240324dd)
 
 ### [Code blocks](https://orgmode.org/manual/Structure-of-Code-Blocks.html)
 
@@ -784,6 +791,7 @@ You need to use snippets for this to be usable.
 An inline code block has two possibilies
 
 - Language agnostic inline block is any string between `=` or `~` such as:
+
   ```org
   If ~variable == true~ where =variable= is ...
   ```
@@ -807,12 +815,25 @@ Where:
 - `<language>`: (Mandatory) It is the identifier of the source code language in the block. See [Languages](https://orgmode.org/worg/org-contrib/babel/languages/index.html) for identifiers of supported languages.
 - `<switches>`: (Optional) Switches provide finer control of the code execution, export, and format.
 - `<header arguments>`: (Optional) Heading arguments control many aspects of evaluation, export and tangling of code blocks. Using Org’s properties feature, header arguments can be selectively applied to the entire buffer or specific subtrees of the Org document.
-- `<body>`: Source code in the dialect of the specified language identifier. 
+- `<body>`: Source code in the dialect of the specified language identifier.
+
+### [Footnotes](https://orgmode.org/manual/Creating-Footnotes.html)
+
+A footnote is started by a footnote marker in square brackets in column 0, no indentation allowed. It ends at the next footnote definition, headline, or after two consecutive empty lines. The footnote reference is simply the marker in square brackets, inside text. Markers always start with ‘fn:’. For example:
+
+```
+The Org website[fn:1] now looks a lot better than it used to.
+...
+[fn:50] The link is: https://orgmode.org
+```
+
+Nvim-orgmode has [some basic support for footnotes](https://github.com/nvim-orgmode/orgmode/commit/4f62b7f#diff-fa091537281e07e5e58902b6484b097442300c98e115ab29f4374abbe98b8d3d).
+
 ## Archiving
 
 When we no longer need certain parts of our org files, they can be archived. You can archive items by pressing `;A` (Default `<Leader>o$`) while on the heading. This will also archive any child headings. The default location for archived headings is `<name-of-current-org-file>.org_archive`, which can be changed with the `org_archive_location` option.
 
-The problem is that when you archive an element you loose the context of the item unless it's a first level item. 
+The problem is that when you archive an element you loose the context of the item unless it's a first level item.
 
 Another way to archive is by adding the `:ARCHIVE:` tag with `;a` and once all elements are archived move it to the archive.
 
@@ -823,7 +844,7 @@ org = {
 }
 ```
 
-There are some work in progress to improve archiving in the next issues [1](https://github.com/nvim-orgmode/orgmode/issues/413), [2](https://github.com/nvim-orgmode/orgmode/issues/369) and [3](https://github.com/joaomsa/telescope-orgmode.nvim/issues/2). 
+There are some work in progress to improve archiving in the next issues [1](https://github.com/nvim-orgmode/orgmode/issues/413), [2](https://github.com/nvim-orgmode/orgmode/issues/369) and [3](https://github.com/joaomsa/telescope-orgmode.nvim/issues/2).
 
 If you [don't want to have dangling org_archive files](https://github.com/nvim-orgmode/orgmode/issues/628) you can create an `archive` directory somewhere and then set:
 
@@ -838,6 +859,7 @@ local org = require('orgmode').setup({
 When you have big tasks that have nested checklists, when you finish the day working on the task you may want to clean the checklist without loosing what you've done, for example for reporting purposes.
 
 In those cases what I do is archive the task, and then undo the archiving. That way you have a copy of the state of the task in your archive with a defined date. Then you can safely remove the done checklist items.
+
 ## Refiling
 
 Refiling lets you easily move around elements of your org file, such as headings or TODOs. You can refile with `<leader>r` with the next snippet:
@@ -884,6 +906,7 @@ If you refile from the capture window, [until this issue is solved](https://gith
 Be careful that it only refiles the first task there is, so you need to close the capture before refiling the next
 
 The plugin also allows you to use `telescope` to search through the headings of the different files with `search_headings`, with the configuration above you'd use `<leader>g`.
+
 ## Agenda
 
 The org agenda is used to get an overview of all your different org files. Pressing `ga` (Default: `<leader>oa`) gives you an overview of the various specialized views into the agenda that are available. Remember that you can press `g?` to see all the available key mappings for each view.
@@ -896,12 +919,12 @@ The org agenda is used to get an overview of all your different org files. Press
 
 You'll be presented with the next views:
 
-* `a`: Agenda for current week or day
-* `t`: List of all TODO entries
-* `m`: Match a TAGS/PROP/TODO query
-* `M`: Like `m`, but only TODO entries
-* `s`: Search for keywords
-* `q`: Quit
+- `a`: Agenda for current week or day
+- `t`: List of all TODO entries
+- `m`: Match a TAGS/PROP/TODO query
+- `M`: Like `m`, but only TODO entries **that are active** (it won't show the DONE elements, for that use `m`)
+- `s`: Search for keywords
+- `q`: Quit
 
 So far the `nvim-orgmode` agenda view lacks the next features:
 
@@ -913,26 +936,26 @@ So far the `nvim-orgmode` agenda view lacks the next features:
 
 ### Move around the agenda view
 
-* `.`: Go to Today
-* `J`: Opens a popup that allows you to select the date to jump to.
-* `f`: Next agenda span. For example if you are in the week view it will go to the next week.
-* `b`: Previous agenda span .
-* `/`: Opens a prompt that allows filtering current agenda view by category, tags and title. 
-  
-  For example, having a `todos.org` file with headlines that have tags `mytag` or `myothertag`, and some of them have check in content, searching by `todos+mytag/check/` returns all headlines that are in `todos.org` file, that have `mytag` tag, and have `check` in headline title. 
+- `.`: Go to Today
+- `J`: Opens a popup that allows you to select the date to jump to.
+- `f`: Next agenda span. For example if you are in the week view it will go to the next week.
+- `b`: Previous agenda span .
+- `/`: Opens a prompt that allows filtering current agenda view by category, tags and title.
+
+  For example, having a `todos.org` file with headlines that have tags `mytag` or `myothertag`, and some of them have check in content, searching by `todos+mytag/check/` returns all headlines that are in `todos.org` file, that have `mytag` tag, and have `check` in headline title.
 
   Note that `regex` is case sensitive by default. Use the vim regex flag `\c` to make it case insensitive. For more information see `:help vim.regex()` and `:help /magic`.
 
   Pressing `<TAB>` in filter prompt autocompletes categories and tags.
 
-* `q`: Quit                                                                                                
+- `q`: Quit
 
 ### Act on the agenda elements
 
-* `<enter>`: Open the file containing the element on your cursor position. By default it opens it in the same buffer as the agenda view, which is a bit uncomfortable for me, I prefer the behaviour of `<tab>` so I'm using that instead.
-* `t`: Change `TODO` state of an item both in the agenda and the original Org file
-* `=`/`-`: Change the priority of the element
-* `r`: Reload all org files and refresh the current agenda view.
+- `<enter>`: Open the file containing the element on your cursor position. By default it opens it in the same buffer as the agenda view, which is a bit uncomfortable for me, I prefer the behaviour of `<tab>` so I'm using that instead.
+- `t`: Change `TODO` state of an item both in the agenda and the original Org file
+- `=`/`-`: Change the priority of the element
+- `r`: Reload all org files and refresh the current agenda view.
 
 ```lua
   agenda = {
@@ -947,10 +970,10 @@ So far the `nvim-orgmode` agenda view lacks the next features:
 
 ### Agenda views:
 
-* `vd`: Show the agenda of the day
-* `vw`: Show the agenda of the week
-* `vm`: Show the agenda of the month
-* `vy`: Show the agenda of the year
+- `vd`: Show the agenda of the day
+- `vw`: Show the agenda of the week
+- `vm`: Show the agenda of the month
+- `vy`: Show the agenda of the year
 
 Once you open one of the views you can do most of the same stuff that you on othe org mode file:
 
@@ -958,20 +981,19 @@ Once you open one of the views you can do most of the same stuff that you on oth
 
 When using the search agenda view you can:
 
-* Search by TODO states with `/WAITING`
-* Search by tags `+home`. The syntax for such searches follows a simple boolean logic:
+- Search by TODO states with `/WAITING`
+- Search by tags `+home`. The syntax for such searches follows a simple boolean logic:
 
   - `|`: or
   - `&`: and
   - `+`: include matches
-  - `-`: exclude matches 
+  - `-`: exclude matches
 
   Here are a few examples:
 
   - `+computer&+urgent`: Returns all items tagged both `computer` and `urgent`.
   - `+computer|+urgent`: Returns all items tagged either `computer` or `urgent`.
   - `+computer&-urgent`: Returns all items tagged `computer` and not `urgent`.
-
 
   As you may have noticed, the syntax above can be a little verbose, so org-mode offers convenient ways of shortening it. First, `-` and `+` imply `and` if no boolean operator is stated, so example three above could be rewritten simply as:
 
@@ -1003,36 +1025,159 @@ When using the search agenda view you can:
   +{computer\|work}+email
   ```
 
-* [Search by properties](https://orgmode.org/worg/org-tutorials/advanced-searching.html#property-searches): You can search by properties with the `PROPERTY="value"` syntax. Properties with numeric values can be queried with inequalities `PAGES>100`. To search by partial searches use a regular expression, for example if the entry had `:BIB_TITLE: Mysteries of the Amazon` you could use `BIB_TITLE={Amazon}`
+- [Search by properties](https://orgmode.org/worg/org-tutorials/advanced-searching.html#property-searches): You can search by properties with the `PROPERTY="value"` syntax. Properties with numeric values can be queried with inequalities `PAGES>100`. To search by partial searches use a regular expression, for example if the entry had `:BIB_TITLE: Mysteries of the Amazon` you could use `BIB_TITLE={Amazon}`
 
-### Custom agendas 
+  For example [if you want to search for the recurrent tasks that have been completed today you could use](https://github.com/nvim-orgmode/orgmode/pull/842) `LAST_REPEAT>"<2024-12-05>"`. You can also use relative values, like `<-1d>`, `<today>`, `<tomorrow>`, `<+3d>`, etc.
 
-There is still no easy way to define your [custom agenda views](https://orgmode.org/manual/Custom-Agenda-Views.html), but it looks possible [1](https://github.com/nvim-orgmode/orgmode/issues/478) and [2](https://github.com/nvim-orgmode/orgmode/issues/135).
+### Custom agendas
 
-I've made an [ugly fix](https://github.com/nvim-orgmode/orgmode/pull/831) to be able to use it with the `tags` agenda. Until it's solved you can use [my fork](https://github.com/lyz-code/orgmode). To define your custom agenda you can set for example:
+You an use [custom agenda commands](https://github.com/nvim-orgmode/orgmode/blob/d62fd3cdb2958e2e76fb0af4ea64d6209703fbe0/DOCS.md#org_agenda_custom_commands)
 
-```Lua
+Define custom agenda views that are available through the `org_agenda` mapping. It is possible to combine multiple agenda types into single view. An example:
+
+```lua
+require('orgmode').setup({
+  org_agenda_files = {'~/org/**/*'},
+  org_agenda_custom_commands = {
+    -- "c" is the shortcut that will be used in the prompt
+    c = {
+      description = 'Combined view', -- Description shown in the prompt for the shortcut
+      types = {
+        {
+          type = 'tags_todo', -- Type can be agenda | tags | tags_todo
+          match = '+PRIORITY="A"', --Same as providing a "Match:" for tags view <leader>oa + m, See: https://orgmode.org/manual/Matching-tags-and-properties.html
+          org_agenda_overriding_header = 'High priority todos',
+          org_agenda_todo_ignore_deadlines = 'far', -- Ignore all deadlines that are too far in future (over org_deadline_warning_days). Possible values: all | near | far | past | future
+        },
+        {
+          type = 'agenda',
+          org_agenda_overriding_header = 'My daily agenda',
+          org_agenda_span = 'day' -- can be any value as org_agenda_span
+        },
+        {
+          type = 'tags',
+          match = 'WORK', --Same as providing a "Match:" for tags view <leader>oa + m, See: https://orgmode.org/manual/Matching-tags-and-properties.html
+          org_agenda_overriding_header = 'My work todos',
+          org_agenda_todo_ignore_scheduled = 'all', -- Ignore all headlines that are scheduled. Possible values: past | future | all
+        },
+        {
+          type = 'agenda',
+          org_agenda_overriding_header = 'Whole week overview',
+          org_agenda_span = 'week', -- 'week' is default, so it's not necessary here, just an example
+          org_agenda_start_on_weekday = 1 -- Start on Monday
+          org_agenda_remove_tags = true -- Do not show tags only for this view
+        },
+      }
+    },
+    p = {
+      description = 'Personal agenda',
+      types = {
+        {
+          type = 'tags_todo',
+          org_agenda_overriding_header = 'My personal todos',
+          org_agenda_category_filter_preset = 'todos', -- Show only headlines from `todos` category. Same value providad as when pressing `/` in the Agenda view
+          org_agenda_sorting_strategy = {'todo-state-up', 'priority-down'} -- See all options available on org_agenda_sorting_strategy
+        },
+        {
+          type = 'agenda',
+          org_agenda_overriding_header = 'Personal projects agenda',
+          org_agenda_files = {'~/my-projects/**/*'}, -- Can define files outside of the default org_agenda_files
+        },
+        {
+          type = 'tags',
+          org_agenda_overriding_header = 'Personal projects notes',
+          org_agenda_files = {'~/my-projects/**/*'},
+          org_agenda_tag_filter_preset = 'NOTES-REFACTOR' -- Show only headlines with NOTES tag that does not have a REFACTOR tag. Same value providad as when pressing `/` in the Agenda view
+        },
+      }
+    }
+  }
+})
+```
+
+You can also define the `org_agenda_sorting_strategy`. The default value is `{ agenda = {'time-up', 'priority-down', 'category-keep'}, todo = {'priority-down', 'category-keep'}, tags = {'priority-down', 'category-keep'}}`.
+
+The available list of sorting strategies to apply to a given view are:
+
+- `time-up`: Sort entries by time of day. Applicable only in agenda view
+- `time-down`: Opposite of time-up
+- `priority-down`: Sort by priority, from highest to lowest
+- `priority-up`: Sort by priority, from lowest to highest
+- `tag-up`: Sort by sorted tags string, ascending
+- `tag-down`: Sort by sorted tags string, descending
+- `todo-state-up`: Sort by todo keyword by position (example: 'TODO, PROGRESS, DONE' has a sort value of 1, 2 and 3), ascending
+- `todo-state-down`: Sort by todo keyword, descending
+- `clocked-up`: Show clocked in headlines first
+- `clocked-down`: Show clocked in headines last
+- `category-up`: Sort by category name, ascending
+- `category-down`: Sort by category name, descending
+- `category-keep`: Keep default category sorting, as it appears in org-agenda-files
+
+You can open the custom agendas with the API too. For example to open the agenda stored under `t`:
+
+```lua
     keys = {
       {
-        "<leader>gt",
+        "gt",
         function()
-          require("orgmode.api.agenda").tags({
-            query = "+today/-INACTIVE-DONE-REJECTED",
-            todo_only = true,
-          })
+          vim.notify("Opening today's agenda", vim.log.levels.INFO)
+          require("orgmode.api.agenda").open_by_key("t")
         end,
         desc = "Open orgmode agenda for today",
       },
-    }
+    },
+```
+
+In that case I'm configuring the `keys` section of the lazyvim plugin. Through the API you can also configure these options:
+
+- `org_agenda_files`
+- `org_agenda_sorting_strategy`
+- `org_agenda_category_filter_preset`
+- `org_agenda_todo_ignore_deadlines`: Ignore all deadlines that are too far in future (over org_deadline_warning_days). Possible values: all | near | far | past | future
+- `org_agenda_todo_ignore_scheduled`: Ignore all headlines that are scheduled. Possible values: past | future | all
+
+#### Load different agendas with the same binding depending on the time
+
+I find it useful to bind `gt` to Today's agenda, but what today means is different between week days. Imagine that you want to load an agenda if you're from monday to friday before 18:00 (a work agenda) versus a personal agenda the rest of the time.
+
+You could then configure this function:
+
+```lua
+    keys = {
+      {
+        "gt",
+        function()
+          local current_time = os.date("*t")
+          local day = current_time.wday -- 1 = Sunday, 2 = Monday, etc.
+          local hour = current_time.hour
+
+          local agenda_key = "t"
+          local agenda_name = "Today's" -- default
+
+          -- Monday (2) through Friday (6)
+          if day >= 2 and day <= 6 then
+            if hour < 17 then
+              agenda_key = "w"
+              agenda_name = "Today + Work"
+            end
+          end
+
+          vim.notify("Opening " .. agenda_name .. " agenda", vim.log.levels.INFO)
+          require("orgmode.api.agenda").open_by_key(agenda_key)
+        end,
+        desc = "Open orgmode agenda for today",
+      },
 ```
 
 ### [Reload the agenda con any file change](https://github.com/nvim-orgmode/orgmode/issues/656)
+
 There are two ways of doing this:
 
 - Reload the agenda each time you save a document
 - Reload the agenda each X seconds
 
 #### Reload the agenda each time you save a document
+
 Add this to your configuration:
 
 ```lua
@@ -1048,7 +1193,9 @@ vim.api.nvim_create_autocmd('BufWritePost', {
 ```
 
 This will reload agenda window if it's open each time you write any org file, it won't work if you archive without saving though yet. But that can be easily fixed if you use [the auto-save plugin](vim_autosave.md).
+
 #### Reload the agenda each X seconds
+
 Add this to your configuration:
 
 ```lua
@@ -1056,7 +1203,7 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = "org",
   group = vim.api.nvim_create_augroup("orgmode", { clear = true }),
   callback = function()
-    -- Reload the agenda each second if its opened so that unsaved changes 
+    -- Reload the agenda each second if its opened so that unsaved changes
     -- in the files are shown
     local timer = vim.loop.new_timer()
     timer:start(
@@ -1072,11 +1219,12 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 ```
+
 ## [Capture](https://orgmode.org/manual/Capture.html)
 
 Capture lets you quickly store notes with little interruption of your work flow. It works the next way:
 
-- Open the interface with `;c` (Default `<leader>oc`) that asks you what kind of element you want to capture. 
+- Open the interface with `;c` (Default `<leader>oc`) that asks you what kind of element you want to capture.
 - Select the template you want to use. By default you only have the `Task` template, that introduces a task into the same file where you're at, select it by pressing `t`.
 - Fill up the template.
 - Choose what to do with the captured content:
@@ -1099,7 +1247,6 @@ mappings = {
 
 If you're outside vim you can trigger the capture (if you're using i3) by adding this config:
 
-
 ```bash
 for_window [title="Capture"] floating enable, resize set 50 ppt 30 ppt
 bindsym $mod+c exec PATH="$PATH:/home/lyz/.local/bin" kitty --title Capture nvim +"lua require('orgmode').action('capture.prompt')"
@@ -1111,11 +1258,11 @@ By pressing `alt+c` a floating terminal will open with the capture template.
 
 Capture lets you define different templates for the different inputs. Each template has the next elements:
 
-* Keybinding: Keys to press to activate the template
-* Description: What to show in the capture menu to describe the template
-* Template: The actual template of the capture, look below to see how to create them.
-* Target: The place where the captured element will be inserted to. For example `~/org/todo.org`. If you don't define it it will go to the file configured in `org_default_notes_file`.
-* Headline: An [optional headline](https://github.com/nvim-orgmode/orgmode/issues/196) of the Target file to insert the element. 
+- Keybinding: Keys to press to activate the template
+- Description: What to show in the capture menu to describe the template
+- Template: The actual template of the capture, look below to see how to create them.
+- Target: The place where the captured element will be inserted to. For example `~/org/todo.org`. If you don't define it it will go to the file configured in `org_default_notes_file`.
+- Headline: An [optional headline](https://github.com/nvim-orgmode/orgmode/issues/196) of the Target file to insert the element.
 
 For example:
 
@@ -1144,7 +1291,7 @@ For the template you can use the next variables:
 For example:
 
 ```lua
-{ 
+{
   T = {
     description = 'Todo',
     template = '* TODO %?\n %u',
@@ -1178,8 +1325,8 @@ For example:
 }
 ```
 
-
 ### Use capture
+
 ## Links
 
 Orgmode supports the insertion of links with the `org_insert_link` and `org_store_link` commands. I've changed the default `<leader>oli` and `<leader>ols` bindings to some quicker ones:
@@ -1193,6 +1340,7 @@ mappings = {
   },
 }
 ```
+
 There are the next possible workflows:
 
 - Discover links as you go: If you more less know in which file are the headings you want to link:
@@ -1201,14 +1349,15 @@ There are the next possible workflows:
   - Then type `::*` and press `<tab>` again to get the list of available headings.
 - Store the links you want to paste:
   - Go to the heading you want to link
-  - Press `<leader>ls` to store the link 
-  - Go to the place where you want to paste the link 
+  - Press `<leader>ls` to store the link
+  - Go to the place where you want to paste the link
   - Press `<leader>l` and then `<tab>` to iterate over the saved links.
+
 ## The orgmode repository file organization
 
 How to structure the different orgmode files is something that has always confused me, each one does it's own way, and there are no good posts on why one structure is better than other, people just state what they do.
 
-I've started with a typical [gtd](gtd.md) structure with a directory for the `todo` another for the `calendar` then another for the `references`. In the `todo` I had a file for personal stuff, another for each of my work clients, and the `someday.org`. Soon making the internal links was cumbersome so I decided to merge the personal `todo.org` and the `someday.org` into the same file and use folds to hide uninteresting parts of the file. The reality is that I feel that orgmode is less responsive and that I often feel lost in the file. 
+I've started with a typical [gtd](gtd.md) structure with a directory for the `todo` another for the `calendar` then another for the `references`. In the `todo` I had a file for personal stuff, another for each of my work clients, and the `someday.org`. Soon making the internal links was cumbersome so I decided to merge the personal `todo.org` and the `someday.org` into the same file and use folds to hide uninteresting parts of the file. The reality is that I feel that orgmode is less responsive and that I often feel lost in the file.
 
 I'm now more into the idea of having files per project in a flat structure and use an index.org file to give it some sense in the same way I do with the mkdocs repositories. Then I'd use internal links in the todo.org file to organize the priorities of what to do next.
 
@@ -1223,6 +1372,7 @@ Cons:
 
 - Filenames must be unique. It hasn't been a problem in blue.
 - Blue won't be flattened into Vida as it's it's own knowledge repository
+
 ## Synchronizations
 
 ### Synchronize with other orgmode repositories
@@ -1231,10 +1381,10 @@ I use orgmode both at the laptop and the mobile, I want to syncronize some files
 
 - The files should be available on the devices when I'm not at home
 - The synchronization will be done only on the local network
-- The synchronization mechanism will only be able to see the files that need to be synched. 
+- The synchronization mechanism will only be able to see the files that need to be synched.
 - Different files can be synced to different devices. If I have three devices (laptop, mobile, tablet) I want to sync all mobile files to the laptop but just some to the tablet).
 
-Right now I'm already using [syncthing](syncthing.md) to sync files between the mobile and my server, so it's tempting to use it also to solve this issue. So the first approach is to spawn a syncthing docker at the laptop that connects with the server to sync the files whenever I'm at home. 
+Right now I'm already using [syncthing](syncthing.md) to sync files between the mobile and my server, so it's tempting to use it also to solve this issue. So the first approach is to spawn a syncthing docker at the laptop that connects with the server to sync the files whenever I'm at home.
 
 #### Mount the whole orgmode repository with syncthing
 
@@ -1256,7 +1406,6 @@ This is also a good solution for the different authorization syncs as you can on
 
 We could also select which files to mount on the syncthing docker of the laptop. I find this to be an ugly solution because we'd first need to mount a directory so that syncthing can write it's internal data and then map each of the files we want to sync. So each time a new file is added, we need to change the docker command... Unpleasant.
 
-
 #### Use the org-orgzly script
 
 Another solution would be to use [org-orgzly script](https://codeberg.org/anoduck/org-orgzly) to parse a chosen org file or files, check if an entry meets required parameters, and if it does, write the entry in a new file located inside the directory you desire to sync with orgzly. In theory it may work but I feel it's too Dropbox focused.
@@ -1271,23 +1420,25 @@ You may want to synchronize your calendar entries with external ones shared with
 
 The orgmode docs have a tutorial to [sync with google](https://orgmode.org/worg/org-tutorials/org-google-sync.html) and suggests some orgmode packages that do that, sadly it won't work with `nvim-orgmode`. We'll need to go the "ugly way" by:
 
-* Downloading external calendar events to ics with [`vdirsyncer`](vdirsyncer.md).
-* [Importing the ics to orgmode](#importing-the-ics-to-orgmode)
-* Editing the events in orgmode
-* [Exporting from orgmode to ics](#exporting-from-orgmode-to-ics)
-* Uploading then changes to the external calendar events with [`vdirsyncer`](vdirsyncer.md).
+- Downloading external calendar events to ics with [`vdirsyncer`](vdirsyncer.md).
+- [Importing the ics to orgmode](#importing-the-ics-to-orgmode)
+- Editing the events in orgmode
+- [Exporting from orgmode to ics](#exporting-from-orgmode-to-ics)
+- Uploading then changes to the external calendar events with [`vdirsyncer`](vdirsyncer.md).
 
 #### Importing the ics to orgmode
 
 There are many tools that do this:
 
-* [`ical2orgpy`](https://github.com/ical2org-py/ical2org.py) 
-* [`ical2org` in go](https://github.com/rjhorniii/ical2org)
+- [`ical2orgpy`](https://github.com/ical2org-py/ical2org.py)
+- [`ical2org` in go](https://github.com/rjhorniii/ical2org)
 
 They import an `ics` file
 
 #### Exporting from orgmode to ics
+
 ## Clocking
+
 There is partial support for [Clocking work time](https://orgmode.org/manual/Clocking-Work-Time.html).
 
 I've changed the default bindings to make them more comfortable:
@@ -1309,41 +1460,131 @@ mappings = {
 ```
 
 In theory you can use the key `R` in any agenda to report the time, although I still find it kind of buggy.
+
+## [Better handle indentations](https://github.com/nvim-orgmode/orgmode/issues/859#issuecomment-2614561947)
+
+There is something called [virtual indents](https://github.com/nvim-orgmode/orgmode/blob/master/docs/configuration.org#org_startup_indented) that will prevent you from many indentation headaches. To enable them set the `org_startup_indented = true` configuration.
+
+If you need to adjust the indentation of your document (for example after enabling the option on existent orgmode code), visually select the lines to correct the indentation (`V`) and then press `=`. You can do this with the whole file `(╥﹏╥)`.
+
 ## Other interesting features
 
 Some interesting features for the future are:
 
-* [Effort estimates](https://orgmode.org/manual/Effort-Estimates.html)
-* [Clocking](https://orgmode.org/manual/Clocking-Work-Time.html)
+- [Effort estimates](https://orgmode.org/manual/Effort-Estimates.html)
+- [Clocking](https://orgmode.org/manual/Clocking-Work-Time.html)
+
+# Nice tweaks
+
+## Remove some tags when the state has changed so DONE
+
+For example if you want to remove them for recurrent tasks
+
+```lua
+      local function remove_specific_tags(headline)
+        local tagsToRemove = { "t", "w", "m", "q", "y" }
+        local currentTags = headline:get_tags()
+        local newTags = {}
+        local needsUpdate = false
+
+        -- Build new tags list excluding t, w, m
+        for _, tag in ipairs(currentTags) do
+          local shouldKeep = true
+          for _, removeTag in ipairs(tagsToRemove) do
+            if tag == removeTag then
+              shouldKeep = false
+              needsUpdate = true
+              break
+            end
+          end
+          if shouldKeep then
+            table.insert(newTags, tag)
+          end
+        end
+        -- Only update if we actually removed something
+        if needsUpdate then
+          headline:set_tags(table.concat(newTags, ":"))
+          headline:refresh()
+        end
+      end
+
+      local EventManager = require("orgmode.events")
+      EventManager.listen(EventManager.event.TodoChanged, function(event)
+        ---@cast event OrgTodoChangedEvent
+        if event.headline then
+          if type == "DONE" then
+            remove_specific_tags(event.headline)
+          end
+        end
+      end)
+
+```
+## [Register the todo changes in the logbook](https://github.com/nvim-orgmode/orgmode/issues/466)
+
+You can now register the changes with events. Add this to your plugin config. If you're using lazyvim:
+
+```lua
+return {
+  {
+    "nvim-orgmode/orgmode",
+    config = function()
+      require("orgmode").setup({...})
+
+      local EventManager = require("orgmode.events")
+      local Date = require("orgmode.objects.date")
+
+      EventManager.listen(EventManager.event.TodoChanged, function(event)
+        ---@cast event OrgTodoChangedEvent
+        if event.headline then
+          local current_todo, _, _ = event.headline:get_todo()
+          local now = Date.now()
+
+          event.headline:add_note({
+            'State "' .. current_todo .. '" from "' .. event.old_todo_state .. '"  [' .. now:to_string() .. "]",
+          })
+        end
+      end)
+    end,
+  },
+}
+```
+
 # Troubleshooting
+
 ## <c-i> doesn't go up in the jump list
+
 It's because [<c-i> is a synonym of <tab>](https://github.com/neovim/neovim/issues/5916), and `org_cycle` is [mapped by default as <tab>](https://github.com/nvim-orgmode/orgmode/blob/c0584ec5fbe472ad7e7556bc97746b09aa7b8221/lua/orgmode/config/defaults.lua#L146)
 If you're used to use `zc` then you can disable the `org_cycle` by setting the mapping `org_cycle = "<nop>"`.
 
 ## [Prevent Enter to create `*` on headings](https://github.com/LazyVim/LazyVim/discussions/2529)
+
 With a clean install of LazyVim distribution when pressing `<CR>` from a heading it creates a new heading instead of moving the cursor to the body of the heading:
 
 ```org
 * Test <--  press enter in insert mode
 ```
+
 The result is:
+
 ```org
 * Test
 * <-- cursor here
 ```
+
 The expected behaviour is:
+
 ```org
 * Test
   <-- cursor here
 ```
 
-It's because of the [`formatoptions`](https://vimhelp.org/change.txt.html#fo-table). If you do `:set fo-=r`, you will observe the difference. 
+It's because of the [`formatoptions`](https://vimhelp.org/change.txt.html#fo-table). If you do `:set fo-=r`, you will observe the difference.
 
 The `r` option automatically inserts the current comment leader after pressing `<Enter>` in Insert mode.
 
 To make the change permanent, you should enforce it with an auto-command. I really have no idea what makes Neovim think that the character `*` is a comment leader in `.org` files.
 
-```lua 
+```lua
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "org",
   group = vim.api.nvim_create_augroup("orgmode", { clear = true }),
@@ -1359,6 +1600,7 @@ Note: if you want to debug orgmode with DAP use [this config instead](#troublesh
 
 - [Create a new issue](https://github.com/nvim-orgmode/orgmode/issues/new/choose)
 - Create the `minimal_init.lua` file from [this file](https://github.com/nvim-orgmode/orgmode/blob/master/scripts/minimal_init.lua)
+
   ```lua
   vim.cmd([[set runtimepath=$VIMRUNTIME]])
   vim.cmd([[set packpath=/tmp/nvim/site]])
@@ -1422,10 +1664,12 @@ Note: if you want to debug orgmode with DAP use [this config instead](#troublesh
     load_config()
   end
   ```
+
 - Add the leader configuration at the top of the file `vim.g.mapleader = ' '`
 - Open it with `nvim -u minimal_init.lua`
 
 ## Troubleshoot orgmode from within lazyvim
+
 To start a fresh instance of lazyvim with orgmode you can run
 
 ```bash
@@ -1433,10 +1677,10 @@ mkdir ~/.config/newstarter && cd ~/.config/newstarter
 git clone https://github.com/LazyVim/starter .
 rm -rf .git*
 NVIM_APPNAME=newstarter nvim # and wait for installation of plugins to finish
-# Quit Neovim and start again with 
+# Quit Neovim and start again with
 NVIM_APPNAME=newstarter nvim lua/plugins/orgmode.lua
-# Paste the contents of the installation steps for `lazy.nvim` mentioned [here](https://github.com/nvim-orgmode/orgmode#installation) in the file that you opened. 
-# Quit and restart Neovim again with the aforementioned command 
+# Paste the contents of the installation steps for `lazy.nvim` mentioned [here](https://github.com/nvim-orgmode/orgmode#installation) in the file that you opened.
+# Quit and restart Neovim again with the aforementioned command
 ```
 
 Once you're done clean up with:
@@ -1444,12 +1688,15 @@ Once you're done clean up with:
 ```bash
 rm -rf ~/.config/newstarter ~/.local/share/newstarter
 ```
+
 ## Troubleshoot orgmode with dap
 
 ### To debug
 
 You already have configured `dap` just press `<F5>` in the window where you are running orgmode and set the breakpoints with the other nvim.
+
 ### To open an issue
+
 Use the next config and follow the steps of [Create an issue in the orgmode repository](#create-an-issue-in-the-orgmode-repository).
 
 ```lua
@@ -1692,9 +1939,9 @@ local org = require('orgmode').setup({
   }
 })
 local dap = require"dap"
-dap.configurations.lua = { 
-  { 
-    type = 'nlua', 
+dap.configurations.lua = {
+  {
+    type = 'nlua',
     request = 'attach',
     name = "Attach to running Neovim instance",
   }
@@ -1728,7 +1975,7 @@ The folding of the recurring tasks iterations is also kind of broken. For the ne
    - State "DONE" from "TODO" [2024-01-03 Wed 19:39]
    - State "DONE" from "TODO" [2023-12-11 Mon 21:30]
    - State "DONE" from "TODO" [2023-11-24 Fri 13:10]
- 
+
    - [ ] Do X
 ```
 
@@ -1737,8 +1984,8 @@ When folded the State changes is not added to the Properties fold. It's shown so
 ```orgmode
 ** TODO Recurring task
    DEADLINE: <2024-02-08 Thu .+14d -0d>
-   :PROPERTIES:...                                                                                                                                                                                              
-    
+   :PROPERTIES:...
+
    - State "DONE" from "TODO" [2024-01-25 Thu 11:53]
    - State "DONE" from "TODO" [2024-01-10 Wed 23:24]
    - State "DONE" from "TODO" [2024-01-03 Wed 19:39]
@@ -1762,43 +2009,85 @@ It's [not yet supported](https://github.com/nvim-orgmode/orgmode/issues/200) to 
 
 ## Attempt to index local 'src_file' (a nil value) using telescope orgmode
 
-This happens when not all the files are loaded in the telescope cache. You just need to wait until they are. 
+This happens when not all the files are loaded in the telescope cache. You just need to wait until they are.
 
 I've made some tests and it takes more time to load many small files than few big ones.
 
 Take care then on what files you add to your `org_agenda_files`. For example you can take the next precautions:
 
 - When adding a wildcard, use `*.org` not to load the `*.org_archive` files into the ones to process. Or [save your archive files elsewhere](#archiving).
-# Plugins 
+
+# Plugins
+
 nvim-orgmode supports plugins. Check [org-checkbox](https://github.com/massix/org-checkbox.nvim/blob/trunk/lua/orgcheckbox/init.lua) to see a simple one
+
+# [API usage](https://github.com/nvim-orgmode/orgmode/blob/master/doc/orgmode_api.txt)
+
+## [Get the headline under the cursor](https://github.com/nvim-orgmode/orgmode/commit/2c806ca)
+
+## [Read and write files](https://github.com/nvim-orgmode/orgmode/commit/500004ff315475033e3a9247b61addd922d1f5da)
+
+You have information on how to do it in [this pr](https://github.com/nvim-orgmode/orgmode/commit/500004ff315475033e3a9247b61addd922d1f5da)
+
+## [Create custom hyperlink types](https://github.com/nvim-orgmode/orgmode/commit/8cdfc8d34bd9c5993ea8f933b5f5c306081ffb97)
+
+Custom types can trigger functionality such as opening the terminal and pings the provided URL .
+
+To add your own custom hyperlink type, provide a custom handler to
+`hyperlinks.sources` setting. Each handler needs to have a `get_name()` method
+that returns a name for the handler. Additionally, `follow(link)` and
+`autocomplete(link)` optional methods are available to open the link and
+provide the autocompletion. ## [Refile a headline to another destination](https://github.com/nvim-orgmode/orgmode/issues/471#event-16071077147)
+
+## [Refile a headline to another destination](https://github.com/nvim-orgmode/orgmode/issues/471#event-16071077147)
+
+You can do this [with the API](https://github.com/nvim-orgmode/orgmode/blob/master/doc/orgmode_api.txt#L27).
+
+Assuming you are in the filewhere your TODOs are:
+
+local api = require('orgmode.api')
+local closest_headline = api.current():get_closest_headline()
+local destination_file = api.load('~/org/journal.org')
+local destination_headline = vim.tbl_filter(function(headline)
+return headline.title == 'My journal'
+end, destination_file.headlines)[1]
+
+api.refile({ source = closest_headline, destination = destination_headline })
+
+## [Use events](https://github.com/nvim-orgmode/orgmode/tree/master/lua/orgmode/events)
+
 # Comparison with Markdown
 
 What I like of Org mode over Markdown:
 
-* The whole interface to interact with the elements of the document through key bindings:
-  * Move elements around.
-  * Create elements
-* The TODO system is awesome
-* The Agenda system
-* How it handles checkboxes <3
-* Easy navigation between references in the document
-* Archiving feature
-* Refiling feature
-* `#` is used for comments.
-* Create internal document links is easier, you can just copy and paste the heading similar to `[[*This is the heading]]` on markdown you need to edit it to `[](#this-is-the-heading)`.
+- The whole interface to interact with the elements of the document through key bindings:
+  - Move elements around.
+  - Create elements
+- The TODO system is awesome
+- The Agenda system
+- How it handles checkboxes <3
+- Easy navigation between references in the document
+- Archiving feature
+- Refiling feature
+- `#` is used for comments.
+- Create internal document links is easier, you can just copy and paste the heading similar to `[[*This is the heading]]` on markdown you need to edit it to `[](#this-is-the-heading)`.
 
 What I like of markdown over Org mode:
 
-* The syntax of the headings `## Title` better than `** Title`. Although it makes sense to have `#` for comments.
-* The syntax of the links: `[reference](link)` is prettier to read and write than `[[link][reference]]`, although this can be improved if only the reference is shown by your editor (nvim-orgmode doesn't do his yet)
+- The syntax of the headings `## Title` better than `** Title`. Although it makes sense to have `#` for comments.
+- The syntax of the links: `[reference](link)` is prettier to read and write than `[[link][reference]]`, although this can be improved if only the reference is shown by your editor (nvim-orgmode doesn't do his yet)
+
 # Interesting things to investigate
+
 - [org-bullets.nvim](https://github.com/akinsho/org-bullets.nvim): Show org mode bullets as UTF-8 characters.
 - [headlines.nvim](https://github.com/lukas-reineke/headlines.nvim): Add few highlight options for code blocks and headlines.
 - [Sniprun](https://github.com/michaelb/sniprun): A neovim plugin to run lines/blocs of code (independently of the rest of the file), supporting multiples languages.
+
 ## Convert source code in the fly from markdown to orgmode
+
 It would be awesome that when you do `nvim myfile.md` it automatically converts it to orgmode so that you can use all the power of it and once you save the file it converts it back to markdown
 
-I've started playing around with this but got nowhere. I leave you my breadcrumbs in case you want to follow this path. 
+I've started playing around with this but got nowhere. I leave you my breadcrumbs in case you want to follow this path.
 
 ```lua
 -- Load the markdown documents as orgmode documents
@@ -1815,6 +2104,7 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 ```
 
 If you make it work please [tell me how you did it!](contact.md)
+
 # Things that are still broken or not developed
 
 - [The agenda does not get automatically refreshed](https://github.com/nvim-orgmode/orgmode/issues/656)
@@ -1823,11 +2113,15 @@ If you make it work please [tell me how you did it!](contact.md)
 - [Refiling from the agenda](https://github.com/nvim-orgmode/orgmode/issues/657)
 - [Interacting with the logbook](https://github.com/nvim-orgmode/orgmode/issues/149)
 - [Easy list item management](https://github.com/nvim-orgmode/orgmode/issues/472)
+
 # Python libraries
+
 ## [org-rw](https://code.codigoparallevar.com/kenkeiras/org-rw)
-`org-rw` is a library designed to handle Org-mode files, offering the ability to modify data and save it back to the disk. 
+
+`org-rw` is a library designed to handle Org-mode files, offering the ability to modify data and save it back to the disk.
 
 - **Pros**:
+
   - Allows modification of data and saving it back to the disk
   - Includes tests to ensure functionality
 
@@ -1837,12 +2131,14 @@ If you make it work please [tell me how you did it!](contact.md)
   - Uses `unittest` instead of `pytest`, which some developers may prefer
   - Tests are not easy to read
   - Last commit was made five months ago, indicating potential inactivity
-  - [Not very popular]( https://github.com/kenkeiras/org-rw), with only one contributor, three stars, and no forks
+  - [Not very popular](https://github.com/kenkeiras/org-rw), with only one contributor, three stars, and no forks
 
 ## [orgparse](https://github.com/karlicoss/orgparse)
+
 `orgparse` is a more popular library for parsing Org-mode files, with better community support and more contributors. However, it has significant limitations in terms of editing and saving changes.
 
 - **Pros**:
+
   - More popular with 13 contributors, 43 forks, and 366 stars
   - Includes tests to ensure functionality
   - Provides some documentation, available [here](https://orgparse.readthedocs.io/en/latest/)
@@ -1856,9 +2152,11 @@ If you make it work please [tell me how you did it!](contact.md)
     - The `ast` is geared towards single-pass document reading. While it is possible to modify the document object tree, writing back changes is more complicated and not a common use case for the author.
 
 ## [Tree-sitter](https://tree-sitter.github.io/tree-sitter/)
+
 Tree-sitter is a powerful parser generator tool and incremental parsing library. It can build a concrete syntax tree for a source file and efficiently update the syntax tree as the source file is edited.
 
 - **Pros**:
+
   - General enough to parse any programming language
   - Fast enough to parse on every keystroke in a text editor
   - Robust enough to provide useful results even in the presence of syntax errors
@@ -1879,14 +2177,16 @@ To get a better grasp of Tree-sitter you can check their talks:
 - [Github Universe 2017](https://www.youtube.com/watch?v=a1rC79DHpmY).
 
 ## [lazyblorg orgparser.py](https://github.com/novoid/lazyblorg/blob/master/lib/orgparser.py)
+
 `lazyblorg orgparser.py` is another tool for working with Org-mode files. However, I didn't look at it.
+
 # References
 
-* [Source](https://github.com/nvim-orgmode/orgmode)
-* [Getting started guide](https://github.com/nvim-orgmode/orgmode/wiki/Getting-Started)
-* [Docs](https://nvim-orgmode.github.io/)
-* [Developer docs](https://github.com/nvim-orgmode/orgmode/blob/master/DOCS.md)
-* [Default configuration file](https://github.com/nvim-orgmode/orgmode/blob/master/lua/orgmode/config/defaults.lua)
-* [List of supported commands](https://github.com/nvim-orgmode/orgmode/wiki/Feature-Completeness#nvim-org-commands-not-in-emacs)
-* [Default mappings](https://github.com/nvim-orgmode/orgmode/blob/master/lua/orgmode/config/mappings/init.lua)
-* [List of plugins](https://github.com/topics/orgmode-nvim)
+- [Source](https://github.com/nvim-orgmode/orgmode)
+- [Getting started guide](https://github.com/nvim-orgmode/orgmode/wiki/Getting-Started)
+- [Docs](https://nvim-orgmode.github.io/)
+- [Developer docs](https://github.com/nvim-orgmode/orgmode/blob/master/DOCS.md)
+- [Default configuration file](https://github.com/nvim-orgmode/orgmode/blob/master/lua/orgmode/config/defaults.lua)
+- [List of supported commands](https://github.com/nvim-orgmode/orgmode/wiki/Feature-Completeness#nvim-org-commands-not-in-emacs)
+- [Default mappings](https://github.com/nvim-orgmode/orgmode/blob/master/lua/orgmode/config/mappings/init.lua)
+- [List of plugins](https://github.com/topics/orgmode-nvim)

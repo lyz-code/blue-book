@@ -35,7 +35,9 @@ nav:
       - Environmentalism: environmentalism.md
       - Laboral: laboral.md
       - Collaborating tools: collaborating_tools.md
-      - Conference organisation: conference_organisation.md
+      - Conference organisation:
+          - conference_organisation.md
+          - pretalx: pretalx.md
       - Ludditest: luddites.md
   - Life Management:
       - life_management.md
@@ -103,6 +105,8 @@ nav:
                   - Email clients:
                       - himalaya: himalaya.md
                       - alot: alot.md
+                      - k9: k9.md
+
                   - Email protocols:
                       - Maildir: maildir.md
               - Instant Messages Management:
@@ -371,6 +375,7 @@ nav:
                       - File management configuration:
                           - NeoTree: neotree.md
                           - Telescope: telescope.md
+                          - fzf.nvim: fzf_nvim.md
                       - Editing specific configuration:
                           - vim_editor_plugins.md
                           - Vim formatters: vim_formatters.md
@@ -566,7 +571,10 @@ nav:
               - OpenZFS storage planning: zfs_storage_planning.md
               - Sanoid: sanoid.md
               - ZFS Prometheus exporter: zfs_exporter.md
-          - Hard drive health: hard_drive_health.md
+          - Hard drive health:
+              - hard_drive_health.md
+              - Smartctl: smartctl.md
+              - badblocks: badblocks.md
       - Resilience:
           - linux_resilience.md
           - Memtest: memtest.md
@@ -768,7 +776,8 @@ nav:
       # - Streaming channels: streaming_channels.md
       - Music:
           - Sister Rosetta Tharpe: sister_rosetta_tharpe.md
-      - Video Gaming:
+      - Videogames:
+          - DragonSweeper: dragonsweeper.md
           - King Arthur Gold: kag.md
           - The Battle for Wesnoth:
               - The Battle for Wesnoth: wesnoth.md

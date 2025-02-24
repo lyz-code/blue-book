@@ -69,6 +69,8 @@ Depending the amount of data you need to hold and how do you expect it to grow
 you need to find the solution that suits your needs. After looking to many I've
 decided to make my own from scratch.
 
+But I built a server pretty much the same as the [slimbook](https://slimbook.com/en/shop/product/nas-cube-1510?category=10).
+
 Warning: If you pursue the beautiful and hard path of building one yourself,
 don't just buy the components online, there are thousands of things that can go
 wrong that will make you loose money. Instead go to your local hardware store
