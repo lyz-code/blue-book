@@ -33,7 +33,9 @@ nav:
       - Free Knowledge: free_knowledge.md
       - Free Software: free_software.md
       - Environmentalism: environmentalism.md
-      - Laboral: laboral.md
+      - Laboral: 
+        - laboral.md
+        - Trabajadoras del hogar: trabajadoras_del_hogar.md
       - Collaborating tools: collaborating_tools.md
       - Conference organisation:
           - conference_organisation.md
