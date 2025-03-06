@@ -3,7 +3,7 @@
 .PHONY: install
 install:
 	# Until https://github.com/pdm-project/setup-pdm/issues/69  is solved
-	pip install -U dep_logic
+	pdm self add "dep-logic>=0.4.11"
 
 	pdm install
 
