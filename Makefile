@@ -3,6 +3,8 @@
 .PHONY: install
 install:
 	pdm install
+	# Until https://github.com/pdm-project/setup-pdm/issues/69  is solved
+	pip install -U dep_logic
 
 .PHONY: update
 update:
