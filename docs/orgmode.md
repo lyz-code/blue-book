@@ -1519,6 +1519,7 @@ For example if you want to remove them for recurrent tasks
       end)
 
 ```
+
 ## [Register the todo changes in the logbook](https://github.com/nvim-orgmode/orgmode/issues/466)
 
 You can now register the changes with events. Add this to your plugin config. If you're using lazyvim:
@@ -1536,12 +1537,27 @@ return {
       EventManager.listen(EventManager.event.TodoChanged, function(event)
         ---@cast event OrgTodoChangedEvent
         if event.headline then
-          local current_todo, _, _ = event.headline:get_todo()
+          local current_todo, _, type = event.headline:get_todo()
+          local old_todo_state = event.old_todo_state
           local now = Date.now()
 
+          -- Manage the transition from headline to TODO headline or viceversa
+          if current_todo == nil then
+            current_todo = "None"
+          end
+          if old_todo_state == nil then
+            old_todo_state = "None"
+          end
+
+          -- Record TODO keyword state changes in the logbook
           event.headline:add_note({
-            'State "' .. current_todo .. '" from "' .. event.old_todo_state .. '"  [' .. now:to_string() .. "]",
+            '- State "' .. current_todo .. '" from "' .. old_todo_state .. '"  [' .. now:to_string() .. "]",
           })
+
+          -- Remove the t, w, m, q, y tags when completing an action
+          if type == "DONE" then
+            remove_specific_tags(event.headline)
+          end
         end
       end)
     end,
@@ -2185,8 +2201,10 @@ To get a better grasp of Tree-sitter you can check their talks:
 - [Source](https://github.com/nvim-orgmode/orgmode)
 - [Getting started guide](https://github.com/nvim-orgmode/orgmode/wiki/Getting-Started)
 - [Docs](https://nvim-orgmode.github.io/)
-- [Developer docs](https://github.com/nvim-orgmode/orgmode/blob/master/DOCS.md)
+- [Developer docs](https://github.com/nvim-orgmode/orgmode/blob/master/doc/orgmode.txt)
+- [API docs](https://github.com/nvim-orgmode/orgmode/blob/master/doc/orgmode_api.txt)
 - [Default configuration file](https://github.com/nvim-orgmode/orgmode/blob/master/lua/orgmode/config/defaults.lua)
 - [List of supported commands](https://github.com/nvim-orgmode/orgmode/wiki/Feature-Completeness#nvim-org-commands-not-in-emacs)
 - [Default mappings](https://github.com/nvim-orgmode/orgmode/blob/master/lua/orgmode/config/mappings/init.lua)
 - [List of plugins](https://github.com/topics/orgmode-nvim)
+- [Orgmode tutorials](https://orgmode.org/worg/org-tutorials/index.html)

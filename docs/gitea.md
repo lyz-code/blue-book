@@ -6,7 +6,6 @@ author: Lyz
 
 NOTE: Use [Forgejo](forgejo.md) instead!!
 
-
 [Gitea](https://gitea.io/en-us/) is a community managed lightweight code hosting
 solution written in Go. It's the best self hosted Github alternative in my
 opinion.
@@ -16,12 +15,15 @@ opinion.
 Gitea provides automatically updated Docker images within its Docker Hub
 organisation.
 
+## Configuration
+
+Check the [configuration sheet](https://docs.gitea.com/administration/config-cheat-sheet)  or the [default values](https://github.com/go-gitea/gitea/blob/release/v1.23/custom/conf/app.example.ini)
 ## [Disable the regular login, use only Oauth](https://discourse.gitea.io/t/solved-removing-default-login-interface/2740/2)
 
 Inside your [`custom` directory](https://docs.gitea.io/en-us/customizing-gitea/) which may be `/var/lib/gitea/custom`:
 
-* Create the directories `templates/user/auth`, 
-* Create the `signin_inner.tmpl` file with the next contents. If it fails check [the latest version of the file](https://raw.githubusercontent.com/go-gitea/gitea/main/templates/user/auth/signin_inner.tmpl) and tweak it accordingly:
+- Create the directories `templates/user/auth`,
+- Create the `signin_inner.tmpl` file with the next contents. If it fails check [the latest version of the file](https://raw.githubusercontent.com/go-gitea/gitea/main/templates/user/auth/signin_inner.tmpl) and tweak it accordingly:
   ```jinja2
   {{if or (not .LinkAccountMode) (and .LinkAccountMode .LinkAccountModeSignIn)}}
   {{template "base/alert" .}}
@@ -52,7 +54,7 @@ Inside your [`custom` directory](https://docs.gitea.io/en-us/customizing-gitea/)
           </form>
   </div>
   ```
- 
+
 ## [Configure it with terraform](https://registry.terraform.io/providers/Lerentis/gitea/latest/docs)
 
 Gitea can be configured through terraform too. There is an [official provider](https://gitea.com/gitea/terraform-provider-gitea/src/branch/main) that doesn't work, there's a [fork that does though](https://registry.terraform.io/providers/Lerentis/gitea/latest/docs). Sadly it doesn't yet support configuring Oauth Authentication sources. Be careful [`gitea_oauth2_app`](https://registry.terraform.io/providers/Lerentis/gitea/latest/docs/resources/oauth2_app) looks to be the right resource to do that, but instead it configures Gitea to be the Oauth provider, not a consumer.
@@ -153,29 +155,30 @@ gitea --config /etc/gitea/app.ini admin user change-password -u username -p pass
 ```
 
 # Actions
+
 ## [Configure gitea actions](https://blog.gitea.io/2023/03/hacking-on-gitea-actions/)
 
 We've been using [Drone](drone.md) as CI runner for some years now as Gitea didn't have their native runner. On [Mar 20, 2023](https://blog.gitea.io/2023/03/gitea-1.19.0-is-released/) however Gitea released the version 1.19.0 which promoted to stable the Gitea Actions which is a built-in CI system like GitHub Actions. With Gitea Actions, you can reuse your familiar workflows and Github Actions in your self-hosted Gitea instance. While it is not currently fully compatible with GitHub Actions, they intend to become as compatible as possible in future versions. The typical procedure is as follows:
 
-* Register a runner (at the moment, act runners are the only option). This can be done on the following scopes:
-  * site-wide (by site admins)
-  * organization-wide (by organization owners)
-  * repository-wide (by repository owners)
-* Create workflow files under `.gitea/workflows/<workflow name>.yaml` or `.github/workflows/<workflow name>.yaml`. The syntax is the same as [the GitHub workflow syntax](https://docs.github.com/en/actions) where supported. 
+- Register a runner (at the moment, act runners are the only option). This can be done on the following scopes:
+  - site-wide (by site admins)
+  - organization-wide (by organization owners)
+  - repository-wide (by repository owners)
+- Create workflow files under `.gitea/workflows/<workflow name>.yaml` or `.github/workflows/<workflow name>.yaml`. The syntax is the same as [the GitHub workflow syntax](https://docs.github.com/en/actions) where supported.
 
 Gitea Actions advantages are:
 
-* Uses the same pipeline syntax as Github Actions, so it's easier to use for new developers
-* You can reuse existent Github actions.
-* Migration from Github repositories to Gitea is easier.
-* You see the results of the workflows in the same gitea webpage, which is much cleaner than needing to go to drone
-* Define the secrets in the repository configuration.
+- Uses the same pipeline syntax as Github Actions, so it's easier to use for new developers
+- You can reuse existent Github actions.
+- Migration from Github repositories to Gitea is easier.
+- You see the results of the workflows in the same gitea webpage, which is much cleaner than needing to go to drone
+- Define the secrets in the repository configuration.
 
 Drone advantages are:
 
-* They have the promote event. Not critical as we can use other git events such as creating a tag.
-* They can be run as a service by default. The gitea runners will need some work to run on instance restart.
-* Has support for [running kubernetes pipelines](https://docs.drone.io/quickstart/kubernetes/). Gitea actions doesn't yet support this
+- They have the promote event. Not critical as we can use other git events such as creating a tag.
+- They can be run as a service by default. The gitea runners will need some work to run on instance restart.
+- Has support for [running kubernetes pipelines](https://docs.drone.io/quickstart/kubernetes/). Gitea actions doesn't yet support this
 
 ### [Setup Gitea actions](https://blog.gitea.io/2023/03/hacking-on-gitea-actions/)
 
@@ -258,19 +261,19 @@ jobs:
       - run: echo "The workflow is now ready to test your code on the runner."
       - name: List files in the repository
         run: |
-          ls ${{ gitea.workspace }}          
+          ls ${{ gitea.workspace }}
       - run: echo "This job's status is ${{ gitea.status }}."
 ```
 
-You can upload it as a file with the extension `.yaml` in the directory `.gitea/workflows/` or `.github/workflows` of the repository, for example `.gitea/workflows/demo.yaml`. 
+You can upload it as a file with the extension `.yaml` in the directory `.gitea/workflows/` or `.github/workflows` of the repository, for example `.gitea/workflows/demo.yaml`.
 
 You may be aware that there are tens of thousands of [marketplace actions in GitHub](https://github.com/marketplace?type=actions). However, when you write `uses: actions/checkout@v3`, it actually downloads the scripts from gitea.com/actions/checkout by default (not GitHub). This is a mirror of github.com/actions/checkout, but it’s impossible to mirror all of them. That’s why you may encounter failures when trying to use some actions that haven’t been mirrored.
 
 The good news is that you can specify the URL prefix to use actions from anywhere. This is an extra syntax in Gitea Actions. For example:
 
-* `uses: https://github.com/xxx/xxx@xxx`
-* `uses: https://gitea.com/xxx/xxx@xxx`
-* `uses: https://your_gitea_instance.com/xxx@xxx`
+- `uses: https://github.com/xxx/xxx@xxx`
+- `uses: https://gitea.com/xxx/xxx@xxx`
+- `uses: https://your_gitea_instance.com/xxx@xxx`
 
 Be careful, the `https://` or `http://` prefix is necessary!
 
@@ -318,9 +321,9 @@ RUN pip install \
   molecule==5.0.1 \
   ansible==8.0.0 \
   ansible-lint \
-  yamllint \ 
+  yamllint \
   molecule-plugins[ec2,docker,vagrant] \
-  boto3 \ 
+  boto3 \
   botocore \
   testinfra \
   pytest
@@ -339,10 +342,8 @@ It's prepared for:
 
 ### Things that are not ready yet
 
-* [Enable actions by default](https://github.com/go-gitea/gitea/issues/23724)
-* Kubernetes act runner
-* [Support cron jobs](https://github.com/go-gitea/gitea/pull/22751)
-* [Badge for the CI jobs](https://github.com/go-gitea/gitea/issues/23688)
+- Kubernetes act runner
+- [Badge for the CI jobs](https://github.com/go-gitea/gitea/issues/23688)
 
 ### Build a docker within a gitea action
 
@@ -404,51 +405,51 @@ As it reacts to all events it will build and push:
 
 ### Bump the version of a repository on commits on master
 
-- Create a SSH key for the CI to send commits to protected branches. 
+- Create a SSH key for the CI to send commits to protected branches.
 - Upload the private key to a repo or organization secret called `DEPLOY_SSH_KEY`.
 - Upload the public key to the repo configuration deploy keys
 - Create the `bump.yaml` file with the next contents:
 
-    ```yaml
-    ---
-    name: Bump version
+  ```yaml
+  ---
+  name: Bump version
 
-    "on":
-      push:
-        branches:
-          - main
+  "on":
+    push:
+      branches:
+        - main
 
-    jobs:
-      bump_version:
-        if: "!startsWith(github.event.head_commit.message, 'bump:')"
-        runs-on: ubuntu-latest
-        name: "Bump version and create changelog"
-        steps:
-          - name: Check out
-            uses: actions/checkout@v3
-            with:
-              fetch-depth: 0  # Fetch all history
+  jobs:
+    bump_version:
+      if: "!startsWith(github.event.head_commit.message, 'bump:')"
+      runs-on: ubuntu-latest
+      name: "Bump version and create changelog"
+      steps:
+        - name: Check out
+          uses: actions/checkout@v3
+          with:
+            fetch-depth: 0 # Fetch all history
 
-          - name: Configure SSH
-            run: |
-                echo "${{ secrets.DEPLOY_SSH_KEY }}" > ~/.ssh/deploy_key
-                chmod 600 ~/.ssh/deploy_key
-                dos2unix ~/.ssh/deploy_key
-                ssh-agent -a $SSH_AUTH_SOCK > /dev/null
-                ssh-add ~/.ssh/deploy_key
+        - name: Configure SSH
+          run: |
+            echo "${{ secrets.DEPLOY_SSH_KEY }}" > ~/.ssh/deploy_key
+            chmod 600 ~/.ssh/deploy_key
+            dos2unix ~/.ssh/deploy_key
+            ssh-agent -a $SSH_AUTH_SOCK > /dev/null
+            ssh-add ~/.ssh/deploy_key
 
-          - name: Bump the version
-            run: cz bump --changelog --no-verify
+        - name: Bump the version
+          run: cz bump --changelog --no-verify
 
-          - name: Push changes
-            run: |
-              git remote add ssh git@gitea.org:templates/ansible-role.git
-              git pull ssh main
-              git push ssh main
-              git push ssh --tags
-    ```
+        - name: Push changes
+          run: |
+            git remote add ssh git@gitea.org:templates/ansible-role.git
+            git pull ssh main
+            git push ssh main
+            git push ssh --tags
+  ```
 
-    It assumes that you have `cz` (commitizen) and `dos2unix` installed in your runner.
+  It assumes that you have `cz` (commitizen) and `dos2unix` installed in your runner.
 
 ### Skip gitea actions job on changes of some files
 
@@ -484,7 +485,7 @@ jobs:
         run: make molecule
 ```
 
-You can find more examples on how to use `paths-filter` [here](https://github.com/dorny/paths-filter#examples ).
+You can find more examples on how to use `paths-filter` [here](https://github.com/dorny/paths-filter#examples).
 
 #### Using `paths-ignore` gitea actions built-in feature
 
@@ -499,20 +500,19 @@ name: Ansible Testing
 "on":
   push:
     paths-ignore:
-      - 'meta/**'
+      - "meta/**"
       - Makefile
       - README.md
       - renovate.json
       - CHANGELOG.md
       - .cz.toml
-      - '.gitea/workflows/**'
+      - ".gitea/workflows/**"
 
 jobs:
   test:
     name: Test
     runs-on: ubuntu-latest
-    steps:
-        ...
+    steps: ...
 ```
 
 The only downside is that if you set this pipeline as required in the branch protection, the merge button will look yellow instead of green when the pipeline is skipped.
@@ -545,6 +545,12 @@ Note: Using private actions is not yet supported. Look at [1](https://github.com
 
 Follow [this simple tutorial](https://docs.github.com/en/actions/creating-actions/creating-a-docker-container-action)
 
+## [Upgrade the gitea actions runner](https://gitea.com/gitea/act_runner/releases)
+
+- Check in [the releases](https://gitea.com/gitea/act_runner/releases) the last version and the changelog
+- Deploy the new version
+- Restart the service
+
 # [Gitea client command line tool](https://gitea.com/gitea/tea)
 
 `tea` is a command line tool to interact with Gitea servers. It still lacks some features but is usable.
@@ -558,6 +564,7 @@ Follow [this simple tutorial](https://docs.github.com/en/actions/creating-action
 # Troubleshooting
 
 ## [Fix Server does not allow request for unadvertised object error](https://github.com/go-gitea/gitea/issues/11958)
+
 Fetching the whole history with fetch-depth: 0 worked for us:
 
 ```yaml
@@ -567,10 +574,49 @@ Fetching the whole history with fetch-depth: 0 worked for us:
     fetch-depth: 0
 ```
 
+# [Upgrade](https://docs.gitea.com/installation/upgrade-from-gitea)
+
+## Check the Changelog for breaking changes
+
+To make Gitea better, some breaking changes are unavoidable, especially for big milestone releases. Before upgrading, please read the [Changelog on Gitea blog](https://blog.gitea.com/) and check whether the breaking changes affect your Gitea instance.
+
+## Verify there are no deprecated configuration options
+
+New versions of Gitea often come with changed configuration syntax or options which are usually displayed for at least one release cycle inside at the top of the Site Administration panel. If these warnings are not resolved, Gitea may refuse to start in the following version.
+
+## Make a backup
+
+## [Upgrade from docker](https://docs.gitea.com/installation/upgrade-from-gitea#upgrade-with-docker)
+
+- docker pull the latest Gitea release.
+- Stop the running instance, backup data.
+- Use docker or docker-compose to start the newer Gitea Docker container.
+
+## [Upgrade from binary](https://docs.gitea.com/installation/upgrade-from-gitea#upgrade-from-binary)
+
+A script automating the following steps for a deployment on Linux can be found at [contrib/upgrade.sh](https://raw.githubusercontent.com/go-gitea/gitea/refs/heads/release/v1.23/contrib/upgrade.sh) in Gitea's source tree.
+
+- Download the latest Gitea binary to a temporary directory.
+- Stop the running instance, backup data.
+- Replace the installed Gitea binary with the downloaded one.
+- Start the Gitea instance.
+
+Read the script to see what it's going to do. To upgrade to `1.20.5` you can use:
+
+```bash
+./update.sh -v 1.20.5
+```
+
+If you have a different home directory for gitea you can set 
+
+```bash
+giteahome=/var/gitea ./update.sh -v 1.20.5
+```
+
 # References
 
-* [Home](https://gitea.io/en-us/)
-* [Docs](https://docs.gitea.io/en-us/)
+- [Home](https://gitea.io/en-us/)
+- [Docs](https://docs.gitea.io/en-us/)
 
-* [Terraform provider docs](https://registry.terraform.io/providers/Lerentis/gitea/latest/docs)
-* [Terraform provider source code](https://github.com/Lerentis/terraform-provider-gitea)
+- [Terraform provider docs](https://registry.terraform.io/providers/Lerentis/gitea/latest/docs)
+- [Terraform provider source code](https://github.com/Lerentis/terraform-provider-gitea)

@@ -4,6 +4,73 @@ date: 20200826
 author: Lyz
 ---
 
+# Download videos from rtve.es
+
+Use [descargavideos.tv](https://www.descargavideos.tv/) ([source](https://github.com/forestrf/Descargavideos))
+# Check if a domain is in a list of known disposable email domains
+
+You can check in known lists
+```bash
+wget https://raw.githubusercontent.com/andreis/disposable-email-domains/master/domains.txt
+grep -i homapin.com domains.txt
+```
+
+Or using web services that either use the IPs (obtained by whois/dig)
+
+```
+https://www.blocklist.de/en/search.html?ip=142.132.166.12&action=search&send=start+search 👍
+https://www.blocklist.de/en/search.html?ip=188.166.111.252&action=search&send=start+search 👍
+https://www.blocklist.de/en/search.html?ip=46.101.111.206&action=search&send=start+search 👍
+https://www.blocklist.de/en/search.html?ip=116.202.9.167&action=search&send=start+search 👍
+https://check.spamhaus.org/results/?query=homapin.com 👍
+https://verifymail.io/domain/homapin.com 👎
+https://www.ipqualityscore.com/domain-reputation/homapin.com 👎
+https://quickemailverification.com/tools/disposable-email-address-detector for
+  - homapin.com 👎
+```
+
+
+# [Upgrade ubuntu](https://www.cyberciti.biz/faq/how-to-upgrade-from-ubuntu-22-04-lts-to-ubuntu-24-04-lts/)
+
+# [Mount a cdrom or dvd](https://www.cyberciti.biz/faq/mounting-cdrom-in-linux/)
+
+TL;DR: The syntax is as follows for the mount command:
+
+```bash
+mount -t iso9660 -o ro /dev/deviceName /path/to/mount/point
+```
+
+Use the following command to find out the name Of DVD / CD-ROM / Writer / Blu-ray device on a Linux based system:
+
+```bash
+lsblk
+```
+
+OR use the combination of the dmesg command and grep/egrep as follow to print your CD/DVD device name. For example:
+
+```bash
+dmesg | grep -E -i --color 'cdrom|dvd|cd/rw|writer'
+```
+
+Sample outputs indicating that the /dev/sr0 is my device name:
+
+```
+[    5.437164] sr0: scsi3-mmc drive: 24x/24x writer dvd-ram cd/rw xa/form2 cdda tray
+[    5.437307] cdrom: Uniform CD-ROM driver Revision: 3.20
+```
+
+Create a mount point, type mkdir command as follows:
+
+```bash
+mkdir -p /mnt/cdrom
+```
+
+Mount the /dev/cdrom or /dev/sr0 as follows:
+
+```bash
+mount -t iso9660 -o ro /dev/cdrom /mnt/cdrom
+```
+
 # Record the audio from your computer
 
 You can record audio being played in a browser using `ffmpeg`

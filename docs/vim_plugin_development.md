@@ -220,7 +220,7 @@ nvim.current.window.cursor
 If you use [packer](#packer) your plugins will be installed in `~/.local/share/nvim/site/pack/packer/start/`. 
 If you use `lazy` your plugins will be installed in `~/.local/share/nvim/lazy/pack/packer/start/`. 
 
-You can manually edit those files to develop new feature or fix issues on the plugins.
+You can manually edit those files to develop new feature or fix issues on the plugins. Or if you're developing them in a directory you can specify the `dir` directive in the lazy loading.
 
 To debug a plugin read it's source code and try to load in a lua shell the relevant code. If you are in a vim window you can run lua code with `:lua your code here`, for example `:lua Files = require('orgmode.parser.files')`, you can then do stuff with the `Files` object.
 

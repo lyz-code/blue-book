@@ -206,6 +206,9 @@ It's the signal app.
 ## Seeing applications of other profiles
 `adb` is able to extract the applications of other profiles, so it's able to analyse them. That's why you may see receivers (monitoring telephony state/incoming calls or to intercept incoming SMS messages) in the logs, as the program checks signatures on those apps.
 
+# Other tools for similar purpose
+
+- [Rayhunter](https://www.eff.org/deeplinks/2025/03/meet-rayhunter-new-open-source-tool-eff-detect-cellular-spying)
 # References
 
 - [Source](https://github.com/mvt-project/mvt)

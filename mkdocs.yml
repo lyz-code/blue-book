@@ -26,6 +26,7 @@ nav:
       - Feminism:
           - Privileges: feminism/privileges.md
       - Palestine: palestine.md
+      - Detección de estupas: estupas.md
       - Anarchism: anarchism.md
       - Memoria histórica: memoria_historica.md
       - Anti-Tourism: antitourism.md
@@ -33,19 +34,22 @@ nav:
       - Free Knowledge: free_knowledge.md
       - Free Software: free_software.md
       - Environmentalism: environmentalism.md
-      - Laboral: 
-        - laboral.md
-        - Trabajadoras del hogar: trabajadoras_del_hogar.md
+      - Laboral:
+          - laboral.md
+          - Trabajadoras del hogar: trabajadoras_del_hogar.md
       - Collaborating tools: collaborating_tools.md
       - Conference organisation:
           - conference_organisation.md
           - pretalx: pretalx.md
-      - Ludditest: luddites.md
-  - Life Management:
+      - Luddites: luddites.md
+  - Life navigation:
       - life_management.md
-      - Time management:
+      - Time navigation:
           - time_management.md
-          - Time management abstraction levels: time_management_abstraction_levels.md
+          - Time navigation abstraction levels:
+              - time_management_abstraction_levels.md
+              - Identities: identities.md
+              - Axis: axis.md
           - Action Management: action_management.md
           - Roadmap Adjustment:
               - roadmap_adjustment.md
@@ -134,6 +138,7 @@ nav:
           - Book Management:
               - book_management.md
               - Bookwyrm: bookwyrm.md
+              - Book DRM: book_drm.md
           - Movies Management:
               - Jellyfin: jellyfin.md
               - Ombi: ombi.md
@@ -196,6 +201,7 @@ nav:
       - Teeth:
           - teeth.md
           - Deep cleaning: teeth_deep_cleaning.md
+      - Silence: silence.md
       - Remote Working: remote_work.md
       - Fitness Tracker:
           - fitness_band.md
@@ -649,6 +655,8 @@ nav:
               - fail2ban: linux/fail2ban.md
               - pass: pass.md
               - Wireshark: wireshark.md
+              - Canary tokens: canary_tokens.md
+
           - Sysadmin tools:
               - brew: linux/brew.md
               - detox: detox.md
@@ -666,7 +674,9 @@ nav:
               - Syncthing: linux/syncthing.md
               - Tahoe-LAFS: tahoe.md
               - Wake on Lan: wake_on_lan.md
-              - Wireguard: linux/wireguard.md
+              - Wireguard:
+                  - linux/wireguard.md
+                  - wg-easy: wg-easy.md
               - yq: yq.md
               - zip: linux/zip.md
           - Window manager tools:
@@ -753,6 +763,7 @@ nav:
           - Speech to text:
               - Whisper: whisper.md
               - Speech recognition: speech_recognition.md
+          - Text to speech: text_to_speech.md
           - Coding by Voice: coding_by_voice.md
       - Data Analysis:
           - data_analysis.md

@@ -552,6 +552,8 @@ There are different paths to discover actionable items:
 
 ##### Refresh your idea of how the month go
 
+You have these steps defined in the `gM` agenda:
+
 - Open your `bitácora.org` agenda view to see what has been completed in the last month `match = 'CLOSED>"<-30d>"-work-steps-done',` ordered by name `org_agenda_sorting_strategy = { "category-keep" },` and change the priority of the elements according to the impact.
 - Open your `recurrent.org` agenda view to see what has been done the last month `match = 'LAST_REPEAT>"<-30d>"-work'`
 - Check what has been left of your month objectives `+m` and refile the elements that don't make sense anymore.
@@ -634,6 +636,8 @@ It's important that you prepare your environment for the planning. You need to b
 
 #### Check your close compromises
 
+You have them in the agenda `gaX`:
+
 Check all your action management tools (in my case `orgmode` and `ikhal`) to identify:
 
 - Arranged compromises
@@ -675,7 +679,7 @@ Now that we know how to read and react to the signals our inner self sends we ar
 
 At this level we'll need to increase the level of abstraction, and for that we'll use the next artifacts:
 
-- [Axis](time_management_abstraction_levels.md#axis): A group of areas that fit together under the same umbrella.
+- [Life pillars](time_management_abstraction_levels.md#axis): A group of areas that fit together under the same umbrella.
 - [Essential intent]()
 
 This review could be done throughout one month of thinking, and a week of actually doing it. So currently I'm leaving the last day of the month for the month's adjustment, and the previous 6 days to the quarter adjustment.
@@ -684,7 +688,7 @@ This review could be done throughout one month of thinking, and a week of actual
 
 The objectives of the quarter review are:
 
-- Identify the essential intent you want to follow on each [axis](time_management_abstraction_levels.md#axis) of your life.
+- Identify the essential intent you want to follow on each [pillar](time_management_abstraction_levels.md#axis) of your life.
 - Identify the areas to focus on for the quarter
 - Review the previous quarter tactics
 
@@ -937,7 +941,7 @@ With the use of [mediatracker](mediatracker.md) and other life logging tools I t
 - [Videogames](videogames.md)
 - [Boardgames](board_games.md)
 
-## Life roadmap adjustment
+## Life stage roadmap adjustment
 
 Life reviews are meant to give you an idea of:
 
@@ -988,6 +992,44 @@ As you review the stage, decide if it makes sense for the file you're viewing to
 - If the file no longer makes sense, move it to `references/notebooks`
 
 #### Stage Closure
+
+### Review what you've done the last year
+
+Read your `logbook.org` (o `bitácora.org`) adjusting the priorities of the áreas, projects and actions thinking of the impact the element has meant in your live.
+
+### Review what you've learn the last year
+
+It's always interesting to look back and see what you've learned throughout the
+year. I have these sources of data:
+
+#### [Digital garden](#digital-garden)
+
+If you happen to have a [digital garden](digital_garden.md) you can look at your
+git history to know what has changed since the last year. That's cumbersome and
+ugly though, it's better to review
+[your newsletters](https://lyz-code.github.io/blue-book/newsletter/0_newsletter_index/),
+although you may need to use something like
+[`mkdocs-newsletter`](https://lyz-code.github.io/mkdocs-newsletter/).
+
+While you skim through the newsletters you can add to the analysis report the
+highlights of what you've learned.
+
+You can also check
+[your repository insights](git.md#get-interesting-stats-of-the-repo).
+
+#### [Anki](#anki)
+
+I use [`anki`](anki.md) to record the knowledge that I need to have in my mind.
+The program has a "Stats" tab where you can see your insights of the last years
+to understand how are you learning. You can also go to the "Browse" tab to sort
+the cards by created and get an idea of which ones have been the most used
+decks.
+
+### Review what programs you have developed
+
+### Update your identities
+
+Follow the steps of [identity management](identities.md#identity-management).
 
 # References
 

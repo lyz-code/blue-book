@@ -55,6 +55,8 @@ buy them from different vendors.
 
 There are many things to take into account when choosing the different disks for your pool.
 
+If you have some time take a look at [backblaze disk reports](https://www.backblaze.com/cloud-storage/resources/hard-drive-test-data) they do quarterly analysis on their infra (around 300k disks).
+
 ## Choosing the disks to hold data
 
 Check [diskprices.com](https://www.diskprices.com) to get an idea of the cost of

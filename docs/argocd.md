@@ -29,6 +29,7 @@ I also took in consideration other tools like
 - Hard Refresh: Clears any caches and does a refresh.
 
 For more information read [1](https://argo-cd.readthedocs.io/en/stable/core_concepts/), [2](https://github.com/argoproj/argo-cd/discussions/8260), [3](https://github.com/argoproj/argo-cd/discussions/12237)
+
 # Application configuration
 
 ## [Access private git repositories with ssh keys](https://medium.com/@tiwarisan/argocd-how-to-access-private-github-repository-with-ssh-key-new-way-49cc4431971b)
@@ -279,8 +280,62 @@ argo-cd:
           - "*"
 ```
 
+# [ArgoCD commandline](https://argo-cd.readthedocs.io/en/stable/cli_installation/)
+
+## [Installation ArgoCD commandline](https://argo-cd.readthedocs.io/en/stable/cli_installation/)
+
+```bash
+curl -sSL -o argocd-linux-amd64 https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
+install -m 555 argocd-linux-amd64 ~/.local/bin/argocd
+rm argocd-linux-amd64
+```
+
+## ArgoCD commandline usage
+
+### [Login into the server](https://codefresh.io/learn/argo-cd/argo-cd-cli-commands-and-best-practices/)
+
+The `argocd login` command is the first step in interacting with the Argo CD API. This command allows you to authenticate yourself, setting up a secure connection between your terminal and the Argo CD server. You’ll need to provide your server’s URL and your credentials. There are three different ways to login, I found that the `--core` is the most useful as it will use your kubernetes credentials.
+
+```bash
+argocd login your.argocd.url.com --core --name production
+```
+
+Be careful thought that you can't set different `argocd context` for different clusters using the `--core` even though [you set the `--kube-context` flag](https://github.com/argoproj/argo-cd/issues/12883). The config file `~/.config/argocd/config` shows that it's using whatever kubernetes context you're using. So be careful that you're applying it in the correct one!
+
+### Set an argocd context
+
+The `argocd context` command is used to manage your Argo CD contexts. A context is a configuration that represents a Kubernetes cluster, user, and namespace. You can use this command to switch Argo CD between different contexts, allowing you to manage multiple Kubernetes namespaces and clusters from a single terminal.
+
+You can see the different contexts with `argocd context`
+
+### Get the list of applications
+
+```bash
+argocd app list
+```
+
+### Refresh an application
+
+```bash
+argocd app get app_name --refresh
+```
+
+### Show the diff of an application
+
+```bash
+argocd app diff app_name
+```
+
+### Sync an application
+
+```bash
+argocd app sync app_name
+```
+
 # Not there yet
 
+- Python library: I have found none
+- Argocd TUI: I have found none that is updated
 - [Support git webhook on Applicationsets for gitea/forgejo](https://github.com/argoproj/argo-cd/issues/18798): although you could use an ugly fix adding `spec.generators[i].requeueAfterSeconds` to change the interval that ArgoCD uses to refresh the repositories, which is 3 minutes by default.
 
 # Troubleshooting

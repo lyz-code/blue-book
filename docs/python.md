@@ -27,7 +27,7 @@ apt-get install python
 * Select the version in https://www.python.org/ftp/python/ and download it
     ```bash
     wget https://www.python.org/ftp/python/3.11.8/Python-3.11.8.tgz
-    unp Python-3.11.8/
+    unp Python-3.11.8.tgz
     cd Python-3.11.8/
     ./configure --enable-optimizations
     sudo make altinstall

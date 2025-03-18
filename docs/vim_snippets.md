@@ -1,3 +1,8 @@
+# [Search for different strings in the same search query](https://neovim.io/doc/user/pattern.html#_2.-the-definition-of-a-pattern)
+
+```
+* DONE\|* REJECTED\|* DUPLICATED
+```
 # [Get the name of the file shown](https://stackoverflow.com/questions/4111696/display-name-of-the-current-file-in-vim)
 
 `:f` (`:file`) will do same as `<C-G>`. `:f!` will give a untruncated version, if applicable.

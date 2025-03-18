@@ -313,15 +313,19 @@ A friend suggested to mark the disk as healthy and do a resilver on the same dis
 
 A resilver process will try to rebuild the missing disk from the data of the rest of the disks of the VDEV, the rest of disks of the zpool don't take part of this process.
 
-### Removing a disk from the pool
+### Replacing a disk in the pool
+
+#### If the pool is not DEGRADED
+
+If you want to do operations on your pool and want to prevent it from being DEGRADED you need to attach a new disk to the server and use the replace command
 
 ```bash
-zpool remove tank0 sda
+zfs replace tank0 ata-WDC_WD2003FZEX-00SRLA0_WD-xxxxxxxxxxxx /dev/sdX
 ```
 
-This will trigger the data evacuation from the disk. Check `zpool status` to see when it finishes.
+Where `/dev/sdX` is your temporal disk. Once the original disk is removed from the vdev you can do the operations you need. 
 
-### Replacing a disk in the pool
+#### If the pool is DEGRADED
 
 If you are going to replace the disk, you need to bring offline the device to be replaced:
 
@@ -401,6 +405,16 @@ tank0    43.5T  33.0T  10.5T     14.5T     7%    75%  1.00x  ONLINE  -
 ```
 
 If you want to read other blogs that have covered the same topic check out [1](https://madaboutbrighton.net/articles/replace-disk-in-zfs-pool).
+
+### Removing a disk from the pool
+
+```bash
+zpool remove tank0 sda
+```
+
+This will trigger the data evacuation from the disk. Check `zpool status` to see when it finishes.
+
+Sometimes zfs won't allow you to remove a disk if it will put at risk the pool. In that case try to replace a disk in the pool as explained above.
 
 ### Check the health of the degraded disk
 
@@ -492,7 +506,7 @@ sudo cryptsetup luksAddKey /dev/sdx /etc/zfs/keys/sdx.key
 Get the drive's UUID:
 
 ```bash
-sudo blkid
+sudo blkid /dev/sdx
 ```
 
 Look for the line with `TYPE="crypto_LUKS"`. Copy the UUID.

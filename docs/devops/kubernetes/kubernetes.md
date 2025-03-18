@@ -105,6 +105,220 @@ now](https://github.com/ramitsurana/awesome-kubernetes#starting-point):
 
     Uses Neo4j to store & analyze Kubernetes resource relationships → identify attack paths & security misconfigs
 
+# Snippets
+
+## Move a pvc between AZ in aws
+
+```bash
+#!/bin/bash
+
+# This script migrates a PV and its PVC from one AWS AZ to another by creating a snapshot of the volume,
+# creating a new volume in the target AZ from the snapshot,
+# and rebinding the PVC to the new volume.
+# The script assumes that the EBS CSI driver is used for the PVCs.
+# The script also cleans up the old PV, volume, and snapshot.
+#
+# Handle with care, this script deletes resources in the AWS account.
+#
+# Usage: moveazPV.sh <pv-name> <new-az>
+# Example: moveazPV.sh pvc-12345678-1234-1234-1234-123456789012 us-east-2a
+#
+# You should size to 0 the statefulset before running this script, as this is the safest way to
+# ensure that the PVC is not bound to any pod and the data will be consistent.
+# If you feel brave enough, the script will prompt you to delete the pod at the precise moment.
+#
+# Take care and choose an AZ that is not being used by any other PV in the storage cluster.
+
+set -e
+
+if [ -z "$1" ] || [ -z "$2" ]; then
+  echo "Usage: $0 <pv-name> <new-az>"
+  exit 1
+fi
+
+PV_NAME=$1
+NEW_AZ=$2
+
+# Get Volume ID from PV
+VOLUME_ID=$(kubectl get pv $PV_NAME -o jsonpath='{.spec.csi.volumeHandle}')
+if [ -z "$VOLUME_ID" ]; then
+  echo "Failed to get volume ID for PV $PV_NAME"
+  exit 1
+fi
+
+# Get PVC name and namespace
+PVC_NAME=$(kubectl get pv $PV_NAME -o jsonpath="{.spec.claimRef.name}")
+NAMESPACE=$(kubectl get pv  $PV_NAME -o jsonpath="{.spec.claimRef.namespace}")
+
+echo "PVC Name: $PVC_NAME"
+echo "Namespace: $NAMESPACE"
+
+echo "Found volume: $VOLUME_ID"
+
+
+# Create snapshot
+SNAPSHOT_ID=$(aws ec2 create-snapshot --volume-id $VOLUME_ID --description "Migration for $PV_NAME" --query 'SnapshotId' --output text)
+echo "Snapshot created: $SNAPSHOT_ID"
+
+# Wait for snapshot to complete
+echo "Waiting for snapshot to be ready..."
+aws ec2 wait snapshot-completed --snapshot-ids $SNAPSHOT_ID
+echo "Snapshot $SNAPSHOT_ID is ready"
+
+# Create new volume in the target AZ
+VOLUME_TYPE=$(aws ec2 describe-volumes --volume-ids $VOLUME_ID --query 'Volumes[0].VolumeType' --output text)
+NEW_VOLUME_ID=$(aws ec2 create-volume --snapshot-id $SNAPSHOT_ID --availability-zone $NEW_AZ --volume-type $VOLUME_TYPE --query 'VolumeId' --output text)
+echo "New volume created: $NEW_VOLUME_ID"
+
+# Wait for the new volume to be available
+echo "Waiting for new volume to be available..."
+aws ec2 wait volume-available --volume-ids $NEW_VOLUME_ID
+echo "New volume $NEW_VOLUME_ID is ready"
+
+# Generate new PV YAML
+NEW_PV_NAME=${PV_NAME}-migrated
+cat <<EOF > new-pv.yaml
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: $NEW_PV_NAME
+spec:
+  capacity:
+    storage: $(kubectl get pv $PV_NAME -o jsonpath='{.spec.capacity.storage}')
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: $(kubectl get pv $PV_NAME -o jsonpath='{.spec.storageClassName}')
+  csi:
+    driver: ebs.csi.aws.com
+    volumeHandle: $NEW_VOLUME_ID
+    fsType: ext4
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: topology.ebs.csi.aws.com/zone
+          operator: In
+          values:
+          - $NEW_AZ
+EOF
+
+echo "New PV manifest generated: new-pv.yaml"
+
+# Apply the new PV
+kubectl apply -f new-pv.yaml
+echo "New PV $NEW_PV_NAME created"
+# Backup old PVC before deleting
+kubectl get pvc $PVC_NAME -n $NAMESPACE -o yaml > ${PVC_NAME}-backup.yaml
+
+echo "If you haven't size to 0 the statefulset, it is the time to kill the pod to rebind the PVC"
+
+# Delete old PVC to allow rebinding
+kubectl delete pvc $PVC_NAME -n $NAMESPACE
+echo "Old PVC deleted"
+# Recreate PVC
+cat <<EOF > new-pvc.yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: $PVC_NAME
+  namespace: $NAMESPACE
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: $(kubectl get pv $NEW_PV_NAME -o jsonpath='{.spec.capacity.storage}')
+  storageClassName: $(kubectl get pv $NEW_PV_NAME -o jsonpath='{.spec.storageClassName}')
+  volumeName: $NEW_PV_NAME
+EOF
+
+echo "New PVC manifest generated: new-pvc.yaml"
+
+# Apply the new PVC
+kubectl apply -f new-pvc.yaml
+echo "New PVC $PVC_NAME created and bound to new PV"
+
+
+# Delete old PV (optional, can be done manually)
+kubectl delete pv $PV_NAME || echo "Failed to delete PV $PV_NAME, probably was not retained"
+echo "Old PV $PV_NAME deleted"
+
+# Delete old EBS volume
+echo "Deleting old volume $VOLUME_ID"
+aws ec2 delete-volume --volume-id $VOLUME_ID || echo "Failed to delete volume $VOLUME_ID, probably was not retained"
+echo "Old volume deleted"
+
+# Clean up snapshot
+echo "Deleting snapshot $SNAPSHOT_ID"
+echo aws ec2 delete-snapshot --snapshot-id $SNAPSHOT_ID
+echo "Snapshot deleted"
+
+echo -e "Migration complete.\nNew PV: $NEW_PV_NAME\nNew PVC: $PVC_NAME"
+```
+
+# # Optimizing Kubernetes Cluster Node Count: A Strategic Approach
+
+Reducing the number of nodes in a Kubernetes cluster is a critical strategy for controlling cloud infrastructure costs without compromising system reliability. Here are key best practices to help organizations right-size their Kubernetes deployments:
+
+## 1. Availability Zone Consolidation
+
+Carefully evaluate the number of availability zones (AZs) used in your cluster. While multi-AZ deployments provide redundancy, using too many zones can:
+- Increase infrastructure complexity
+- Raise management overhead
+- Unnecessarily distribute resources
+- Increase cost without proportional benefit
+
+**Recommendation**: Aim for a balanced approach, typically 3 AZs, which provides robust redundancy while allowing more efficient resource consolidation.
+
+## 2. Intelligent Node Sizing and Management
+
+Implement sophisticated node management strategies:
+
+### Node Provisioning Optimization
+- Use tools like Karpenter to dynamically manage node sizing
+- Continuously analyze and adjust node types based on actual workload requirements
+- Consolidate smaller nodes into fewer, more efficiently sized instances
+
+### Overhead Calculation
+Regularly assess system and Kubernetes overhead:
+- Calculate total system resource consumption
+- Identify underutilized resources
+- Understand the overhead percentage for different node types
+- Make data-driven decisions about node scaling
+
+## 3. Advanced Pod Autoscaling Techniques
+
+### Horizontal Pod Autoscaling (HPA)
+- Implement HPA for workloads with variable load
+- Automatically adjust pod count based on CPU/memory utilization
+- Ensure efficient resource distribution across existing nodes
+
+### Vertical Pod Autoscaling (VPA)
+- Use VPA in recommendation mode initially
+- Carefully evaluate automated resource adjustments
+- Manually apply recommendations to prevent potential service disruptions
+
+## 4. Workload Optimization Strategies
+
+### High Availability Considerations
+- Ensure critical workloads have robust high availability configurations
+- Design applications to tolerate node failures gracefully
+- Implement pod disruption budgets to maintain service reliability
+
+### Resource Right-Sizing
+- Conduct thorough analysis of actual resource utilization
+- Avoid over-provisioning by matching resource requests to actual usage
+- Use monitoring tools to gain insights into workload characteristics
+
+## 5. Continuous Monitoring and Refinement
+
+- Implement comprehensive monitoring of cluster performance
+- Regularly review node utilization metrics
+- Create feedback loops for continuous optimization
+- Develop scripts or use tools to collect and analyze resource usage data
+
 # References
 
 * [Docs](https://kubernetes.io/docs/)

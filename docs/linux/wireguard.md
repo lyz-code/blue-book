@@ -487,6 +487,31 @@ echo module wireguard +p > /sys/kernel/debug/dynamic_debug/control
 
 Once you do that, you’ll be able to see WireGuard log messages in the kernel message facility, if your system is set up with `rsyslogd`, `journald`, or a similar logging daemon. With `rsyslogd`, check the `/var/log/kern.log` or `/var/log/messages` file. With `journald`, run `journalctl -ek`.
 
+# User management
+
+Wireguard's default user management is not very user friendly as it's difficult to know which key belongs to what user.
+
+I've been looking for WireGuard admin interface UI that is actively maintained but also isn't cloud-based and [between all solutions](https://www.reddit.com/r/selfhosted/comments/18nrbnf/wireguard_admin_interface_ui_that_is_actively/) I found [wg-easy](wg-easy.md) the best candidate because:
+
+- It has just the features I need:
+  - Clean User management: add, remove, disable
+  - Clean UI interface
+- Actively maintained: last commit 7h ago
+- [Really popular: 17.7k stars, 1.7k forks](https://github.com/wg-easy/wg-easy/tree/master)
+- It's installable either with docker or [docker-compose](https://github.com/wg-easy/wg-easy/blob/production/docker-compose.yml)
+- It exports [prometheus metrics](https://github.com/wg-easy/wg-easy/issues/1510)
+- It has [good documentation](https://github.com/wg-easy/wg-easy/wiki).
+- It has [an ansible playbook](https://github.com/wg-easy/wg-easy/wiki/Using-WireGuard-Easy-with-Ansible)
+- It has [a grafana dashboard](https://grafana.com/grafana/dashboards/21733-wireguard/)
+- It has [a clean release process](https://github.com/wg-easy/wg-easy/tree/master)
+- It's a stable project: 3 years and 10 months old
+
+If `wg-easy` doesn't work, I'd look at the next projects:
+
+- [WGDashboard](https://github.com/donaldzou/WGDashboard?tab=readme-ov-file) ([Docs](https://donaldzou.dev/WGDashboard-Documentation/index_topic.html))
+- [easy-wg-quick](https://github.com/burghardt/easy-wg-quick)
+- [wireguard-ui](https://github.com/ngoduykhanh/wireguard-ui)
+- [wg-tool](https://github.com/gene-git/wg_tool) and [wg-client](https://github.com/gene-git/wg-client)
 # Monitor wireguard
 
 - https://www.procustodibus.com/blog/2021/01/how-to-monitor-wireguard-activity/
@@ -522,6 +547,14 @@ Where the `[IP address]` can be seen using the `ip a` command.
 
 To gracefully recover from this, you will likely have to use the wg-quick command to take the connection down, then bring it back up.
 
+# [Rosenpass](https://rosenpass.eu/)
+
+Rosenpass is free and open-source software based on the latest research in the field of cryptography. It is intended to be used with WireGuard VPN, but can work with all software that uses pre-shared keys. It uses two cryptographic methods (Classic McEliece and Kyber) to secure systems against attacks with quantum computers.
+
+- [Source code](https://github.com/rosenpass/rosenpass)
+- [Docs](https://rosenpass.eu/docs/)
+
 # References
 
 - [Home](https://www.wireguard.com/)
+- [Awesome wireguard](https://github.com/cedrickchee/awesome-wireguard)
