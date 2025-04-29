@@ -60,6 +60,32 @@ It uses the pip flag `upgrade-strategy` which can be one of:
 - `only-if-needed`: dependencies are upgraded only when they do not satisfy the
   requirements of the upgraded package(s). This is the default value.
 
+# Troubleshooting
+
+## [Upgrading python version of all your pipx packages](https://github.com/pypa/pipx/issues/687)
+
+If you upgrade the main python version and remove the old one (a dist upgrade) then you won't be able to use the installed packages.
+
+If you're lucky enough to have the old one you can use:
+
+```
+pipx reinstall-all --python <the Python executable file>
+```
+
+Otherwise you need to export all the packages with `pipx list --json > ~/pipx.json`
+
+Then reinstall one by one:
+
+```bash
+set -ux
+if [[ -e ~/pipx.json ]]; then
+	for p in $(cat ~/pipx.json | jq -r '.venvs[].metadata.main_package.package_or_url'); do
+		pipx install $p
+	done
+fi
+```
+
+The problem is that this method does not respect the version constrains nor the injects, so you may need to debug each package a bit.
 # References
 
 - [Docs](https://pypa.github.io/pipx/)

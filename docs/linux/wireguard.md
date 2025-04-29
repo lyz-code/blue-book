@@ -554,6 +554,13 @@ Rosenpass is free and open-source software based on the latest research in the f
 - [Source code](https://github.com/rosenpass/rosenpass)
 - [Docs](https://rosenpass.eu/docs/)
 
+# Troubleshooting
+
+## [Failed to resolve interface "tun": No such device](https://askubuntu.com/questions/1376573/failed-to-resolve-interface-tun-no-such-device)
+
+```bash
+sudo apt purge resolvconf
+```
 # References
 
 - [Home](https://www.wireguard.com/)

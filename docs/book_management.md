@@ -168,7 +168,38 @@ an old looking desktop interface and is no longer maintained.
 
 # [Convert pdf to epub](https://manual.calibre-ebook.com/conversion.html#convert-pdf-documents)
 
+NOTE: before proceeding inspect the next tools that use AI so it will probably give a better output:
+
+- [MinerU](https://github.com/opendatalab/MinerU)
+- [marker](https://github.com/VikParuchuri/marker)
+- [docling](https://github.com/docling-project/docling)
+- [olmocr](https://olmocr.allenai.org/)
+
+## If the pdf is based on text not on images
 This is a nasty operation, my suggestion is to export it with Calibre and then play with the [Search and replace](https://manual.calibre-ebook.com/conversion.html#search-replace) regular expressions with the wand. With this tool you can remove headers, footers, or other arbitrary text. Remember that they operate on the intermediate XHTML produced by the conversion pipeline. There is a wizard to help you customize the regular expressions for your document. Click the magic wand beside the expression box, and click the ‘Test’ button after composing your search expression. Successful matches will be highlighted in Yellow.
 
 The search works by using a Python regular expression. All matched text is simply removed from the document or replaced using the replacement pattern. The replacement pattern is optional, if left blank then text matching the search pattern will be deleted from the document.
+
+## If the pdf is based on images 
+
+Then you need to use OCR to extract the text.
+
+First, convert the PDF to images:
+
+```bash
+pdftoppm -png input.pdf page
+```
+
+Apply OCR to your PDF
+
+
+Use `tesseract` to extract text from each image:
+
+```bash
+for img in page-*.png; do
+    tesseract "$img" "${img%.png}" -l eng
+done
+```
+
+This produces `page-1.txt`, `page-2.txt`, etc.
 

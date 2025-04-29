@@ -4,6 +4,202 @@ date: 20200717
 author: Lyz
 ---
 
+# Download book previews from google books
+
+You will only get some of the pages but it can help in the ending pdf
+
+This first script gets the images data:
+
+```python
+import asyncio
+import os
+import json
+import re
+from urllib.parse import urlparse, parse_qs
+from playwright.async_api import async_playwright
+import aiohttp
+import aiofiles
+
+
+async def download_image(session, src, output_path):
+    """Download image from URL and save to specified path"""
+    try:
+        headers = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; rv:128.0) Gecko/20100101 Firefox/128.0",
+            "Accept": "*/*",
+            "Accept-Language": "en-US,en;q=0.5",
+            "Referer": "https://books.google.es/",
+            "DNT": "1",
+            "Sec-GPC": "1",
+            "Connection": "keep-alive",
+        }
+
+        async with session.get(src, headers=headers) as response:
+            response.raise_for_status()
+            async with aiofiles.open(output_path, "wb") as f:
+                await f.write(await response.read())
+
+        print(f"Downloaded: {output_path}")
+        return True
+    except Exception as e:
+        print(f"Error downloading {src}: {e}")
+        return False
+
+
+def extract_page_number(pid):
+    """Extract numeric page number from page ID"""
+    match = re.search(r"PA(\d+)", pid)
+    if match:
+        return int(match.group(1))
+    try:
+        return int(pid.replace("PA", "").replace("PP", ""))
+    except:
+        return 9999
+
+
+async def main():
+    # Create output directory
+    output_dir = "book_images"
+    os.makedirs(output_dir, exist_ok=True)
+
+    # Keep track of all pages found
+    seen_pids = set()
+    page_counter = 0
+    download_tasks = []
+
+    # Create HTTP session for downloads
+    async with aiohttp.ClientSession() as session:
+        async with async_playwright() as p:
+            browser = await p.firefox.launch(headless=False)
+            context = await browser.new_context(
+                user_agent="Mozilla/5.0 (Windows NT 10.0; rv:128.0) Gecko/20100101 Firefox/128.0"
+            )
+
+            # Create a page and set up response handling
+            page = await context.new_page()
+
+            # Store seen URLs to avoid duplicates
+            seen_urls = set()
+
+            # Set up response handling for JSON data
+            async def handle_response(response):
+                nonlocal page_counter
+                url = response.url
+
+                # Only process URLs with jscmd=click3
+                if "jscmd=click3" in url and url not in seen_urls:
+                    try:
+                        # Try to parse as JSON
+                        json_data = await response.json()
+                        seen_urls.add(url)
+
+                        # Process and download page data immediately
+                        if "page" in json_data and isinstance(json_data["page"], list):
+                            for page_data in json_data["page"]:
+                                if "src" in page_data and "pid" in page_data:
+                                    pid = page_data["pid"]
+                                    if pid not in seen_pids:
+                                        seen_pids.add(pid)
+                                        src = page_data["src"]
+
+                                        # Create filename with sequential numbering
+                                        formatted_index = (
+                                            f"{int(pid.replace('PA', '')):03d}"
+                                        )
+                                        output_file = os.path.join(
+                                            output_dir, f"page-{formatted_index}.png"
+                                        )
+                                        page_counter += 1
+
+                                        print(
+                                            f"Found new page: {pid}, scheduling download"
+                                        )
+
+                                        # Start download immediately
+                                        task = asyncio.create_task(
+                                            download_image(session, src, output_file)
+                                        )
+                                        download_tasks.append(task)
+
+                        return len(seen_pids)
+                    except Exception as e:
+                        print(f"Error processing response from {url}: {e}")
+
+            # Register response handler
+            page.on("response", handle_response)
+
+            # Navigate to the starting URL
+            book_url = (
+                "https://books.google.es/books?id=412loEMJA9sC&lpg=PP1&hl=es&pg=PA5"
+            )
+            await page.goto(book_url)
+
+            # Wait for initial page load
+            await page.wait_for_load_state("networkidle")
+
+            # Scroll loop variables
+            max_scroll_attempts = 500  # Safety limit
+            scroll_count = 0
+            pages_before_scroll = 0
+            consecutive_no_new_pages = 0
+
+            # Continue scrolling until we find no new pages for several consecutive attempts
+            while scroll_count < max_scroll_attempts and consecutive_no_new_pages < 5:
+                # Get current page count before scrolling
+                pages_before_scroll = len(seen_pids)
+
+                # Use PageDown key to scroll
+                await page.keyboard.press("PageDown")
+                scroll_count += 1
+
+                # Wait for network activity
+                await asyncio.sleep(2)
+
+                # Check if we found new pages after scrolling
+                if len(seen_pids) > pages_before_scroll:
+                    consecutive_no_new_pages = 0
+                    print(
+                        f"Scroll {scroll_count}: Found {len(seen_pids) - pages_before_scroll} new pages"
+                    )
+                else:
+                    consecutive_no_new_pages += 1
+                    print(
+                        f"Scroll {scroll_count}: No new pages found ({consecutive_no_new_pages}/5)"
+                    )
+
+            print(f"Scrolling complete. Found {len(seen_pids)} pages total.")
+            await browser.close()
+
+        # Wait for any remaining downloads to complete
+        if download_tasks:
+            print(f"Waiting for {len(download_tasks)} downloads to complete...")
+            await asyncio.gather(*download_tasks)
+
+        print(f"Download complete! Downloaded {page_counter} images.")
+
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+
+
+# Send keystrokes to an active window
+
+```python
+import subprocess
+
+# Type text
+subprocess.run(['xdotool', 'type', 'Hello world!'])
+subprocess.run(['xdotool', 'key', 'Return']) # press enter
+
+# Key combinations
+subprocess.run(['xdotool', 'key', 'ctrl+c'])
+
+# Activate specific window first (if needed)
+window_id = subprocess.check_output(['xdotool', 'getactivewindow']).decode().strip()
+subprocess.run(['xdotool', 'windowactivate', window_id])
+```
+
 # Check if a pathlib Path is absolute or relative
 
 ```python
@@ -41,7 +237,7 @@ except PermissionError:
 
 To show a Linux desktop notification from a Python script, you can use the `notify2` library (although [it's last commit was done on 2017](https://pypi.org/project/notify2/). This library provides an easy way to send desktop notifications on Linux.
 
-Alternatively, you can use the `subprocess` module to call the `notify-send` command-line utility directly. This is a more straightforward method but requires `notify-send` to be installed.
+Alternatively, you can use the `subprocess` module to call the `notify-send` or `dunstify` command-line utility directly. This is a more straightforward method but requires `notify-send` to be installed.
 
 ```python
 import subprocess
@@ -56,7 +252,9 @@ def send_notification(title: str, message: str = "", urgency: str = "normal") ->
     """
     subprocess.run(["notify-send", "-u", urgency, title, message])
 ```
+
 # [Compare file and directories](https://docs.python.org/3/library/filecmp.html)
+
 The filecmp module defines functions to compare files and directories, with various optional time/correctness trade-offs. For comparing files, see also the difflib module.
 
 ```python
@@ -75,25 +273,30 @@ def print_diff_files(dcmp):
         print_diff_files(sub_dcmp)
 
 
-dcmp = dircmp('dir1', 'dir2') 
+dcmp = dircmp('dir1', 'dir2')
 
 print_diff_files(dcmp)
 ```
+
 # [Use Path of pathlib write_text in append mode](https://stackoverflow.com/questions/57296168/pathlib-path-write-text-in-append-mode)
+
 It's not supported you need to `open` it:
 
 ```python
 with my_path.open("a") as f:
     f.write("...")
 ```
-# [Suppress ANN401 for dynamically typed *args and **kwargs](https://github.com/astral-sh/ruff/issues/677)
+
+# [Suppress ANN401 for dynamically typed \*args and \*\*kwargs](https://github.com/astral-sh/ruff/issues/677)
 
 Use `object` instead:
 
 ```python
 def function(*args: object, **kwargs: object) -> None:
 ```
+
 # [One liner conditional](https://stackoverflow.com/questions/2802726/putting-a-simple-if-then-else-statement-on-one-line)
+
 To write an if-then-else statement in Python so that it fits on one line you can use:
 
 ```python
@@ -103,7 +306,7 @@ isApple = True if fruit == 'Apple' else False
 
 # [Get package data relative path](https://stackoverflow.com/questions/1011337/relative-file-paths-in-python-packages)
 
-If you want to reference files from the foo/package1/resources folder you would want to use the __file__ variable of the module. Inside foo/package1/__init__.py:
+If you want to reference files from the foo/package1/resources folder you would want to use the **file** variable of the module. Inside foo/package1/**init**.py:
 
 ```python
 from os import path
@@ -116,20 +319,23 @@ resources_dir = path.join(path.dirname(__file__), 'resources')
 import os
 import signal
 
-os.kill(pid, signal.SIGTERM) #or signal.SIGKILL 
+os.kill(pid, signal.SIGTERM) #or signal.SIGKILL
 ```
 
 # [Convert the parameter of an API get request to a valid field](https://stackoverflow.com/questions/68718960/how-to-convert-a-string-into-url-in-python)
+
 For example if the argument has `/`:
 
 ```python
-from urllib.parse import quote 
+from urllib.parse import quote
 
 quote("value/with/slashes")
 ```
 
 Will return `value%2Fwith%2Fslashes`
+
 # [Get the type hints of an object](https://stackoverflow.com/questions/62723766/how-to-get-type-hints-for-an-objects-attributes)
+
 ```python
 from typing import get_type_hints
 
@@ -141,15 +347,17 @@ get_type_hints(Student, include_extras=False) == {'name': str}
 get_type_hints(Student, include_extras=True) == {
     'name': Annotated[str, 'some marker']
 }
-````
+```
 
 # [Type hints of a python module](https://stackoverflow.com/questions/53780735/what-is-the-type-hint-for-a-any-python-module)
+
 ```python
 from types import ModuleType
 import os
 
 assert isinstance(os, ModuleType)
 ```
+
 # [Get all the classes of a python module](https://stackoverflow.com/questions/1796180/how-can-i-get-a-list-of-all-classes-within-current-module-in-python)
 
 ```python
@@ -212,7 +420,8 @@ def get_ttl_hash(seconds=3600):
 res = my_expensive_function(2, 2, ttl_hash=get_ttl_hash())
 # cache will be updated once in an hour
 ```
-# [Fix variable is unbound pyright error](https://github.com/microsoft/pyright/issues/3041) 
+
+# [Fix variable is unbound pyright error](https://github.com/microsoft/pyright/issues/3041)
 
 You may receive these warnings if you set variables inside if or try/except blocks such as the next one:
 
@@ -281,7 +490,6 @@ logging.basicConfig(format='%(asctime)s %(message)s')
 logging.warning('is when this event was logged.')
 ```
 
-
 # [Remove html url characters](https://stackoverflow.com/questions/11768070/transform-url-string-into-normal-string-in-python-20-to-space-etc)
 
 To transform an URL string into normal string, for example replacing `%20` with space use:
@@ -306,8 +514,8 @@ import os
 
 os.path.getmtime(path)
 ```
-# [Sort the returned paths of glob](https://stackoverflow.com/questions/6773584/how-are-glob-globs-return-values-ordered)
 
+# [Sort the returned paths of glob](https://stackoverflow.com/questions/6773584/how-are-glob-globs-return-values-ordered)
 
 `glob` order is arbitrary, but you can sort them yourself.
 
@@ -413,6 +621,7 @@ logging.log(level, "An exception was thrown!", exc_info=True)
 ## With the traceback module
 
 ### Get the error string
+
 ```python
 
 import traceback
@@ -429,6 +638,7 @@ except Exception as error:
 ```
 
 ### Print directly the error
+
 The `traceback` module provides methods for formatting and printing exceptions
 and their tracebacks, e.g. this would print exception like the default handler
 does:
@@ -612,39 +822,39 @@ print(f.renderText("aaaaaaaaaaaaaaaaa"))
 datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%S")
 ```
 
-| Code | Meaning Example                                                                                                                                                                      |
-| ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| %a   | Weekday as locale’s abbreviated name. Mon                                                                                                                                            |
-| %A   | Weekday as locale’s full name.  Monday                                                                                                                                               |
-| %w   | Weekday as a decimal number, where 0 is Sunday and 6 is Saturday. 1                                                                                                                  |
-| %d   | Day of the month as a zero-padded decimal number. 30                                                                                                                                 |
-| %-d  | Day of the month as a decimal number. (Platform specific) 30                                                                                                                         |
-| %b   | Month as locale’s abbreviated name. Sep                                                                                                                                              |
-| %B   | Month as locale’s full name.  September                                                                                                                                              |
-| %m   | Month as a zero-padded decimal number.  09                                                                                                                                           |
-| %-m  | Month as a decimal number. (Platform specific)  9                                                                                                                                    |
-| %y   | Year without century as a zero-padded decimal number. 13                                                                                                                             |
-| %Y   | Year with century as a decimal number.  2013                                                                                                                                         |
-| %H   | Hour (24-hour clock) as a zero-padded decimal number. 07                                                                                                                             |
-| %-H  | Hour (24-hour clock) as a decimal number. (Platform specific) 7                                                                                                                      |
-| %I   | Hour (12-hour clock) as a zero-padded decimal number. 07                                                                                                                             |
-| %-I  | Hour (12-hour clock) as a decimal number. (Platform specific) 7                                                                                                                      |
-| %p   | Locale’s equivalent of either AM or PM. AM                                                                                                                                           |
-| %M   | Minute as a zero-padded decimal number. 06                                                                                                                                           |
-| %-M  | Minute as a decimal number. (Platform specific) 6                                                                                                                                    |
-| %S   | Second as a zero-padded decimal number. 05                                                                                                                                           |
-| %-S  | Second as a decimal number. (Platform specific) 5                                                                                                                                    |
-| %f   | Microsecond as a decimal number, zero-padded on the left. 000000                                                                                                                     |
-| %z   | UTC offset in the form +HHMM or -HHMM (empty string if the object is naive).                                                                                                     |
-| %Z   | Time zone name (empty string if the object is naive).                                                                                                                                |
-| %j   | Day of the year as a zero-padded decimal number.  273                                                                                                                                |
-| %-j  | Day of the year as a decimal number. (Platform specific)  273                                                                                                                        |
-| %U   | Week number of the year (Sunday as the first day of the week) as a zero padded decimal number. All days in a new year preceding the first Sunday are considered to be in week 0.  39 |
-| %W   | Week number of the year (Monday as the first day of the week) as a decimal number. All days in a new year preceding the first Monday are considered to be in week 0.                 |
-| %c   | Locale’s appropriate date and time representation.  Mon Sep 30 07:06:05 2013                                                                                                         |
-| %x   | Locale’s appropriate date representation. 09/30/13                                                                                                                                   |
-| %X   | Locale’s appropriate time representation. 07:06:05                                                                                                                                   |
-| %%   | A literal '%' character.  %                                                                                                                                                          |
+| Code | Meaning Example                                                                                                                                                                     |
+| ---- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| %a   | Weekday as locale’s abbreviated name. Mon                                                                                                                                           |
+| %A   | Weekday as locale’s full name. Monday                                                                                                                                               |
+| %w   | Weekday as a decimal number, where 0 is Sunday and 6 is Saturday. 1                                                                                                                 |
+| %d   | Day of the month as a zero-padded decimal number. 30                                                                                                                                |
+| %-d  | Day of the month as a decimal number. (Platform specific) 30                                                                                                                        |
+| %b   | Month as locale’s abbreviated name. Sep                                                                                                                                             |
+| %B   | Month as locale’s full name. September                                                                                                                                              |
+| %m   | Month as a zero-padded decimal number. 09                                                                                                                                           |
+| %-m  | Month as a decimal number. (Platform specific) 9                                                                                                                                    |
+| %y   | Year without century as a zero-padded decimal number. 13                                                                                                                            |
+| %Y   | Year with century as a decimal number. 2013                                                                                                                                         |
+| %H   | Hour (24-hour clock) as a zero-padded decimal number. 07                                                                                                                            |
+| %-H  | Hour (24-hour clock) as a decimal number. (Platform specific) 7                                                                                                                     |
+| %I   | Hour (12-hour clock) as a zero-padded decimal number. 07                                                                                                                            |
+| %-I  | Hour (12-hour clock) as a decimal number. (Platform specific) 7                                                                                                                     |
+| %p   | Locale’s equivalent of either AM or PM. AM                                                                                                                                          |
+| %M   | Minute as a zero-padded decimal number. 06                                                                                                                                          |
+| %-M  | Minute as a decimal number. (Platform specific) 6                                                                                                                                   |
+| %S   | Second as a zero-padded decimal number. 05                                                                                                                                          |
+| %-S  | Second as a decimal number. (Platform specific) 5                                                                                                                                   |
+| %f   | Microsecond as a decimal number, zero-padded on the left. 000000                                                                                                                    |
+| %z   | UTC offset in the form +HHMM or -HHMM (empty string if the object is naive).                                                                                                        |
+| %Z   | Time zone name (empty string if the object is naive).                                                                                                                               |
+| %j   | Day of the year as a zero-padded decimal number. 273                                                                                                                                |
+| %-j  | Day of the year as a decimal number. (Platform specific) 273                                                                                                                        |
+| %U   | Week number of the year (Sunday as the first day of the week) as a zero padded decimal number. All days in a new year preceding the first Sunday are considered to be in week 0. 39 |
+| %W   | Week number of the year (Monday as the first day of the week) as a decimal number. All days in a new year preceding the first Monday are considered to be in week 0.                |
+| %c   | Locale’s appropriate date and time representation. Mon Sep 30 07:06:05 2013                                                                                                         |
+| %x   | Locale’s appropriate date representation. 09/30/13                                                                                                                                  |
+| %X   | Locale’s appropriate time representation. 07:06:05                                                                                                                                  |
+| %%   | A literal '%' character. %                                                                                                                                                          |
 
 # [Get an instance of an Enum by value](https://stackoverflow.com/questions/29503339/how-to-get-all-values-from-python-enum-class)
 
@@ -877,6 +1087,7 @@ datetime.datetime(1997, 3, 9, 13, 45, tzinfo=datetime.timezone(datetime.timedelt
 ```python
 datetime.now().date()
 ```
+
 # [Convert a datetime to RFC2822](https://stackoverflow.com/questions/3453177/convert-python-datetime-to-rfc-2822)
 
 Interesting as it's the accepted format of
@@ -1150,6 +1361,25 @@ import tempfile
 dirpath = tempfile.mkdtemp()
 ```
 
+# [Make temporal file](https://stackoverflow.com/questions/3223604/how-to-create-a-temporary-directory-and-get-its-path-file-name)
+
+```python
+import tempfile
+with tempfile.NamedTemporaryFile(
+    suffix=".tmp", mode="w+", encoding="utf-8"
+) as temp:
+    temp.write(
+        "# Enter commit message body. Lines starting with '#' will be ignored.\n"
+    )
+    temp.write("# Leave file empty to skip the body.\n")
+    temp.flush()
+
+    subprocess.call([editor, temp.name])
+
+    temp.seek(0)
+    lines = temp.readlines()
+```
+
 # [Change the working directory of a test](https://stackoverflow.com/questions/62044541/change-pytest-working-directory-to-test-case-directory)
 
 The following function-level fixture will change to the test case directory, run
@@ -1385,6 +1615,7 @@ print(html2text.html2text(html))
 >>> datetime.datetime.fromtimestamp(1347517370).strftime('%c')
   '2012-09-13 02:22:50'
 ```
+
 ## Parse a datetime from a string
 
 ```python
@@ -1546,12 +1777,14 @@ for entry in os.scandir(directory):
 ### Create directory
 
 With `pathlib`:
+
 ```python
 if not dir_path.is_dir():
     dir_path.mkdir(parents=True, exist_ok=True)
 ```
 
 With `os`:
+
 ```python
 if not os.path.exists(directory):
     os.makedirs(directory)

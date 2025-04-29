@@ -87,7 +87,8 @@ Install the `i3ipc` library:
 pip install i3ipc
 ```
 
-Create the connection object:
+You can also use it [with async](https://i3ipc-python.readthedocs.io/en/latest/j)
+## Create the connection object
 
 ```python
 from i3ipc import Connection, Event
@@ -97,7 +98,14 @@ from i3ipc import Connection, Event
 i3 = Connection()
 ```
 
-Interact with i3:
+## Focus on a window by it's class
+
+```python
+tree = i3.get_tree()
+ff = tree.find_classed('Firefox')[0]
+ff.command('focus')
+```
+## Big example on how to interact with i3:
 
 ```python
 

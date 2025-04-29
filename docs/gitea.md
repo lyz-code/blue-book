@@ -17,7 +17,8 @@ organisation.
 
 ## Configuration
 
-Check the [configuration sheet](https://docs.gitea.com/administration/config-cheat-sheet)  or the [default values](https://github.com/go-gitea/gitea/blob/release/v1.23/custom/conf/app.example.ini)
+Check the [configuration sheet](https://docs.gitea.com/administration/config-cheat-sheet) or the [default values](https://github.com/go-gitea/gitea/blob/release/v1.23/custom/conf/app.example.ini)
+
 ## [Disable the regular login, use only Oauth](https://discourse.gitea.io/t/solved-removing-default-login-interface/2740/2)
 
 Inside your [`custom` directory](https://docs.gitea.io/en-us/customizing-gitea/) which may be `/var/lib/gitea/custom`:
@@ -551,6 +552,17 @@ Follow [this simple tutorial](https://docs.github.com/en/actions/creating-action
 - Deploy the new version
 - Restart the service
 
+## [Configure triggers not to push to a branch](https://stackoverflow.com/questions/57699839/github-actions-how-to-target-all-branches-except-master/62918562#62918562)
+
+There is now a branches-ignore option:
+
+```yaml
+on:
+  push:
+    branches-ignore:
+      - main
+```
+
 # [Gitea client command line tool](https://gitea.com/gitea/tea)
 
 `tea` is a command line tool to interact with Gitea servers. It still lacks some features but is usable.
@@ -607,11 +619,15 @@ Read the script to see what it's going to do. To upgrade to `1.20.5` you can use
 ./update.sh -v 1.20.5
 ```
 
-If you have a different home directory for gitea you can set 
+If you have a different home directory for gitea you can set
 
 ```bash
 giteahome=/var/gitea ./update.sh -v 1.20.5
 ```
+
+# Not there yet
+
+- [Being able to run two jobs on the same branch](https://github.com/go-gitea/gitea/issues/32662): It will be implemented with [concurrency](https://github.com/go-gitea/gitea/issues/24769) with [this pr](https://github.com/go-gitea/gitea/pull/32751). This behavior [didn't happen before 2023-07-25](https://github.com/go-gitea/gitea/pull/25716)
 
 # References
 

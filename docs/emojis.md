@@ -9,6 +9,10 @@ Curated list of emojis to copy paste.
 # Most used
 
 ```
+(✿◠‿◠)
+
+(•‿•)
+
 ¯\(°_o)/¯
 
 ¯\_(ツ)_/¯
@@ -16,10 +20,6 @@ Curated list of emojis to copy paste.
 (╯°□°)╯ ┻━┻
 
 ＼\ ٩( ᐛ )و /／
-
-(•‿•)
-
-(✿◠‿◠)
 
 (/ﾟДﾟ)/
 

@@ -577,6 +577,37 @@ zpool add main raidz1-1 /dev/disk-1 /dev/disk-2 /dev/disk-3 /dev/disk-4
 
 You don't need to specify the `ashift` or the `autoexpand` as they are set on zpool creation.
 
+## List all datasets that have zfs native encryption 
+
+```bash
+ROOT_FS="main"
+# Function to check if encryption is enabled on a dataset
+is_encryption_enabled() {
+    zfs get -H -o value encryption $1 | grep -q 'aes'
+}
+
+# Main function to list all datasets with encryption enabled
+list_datasets_with_encryption() {
+
+    # Initialize an array to hold dataset names
+    datasets=()
+
+    # List and iterate over all datasets starting from the root filesystem
+    for dataset in $(zfs list -H -o name | grep -E '^'$ROOT_FS'/'); do
+        if is_encryption_enabled "$dataset"; then
+            datasets+=("$dataset")
+        fi
+    done
+
+    # Output the results
+    echo "ZFS datasets with encryption enabled:"
+    printf '%s\n' "${datasets[@]}"
+}
+
+# Call the main function to list encrypted datasets
+list_datasets_with_encryption
+
+```
 # Installation
 
 ## Install the required programs
@@ -1226,6 +1257,102 @@ To debug ZFS errors you can check:
 
 - The generic kernel logs: `dmesg -T`, `/var/log/syslog` or where kernel log messages are sent.
 - ZFS Kernel Module Debug Messages: The ZFS kernel modules use an internal log buffer for detailed logging information. This log information is available in the pseudo file `/proc/spl/kstat/zfs/dbgmsg` for ZFS builds where ZFS module parameter `zfs_dbgmsg_enable = 1`
+
+## [cannot destroy dataset: dataset is busy](https://github.com/openzfs/zfs/issues/1810)
+
+If you're experiencing this error and can reproduce the next traces:
+
+```bash
+# zfs destroy zroot/2013-10-15T065955229209
+cannot destroy 'zroot/2013-10-15T065955229209': dataset is busy
+
+# zfs umount zroot/2013-10-15T065955229209
+cannot unmount 'zroot/2013-10-15T065955229209': not currently mounted
+
+# zfs list | grep zroot/2013-10-15T065955229209
+zroot/2013-10-15T065955229209                2.86G  25.0G  11.0G  /var/lib/heaver/instances/2013-10-15T065955229209
+
+# umount /var/lib/heaver/instances/2013-10-15T065955229209
+umount: /var/lib/heaver/instances/2013-10-15T065955229209: not mounted
+```
+
+You can `grep zroot/2013-10-15T065955229209 /proc/*/mounts` to see which process is still using the dataset.
+
+Another possible culprit are snapshots, you can then run:
+
+```bash
+zfs holds $snapshotname
+```
+
+To see if it has any holds, and if so, `zfs release` to remove the hold.
+
+## [Upgrading ZFS Storage Pools](https://docs.oracle.com/cd/E19253-01/819-5461/gcikw/index.html)
+
+If you have ZFS storage pools from a previous zfs release you can upgrade your pools with the `zpool upgrade` command to take advantage of the pool features in the current release. In addition, the zpool status command has been modified to notify you when your pools are running older versions. For example:
+
+```bash
+zpool status
+
+
+  pool: tank
+ state: ONLINE
+status: The pool is formatted using an older on-disk format.  The pool can
+        still be used, but some features are unavailable.
+action: Upgrade the pool using 'zpool upgrade'.  Once this is done, the
+        pool will no longer be accessible on older software versions.
+ scrub: none requested
+config:
+        NAME        STATE     READ WRITE CKSUM
+        tank        ONLINE       0     0     0
+          mirror-0  ONLINE       0     0     0
+            c1t0d0  ONLINE       0     0     0
+            c1t1d0  ONLINE       0     0     0
+errors: No known data errors
+```
+
+You can use the following syntax to identify additional information about a particular version and supported releases:
+
+```bash
+zpool upgrade -v
+
+This system is currently running ZFS pool version 22.
+
+The following versions are supported:
+
+VER  DESCRIPTION
+---  --------------------------------------------------------
+ 1   Initial ZFS version
+ 2   Ditto blocks (replicated metadata)
+ 3   Hot spares and double parity RAID-Z
+ 4   zpool history
+ 5   Compression using the gzip algorithm
+ 6   bootfs pool property
+ 7   Separate intent log devices
+ 8   Delegated administration
+ 9   refquota and refreservation properties
+ 10  Cache devices
+ 11  Improved scrub performance
+ 12  Snapshot properties
+ 13  snapused property
+ 14  passthrough-x aclinherit
+ 15  user/group space accounting
+ 16  stmf property support
+ 17  Triple-parity RAID-Z
+ 18  Snapshot user holds
+ 19  Log device removal
+ 20  Compression using zle (zero-length encoding)
+ 21  Reserved
+ 22  Received properties
+
+For more information on a particular version, including supported releases,
+see the ZFS Administration Guide.
+```
+
+Then, you can run the zpool upgrade command to upgrade all of your pools. For example:
+
+```bash
+zpool upgrade -a
+```
 
 ## [ZFS pool is stuck](https://openzfs.github.io/openzfs-docs/Basic%20Concepts/Troubleshooting.html#unkillable-process)
 

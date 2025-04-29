@@ -27,6 +27,7 @@ By default when you install it all your drives are checked periodically with the
 
 ## Running the tests
 
+You can run the tests even [if the disk is in use](https://superuser.com/questions/631377/is-it-safe-to-use-to-disk-if-extended-smart-check-is-in-progress) as the checks do not modify anything on your disk and thus will not interfere with your normal usage.
 ### [Test types](https://en.wikipedia.org/wiki/Self-Monitoring,_Analysis_and_Reporting_Technology#Self-tests)
 
 S.M.A.R.T. drives may offer a number of self-tests:

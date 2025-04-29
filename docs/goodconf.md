@@ -74,6 +74,7 @@ For more details see Pydantic's docs for examples of loading:
         super().load(filename)
 
 ```
+
 ## Config saving
 
 So far [`goodconf` doesn't support saving the config](https://github.com/lincolnloop/goodconf/issues/12). Until it's ready you can use the next snippet:
@@ -114,4 +115,3 @@ class YamlStorage(GoodConf):
 # References
 
 - [Source](https://github.com/lincolnloop/goodconf/)
-

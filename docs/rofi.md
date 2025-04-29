@@ -1,3 +1,5 @@
+DEPRECATED: [Use fzf instead](https://medium.com/njiuko/using-fzf-instead-of-dmenu-2780d184753f)
+
 [Rofi](https://github.com/davatorium/rofi?tab=readme-ov-file) is a window switcher, application launcher and dmenu replacement.
 
 # [Installation](https://github.com/davatorium/rofi/blob/next/INSTALL.md)

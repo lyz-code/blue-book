@@ -4,12 +4,74 @@ date: 20200826
 author: Lyz
 ---
 
+# Use lftp
+
+Connect with:
+
+```bash
+lftp -p <port> user@host
+```
+
+Navigate with `ls` and `cd`. Get with `mget` for multiple things
+# [Difference between apt-get upgrate and apt-get full-upgrade](https://superuser.com/questions/1653079/whats-the-difference-between-apt-full-upgrade-and-apt-upgrade-when-this-site-sa)
+
+The difference between `upgrade` and `full-upgrade` is that the later will remove the installed packages if that is needed to upgrade the whole system. Be extra careful when using this command
+
+I will more frequently use `autoremove` to remove old packages and then just use `upgrade`.
+
+# [Upgrade debian](https://wiki.debian.org/DebianUpgrade)
+
+```bash
+# First, ensure your system is up-to-date in it's current release.
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get full-upgrade
+
+# If you haven't already, ensure all backups are up-to-date.
+
+# In a text editor, replace the codename of your release with that of the next release in APT's package sources
+# For instance, the line
+#    deb https://deb.debian.org/debian/ buster main
+# should be replaced with
+#    deb https://deb.debian.org/debian/ bullseye main
+sudo vi /etc/apt/sources.list /etc/apt/sources.list.d/*
+
+# If you are migrating to Bookworm or later, then a new repo for non-free firmware is available.
+# If you wish, you can add non-free and non-free-firmware, depending on your specific needs.
+# For instance, the line
+#    deb https://deb.debian.org/debian/ bookworm main contrib non-free non-free-firmware
+# or
+#    deb https://deb.debian.org/debian/ stable main contrib non-free non-free-firmware
+
+# Clean and update package lists
+sudo apt-get clean
+sudo apt-get update
+
+# Perform the major release upgrade, removing packages if required
+# Interrupting this step after downloading has completed is an excellent way to stress-test your backups
+sudo apt-get upgrade
+sudo apt-get full-upgrade
+
+# Remove packages that are not required anymore
+# Be sure to review this list: you may want to keep some of them
+sudo apt-get autoremove
+
+# Reboot to make changes effective (optional, but recommended)
+sudo shutdown -r now
+```
+
+# Get a list of extensions by file type
+
+There are community made lists such as [dyne's file extension list](https://github.com/dyne/file-extension-list/)
+
 # Download videos from rtve.es
 
 Use [descargavideos.tv](https://www.descargavideos.tv/) ([source](https://github.com/forestrf/Descargavideos))
+
 # Check if a domain is in a list of known disposable email domains
 
 You can check in known lists
+
 ```bash
 wget https://raw.githubusercontent.com/andreis/disposable-email-domains/master/domains.txt
 grep -i homapin.com domains.txt
@@ -29,8 +91,43 @@ https://quickemailverification.com/tools/disposable-email-address-detector for
   - homapin.com 👎
 ```
 
-
 # [Upgrade ubuntu](https://www.cyberciti.biz/faq/how-to-upgrade-from-ubuntu-22-04-lts-to-ubuntu-24-04-lts/)
+
+Upgrade your system:
+
+```bash
+sudo apt update
+sudo apt upgrade
+reboot
+```
+
+You must install ubuntu-release-upgrader-core package:
+
+```bash
+sudo apt install ubuntu-release-upgrader-core
+```
+
+Ensure the Prompt line in `/etc/update-manager/release-upgrades` is set to ‘lts‘ using the “grep” or “cat”
+
+```bash
+grep 'lts' /etc/update-manager/release-upgrades
+cat /etc/update-manager/release-upgrades
+```
+
+Opening up TCP port 1022
+
+For those using ssh-based sessions, open an additional SSH port using the ufw command, starting at port 1022. This is the default port set by the upgrade procedure as a fallback if the default SSH port dies during upgrades.
+
+```bash
+sudo /sbin/iptables -I INPUT -p tcp --dport 1022 -j ACCEPT
+
+```
+
+Finally, start the upgrade from Ubuntu 22.04 to 24.04 LTS version. Type:
+
+```bash
+sudo do-release-upgrade -d
+```
 
 # [Mount a cdrom or dvd](https://www.cyberciti.biz/faq/mounting-cdrom-in-linux/)
 
@@ -117,10 +214,10 @@ If that doesn't work you can use the [keep-presence](https://github.com/carrot69
 
 ```bash
 pip install keep-presence
-keep-presence -c
+keep-presence -c -s 10
 ```
 
-That will move the cursor one pixel in circles each 300s, if you need to move it more often use the `-s` flag.
+That will move the mouse or cursor one pixel in circles each 300s, if you need to move it more often use the `-s` flag.
 
 # [Protect the edition of a pdf with a password](https://askubuntu.com/questions/258848/is-there-a-tool-that-can-add-a-password-to-a-pdf-file)
 
@@ -303,6 +400,8 @@ To set up a systemd service as a **non-root user**, you can create a user-specif
      ```bash
      journalctl --user -u my_script.service -f
      ```
+
+     To view the logs of the last 15 mins you can append the `--since "15 minutes ago"` flag.
 
 ## If you need to use the graphical interface
 

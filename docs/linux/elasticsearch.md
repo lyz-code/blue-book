@@ -33,7 +33,6 @@ curl \
     -d' { "query": { "query_string": {"query": "test company"} }}'
 ```
 
-
 # Backup
 
 **It's better to use the `curator` tool**
@@ -206,6 +205,69 @@ curl -H 'Content-Type: application/x-ndjson' -XPOST \
 curl -XDELETE {{ url }}/{{ path_to_ddbb }}
 ```
 
+## Delete documents from all indices in an elasticsearch cluster
+
+```bash
+#!/bin/bash
+
+# This quick and dirty script will remove deleted documents from all indices in an Elasticsearch cluster.
+# It will set the expunge_deletes_allowed setting to 0%, trigger a forcemerge
+# to remove the deleted documents, and then set the setting back to the a new default 5%.
+
+# Usage: ./elasticsearch_remove_deleted.sh [ES_HOST]
+#   ES_HOST: The Elasticsearch host to connect to (default: http://localhost:9200)
+# Example: ./elasticsearch_remove_deleted.sh http://elastic:veryhardtofindpassword@localhost:9200
+
+
+# Elasticsearch configuration
+ES_HOST="${1:-http://localhost:9200}"
+DEFAULT_SETTING="5"              # Target default value (5%)
+
+# Get all indices in the cluster
+INDICES=$(curl -s -XGET "$ES_HOST/_cat/indices?h=index")
+
+# Loop through all indices
+for INDEX in $INDICES; do
+  echo "Processing index: $INDEX"
+
+  # Close the index to modify static settings
+  curl -s -XPOST "$ES_HOST/$INDEX/_close" > /dev/null
+
+  # Update expunge_deletes_allowed to 1%
+  curl -s -XPUT "$ES_HOST/$INDEX/_settings" -H 'Content-Type: application/json' -d'
+{
+    "index.merge.policy.expunge_deletes_allowed": "0"
+  }' > /dev/null
+
+  # Reopen the index
+  curl -s -XPOST "$ES_HOST/$INDEX/_open" > /dev/null
+
+  # Trigger forcemerge (async)
+  # curl -s -XPOST "$ES_HOST/$INDEX/_forcemerge?only_expunge_deletes=true&wait_for_completion=false" > /dev/null
+  echo "Forcemerge triggered for $INDEX"
+  curl -s -XPOST "$ES_HOST/$INDEX/_forcemerge?only_expunge_deletes=true" > /dev/null &
+  echo "Waiting until all forcemerge tasks are done"
+  while curl -s $ES_HOST/_cat/tasks\?v  | grep forcemerge > /dev/null ; do
+    curl -s $ES_HOST/_cat/indices | grep $INDEX
+    sleep 10
+  done
+
+  # Close the index again
+  curl -s -XPOST "$ES_HOST/$INDEX/_close" > /dev/null
+
+  # Update to the new default (5%)
+  curl -s -XPUT "$ES_HOST/$INDEX/_settings" -H 'Content-Type: application/json' -d'
+  {
+    "index.merge.policy.expunge_deletes_allowed": "'"$DEFAULT_SETTING"'"
+  }' > /dev/null
+
+  # Reopen the index
+  curl -s -XPOST "$ES_HOST/$INDEX/_open" > /dev/null
+done
+
+echo "Done! All indices updated."
+```
+
 # [Reindex an index](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/remote-reindex.html#remote-reindex-largedatasets)
 
 If you encountered errors while reindexing `source_index` to `destination_index`
@@ -278,9 +340,9 @@ for the JVM heap. The k-NN plugin allocates graphs to a portion of the remaining
 RAM. This portion’s size is determined by the circuit_breaker_limit cluster
 setting. By default, the circuit breaker limit is set at 50%.
 
-The memory required for graphs is estimated to be \`1.1 * (4 * dimension
+The memory required for graphs is estimated to be \`1.1 _ (4 _ dimension
 
-- 8 * M)\` bytes/vector.
+- 8 \* M)\` bytes/vector.
 
 To get the `dimension` and `m` use the `/index` elasticsearch endpoint. To get
 the number of vectors, use `/index/_count`. The number of vectors is the same as
@@ -372,7 +434,7 @@ If the query you're running is a KNN one, you can try:
 - Scaling up the instances: Amazon ES uses half of an instance's RAM for the
   Java heap (up to a heap size of 32 GiB). By default, KNN uses up to 50% of the
   remaining half, so an instance type with 64 GiB of RAM can accommodate 16 GiB
-  of graphs (64 * 0.5 * 0.5). Performance can suffer if graph memory usage
+  of graphs (64 _ 0.5 _ 0.5). Performance can suffer if graph memory usage
   exceeds this value.
 
 - In a less recommended approach, you can make more percentage of memory

@@ -24,9 +24,12 @@ nav:
           - diversity.md
           - Anonymous Feedback: anonymous_feedback.md
       - Feminism:
+          - feminism.md
           - Privileges: feminism/privileges.md
       - Palestine: palestine.md
       - Detección de estupas: estupas.md
+      - Conflicto: conflicto.md
+
       - Anarchism: anarchism.md
       - Memoria histórica: memoria_historica.md
       - Anti-Tourism: antitourism.md
@@ -143,6 +146,7 @@ nav:
               - Jellyfin: jellyfin.md
               - Ombi: ombi.md
               - Mediatracker: mediatracker.md
+              - Sonarr: sonarr.md
               - ffmpeg: ffmpeg.md
               - transcoding:
                   - transcoding.md
@@ -190,8 +194,10 @@ nav:
               - Monitorizar billetes de renfe: renfe.md
       - Torrent management:
           - torrents.md
-          - qBittorrent: qbittorrent.md
-          - Rtorrent: rtorrent.md
+          - Torrent clients:
+              - qBittorrent: qbittorrent.md
+              - Rtorrent: rtorrent.md
+          - Tracker manager: tracker_manager.md
           - Unpackerr: unpackerr.md
       - Life logging:
           - life_logging.md
@@ -737,6 +743,7 @@ nav:
           - Cutting Shapes: dancing/cutting_shapes_basics.md
       - Pilates: pilates.md
       - Parkour: parkour.md
+      - Calistenia: calistenia.md
       - Aerial Silk: aerial_silk.md
       - Meditation: meditation.md
       - Maker:
@@ -763,8 +770,10 @@ nav:
           - Speech to text:
               - Whisper: whisper.md
               - Speech recognition: speech_recognition.md
+          - OCR: ocr.md
           - Text to speech: text_to_speech.md
           - Coding by Voice: coding_by_voice.md
+          - Remote machine learning: remote_machine_learning.md
       - Data Analysis:
           - data_analysis.md
           - Recommender Systems: >-
@@ -779,6 +788,7 @@ nav:
       - Botany:
           - Trees: botany/trees.md
       - Math: math.md
+      - Birding: birding.md
   - Relevant content:
       - Books: books.md
       - Podcasts: podcasts.md

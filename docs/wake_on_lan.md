@@ -80,6 +80,52 @@ switch:
 $ wakeonlan -i *target_IP* *target_MAC_address*
 ```
 
+## [Testing that the packages arrive](https://superuser.com/questions/870613/listen-for-wakeonlan-request)
+
+With `nc` you can listen on an udp port. The magic packet usually is sent to port 9 via broadcast. So, the command would be:
+
+```bash
+nc -ul 9
+```
+
+Depending on the `nc` implementation, you may also need to provide the `-p` flag:
+
+```bash
+nc -ul -p 9
+```
+
+To test it use the wakeonlan command...
+
+```bash
+wakeonlan <your-ip> <your-mac>
+```
+
+...and see in the `nc` terminal the output.
+
+## Configure the wakeonlan as a cron
+
+
+On the device you want to trigger the wakeonlan add the next cron `crontab -e`
+
+```cron
+*/10 * * * * systemd-cat -t wake_on_lan wakeonlan -i <your ip> <your mac>
+```
+
+## Monitor the wakeonlan 
+
+To check that it's running you can create the next loki alert
+
+```yaml
+      - alert: WakeOnLanNotRunningError
+        expr: |
+          (count_over_time({syslog_identifier="wake_on_lan"} [1h]) or on() vector(0)) == 0
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "The cronjob that wakes on lan is not working"
+          message: 'Check the logs of {job="systemd-journal", syslog_identifier="wake_on_lan"}'
+```
 # References
 
-* [Arch wiki post](https://wiki.archlinux.org/index.php/Wake-on-LAN)
+- [Arch wiki post](https://wiki.archlinux.org/index.php/Wake-on-LAN)

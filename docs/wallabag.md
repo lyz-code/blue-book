@@ -4,6 +4,8 @@ date: 20220113
 author: Lyz
 ---
 
+NOTE: check out [karakeep](https://github.com/karakeep-app/karakeep) ([home](https://karakeep.app/)), it may be a better solution
+
 [Wallabag](https://doc.wallabag.org) is a self-hosted read-it-later application:
 it saves a web page by keeping content only. Elements like navigation or ads are
 deleted.

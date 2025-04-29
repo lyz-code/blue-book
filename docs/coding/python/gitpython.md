@@ -130,6 +130,14 @@ repo.head.reference = new_branch
 assert not repo.head.is_detached
 ```
 
+## [Checking out an existing branch](https://gitpython.readthedocs.io/en/stable/tutorial.html#modifying-references)
+
+```python
+heads = repo.heads
+develop = heads.develop
+repo.head.reference = develop
+```
+
 ## Get the latest commit of a repository
 
 ```python

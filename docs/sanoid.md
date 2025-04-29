@@ -3,6 +3,7 @@
 ```cron
 * * * * * TZ=UTC /usr/local/bin/sanoid --cron
 ```
+
 Note: Using UTC as timezone is recommend to prevent problems with daylight saving times
 
 And its `/etc/sanoid/sanoid.conf` might look something like this:
@@ -39,26 +40,28 @@ The monitorization is designed to be done with Nagios, although there is some wo
 
 What I like of `sanoid`:
 
-* It's popular
-* It has hooks to run your scripts at various stages in the lifecycle of a snapshot.
-* It also handles the process of sending the backups to other locations with `syncoid`
-* It lets you search on all changes of a given file (or folder) over all available snapshots. This is useful in case you need to recover a file or folder but don't want to rollback an entire snapshot. with `findoid` (although when I used it it gave me an error :/)
-* It's in the official repos
+- It's popular
+- It has hooks to run your scripts at various stages in the lifecycle of a snapshot.
+- It also handles the process of sending the backups to other locations with `syncoid`
+- It lets you search on all changes of a given file (or folder) over all available snapshots. This is useful in case you need to recover a file or folder but don't want to rollback an entire snapshot. with `findoid` (although when I used it it gave me an error :/)
+- It's in the official repos
 
 What I don't like:
 
-* Last release is almost 2 years ago.
-* The last commit to `master` is done a year ago.
-* It's made in Perl
+- Last release is almost 2 years ago.
+- The last commit to `master` is done a year ago.
+- It's made in Perl
 
 # Installation
 
 ## Stable version
+
 The tool is in the official repositories so:
 
 ```bash
 sudo apt-get install sanoid
 ```
+
 ## Latest version
 
 ```bash
@@ -73,11 +76,14 @@ sudo apt install ../sanoid_*_all.deb
 ```
 
 Enable sanoid timer:
+
 ```bash
 # enable and start the sanoid timer
 sudo systemctl enable --now sanoid.timer
 ```
+
 # Configuration
+
 You can find the example config file at `/usr/share/doc/sanoid/examples/sanoid.conf` and can copy it to `/etc/sanoid/sanoid.conf`
 
 ```bash
@@ -181,6 +187,7 @@ Also, the template is called `template_something` and only `something` must be u
         recursive = yes
         process_children_only = yes
 ```
+
 Also note that `post_snapshot_script` cannot be used with `syncoid` especially with `recursive = yes`. This is because there cannot be two zfs send and receive at the same time on the same dataset.
 
 `sanoid` does not wait for the script completion before continuing. This mean that should the `syncoid` process take a bit too much time, a new one will be spawned. And for reasons unknown to me yet, a new syncoid process will cancel the previous one (instead of just leaving). As some of the spawned `syncoid` will produce errors, the entire `sanoid` process will fail.
@@ -208,21 +215,21 @@ server_data/nextcloud  keylocation  file:///root/zfs_dataset_nextcloud_pass  loc
 
 server-host:$ sudo syncoid --recursive --skip-parent --sendoptions=w server_data root@192.168.122.94:backup_pool
 INFO: Sending oldest full snapshot server_data/log@autosnap_2021-06-18_18:33:42_yearly (~ 49 KB) to new target filesystem:
-17.0KiB 0:00:00 [1.79MiB/s] [=================================================>                                                                                                  ] 34%            
+17.0KiB 0:00:00 [1.79MiB/s] [=================================================>                                                                                                  ] 34%
 INFO: Updating new target filesystem with incremental server_data/log@autosnap_2021-06-18_18:33:42_yearly ... syncoid_caedrium.com_2021-06-22:10:12:55 (~ 15 KB):
-41.2KiB 0:00:00 [78.4KiB/s] [===================================================================================================================================================] 270%            
+41.2KiB 0:00:00 [78.4KiB/s] [===================================================================================================================================================] 270%
 INFO: Sending oldest full snapshot server_data/mail@autosnap_2021-06-18_18:33:42_yearly (~ 49 KB) to new target filesystem:
-17.0KiB 0:00:00 [ 921KiB/s] [=================================================>                                                                                                  ] 34%            
+17.0KiB 0:00:00 [ 921KiB/s] [=================================================>                                                                                                  ] 34%
 INFO: Updating new target filesystem with incremental server_data/mail@autosnap_2021-06-18_18:33:42_yearly ... syncoid_caedrium.com_2021-06-22:10:13:14 (~ 15 KB):
-41.2KiB 0:00:00 [49.4KiB/s] [===================================================================================================================================================] 270%            
+41.2KiB 0:00:00 [49.4KiB/s] [===================================================================================================================================================] 270%
 INFO: Sending oldest full snapshot server_data/nextcloud@autosnap_2021-06-18_18:33:42_yearly (~ 49 KB) to new target filesystem:
-17.0KiB 0:00:00 [ 870KiB/s] [=================================================>                                                                                                  ] 34%            
+17.0KiB 0:00:00 [ 870KiB/s] [=================================================>                                                                                                  ] 34%
 INFO: Updating new target filesystem with incremental server_data/nextcloud@autosnap_2021-06-18_18:33:42_yearly ... syncoid_caedrium.com_2021-06-22:10:13:42 (~ 15 KB):
-41.2KiB 0:00:00 [50.4KiB/s] [===================================================================================================================================================] 270%            
+41.2KiB 0:00:00 [50.4KiB/s] [===================================================================================================================================================] 270%
 INFO: Sending oldest full snapshot server_data/postgres@autosnap_2021-06-18_18:33:42_yearly (~ 50 KB) to new target filesystem:
-17.0KiB 0:00:00 [1.36MiB/s] [===============================================>                                                                                                    ] 33%            
+17.0KiB 0:00:00 [1.36MiB/s] [===============================================>                                                                                                    ] 33%
 INFO: Updating new target filesystem with incremental server_data/postgres@autosnap_2021-06-18_18:33:42_yearly ... syncoid_caedrium.com_2021-06-22:10:14:11 (~ 15 KB):
-41.2KiB 0:00:00 [48.9KiB/s] [===================================================================================================================================================] 270%  
+41.2KiB 0:00:00 [48.9KiB/s] [===================================================================================================================================================] 270%
 
 server-host:$ sudo scp /root/zfs_dataset_nextcloud_pass 192.168.122.94:
 ```
@@ -250,12 +257,13 @@ In this case this should work:
 ```bash
 /sbin/syncoid --recursive --force-delete --sendoptions="Rw" zpool/backups zfs-recv@10.29.3.27:zpool/backups
 ```
+
 # Monitorization
 
 You can monitor this issue with loki using the next alerts:
 
 ```yaml
-groups: 
+groups:
   - name: zfs
     rules:
       - alert: SyncoidCorruptedSnapshotSendError
@@ -272,17 +280,17 @@ groups:
           sum by (hostname) (count_over_time({job="systemd-journal", syslog_identifier="sanoid"}[1h])) or sum by (hostname) (count_over_time({job="systemd-journal"}[1h]) * 0)
         for: 0m
         labels:
-            severity: critical
+          severity: critical
         annotations:
-            summary: "Sanoid has not shown signs to be alive for the last hour at least in arva and helm"
+          summary: "Sanoid has not shown signs to be alive for the last hour at least in arva and helm"
       - alert: ErrorInSanoidLogs
         expr: |
-          count_over_time({job="systemd-journal", syslog_identifier="sanoid"} |= `ERROR` [5m]) 
+          count_over_time({job="systemd-journal", syslog_identifier="sanoid"} |= `ERROR` [5m])
         for: 1m
         labels:
-            severity: critical
+          severity: critical
         annotations:
-            summary: "Errors found on sanoid log at {{ $labels.hostname}}"
+          summary: "Errors found on sanoid log at {{ $labels.hostname}}"
       - alert: SlowSpaSyncZFSError
         expr: |
           count_over_time({job="zfs"} |~ `spa_deadman.*slow spa_sync` [10m]) > 0
@@ -295,7 +303,12 @@ groups:
 ```
 
 The `SanoidNotRunningError` alert uses a broader search that ensures that all hosts are included and multiplies it to 0 to raise the alert if none is shown for the `sanoid` service.
+
 # Troubleshooting
+
+## [ERROR: No valid lockfile found - Did a rogue process or user update or delete it?](https://github.com/jimsalterjrs/sanoid/issues/467)
+
+Usually it's because many sanoid commands are running at the same time. This is often the case if you're doing a zfs scrub as sanoid commands take longer to run.
 
 ## [Syncoid no tty present and no askpass program specified](https://sidhion.com/blog/posts/zfs-syncoid-slow/)
 
@@ -317,5 +330,5 @@ If you really want to put in the effort, you can even take a look at which `zfs`
 
 # References
 
-* [Source](https://github.com/jimsalterjrs/sanoid/)
-* [Docs](https://github.com/jimsalterjrs/sanoid/wiki)
+- [Source](https://github.com/jimsalterjrs/sanoid/)
+- [Docs](https://github.com/jimsalterjrs/sanoid/wiki)

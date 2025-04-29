@@ -36,13 +36,13 @@ To centralize the logs you can either use journald or loki directly.
 The `journald` logging driver sends container logs to the systemd journal. Log entries can be retrieved using the `journalctl` command, through use of the journal API, or using the docker logs command.
 
 In addition to the text of the log message itself, the `journald` log driver stores the following metadata in the journal with each message:
-| Field |	Description |
-| ---   |  ----  |
-| CONTAINER_ID |	The container ID truncated to 12 characters. |
-| CONTAINER_ID_FULL |	The full 64-character container ID. |
-| CONTAINER_NAME |	The container name at the time it was started. If you use docker rename to rename a container, the new name isn't reflected in the journal entries. |
-| CONTAINER_TAG, | SYSLOG_IDENTIFIER	The container tag ( log tag option documentation). |
-| CONTAINER_PARTIAL_MESSAGE |	A field that flags log integrity. Improve logging of long log lines. |
+| Field | Description |
+| --- | ---- |
+| CONTAINER_ID | The container ID truncated to 12 characters. |
+| CONTAINER_ID_FULL | The full 64-character container ID. |
+| CONTAINER_NAME | The container name at the time it was started. If you use docker rename to rename a container, the new name isn't reflected in the journal entries. |
+| CONTAINER_TAG, | SYSLOG_IDENTIFIER The container tag ( log tag option documentation). |
+| CONTAINER_PARTIAL_MESSAGE | A field that flags log integrity. Improve logging of long log lines. |
 
 To use the journald driver as the default logging driver, set the log-driver and log-opts keys to appropriate values in the `daemon.json` file, which is located in `/etc/docker/`.
 
@@ -66,7 +66,7 @@ There are many ways to send logs to loki
 
 This is the cleanest way to do it in my opinion. First configure `docker` to output the logs as json by adding to `/etc/docker/daemon.json`:
 
-```json 
+```json
 {
   "log-driver": "json-file",
   "log-opts": {
@@ -78,7 +78,7 @@ This is the cleanest way to do it in my opinion. First configure `docker` to out
 
 Then use [promtail's `docker_sd_configs`](promtail.md#scrape-docker-logs).
 
-#### Using journald 
+#### Using journald
 
 This has worked for me but the labels extracted are not that great.
 
@@ -123,6 +123,7 @@ docker plugin upgrade loki grafana/loki-docker-driver:2.9.1 --grant-all-permissi
 docker plugin enable loki
 systemctl restart docker
 ```
+
 # How to keep containers updated
 
 ## [With Renovate](renovate.md)
@@ -181,7 +182,7 @@ promising.
 ## [Logging in automatically](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin)
 
 To log in automatically without entering the password, you need to have the
-password stored in your *personal password store* (not in root's!), imagine it's
+password stored in your _personal password store_ (not in root's!), imagine it's
 in the `dockerhub` entry. Then you can use:
 
 ```bash
@@ -195,6 +196,139 @@ sudo docker run -it --entrypoint /bin/bash [docker_image]
 ```
 
 # Snippets
+
+## Limit the access of a docker on a server to the access on the docker of another server
+
+WARNING: I had issues with this path and I ended up not using docker swarm networks.
+
+If you want to restrict access to a docker (running on server 1) so that only another specific docker container running on another server (server 2) can access it. You need more than just IP-based filtering between hosts. The solution is then to:
+
+1. Create a Docker network that spans both hosts using Docker Swarm or a custom overlay network.
+
+2. **Use Docker's built-in DNS resolution** to allow specific container-to-container communication.
+
+Here's a step-by-step approach:
+
+### 1. Set up Docker Swarm (if not already done)
+
+On server 1:
+
+```bash
+docker swarm init --advertise-addr <ip of server 1>
+```
+
+This will output a command to join the swarm. Run that command on server 2.
+
+### 2. Create an overlay network
+
+```bash
+docker network create --driver overlay --attachable <name of the network>
+```
+
+#### 3. Update the docker compose on server 1
+
+Imagine for example that we want to deploy [wg-easy](wg-easy.md).
+
+```yaml
+services:
+  wg-easy:
+    image: ghcr.io/wg-easy/wg-easy:latest
+    container_name: wg-easy
+    networks:
+      - wg
+      - <name of the network> # Add the overlay network
+    volumes:
+      - wireguard:/etc/wireguard
+      - /lib/modules:/lib/modules:ro
+    ports:
+      - "51820:51820/udp"
+      # - "127.0.0.1:51821:51821/tcp" # Don't expose the http interface, it will be accessed from within the docker network
+    restart: unless-stopped
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE
+    sysctls:
+      - net.ipv4.ip_forward=1
+      - net.ipv4.conf.all.src_valid_mark=1
+      - net.ipv6.conf.all.disable_ipv6=1
+
+networks:
+  wg:
+    # Your existing network config
+  <name of the network>:
+    external: true # Reference the overlay network created above
+```
+
+### 4. On server 2, create a Docker Compose file for your client container
+
+```yaml
+services:
+  wg-client:
+    image: your-client-image
+    container_name: wg-client
+    networks:
+      - <name of the network>
+    # Other configuration for your client container
+
+networks:
+  <name of the network>:
+    external: true # Reference the same overlay network
+```
+
+### 5. Access the WireGuard interface from the client container
+
+Now, from within the client container on server 2, you can access the WireGuard interface using the container name:
+
+```
+http://wg-easy:51821
+```
+
+This approach ensures that:
+
+1. The WireGuard web interface is not exposed to the public (not even localhost on server 1)
+2. Only containers on the shared overlay network can access it
+3. The specific container on server 2 can access it using Docker's internal DNS
+
+### Testing the network is well set
+
+You may be confused if the new network is not shown on server 2 when running `docker network ls` but that's normal. Server 2 is a swarm worker node. The issue with not seeing the overlay network on server 2 is actually expected behavior - worker nodes cannot list or manage networks directly. However, even though you can't see them, containers on the server 2 can still connect to the overlay network when properly configured.
+
+To see that the swarm is well set you can use `docker node ls` on server 1 (you'll see an error on server 2 as it's a worker node)
+
+### Weird network issues with swarm overlays
+
+I've seen cases where after a server reboot you need to remove the overlay network from the docker compose and then add it again.
+
+After many hours of debugging I came with the patch of removing the overlay network from the docker-compose and attaching it with the systemd service
+
+```
+[Unit]
+Description=wg-easy
+Requires=docker.service
+After=docker.service
+
+[Service]
+Restart=always
+User=root
+Group=docker
+WorkingDirectory=/data/apps/wg-easy
+# Shutdown container (if running) when unit is started
+TimeoutStartSec=100
+RestartSec=2s
+# Start container when unit is started
+ExecStart=/usr/bin/docker compose -f docker-compose.yaml up
+
+# Connect network after container starts
+ExecStartPost=/bin/bash -c '\
+    sleep 30; \
+    /usr/bin/docker network connect wg-easy wg-easy; \
+'
+# Stop container when unit is stopped
+ExecStop=/usr/bin/docker compose -f docker-compose.yaml down
+
+[Install]
+WantedBy=multi-user.target
+```
 
 ## [Add healthcheck to your dockers](https://www.howtogeek.com/devops/how-and-why-to-add-health-checks-to-your-docker-containers/)
 
@@ -213,7 +347,7 @@ In docker-compose you can write the healthchecks like the next snippet:
 
 ```yaml
 ---
-version: '3.4'
+version: "3.4"
 
 services:
   jellyfin:
@@ -229,7 +363,6 @@ services:
 ```
 
 ## [List the dockers of a registry](https://stackoverflow.com/questions/31251356/how-to-get-a-list-of-images-on-docker-registry-v2)
-
 
 List all repositories (effectively images):
 
@@ -287,64 +420,63 @@ You can connect services defined across multiple docker-compose.yml files.
 
 In order to do this you’ll need to:
 
-* Create an external network with `docker network create <network name>`
-* In each of your `docker-compose.yml` configure the default network to use your
-    externally created network with the networks top-level key.
-* You can use either the service name or container name to connect between containers.
+- Create an external network with `docker network create <network name>`
+- In each of your `docker-compose.yml` configure the default network to use your
+  externally created network with the networks top-level key.
+- You can use either the service name or container name to connect between containers.
 
 Let's do it with an example:
 
-* Creating the network
+- Creating the network
 
-    ```bash
-    $ docker network create external-example
-    2af4d92c2054e9deb86edaea8bb55ecb74f84a62aec7614c9f09fee386f248a6
-    ```
+  ```bash
+  $ docker network create external-example
+  2af4d92c2054e9deb86edaea8bb55ecb74f84a62aec7614c9f09fee386f248a6
+  ```
 
-* Create the first docker-compose file
+- Create the first docker-compose file
 
-    ```yaml
-    version: '3'
-    services:
-      service1:
-        image: busybox
-        command: sleep infinity
+  ```yaml
+  version: "3"
+  services:
+    service1:
+      image: busybox
+      command: sleep infinity
 
-    networks:
-      default:
-        external:
-          name: external-example
-    ```
+  networks:
+    default:
+      external:
+        name: external-example
+  ```
 
-* Bring the service up
+- Bring the service up
 
-    ```bash
-    $ docker-compose up -d
-    Creating compose1_service1_1 ... done
-    ```
+  ```bash
+  $ docker-compose up -d
+  Creating compose1_service1_1 ... done
+  ```
 
+- Create the second docker-compose file with network configured
 
-* Create the second docker-compose file with network configured
+  ```yaml
+  version: "3"
+  services:
+    service2:
+      image: busybox
+      command: sleep infinity
 
-    ```yaml
-    version: '3'
-    services:
-      service2:
-        image: busybox
-        command: sleep infinity
+  networks:
+    default:
+      external:
+        name: external-example
+  ```
 
-    networks:
-      default:
-        external:
-          name: external-example
-    ```
+- Bring the service up
 
-* Bring the service up
-
-    ```bash
-    $ docker-compose up -d
-    Creating compose2_service2_1 ... done
-    ```
+  ```bash
+  $ docker-compose up -d
+  Creating compose2_service2_1 ... done
+  ```
 
 After running `docker-compose up -d` on both docker-compose.yml files, we see
 that no new networks were created.
@@ -409,22 +541,25 @@ ADD ./path/to/directory /path/to/destination
 ```
 ENV PATH="${PATH}:/opt/gtk/bin"
 ```
+
 # Monitorization
 
-You can [configure Docker to export prometheus metrics](https://docs.docker.com/engine/daemon/prometheus/), but they are not very useful. 
+You can [configure Docker to export prometheus metrics](https://docs.docker.com/engine/daemon/prometheus/), but they are not very useful.
 
 ## Using [cAdvisor](https://github.com/google/cadvisor)
+
 cAdvisor (Container Advisor) provides container users an understanding of the resource usage and performance characteristics of their running containers. It is a running daemon that collects, aggregates, processes, and exports information about running containers. Specifically, for each container it keeps resource isolation parameters, historical resource usage, histograms of complete historical resource usage and network statistics. This data is exported by container and machine-wide.
 
 ### References
+
 - [Source](https://github.com/google/cadvisor?tab=readme-ov-file)
 - [Docs](https://github.com/google/cadvisor/tree/master/docs)
 
 ## Monitor continuously restarting dockers
+
 Sometimes dockers are stuck in a never ending loop of crash and restart. The official docker metrics don't help here, and even though [in the past it existed a `container_restart_count`](https://github.com/google/cadvisor/issues/1312) (with a pretty issue number btw) for cadvisor, I've tried activating [all metrics](https://github.com/google/cadvisor/blob/master/docs/runtime_options.md#metrics) and it still doesn't show. I've opened [an issue](https://github.com/google/cadvisor/issues/3584) to see if I can activate it
+
 # Troubleshooting
-
-
 
 If you are using a VPN and docker, you're going to have a hard time.
 
@@ -513,24 +648,24 @@ wget $url \
 ```
 
 Another tricky issue is that even if you use a non-root user who's part of the
-`docker` group, the script is not aware of that, so it will *look in the
-password store of root* instead of the user's. This means that additionally to
+`docker` group, the script is not aware of that, so it will _look in the
+password store of root_ instead of the user's. This means that additionally to
 your own, you need to create a new password store for root. Follow the next
 steps with the root user:
 
-* Create the password with `gpg --full-gen`, and copy the key id. Use a non
-    empty password, otherwise you are getting the same security as with the
-    password in cleartext.
-* Initialize the password store `pass init gpg_id`, changing `gpg_id` for the
-    one of the last step.
-* Create the *empty* `docker-credential-helpers/docker-pass-initialized-check`
-    entry:
+- Create the password with `gpg --full-gen`, and copy the key id. Use a non
+  empty password, otherwise you are getting the same security as with the
+  password in cleartext.
+- Initialize the password store `pass init gpg_id`, changing `gpg_id` for the
+  one of the last step.
+- Create the _empty_ `docker-credential-helpers/docker-pass-initialized-check`
+  entry:
 
-    ```bash
-    pass insert docker-credential-helpers/docker-pass-initialized-check
-    ```
+  ```bash
+  pass insert docker-credential-helpers/docker-pass-initialized-check
+  ```
 
-    And press enter twice.
+  And press enter twice.
 
 Finally we need to specify in the root's docker configuration that we want to
 use the `pass` credential storage.
