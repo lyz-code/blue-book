@@ -566,7 +566,7 @@ files = [
 
 [[package]]
 name = "mkdocs-git-revision-date-localized-plugin"
-version = "1.4.5"
+version = "1.4.6"
 requires_python = ">=3.8"
 summary = "Mkdocs plugin that enables displaying the localized date of the last git modification of a markdown file."
 dependencies = [
@@ -576,13 +576,13 @@ dependencies = [
     "pytz>=2025.1",
 ]
 files = [
-    {file = "mkdocs_git_revision_date_localized_plugin-1.4.5-py3-none-any.whl", hash = "sha256:395ae0b9eec565c78a76fffc938b70f52774bf2971245482d31aba47018c5fa9"},
-    {file = "mkdocs_git_revision_date_localized_plugin-1.4.5.tar.gz", hash = "sha256:9e37f1343d314c9cd8f9cbbf117c4bdc1d2d24a0653c5bbd7059d072f2cd0972"},
+    {file = "mkdocs_git_revision_date_localized_plugin-1.4.6-py3-none-any.whl", hash = "sha256:d36e454db0904553274bc3a51e0b5f06d6c03dca946779fca8f905a3b5148f47"},
+    {file = "mkdocs_git_revision_date_localized_plugin-1.4.6.tar.gz", hash = "sha256:a09f70e45d5824f89d9f45b39c0ab501ad030a3ff54bfdc6e8327e7b402d9462"},
 ]
 
 [[package]]
 name = "mkdocs-material"
-version = "9.6.12"
+version = "9.6.14"
 requires_python = ">=3.8"
 summary = "Documentation that simply works"
 dependencies = [
@@ -599,8 +599,8 @@ dependencies = [
     "requests~=2.26",
 ]
 files = [
-    {file = "mkdocs_material-9.6.12-py3-none-any.whl", hash = "sha256:92b4fbdc329e4febc267ca6e2c51e8501fa97b2225c5f4deb4d4e43550f8e61e"},
-    {file = "mkdocs_material-9.6.12.tar.gz", hash = "sha256:add6a6337b29f9ea7912cb1efc661de2c369060b040eb5119855d794ea85b473"},
+    {file = "mkdocs_material-9.6.14-py3-none-any.whl", hash = "sha256:3b9cee6d3688551bf7a8e8f41afda97a3c39a12f0325436d76c86706114b721b"},
+    {file = "mkdocs_material-9.6.14.tar.gz", hash = "sha256:39d795e90dce6b531387c255bd07e866e027828b7346d3eba5ac3de265053754"},
 ]
 
 [[package]]
