@@ -90,6 +90,7 @@ Also note that this option can be combined with other nested settings, such as d
 - [config - Renovate: Combine all updates to one branch/PR - Stack Overflow](https://stackoverflow.com/questions/66471226/renovate-combine-all-updates-to-one-branch-pr)
 -
 
+## Limit the number of jobs
 # Behind the scenes
 
 ## How Renovate updates a package file

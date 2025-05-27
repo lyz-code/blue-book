@@ -233,7 +233,11 @@ data "authentik_flow" "default-provider-invalidation-flow" {
 
 ```
 
-### [Split tunneling](https://github.com/wg-easy/wg-easy/pull/737)
+## [With ansible](https://github.com/wg-easy/wg-easy/wiki/Using-WireGuard-Easy-with-Ansible)
+
+# Configuration
+
+## [Split tunneling](https://github.com/wg-easy/wg-easy/pull/737)
 
 If you only want to route certain ips through the vpn you can use the AllowedIPs wireguard configuration. You can set them in the `WG_ALLOWED_IPS` docker compose environment variable
 
@@ -243,7 +247,37 @@ WG_ALLOWED_IPS=1.1.1.1,172.27.1.0/16
 
 It's important to keep the DNS inside the allowed ips.
 
-## [With ansible](https://github.com/wg-easy/wg-easy/wiki/Using-WireGuard-Easy-with-Ansible)
+Keep in mind though that the `WG_ALLOWED_IPS` only sets the routes on the client, it does not limit the traffic at server level. For example, if you set `172.30.1.0/24` as the allowed ips, but the client changes it to `172.30.0.0/16` it will be able to access for example `172.30.2.1`. The suggested way to prevent this behavior is to add the kill switch in the Pre and Post hooks (`WG_POST_UP` and `WG_POST_DOWN`)
+
+## [Restrict Access to Networks with iptables](https://github.com/wg-easy/wg-easy/wiki/Restrict-Access-to-Networks-with-iptables)
+
+If you need to restrict many networks you can use [this allowed ips calculator](https://www.procustodibus.com/blog/2021/03/wireguard-allowedips-calculator/)
+
+## [Kill switch](https://airvpn.org/forums/topic/50601-kill-switch-settings-for-wireguard-on-ubuntu-20/)
+
+## Monitorization
+
+If you want to use the prometheus metrics [you need to use a version greater than 14](https://github.com/wg-easy/wg-easy/issues/1373), as `15` is [not yet released](https://github.com/wg-easy/wg-easy/pkgs/container/wg-easy/versions) (as of 2025-03-20) I'm using `nightly`.
+
+You can enable them with the environment variable `ENABLE_PROMETHEUS_METRICS=true`
+
+### Scrape the metrics
+
+Add to your scrape config the required information
+
+```yaml
+  - job_name: vpn-admin
+    metrics_path: /metrics
+    static_configs:
+      - targets:
+          - {your vpn private ip}:{your vpn exporter port}
+```
+
+### Create the monitor client
+
+To make sure that the vpn is working we'll add a client that is always connected. To do so we'll use [linuxserver's wireguard docker](https://github.com/linuxserver/docker-wireguard)
+### Create the alerts
+
 
 # References
 

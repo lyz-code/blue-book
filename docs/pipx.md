@@ -62,6 +62,14 @@ It uses the pip flag `upgrade-strategy` which can be one of:
 
 # Troubleshooting
 
+## [Installing all the binaries the application installs](https://github.com/pypa/pipx/issues/20)
+
+If the package installs more than one binary (for example `ansible`), you need to use the `--install-deps` flag
+
+```bash
+pipx install --install-deps ansible
+```
+
 ## [Upgrading python version of all your pipx packages](https://github.com/pypa/pipx/issues/687)
 
 If you upgrade the main python version and remove the old one (a dist upgrade) then you won't be able to use the installed packages.

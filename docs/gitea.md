@@ -343,7 +343,7 @@ It's prepared for:
 
 ### Things that are not ready yet
 
-- Kubernetes act runner
+- Kubernetes act runner, there is a [stale issue](https://gitea.com/gitea/act_runner/issues/264) and [an ugly implementation](https://gitea.com/gitea/act_runner/src/branch/main/examples/kubernetes) to run docker in docker inside the kubernetes node.
 - [Badge for the CI jobs](https://github.com/go-gitea/gitea/issues/23688)
 
 ### Build a docker within a gitea action

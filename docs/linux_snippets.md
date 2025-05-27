@@ -4,6 +4,30 @@ date: 20200826
 author: Lyz
 ---
 
+# [Check the file encoding](https://stackoverflow.com/questions/805418/how-can-i-find-encoding-of-a-file-via-a-script-on-linux)
+
+```bash
+file -i <path_to_file>
+```
+
+# [Simulate the environment of a cron job](https://stackoverflow.com/questions/2135478/how-to-simulate-the-environment-cron-executes-a-script-with)
+
+Add this to your crontab (temporarily):
+
+```cron
+* * * * * env > ~/cronenv
+```
+
+After it runs, do this:
+
+```bash
+env - `cat ~/cronenv` /bin/sh
+```
+
+This assumes that your cron runs /bin/sh, which is the default regardless of the user's default shell.
+
+Footnote: if env contains more advanced config, eg `PS1=$(__git_ps1 " (%s)")$`, it will error cryptically `env: ": No such file or directory`.
+
 # Use lftp
 
 Connect with:
@@ -13,6 +37,7 @@ lftp -p <port> user@host
 ```
 
 Navigate with `ls` and `cd`. Get with `mget` for multiple things
+
 # [Difference between apt-get upgrate and apt-get full-upgrade](https://superuser.com/questions/1653079/whats-the-difference-between-apt-full-upgrade-and-apt-upgrade-when-this-site-sa)
 
 The difference between `upgrade` and `full-upgrade` is that the later will remove the installed packages if that is needed to upgrade the whole system. Be extra careful when using this command

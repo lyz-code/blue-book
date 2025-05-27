@@ -200,6 +200,7 @@ Build new houses when you're 2 of population down to the limit
 
 - [Hindustanis vs Portuguese | Arabia | Hera vs Yo](https://www.youtube.com/watch?v=iZ7eWLLbh34)
 - [Dravidians vs Turks | African Clearing | Hera vs Yo](https://www.youtube.com/watch?v=tZyVLDwBfd4)
+- [Teutons vs Portuguese | 1v1 Arabia | Hera vs MbL](https://piped.video/watch?v=XECeghut_5U&t=0)
 
 # References:
 

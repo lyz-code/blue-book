@@ -197,6 +197,42 @@ sudo docker run -it --entrypoint /bin/bash [docker_image]
 
 # Snippets
 
+## Push an image with different architectures after building it in different instances
+
+To push both an **ARM** and **AMD** Docker image to **Docker Hub**, from two separate machines (e.g., an ARM-based and an AMD-based instance), follow these steps:
+
+### Tag the image correctly on each architecture
+
+On **each instance**, build your image as normal, but **tag it with a platform-specific suffix**, like `myuser/myimage:arm64` or `myuser/myimage:amd64`.
+
+#### On the ARM machine:
+
+```bash
+docker build -t myuser/myimage:arm64 .
+docker push myuser/myimage:arm64
+```
+
+#### On the AMD machine:
+
+```bash
+docker build -t myuser/myimage:amd64 .
+docker push myuser/myimage:amd64
+```
+
+### Create a multi-architecture manifest (on one machine)
+
+If you want users to pull the image without worrying about the platform (e.g., just `docker pull myuser/myimage:latest`), you can create and push a **manifest list** that combines the two:
+
+**Choose either machine to run this (after both images are pushed):**
+
+```bash
+docker manifest create myuser/myimage:latest \
+    --amend myuser/myimage:amd64 \
+    --amend myuser/myimage:arm64
+
+docker manifest push myuser/myimage:latest
+```
+
 ## Limit the access of a docker on a server to the access on the docker of another server
 
 WARNING: I had issues with this path and I ended up not using docker swarm networks.

@@ -19,6 +19,12 @@ TBD
 
 # AWS snippets
 
+## [Remove the public IP of an ec2 instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/managing-network-interface-ip-addresses.html)
+- Navigate to the network interfaces of the instance
+- Click on the one that contains the public IP
+- Actions/Manage IP addresses
+- Click on the Interface to unfold the configuration
+- Click on Auto-assign public IP
 ## [Get the role used by the instance](https://stackoverflow.com/questions/47313778/find-role-being-used-on-server-from-aws-cli)
 ```bash
 aws sts get-caller-identity
