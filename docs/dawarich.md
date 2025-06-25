@@ -12,7 +12,16 @@ Go to your account and change the default account and password.
 
 Be careful not to upgrade with watchtower, the devs say that it's not safe yet to do so.
 
+# Usage
+
+## How to see the coordinates of a point
+
+You need to enable the "Points" layer, which is on the layers menu at the top right of the map.
+
+Then if you click on one point you can get the coordinates
+
 # Not there yet
+
 - [Immich photos are not well shown](https://github.com/Freika/dawarich/issues/1071): This happens when opening the map, or selecting one of the buttons "Yesterday", "Last 7 Days" or "Last month". If you select the same date range through the date-pickers, the photos are shown.
 - [Support import of OSMand+ favourites gpx](https://github.com/Freika/dawarich/issues/1261)
 - [OpenID/Oauth support](https://github.com/Freika/dawarich/issues/65)

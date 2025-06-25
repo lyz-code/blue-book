@@ -1,8 +1,15 @@
-
 # Collaborating document creation
 
 - https://pad.riseup.net
 - https://rustpad.io . [Can be self hosted](https://github.com/ekzhang/rustpad)
+
+# Collaborating event date picker
+
+- https://crab.fit/
+
+# Collaborating book libraries
+
+- https://inventaire.io/welcome
 
 # Collaborating through terminals
 

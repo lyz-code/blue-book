@@ -199,7 +199,14 @@ sudo docker run -it --entrypoint /bin/bash [docker_image]
 
 ## Push an image with different architectures after building it in different instances
 
-To push both an **ARM** and **AMD** Docker image to **Docker Hub**, from two separate machines (e.g., an ARM-based and an AMD-based instance), follow these steps:
+To push both an **ARM** and **AMD** Docker image to a Docker registry, from two separate machines (e.g., an ARM-based and an AMD-based instance), you have two options:
+
+- Run two different pipelines and then build a manifest
+- Use [two buildx remotes](https://docs.docker.com/build/ci/github-actions/configure-builder/#append-additional-nodes-to-the-builder)
+
+Follow the next steps for the first option.
+
+QEMU was discarted because it took too long to build the images.
 
 ### Tag the image correctly on each architecture
 
@@ -232,6 +239,8 @@ docker manifest create myuser/myimage:latest \
 
 docker manifest push myuser/myimage:latest
 ```
+
+### Doing it in the CI
 
 ## Limit the access of a docker on a server to the access on the docker of another server
 

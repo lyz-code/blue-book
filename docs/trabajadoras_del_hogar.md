@@ -107,3 +107,7 @@ Senda de cuidados publica su [tabla salarial](https://www.sendadecuidados.org/cu
   Dos de cada tres empleadas del hogar internas trabajan más del máximo de 60 horas semanales ](https://www.elsaltodiario.com/trabajo-domestico/empleadas-hogar-internas-trabajan-maximo-60-horas-semanales)
 - [La justicia europea tira de las orejas a España y obliga a registrar la jornada de las trabajadoras del hogar](https://www.elsaltodiario.com/trabajo-domestico/justicia-europea-tira-orejas-espana-obliga-registrar-jornada-trabajadoras-del-hogar)
 - [Registrar la jornada laboral en el empleo de hogar](https://www.elsaltodiario.com/trabajo-domestico/registrar-jornada-laboral-empleo-hogar)
+
+## Libros
+
+- [Fámulas de Cristina Sánchez-Andrade](https://www.anagrama-ed.es/libro/nuevos-cuadernos-anagrama/famulas/9788433916624/NCA_47): La voz silenciada de las criadas. Un libro que ofrece testimonios directos de una realidad a un tiempo cotidiana y desconocida. Recomendado por punzadas sonoras en el episodio [Los cuatro elementos: Fuego](https://traffic.megaphone.fm/PMSL4117603101.mp3?updated=1745419656).

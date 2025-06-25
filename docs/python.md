@@ -35,10 +35,8 @@ apt-get install python
 * If you want to change the machine default `python3` interpreter you can:
   ```bash
   sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.8 8
-  sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.10 10
+  sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.11 11
   ```
-    ```
-
 # [Generators](https://realpython.com/introduction-to-python-generators/)
 
 Generator functions are a special kind of function that return a lazy iterator.

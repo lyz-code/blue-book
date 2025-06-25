@@ -4,6 +4,8 @@ date: 20211130
 author: Lyz
 ---
 
+NOTE: [`uv` looks to be the most promising now](https://www.bitecode.dev/p/a-year-of-uv-pros-cons-and-should)
+
 Managing Python libraries is a nightmare for most developers, it has driven me
 crazy trying to keep all the requirements of the [projects](projects.md)
 I maintain updated.

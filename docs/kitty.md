@@ -38,7 +38,6 @@ alias icat="kitty +kitten icat"
 
 ![ ](https://paul-nameless.com/gif/icat.gif)
 
-
 ## [Colors](https://sw.kovidgoyal.net/kitty/kittens/themes/)
 
 The themes kitten allows you to easily change color themes, from a collection of
@@ -146,9 +145,9 @@ If you're thinking of adding a new font, you should take a look at the [nerd fon
 
 For example you can get the [`FiraCode Nerd Font`](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/FiraCode.zip)
 
-* Add your fonts to the `~/.local/share/fonts` directory
-* Check they are available when you run `kitty +list-fonts`
-* Add them to your config:
+- Add your fonts to the `~/.local/share/fonts` directory
+- Check they are available when you run `kitty +list-fonts`
+- Add them to your config:
 
   ```
   font_family      Operator Mono Book
@@ -159,8 +158,15 @@ For example you can get the [`FiraCode Nerd Font`](https://github.com/ryanoasis/
 
 # Troubleshooting
 
-## [Scrollback when ssh into a machine doesn't work](https://sw.kovidgoyal.net/kitty/faq/#i-get-errors-about-the-terminal-being-unknown-or-opening-the-terminal-failing-when-sshing-into-a-different-computer)
+## [Error opening terminal: xterm-kitty.](https://github.com/kovidgoyal/kitty/issues/1613)
 
+The not so good solution but that solves the issue is
+
+```bash
+export TERM=xterm
+```
+
+## [Scrollback when ssh into a machine doesn't work](https://sw.kovidgoyal.net/kitty/faq/#i-get-errors-about-the-terminal-being-unknown-or-opening-the-terminal-failing-when-sshing-into-a-different-computer)
 
 This happens because the kitty terminfo files are not available on the server.
 You can ssh in using the following command which will automatically copy the
@@ -193,10 +199,10 @@ sudo copy -r ~/.terminfo /root
 
 # Reasons to migrate from urxvt to kitty
 
-* It doesn't fuck up your terminal colors.
-* You can use [peek](peek.md) to record your screen.
-* Easier to extend.
+- It doesn't fuck up your terminal colors.
+- You can use [peek](peek.md) to record your screen.
+- Easier to extend.
 
 # References
 
-* [Homepage](https://sw.kovidgoyal.net/)
+- [Homepage](https://sw.kovidgoyal.net/)

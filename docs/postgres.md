@@ -8,7 +8,6 @@ psql dbname < dumpfile
 ```
 
 Where `dumpfile` is the file output by the `pg_dump` command. The database `dbname` will not be created by this command, so you must create it yourself from `template0` before executing `psql` (e.g., with `createdb -T template0 dbname`). `psql` supports options similar to `pg_dump` for specifying the database server to connect to and the user name to use. See [the `psql` reference page](https://www.postgresql.org/docs/current/app-psql.html) for more information. Non-text file dumps are restored using the `pg_restore` utility.
-
 ## [Store expensive calculation values in a postgresql database](https://stackoverflow.com/questions/57776620/materialized-view-vs-trigger-for-aggregating-data)
 
 First you need to think if you actually need to store the calculations or you can do them on the fly with [views](#views). If views are too slow you can either use [materialized views](#materialized-views) or [triggers](#triggers) over calculation tables. 
@@ -19,7 +18,7 @@ Materialized views are simpler to maintain but have [some disadvantages](#disadv
 drop schema public cascade;
 create schema public;
 ```
-
+## [Upgrade postgres]()
 # Features
 
 ## [Views](https://www.postgresqltutorial.com/postgresql-views/)

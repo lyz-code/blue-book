@@ -5,7 +5,7 @@ site_author: Lyz
 site_url: https://lyz-code.github.io/blue-book
 nav:
   - Introduction: index.md
-  - Activism:
+  - Militancy:
       - activism.md
       - Antifascism:
           - antifascism.md
@@ -29,9 +29,10 @@ nav:
       - Palestine: palestine.md
       - Detección de estupas: estupas.md
       - Conflicto: conflicto.md
-
       - Anarchism: anarchism.md
-      - Memoria histórica: memoria_historica.md
+      - Memoria histórica:
+          - memoria_historica.md
+          - Conflicto vasco: conflicto_vasco.md
       - Anti-Tourism: antitourism.md
       - Mentoring: mentoring.md
       - Free Knowledge: free_knowledge.md
@@ -45,6 +46,7 @@ nav:
           - conference_organisation.md
           - pretalx: pretalx.md
       - Luddites: luddites.md
+      - OSINT: osint.md
   - Life navigation:
       - life_management.md
       - Time navigation:
@@ -313,6 +315,7 @@ nav:
                       - sh: python_sh.md
                       - Talkey: talkey.md
                       - Tenacity: tenacity.md
+                      - Tensorflow: tensorflow.md
                       - TinyDB: coding/python/tinydb.md
                       - Torch: torch.md
                       - Typer: typer.md
@@ -575,6 +578,7 @@ nav:
               - copier: copier.md
               - cookiecutter: linux/cookiecutter.md
               - cruft: linux/cruft.md
+              - unison: unison.md
               - renovate: renovate.md
               - letsencrypt: letsencrypt.md
           - Threat modeling:
@@ -820,6 +824,7 @@ nav:
       - Board Games:
           - board_games.md
           - Regicide: regicide.md
+          - Parchís: parchis.md
       - Monologues: monologues.md
   - Projects: projects.md
   - Contact: contact.md

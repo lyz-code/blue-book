@@ -512,10 +512,10 @@ If `wg-easy` doesn't work, I'd look at the next projects:
 - [easy-wg-quick](https://github.com/burghardt/easy-wg-quick)
 - [wireguard-ui](https://github.com/ngoduykhanh/wireguard-ui)
 - [wg-tool](https://github.com/gene-git/wg_tool) and [wg-client](https://github.com/gene-git/wg-client)
+
 # Monitor wireguard
 
-- https://www.procustodibus.com/blog/2021/01/how-to-monitor-wireguard-activity/
-- https://techoverflow.net/2021/12/31/how-to-check-if-wireguard-client-peer-is-connected/
+See [the wg-easy page](wg-easy.md#monitoring).
 
 # [Configure the kill switch](https://git.zx2c4.com/wireguard-tools/about/src/man/wg-quick.8)
 
@@ -561,6 +561,7 @@ Rosenpass is free and open-source software based on the latest research in the f
 ```bash
 sudo apt purge resolvconf
 ```
+
 # References
 
 - [Home](https://www.wireguard.com/)

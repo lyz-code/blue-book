@@ -899,6 +899,13 @@ This export can be triggered via the API or the Web UI by clicking the download 
 
 I've skimmed through the prometheus metrics exposed at `:9300/metrics` in the core and they aren't that useful :(
 
+# Upgrading
+
+You can no longer use the [latest tag](https://docs.goauthentik.io/docs/releases/2025.2) as it can lead to unintentional updates and potentially broken setups.
+
+The tag will not be removed, however it will also not be updated past `2025.2`.
+
+They strongly recommend the use of a specific version tag for authentik instances' container images like `:2025.2`.
 # [Using the API](https://docs.goauthentik.io/docs/developer-docs/api/)
 
 There is a [python library](https://pypi.org/project/authentik-client/)

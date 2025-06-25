@@ -367,7 +367,7 @@ The first step is to add a notice in Aleph's banner section informing the users
 that there's going to be a downtime.
 
 Before you upgrade, check the  to make sure you understand the [latest
-release](https://docs.alephdata.org/developers/changelog)
+release](https://github.com/alephdata/aleph/releases/)
 and know about new options and features that have been added.
 
 In production mode, make sure you perform a backup of the main database and the

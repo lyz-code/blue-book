@@ -4,6 +4,9 @@ date: 20200826
 author: Lyz
 ---
 
+# List the files of a deb package
+
+
 # [Check the file encoding](https://stackoverflow.com/questions/805418/how-can-i-find-encoding-of-a-file-via-a-script-on-linux)
 
 ```bash

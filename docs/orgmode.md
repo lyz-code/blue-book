@@ -1396,9 +1396,9 @@ An alternative would be to have a `.mobile` directory at the orgmode repository 
 
 - If you have the file in the org repo and do the soft link in the mobile directory, syncthing won't know what to do with it
 - If you have the file in the mobile repo and do a hard link in the repository it wont work because syncthing overwrites the file when updating from a remote thus breaking the hard links
-- If you have the file in the mobile repo and do the soft link in the repository, nvim-orgmode sometimes behaves weirdly with the symlinks, try moving the files and recreating the links to a different path. For example I discovered that all links that pointed to a directory which contained the `nas` string didn't work, the rest did. Super weird.
+- If you have the file in the mobile repo and do the soft link in the repository, nvim-orgmode sometimes behaves weirdly with the symlinks, try moving the files and recreating the links to a different path. For example I discovered that all links that pointed to a directory which contained the `nas` string didn't work, the rest did. Super weird. It also makes the refile experience worse as it adds part of the root directory path into the prompt.
 
-If we use this workflow, we'd need to manually create the links each time a new file is created that needs to be linked.
+I'm then using [unison](unison.md) to keep the files in sync between my orgmode repository and the syncthing directory.
 
 This is also a good solution for the different authorization syncs as you can only have one syncthing directory per Linux directory so if you want different authorization for different devices you won't be able to do this unless you create a specific directory for that share. For example if I want to have only one file shared to the tablet I'd need a tablet directory.
 

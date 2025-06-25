@@ -32,6 +32,14 @@ programs:
 * [Helm-git](helm_git.md) is used to install helm charts directly from Git
     repositories.
 
+# Usage
+
+## Get the values of a chart
+
+```bash
+helm show values zammad --repo https://zammad.github.io/zammad-helm --version 14.0.1
+```
+
 # Troubleshooting
 
 ## [UPGRADE FAILED: another operation (install/upgrade/rollback) is in progress](https://stackoverflow.com/questions/71599858/upgrade-failed-another-operation-install-upgrade-rollback-is-in-progress)

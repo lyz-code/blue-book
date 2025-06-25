@@ -275,9 +275,259 @@ Add to your scrape config the required information
 
 ### Create the monitor client
 
-To make sure that the vpn is working we'll add a client that is always connected. To do so we'll use [linuxserver's wireguard docker](https://github.com/linuxserver/docker-wireguard)
+To monitor wireguard you can start a wireguard client in a docker and do periodic checks that the tunnel is up and working (by trying to access an ip:port that can only be accessible from within the VPN). To do so we'll use [linuxserver's wireguard docker](https://github.com/linuxserver/docker-wireguard)
+
+We'll need the next files:
+
+`docker-compose.yaml`
+
+```yaml
+---
+services:
+  vpn-monitor:
+    image: lscr.io/linuxserver/wireguard:latest
+    container_name: vpn-monitor
+    cap_add:
+      - NET_ADMIN
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - SERVERURL=your-wireguard-server-ip
+      - SERVERPORT=your-wireguard-server-port
+    volumes:
+      - config:/config
+      - services:/custom-services.d:ro
+    restart: unless-stopped
+
+volumes:
+  config:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /data/vpn-monitor/config
+  services:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /data/vpn-monitor/services
+```
+
+`services/entrypoint.sh`: owned by `root` and permissions `755`
+
+```bash
+#!/bin/bash
+HOST=XXX.XXX.XXX.XXX   # Change to the internal IP you're going to use to check the tunnel is up
+PORT=XXX               # Change to the port of the internal service
+WG_INTERFACE="monitor" # Change to your WireGuard interface name
+CHECK_INTERVAL=300     # Check every 5 minutes (300 seconds)
+
+echo "Starting entrypoint script..."
+
+# Function to check if WireGuard is up
+is_wireguard_up() {
+  ip link show $WG_INTERFACE >/dev/null 2>&1 &&
+    ip link show $WG_INTERFACE | grep -q "UP"
+}
+
+# Function to check http port
+check_http() {
+  timeout 5 bash -c "echo >/dev/tcp/$HOST/$PORT" 2>/dev/null
+  if [ $? -eq 0 ]; then
+    echo "$(date) - $HOST:$PORT port is open"
+  else
+    echo "$(date) - $HOST:$PORT port is closed"
+  fi
+}
+
+check_ssh() {
+  # Check if nmap is installed
+  if ! command -v nmap >/dev/null 2>&1; then
+    echo "$(date) - nmap not found, installing..."
+    apk add --no-cache nmap >/dev/null 2>&1
+    if [ $? -ne 0 ]; then
+      echo "$(date) - Failed to install nmap"
+      return 1
+    fi
+    echo "$(date) - nmap installed successfully"
+  fi
+
+  # Use nmap to check if port is open
+  nmap -p $PORT --open -T4 $HOST 2>/dev/null | grep -q "open"
+  if [ $? -eq 0 ]; then
+    echo "$(date) - $HOST:$PORT port is open"
+  else
+    echo "$(date) - $HOST:$PORT port is closed"
+  fi
+}
+# Check if WireGuard is connected
+check_wireguard() {
+  # Simple ping test through the tunnel
+  ping -c 1 -W 2 $HOST >/dev/null 2>&1
+  return $?
+}
+# Wait for WireGuard to be ready
+echo "Waiting for WireGuard tunnel to become available..."
+while ! is_wireguard_up; do
+  echo "WireGuard tunnel not yet ready, waiting..."
+  sleep 5
+done
+
+echo "WireGuard tunnel is up! Starting http check service..."
+
+# Start periodic checking in the background
+while true; do
+  # If you're checking ssh use check_ssh instead of check_http to avoid errors in the ssh daemon logs
+  if check_wireguard && check_http; then
+    echo "$(date) - WireGuard tunnel is working"
+  else
+    echo "$(date) - ERROR: WireGuard tunnel is not working"
+  fi
+  sleep $CHECK_INTERVAL
+done
+```
+
+Ideally the IP and port of the internal service should be accessible only from within the docker, not on the device that hosts the docker. This is not mandatory because what we're going to monitor is the health of the tunnel in the server side, although it's a nice touch.
+
+We now need to create the client configuration, I've exported the file into the directory `config/wg_confs`.
+
+Check that everything is working well with `docker compose up`. You should see the string "WireGuard tunnel is working".
+
+Then enable the systemd service
+
+`/etc/systemd/system/vpn-monitor.service`
+
+```ini
+[Install]
+WantedBy=multi-user.target
+[Unit]
+Description=vpn-monitor
+Requires=docker.service
+After=docker.service
+
+[Service]
+Restart=always
+User=root
+Group=docker
+WorkingDirectory=/data/vpn-monitor
+# Shutdown container (if running) when unit is started
+TimeoutStartSec=100
+RestartSec=2s
+# Start container when unit is started
+ExecStart=/usr/bin/docker compose -f docker-compose.yaml up
+# Stop container when unit is stopped
+ExecStop=/usr/bin/docker compose -f docker-compose.yaml down
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Then enable and start the service:
+
+```bash
+systemctl enable vpn-monitor
+service vpn-monitor start
+```
+
 ### Create the alerts
 
+```yaml
+groups:
+  - name: wireguard
+    rules:
+      # Peer Configuration Changes
+      - alert: WireguardConfiguredPeersIncrease
+        expr: increase(wireguard_configured_peers[5m]) > 0
+        for: 0m
+        labels:
+          severity: warning
+        annotations:
+          summary: "WireGuard configured peers increased on {{ $labels.instance }}"
+          description: "WireGuard configured peers increased by {{ $value }} on instance {{ $labels.instance }}, interface {{ $labels.interface }}, job {{ $labels.job }}"
+
+      - alert: WireguardConfiguredPeersDecrease
+        expr: increase(wireguard_configured_peers[5m]) < 0
+        for: 0m
+        labels:
+          severity: warning
+        annotations:
+          summary: "WireGuard configured peers decreased on {{ $labels.instance }}"
+          description: "WireGuard configured peers decreased by {{ $value }} on instance {{ $labels.instance }}, interface {{ $labels.interface }}, job {{ $labels.job }}"
+
+      - alert: WireguardEnabledPeersIncrease
+        expr: increase(wireguard_enabled_peers[5m]) > 0
+        for: 0m
+        labels:
+          severity: warning
+        annotations:
+          summary: "WireGuard enabled peers increased on {{ $labels.instance }}"
+          description: "WireGuard enabled peers increased by {{ $value }} on instance {{ $labels.instance }}, interface {{ $labels.interface }}, job {{ $labels.job }}"
+
+      - alert: WireguardEnabledPeersDecrease
+        expr: increase(wireguard_enabled_peers[5m]) < 0
+        for: 0m
+        labels:
+          severity: warning
+        annotations:
+          summary: "WireGuard enabled peers decreased on {{ $labels.instance }}"
+          description: "WireGuard enabled peers decreased by {{ $value }} on instance {{ $labels.instance }}, interface {{ $labels.interface }}, job {{ $labels.job }}"
+
+      # Traffic Monitoring
+      - alert: WireguardHighOutboundTraffic
+        expr: rate(wireguard_sent_bytes[5m]) > 10485760 # 10MB/s in bytes
+        for: 0m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High WireGuard outbound traffic for user {{ $labels.name }}"
+          description: "High outbound traffic detected for WireGuard user {{ $labels.name }} on instance {{ $labels.instance }}, interface {{ $labels.interface }}. Current rate: {{ $value | humanize }}B/s"
+
+      - alert: WireguardHighInboundTraffic
+        expr: rate(wireguard_received_bytes{name="monitor"}[5m]) > 10485760 # 10MB/s in bytes
+        for: 2m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High WireGuard inbound traffic for user {{ $labels.name }}"
+          description: "High inbound traffic detected for WireGuard user {{ $labels.name }} on instance {{ $labels.instance }}, interface {{ $labels.interface }}. Current rate: {{ $value | humanize }}B/s"
+
+      # Alternative traffic alerts with different thresholds
+      - alert: WireguardVeryHighOutboundTraffic
+        expr: rate(wireguard_sent_bytes[5m]) > 104857600 # 100MB/s in bytes
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Very high WireGuard outbound traffic for user {{ $labels.name }}"
+          description: "Very high outbound traffic detected for WireGuard user {{ $labels.name }} on instance {{ $labels.instance }}, interface {{ $labels.interface }}. Current rate: {{ $value | humanize }}B/s"
+
+      - alert: WireguardVeryHighInboundTraffic
+        expr: rate(wireguard_received_bytes[5m]) > 104857600 # 100MB/s in bytes
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Very high WireGuard inbound traffic for user {{ $labels.name }}"
+          description: "Very high inbound traffic detected for WireGuard user {{ $labels.name }} on instance {{ $labels.instance }}, interface {{ $labels.interface }}. Current rate: {{ $value | humanize }}B/s"
+
+      # Handshake Monitoring
+      - alert: WireguardTunnelLooksDown
+        expr: wireguard_latest_handshake_seconds{name="monitor"} > 300
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "WireGuard handshake stale for user {{ $labels.name }}"
+          description: "WireGuard handshake is stale for user {{ $labels.name }} on instance {{ $labels.instance }}, interface {{ $labels.interface }}. Last handshake was {{ $value | humanizeDuration }} ago"
+```
+
+### Create the dashboards
+
+Import [this dashboard](https://grafana.com/grafana/dashboards/21733-wireguard/) in grafana, and then export it as JSON and save it in your infrastructure as code.
+
+If you feel lost check the [grafana](grafana.md) article.
 
 # References
 
