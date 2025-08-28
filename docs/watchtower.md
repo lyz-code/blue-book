@@ -19,6 +19,34 @@ Add to the dockerfile:
 LABEL com.centurylinklabs.watchtower.enable=false
 ```
 
+# Monitorization
+
+To make sure that watchtower is working as expected you can use the next alerts:
+
+```yaml
+groups:
+  - name: watchtower
+    rules:
+      - alert: WatchtowerError
+        expr: |
+          count_over_time({container="watchtower"} |= `` | logfmt level | level=`error` [15m]) > 0
+        for: 0m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Error in watchtower logs {{ $labels.container }} at {{ $labels.hostname}}"
+      - alert: WatchtowerNotRunningError
+        expr: |
+          (sum by(hostname) (count_over_time({job="systemd-journal"} [1h])) 
+          unless 
+          sum by(hostname) (count_over_time({unit="watchtower.service"} [1d]))) > 0
+        for: 0m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Watchtower has not shown any logs in {{ $labels.hostname}} in the last day"
+```
+
 # References
 
 - [Source](https://github.com/containrrr/watchtower)

@@ -4,6 +4,8 @@ date: 20221116
 author: Lyz
 ---
 
+WARNING: Check out the [investigative journalism article before using Aleph](investigative_journalism.md)
+
 [Aleph](https://github.com/alephdata/aleph) is a tool for indexing large amounts
 of both documents (PDF, Word, HTML) and structured (CSV, XLS, SQL) data for easy
 browsing and search. It is built with investigative reporting as a primary use

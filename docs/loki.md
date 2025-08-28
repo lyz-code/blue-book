@@ -286,27 +286,27 @@ Sometimes the queries you want to alert happen when the return value is NaN or N
 count_over_time({filename="/var/log/mail.log"} |= `Mail is sent` [24h]) < 1
 ```
 
-This won't trigger the alert because the `count_over_time` doesn't return a `0` but a `NaN`. One way to solve it is to use [the `vector(0)`](https://github.com/grafana/loki/pull/7023) operator with [the operation `or on() vector(0)`](https://stackoverflow.com/questions/76489956/how-to-return-a-zero-vector-in-loki-logql-metric-query-when-grouping-is-used-and)
+This won't trigger the alert because the `count_over_time` doesn't return a `0` but a `NaN`.
+
+##### Using vector(0)
+
+One way to solve it is to use [the `vector(0)`](https://github.com/grafana/loki/pull/7023) operator with [the operation `or on() vector(0)`](https://stackoverflow.com/questions/76489956/how-to-return-a-zero-vector-in-loki-logql-metric-query-when-grouping-is-used-and)
 
 ```logql
 (count_over_time({filename="/var/log/mail.log"} |= `Mail is sent` [24h]) or on() vector(0)) < 1
 ```
 
-If you're doing an aggregation over a label this approach won't work because it will add a new time series with value 0. In those cases use a broader search that includes other logs from the label you're trying to aggregate and multiply it by 0. For example:
+##### Using unless
+
+If you're doing an aggregation over a label this approach won't work because it will add a new time series with value 0. In those cases use a broader search that includes other logs and the `unless` operator:
 
 ```logql
-(
-sum by (hostname) (
-  count_over_time({job="systemd-journal", syslog_identifier="sanoid"}[1h])
-)
-or
-sum by (hostname) (
-  count_over_time({job="systemd-journal"}[1h]) * 0
-)
-) < 1
+(sum by(hostname) (count_over_time({job="systemd-journal"} [1h]))
+unless
+sum by(hostname) (count_over_time({service_name="watchtower"} [1d]))) > 0
 ```
 
-The first part of the query returns all log lines of the service `sanoid` for each `hostname`. If one hostname were not to return any line that query alone won't show anything for that host. The second part of the query counts all the log lines of each `hostname`, so if it's up it will probably be sending at least one line per hour. As we're not interested in those number of lines we multiply it by 0, so that the target is shown.
+This will return a value > 0 for any hostname that has systemd-journal logs but no watchtower logs in the past day, which is perfect for alerting conditions.
 
 ### Recording rules
 
@@ -476,12 +476,12 @@ To solve this:
     reject_old_samples_max_age: 168h # Increase from default (usually 1h)
   ```
 
-
 You can also prune the logs. For example in the case of a docker container (named `dawarich_app`) you can:
 
 ```bash
 sudo truncate -s 0 /var/lib/docker/containers/$(docker inspect -f '{{.Id}}' dawarich_app)/$(docker inspect -f '{{.Id}}' dawarich_app)-json.log
 ```
+
 ## Ingestion rate limit exceeded for user
 
 Increase rate limits in Loki config:
@@ -493,6 +493,7 @@ limits_config:
 ```
 
 Also check which logs are triggering this rate limit because it may be the case that the amount of logs is too great due to an error.
+
 ## [Maximum of series reached for a single query](https://github.com/grafana/loki/issues/3045)
 
 Go to the loki-local-config.yaml, then find the limits_config configuration.

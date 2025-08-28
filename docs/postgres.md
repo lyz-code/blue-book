@@ -1,6 +1,7 @@
 # Operations
 
 ## [Restore a dump](https://www.postgresql.org/docs/current/backup-dump.html#BACKUP-DUMP-RESTORE)
+
 Text files created by `pg_dump` are intended to be read in by the `psql` program. The general command form to restore a dump is
 
 ```bash
@@ -8,20 +9,62 @@ psql dbname < dumpfile
 ```
 
 Where `dumpfile` is the file output by the `pg_dump` command. The database `dbname` will not be created by this command, so you must create it yourself from `template0` before executing `psql` (e.g., with `createdb -T template0 dbname`). `psql` supports options similar to `pg_dump` for specifying the database server to connect to and the user name to use. See [the `psql` reference page](https://www.postgresql.org/docs/current/app-psql.html) for more information. Non-text file dumps are restored using the `pg_restore` utility.
+
 ## [Store expensive calculation values in a postgresql database](https://stackoverflow.com/questions/57776620/materialized-view-vs-trigger-for-aggregating-data)
 
-First you need to think if you actually need to store the calculations or you can do them on the fly with [views](#views). If views are too slow you can either use [materialized views](#materialized-views) or [triggers](#triggers) over calculation tables. 
+First you need to think if you actually need to store the calculations or you can do them on the fly with [views](#views). If views are too slow you can either use [materialized views](#materialized-views) or [triggers](#triggers) over calculation tables.
 
 Materialized views are simpler to maintain but have [some disadvantages](#disadvantages-of-a-materialized-view) such as outdated data or unneeded processing of data. If you need totally current information or if you don't want to periodically do the calculations on all the rows then triggers are probably the better solution.
+
 ## [Drop all tables of a database](https://stackoverflow.com/questions/3327312/how-can-i-drop-all-the-tables-in-a-postgresql-database)
+
 ```sql
 drop schema public cascade;
 create schema public;
 ```
-## [Upgrade postgres]()
+
+## Upgrade postgres
+
+### [Using dump and import](https://docs.goauthentik.io/docs/troubleshooting/postgres/upgrade_docker)
+
+#### Dump your database
+
+Dump your existing database with a command similar to `docker compose exec postgresql pg_dump -U authentik -d authentik -cC > upgrade_backup_12.sql`.
+
+Before continuing, ensure the SQL dump file `upgrade_backup_12.sql` includes all your database content.
+
+#### Stop your application stack
+
+Stop all services with `docker compose down`.
+
+#### Backup your existing database
+
+Move the directory where your data is to a new one: `mv /path/to/database /path/to/v12-backup`
+
+#### Modify your docker-compose.yml file
+
+Update the PostgreSQL service image from `docker.io/library/postgres:12-alpine` to `docker.io/library/postgres:17-alpine`.
+
+Add `network_mode: none` and comment out any `network` directive to prevent connections being established to the database during the upgrade.
+
+#### Recreate the database container
+
+Pull new images and re-create the PostgreSQL container: `docker compose pull && docker compose up --force-recreate -d postgresql`
+
+Apply your backup to the new database: `cat upgrade_backup_12.sql | docker compose exec -T postgresql psql -U authentik`
+
+Remove the network configuration setting `network_mode: none` that you added to the Compose file in the previous step.
+
+#### Bring the service up
+
+Start again the service with `docker compose up` and see that everything is working as expected.
+
+### [Upgrade postgres](https://medium.com/@mpyatishev/seamless-postgresql-upgrade-migrating-from-version-12-to-16-in-docker-8141a8905899)
+
 # Features
 
 ## [Views](https://www.postgresqltutorial.com/postgresql-views/)
+
 A view is a named query stored in the PostgreSQL database server. A view is defined based on one or more tables which are known as base tables, and the query that defines the view is referred to as a defining query.
 
 After creating a view, you can query data from it as you would from a regular table. Behind the scenes, PostgreSQL will rewrite the query against the view and its defining query, executing it to retrieve data from the base tables.
@@ -31,6 +74,7 @@ Views do not store data except the [materialized views](#materialized-views). In
 Simple views can be [updatable](https://www.postgresqltutorial.com/postgresql-views/postgresql-updatable-views/).
 
 ### [Advantages of views](https://www.postgresqltutorial.com/postgresql-views/)
+
 - Simplifying complex queries: Views help simplify complex queries. Instead of dealing with joins, aggregations, or filtering conditions, you can query from views as if they were regular tables.
 
   Typically, first, you create views based on complex queries and store them in the database. Then, you can use simple queries based on views instead of using complex queries.
@@ -42,11 +86,12 @@ Simple views can be [updatable](https://www.postgresqltutorial.com/postgresql-vi
   This is particularly useful when you have applications that require access to distinct portions of the data.
 
 ### [Creating a view](https://www.postgresqltutorial.com/postgresql-views/managing-postgresql-views/)
+
 In PostgreSQL, a view is a named query stored in the database server. To create a new view, you can use the `CREATE VIEW` statement.
 
 ```sql
-CREATE VIEW view_name 
-AS 
+CREATE VIEW view_name
+AS
   query;
 ```
 
@@ -58,17 +103,18 @@ In this syntax:
 #### Creating a view examples
 
 We’ll use the customer table from the [sample database](https://www.postgresqltutorial.com/postgresql-getting-started/postgresql-sample-database/):
+
 ##### Basic CREATE VIEW statement example
 
 The following example uses the CREATE VIEW statement to create a view based on the customer table:
 
 ```sql
-CREATE VIEW contact AS 
-SELECT 
-  first_name, 
-  last_name, 
-  email 
-FROM 
+CREATE VIEW contact AS
+SELECT
+  first_name,
+  last_name,
+  email
+FROM
   customer;
 ```
 
@@ -100,19 +146,19 @@ Output:
 The following example creates a view based on the tables customer, address, city, and country:
 
 ```sql
-CREATE VIEW customer_info AS 
-SELECT 
-  first_name, 
-  last_name, 
-  email, 
-  phone, 
-  city, 
+CREATE VIEW customer_info AS
+SELECT
+  first_name,
+  last_name,
+  email,
+  phone,
+  city,
   postal_code,
   country
-FROM 
-  customer 
-  INNER JOIN address USING (address_id) 
-  INNER JOIN city USING (city_id) 
+FROM
+  customer
+  INNER JOIN address USING (address_id)
+  INNER JOIN city USING (city_id)
   INNER JOIN country USING (country_id);
 ```
 
@@ -138,13 +184,13 @@ Output:
 The following statement creates a view called `customer_usa` based on the `customer_info` view. The `customer_usa` returns the customers who are in the United States:
 
 ```sql
-CREATE VIEW customer_usa 
-AS 
-SELECT 
-  * 
-FROM 
-  customer_info 
-WHERE 
+CREATE VIEW customer_usa
+AS
+SELECT
+  *
+FROM
+  customer_info
+WHERE
   country = 'United States';
 ```
 
@@ -166,13 +212,14 @@ Output:
 ```
 
 ### Replacing a view
+
 Note: for simple changes check [alter views](#alter-views)
 
 To change the defining query of a view, you use the `CREATE OR REPLACE VIEW` statement:
 
 ```sql
-CREATE OR REPLACE VIEW view_name 
-AS 
+CREATE OR REPLACE VIEW view_name
+AS
   query;
 ```
 
@@ -181,13 +228,13 @@ In this syntax, you add the `OR REPLACE` between the `CREATE` and `VIEW` keyword
 For example, the following statement changes the defining query of the contact view to include the phone information from the address table:
 
 ```sql
-CREATE OR REPLACE VIEW contact AS 
-SELECT 
-  first_name, 
-  last_name, 
+CREATE OR REPLACE VIEW contact AS
+SELECT
+  first_name,
+  last_name,
   email,
   phone
-FROM 
+FROM
   customer
 INNER JOIN address USING (address_id);
 ```
@@ -232,10 +279,13 @@ View definition:
    FROM customer
      JOIN address USING (address_id);
 ```
+
 ### [Updatable views](https://www.postgresqltutorial.com/postgresql-views/postgresql-updatable-views/)
+
 ### [Recursive views](https://www.postgresqltutorial.com/postgresql-views/postgresql-recursive-view/)
 
 ### [Alter views](https://www.postgresqltutorial.com/postgresql-views/postgresql-alter-view/)
+
 ## [Materialized Views](https://www.postgresqltutorial.com/postgresql-views/postgresql-materialized-views/)
 
 PostgreSQL extends the view concept to the next level which allows views to store data physically. These views are called materialized views.
@@ -257,12 +307,13 @@ The materialized views can be useful in many cases that require fast data access
 - Simplify a query: Like a regular view, a materialized view can also be used to simplify a query. If a query is using a lot of logic such as joins and functions, using a materialized view can help remove some of that logic and place it into the materialized view.
 
 ### [Disadvantages of a Materialized View](https://www.databasestar.com/sql-views/#Benefits_of_a_Materialized_View)
+
 - Updates to data need to be set up: The main disadvantage to using materialized views is that the data needs to be refreshed.
 
   The data that’s used to populate the materialized view is stored in the database tables. These tables can have their data updated, inserted, or deleted. When that happens, the data in the materialized view needs to be updated.
 
   This can be done manually, but it should be done automatically.
- 
+
 - [Incremental updates are not supported](https://wiki.postgresql.org/wiki/Incremental_View_Maintenance): So the whole view is generated on each refresh.
 - Data may be inconsistent: Because the data is stored separately in the materialized view, the data in the materialized view may be inconsistent with the data in the underlying tables.
 
@@ -289,6 +340,7 @@ How it works.
 - Second, add the `query` that retrieves data from the underlying tables after the `AS` keyword.
 - Third, if you want to load data into the materialized view at the creation time, use the `WITH DATA` option; otherwise, you use `WITH NO DATA` option. If you use the `WITH NO DATA` option, the view is flagged as unreadable. It means that you cannot query data from the view until you load data into it.
 - Finally, use the `IF NOT EXISTS` option to conditionally create a view only if it does not exist.
+
 ### Refreshing data for materialized views
 
 Postgresql will never refresh the data by it's own, you need to define the processes that will update it.
@@ -324,11 +376,12 @@ DROP MATERIALIZED VIEW view_name;
 In this syntax, you specify the name of the materialized view that you want to drop after the `DROP MATERIALIZED VIEW` keywords.
 
 ### [Materialized view example](https://www.postgresqltutorial.com/postgresql-views/postgresql-materialized-views/)
+
 We’ll use the tables in the [sample database](https://www.postgresqltutorial.com/postgresql-getting-started/postgresql-sample-database/) for creating a materialized view.
 
 First, create a materialized view named `rental_by_category` using the `CREATE MATERIALIZED VIEW` statement:
 
-```sql
+````sql
 CREATE MATERIALIZED VIEW rental_by_category
 AS
  SELECT c.name AS category,
@@ -348,7 +401,7 @@ Because of the `WITH NO DATA` option, you cannot query data from the view. If yo
 
 ```sql
 SELECT * FROM rental_by_category;
-```
+````
 
 Output:
 
@@ -400,7 +453,7 @@ From now on, you can refresh the data in the `rental_by_category` view using the
 However, to refresh it with `CONCURRENTLY` option, you need to create a `UNIQUE` index for the view first.
 
 ```sql
-CREATE UNIQUE INDEX rental_category 
+CREATE UNIQUE INDEX rental_category
 ON rental_by_category (category);
 ```
 
@@ -409,8 +462,11 @@ Let’s refresh data concurrently for the `rental_by_category` view.
 ```sql
 REFRESH MATERIALIZED VIEW CONCURRENTLY rental_by_category;
 ```
+
 # Troubleshooting
-## [Fix pg_dump version mismatch](https://stackoverflow.com/questions/12836312/postgresql-9-2-pg-dump-version-mismatch) 
+
+## [Fix pg_dump version mismatch](https://stackoverflow.com/questions/12836312/postgresql-9-2-pg-dump-version-mismatch)
+
 If you need to use a `pg_dump` version different from the one you have at your system you could either [use nix](nix.md) or use docker
 
 ```bash

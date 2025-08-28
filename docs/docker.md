@@ -197,6 +197,199 @@ sudo docker run -it --entrypoint /bin/bash [docker_image]
 
 # Snippets
 
+## Do a copy of a list of docker images in your private registry
+
+```bash
+#!/bin/bash
+
+set -euo pipefail
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# The bitnami-images.txt contains a line per image to process
+IMAGE_LIST_FILE="${1:-${SCRIPT_DIR}/bitnami-images.txt}"
+TARGET_REGISTRY="${2:-}"
+
+if [[ -z "$TARGET_REGISTRY" ]]; then
+  echo "Usage: $0 <image_list_file> <target_registry>"
+  echo "Example: $0 bitnami-images.txt your.docker.registry.org"
+  exit 1
+fi
+
+if [[ ! -f "$IMAGE_LIST_FILE" ]]; then
+  echo "Error: Image list file '$IMAGE_LIST_FILE' not found"
+  exit 1
+fi
+
+log() {
+  echo "[$(date '+%Y-%m-%d %H:%M:%S')] $*"
+}
+
+extract_image_name_and_tag() {
+  local full_image="$1"
+
+  # Remove registry prefix to get org/repo:tag
+  # Examples:
+  # docker.io/bitnami/discourse:3.4.7 -> bitnami/discourse:3.4.7
+  # registry-1.docker.io/bitnami/os-shell:11-debian-11-r95 -> bitnami/os-shell:11-debian-11-r95
+
+  if [[ "$full_image" =~ ^[^/]*\.[^/]+/ ]]; then
+    # Contains registry with dot - remove everything up to first /
+    echo "${full_image#*/}"
+  else
+    # No registry prefix
+    echo "$full_image"
+  fi
+}
+
+pull_and_push_multiarch() {
+  local source_image="$1"
+  local target_registry="$2"
+
+  local image_name_with_tag
+  image_name_with_tag=$(extract_image_name_and_tag "$source_image")
+  local target_image="${target_registry}/${image_name_with_tag}"
+
+  log "Processing: $source_image -> $target_image"
+
+  local pushed_images=()
+  local architectures=("linux/amd64" "linux/arm64")
+  local arch_suffixes=("amd64" "arm64")
+
+  # Try to pull and push each architecture
+  for i in "${!architectures[@]}"; do
+    local platform="${architectures[$i]}"
+    local arch_suffix="${arch_suffixes[$i]}"
+
+    log "Attempting to pull ${platform} image: $source_image"
+
+    if sudo docker pull --platform "$platform" "$source_image" 2>/dev/null; then
+      log "Successfully pulled ${platform} image"
+
+      # Tag with architecture-specific tag for manifest creation
+      local arch_specific_tag="${target_image}-${arch_suffix}"
+      sudo docker tag "$source_image" "$arch_specific_tag"
+
+      log "Pushing ${platform} image as ${arch_specific_tag}"
+      if sudo docker push "$arch_specific_tag"; then
+        log "Successfully pushed ${platform} image"
+        pushed_images+=("$arch_specific_tag")
+      else
+        log "Failed to push ${platform} image"
+        sudo docker rmi "$arch_specific_tag" 2>/dev/null || true
+      fi
+    else
+      log "⚠️  ${platform} image not available for $source_image - skipping"
+    fi
+  done
+
+  if [[ ${#pushed_images[@]} -eq 0 ]]; then
+    log "❌ No images were successfully pushed for $source_image"
+    return 1
+  fi
+
+  # Create the main tag with proper multi-arch manifest
+  if [[ ${#pushed_images[@]} -gt 1 ]]; then
+    log "Creating multi-arch manifest for $target_image"
+
+    # Remove any existing manifest (in case of retry)
+    sudo docker manifest rm "$target_image" 2>/dev/null || true
+
+    if sudo docker manifest create "$target_image" "${pushed_images[@]}"; then
+      # Annotate each architecture in the manifest
+      for i in "${!pushed_images[@]}"; do
+        local arch_tag="${pushed_images[$i]}"
+        local arch="${arch_suffixes[$i]}"
+        sudo docker manifest annotate "$target_image" "$arch_tag" --arch "$arch" --os linux
+      done
+
+      log "Pushing multi-arch manifest to $target_image"
+      if sudo docker manifest push "$target_image"; then
+        log "✅ Successfully pushed multi-arch image: $target_image"
+      else
+        log "❌ Failed to push manifest for $target_image"
+        return 1
+      fi
+    else
+      log "❌ Failed to create manifest for $target_image"
+      return 1
+    fi
+  else
+    # Only one architecture - tag and push directly
+    log "Single architecture available, pushing as $target_image"
+    sudo docker tag "${pushed_images[0]}" "$target_image"
+    if sudo docker push "$target_image"; then
+      log "✅ Successfully pushed single-arch image: $target_image"
+    else
+      log "❌ Failed to push $target_image"
+      return 1
+    fi
+  fi
+
+  # Clean up local images to save space
+  sudo docker rmi "$source_image" "${pushed_images[@]}" 2>/dev/null || true
+  if [[ ${#pushed_images[@]} -eq 1 ]]; then
+    sudo docker rmi "$target_image" 2>/dev/null || true
+  fi
+
+  return 0
+}
+
+main() {
+  log "Starting multi-architecture image pull and push"
+  log "Source list: $IMAGE_LIST_FILE"
+  log "Target registry: $TARGET_REGISTRY"
+
+  # Enable experimental CLI features for manifest commands
+  export DOCKER_CLI_EXPERIMENTAL=enabled
+
+  total_images=$(wc -l "$IMAGE_LIST_FILE")
+  local processed_images=0
+  local successful_images=0
+  local failed_images=()
+
+  while IFS= read -r image_line; do
+    # Skip empty lines and comments
+    [[ -z "$image_line" || "$image_line" =~ ^[[:space:]]*# ]] && continue
+
+    # Remove leading/trailing whitespace
+    image_line=$(echo "$image_line" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
+    [[ -z "$image_line" ]] && continue
+
+    echo $image_line
+    processed_images=$((processed_images + 1))
+
+    log "[$processed_images/$total_images] Processing: $image_line"
+
+    if pull_and_push_multiarch "$image_line" "$TARGET_REGISTRY"; then
+      successful_images=$((successful_images + 1))
+      log "✓ Success: $image_line"
+    else
+      failed_images+=("$image_line")
+      log "✗ Failed: $image_line"
+    fi
+
+    log "Progress: $processed_images/$total_images completed"
+    echo "----------------------------------------"
+
+  done <"$IMAGE_LIST_FILE"
+
+  log "Final Summary:"
+  log "Total images processed: $processed_images"
+  log "Successful: $successful_images"
+  log "Failed: ${#failed_images[@]}"
+
+  if [[ ${#failed_images[@]} -gt 0 ]]; then
+    log "Failed images:"
+    printf '  %s\n' "${failed_images[@]}"
+    exit 1
+  fi
+
+  log "🎉 All images processed successfully!"
+}
+
+main "$@"
+```
+
 ## Push an image with different architectures after building it in different instances
 
 To push both an **ARM** and **AMD** Docker image to a Docker registry, from two separate machines (e.g., an ARM-based and an AMD-based instance), you have two options:
@@ -560,6 +753,261 @@ round-trip min/avg/max = 0.042/0.042/0.042 ms
 
 The other way around works too.
 
+## Migrate away from bitnami
+
+Bitnami is changing their pull policy making it unfeasible to use their images (More info here: [1](https://www.reddit.com/r/selfhosted/comments/1ma5d8t/migrating_away_from_bitnami/), [2](https://archive.ph/dIVZk), [3](https://www.reddit.com/r/kubernetes/comments/1mc73s4/bitnami_moving_most_free_container_images_to_a/?chainedPosts=t3_1ma5d8t)), so there is the need to migrate to other image providers.
+
+### Which alternative to use
+
+The migration can be done to the official maintained images (although this [has some disadvantages](https://www.reddit.com/r/selfhosted/comments/1ma5d8t/migrating_away_from_bitnami/)) or to any of the common docker image builders:
+
+- https://github.com/home-operations/containers/
+- https://github.com/linuxserver
+- https://github.com/11notes
+
+There is an effort [to build a fork of bitnami images](https://github.com/bitcompat) but it has not yet much inertia.
+
+Regarding the alternatives of helm charts, a quick look shown [this one](https://github.com/groundhog2k/helm-charts/tree/master/charts).
+
+### Infrastructure archeology
+
+First you need to know which images are you using, to do that you can:
+
+- [Clone al git repositories of a series of organisations](gitea.md#clone-al-git-repositories-of-a-series-of-organisations) and do a local grep
+- [Search all the container images in use in kubernetes that match a desired string](kubernetes.md#search-all-the-container-images-in-use-that-match-a-desired-string)
+- [Recursively pull a copy of all helm charts used by an argocd repository](argocd.md#recursively-pull-a-copy-of-all-helm-charts-used-by-an-argocd-repository) and then do a grep.
+
+### Create a local copy of the images
+
+It's wise to make a copy of the used images in your local registry to be able to pull the dockers once bitnami does not longer let you.
+
+To do that you can save the used images in a `bitnami-images.txt` file and run the next script:
+
+```bash
+#!/bin/bash
+
+set -euo pipefail
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# The bitnami-images.txt contains a line per image to process
+IMAGE_LIST_FILE="${1:-${SCRIPT_DIR}/bitnami-images.txt}"
+TARGET_REGISTRY="${2:-}"
+
+if [[ -z "$TARGET_REGISTRY" ]]; then
+  echo "Usage: $0 <image_list_file> <target_registry>"
+  echo "Example: $0 bitnami-images.txt registry.cloud.icij.org"
+  exit 1
+fi
+
+if [[ ! -f "$IMAGE_LIST_FILE" ]]; then
+  echo "Error: Image list file '$IMAGE_LIST_FILE' not found"
+  exit 1
+fi
+
+log() {
+  echo "[$(date '+%Y-%m-%d %H:%M:%S')] $*"
+}
+
+extract_image_name_and_tag() {
+  local full_image="$1"
+
+  # Remove registry prefix to get org/repo:tag
+  # Examples:
+  # docker.io/bitnami/discourse:3.4.7 -> bitnami/discourse:3.4.7
+  # registry-1.docker.io/bitnami/os-shell:11-debian-11-r95 -> bitnami/os-shell:11-debian-11-r95
+  # registry-proxy.internal.cloud.icij.org/bitnami/minideb:stretch -> bitnami/minideb:stretch
+
+  if [[ "$full_image" =~ ^[^/]*\.[^/]+/ ]]; then
+    # Contains registry with dot - remove everything up to first /
+    echo "${full_image#*/}"
+  else
+    # No registry prefix
+    echo "$full_image"
+  fi
+}
+
+pull_and_push_multiarch() {
+  local source_image="$1"
+  local target_registry="$2"
+
+  local image_name_with_tag
+  image_name_with_tag=$(extract_image_name_and_tag "$source_image")
+  local target_image="${target_registry}/${image_name_with_tag}"
+
+  log "Processing: $source_image -> $target_image"
+
+  local pushed_images=()
+  local architectures=("linux/amd64" "linux/arm64")
+  local arch_suffixes=("amd64" "arm64")
+
+  # Try to pull and push each architecture
+  for i in "${!architectures[@]}"; do
+    local platform="${architectures[$i]}"
+    local arch_suffix="${arch_suffixes[$i]}"
+
+    log "Attempting to pull ${platform} image: $source_image"
+
+    if sudo docker pull --platform "$platform" "$source_image" 2>/dev/null; then
+      log "Successfully pulled ${platform} image"
+
+      # Tag with architecture-specific tag for manifest creation
+      local arch_specific_tag="${target_image}-${arch_suffix}"
+      sudo docker tag "$source_image" "$arch_specific_tag"
+
+      log "Pushing ${platform} image as ${arch_specific_tag}"
+      if sudo docker push "$arch_specific_tag"; then
+        log "Successfully pushed ${platform} image"
+        pushed_images+=("$arch_specific_tag")
+      else
+        log "Failed to push ${platform} image"
+        sudo docker rmi "$arch_specific_tag" 2>/dev/null || true
+      fi
+    else
+      log "⚠️  ${platform} image not available for $source_image - skipping"
+    fi
+  done
+
+  if [[ ${#pushed_images[@]} -eq 0 ]]; then
+    log "❌ No images were successfully pushed for $source_image"
+    return 1
+  fi
+
+  # Create the main tag with proper multi-arch manifest
+  if [[ ${#pushed_images[@]} -gt 1 ]]; then
+    log "Creating multi-arch manifest for $target_image"
+
+    # Remove any existing manifest (in case of retry)
+    sudo docker manifest rm "$target_image" 2>/dev/null || true
+
+    if sudo docker manifest create "$target_image" "${pushed_images[@]}"; then
+      # Annotate each architecture in the manifest
+      for i in "${!pushed_images[@]}"; do
+        local arch_tag="${pushed_images[$i]}"
+        local arch="${arch_suffixes[$i]}"
+        sudo docker manifest annotate "$target_image" "$arch_tag" --arch "$arch" --os linux
+      done
+
+      log "Pushing multi-arch manifest to $target_image"
+      if sudo docker manifest push "$target_image"; then
+        log "✅ Successfully pushed multi-arch image: $target_image"
+      else
+        log "❌ Failed to push manifest for $target_image"
+        return 1
+      fi
+    else
+      log "❌ Failed to create manifest for $target_image"
+      return 1
+    fi
+  else
+    # Only one architecture - tag and push directly
+    log "Single architecture available, pushing as $target_image"
+    sudo docker tag "${pushed_images[0]}" "$target_image"
+    if sudo docker push "$target_image"; then
+      log "✅ Successfully pushed single-arch image: $target_image"
+    else
+      log "❌ Failed to push $target_image"
+      return 1
+    fi
+  fi
+
+  # Clean up local images to save space
+  sudo docker rmi "$source_image" "${pushed_images[@]}" 2>/dev/null || true
+  if [[ ${#pushed_images[@]} -eq 1 ]]; then
+    sudo docker rmi "$target_image" 2>/dev/null || true
+  fi
+
+  return 0
+}
+
+main() {
+  log "Starting multi-architecture image pull and push"
+  log "Source list: $IMAGE_LIST_FILE"
+  log "Target registry: $TARGET_REGISTRY"
+
+  # Enable experimental CLI features for manifest commands
+  export DOCKER_CLI_EXPERIMENTAL=enabled
+
+  total_images=$(wc -l "$IMAGE_LIST_FILE")
+  local processed_images=0
+  local successful_images=0
+  local failed_images=()
+
+  while IFS= read -r image_line; do
+    # Skip empty lines and comments
+    [[ -z "$image_line" || "$image_line" =~ ^[[:space:]]*# ]] && continue
+
+    # Remove leading/trailing whitespace
+    image_line=$(echo "$image_line" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
+    [[ -z "$image_line" ]] && continue
+
+    echo $image_line
+    processed_images=$((processed_images + 1))
+
+    log "[$processed_images/$total_images] Processing: $image_line"
+
+    if pull_and_push_multiarch "$image_line" "$TARGET_REGISTRY"; then
+      successful_images=$((successful_images + 1))
+      log "✓ Success: $image_line"
+    else
+      failed_images+=("$image_line")
+      log "✗ Failed: $image_line"
+    fi
+
+    log "Progress: $processed_images/$total_images completed"
+    echo "----------------------------------------"
+
+  done <"$IMAGE_LIST_FILE"
+
+  log "Final Summary:"
+  log "Total images processed: $processed_images"
+  log "Successful: $successful_images"
+  log "Failed: ${#failed_images[@]}"
+
+  if [[ ${#failed_images[@]} -gt 0 ]]; then
+    log "Failed images:"
+    printf '  %s\n' "${failed_images[@]}"
+    exit 1
+  fi
+
+  log "🎉 All images processed successfully!"
+}
+
+main "$@"
+```
+
+### Replace a bitnami image with a local one
+
+If you for some reason need to pull `bitnami/discourse:3.4.7` and get an error you need instead to pull it from `{your_registry}/bitnami/discourse:3.4.7`. If you want to pull a specific architecture you can append it at the end (`{your_registry}/bitnami/discourse:3.4.7-amd64`.
+
+If you need to do the changes in an argocd managed kubernetes application search in the `values.yaml` or `values-{environment}.yaml` files for the `image:` string. If it's not defined you may need to look at the helm chart definition. To do that open the `Chart.yaml` file to find the chart and the version used. For example:
+
+```yaml
+---
+apiVersion: v2
+name: discourse
+version: 1.0.0
+dependencies:
+  - name: discourse
+    version: 12.6.2
+    repository: https://charts.bitnami.com/bitnami
+```
+
+You can pull a local copy of the chart with:
+
+- If the chart is using an `oci` url:
+
+  ```bash
+  helm pull oci://registry-1.docker.io/bitnamicharts/postgresql --version 8.10.X --untar -d postgres8
+  ```
+
+- If it's using an `https` url:
+
+  ```bash
+  helm pull cost-analyzer --repo https://kubecost.github.io/cost-analyzer/ --version 2.7.2
+  ```
+
+And inspect the `values.yaml` file and all the templates until you find which key value you need to add.
+
 # Dockerfile creation
 
 ## Minify the images
@@ -605,6 +1053,18 @@ cAdvisor (Container Advisor) provides container users an understanding of the re
 Sometimes dockers are stuck in a never ending loop of crash and restart. The official docker metrics don't help here, and even though [in the past it existed a `container_restart_count`](https://github.com/google/cadvisor/issues/1312) (with a pretty issue number btw) for cadvisor, I've tried activating [all metrics](https://github.com/google/cadvisor/blob/master/docs/runtime_options.md#metrics) and it still doesn't show. I've opened [an issue](https://github.com/google/cadvisor/issues/3584) to see if I can activate it
 
 # Troubleshooting
+
+## Cannot invoke "jdk.internal.platform.CgroupInfo.getMountPoint()" because "anyController" is null
+
+It's caused because the docker is not able to access the cgroups, this can be caused by a docker using the legacy cgroups v1 while the linux kernel (>6.12) is using the v2.
+
+The best way to fix it is to upgrade the docker to use v2, if you can't you need to force the system to use the v1. To do that:
+
+- Edit `/etc/default/grub` to add the configuration `GRUB_CMDLINE_LINUX="systemd.unified_cgroup_hierarchy=0"`
+- Then update GRUB: `sudo update-grub`
+- Reboot
+
+## Docker pull errors
 
 If you are using a VPN and docker, you're going to have a hard time.
 

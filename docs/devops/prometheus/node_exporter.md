@@ -21,18 +21,18 @@ To [auto discover EC2 instances](https://kbild.ch/blog/2019-02-18-awsprometheus/
 configuration. It can be added in the helm chart values.yaml under the key `prometheus.prometheusSpec.additionalScrapeConfigs`.
 
 ```yaml
-      - job_name: node_exporter
-        ec2_sd_configs:
-          - region: us-east-1
-            port: 9100
-            refresh_interval: 1m
-        relabel_configs:
-          - source_labels: ['__meta_ec2_tag_Name', '__meta_ec2_private_ip']
-            separator: ':'
-            target_label: instance
-          - source_labels:
-              - __meta_ec2_instance_type
-            target_label: instance_type
+- job_name: node_exporter
+  ec2_sd_configs:
+    - region: us-east-1
+      port: 9100
+      refresh_interval: 1m
+  relabel_configs:
+    - source_labels: ["__meta_ec2_tag_Name", "__meta_ec2_private_ip"]
+      separator: ":"
+      target_label: instance
+    - source_labels:
+        - __meta_ec2_instance_type
+      target_label: instance_type
 ```
 
 The `relabel_configs` part will substitute the `instance` label of each target
@@ -47,42 +47,41 @@ won't be able to scrape the metrics from them. To only fetch data from running
 instances add a filter:
 
 ```yaml
-        ec2_sd_configs:
-          - region: us-east-1
-            filters:
-            - name: instance-state-name
-              values:
-              - running
+ec2_sd_configs:
+  - region: us-east-1
+    filters:
+      - name: instance-state-name
+        values:
+          - running
 ```
 
 To monitor only the instances of a list of VPCs use this filter:
 
 ```yaml
-        ec2_sd_configs:
-          - region: us-east-1
-            filters:
-            - name: vpc-id
-              values:
-              - vpc-xxxxxxxxxxxxxxxxx
-              - vpc-yyyyyyyyyyyyyyyyy
+ec2_sd_configs:
+  - region: us-east-1
+    filters:
+      - name: vpc-id
+        values:
+          - vpc-xxxxxxxxxxxxxxxxx
+          - vpc-yyyyyyyyyyyyyyyyy
 ```
 
 By default, prometheus will try to scrape the private instance ip. To use the
 public one you need to relabel it with the following snippet:
 
 ```yaml
-
-        ec2_sd_configs:
-          - region: us-east-1
-        relabel_configs:
-          - source_labels: ['__meta_ec2_public_ip']
-            regex: ^(.*)$
-            target_label: __address__
-            replacement: ${1}:9100
+ec2_sd_configs:
+  - region: us-east-1
+relabel_configs:
+  - source_labels: ["__meta_ec2_public_ip"]
+    regex: ^(.*)$
+    target_label: __address__
+    replacement: ${1}:9100
 ```
 
 I'm using the [`11074`](https://grafana.com/dashboards/11074) grafana dashboards
-for the blackbox exporter,  which worked straight out of the box. Taking as
+for the blackbox exporter, which worked straight out of the box. Taking as
 reference the
 [grafana](https://github.com/helm/charts/blob/master/stable/grafana/values.yaml)
 helm chart values, add the following yaml under the `grafana` key in the
@@ -96,14 +95,14 @@ grafana:
     dashboardproviders.yaml:
       apiVersion: 1
       providers:
-      - name: 'default'
-        orgId: 1
-        folder: ''
-        type: file
-        disableDeletion: false
-        editable: true
-        options:
-          path: /var/lib/grafana/dashboards/default
+        - name: "default"
+          orgId: 1
+          folder: ""
+          type: file
+          disableDeletion: false
+          editable: true
+          options:
+            path: /var/lib/grafana/dashboards/default
   dashboards:
     default:
       node_exporter:
@@ -489,6 +488,7 @@ OOM kill detected
 ```
 
 ## Host Network Receive Errors
+
 `{{ $labels.instance }}` interface `{{ $labels.device }}` has encountered `{{
 printf "%.0f" $value }}` receive errors in the last five minutes.
 
@@ -505,6 +505,7 @@ printf "%.0f" $value }}` receive errors in the last five minutes.
 ```
 
 ## Host Network Transmit Errors
+
 `{{ $labels.instance }}` interface `{{ $labels.device }}` has encountered `{{
 printf "%.0f" $value }}` transmit errors in the last five minutes.
 
@@ -520,8 +521,152 @@ printf "%.0f" $value }}` transmit errors in the last five minutes.
     grafana: "{{ grafana_url}}?var-job=node_exporter&var-hostname=All&var-node={{ $labels.instance }}"
 ```
 
+## Host requires a reboot
+
+Node exporter [does not support this metric](https://github.com/prometheus/node_exporter/issues/625), but you can monitor reboot requirements using Prometheus node exporter's textfile collector. Here's how to set it up:
+
+### Create the monitoring script
+
+First, create a script that checks for the reboot-required file and outputs metrics in Prometheus format:
+
+#### Setup instructions
+
+1. **Make the script executable and place it in the right location:**
+
+```bash
+sudo cp reboot-required-check.sh /usr/local/bin/
+sudo chmod +x /usr/local/bin/reboot-required-check.sh
+```
+
+```bash
+#!/bin/bash
+
+# Script to check if system requires reboot and export metric for Prometheus
+# Place this in /usr/local/bin/reboot-required-check.sh
+
+TEXTFILE_DIR="/var/lib/node_exporter/textfile_collector"
+METRIC_FILE="$TEXTFILE_DIR/reboot_required.prom"
+
+# Ensure the textfile collector directory exists
+mkdir -p "$TEXTFILE_DIR"
+
+# Check if reboot is required
+if [ -f /var/run/reboot-required ]; then
+    REBOOT_REQUIRED=1
+else
+    REBOOT_REQUIRED=0
+fi
+
+# Write metrics in Prometheus format
+cat > "$METRIC_FILE" << EOF
+# HELP node_reboot_required Whether the system requires a reboot
+# TYPE node_reboot_required gauge
+node_reboot_required $REBOOT_REQUIRED
+EOF
+
+# Set proper permissions
+chmod 644 "$METRIC_FILE"
+```
+
+2. **Ensure the textfile collector directory exists:**
+
+```bash
+sudo mkdir -p /var/lib/node_exporter/textfile_collector
+sudo chown node_exporter:node_exporter /var/lib/node_exporter/textfile_collector
+```
+
+3. **Create a systemd service to run the script periodically:**
+
+```ini
+[Unit]
+Description=Check if system requires reboot
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/reboot-required-check.sh
+User=node_exporter
+Group=node_exporter
+
+[Install]
+WantedBy=multi-user.target
+```
+
+4. **Create a systemd timer to run it regularly:**
+
+```ini
+[Unit]
+Description=Check if system requires reboot every 5 minutes
+Requires=reboot-check.service
+
+[Timer]
+OnBootSec=1min
+OnUnitActiveSec=5min
+
+[Install]
+WantedBy=timers.target
+```
+
+5. **Install and enable the systemd units:**
+
+```bash
+sudo cp reboot-check.service /etc/systemd/system/
+sudo cp reboot-check.timer /etc/systemd/system/
+sudo systemctl daemon-reload
+sudo systemctl enable reboot-check.timer
+sudo systemctl start reboot-check.timer
+```
+
+6. **Configure node exporter to use the textfile collector:**
+   Make sure your node exporter is started with the `--collector.textfile.directory` flag:
+
+```bash
+node_exporter --collector.textfile.directory=/var/lib/node_exporter/textfile_collector
+```
+
+### Prometheus alerting rule
+
+You can create an alerting rule in Prometheus to notify when a reboot is required:
+
+```yaml
+groups:
+  - name: system.rules
+    rules:
+      - alert: SystemRebootRequired
+        expr: node_reboot_required == 1
+        for: 0m
+        labels:
+          severity: warning
+        annotations:
+          summary: "System {{ $labels.instance }} requires reboot"
+          description: "System {{ $labels.instance }} requires a reboot due to: {{ $labels.reason }}"
+```
+
+### Testing
+
+You can test the setup by:
+
+1. **Run the script manually:**
+
+```bash
+sudo /usr/local/bin/reboot-required-check.sh
+cat /var/lib/node_exporter/textfile_collector/reboot_required.prom
+```
+
+2. **Check if the timer is working:**
+
+```bash
+sudo systemctl status reboot-check.timer
+sudo journalctl -u reboot-check.service
+```
+
+3. **Verify metrics are being collected:**
+   Visit `http://your-server:9100/metrics` and search for `node_reboot_required`
+
+The metrics will show `node_reboot_required 1` when a reboot is required and `node_reboot_required 0` when it's not. The `node_reboot_required_packages_info` metric includes information about which packages triggered the reboot requirement.
+
 # References
 
-* [Git](https://github.com/prometheus/node_exporter)
-* [Prometheus node exporter guide](https://prometheus.io/docs/guides/node-exporter/)
-* [Node exporter alerts](https://awesome-prometheus-alerts.grep.to/rules)
+- [Git](https://github.com/prometheus/node_exporter)
+- [Prometheus node exporter guide](https://prometheus.io/docs/guides/node-exporter/)
+- [Node exporter alerts](https://awesome-prometheus-alerts.grep.to/rules)

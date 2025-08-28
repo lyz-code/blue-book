@@ -7,12 +7,11 @@ author: Lyz
 [Kubernetes](https://en.wikipedia.org/wiki/Kubernetes) (commonly stylized as
 k8s) is an open-source container-orchestration system for automating application
 deployment, scaling, and management. Developed by Google in Go under the Apache
-2.0 license, it was first released on June 7, 2014 reaching 1.0 by July 21,
-2015. It works with a range of container tools, including Docker. Many cloud
+2.0 license, it was first released on June 7, 2014 reaching 1.0 by July 21, 2015. It works with a range of container tools, including Docker. Many cloud
 services offer a Kubernetes-based platform or infrastructure as a service
 ([PaaS](https://en.wikipedia.org/wiki/Platform_as_a_service) or
 [IaaS](https://en.wikipedia.org/wiki/Infrastructure_as_a_service)) on which
-Kubernetes can be deployed as a platform-providing service.  Many vendors also
+Kubernetes can be deployed as a platform-providing service. Many vendors also
 provide their own branded Kubernetes distributions.
 
 <p align="center">
@@ -25,19 +24,19 @@ alternative but it falls short in features compared with Kubernetes.
 
 These are some of the advantages of using Kubernetes:
 
-* Widely used in production and actively developed.
-* Ensure high availability of your services with autohealing and autoscaling.
-* Easy, quickly and predictable deployment and promotion of applications.
-* Seamless roll out of features.
-* Optimize hardware use while guaranteeing resource isolation.
-* Easiest way to build multi-cloud and baremetal environments.
+- Widely used in production and actively developed.
+- Ensure high availability of your services with autohealing and autoscaling.
+- Easy, quickly and predictable deployment and promotion of applications.
+- Seamless roll out of features.
+- Optimize hardware use while guaranteeing resource isolation.
+- Easiest way to build multi-cloud and baremetal environments.
 
 Several companies have used Kubernetes to release their own
 [PaaS](https://en.wikipedia.org/wiki/Platform_as_a_service):
 
-* [OpenShift](https://en.wikipedia.org/wiki/OpenShift) by Red Hat.
-* [Tectonic](https://coreos.com/tectonic/) by CoreOS.
-* [Rancher labs](https://en.wikipedia.org/wiki/Rancher_Labs) by Rancher.
+- [OpenShift](https://en.wikipedia.org/wiki/OpenShift) by Red Hat.
+- [Tectonic](https://coreos.com/tectonic/) by CoreOS.
+- [Rancher labs](https://en.wikipedia.org/wiki/Rancher_Labs) by Rancher.
 
 # Learn roadmap
 
@@ -47,65 +46,191 @@ you work with it daily.
 This is how I learnt, but probably [there are better resources
 now](https://github.com/ramitsurana/awesome-kubernetes#starting-point):
 
-* Read [containing container chaos kubernetes](
-  https://opensource.com/life/16/9/containing-container-chaos-kubernetes).
-* Test the [katacoda lab](https://www.katacoda.com/courses/kubernetes).
-* Install Kubernetes in laptop with
+- Read [containing container chaos kubernetes](https://opensource.com/life/16/9/containing-container-chaos-kubernetes).
+- Test the [katacoda lab](https://www.katacoda.com/courses/kubernetes).
+- Install Kubernetes in laptop with
   [minikube](https://kubernetes.io/docs/setup/learning-environment/minikube/).
-* Read [K8s concepts](https://kubernetes.io/docs/concepts).
-* Then [K8s tasks](https://kubernetes.io/docs/tasks/).
-* I didn't like the book [Getting started with kubernetes](https://www.packtpub.com/eu/virtualization-and-cloud/getting-started-kubernetes-third-edition)
-* I'd personally avoid the book [Getting started with
+- Read [K8s concepts](https://kubernetes.io/docs/concepts).
+- Then [K8s tasks](https://kubernetes.io/docs/tasks/).
+- I didn't like the book [Getting started with kubernetes](https://www.packtpub.com/eu/virtualization-and-cloud/getting-started-kubernetes-third-edition)
+- I'd personally avoid the book [Getting started with
   kubernetes](https://www.packtpub.com/eu/virtualization-and-cloud/getting-started-kubernetes-third-edition),
   I didn't like it `¯\(°_o)/¯`.
 
 # [Tools to test](https://filippobuletto.github.io/kubernetes-toolbox/)
 
-* [stakater/reloader](https://github.com/stakater/Reloader): A Kubernetes controller to watch changes in ConfigMap and Secrets and do rolling upgrades on Pods with their associated Deployment, StatefulSet, DaemonSet and DeploymentConfig. Useful for not that clever applications that need a reboot when a configmap changes.
-* [Popeye](https://github.com/derailed/popeye) is a utility that scans live
-    Kubernetes cluster and reports potential issues with deployed resources and
-    configurations. It sanitizes your cluster based on what's deployed and not
-    what's sitting on disk. By scanning your cluster, it detects
-    misconfigurations and helps you to ensure that best practices are in place,
-    thus preventing future headaches. It aims at reducing the cognitive overload
-    one faces when operating a Kubernetes cluster in the wild. Furthermore, if
-    your cluster employs a metric-server, it reports potential resources
-    over/under allocations and attempts to warn you should your cluster run out
-    of capacity.
+- [stakater/reloader](https://github.com/stakater/Reloader): A Kubernetes controller to watch changes in ConfigMap and Secrets and do rolling upgrades on Pods with their associated Deployment, StatefulSet, DaemonSet and DeploymentConfig. Useful for not that clever applications that need a reboot when a configmap changes.
+- [Popeye](https://github.com/derailed/popeye) is a utility that scans live
+  Kubernetes cluster and reports potential issues with deployed resources and
+  configurations. It sanitizes your cluster based on what's deployed and not
+  what's sitting on disk. By scanning your cluster, it detects
+  misconfigurations and helps you to ensure that best practices are in place,
+  thus preventing future headaches. It aims at reducing the cognitive overload
+  one faces when operating a Kubernetes cluster in the wild. Furthermore, if
+  your cluster employs a metric-server, it reports potential resources
+  over/under allocations and attempts to warn you should your cluster run out
+  of capacity.
 
-    Popeye is a readonly tool, it does not alter any of your Kubernetes
-    resources in any way!
+  Popeye is a readonly tool, it does not alter any of your Kubernetes
+  resources in any way!
 
-* [Stern](https://github.com/wercker/stern) allows you to tail multiple pods on
-    Kubernetes and multiple containers within the pod. Each result is color
-    coded for quicker debugging.
+- [Stern](https://github.com/wercker/stern) allows you to tail multiple pods on
+  Kubernetes and multiple containers within the pod. Each result is color
+  coded for quicker debugging.
 
-    The query is a regular expression so the pod name can easily be filtered and
-    you don't need to specify the exact id (for instance omitting the deployment
-    id). If a pod is deleted it gets removed from tail and if a new pod is added
-    it automatically gets tailed.
+  The query is a regular expression so the pod name can easily be filtered and
+  you don't need to specify the exact id (for instance omitting the deployment
+  id). If a pod is deleted it gets removed from tail and if a new pod is added
+  it automatically gets tailed.
 
-    When a pod contains multiple containers Stern can tail all of them too
-    without having to do this manually for each one. Simply specify the
-    container flag to limit what containers to show. By default all containers
-    are listened to.
+  When a pod contains multiple containers Stern can tail all of them too
+  without having to do this manually for each one. Simply specify the
+  container flag to limit what containers to show. By default all containers
+  are listened to.
 
-* [Fairwinds' Polaris](https://github.com/FairwindsOps/polaris) keeps your
-    clusters sailing smoothly. It runs a variety of checks to ensure that
-    Kubernetes pods and controllers are configured using best practices, helping
-    you avoid problems in the future.
+- [Fairwinds' Polaris](https://github.com/FairwindsOps/polaris) keeps your
+  clusters sailing smoothly. It runs a variety of checks to ensure that
+  Kubernetes pods and controllers are configured using best practices, helping
+  you avoid problems in the future.
 
-* [kube-hunter](https://github.com/aquasecurity/kube-hunter) hunts for security
-    weaknesses in Kubernetes clusters. The tool was developed to increase
-    awareness and visibility for security issues in Kubernetes environments.
-* [IceKube](https://twitter.com/clintgibler/status/1732459956669214784): 
-    Finding complex attack paths in Kubernetes clusters
+- [kube-hunter](https://github.com/aquasecurity/kube-hunter) hunts for security
+  weaknesses in Kubernetes clusters. The tool was developed to increase
+  awareness and visibility for security issues in Kubernetes environments.
+- [IceKube](https://twitter.com/clintgibler/status/1732459956669214784):
+  Finding complex attack paths in Kubernetes clusters
 
-    Bloodhound for Kubernetes
+  Bloodhound for Kubernetes
 
-    Uses Neo4j to store & analyze Kubernetes resource relationships → identify attack paths & security misconfigs
+  Uses Neo4j to store & analyze Kubernetes resource relationships → identify attack paths & security misconfigs
 
 # Snippets
+
+## Cordon all arm64 nodes
+
+```bash
+kubectl get nodes -l kubernetes.io/arch=arm64 -o jsonpath='{.items[*].metadata.name}' | xargs kubectl cordon
+```
+## Search all the container images in use that match a desired string
+
+```bash
+#!/bin/bash
+
+set -e
+
+log() {
+  echo "[$(date '+%Y-%m-%d %H:%M:%S')] $*" >&2
+}
+
+usage() {
+  echo "Usage: $0"
+  echo "Describes all pods in all namespaces and greps for images containing 'bitnami'"
+  exit 1
+}
+
+check_dependencies() {
+  if ! command -v kubectl >/dev/null 2>&1; then
+    log "Error: kubectl command not found"
+    exit 1
+  fi
+
+  # Test kubectl connectivity
+  if ! kubectl cluster-info >/dev/null 2>&1; then
+    log "Error: Cannot connect to Kubernetes cluster"
+    exit 1
+  fi
+}
+
+find_bitnami_images() {
+  log "Getting all pods from all namespaces..."
+
+  # Get all pods from all namespaces and describe them
+  kubectl get pods --all-namespaces -o wide --no-headers | while read -r namespace name ready status restarts age ip node nominated readiness; do
+    log "Describing pod: $namespace/$name"
+
+    # Describe the pod and grep for bitnami images
+    description=$(kubectl describe pod "$name" -n "$namespace" 2>/dev/null)
+
+    # Look for image lines containing bitnami
+    bitnami_images=$(echo "$description" | grep -i "image:" | grep -i "bitnami" || true)
+
+    if [[ -n "$bitnami_images" ]]; then
+      echo "========================================="
+      echo "Pod: $namespace/$name"
+      echo "Status: $status"
+      echo "Bitnami Images Found:"
+      echo "$bitnami_images"
+      echo "========================================="
+      echo
+    fi
+  done
+}
+
+main() {
+  if [[ $# -ne 0 ]]; then
+    usage
+  fi
+
+  check_dependencies
+
+  log "Starting search for Bitnami images in all pods across all namespaces"
+  find_bitnami_images
+  log "Search completed"
+}
+
+main "$@"
+```
+
+## Force the removal of a node from the cluster
+
+To force the removal of a node from a Kubernetes cluster, you have several options depending on your situation:
+
+To prevent new pods from being scheduled while you prepare:
+
+```bash
+# Mark node as unschedulable
+kubectl cordon <node-name>
+```
+
+### 1. Graceful Node Removal (Recommended)
+
+First, try the standard approach:
+
+```bash
+# Drain the node (moves pods to other nodes)
+kubectl drain <node-name> --ignore-daemonsets --delete-emptydir-data
+
+# Remove the node from the cluster
+kubectl delete node <node-name>
+```
+
+### 2. Force Removal When Node is Unresponsive
+
+If the node is unresponsive or the graceful removal fails:
+
+```bash
+# Force drain with additional options
+kubectl drain <node-name> --ignore-daemonsets --delete-emptydir-data --force --grace-period=0
+
+# Delete the node
+kubectl delete node <node-name>
+```
+
+### 3. Immediate Forced Removal
+
+For emergency situations where you need immediate removal:
+
+```bash
+# Skip the drain step entirely and force delete
+kubectl delete node <node-name> --force --grace-period=0
+```
+
+### Common Drain Options
+
+- `--ignore-daemonsets`: Ignores DaemonSet pods (they'll be recreated anyway)
+- `--delete-emptydir-data`: Deletes pods using emptyDir volumes
+- `--force`: Forces deletion of pods not managed by controllers
+- `--grace-period=0`: Immediately kills pods without waiting
+- `--timeout=300s`: Sets timeout for the drain operation
 
 ## Move a pvc between AZ in aws
 
@@ -265,6 +390,7 @@ Reducing the number of nodes in a Kubernetes cluster is a critical strategy for 
 ## 1. Availability Zone Consolidation
 
 Carefully evaluate the number of availability zones (AZs) used in your cluster. While multi-AZ deployments provide redundancy, using too many zones can:
+
 - Increase infrastructure complexity
 - Raise management overhead
 - Unnecessarily distribute resources
@@ -277,12 +403,15 @@ Carefully evaluate the number of availability zones (AZs) used in your cluster. 
 Implement sophisticated node management strategies:
 
 ### Node Provisioning Optimization
+
 - Use tools like Karpenter to dynamically manage node sizing
 - Continuously analyze and adjust node types based on actual workload requirements
 - Consolidate smaller nodes into fewer, more efficiently sized instances
 
 ### Overhead Calculation
+
 Regularly assess system and Kubernetes overhead:
+
 - Calculate total system resource consumption
 - Identify underutilized resources
 - Understand the overhead percentage for different node types
@@ -291,11 +420,13 @@ Regularly assess system and Kubernetes overhead:
 ## 3. Advanced Pod Autoscaling Techniques
 
 ### Horizontal Pod Autoscaling (HPA)
+
 - Implement HPA for workloads with variable load
 - Automatically adjust pod count based on CPU/memory utilization
 - Ensure efficient resource distribution across existing nodes
 
 ### Vertical Pod Autoscaling (VPA)
+
 - Use VPA in recommendation mode initially
 - Carefully evaluate automated resource adjustments
 - Manually apply recommendations to prevent potential service disruptions
@@ -303,11 +434,13 @@ Regularly assess system and Kubernetes overhead:
 ## 4. Workload Optimization Strategies
 
 ### High Availability Considerations
+
 - Ensure critical workloads have robust high availability configurations
 - Design applications to tolerate node failures gracefully
 - Implement pod disruption budgets to maintain service reliability
 
 ### Resource Right-Sizing
+
 - Conduct thorough analysis of actual resource utilization
 - Avoid over-provisioning by matching resource requests to actual usage
 - Use monitoring tools to gain insights into workload characteristics
@@ -321,23 +454,23 @@ Regularly assess system and Kubernetes overhead:
 
 # References
 
-* [Docs](https://kubernetes.io/docs/)
-* [Awesome K8s](https://github.com/ramitsurana/awesome-kubernetes)
-* [Katacoda playground](https://www.katacoda.com/courses/kubernetes/playground)
-* [Comic](https://cloud.google.com/kubernetes-engine/kubernetes-comic)
+- [Docs](https://kubernetes.io/docs/)
+- [Awesome K8s](https://github.com/ramitsurana/awesome-kubernetes)
+- [Katacoda playground](https://www.katacoda.com/courses/kubernetes/playground)
+- [Comic](https://cloud.google.com/kubernetes-engine/kubernetes-comic)
 
 ## Diving deeper
 
-* [Architecture](kubernetes_architecture.md)
-* [Resources](kubernetes_namespaces.md)
-* [Kubectl](kubectl.md)
-* [Additional Components](kubernetes_namespaces.md)
-* [Networking](kubernetes_networking.md)
-* [Helm](helm.md)
-* [Tools](kubernetes_tools.md)
-* [Debugging](kubernetes_debugging.md)
+- [Architecture](kubernetes_architecture.md)
+- [Resources](kubernetes_namespaces.md)
+- [Kubectl](kubectl.md)
+- [Additional Components](kubernetes_namespaces.md)
+- [Networking](kubernetes_networking.md)
+- [Helm](helm.md)
+- [Tools](kubernetes_tools.md)
+- [Debugging](kubernetes_debugging.md)
 
 ## Reference
 
-* [References](https://kubernetes.io/docs/reference/)
-* [API conventions](https://github.com/kubernetes/community/blob/master/contributors/devel/api-conventions.md)
+- [References](https://kubernetes.io/docs/reference/)
+- [API conventions](https://github.com/kubernetes/community/blob/master/contributors/devel/api-conventions.md)

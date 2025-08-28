@@ -629,6 +629,101 @@ giteahome=/var/gitea ./update.sh -v 1.20.5
 
 - [Being able to run two jobs on the same branch](https://github.com/go-gitea/gitea/issues/32662): It will be implemented with [concurrency](https://github.com/go-gitea/gitea/issues/24769) with [this pr](https://github.com/go-gitea/gitea/pull/32751). This behavior [didn't happen before 2023-07-25](https://github.com/go-gitea/gitea/pull/25716)
 
+# Snippets
+
+## Clone al git repositories of a series of organisations
+
+It assumes you have `tea` configured to interact with the desired gitea instance.
+```bash
+#!/bin/bash
+
+set -e
+
+ORGANIZATIONS=("ansible-playbooks" "ansible-roles")
+
+clone_org_repos() {
+  local page=1
+  local has_more=true
+
+  while [ "$has_more" = true ]; do
+    echo "Fetching page $page..."
+
+    local csv_output
+    csv_output=$(tea repo ls --output csv --page "$page" 2>/dev/null || true)
+
+    if [ -z "$csv_output" ] || [ "$csv_output" = '"owner","name","type","ssh"' ] || [ "$(echo "$csv_output" | wc -l)" -lt 3 ]; then
+      echo "No more repositories found on page $page"
+      has_more=false
+      break
+    fi
+
+    local repo_count=0
+    while IFS=',' read -r owner name type ssh_url; do
+      if [ "$owner" = '"owner"' ]; then
+        continue
+      fi
+
+      owner=$(echo "$owner" | sed 's/"//g')
+      name=$(echo "$name" | sed 's/"//g')
+      ssh_url=$(echo "$ssh_url" | sed 's/"//g')
+
+      # echo "owner: $owner name: $name ssh_url: $ssh_url"
+      if [[ -n "$name" ]] && [[ -n "$ssh_url" ]] && [[ "${ORGANIZATIONS[*]}" =~ $owner ]]; then
+        echo "Cloning repository: $name"
+        if [ ! -d "$name" ]; then
+          git clone "$ssh_url" "$owner/$name" || {
+            echo "Failed to clone $name, skipping..."
+            continue
+          }
+        else
+          echo "Repository $name already exists, skipping..."
+        fi
+        repo_count=$((repo_count + 1))
+      fi
+    done <<<"$csv_output"
+
+    ((page++))
+  done
+
+  cd ..
+  echo "Finished processing $org"
+  echo
+}
+
+main() {
+  echo "Starting repository cloning process..."
+  echo "Target organizations: ${ORGANIZATIONS[*]}"
+  echo
+
+  if ! command -v tea &>/dev/null; then
+    echo "Error: 'tea' command not found. Please install gitea tea CLI."
+    exit 1
+  fi
+
+  if ! command -v git &>/dev/null; then
+    echo "Error: 'git' command not found. Please install git."
+    exit 1
+  fi
+
+  for org in "${ORGANIZATIONS[@]}"; do
+    if [ ! -d "$org" ]; then
+      mkdir "$org"
+    fi
+  done
+
+  clone_org_repos
+  echo "Repository cloning process completed!"
+  echo "Check the following directories:"
+  for org in "${ORGANIZATIONS[@]}"; do
+    if [ -d "$org" ]; then
+      echo "  - $org/ ($(find "$org" -maxdepth 1 -type d | wc -l) repositories)"
+    fi
+  done
+}
+
+main "$@"
+```
+
 # References
 
 - [Home](https://gitea.io/en-us/)

@@ -514,7 +514,7 @@ It is possible to use PDM in a multi-stage Dockerfile to first install the proje
 
 ```docker
 # build stage
-FROM python:3.11-slim-bookworm as builder
+FROM python:3.11-slim-bookworm AS builder
 
 # install PDM
 RUN pip install -U pip setuptools wheel
@@ -540,7 +540,7 @@ COPY --from=builder /project/__pypackages__/3.11/lib /project/pkgs
 COPY --from=builder /project/__pypackages__/3.11/bin/* /bin/
 
 # set command/entrypoint, adapt to fit your needs
-CMD ["python", "-m", "project"]
+CMD ["program_name"]
 ```
 
 ## [Show the current Python environment](https://pdm.fming.dev/usage/project/#show-the-current-python-environment)

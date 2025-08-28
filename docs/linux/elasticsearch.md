@@ -268,6 +268,10 @@ done
 echo "Done! All indices updated."
 ```
 
+# Reshard an index
+
+I have a `reshard.sh` script at the work's script directory.
+
 # [Reindex an index](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/remote-reindex.html#remote-reindex-largedatasets)
 
 If you encountered errors while reindexing `source_index` to `destination_index`

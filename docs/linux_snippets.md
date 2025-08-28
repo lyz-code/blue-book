@@ -4,8 +4,77 @@ date: 20200826
 author: Lyz
 ---
 
-# List the files of a deb package
+# [Unattended upgrades](https://askubuntu.com/questions/934807/unattended-upgrades-status)
 
+unattended-upgrades runs daily at a random time
+
+## How to tell when unattended upgrades will run today:
+
+The random time is set by a cron job (/etc/cron.daily/apt.compat), and you can read the random time for today by asking systemd:
+
+```bash
+$ systemctl list-timers apt-daily.timer
+NEXT                         LEFT     LAST                         PASSED      UNIT            ACTIVATES
+Tue 2017-07-11 01:53:29 CDT  13h left Mon 2017-07-10 11:22:40 CDT  1h 9min ago apt-daily.timer apt-daily.service
+```
+
+In this case, you can see that it ran 1 hour and 9 minutes ago.
+
+## How to tell if unattended upgrades are still running:
+
+One easy way is to check the timestamp files for the various apt components:
+
+```bash
+$ ls -l /var/lib/apt/periodic/
+total 0
+-rw-r--r-- 1 root root 0 Jul 10 11:24 unattended-upgrades-stamp
+-rw-r--r-- 1 root root 0 Jul 10 11:23 update-stamp
+-rw-r--r-- 1 root root 0 Jul 10 11:24 update-success-stamp
+-rw-r--r-- 1 root root 0 Jul 10 11:24 upgrade-stamp
+```
+
+Putting the data together, you can see that the timer started apt at 11:22. It ran an update which completed at 11:23, then an upgrade which completed at 11:24. Finally, you can see that apt considered the upgrade to be a success (no error or other failure).
+
+Obviously, if you see a recent timer without a corresponding completion timestamp, then you might want to check ps to see if apt is still running.
+
+## How to tell which step apt is running right now
+
+One easy way is to check the logfile.
+
+```bash
+$ less /var/log/unattended-upgrades/unattended-upgrades.log
+2017-07-10 11:23:00,348 INFO Initial blacklisted packages:
+2017-07-10 11:23:00,349 INFO Initial whitelisted packages:
+2017-07-10 11:23:00,349 INFO Starting unattended upgrades script
+2017-07-10 11:23:00,349 INFO Allowed origins are: ['o=Ubuntu,a=zesty-security', 'o=Ubuntu,a=zesty-updates']
+2017-07-10 11:23:10,485 INFO Packages that will be upgraded: apport apport-gtk libpoppler-glib8 libpoppler-qt5-1 libpoppler64 poppler-utils python3-apport python3-problem-report
+2017-07-10 11:23:10,485 INFO Writing dpkg log to '/var/log/unattended-upgrades/unattended-upgrades-dpkg.log'
+2017-07-10 11:24:20,419 INFO All upgrades installed
+```
+
+Here you can see the normal daily process, including the 'started' and 'completed' lines, and the list of packages that were about to be upgraded.
+
+If the list of packages is not logged yet, then apt can be safely interrupted. Once the list of packages is logged, DO NOT interrupt apt.
+
+## Check the number of packages that need an upgrade 
+
+```bash
+apt list --upgradeable
+```
+## Manually run the unattended upgrades 
+
+```bash
+unattended-upgrade -d
+```
+
+# Resize a partition of an EC2 instance
+
+If it's the first partition of the first disk.
+
+```bash
+growpart /dev/nvme0n1 1
+resize2fs /dev/nvme0n1p1
+```
 
 # [Check the file encoding](https://stackoverflow.com/questions/805418/how-can-i-find-encoding-of-a-file-via-a-script-on-linux)
 

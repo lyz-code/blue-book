@@ -1251,6 +1251,21 @@ If you use [loki](loki.md) remember to monitor the `/proc/spl/kstat/zfs/dbgmsg` 
           __path__: /proc/spl/kstat/zfs/dbgmsg
 ```
 
+## Monitor the zfs ram usage
+
+```yaml
+      - alert: HostOutOfMemory
+        # if we don't add the node_zfs_arc_size, the ARC is taken as used space triggering the alert as a false positive
+        expr: (node_memory_MemAvailable_bytes + node_zfs_arc_size)/ node_memory_MemTotal_bytes * 100 < 10
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: Host out of memory (instance {{ $labels.instance }})
+          message: "Node memory is filling up (< 10% left)\n  VALUE = {{ $value\
+            \ }}"
+
+```
 # [Troubleshooting](https://openzfs.github.io/openzfs-docs/Basic%20Concepts/Troubleshooting.html)
 
 To debug ZFS errors you can check:

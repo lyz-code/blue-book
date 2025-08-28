@@ -41,7 +41,11 @@ nav:
       - Laboral:
           - laboral.md
           - Trabajadoras del hogar: trabajadoras_del_hogar.md
-      - Collaborating tools: collaborating_tools.md
+      - Collaborating tools:
+          - collaborating_tools.md
+          - Investigative journalism:
+              - investigative_journalism.md
+              - Aleph: aleph.md
       - Conference organisation:
           - conference_organisation.md
           - pretalx: pretalx.md
@@ -180,7 +184,6 @@ nav:
               - mkdocs: linux/mkdocs.md
               - Build your own Digital Garden: writing/build_your_own_wiki.md
               - Forking this garden: forking_this_wiki.md
-          - Aleph: aleph.md
           - Wordpress: wordpress.md
       - Relationship Management:
           - relationship_management.md
@@ -726,6 +729,7 @@ nav:
                   - OsmAnd: osmand.md
                   - Seedvault: seedvault.md
               - Android SDK Platform tools: android_sdk.md
+              - Mobile Keyboards: mobile_keyboards.md
       - Hardware:
           - Redox: redox.md
           - Vial: vial.md

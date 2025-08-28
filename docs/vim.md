@@ -8,8 +8,8 @@ Vim is a lightweight keyboard driven editor. It's the road to **fly over the
 keyboard** as it increases productivity and usability.
 
 !!! note "If you doubt between learning emacs or vim, try first with emacs through spacemacs"
-    I am a power vim user for more than 10 years, and seeing what my friends do
-    with emacs, I suggest you to learn it while keeping the vim movement.
+I am a power vim user for more than 10 years, and seeing what my friends do
+with emacs, I suggest you to learn it while keeping the vim movement.
 
     Spacemacs is a preconfigured Emacs with those bindings and a lot of more
     stuff, but it's a good way to start.
@@ -38,6 +38,18 @@ mv nvim.appimage ~/.local/bin/nvim
 
 Configuring `vim` is a never ending life experience. As such, it deserves it's own [section](vim_config.md)
 
+## [Automatically change the colorscheme between light and dark](https://github.com/f-person/auto-dark-mode.nvim)
+
+Using the system configuration. Add the `f-person/auto-dark-mode.nvim` to your Lazyvim configuration.
+
+```lua
+{ "f-person/auto-dark-mode.nvim", opts = {
+    update_interval = 1000,
+}
+```
+
+I had to overwrite the default `update_interval` otherwise the theme didn't change.
+
 # Troubleshooting
 
 When you run into problems run `:checkhealth` to see if it rings a bell. If that doesn't help you maybe [I've encountered your particular problem](vim_troubleshooting.md).
@@ -45,6 +57,7 @@ When you run into problems run `:checkhealth` to see if it rings a bell. If that
 ## [Disable autoformat for some buffers](https://www.lazyvim.org/configuration/tips#disable-autoformat-for-some-buffers)
 
 If you want to disable autoformat for a certain buffer, then set `vim.b.autoformat = false` for that buffer.
+
 ```lua
 -- Disable autoformat for lua files
 vim.api.nvim_create_autocmd({ "FileType" }, {
@@ -57,7 +70,9 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 ```
 
 If you change your mind you can do <leader>uf to enable autoformat anyway for that buffer.
+
 ## [<c-i> is not well mapped](https://github.com/neovim/neovim/issues/5916)
+
 It's because `<c-i>` is a synonym of `<TAB>`.
 
 # Debugging
@@ -81,22 +96,24 @@ function! himalaya#domain#email#list_with(account, folder, page, query) abort
 endfunction
 
 ```
+
 # Resources
 
 - [Home](https://neovim.io/)
+
 * [News](https://neovim.io/news/)
 * [awesome-neovim](https://github.com/rockerBOO/awesome-neovim/blob/main/README.md)
 * [awesome-vim](https://github.com/akrawchyk/awesome-vim)
 
 ## Learning
 
-* [vim golf](https://www.vimgolf.com)
-* [Vim game tutorial](https://vim-adventures.com/): very funny and challenging,
-      buuuuut at lvl 3 you have to pay :(.
-* [PacVim](https://www.ostechnix.com/pacvim-a-cli-game-to-learn-vim-commands/):
-      Pacman like vim game to learn.
-* [Vimgenius](http://www.vimgenius.com/): Increase your speed and improve your
-      muscle memory with Vim Genius, a timed flashcard-style game designed to
-      make you faster in Vim. It’s free and you don’t need to sign up. What are
-      you waiting for?
-* [Openvim](http://www.openvim.com/): Interactive tutorial for vim.
+- [vim golf](https://www.vimgolf.com)
+- [Vim game tutorial](https://vim-adventures.com/): very funny and challenging,
+  buuuuut at lvl 3 you have to pay :(.
+- [PacVim](https://www.ostechnix.com/pacvim-a-cli-game-to-learn-vim-commands/):
+  Pacman like vim game to learn.
+- [Vimgenius](http://www.vimgenius.com/): Increase your speed and improve your
+  muscle memory with Vim Genius, a timed flashcard-style game designed to
+  make you faster in Vim. It’s free and you don’t need to sign up. What are
+  you waiting for?
+- [Openvim](http://www.openvim.com/): Interactive tutorial for vim.

@@ -300,6 +300,15 @@ Linux 4.18.0-80.11.2.el8_0.x86_64 (hostname)    09/08/2020  _x86_64_    (4 CPU)
 10:15:19 AM   998         -      1132   0.66       0.00      |__gdbus
 ```
 
+The columns are:
+
+- UID: The real user identification number of the task being monitored.
+- USER: The name of the real user owning the task being monitored.
+- PID: The identification number of the task being monitored.
+- cswch/s: Total  number of voluntary context switches the task made per second.  A voluntary context switch occurs when a task blocks because it requires a  resource  that  is unavailable.
+- nvcswch/s: Total number of non voluntary context switches the task made per second.  A involuntary context switch takes place when a task executes for  the  duration  of  its time slice and then is forced to relinquish the processor.
+- Command: The command name of the task.
+
 Then with help of PID which is causing issue, one can get all system calls details:
 Raw
 

@@ -2,7 +2,8 @@
 
 # Manually renew a certificate
 
-Linuxserver swag container renews the certificates at night. If you don't have your server up at those hours your certificate won't be renewed automatically and you need to react to the prometheus alert manually. To do so get into the container and run `certbot renew`.
+Linuxserver swag container renews the certificates at night. If you don't have your server up at those hours your certificate won't be renewed automatically and you need to react to the prometheus alert manually. To do so get into the container and run `/app/le-renew.sh` which will run `certbot renew` with the needed options.
+
 # [Configure a wildcard dns when the provider is not supported](https://certbot.eff.org/instructions?ws=nginx&os=pip)
 
 If you’d like to obtain a wildcard certificate from Let’s Encrypt or run certbot on a machine other than your target webserver, you can use one of Certbot’s DNS plugins.
@@ -14,6 +15,3 @@ To do so you first need to [install certbot](https://eff-certbot.readthedocs.io/
 ```bash
 pipx install certbot
 ```
-
-
-

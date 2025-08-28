@@ -173,6 +173,7 @@ Artigos determinados:
 
 * [Recompilación de grupos de música en galego](https://orgullogalego.gal/musica-en-galego/)
 * [Conversas do fenómeno das persoas neofalantes e o futuro do idioma](https://www.youtube.com/watch?app=desktop&v=7al60UuHlU8&feature=youtu.be)
+* [Os arquivos da meiga](https://www.osarquivosdameiga.com/): Foro de contenido en galego
 
 ## Libros gramática
 

@@ -2196,6 +2196,23 @@ To get a better grasp of Tree-sitter you can check their talks:
 
 `lazyblorg orgparser.py` is another tool for working with Org-mode files. However, I didn't look at it.
 
+# Exporting
+
+## To pdf
+
+If you want to convert it with python you first need to install the dependencies: `sudo apt install texlive-xetex`
+
+Then you can do
+
+```bash
+pandoc input.org -o output.pdf --pdf-engine=xelatex -V geometry:margin=1in -V fontsize=11pt -V colorlinks=true
+```
+
+## To markdown
+```bash
+pandoc input.org -o output.md
+```
+
 # References
 
 - [Source](https://github.com/nvim-orgmode/orgmode)

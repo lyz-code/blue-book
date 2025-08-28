@@ -165,3 +165,5 @@ a nightmare](https://github.com/samuelclay/NewsBlur/blob/master/docker-compose.y
 Intermediate solutions between the sources and the reader aren't the best option
 either, as you need to interact with that middleware outside the RSS reader if you want to save the ratings. There is an interesting project though [rssfilter](https://github.com/m0wer/rssfilter) that does some filtering with LLM and the data extracted from your behaviour.
 
+# News sources
+- [Forensic architecture](https://forensic-architecture.org/): Forensic Architecture (FA) is a research agency based at Goldsmiths, University of London. Our mandate is to develop, employ, and disseminate new techniques, methods, and concepts for investigating state and corporate violence. Our team includes architects, software developers, filmmakers, investigative journalists, scientists, and lawyers. 

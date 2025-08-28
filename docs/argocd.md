@@ -357,6 +357,190 @@ This is tricky, because ingress is one of theses cases were you have to delete t
   kubectl patch application <yourDeployment> -n argocd --type=merge -p '{"operation": {"initiatedBy": { "username": "<yourUserName>"},"sync": { "syncStrategy": null, "hook": {} }}}'
   ```
 
+# Snippets
+
+## Recursively pull a copy of all helm charts used by an argocd repository
+
+Including the dependencies of the dependencies.
+
+```python
+#!/usr/bin/env python3
+
+import argparse
+import logging
+import subprocess
+import sys
+from pathlib import Path
+from typing import Dict, List, Set
+
+import yaml
+
+
+class HelmChartPuller:
+    def __init__(self):
+        self.pulled_charts: Set[str] = set()
+        self.setup_logging()
+
+    def setup_logging(self):
+        logging.basicConfig(
+            level=logging.INFO,
+            format="[%(asctime)s] %(levelname)s: %(message)s",
+            datefmt="%Y-%m-%d %H:%M:%S",
+        )
+        self.logger = logging.getLogger(__name__)
+
+    def parse_chart_yaml(self, chart_file: Path) -> Dict:
+        """Parse Chart.yaml file and return its contents."""
+        try:
+            with open(chart_file, "r", encoding="utf-8") as f:
+                return yaml.safe_load(f) or {}
+        except Exception as e:
+            self.logger.error(f"Failed to parse {chart_file}: {e}")
+            return {}
+
+    def get_dependencies(self, chart_data: Dict) -> List[Dict]:
+        """Extract dependencies from chart data."""
+        return chart_data.get("dependencies", [])
+
+    def is_chart_pulled(self, name: str, version: str) -> bool:
+        """Check if chart has already been pulled."""
+        chart_id = f"{name}-{version}"
+        return chart_id in self.pulled_charts
+
+    def mark_chart_pulled(self, name: str, version: str):
+        """Mark chart as pulled to avoid duplicates."""
+        chart_id = f"{name}-{version}"
+        self.pulled_charts.add(chart_id)
+
+    def pull_chart(self, name: str, version: str, repository: str) -> bool:
+        """Pull a Helm chart using appropriate method (OCI or traditional)."""
+        if self.is_chart_pulled(name, version):
+            self.logger.info(f"Chart {name}-{version} already pulled, skipping")
+            return True
+
+        self.logger.info(f"Pulling chart: {name} version {version} from {repository}")
+
+        try:
+            if repository.startswith("oci://"):
+                oci_url = f"{repository}/{name}"
+                cmd = ["helm", "pull", oci_url, "--version", version, "--untar"]
+            else:
+                cmd = [
+                    "helm",
+                    "pull",
+                    name,
+                    "--repo",
+                    repository,
+                    "--version",
+                    version,
+                    "--untar",
+                ]
+
+            result = subprocess.run(cmd, capture_output=True, text=True, check=True)
+            self.logger.info(f"Successfully pulled chart: {name}-{version}")
+            self.mark_chart_pulled(name, version)
+            return True
+
+        except subprocess.CalledProcessError as e:
+            self.logger.error(f"Failed to pull chart {name}-{version}: {e.stderr}")
+            return False
+
+    def process_chart_dependencies(self, chart_file: Path):
+        """Process dependencies from a Chart.yaml file recursively."""
+        self.logger.info(f"Processing dependencies from: {chart_file}")
+
+        chart_data = self.parse_chart_yaml(chart_file)
+        if not chart_data:
+            return
+
+        dependencies = self.get_dependencies(chart_data)
+        if not dependencies:
+            self.logger.info(f"No dependencies found in {chart_file}")
+            return
+
+        for dep in dependencies:
+            name = dep.get("name", "")
+            version = dep.get("version", "")
+            repository = dep.get("repository", "")
+
+            if not all([name, version, repository]):
+                self.logger.warning(f"Incomplete dependency in {chart_file}: {dep}")
+                continue
+
+            if self.pull_chart(name, version, repository):
+                pulled_chart_dir = Path.cwd() / name
+                if pulled_chart_dir.is_dir():
+                    dep_chart_file = pulled_chart_dir / "Chart.yaml"
+                    if dep_chart_file.is_file():
+                        self.logger.info(
+                            f"Found Chart.yaml in pulled dependency: {dep_chart_file}"
+                        )
+                        self.process_chart_dependencies(dep_chart_file)
+
+    def find_chart_files(self, search_dir: Path) -> List[Path]:
+        """Find all Chart.yaml files in the given directory."""
+        self.logger.info(f"Searching for Chart.yaml files in: {search_dir}")
+        return list(search_dir.rglob("Chart.yaml"))
+
+    def check_dependencies(self):
+        """Check if required dependencies are available."""
+        try:
+            subprocess.run(["helm", "version"], capture_output=True, check=True)
+        except (subprocess.CalledProcessError, FileNotFoundError):
+            self.logger.error("helm command not found. Please install Helm.")
+            sys.exit(1)
+
+        try:
+            import yaml
+        except ImportError:
+            self.logger.error(
+                "PyYAML module not found. Install with: pip install PyYAML"
+            )
+            sys.exit(1)
+
+    def run(self, target_dir: str):
+        """Main execution method."""
+        self.check_dependencies()
+
+        target_path = Path(target_dir)
+        if not target_path.is_dir():
+            self.logger.error(f"Directory '{target_dir}' does not exist")
+            sys.exit(1)
+
+        self.logger.info(f"Starting to process Helm charts in: {target_path}")
+        self.logger.info(f"Charts will be pulled to current directory: {Path.cwd()}")
+
+        chart_files = self.find_chart_files(target_path)
+        if not chart_files:
+            self.logger.info("No Chart.yaml files found")
+            return
+
+        for chart_file in chart_files:
+            self.logger.info(f"Found Chart.yaml: {chart_file}")
+            self.process_chart_dependencies(chart_file)
+
+        self.logger.info(
+            f"Completed processing. Total unique charts pulled: {len(self.pulled_charts)}"
+        )
+        if self.pulled_charts:
+            self.logger.info(f"Pulled charts: {', '.join(sorted(self.pulled_charts))}")
+
+
+def main():
+    parser = argparse.ArgumentParser(
+        description="Recursively pull Helm charts and their dependencies from Chart.yaml files"
+    )
+    parser.add_argument("directory", help="Directory to search for Chart.yaml files")
+
+    args = parser.parse_args()
+
+    puller = HelmChartPuller()
+    puller.run(args.directory)
+
+
+if __name__ == "__main__":
+    main()
+```
 # References
 
 - [Docs](https://argo-cd.readthedocs.io/en/stable/)

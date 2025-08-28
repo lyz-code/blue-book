@@ -4,6 +4,13 @@ date: 20200717
 author: Lyz
 ---
 
+# Remove a directory with content 
+
+```python
+import shutil
+
+shutil.rmtree(Path('/path/to/directory'))
+```
 # Download book previews from google books
 
 You will only get some of the pages but it can help in the ending pdf
@@ -181,7 +188,6 @@ async def main():
 if __name__ == "__main__":
     asyncio.run(main())
 ```
-
 
 # Send keystrokes to an active window
 
@@ -679,6 +685,20 @@ for x in b:
 ```
 
 # [Recursively find files](https://stackoverflow.com/questions/2186525/how-to-use-glob-to-find-files-recursively)
+
+## If you only want the files and directories of the first level 
+
+
+```python
+from pathlib import Path
+
+path = Path("/your/directory")
+for item in path.iterdir():
+    if item.is_file():
+        print(f"File: {item.name}")
+    elif item.is_dir():
+        print(f"Directory: {item.name}")
+```
 
 ## Using `pathlib.Path.rglob`
 
