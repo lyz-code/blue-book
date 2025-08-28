@@ -582,12 +582,13 @@ files = [
 
 [[package]]
 name = "mkdocs-material"
-version = "9.6.16"
+version = "9.6.18"
 requires_python = ">=3.8"
 summary = "Documentation that simply works"
 dependencies = [
     "babel~=2.10",
     "backrefs~=5.7.post1",
+    "click<8.2.2",
     "colorama~=0.4",
     "jinja2~=3.1",
     "markdown~=3.2",
@@ -599,8 +600,8 @@ dependencies = [
     "requests~=2.26",
 ]
 files = [
-    {file = "mkdocs_material-9.6.16-py3-none-any.whl", hash = "sha256:8d1a1282b892fe1fdf77bfeb08c485ba3909dd743c9ba69a19a40f637c6ec18c"},
-    {file = "mkdocs_material-9.6.16.tar.gz", hash = "sha256:d07011df4a5c02ee0877496d9f1bfc986cfb93d964799b032dd99fe34c0e9d19"},
+    {file = "mkdocs_material-9.6.18-py3-none-any.whl", hash = "sha256:dbc1e146a0ecce951a4d84f97b816a54936cdc9e1edd1667fc6868878ac06701"},
+    {file = "mkdocs_material-9.6.18.tar.gz", hash = "sha256:a2eb253bcc8b66f8c6eaf8379c10ed6e9644090c2e2e9d0971c7722dc7211c05"},
 ]
 
 [[package]]
