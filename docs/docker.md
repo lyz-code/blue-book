@@ -197,6 +197,117 @@ sudo docker run -it --entrypoint /bin/bash [docker_image]
 
 # Snippets
 
+## Clean space used by docker
+
+### Do regular clean up
+```bash
+#!/bin/bash
+
+DRY_RUN=false
+
+while [[ $# -gt 0 ]]; do
+  case $1 in
+  --dry-run)
+    DRY_RUN=true
+    shift
+    ;;
+  *)
+    echo "Usage: $0 [--dry-run]"
+    exit 1
+    ;;
+  esac
+done
+
+if [ "$DRY_RUN" = true ]; then
+  echo "DRY RUN MODE - No images will be removed"
+  echo "============================================"
+else
+  # Prune unused containers, images, and volumes, but preserve networks
+  date
+  echo "Pruning the containers"
+  docker container prune -f --filter "label!=prune=false"
+  echo "Pruning the untagged images"
+  docker image prune -f --filter "label!=prune=false"
+  echo "Pruning the volumes"
+  docker volume prune -f
+fi
+
+echo "Prunning the labbeled images"
+RUNNING_IMAGES=$(docker ps --format "{{.Image}}" | sort -u)
+REPOS=$(docker images --format "{{.Repository}}" | grep -v "<none>" | sort -u)
+
+for repo in $REPOS; do
+  echo "Processing: $repo"
+
+  # Get images sorted by creation date (newest first) with timestamps
+  images=$(docker images "$repo" --format "{{.Repository}}:{{.Tag}} {{.CreatedAt}}" | sort -k2 -r)
+
+  preserve_count=0
+  while IFS= read -r line; do
+    if [ -z "$line" ]; then continue; fi
+
+    image=$(echo "$line" | awk '{print $1}')
+
+    if echo "$RUNNING_IMAGES" | grep -q "^$image$"; then
+      echo "  Keep (running): $image"
+      preserve_count=$((preserve_count + 1))
+    elif [ $preserve_count -lt 2 ]; then
+      echo "  Keep (previous): $image"
+      preserve_count=$((preserve_count + 1))
+    else
+      # Get image size before removal
+      size=$(docker images "$image" --format "{{.Size}}" | head -1)
+      if [ "$DRY_RUN" = true ]; then
+        echo "  Would remove: $image ($size)"
+      else
+        echo "  Remove: $image ($size)"
+        docker image rm "$image" 2>/dev/null || true
+      fi
+    fi
+  done <<<"$images"
+done
+```
+
+### Check the images size 
+
+```bash
+docker images --format "table {{.Repository}}\t{{.Tag}}\t{{.Size}}\t{{.CreatedSince}}\t{{.ID}}" | (read -r; printf "%s\n" "$REPLY"; sort -k3 -hr) | head -n 20
+```
+
+## Prevent a network to be removed on docker system prune
+
+Add the label `prune=false` and run instead the command `docker system prune -f -a --filter "label!=prune=false"`
+
+## Add a label to an existent network
+
+You cannot directly edit an existing Docker network to add labels/tags. Docker networks are immutable once created. Here are your options:
+
+Option 1: Recreate the network
+
+```bash
+# Remove existing network (ensure no containers are using it)
+
+docker network rm <network_name>
+
+# Create new network with the label
+
+docker network create --label prune=false <network_name>
+```
+
+Option 2: If containers are using the network
+
+```bash
+# Disconnect containers from old network
+docker network disconnect <network_name> <container_name>
+
+# Remove and recreate network
+docker network rm <network_name>
+docker network create --label 'prune=false' <network_name>
+
+# Reconnect containers
+docker network connect <network_name> <container_name>
+```
+
 ## Do a copy of a list of docker images in your private registry
 
 ```bash

@@ -578,7 +578,7 @@ os.replace("path/to/current/file.foo", "path/to/new/destination/for/file.foo")
 shutil.move("path/to/current/file.foo", "path/to/new/destination/for/file.foo")
 ```
 
-# [Print an exception](https://stackoverflow.com/questions/1483429/how-do-i-print-an-exception-in-python)
+# [Print an exception or traceback](https://stackoverflow.com/questions/1483429/how-do-i-print-an-exception-in-python)
 
 ## Using the logging module
 

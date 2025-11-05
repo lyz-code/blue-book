@@ -268,6 +268,68 @@ done
 echo "Done! All indices updated."
 ```
 
+## remove deleted documents from all indices in an Elasticsearch cluster
+
+```bash
+#!/bin/bash
+
+# This quick and dirty script will remove deleted documents from all indices in an Elasticsearch cluster.
+# It will set the expunge_deletes_allowed setting to 0%, trigger a forcemerge
+# to remove the deleted documents, and then set the setting back to the a new default 5%.
+
+# Usage: ./elasticsearch_remove_deleted.sh [ES_HOST]
+#   ES_HOST: The Elasticsearch host to connect to (default: http://localhost:9200)
+# Example: ./elasticsearch_remove_deleted.sh http://elastic:veryhardtofindpassword@localhost:9200
+
+
+# Elasticsearch configuration
+ES_HOST="${1:-http://localhost:9200}"
+DEFAULT_SETTING="5"              # Target default value (5%)
+
+# Get all indices in the cluster
+INDICES=$(curl -s -XGET "$ES_HOST/_cat/indices?h=index")
+
+# Loop through all indices
+for INDEX in $INDICES; do
+  echo "Processing index: $INDEX"
+
+  # Close the index to modify static settings
+  curl -s -XPOST "$ES_HOST/$INDEX/_close" > /dev/null
+
+  # Update expunge_deletes_allowed to 1%
+  curl -s -XPUT "$ES_HOST/$INDEX/_settings" -H 'Content-Type: application/json' -d'
+{
+    "index.merge.policy.expunge_deletes_allowed": "0"
+  }' > /dev/null
+
+  # Reopen the index
+  curl -s -XPOST "$ES_HOST/$INDEX/_open" > /dev/null
+
+  # Trigger forcemerge (async)
+  # curl -s -XPOST "$ES_HOST/$INDEX/_forcemerge?only_expunge_deletes=true&wait_for_completion=false" > /dev/null
+  echo "Forcemerge triggered for $INDEX"
+  curl -s -XPOST "$ES_HOST/$INDEX/_forcemerge?only_expunge_deletes=true" > /dev/null &
+  echo "Waiting until all forcemerge tasks are done"
+  while curl -s $ES_HOST/_cat/tasks\?v  | grep forcemerge > /dev/null ; do
+    curl -s $ES_HOST/_cat/indices | grep $INDEX
+    sleep 10
+  done
+
+  # Close the index again
+  curl -s -XPOST "$ES_HOST/$INDEX/_close" > /dev/null
+
+  # Update to the new default (5%)
+  curl -s -XPUT "$ES_HOST/$INDEX/_settings" -H 'Content-Type: application/json' -d'
+  {
+    "index.merge.policy.expunge_deletes_allowed": "'"$DEFAULT_SETTING"'"
+  }' > /dev/null
+
+  # Reopen the index
+  curl -s -XPOST "$ES_HOST/$INDEX/_open" > /dev/null
+done
+
+echo "Done! All indices updated."
+```
 # Reshard an index
 
 I have a `reshard.sh` script at the work's script directory.

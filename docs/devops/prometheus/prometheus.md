@@ -191,6 +191,82 @@ response = requests.get(
 )
 ```
 
+# Monitoring that the service monitors are well configured 
+
+```bash
+#!/bin/bash
+
+set -uo pipefail
+
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+NC='\033[0m'
+
+REQUIRED_LABEL="release=prometheus-operator"
+ISSUES_FOUND=0
+
+echo "🔍 Checking ServiceMonitor and PodMonitor resources for Prometheus operator labels..."
+echo
+printf "%-10s | %-20s | %s\n" "STATUS" "NAMESPACE" "OBJECT"
+printf "%-10s | %-20s | %s\n" "----------" "--------------------" "----------------------------------------"
+
+check_monitors() {
+    local resource_type="$1"
+
+    # Get monitors that have the correct label
+    local with_label
+    with_label=$(kubectl get "$resource_type" -A -l "$REQUIRED_LABEL" -o custom-columns=NAMESPACE:.metadata.namespace,NAME:.metadata.name --no-headers 2>/dev/null || echo "")
+
+    # Get all monitors
+    local all_monitors
+    all_monitors=$(kubectl get "$resource_type" -A -o custom-columns=NAMESPACE:.metadata.namespace,NAME:.metadata.name --no-headers 2>/dev/null || echo "")
+
+    # Show monitors with correct labels as OK
+    while read -r namespace name; do
+        if [[ -n "$namespace" && -n "$name" ]]; then
+            printf "${GREEN}%-10s${NC} | %-20s | %s/%s\n" "✓ OK" "$namespace" "$resource_type" "$name"
+        fi
+    done <<< "$with_label"
+
+    # Find monitors without the label by comparing the lists
+    while read -r namespace name; do
+        if [[ -n "$namespace" && -n "$name" ]]; then
+            # Check if this monitor is NOT in the with_label list
+            if ! echo "$with_label" | grep -q "^$namespace[[:space:]]*$name$"; then
+                printf "${RED}%-10s${NC} | %-20s | %s/%s\n" "✗ FAIL" "$namespace" "$resource_type" "$name"
+                ((ISSUES_FOUND++))
+            fi
+        fi
+    done <<< "$all_monitors"
+}
+
+# Check ServiceMonitors
+check_monitors "servicemonitor"
+
+# Check PodMonitors
+check_monitors "podmonitor"
+
+echo
+echo "Summary:"
+echo "========"
+
+if [[ $ISSUES_FOUND -eq 0 ]]; then
+    echo -e "${GREEN}✅ All monitoring resources have the correct Prometheus operator label!${NC}"
+    exit 0
+else
+    echo -e "${RED}❌ Found $ISSUES_FOUND monitoring resource(s) missing the required label: $REQUIRED_LABEL${NC}"
+    echo
+    echo "To fix these issues, add the following label to each resource:"
+    echo "  metadata:"
+    echo "    labels:"
+    echo "      release: prometheus-operator"
+    echo
+    echo "Example kubectl command to patch a resource:"
+    echo "  kubectl patch servicemonitor <name> -n <namespace> -p '{\"metadata\":{\"labels\":{\"release\":\"prometheus-operator\"}}}'"
+    exit 1
+fi
+```
 # Links
 
 * [Homepage](https://prometheus.io/).

@@ -20,6 +20,7 @@ nav:
       - Anti-Colonialism: anticolonialism.md
       - Anti-Transphobia: antitransphobia.md
       - Anti-Racism: antiracism.md
+      - Anticapacitismo: anticapacitismo.md
       - Diversity, Equity and Inclusion:
           - diversity.md
           - Anonymous Feedback: anonymous_feedback.md
@@ -603,6 +604,7 @@ nav:
               - Memtest: memtest.md
               - watchdog: watchdog.md
               - Magic keys: magic_keys.md
+              - Enabling RPS: rps.md
           - Monitoring:
               - Monitoring Comparison: monitoring_comparison.md
               - Prometheus:
@@ -647,6 +649,7 @@ nav:
               - Templates:
                   - Refinement Template: refinement_template.md
           - Hardware:
+              - hardware.md
               - CPU: cpu.md
               - RAM:
                   - ram.md
@@ -731,6 +734,7 @@ nav:
               - Android SDK Platform tools: android_sdk.md
               - Mobile Keyboards: mobile_keyboards.md
       - Hardware:
+          - Kobo: kobo.md
           - Redox: redox.md
           - Vial: vial.md
           - Rock64: rock64.md
@@ -740,6 +744,7 @@ nav:
   - Filosofía:
       - filosofía.md
       - Amor: amor.md
+      - daoismo: taoismo.md
   - Arts:
       - Writing:
           - writing/writing.md
@@ -767,6 +772,7 @@ nav:
       - Aerial Silk: aerial_silk.md
       - Meditation: meditation.md
       - Sudokus: sudokus.md
+      - Painting: painting.md
       - Drawing:
           - drawing/drawing.md
           - Exercise Pool: drawing/exercise_pool.md
@@ -802,6 +808,7 @@ nav:
           - psychology.md
           - The XY Problem: psychology/the_xy_problem.md
           - Game Theory: game_theory.md
+      - Historia: historia.md
       - Botany:
           - Trees: botany/trees.md
       - Math: math.md
@@ -828,6 +835,7 @@ nav:
       - Board Games:
           - board_games.md
           - Regicide: regicide.md
+          - Rummy: rummy.md
           - Parchís: parchis.md
       - Monologues: monologues.md
   - Projects: projects.md

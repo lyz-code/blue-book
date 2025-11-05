@@ -1,5 +1,7 @@
 [Mobile Verification Toolkit](https://github.com/mvt-project/mvt) (MVT) is a collection of utilities to simplify and automate the process of gathering forensic traces helpful to identify a potential compromise of Android and iOS devices.
 
+NOTE: you may want to take a look at [bugbane](https://osservatorionessuno.org/blog/2025/09/bugbane-simplifying-consensual-android-forensics/)
+
 MVT's capabilities are continuously evolving, but some of its key features include:
 
 - Decrypt encrypted iOS backups.

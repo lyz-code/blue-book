@@ -118,19 +118,41 @@ groups:
           severity: warning
         annotations:
           summary: "You should remove some to keep things balanced"
-      - alert: TrackerStatusDown
+      - alert: PrivateTrackerDown
         expr: |
-          # I've removed the trackers that are flaky
-          qbittorrent_tracker_status{
-            url!~".*(tracker.openbittorrent.com|opentracker.i2p.rocks|exodus.desync.com|open.tracker.cl|opentracker.i2p.rocks|tracker-udp.gbitt.info|tracker.auctor.tv|tracker.moeking.me|tracker.openbittorrent.com|tracker1.bt.moack.co.kr).*"
-          } > 2
-        for: 1d
+          qbittorrent_tracker_status{url=~".*(private_tracker_url_1|private_tracker_url_2).*"} > 2
+        for: 12h
         labels:
           severity: warning
           service: qbittorrent
           alert_type: tracker_down
         annotations:
-          summary: "Tracker has been down for more than 1 day: {{ $labels.url }}"
+          summary: "Private Tracker is down: {{ $labels.url }}"
+          description: |
+            Tracker "{{ $labels.url }}" has been reporting a non-working status ({{ $value }}) for more than 1 day.
+
+            This indicates the tracker may be experiencing issues or downtime.
+
+            Tracker URL: {{ $labels.url }}
+            Status Code: {{ $value }}
+            Torrent: {{ $labels.name }}
+
+            **Status Code Reference:**
+            - 0: ?
+            - 1: ?
+            - 2: Working
+            - 3: ?
+            - 4: Not working: time out, Tracker is currently undergoing maintenance, try again later
+      - alert: PublicTrackerDown
+        expr: |
+          qbittorrent_tracker_status{url=~".*(tracker.opentrackr.org|nyaa.tracker.wf|open.stealth.si|open.demonii.com|tracker.torrent.eu|open.dstud.io).*"} > 2
+        for: 2d
+        labels:
+          severity: warning
+          service: qbittorrent
+          alert_type: tracker_down
+        annotations:
+          summary: "Public Tracker is down: {{ $labels.url }}"
           description: |
             Tracker "{{ $labels.url }}" has been reporting a non-working status ({{ $value }}) for more than 1 day.
 

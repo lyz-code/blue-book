@@ -4,6 +4,48 @@ date: 20200826
 author: Lyz
 ---
 
+# Differences betweenapt-get upgrade and apt-get dist-upgrade
+
+- `apt-get upgrade`:
+
+  - Only upgrades packages that don't require removing or installing new packages
+  - Won't install new dependencies or remove conflicting packages
+  - Keeps packages back if upgrades would change dependencies
+
+- `apt-get dist-upgrade`:
+
+  - More aggressive dependency resolution
+  - Can install new packages and remove others to satisfy dependencies
+  - Will upgrade packages even if it means changing the dependency tree
+  - Can handle more complex upgrade scenarios
+
+  Neither will upgrade your Debian version (12→13). That requires do-release-upgrade or changing /etc/apt/sources.list to point to the new release.
+
+  The "dist" in dist-upgrade refers to handling distribution of packages within your current release, not upgrading to a new OS version.
+
+  You usually do an `apt-get upgrade` unless there are packages that `are being kept back`
+
+# [Concatenate mp4 files](https://superuser.com/questions/521113/join-mp4-files-in-linux)
+
+The best way to do this currently is with the concat demuxer. First, create a file called inputs.txt formatted like so:
+
+```
+file '/path/to/input1.mp4'
+file '/path/to/input2.mp4'
+file '/path/to/input3.mp4'
+```
+
+Then, simply run this ffmpeg command:
+
+```bash
+ffmpeg -f concat -i inputs.txt -c copy output.mp4
+
+```
+
+# How to check the signature of a PDF
+
+Open the file with libreoffice and it will show you the signatures.
+
 # [Unattended upgrades](https://askubuntu.com/questions/934807/unattended-upgrades-status)
 
 unattended-upgrades runs daily at a random time
@@ -56,16 +98,151 @@ Here you can see the normal daily process, including the 'started' and 'complete
 
 If the list of packages is not logged yet, then apt can be safely interrupted. Once the list of packages is logged, DO NOT interrupt apt.
 
-## Check the number of packages that need an upgrade 
+## Check the number of packages that need an upgrade
 
 ```bash
 apt list --upgradeable
 ```
-## Manually run the unattended upgrades 
+
+## Manually run the unattended upgrades
 
 ```bash
 unattended-upgrade -d
 ```
+
+## Monitor the pending packages to be upgraded
+
+### Create the monitoring script
+
+First, create a script that checks for pending package upgrades and outputs metrics in Prometheus format:
+
+#### Setup instructions
+
+1. Make the script executable and place it in the right location:
+
+```bash
+sudo cp package-updates-check.sh /usr/local/bin/
+sudo chmod +x /usr/local/bin/package-updates-check.sh
+```
+
+```bash
+#!/bin/bash
+# Script to check pending package upgrades and export metric for Prometheus
+
+# Place this in /usr/local/bin/package-updates-check.sh
+TEXTFILE_DIR="/var/lib/node_exporter/textfile_collector"
+METRIC_FILE="$TEXTFILE_DIR/package_updates.prom"
+
+# Ensure the textfile collector directory exists
+mkdir -p "$TEXTFILE_DIR"
+
+# Check the number of packages to upgrade
+PACKAGES_TO_UPGRADE=$(echo "$(apt list --upgradeable 2>/dev/null | wc -l ) - 1" | bc)
+
+# Write metrics in Prometheus format
+cat > "$METRIC_FILE" << EOF
+
+# HELP node_pending_package_upgrades Number of apt packages that can be upgraded
+# TYPE node_pending_package_upgrades gauge
+
+node_pending_package_upgrades $PACKAGES_TO_UPGRADE
+EOF
+
+# Set proper permissions
+chmod 644 "$METRIC_FILE"
+```
+
+2. Ensure the textfile collector directory exists:
+
+```bash
+sudo mkdir -p /var/lib/node_exporter/textfile_collector
+sudo chown node_exporter:node_exporter /var/lib/node_exporter/textfile_collector
+```
+
+3. Create a systemd service to run the script periodically:
+
+```ini
+[Unit]
+Description=Check pending package upgrades
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/package-updates-check.sh
+User=node_exporter
+Group=node_exporter
+
+[Install]
+WantedBy=multi-user.target
+```
+
+4. Create a systemd timer to run it regularly:
+
+```ini
+[Unit]
+Description=Check pending package upgrades every 5 minutes
+Requires=package-updates-check.service
+
+[Timer]
+OnBootSec=1min
+OnUnitActiveSec=5min
+
+[Install]
+WantedBy=timers.target
+```
+
+5. Install and enable the systemd units:
+
+```bash
+sudo cp package-updates-check.service /etc/systemd/system/
+sudo cp package-updates-check.timer /etc/systemd/system/
+sudo systemctl daemon-reload
+sudo systemctl enable package-updates-check.timer
+sudo systemctl start package-updates-check.timer
+```
+
+6. Configure node exporter to use the textfile collector:
+   Make sure your node exporter is started with the --collector.textfile.directory flag:
+
+```bash
+node_exporter --collector.textfile.directory=/var/lib/node_exporter/textfile_collector
+```
+
+### Prometheus alerting rule
+
+You can create an alerting rule in Prometheus to notify when a reboot is required:
+
+```yaml
+groups:
+  - name: system.rules
+    rules:
+      - alert: SystemPendingPackageUgrades
+        expr: node_pending_package_upgrades > 0
+        for: 0m
+        labels:
+          severity: warning
+        annotations:
+          summary: "System {{ $labels.instance }} has pending package upgrades"
+          description: "System {{ $labels.instance }} has {{ $value }} pending package upgrades"
+```
+
+## Solve packages that are not being updated
+
+Check if your current distribution is blocked form the unattended packages
+
+1. Edit /etc/apt/apt.conf.d/50unattended-upgrades
+2. Find the Unattended-Upgrade::Allowed-Origins section and add:
+  "o=Debian,a=oldoldstable-security";
+  "o=Debian,a=oldoldstable-updates";
+3. The section should look like:
+  Unattended-Upgrade::Allowed-Origins {
+      "o=Debian,a=bullseye";
+      "o=Debian,a=bullseye-security";
+      "o=Debian,a=oldoldstable-security";
+      "o=Debian,a=oldoldstable-updates";
+  };
+4. Test with: unattended-upgrade -d --dry-run
+5. Run: unattended-upgrade
 
 # Resize a partition of an EC2 instance
 

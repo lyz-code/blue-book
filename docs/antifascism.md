@@ -131,3 +131,7 @@ falls into a pity image then it may strengthen their victim role.
 ## Campañas 
 - [Crowdfunding para la libertad de los 6 de Zaragoza](https://www.goteo.org/project/libertad-6-de-zaragoza)
 
+## Articles
+
+- [Hitler Was Incompetent and Lazy—and His Nazi Government Was an Absolute Clown Show](https://www.newsweek.com/hitler-incompetent-lazy-nazi-government-clown-show-opinion-1408136)
+- [Bellincat Open-Source Extremist Identifications](https://awards.journalists.org/entries/open-source-extremist-identifications/)

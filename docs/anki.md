@@ -31,14 +31,28 @@ cd anki-2.1.XX-linux-qt6
 sudo ./install.sh
 ```
 
-# Anki workflow 
+## Configuration
+
+### [File location](https://docs.ankiweb.net/files.html#file-locations)
+
+On Linux:
+
+- recent Anki versions store your user data in `~/.local/share/Anki2`, or `$XDG_DATA_HOME/Anki2` if you have set a custom data path.
+- Anki’s launcher is installed in `/usr/local/share/anki`
+- When you install/update Anki with the launcher, it downloads support files and places them in `~/.local/share/AnkiProgramFiles`
+
+Removing that folder will cause the launcher to behave like a fresh install.
+
+The AnkiProgramFiles contains all the files needed to run Anki aside from the launcher.
+
+# Anki workflow
 
 ## How long to do study sessions
 
 I have two study modes:
 
-* When I'm up to date with my cards, I study them until I finish, but usually less than 15 minutes.
-* If I have been lazy and haven't checked them in a while (like now) I assume I'm not going to see them all and define a limited amount of time to review them, say 10 to 20 minutes depending on the time/energy I have at the moment. 
+- When I'm up to date with my cards, I study them until I finish, but usually less than 15 minutes.
+- If I have been lazy and haven't checked them in a while (like now) I assume I'm not going to see them all and define a limited amount of time to review them, say 10 to 20 minutes depending on the time/energy I have at the moment.
 
 The relief thought you can have is that as long as you keep a steady pace of 10/20 mins each day, inevitably you'll eventually finish your pending cards as you're more effective reviewing cards than entering new ones
 
@@ -46,12 +60,12 @@ The relief thought you can have is that as long as you keep a steady pace of 10/
 
 If you're afraid to be stuck in a loop of reviewing "hard" cards, don't be. In reality after you've seen that "hard" card three times in a row you won't mark it as hard again, because you will remember. If you don't maybe there are two reasons:
 
-* The card has too much information that should be subdivided in smaller cards.
-* You're not doing a good process of memorizing the contents once they show up.
+- The card has too much information that should be subdivided in smaller cards.
+- You're not doing a good process of memorizing the contents once they show up.
 
 ## [What to do with unneeded cards](https://www.reddit.com/r/medicalschoolanki/comments/9dwjia/difference_between_suspend_and_bury_card/)
 
-You have three options: 
+You have three options:
 
 - Suspend: It stops it from showing up permanently until you reactivate it through the browser.
 - Bury: Just delays it until the next day.
@@ -69,19 +83,19 @@ You can mark it with a red flag so that you remember to edit it the next time yo
 
 Although there are some python libraries:
 
-* [genanki](https://github.com/kerrickstaley/genanki)
-* [py-anki](https://pypi.org/project/py-anki/)
+- [genanki](https://github.com/kerrickstaley/genanki)
+- [py-anki](https://pypi.org/project/py-anki/)
 
 I think the best way is to use [AnkiConnect](https://foosoft.net/projects/anki-connect/) as [they won't publish an API soon](https://forums.ankiweb.net/t/anki-public-api/22741/11). If AnkiConnect fails you can try [AnkiAPI](https://ankiweb.net/shared/info/530824608)
 
 The installation process is similar to other Anki plugins and can be accomplished in three steps:
 
-* Open the *Install Add-on* dialog by selecting *Tools | Add-ons | Get
-    Add-ons...* in Anki.
-* Input `2055492159` into the text box labeled *Code* and press the *OK* button to
-    proceed.
-* Restart Anki when prompted to do so in order to complete the installation of
-    Anki-Connect.
+- Open the _Install Add-on_ dialog by selecting _Tools | Add-ons | Get
+  Add-ons..._ in Anki.
+- Input `2055492159` into the text box labeled _Code_ and press the _OK_ button to
+  proceed.
+- Restart Anki when prompted to do so in order to complete the installation of
+  Anki-Connect.
 
 Anki must be kept running in the background in order for other applications to
 be able to use Anki-Connect. You can verify that Anki-Connect is running at any
@@ -101,7 +115,7 @@ successfully).
 Sample successful response:
 
 ```json
-{"result": ["Default", "Filtered Deck 1"], "error": null}
+{ "result": ["Default", "Filtered Deck 1"], "error": null }
 ```
 
 Samples of failed responses:
@@ -177,18 +191,19 @@ self.requests("createDeck", {"deck": deck})
 NOTE: In the end I dropped this path and used Ankidroid alone with syncthing as I didn't need to interact with the decks from the computer. Also the ecosystem of synchronization in Anki at 2023-11-10 is confusing as there are many servers available, not all are compatible with the clients and Anki itself has released it's own so some of the community ones will eventually die.
 
 ## Install the server
+
 ### [Install the official sync server](https://docs.ankiweb.net/sync-server.html)
 
 #### Using docker-compose
 
 On the server that holds Anki:
 
-* Create the data directories: 
+- Create the data directories:
   ```bash
   mkdir -p /data/apps/anki/data
   chown -R 1000:1000 /data/apps/anki/data
   ```
-* Copy the `docker/docker-compose.yaml` to `/data/apps/anki`.
+- Copy the `docker/docker-compose.yaml` to `/data/apps/anki`.
 
   ```yaml
   ---
@@ -219,12 +234,14 @@ On the server that holds Anki:
         o: bind
         device: /data/apps/anki/data
   ```
-* Add your `.env` file with your credentials
+
+- Add your `.env` file with your credentials
   ```
   SYNC_USER1=user:password
   ```
-* Clone the repository at `/data/apps/anki/src`
-* Copy the `service/anki.service` into `/etc/systemd/system/`
+- Clone the repository at `/data/apps/anki/src`
+- Copy the `service/anki.service` into `/etc/systemd/system/`
+
   ```ini
   [Unit]
   Description=anki
@@ -244,7 +261,9 @@ On the server that holds Anki:
   [Install]
   WantedBy=multi-user.target
   ```
-* Copy the `swag/anki.conf` into your nginx site-confs directory.
+
+- Copy the `swag/anki.conf` into your nginx site-confs directory.
+
   ```nginx
   # make sure that your dns has a cname set for anki and that your anki container is not using a base url
 
@@ -278,19 +297,20 @@ On the server that holds Anki:
   }
 
   ```
-* Build the docker with `docker-compose up --build`
-* Start the service `systemctl start anki`
-* If needed enable the service `systemctl enable anki`.
+
+- Build the docker with `docker-compose up --build`
+- Start the service `systemctl start anki`
+- If needed enable the service `systemctl enable anki`.
 
 ##### Update
 
-* Go to the `/data/apps/anki/src` directory
-* Update the changes: `git pull`
-* Check which is the latest version
-* Update the `docker-compose.yaml`
-* Stop the service `systemctl start anki`
-* Rebuild the docker: `docker-compose up --build`
-* Start the service `systemctl start anki`
+- Go to the `/data/apps/anki/src` directory
+- Update the changes: `git pull`
+- Check which is the latest version
+- Update the `docker-compose.yaml`
+- Stop the service `systemctl start anki`
+- Rebuild the docker: `docker-compose up --build`
+- Start the service `systemctl start anki`
 
 #### [Using docker](https://github.com/ankitects/anki/tree/main/docs/syncserver)
 
@@ -299,11 +319,13 @@ You can use the [official image](https://hub.docker.com/r/jeankhawand/anki-sync-
 ##### Building the image
 
 Use the output of `anki --version` to deduce the `<version>`
+
 ```bash
-git clone https://github.com/ankitects/anki 
+git clone https://github.com/ankitects/anki
 cd anki/docs/syncserver/
 docker build --no-cache --build-arg ANKI_VERSION=<version> -t anki-sync-server .
 ```
+
 Go make some tea, it takes a while to build the image.
 
 Once done with build, you can proceed with running this image with the following command:
@@ -342,12 +364,14 @@ SYNC_USER1=user:pass ~/syncserver/bin/python -m anki.syncserver
 
 I'm going to install `anki-sync-server` as it's simpler to [`djankiserv`](https://github.com/ankicommunity/anki-api-server):
 
-* Create the data directories: 
+- Create the data directories:
+
   ```bash
   mkdir -p /data/apps/anki/data
   ```
 
-* Copy the `docker/docker-compose.yaml` to `/data/apps/anki`.
+- Copy the `docker/docker-compose.yaml` to `/data/apps/anki`.
+
   ```yaml
   ---
   version: "3"
@@ -375,7 +399,8 @@ I'm going to install `anki-sync-server` as it's simpler to [`djankiserv`](https:
         o: bind
         device: /data/apps/anki
   ```
-* Copy the nginx config into your `site-confs`:
+
+- Copy the nginx config into your `site-confs`:
 
   ```
   # make sure that your dns has a cname set for anki and that your anki container is not using a base url
@@ -410,13 +435,14 @@ I'm going to install `anki-sync-server` as it's simpler to [`djankiserv`](https:
   }
   ```
 
-* Copy the `service/anki.service` into `/etc/systemd/system/`
+- Copy the `service/anki.service` into `/etc/systemd/system/`
+
   ```ini
   [Unit]
   Description=anki
   Requires=docker.service
   After=docker.service
-  
+
   [Service]
   Restart=always
   User=root
@@ -433,24 +459,25 @@ I'm going to install `anki-sync-server` as it's simpler to [`djankiserv`](https:
   [Install]
   WantedBy=multi-user.target
   ```
-* Start the service `systemctl start anki`
-* If needed enable the service `systemctl enable anki`.
-* Create your user by:
-  * Getting a shell inside the container:
+
+- Start the service `systemctl start anki`
+- If needed enable the service `systemctl enable anki`.
+- Create your user by:
+  - Getting a shell inside the container:
     ```bash
     docker exec -it anki sh
     ```
-  * Create the user:
+  - Create the user:
     ```bash
     ./ankisyncctl.py adduser kuklinistvan
     ```
 
 `ankisyncctl.py` has more commands to manage your users:
 
-* `adduser <username>`: add a new user
-* `deluser <username>`: delete a user
-* `lsuser`: list users
-* `passwd <username>`: change password of a user
+- `adduser <username>`: add a new user
+- `deluser <username>`: delete a user
+- `lsuser`: list users
+- `passwd <username>`: change password of a user
 
 ## Monitor the server
 
@@ -462,8 +489,8 @@ They don't expose an API, and I haven't found any endpoint to be able to monitor
 
 ## [Configure AnkiDroid](https://github.com/ankicommunity/anki-sync-server#ankidroid)
 
-* Add the dns you configured in your nginx reverse proxy into Advanced → Custom sync server.
-* Then enter the credentials you created before in Advanced -> AnkiWeb account
+- Add the dns you configured in your nginx reverse proxy into Advanced → Custom sync server.
+- Then enter the credentials you created before in Advanced -> AnkiWeb account
 
 ## [Configure Anki](https://github.com/ankicommunity/anki-sync-server#setting-up-anki)
 
@@ -474,14 +501,14 @@ Install addon from ankiweb (support 2.1)
 - Apply your server dns address
 - Press Sync in the main application page and enter your credentials
 
-# Running Anki in headless mode 
+# Running Anki in headless mode
 
 If you want to interact with anki directly without opening the GUI application [you're out of luck](https://github.com/FooSoft/anki-connect/issues/411). You could try to [interact with the database directly](https://eshapard.github.io/anki/open-the-anki-database-from-python.html) but that's prone to errors if you use more than one client.
 
 # References
 
-* [Docs](https://docs.ankiweb.net/)
-* [Source](https://github.com/ankitects/anki)
-* [Homepage](https://apps.ankiweb.net/)
-* [Forums](https://forums.ankiweb.net/)
-* [Anki-Connect reference](https://foosoft.net/projects/anki-connect/)
+- [Docs](https://docs.ankiweb.net/)
+- [Source](https://github.com/ankitects/anki)
+- [Homepage](https://apps.ankiweb.net/)
+- [Forums](https://forums.ankiweb.net/)
+- [Anki-Connect reference](https://foosoft.net/projects/anki-connect/)

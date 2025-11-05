@@ -27,20 +27,21 @@ desktop apps for Windows, MacOS and Linux.
 
 Pros:
 
-* Good security by default.
-* Easy to use for non technical users.
-* Good multi-device support.
+- Good security by default.
+- Easy to use for non technical users.
+- Good multi-device support.
 
 Cons:
 
-* Uses phones to identify users.
-* Centralized.
-* [Not available in
-    F-droid](https://community.signalusers.org/t/wiki-signal-android-app-on-f-droid-store-f-droid-status/28581).
+- Uses phones to identify users.
+- Centralized.
+- [Not available in
+  F-droid](https://community.signalusers.org/t/wiki-signal-android-app-on-f-droid-store-f-droid-status/28581).
 
 # Installation
 
 ## [Use the Molly FOSS android client](https://molly.im/)
+
 Molly is an independent Signal fork for Android. The advantages are:
 
 - Contains no proprietary blobs, unlike Signal.
@@ -69,34 +70,40 @@ Consider also:
 - Any previously linked devices will need to be re-linked. Go to Settings > Linked devices in the Molly app. If Signal Desktop is not detecting that it is no longer linked, try restarting it.
 - Verify your Molly backup settings and passphrase at Settings > Chats > Chat backups (to change the backup folder, disable and then enable backups). Tap Create backup to create your first Molly backup.
 - When you are satisfied that Molly is working, you may want to delete the old Signal backups (in Signal/Backups, by default).
+
 ## Install the Signal app
+
 These instructions only work for 64 bit Debian-based Linux distributions such as Ubuntu, Mint etc.
 
-* Install our official public software signing key
+- Install our official public software signing key
 
 ```bash
 wget -O- https://updates.signal.org/desktop/apt/keys.asc | gpg --dearmor > signal-desktop-keyring.gpg
 cat signal-desktop-keyring.gpg | sudo tee -a /usr/share/keyrings/signal-desktop-keyring.gpg > /dev/null
 ```
 
-* Add our repository to your list of repositories
+- Add our repository to your list of repositories
 
 ```bash
 echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/signal-desktop-keyring.gpg] https://updates.signal.org/desktop/apt xenial main' |\
   sudo tee -a /etc/apt/sources.list.d/signal-xenial.list
 ```
 
-* Update your package database and install signal
+- Update your package database and install signal
 
 ```bash
 sudo apt update && sudo apt install signal-desktop
 ```
+
 # Backup extraction
 
 I'd first try to use [signal-black](https://github.com/xeals/signal-back).
+
 # Signal bots
 
 To write signal bots you can use [this library](https://github.com/JeremyGDiamond/signal-info-bot)
+
 # References
 
-* [Home]()
+- [Home]()
+- [We are currently clean on OPSEC": The Signalgate Saga (DEFCON 33)](https://www.youtube.com/watch?v=KFYyfrTIPQY)

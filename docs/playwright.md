@@ -1,5 +1,7 @@
 [Playwright](https://playwright.dev/python/) is a modern automation library developed by Microsoft (buuuuh!) for testing web applications. It provides a powerful API for controlling web browsers, allowing developers to perform end-to-end testing, automate repetitive tasks, and gather insights into web applications. Playwright supports multiple browsers and platforms, making it a versatile tool for ensuring the quality and performance of web applications.
 
+
+Note: maybe it's more interesting to use [splash](https://github.com/scrapinghub/splash)
 ## Key features
 
 ### Cross-browser testing

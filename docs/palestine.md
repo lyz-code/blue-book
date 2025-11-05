@@ -1,4 +1,19 @@
 
+# La vuelta ciclista 2025 
+
+Todo empezó con [los 5 valientes de Figueres](https://bsky.app/profile/blackiebooks.bsky.social/post/3lystlj7bkk2g)
+- [Cuatro victorias en una Vuelta](https://substack.com/inbox/post/172906519?utm_campaign=post&)
+- [La eficacia de la interrupción (sobre los cortes en la Vuelta)](https://ctxt.es/es/20250901/Firmas/50097/Amador-Fernandez-Savater-vuelta-ciclista-gaza-genocidio-israel-agenda-identificacion.htm)
+- https://www.elsaltodiario.com/opinion/vuelta-espana-parada-genocidio-espectaculo-no-continua
+- https://www.elsaltodiario.com/opinion/palestina-vence-al-soft-power-israeli-vuelta
+- https://www.elsaltodiario.com/galicia/decenas-personas-identificadas-carrera-cortada-segunda-etapa-vuelta-galicia
+- https://elpais.com/deportes/2025-09-14/el-final-de-la-vuelta-a-espana-en-madrid-en-imagenes.html#?rel=mas_sumario
+- https://www.elsaltodiario.com/madrid/despliegue-policial-maximo-sofocar-protestas-propalestina-ultima-etapa-vuelta-madrid#
+
+La gente es muy graciosa:
+
+- [Osea, que los madrileños nos han ganado a vascos y gallegos? EXIJO LA REPETICIÓN DE LA VUELTA](https://bsky.app/profile/infilanak.satan.social/post/3lyswpz6pl22t)
+- [Hoy hemos visto algo inédito: el alcalde de Madrid defendiendo a un ciclista.](https://bsky.app/profile/moragasai.bsky.social/post/3lyt3pt6g522o)
 # Resources
 
 - [Actua por Palestina](https://porpalestina.org/)

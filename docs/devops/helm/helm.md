@@ -34,9 +34,10 @@ programs:
 
 # Usage
 
-## Download a chart 
+## Download a chart
 
 If the chart is using an `oci` url:
+
 ```bash
 helm pull oci://registry-1.docker.io/bitnamicharts/postgresql --version 8.10.X --untar -d postgres8
 ```
@@ -52,6 +53,18 @@ helm pull cost-analyzer --repo https://kubecost.github.io/cost-analyzer/ --versi
 ```bash
 helm show values zammad --repo https://zammad.github.io/zammad-helm --version 14.0.1
 ```
+
+# Snippets
+
+## Get the list of versions of a helm chart
+
+Add `index.yaml` to the repository url and grep by the application name and the
+
+```bash
+curl -s https://charts.bitnami.com/bitnami/index.yaml  | grep -A5 rabbitmq-cluster-operator | grep version
+```
+
+[Searching is not provided by the oci repositories yet](https://github.com/helm/helm/issues/11000)
 
 # Troubleshooting
 

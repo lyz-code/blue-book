@@ -11,17 +11,17 @@ what's going on it's impossible to act to shape it better.
 
 The problem to solve is to:
 
-* Keep updated on the important articles for you.
-* Don't invest too much time on it.
-* Don't loose time reading articles you're not interested on.
+- Keep updated on the important articles for you.
+- Don't invest too much time on it.
+- Don't loose time reading articles you're not interested on.
 
 # Workflow
 
 I've found three information types to explore:
 
-* Written content: articles, blogs, newspapers...
-* Listened content: mainly podcasts.
-* Viewed content: youtube, twich channels.
+- Written content: articles, blogs, newspapers...
+- Listened content: mainly podcasts.
+- Viewed content: youtube, twich channels.
 
 Each has it's advantages and disadvantages. I like the written content as it
 lets me decide the pace of information ingestion, it's compatible with
@@ -72,15 +72,15 @@ the mobile [inbox](roadmap_tools.md#inbox) and process it later with
 My current workflow could be improved by software, currently the key features
 I'd want are:
 
-* One place for all sources: It's useless to go to `n` different websites to see
-    if there is new information. [RSS](rss.md) has been with us for too long to fall on
-    that.
-* The user has control of it's data: The user should be able to decide which
-    information is private and which one is public. Only the people it trusts
-    will have access to it's private data.
-* There must be a filter of the incoming elements: It doesn't matter how well
-    you choose your sources, there's always going to be content that is not
-    interesting for you. So there needs to be a powerful filtering system.
+- One place for all sources: It's useless to go to `n` different websites to see
+  if there is new information. [RSS](rss.md) has been with us for too long to fall on
+  that.
+- The user has control of it's data: The user should be able to decide which
+  information is private and which one is public. Only the people it trusts
+  will have access to it's private data.
+- There must be a filter of the incoming elements: It doesn't matter how well
+  you choose your sources, there's always going to be content that is not
+  interesting for you. So there needs to be a powerful filtering system.
 
 ## Content filtering
 
@@ -88,12 +88,12 @@ Filtering content is a subsection of the [recommender
 systems](recommender_systems.md#basic-models-of-recommender-systems), of all the
 basic models, the ones that apply are:
 
-* [Collaborative
-    filtering](recommender_systems.md#collaborative-Filtering-models): Where the
-    data of many users is used to filter out the relevant items.
-* [Content based
-    filtering](recommender_systems.md#content-based-recommender-systems): Where
-    the data of the user on past items is used to filter new elements.
+- [Collaborative
+  filtering](recommender_systems.md#collaborative-Filtering-models): Where the
+  data of many users is used to filter out the relevant items.
+- [Content based
+  filtering](recommender_systems.md#content-based-recommender-systems): Where
+  the data of the user on past items is used to filter new elements.
 
 ### Collaborative filtering
 
@@ -104,13 +104,13 @@ Twitter or similar, then you may not even be interested in this article at all.
 
 All those platforms have one or more of the next flaws for me:
 
-* There is no one place that aggregates the information of all information
-    sources.
-* You can't mark content as seen.
-* Your data lives in the servers of other people.
-* They are based on closed sourced software.
-* There's a mix of information with conversation between users.
-* You may not be interested in all the elements the source publishes.
+- There is no one place that aggregates the information of all information
+  sources.
+- You can't mark content as seen.
+- Your data lives in the servers of other people.
+- They are based on closed sourced software.
+- There's a mix of information with conversation between users.
+- You may not be interested in all the elements the source publishes.
 
 Some of them support the export to [RSS](rss.md) and if they don't, you'll probably can
 find bridge platforms that do. That'll solve all the problems but the two last
@@ -120,12 +120,12 @@ hackernews rss, but again, most of the posts weren't interesting to me.
 
 A partial solution I've been using with my friends is to share relevant content
 through [wallabag](https://www.wallabag.it/en). It's a read-it-later application
-that creates RSS feeds for the *liked* elements. That way you can get filtered
+that creates RSS feeds for the _liked_ elements. That way you can get filtered
 content from the people you know. The downsides are:
 
-* You get one feed for all the content, you don't have the possibility to filter
-    out by categories or tags.
-* It's not very collaborative. You need to ask one by one for their RSS.
+- You get one feed for all the content, you don't have the possibility to filter
+  out by categories or tags.
+- It's not very collaborative. You need to ask one by one for their RSS.
 
 A prettier (but more difficult) solution would be to create communities that
 commit to share the articles interesting for a specific topic. Like HackerNews
@@ -166,4 +166,9 @@ Intermediate solutions between the sources and the reader aren't the best option
 either, as you need to interact with that middleware outside the RSS reader if you want to save the ratings. There is an interesting project though [rssfilter](https://github.com/m0wer/rssfilter) that does some filtering with LLM and the data extracted from your behaviour.
 
 # News sources
-- [Forensic architecture](https://forensic-architecture.org/): Forensic Architecture (FA) is a research agency based at Goldsmiths, University of London. Our mandate is to develop, employ, and disseminate new techniques, methods, and concepts for investigating state and corporate violence. Our team includes architects, software developers, filmmakers, investigative journalists, scientists, and lawyers. 
+
+- [Forensic architecture](https://forensic-architecture.org/): Forensic Architecture (FA) is a research agency based at Goldsmiths, University of London. Our mandate is to develop, employ, and disseminate new techniques, methods, and concepts for investigating state and corporate violence. Our team includes architects, software developers, filmmakers, investigative journalists, scientists, and lawyers.
+
+# References
+
+- [freedium.cdf](https://freedium.cfd): is a paywall removal for medium.com
