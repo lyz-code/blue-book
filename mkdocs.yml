@@ -627,7 +627,10 @@ nav:
                   - Loki:
                       - loki.md
                       - Logcli: logcli.md
-                  - Promtail: promtail.md
+                  - Log shippers:
+                      - log_shippers.md
+                      - vector: vector.md
+                      - Promtail: promtail.md
                   - Graylog: graylog.md
                   - Elastic Security: elastic_security.md
               - SIEM: siem.md

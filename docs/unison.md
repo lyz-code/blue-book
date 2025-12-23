@@ -2,6 +2,39 @@
 
 Unison has been in use for over 20 years and many people use it to synchronize data they care about.
 
+# Installation
+
+If you are on debian or ubuntu, the version of the repositories [does not allow you to run the program with the file watcher](https://github.com/bcpierce00/unison/issues/208), so you may need to build it yourself:
+
+First install the dependencies:
+
+```bash
+sudo apt-get install ocaml-native-compilers
+```
+
+```bash
+# Manually install Unison (to sync folders) from sources cause Unison in
+# the APT repository does not contain 'unison-fsmonitor'.
+export UNISON_VERSION=2.53.8
+echo "Install Unison." \
+    && pushd /tmp \
+    && wget https://github.com/bcpierce00/unison/archive/v$UNISON_VERSION.tar.gz \
+    && tar -xzvf v$UNISON_VERSION.tar.gz \
+    && rm v$UNISON_VERSION.tar.gz \
+    && pushd unison-$UNISON_VERSION \
+    && make \
+    && cp -t /usr/local/bin ./src/unison ./src/unison-fsmonitor \
+    && popd \
+    && rm -rf unison-$UNISON_VERSION \
+    && popd
+```
+
+Then remove the ocaml compilers as they take quite some space:
+
+```bash
+sudo apt-get remove ocaml-native-compilers
+```
+
 # Usage
 
 ## Sync the files between two directories on the same machine
@@ -37,6 +70,23 @@ Sync them with `unison orgfiles`
 
 Do a manual merge and then copy the result file to the other location with `cp -p` to preserve the timestamp, otherwise it keep on showing merge errors
 
+## Run in the background watching changes
+
+Create the systemd service in: `~/.config/systemd/user/unison.service` (assuming that your profile is orgfiles)
+
+```init
+[Unit]
+Description=unison
+
+[Service]
+ExecStart=/usr/local/bin/unison orgfiles
+Restart=on-failure
+RestartSec=3
+
+[Install]
+WantedBy=default.target
+```
+
 ## Monitor errors
 
 If you're using loki you can monitor any file conflicts with:
@@ -44,7 +94,7 @@ If you're using loki you can monitor any file conflicts with:
 ```yaml
 - alert: OrgmodeUnisonSyncConflictError
   expr: |
-    count_over_time({job="systemd-journal", syslog_identifier="clean_orgmode"} |= `Skipped` [1h]) > 0
+    count_over_time({job="systemd-journal", syslog_identifier="unison"} |= `Skipped` [1h]) > 0
   for: 0m
   labels:
     severity: warning
@@ -52,13 +102,12 @@ If you're using loki you can monitor any file conflicts with:
     summary: "hay conflictos al sincronizar algunos archivos de orgmode con unison {{ $labels.hostname}}"
 - alert: OrgmodeUnisonSyncHasNotCompletedAsExpectedError
   expr: |
-    (count_over_time({job="systemd-journal", syslog_identifier="clean_orgmode"} |= `Nothing to do` [3h]) > 0 or on() vector(0)) == 0
+    (count_over_time({job="systemd-journal", syslog_identifier="unison"} |= `Nothing to do` [3h]) > 0 or on() vector(0)) == 0
   for: 0m
   labels:
     severity: warning
   annotations:
     summary: "el sincronizado de archivos de orgmode con unison no ha terminado bien desde hace un tiempo{{ $labels.hostname}}"
-
 ```
 
 # References

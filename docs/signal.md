@@ -36,7 +36,8 @@ Cons:
 - Uses phones to identify users.
 - Centralized.
 - [Not available in
-  F-droid](https://community.signalusers.org/t/wiki-signal-android-app-on-f-droid-store-f-droid-status/28581).
+  F-droid](https://community.signalusers.org/t/wiki-signal-android-app-on-f-droid-store-f-droid-status/28581). Now it is, though the open source app Molly
+- It runs on AWS. On October 2025 there was an AWS outage and signal fell
 
 # Installation
 

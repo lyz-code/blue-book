@@ -199,6 +199,20 @@ Assuming you're using [prometheus](prometheus.md) you can add the next prometheu
 
 # Usage
 
+## Debug a failed backup
+
+To get the available backups you can use:
+
+```bash
+velero get backups
+```
+
+Check the ones that have Failed in the name and then see the logs with:
+
+```bash
+velero backup logs backup-1h-20251215113154 | grep -v 'level=info'
+```
+
 ## Create a backup
 
 If you already have schedules select the one you want to use:

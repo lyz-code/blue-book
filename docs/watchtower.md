@@ -2,12 +2,15 @@
 
 With watchtower you can update the running version of your containerized app simply by pushing a new image to the Docker Hub or your own image registry. Watchtower will pull down your new image, gracefully shut down your existing container and restart it with the same options that were used when it was deployed initially. Run the watchtower container with the following command:
 
+
 ```bash
 $ docker run -d \
 --name watchtower \
 -v /var/run/docker.sock:/var/run/docker.sock \
-containrrr/watchtower
+nickfedor/watchtower
 ```
+
+NOTE: [the official repo has not been updated in a while](https://github.com/containrrr/watchtower/issues/2122) use [this fork instead](https://github.com/nicholas-fedor/watchtower)
 
 # Usage
 
@@ -49,5 +52,5 @@ groups:
 
 # References
 
-- [Source](https://github.com/containrrr/watchtower)
-- [Docs](https://containrrr.dev/watchtower/)
+- [Source](https://github.com/nicholas-fedor/watchtower)
+- [Docs](https://watchtower.nickfedor.com/)

@@ -4,13 +4,58 @@ date: 20200717
 author: Lyz
 ---
 
-# Remove a directory with content 
+# [Get value of enum by value](https://docs.python.org/3/howto/enum.html)
+
+```python
+from enum import Enum
+
+class Color(Enum):
+    RED = 1
+    GREEN = 2
+    BLUE = 3
+```
+
+Sometimes it’s useful to access members in enumerations programmatically (i.e. situations where Color.RED won’t do because the exact color is not known at program-writing time). Enum allows such access:
+
+```python
+Color(1)
+<Color.RED: 1>
+
+Color(3)
+<Color.BLUE: 3>
+```
+
+If you want to access enum members by name, use item access:
+
+```python
+Color['RED']
+<Color.RED: 1>
+
+Color['GREEN']
+<Color.GREEN: 2>
+```
+
+```
+
+# get the directory of a python script
+
+This can be useful to create relative paths between the script parts in a way that you can still run the script from another directory.
+
+```python
+from pathlib import Path
+
+script_dir = Path(__file__).parent
+script_path = script_dir / '../another-file'
+```
+
+# Remove a directory with content
 
 ```python
 import shutil
 
 shutil.rmtree(Path('/path/to/directory'))
 ```
+
 # Download book previews from google books
 
 You will only get some of the pages but it can help in the ending pdf
@@ -686,8 +731,7 @@ for x in b:
 
 # [Recursively find files](https://stackoverflow.com/questions/2186525/how-to-use-glob-to-find-files-recursively)
 
-## If you only want the files and directories of the first level 
-
+## If you only want the files and directories of the first level
 
 ```python
 from pathlib import Path

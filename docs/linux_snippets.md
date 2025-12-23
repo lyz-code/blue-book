@@ -4,6 +4,280 @@ date: 20200826
 author: Lyz
 ---
 
+# Debugging Inotify Watch Exhaustion: "No space left on device"
+
+If you get `No space left on device` errors in systemd logs, but disk space is fine:
+
+```
+systemd[755863]: my-service.service: Failed to add control inotify watch descriptor for control group: No space left on device
+```
+
+This is actually an **inotify watches exhaustion** issue, not disk space.
+
+## Diagnosis
+
+### Check Current Limits
+
+```bash
+cat /proc/sys/fs/inotify/max_user_watches
+# Default: usually 8192 or 100000
+```
+
+### Count Current Watch Usage
+
+```bash
+# Total watches in use
+find /proc/*/fdinfo/* -exec grep -c "^inotify" {} \; 2>/dev/null | awk '{sum+=$1} END {print sum}'
+
+# Per-process breakdown
+for pid in $(ps -eo pid --no-headers); do
+  if [[ -d /proc/$pid/fd ]]; then
+    total=0
+    for fd in /proc/$pid/fd/*; do
+      if [[ -L "$fd" ]] && readlink "$fd" 2>/dev/null | grep -q "anon_inotify"; then
+        fdnum=$(basename "$fd")
+        watches=$(grep -c "^inotify" /proc/$pid/fdinfo/$fdnum 2>/dev/null || echo 0)
+        total=$((total + watches))
+      fi
+    done
+    if [[ $total -gt 0 ]]; then
+      cmd=$(ps -p $pid -o comm --no-headers 2>/dev/null || echo "unknown")
+      echo "$total $pid $cmd"
+    fi
+  fi
+done 2>/dev/null | sort -nr | head -10
+```
+
+### Find High File Descriptor Processes
+
+Often the culprits have many open files:
+
+```bash
+for pid in $(ps -eo pid --no-headers); do
+  if [[ -d /proc/$pid/fd ]]; then
+    fd_count=$(ls /proc/$pid/fd 2>/dev/null | wc -l)
+    if [[ $fd_count -gt 100 ]]; then
+      cmd=$(ps -p $pid -o comm --no-headers 2>/dev/null)
+      echo "$fd_count FDs: $pid $cmd"
+    fi
+  fi
+done
+```
+
+## Common Culprits
+
+- **Media servers**: Jellyfin, Plex
+- **Download managers**: Sonarr, Radarr, Lidarr
+- **File sync**: Syncthing, Nextcloud
+- **Development tools**: IDEs, file watchers
+- **Container platforms**: Docker, containerd
+
+## Solutions
+
+### 1. Increase Limits (Quick Fix)
+
+```bash
+# Temporary
+echo 500000 > /proc/sys/fs/inotify/max_user_watches
+
+# Permanent
+echo 'fs.inotify.max_user_watches=500000' >> /etc/sysctl.conf
+sysctl -p
+```
+
+**Memory cost**: ~540 bytes per watch (500k watches ≈ 270MB kernel memory)
+
+### 2. Configure Applications
+
+Better long-term solution:
+
+**Sonarr/Radarr/Lidarr**:
+
+- Settings → Media Management → Disable "Scan for changes"
+- Use scheduled scans instead
+
+**Jellyfin**:
+
+- Admin → Dashboard → Libraries → Disable real-time monitoring
+- Use periodic library scans
+
+**Syncthing**:
+
+- Use polling instead of inotify for large directories
+- Add `.stignore` for unnecessary paths
+# Manage bluetooth
+
+## List devices
+
+Once you've paired your devices you can see them with:
+
+```bash
+bluetoothctl devices
+```
+
+To check the ones that are connected use:
+
+```bash
+bluetoothctl devices Connected
+```
+
+## Connect device
+
+From the list above you will see the device ID, then you can:
+
+```bash
+bluetoothctl connect device_ID
+```
+
+But it's better to use `blueman-manager` because it handles better the connections and disconnections
+
+## Multidevice connection
+
+Sometimes the laptop is not able to send the audio streams back to the connected device. Restart the controlling device with:
+
+```bash
+systemctl --user restart wireplumber.service
+```
+
+# Bluetooth Pairing Troubleshooting: When BLE Devices Won't Connect
+
+Bluetooth Low Energy (BLE) devices like wireless earbuds appear in device scans but fail to pair with "Device not available" errors, even though they're visible to other devices.
+
+The root ’cause may be that the HCI controller corruption causing discovery operations to fail. The Bluetooth hardware gets stuck in a state where it rejects pairing attempts with error code -16 (EBUSY).
+
+## Symptoms
+
+- `hcitool lescan` shows the device
+- `bluetoothctl` scan shows device briefly or not at all
+- `bluetoothctl pair [MAC]` returns "Device not available"
+- `dmesg` shows HCI opcode failures like: `Bluetooth: hci0: Opcode 0x0401 failed: -16`
+
+## Solution
+
+Complete Bluetooth stack reset:
+
+```bash
+# Stop Bluetooth service
+sudo systemctl stop bluetooth
+
+# Unload USB Bluetooth driver (resets hardware)
+sudo rmmod btusb
+
+# Reload driver
+sudo modprobe btusb
+
+# Restart Bluetooth service
+sudo systemctl start bluetooth
+```
+
+If that doesn't work. Try forcing bluetoothctl to see LE devices specifically:
+
+```bash
+$: bluetoothctl  # this will open the bluetooth cli
+menu scan
+clear
+transport le
+back
+scan on
+```
+
+# How to Increase Touchpad Sensitivity on Linux
+
+Adjust touchpad sensitivity settings for better responsiveness and control on Linux systems.
+
+First, identify your touchpad device:
+
+```bash
+xinput list
+```
+
+Check current properties:
+
+```bash
+xinput list-props "Synaptics TM3381-002"
+```
+
+Increase pointer sensitivity (range: -1.0 to 1.0):
+
+```bash
+xinput set-prop "Synaptics TM3381-002" "libinput Accel Speed" 1
+```
+
+Make scrolling more sensitive:
+
+```bash
+xinput set-prop "Synaptics TM3381-002" "libinput Scrolling Pixel Distance" 10
+```
+
+Once you have the correct values make it permanent across reboots by adding them to your startup scripts.
+
+# How to Disable Trackpoint on Linux
+
+The trackpoint (that red nub in the middle of ThinkPad keyboards) can be accidentally triggered while typing, or if you replace the keyboard it might make the mouse slide randomly without any user intervention. Here's how to disable it on Linux systems.
+
+## with xinput
+
+Get the property of your trackpoint with `xinput list | grep -i track`
+
+Then disable the trackpoint with `xinput set-prop "TPPS/2 Elan TrackPoint" "Device Enabled" 0`
+
+To make it persistent add that line to your desktop startup scripts. It can be run by a non privileged user.
+
+## With udev rules
+
+The problem with this approach is that the event number may change across reboots
+
+First, find your trackpoint in the system:
+
+```bash
+cat /proc/bus/input/devices | grep -A5 -B5 -i trackpoint
+```
+
+Look for entries like "TPPS/2 Elan TrackPoint" or similar. Note the event number (e.g., `event14`).
+
+Create a udev rule to ignore the trackpoint device:
+
+```bash
+sudo sh -c 'echo "KERNEL==\"event[0-9]*\", SUBSYSTEM==\"input\", ATTRS{name}==\"*TrackPoint*\", ENV{LIBINPUT_IGNORE_DEVICE}=\"1\"" > /etc/udev/rules.d/90-disable-trackpoint.rules'
+```
+
+Replace `event[0-9]*` with your specific event number if needed.
+
+Reload udev rules:
+
+```bash
+sudo udevadm control --reload-rules
+sudo udevadm trigger
+```
+
+Test that the trackpoint no longer responds to input. The udev method typically works immediately and persists across reboots.
+
+This may have an ugly side effect, that you won't any longer be able to use the touchpad mouse buttons. Sadly the trackpoint and those buttons are controlled by the same device.
+
+The solution is to use the touchpad instead (see below).
+
+# Be able to click using the touchpad
+
+Activate tap for clicking in touchpad by pasting following lines in /etc/X11/xorg.confg.d/30-touchpad.conf
+
+```
+Section "InputClass"
+    Identifier "touchpad"
+    Driver "libinput"
+    MatchIsTouchpad "on"
+    Option "Tapping" "on"
+    Option "TappingButtonMap" "lrm"
+EndSection
+```
+
+The `lrm` means that:
+
+- 1 finger tap is a left click
+- 2 finger tap is a right click
+- 3 finger tap is a middle click
+
+You'll need to logout and back in for the change to be applied.
+
 # Differences betweenapt-get upgrade and apt-get dist-upgrade
 
 - `apt-get upgrade`:
@@ -232,15 +506,15 @@ Check if your current distribution is blocked form the unattended packages
 
 1. Edit /etc/apt/apt.conf.d/50unattended-upgrades
 2. Find the Unattended-Upgrade::Allowed-Origins section and add:
-  "o=Debian,a=oldoldstable-security";
-  "o=Debian,a=oldoldstable-updates";
+   "o=Debian,a=oldoldstable-security";
+   "o=Debian,a=oldoldstable-updates";
 3. The section should look like:
-  Unattended-Upgrade::Allowed-Origins {
-      "o=Debian,a=bullseye";
-      "o=Debian,a=bullseye-security";
-      "o=Debian,a=oldoldstable-security";
-      "o=Debian,a=oldoldstable-updates";
-  };
+   Unattended-Upgrade::Allowed-Origins {
+   "o=Debian,a=bullseye";
+   "o=Debian,a=bullseye-security";
+   "o=Debian,a=oldoldstable-security";
+   "o=Debian,a=oldoldstable-updates";
+   };
 4. Test with: unattended-upgrade -d --dry-run
 5. Run: unattended-upgrade
 
@@ -1518,6 +1792,7 @@ echo fs.inotify.max_user_watches=100000 | sudo tee -a /etc/sysctl.conf && sudo s
 ```
 
 Where `100000` is the desired number of inotify watches.
+
 
 # [What is `/var/log/tallylog`](https://www.tecmint.com/use-pam_tally2-to-lock-and-unlock-ssh-failed-login-attempts/)
 

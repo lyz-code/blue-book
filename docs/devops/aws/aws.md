@@ -42,7 +42,7 @@ I got the check id from the prometheus exporter, I have no clue how to get it fr
 - Exclude Specific Resources, to execute for each resource you wish to exclude please use the below command.
 
   ```bash
-  aws trustedadvisor batch-update-recommendation-resource-exclusion --recommendation-resource-exclusions '[{\"arn\": \"<ARN from Step 2>\",\"isExcluded\": true}]' --region us-east-1
+  aws trustedadvisor batch-update-recommendation-resource-exclusion --recommendation-resource-exclusions '[{"arn": "<ARN from Step 2>","isExcluded": true}]' --region us-east-1
   ```
 
 

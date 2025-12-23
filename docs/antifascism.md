@@ -118,6 +118,7 @@ falls into a pity image then it may strengthen their victim role.
 * [Antifa: The anti-fascist handbook by Mark Bray](https://www.mhpbooks.com/books/antifa/)
 * [Todo el mundo puede ser Antifa: Manual practico para destruir el fascismo de Pol
     Andiñach](https://www.txalaparta.eus/es/libros/todo-el-mundo-puede-ser-antifa)
+- [Sistemapunk](https://sistemapunk.com): hace investigaciones sobre grupos nazis
 
 ## Magazines
 

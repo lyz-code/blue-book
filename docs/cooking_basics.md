@@ -73,6 +73,7 @@ option is to cook them for an hour, change the water and then cook them again.
 
 # [Cortar una cebolla](https://inv.nadeko.net/watch?v=Muyummv-idU)
 
+
 ## Picada
 
 - Dividir la cebolla por la raiz
@@ -95,6 +96,8 @@ option is to cook them for an hour, change the water and then cook them again.
 - cortes al gusto de grosor perpendiculares a la tabla
 
 ## Brunoise
+
+Al cortar la cebolla dejar el lado de la raiz para que mantenga las capas juntas
 
 - Dividir la cebolla por la raiz
 - apoyar cada mitad en la tabla con la raiz en paralelo a ti
