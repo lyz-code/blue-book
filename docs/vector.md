@@ -145,7 +145,69 @@ sources:
       filename: "{{ file }}"
 sinks:
 ```
+
+
 # Troubleshooting
+
+## Vector Permission Debugging with systemd tmpfiles
+
+Vector fails to read log files after reboots or log rotation with permission errors:
+
+```
+ERROR: Failed reading file for fingerprinting. error=Permission denied (os error 13)
+```
+
+## Solution with tmpfiles
+
+Create `/etc/tmpfiles.d/vector-permissions.conf`:
+
+```
+# Set permissions on existing files (z = adjust ownership/permissions)
+z /data/apps/myapp/logs/logfile.log 0644 vector vector -
+z /path/to/another/logfile.log 0644 vector vector -
+```
+
+Apply immediately:
+
+```bash
+systemd-tmpfiles --create /etc/tmpfiles.d/vector-permissions.conf
+```
+
+### What is tmpfiles
+
+systemd tmpfiles.d is a mechanism for managing temporary files, directories, and their permissions at boot time and periodically during system operation.
+
+What it does:
+
+- Creates/removes files and directories
+- Sets ownership and permissions
+- Runs at boot via systemd-tmpfiles-setup.service
+- Can be triggered manually or periodically
+
+Configuration format:
+
+```
+Type Path Mode UID GID Age Argument
+```
+
+Common types:
+
+- `d` - Create directory
+- `f` - Create file
+- `z` - Set ownership/permissions on existing path
+- `Z` - Recursively set ownership/permissions
+- `x` - Ignore/exclude path
+
+Example:
+
+```
+# /etc/tmpfiles.d/example.conf
+d /var/run/myapp 0755 myuser mygroup -
+f /var/log/myapp.log 0644 myuser mygroup -
+z /existing/file 0644 myuser mygroup -
+```
+
+Files in /etc/tmpfiles.d/ with .conf extension are processed automatically at boot and can be manually applied with systemd-tmpfiles --create. Also, if the `systemd-tmpfiles-clean.timer` is enabled (which is by default) it will be check each day.
 
 ## Unable to open checkpoint file. path="/var/lib/vector/journald/checkpoint.txt"
 

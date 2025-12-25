@@ -111,15 +111,16 @@ nav:
                       - email_automation.md
                       - Email automation tools:
                           - mbsync: mbsync.md
-                          - mirador: mirador.md
                           - afew: afew.md
                           - notmuch: notmuch.md
+                          - mirador: mirador.md
                       - Email automation libraries:
                           - mailbox: mailbox.md
                           - IMAP:
                               - IMAP library comparison: python_imap.md
                               - imap-tools: imap_tools.md
                   - Email clients:
+                      - aerc: aerc.md
                       - himalaya: himalaya.md
                       - alot: alot.md
                       - k9: k9.md
@@ -742,6 +743,7 @@ nav:
           - Vial: vial.md
           - Rock64: rock64.md
       - Software tools:
+          - autorandr: autorandr.md
           - Liberaforms: liberaforms.md
 
   - Filosofía:
@@ -816,17 +818,18 @@ nav:
           - Trees: botany/trees.md
       - Math: math.md
       - Birding: birding.md
-  - Relevant content:
+  - Brain food:
+      - Galas:
+          - Galas 2025: galas_2025.md
+          - Galas 2024: galas_2024.md
       - Books: books.md
       - Podcasts: podcasts.md
-      # - Movies: movies.md
-      # - Music: music.md
-      # - TV Shows: tv_shows.md
-      # - Videogames: videogames.md
-      # - Streaming channels: streaming_channels.md
+      - Películas: películas.md
+      - Series: series.md
       - Music:
           - Sister Rosetta Tharpe: sister_rosetta_tharpe.md
       - Videogames:
+          - videojuegos.md
           - DragonSweeper: dragonsweeper.md
           - King Arthur Gold: kag.md
           - The Battle for Wesnoth:

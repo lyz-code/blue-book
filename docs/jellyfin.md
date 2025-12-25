@@ -16,9 +16,10 @@ just a team who want to build something better and work together to achieve it.
 
 ## [Python library](https://github.com/jellyfin/jellyfin-apiclient-python/tree/master)
 
-This is the API client from Jellyfin Kodi extracted as a python package so that other users may use the API without maintaining a fork of the API client. Please note that this API client is not complete. You may have to add API calls to perform certain tasks. 
+This is the API client from Jellyfin Kodi extracted as a python package so that other users may use the API without maintaining a fork of the API client. Please note that this API client is not complete. You may have to add API calls to perform certain tasks.
 
 It doesn't (yet) support async
+
 ## [Jellyfin Desktop](https://github.com/jellyfin/jellyfin-media-player)
 
 ### Installation
@@ -38,16 +39,18 @@ It's not very pleasant to use though.
 ### [Installation](https://github.com/jellyfin/jellycon#installation)
 
 - Add the Jellyfin kodi addon repository
-    ```bash
-    wget https://kodi.jellyfin.org/repository.jellyfin.kodi.zip
-    ```
+  ```bash
+  wget https://kodi.jellyfin.org/repository.jellyfin.kodi.zip
+  ```
 - Open Kodi, go to the settings menu, and navigate to "Add-on Browser"
 - Select "Install from Zip File"
 - From within Kodi, navigate to "Add-on Browser"
 - Select "Install from Repository"
 - Choose "Kodi Jellyfin Add-ons", followed by "Video Add-ons"
 - Select the JellyCon add-on and choose install
+
 # Installation
+
 ## [Enable hardware transcoding](https://jellyfin.org/docs/general/administration/hardware-acceleration/)
 
 ### [Enable NVIDIA hardware transcoding](https://jellyfin.org/docs/general/administration/hardware-acceleration/nvidia)
@@ -59,6 +62,7 @@ Consumer targeted [Geforce and some entry-level Quadro cards](https://developer.
 To apply the patch:
 
 First check that your current version is supported `nvidia-smi`, if it's not try to upgrade the drivers to a supported one, or think if you need more than 8 transcodings.
+
 ```bash
 # Download the patch
 wget https://raw.githubusercontent.com/keylase/nvidia-patch/refs/heads/master/patch.sh
@@ -75,7 +79,7 @@ services:
   jellyfin:
     image: jellyfin/jellyfin
     user: 1000:1000
-    network_mode: 'host'
+    network_mode: "host"
     volumes:
       - /path/to/config:/config
       - /path/to/cache:/cache
@@ -97,18 +101,27 @@ docker exec -it jellyfin nvidia-smi
 ```
 
 Enable NVENC in Jellyfin and uncheck the unsupported codecs.
+
 #### Tweak the docker-compose
 
 The official Docker image doesn't include any NVIDIA proprietary driver.
 
 You have to install the NVIDIA driver and NVIDIA Container Toolkit on the host system to allow Docker access to your GPU.
+
+# Rollback
+
+Copy the `/srv/jellyfin/app` directory to `bk.app` and then restore the directory from backup.
+
+If the permissions have gone amiss you'll need to fix them before you start the server or you'll get an `attempt to write a readonly database` error
+
 # Missing features
 
 - Hide movie or tv show from my gallery: Tracked by these feature requests [1](https://features.jellyfin.org/posts/1072/let-the-user-hide-a-movie-or-tv-show) and [2](https://features.jellyfin.org/posts/116/add-hide-ignore-for-series-seasons-episodes-as-an-alternative-to-favorite)
-  
+
 # Troubleshooting
 
 ## [System.InvalidOperationException: There is an error in XML document (0, 0)](https://forum.jellyfin.org/t-system-invalidoperationexception-there-is-an-error-in-xml-document-0-0)
+
 This may happen if you run out of disk and some xml file in the jellyfin data directory becomes empty. The solution is to restore that file from backup.
 
 ## Forgot Password. Please try again within your home network to initiate the password reset process.
@@ -125,13 +138,13 @@ By default they are cleared each day. If you want to keep them you can go to Adm
 
 ## [Deceptive site ahead](https://github.com/jellyfin/jellyfin-web/issues/4076)
 
-It seems that Google is marking the domains that host Jellyfin as deceptive. If it happens to you, your users won't be able to access your instance with Firefox, Chrome nor the Android app. Nice uh? It's kind of scary how google is able to control who can access what in the internet without you signing for it. 
+It seems that Google is marking the domains that host Jellyfin as deceptive. If it happens to you, your users won't be able to access your instance with Firefox, Chrome nor the Android app. Nice uh? It's kind of scary how google is able to control who can access what in the internet without you signing for it.
 
 If you search the problem online they suggest that you log in with your google account into the Search Console and see the reasons behind it. Many people did this and reported in the issue that they didn't get any useful information through this process. It's a privacy violation though, as now google is able to tie your identity (as your google account is linked to your phone number) with your Jellyfin domain. Completely disgusting.
 
 To solve this issue you need [to file a case with google](https://safebrowsing.google.com/safebrowsing/report_error/?tpl=mozilla&hl=en) and wait for them to unban you. It's like asking them for permission so that they let your users access your system. The disgust levels keep on growing. Don't waste your time being creative in the Comments of the request either, it looks like they don't even read them.
 
-The problem is that until the people from Jellyfin finds a solution, after following this ugly process, you may be flagged again any time in the future (ranging from days to months). 
+The problem is that until the people from Jellyfin finds a solution, after following this ugly process, you may be flagged again any time in the future (ranging from days to months).
 
 A mitigation of the problem is to have an alternative domain that your users can use (for example in duckdns.org). You may be lucky that google doesn't block both domains at the same time.
 
@@ -174,9 +187,9 @@ This should return an `integrity_check` back of `OK` with no errors reported. If
 
 ##### Recover library.db
 
-What we need to do is: 
+What we need to do is:
 
-* Dump all data from the database to a text file and then reload this back to another freshly created database. Run the following command line:
+- Dump all data from the database to a text file and then reload this back to another freshly created database. Run the following command line:
 
   ```bash
   sqlite3 library.db ".recover" | sqlite3 library-recovered.db
@@ -184,7 +197,7 @@ What we need to do is:
 
   `sqlite3` can be installed with `apt-get install sqlite3`.
 
-* We will now check the integrity of our recovered database (as above) using:
+- We will now check the integrity of our recovered database (as above) using:
 
   ```bash
   sqlite3 library-recovered.db "PRAGMA integrity_check"
@@ -192,26 +205,26 @@ What we need to do is:
 
   This should return an `integrity_check` back of "OK" with no errors reported. If errors are reported please report this in the jellyfin issues before proceeding to Reset the Library Database. If OK and no errors are reported continue with the next step.
 
-* Make a copy of both `library.db` and `library-recovered.db`
-  
+- Make a copy of both `library.db` and `library-recovered.db`
+
   ```bash
   mkdir broken-dbs
   cp library* broken-dbs
   ```
 
-* Rename `library.db` to library.old
-  
+- Rename `library.db` to library.old
+
   ```bash
   mv library.db library.old
   ```
 
-* Rename library-recoved.db to library.db
+- Rename library-recoved.db to library.db
 
   ```bash
   mv library-recovered.db library.db
   ```
 
-* Restart Jellyfin Server
+- Restart Jellyfin Server
 
   ```bash
   service jellyfin stop
@@ -222,15 +235,15 @@ Check you server log for SQLite errors and only continue to the next step if nee
 
 #### Reset Library Database & Load Fresh
 
-* Shutdown Jellyfin
-* Do a copy of all your databases, copy the parent directory where your `.db` files are to `bk.data`
-* Rename `library.db` to `library.corrupt`
-* Restart Jellyfin
-* Run a Full Library Scan
+- Shutdown Jellyfin
+- Do a copy of all your databases, copy the parent directory where your `.db` files are to `bk.data`
+- Rename `library.db` to `library.corrupt`
+- Restart Jellyfin
+- Run a Full Library Scan
 
 #### Move all the journal databases away
 
-Finally I moved all the '*-journal' files to a directory, copied again the `library-recovered.db` to `library.db`, started the server, do a full scan.
+Finally I moved all the '\*-journal' files to a directory, copied again the `library-recovered.db` to `library.db`, started the server, do a full scan.
 
 ### Check the watched history
 
@@ -242,10 +255,10 @@ If it's not follow [these steps](#restore-watched-history)
 
 Jellyfin stores the watched information in one of the `.db` files, there are two ways to restore it:
 
-* Using scripts that interact with the API like [`jelly-jar`](https://github.com/mueslimak3r/jelly-jar) or [`jellyfin-backup-watched`](https://github.com/jab416171/jellyfin-backup-watched)
-* Running sqlite queries on the database itself.
+- Using scripts that interact with the API like [`jelly-jar`](https://github.com/mueslimak3r/jelly-jar) or [`jellyfin-backup-watched`](https://github.com/jab416171/jellyfin-backup-watched)
+- Running sqlite queries on the database itself.
 
-The user data is stored in the table `UserDatas` table in the `library.db` database file. The media data is stored in the `TypedBaseItems` table of the same database. 
+The user data is stored in the table `UserDatas` table in the `library.db` database file. The media data is stored in the `TypedBaseItems` table of the same database.
 
 Comparing the contents of the tables of the broken database (lost watched content) and a backup database, I've seen that the media content is the same after a full library rescan, so the issue was fixed after injecting the missing user data from the backup to the working database through the [importing a table from another database](sqlite.md#import-a-table-from-another-database) sqlite operation.
 
@@ -294,68 +307,68 @@ not introduced again.
 
 # Issues
 
-* Subtitles get delayed from the video on some devices:
-    [1](https://github.com/jellyfin/jellyfin/issues/2547),
-    [2](https://github.com/jellyfin/jellyfin-expo/issues/54),
-    [3](https://github.com/jellyfin/jellyfin-web/issues/879). There is
-    a [feature](https://features.jellyfin.org/posts/687/burn-in-srt-subtitles-when-transcoding-happens)
-    request for a fix. Once it's solved notify the users
-    once it's solved.
+- Subtitles get delayed from the video on some devices:
+  [1](https://github.com/jellyfin/jellyfin/issues/2547),
+  [2](https://github.com/jellyfin/jellyfin-expo/issues/54),
+  [3](https://github.com/jellyfin/jellyfin-web/issues/879). There is
+  a [feature](https://features.jellyfin.org/posts/687/burn-in-srt-subtitles-when-transcoding-happens)
+  request for a fix. Once it's solved notify the users
+  once it's solved.
 
-* [Trailers not
-    working](https://github.com/crobibero/jellyfin-plugin-tmdb-trailers/issues/8):
-    No solution until it's fixed
+- [Trailers not
+  working](https://github.com/crobibero/jellyfin-plugin-tmdb-trailers/issues/8):
+  No solution until it's fixed
 
-* [Unnecessary transcoding](https://github.com/jellyfin/jellyfin/issues/3277):
-    nothing to do
-* [Local social
-    features](https://features.jellyfin.org/posts/349/local-social-features):
-    test it and see how to share rating between users.
-* [Skip
-    intro/outro/credits](https://features.jellyfin.org/posts/45/chapter-based-skip-intro-outro-credits-feature):
-    try it.
-* [Music star rating](https://features.jellyfin.org/posts/9/music-star-rating):
-    try it and plan to migrate everything to Jellyfin.
-* [Remove pagination/use lazy
-    loading](https://features.jellyfin.org/posts/216/remove-pagination-use-lazy-loading-for-library-view):
-    try it.
-* [Support
-    2FA](https://features.jellyfin.org/posts/26/add-support-for-two-factor-authentication):
-    try it.
-* [Mysql server
-    backend](https://features.jellyfin.org/posts/315/mysql-server-back-end):
-    implement it to add robustness.
-* [Watched history](https://features.jellyfin.org/posts/633/watched-history):
-    try it.
-* [A richer ePub
-    reader](https://features.jellyfin.org/posts/792/a-richer-epub-reader-also-pdf-support):
-    migrate from Polar and add jellyfin to the awesome selfhosted list.
-* [Prometheus
-    exporter](https://github.com/jellyfin/jellyfin/issues/3016):
-    monitor it. There is [a plugin that can be used](https://github.com/StefanAbl/jellyfin-prometheus-exporter/issues/1) but don't know how.
-* [Easy Import/Export Jellyfin
-    settings](https://features.jellyfin.org/posts/299/easy-import-export-jellyfin-settings):
-    add to the backup process.
-* [Temporary direct file sharing
-    links](https://features.jellyfin.org/posts/72/temporary-direct-file-sharing-links):
-    try it.
-* [Remember subtitle and audio track choice between
-    episodes](https://features.jellyfin.org/posts/194/remember-subtitle-and-audio-track-choice-between-episodes):
-    try it.
-* [IMBD Rating and Rotten Tomatoes Audiance Rating and Fresh rating on Movies and TV Shows](https://features.jellyfin.org/posts/463/imbd-rating-and-rotten-tomatoes-audiance-rating-and-fresh-rating-on-movies-and-tv-shows):
-    try the new ratings.
-* [Trailers
-    Plugin](https://features.jellyfin.org/posts/299/easy-import-export-jellyfin-settings):
-    Once it's merged to the core, remove the plugin.
-* [Jellyfin for apple
-    tv](https://features.jellyfin.org/posts/612/jellyfin-apple-tv-support): tell
-    the people that use the shitty device.
-* [Pressing play on a tv show doesn't reproduce the Next Up](https://github.com/jellyfin/jellyfin/issues/9998)
+- [Unnecessary transcoding](https://github.com/jellyfin/jellyfin/issues/3277):
+  nothing to do
+- [Local social
+  features](https://features.jellyfin.org/posts/349/local-social-features):
+  test it and see how to share rating between users.
+- [Skip
+  intro/outro/credits](https://features.jellyfin.org/posts/45/chapter-based-skip-intro-outro-credits-feature):
+  try it.
+- [Music star rating](https://features.jellyfin.org/posts/9/music-star-rating):
+  try it and plan to migrate everything to Jellyfin.
+- [Remove pagination/use lazy
+  loading](https://features.jellyfin.org/posts/216/remove-pagination-use-lazy-loading-for-library-view):
+  try it.
+- [Support
+  2FA](https://features.jellyfin.org/posts/26/add-support-for-two-factor-authentication):
+  try it.
+- [Mysql server
+  backend](https://features.jellyfin.org/posts/315/mysql-server-back-end):
+  implement it to add robustness.
+- [Watched history](https://features.jellyfin.org/posts/633/watched-history):
+  try it.
+- [A richer ePub
+  reader](https://features.jellyfin.org/posts/792/a-richer-epub-reader-also-pdf-support):
+  migrate from Polar and add jellyfin to the awesome selfhosted list.
+- [Prometheus
+  exporter](https://github.com/jellyfin/jellyfin/issues/3016):
+  monitor it. There is [a plugin that can be used](https://github.com/StefanAbl/jellyfin-prometheus-exporter/issues/1) but don't know how.
+- [Easy Import/Export Jellyfin
+  settings](https://features.jellyfin.org/posts/299/easy-import-export-jellyfin-settings):
+  add to the backup process.
+- [Temporary direct file sharing
+  links](https://features.jellyfin.org/posts/72/temporary-direct-file-sharing-links):
+  try it.
+- [Remember subtitle and audio track choice between
+  episodes](https://features.jellyfin.org/posts/194/remember-subtitle-and-audio-track-choice-between-episodes):
+  try it.
+- [IMBD Rating and Rotten Tomatoes Audiance Rating and Fresh rating on Movies and TV Shows](https://features.jellyfin.org/posts/463/imbd-rating-and-rotten-tomatoes-audiance-rating-and-fresh-rating-on-movies-and-tv-shows):
+  try the new ratings.
+- [Trailers
+  Plugin](https://features.jellyfin.org/posts/299/easy-import-export-jellyfin-settings):
+  Once it's merged to the core, remove the plugin.
+- [Jellyfin for apple
+  tv](https://features.jellyfin.org/posts/612/jellyfin-apple-tv-support): tell
+  the people that use the shitty device.
+- [Pressing play on a tv show doesn't reproduce the Next Up](https://github.com/jellyfin/jellyfin/issues/9998)
 
-* [Federation between servers](https://features.jellyfin.org/posts/184/federated-servers): Similar to [Share Libraries between servers](https://features.jellyfin.org/posts/758/share-libraries-between-servers)
+- [Federation between servers](https://features.jellyfin.org/posts/184/federated-servers): Similar to [Share Libraries between servers](https://features.jellyfin.org/posts/758/share-libraries-between-servers)
 
 # References
 
-* [Home](https://jellyfin.org/)
-* [Git](https://github.com/jellyfin/jellyfin)
-* [Blog](https://jellyfin.org/posts/)([RSS](https://jellyfin.org/index.xml))
+- [Home](https://jellyfin.org/)
+- [Git](https://github.com/jellyfin/jellyfin)
+- [Blog](https://jellyfin.org/posts/)([RSS](https://jellyfin.org/index.xml))

@@ -1,16 +1,4 @@
-# Mejores podcasts de 2024
-
-Estoy muy contento porque este año he descubierto podcast muy buenos, hasta el punto de considerar unidireccionalmente a varias de ellas ya parte de mi familia.
-
-## [Quieto todo el mundo](https://www.ivoox.com/podcast-quieto-todo-mundo_sq_f11778903_1.html)
-
-Facu Díaz y Miguel Maldonado han conseguido alegrarme las horas de cocina de los lunes con la manera más amable de acercarme desde la comedia a la actualidad política.
-
-![cover](quieto_todo_el_mundo.jpeg)
-
-Con un tono divertido y relajado, en el programa van comentando desde la ignorancia, la improvisación y, en ocasiones, la desidia las noticias más importantes de la semana.
-
-Esta misa roja ha creado una verdadera religión a lo largo de los programas, no sólo por el lore sino por el vacío existencial que dejan esa semana que no publican programa. Especialmente cuando es porque los nazis les ocupan los espacios, asco de pais...
+# Filosofía
 
 ## [Punzadas sonoras](https://punzadas.com/punzadas-sonoras/)
 
@@ -18,9 +6,49 @@ Paula Ducay e Inés García me han recordado la importancia de la Filosofía com
 
 ![cover](punzadas_sonoras.jpeg)
 
-Siento que mi camino con ellas ha sido perfecto, me enamoré de ellas en los derroteros de [Carne cruda](#carne-cruda) de la temporada pasada (una pena enorme que no las hayan renovado). Son episodios de 20 minutos muy accesibles, y una vez que ya me enganché a ellas, los programas de una hora se hacen cortos.
+Siento que mi camino con ellas ha sido perfecto, me enamoré de ellas en los derroteros de [Carne cruda](#carne-cruda) en 2023. Eran episodios de 20 minutos muy accesibles, y una vez que ya me enganché a ellas, los programas de una hora se hacen cortos.
 
 Escucharlas es un absoluto placer.
+
+# Actualidad
+
+Estoy muy contento porque este año he descubierto podcast muy buenos, hasta el punto de considerar unidireccionalmente a varias de ellas ya parte de mi familia.
+
+## [Quieto todo el mundo](https://www.ivoox.com/podcast-quieto-todo-mundo_sq_f11778903_1.html)
+
+Facu Díaz y Miguel Maldonado han conseguido alegrarme las horas de cocina de los lunes con la manera más amable de acercarme desde la comedia a la actualidad política. Hacen un combo maravilloso.
+
+![cover](quieto_todo_el_mundo.jpeg)
+
+Con un tono divertido y relajado, en el programa van comentando desde la ignorancia, la improvisación y, en ocasiones, la desidia las noticias más importantes de la semana.
+
+Esta misa roja ha creado una verdadera religión a lo largo de los programas, no sólo por el lore sino por el vacío existencial que dejan esa semana que no publican programa. Especialmente cuando es porque los nazis les ocupan los espacios, asco de pais...
+
+## [Carne cruda](https://www.eldiario.es/carnecruda/)
+
+Violeta Muñoz y Javier Gallego han sido las voces serias de la actualidad. Es el referente para mi para saber qué está pasando tanto en el mundo en general como en el mundo activista.
+
+![cover](carne_cruda.jpg)
+
+## No es el fin del mundo
+
+Una mirada muy interesante a la geopolítica mundial. Rellena el hueco que dejan quieto todo el mundo y carne cruda
+
+![cover](no_es_el_fin_del_mundo.webp)
+
+El podcast semanal de El Orden Mundial (EOM) para entender qué pasa en el mundo. Análisis, contexto y matices sobre la realidad internacional. Porque estar al día de qué pasa más allá de nuestras fronteras no debería ser ni complicado ni aburrido.
+
+# Memoria histórica
+
+## [(de eso no se habla)](https://deesonosehabla.com/)
+
+Un podcast con una realización super cuidada.
+
+![cover](de_eso_no_se_habla.webp)
+
+En «De eso no se habla» hablamos de los silencios que crea esa frase, tanto en nosotras como en la sociedad: de las historias que se esconden detrás de ellos, y de qué pasa cuando los rompemos.
+
+# Antiracismo
 
 ## [No hay negros en el Tibet](https://es.wikipedia.org/wiki/No_hay_negros_en_el_T%C3%ADbet)
 
@@ -30,23 +58,6 @@ Asaari Bibang, Lamine Thior y Frank T nos regalan un par de veces al mes una ven
 
 Una manera muy fácil de introducir el antiracismo en tu vida ya que con sus relatos eres capaz de verlo, identificártelo, aprender y corregir elementos racistas que tenemos inculcados por este sistema asqueroso. Y creo que como material divulgativo es perfecto ya que lo abordan desde un punto de vista antipunitivista nada agresivo, sin que por ello se dejen títere sin cabeza.
 
-## [Carne cruda](https://www.eldiario.es/carnecruda/)
+# Entretenimiento
 
-Violeta Muñoz y Javier Gallego han sido la voz seria de la actualidad para mi este año.
-
-![cover](carne_cruda.jpg)
-
-Si es cierto que esta temporada estoy un poco más desencantado con el equipo ya que:
-
-- Ya no cuentan con Punzadas Sonoras para los derroteros y a Santiago Alba Rico nunca le he tragado.
-- Hace tiempo que no llaman a Pablo Elorduy del Salto, me encantaba oírle y le echo de menos :(.
-- Han cambiado el Nido de rojos de la temporada pasada por "A diestra y siniestra" en el que incluyen a peña de derechas en los debates para darle otro punto de vista. Ya se van regulando pero los primeros programas tuve que dejar de escucharlo con cabreo porque tenía que escuchar cosas como que el genocidio de palestina estaba justificado y lindezas similares. Entiendo que puede darle color al debate, pero para eso ya me voy a los medios tradicionales la verdad...
-
-Aun así sigue siendo el referente para mi para saber qué está pasando tanto en el mundo en general como en el mundo activista.
-
-## Muriendo porque saquen más
-
-Este año hay unos cuantos podcast que no han continuado y que me encantarían que volviesen como:
-
-- [(de eso no se habla)](https://deesonosehabla.com/)
-- [Gabinete de curiosidades](https://www.soynuriaperez.com/podcast)
+## [Gabinete de curiosidades](https://www.soynuriaperez.com/podcast)

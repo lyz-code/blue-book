@@ -34,6 +34,8 @@ a [library](https://beets.readthedocs.io/en/stable/dev/api.html).
 pipx install beets
 ```
 
+You may want to look at the [plugins](#plugins) you want to install because it will require different installations.
+
 You’ll want to set a few basic options before you start using beets. The [configuration](https://beets.readthedocs.io/en/stable/reference/config.html) is stored in a text file. You can show its location by running `beet config -p`, though it may not exist yet. Run `beet config -e` to edit the configuration in your favorite text editor. The file will start out empty, but here’s good place to start:
 
 ```yaml
@@ -87,8 +89,16 @@ $ beet import -A /my/huge/mp3/library
 
 Note that you just need to add `-A` for “don’t autotag”.
 
+# [Plugins](https://beets.readthedocs.io/en/stable/plugins/index.html#using-plugins)
+
+## [Chromaprint](https://beets.readthedocs.io/en/stable/plugins/chroma.html)
+
+# Programmatically interact with beets
+
+There is the [python api reference](https://beets.readthedocs.io/en/v1.3.18/dev/api.html) but I don't see how to import for example.
 # References
 
 * [Git](https://github.com/beetbox/beets)
 * [Docs](https://beets.readthedocs.io/en/stable/guides/main.html)
 * [Homepage](https://beets.io/)
+* [Reddit reference gathering](https://www.reddit.com/r/musichoarder/comments/11iaafu/some_beets_guides_beetsio_for_dummies_by_a_dummy/)

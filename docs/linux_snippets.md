@@ -4,6 +4,32 @@ date: 20200826
 author: Lyz
 ---
 
+# [Resize an image](https://www.techbloat.com/how-to-quickly-resize-convert-modify-images-from-the-linux-terminal.html)
+
+To resize an image, you can use the convert command from ImageMagick. For example, to resize an image named input.jpg to have a width of 800 pixels while maintaining the aspect ratio, use the following command:
+
+```bash
+convert input.jpg -resize 800x input_resized.jpg
+```
+
+You can also specify both width and height if you want to resize the image to specific dimensions:
+
+```bash
+convert input.jpg -resize 800x600 input_resized_exact.jpg
+```
+# [fix systemd-tmpfiles Detected unsafe path transition / → /dev during canonicalization of /dev.](https://github.com/systemd/systemd/issues/11282)
+
+with each system start
+
+Here are some examples of the logs:
+```
+systemd-tmpfiles[248]: Detected unsafe path transition / → /dev during canonicalization of /dev.
+systemd-tmpfiles[485]: Detected unsafe path transition / → /var during canonicalization of /var.
+systemd-tmpfiles[485]: Detected unsafe path transition / → /var during canonicalization of /var/lib.
+```
+
+This suggests that your root dir, /dev and /var are owned by differing users
+
 # Debugging Inotify Watch Exhaustion: "No space left on device"
 
 If you get `No space left on device` errors in systemd logs, but disk space is fine:
@@ -105,6 +131,7 @@ Better long-term solution:
 
 - Use polling instead of inotify for large directories
 - Add `.stignore` for unnecessary paths
+
 # Manage bluetooth
 
 ## List devices
@@ -1792,7 +1819,6 @@ echo fs.inotify.max_user_watches=100000 | sudo tee -a /etc/sysctl.conf && sudo s
 ```
 
 Where `100000` is the desired number of inotify watches.
-
 
 # [What is `/var/log/tallylog`](https://www.tecmint.com/use-pam_tally2-to-lock-and-unlock-ssh-failed-login-attempts/)
 
