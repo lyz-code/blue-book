@@ -2,7 +2,6 @@ Los premios al mejor contenido de 2024.
 
 - [Mejores libros del 2024](#mejores-libros-del-2024)
 - [Mejores podcasts de 2024](#mejores-podcasts-de-2024)
-- [Mejores videojuegos de 2025](#mejores-videojuegos-de-2025)
 
 # Mejores libros del 2024
 

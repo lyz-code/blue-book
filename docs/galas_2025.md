@@ -46,7 +46,7 @@ y entendido desde la experiencia de ojos europeos.
 - género: filosofía
 - longitud: 94 páginas
 
-Lo \"leí\" cómo nunca antes había leído un libro, simplemente
+Lo "leí" cómo nunca antes había leído un libro, simplemente
 maravilloso. Después lo he leído otras 2 veces.
 
 Maite hace accesible a profanos conceptos clave de Deleuze sobre el
@@ -118,9 +118,9 @@ category-by-category system, leads to lasting results. In fact, none of
 Kondo's clients have lapsed (and she still has a three-month wait
 list).
 
-With detailed guidance for determining which items in your house \"spark
-joy\" (and which don\'t), this international best-seller featuring
-Tokyo\'s newest lifestyle phenomenon will help you clear your clutter
+With detailed guidance for determining which items in your house "spark
+joy" (and which don't), this international best-seller featuring
+Tokyo's newest lifestyle phenomenon will help you clear your clutter
 and enjoy the unique magic of a tidy home - and the calm, motivated
 mindset it can inspire.
 
@@ -146,13 +146,13 @@ him become consistently focused and effective. When he started sharing
 his system with friends who faced similar challenges, it went viral.
 Just a few years later, to his astonishment, Bullet Journaling is a
 global movement. The Bullet Journal Method is about much more than
-organizing your notes and to-do lists. It\'s about what Carroll calls
-\"intentional living\": weeding out distractions and focusing your time
-and energy in pursuit of what\'s truly meaningful, in both your work and
-your personal life. It\'s about spending more time with what you care
+organizing your notes and to-do lists. It's about what Carroll calls
+"intentional living": weeding out distractions and focusing your time
+and energy in pursuit of what's truly meaningful, in both your work and
+your personal life. It's about spending more time with what you care
 about, by working on fewer things. Carroll wrote this book for
 frustrated list-makers, overwhelmed multitaskers, and creatives who need
-some structure. Whether you\'ve used a Bullet Journal for years or have
+some structure. Whether you've used a Bullet Journal for years or have
 never seen one before, The Bullet Journal Method will help you go from
 passenger to pilot of your own life.
 
@@ -183,7 +183,7 @@ realmente muy antigua.
 Empecé leyéndolo en inglés pero no me enteraba de nada. El estilo
 tampoco me estaba enganchando. Hasta que descubrí que se escribió en el
 1888!!! También ayuda a entender aquellas cosas que rechinan, como
-hablar sólo \"del hombre\".
+hablar sólo "del hombre".
 
 Es impresionante y triste que ya imagina ideas socialistas aún
 inalcanzables que me siguen emocionando aún en 2025...
@@ -274,8 +274,8 @@ momento que casi lo dejo, pero me alegro de haberlo acabado.
 El estilo es curioso y agradable de leer, me cuadra que le guste a
 layla.
 
-Shirley Jackson\'s beloved gothic tale of a peculiar girl named Merricat
-and her family\'s dark secret
+Shirley Jackson's beloved gothic tale of a peculiar girl named Merricat
+and her family's dark secret
 
 Taking readers deep into a labyrinth of dark neurosis, We Have Always
 Lived in the Castle is a deliciously unsettling novel about a perverse,
@@ -531,7 +531,7 @@ grandes bloques de viviendas sociales, de ladrillo oscuro y arquitectura
 deprimente y depresiva. Allí hay pocas cosas que hacer, y en agosto aún
 menos. El centro de la ciudad queda lejos y las comunicaciones son
 malas, así que los tres amigos pasan la mayor parte del tiempo por las
-calles del barrio.\[
+calles del barrio.
 
 ### No Other Land
 
@@ -695,8 +695,8 @@ de amor romantico. Que tristemente lo es xD, pero todo lo demás hace que
 sea una maravilla. Los diálogos, las coreografías, los personajes... Eso
 si, prepárate para exasperarte ante el papel de princesa objeto inútil.
 
-Me volvió a despertar el sentimiento de \"ya no se hacen películas como
-estas\". Tiene un algo que lo despierta (además de la retrogradez
+Me volvió a despertar el sentimiento de "ya no se hacen películas como
+estas". Tiene un algo que lo despierta (además de la retrogradez
 machista)
 
 Después de buscar fortuna durante cinco años, Westley retorna a su
@@ -883,8 +883,7 @@ El podcast semanal de El Orden Mundial (EOM) para entender qué pasa en el mundo
 
 # Mejores videojuegos de 2025
 
-Mi juego favorito de este año ha sido [*Thronefall*]{.spurious-link
-target="Thronefall"}
+Mi juego favorito de este año ha sido [Thronefall](#thronefall)
 
 ## Thronefall
 
@@ -928,11 +927,11 @@ elements with the classic gameplay.
 - year: 2015
 - genre: puzzle
 
-You Must Build A Boat is the sequel to the award winning \"10000000\".
+You Must Build A Boat is the sequel to the award winning "10000000".
 Travel the world, run procedurally generated dungeons finding artifacts,
 capturing monsters and recruiting crew for your...
 
-## 10000000 {#section-1}
+## 10000000
 
 ![](./img/1000.webp)
 

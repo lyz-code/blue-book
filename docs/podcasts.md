@@ -1,8 +1,10 @@
+Aquí os dejo los podcasts que más me han marcado en la vida. Podéis ver otros que me haya leído en las [galas](galas_2025.md).
+
 # Filosofía
 
 ## [Punzadas sonoras](https://punzadas.com/punzadas-sonoras/)
 
-Paula Ducay e Inés García me han recordado la importancia de la Filosofía como nadie. Gracias a ellas he descubierto nuevas maneras de ver, me han regalado palabras que describen a la percepción pensamientos y sensaciones que tengo y gracias a ellas he conseguido esclarecer un poco más mi entendimiento del mundo y de mi mismo. En especial han sido la base para desenterrar pilares imprescindibles de mi vida como son el deambular creativo y la solitud.
+Mi podcast favorito de 2025 y segundo de 2024. Paula Ducay e Inés García me han recordado la importancia de la Filosofía como nadie. Gracias a ellas he descubierto nuevas maneras de ver, me han regalado palabras que describen a la percepción pensamientos y sensaciones que tengo y gracias a ellas he conseguido esclarecer un poco más mi entendimiento del mundo y de mi mismo. En especial han sido la base para desenterrar pilares imprescindibles de mi vida como son el deambular creativo y la solitud.
 
 ![cover](punzadas_sonoras.jpeg)
 
@@ -16,7 +18,7 @@ Estoy muy contento porque este año he descubierto podcast muy buenos, hasta el 
 
 ## [Quieto todo el mundo](https://www.ivoox.com/podcast-quieto-todo-mundo_sq_f11778903_1.html)
 
-Facu Díaz y Miguel Maldonado han conseguido alegrarme las horas de cocina de los lunes con la manera más amable de acercarme desde la comedia a la actualidad política. Hacen un combo maravilloso.
+Mi podcast favorito de 2024 y segundo de 2025. Facu Díaz y Miguel Maldonado han conseguido alegrarme las horas de cocina de los lunes con la manera más amable de acercarme desde la comedia a la actualidad política. Hacen un combo maravilloso.
 
 ![cover](quieto_todo_el_mundo.jpeg)
 
