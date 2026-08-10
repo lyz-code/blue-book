@@ -537,15 +537,16 @@ files = [
 
 [[package]]
 name = "mkdocs-exclude-search"
-version = "0.6.6"
-requires_python = ">=3.6"
+version = "0.6.7"
+requires_python = ">=3.9"
 summary = "A mkdocs plugin that lets you exclude selected files or sections from the search index."
 dependencies = [
     "mkdocs>=1.0.4",
+    "packaging",
 ]
 files = [
-    {file = "mkdocs-exclude-search-0.6.6.tar.gz", hash = "sha256:3cdff1b9afdc1b227019cd1e124f401453235b92153d60c0e5e651a76be4f044"},
-    {file = "mkdocs_exclude_search-0.6.6-py3-none-any.whl", hash = "sha256:2b4b941d1689808db533fe4a6afba75ce76c9bab8b21d4e31efc05fd8c4e0a4f"},
+    {file = "mkdocs_exclude_search-0.6.7-py3-none-any.whl", hash = "sha256:2f699c92a034329f2de4a0fea8f821a50b61dd2d370d65118a7545db8787e490"},
+    {file = "mkdocs_exclude_search-0.6.7.tar.gz", hash = "sha256:54a79d6fb2de39f8569ed3cb0924e5abe6c02b256192b84479db6ed377a195f3"},
 ]
 
 [[package]]
