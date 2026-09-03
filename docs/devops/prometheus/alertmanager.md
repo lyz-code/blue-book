@@ -357,7 +357,7 @@ If that doesn't work for you, you can use the [sleep peacefully guidelines](http
 
 Alert rules are a special kind of Prometheus Rules that trigger alerts based on
 PromQL expressions. People have gathered several examples under [Awesome
-prometheus alert rules](https://awesome-prometheus-alerts.grep.to/rules)
+prometheus alert rules](https://samber.github.io/awesome-prometheus-alerts/rules)
 
 Alerts must be configured in the Prometheus configuration, either through the [operator](prometheus_operator.md)
 helm chart, under the `additionalPrometheusRulesMap` or in the `prometheus.yml` file. For example:
@@ -399,4 +399,4 @@ To silence an alert with a regular expression use the matcher
 
 - [Source](https://github.com/prometheus/alertmanager)
 - [Docs](https://prometheus.io/docs/alerting/latest/alertmanager/
-- [Awesome prometheus alert rules](https://awesome-prometheus-alerts.grep.to/rules)
+- [Awesome prometheus alert rules](https://samber.github.io/awesome-prometheus-alerts/rules)

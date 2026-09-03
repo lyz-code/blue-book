@@ -125,11 +125,11 @@ Once the instance metrics are being ingested, we can do a periodic
 [analysis](instance_sizing_analysis.md) to deduce which instances are undersized
 or oversized.
 
-# [Node exporter alerts](https://awesome-prometheus-alerts.grep.to/rules)
+# [Node exporter alerts](https://samber.github.io/awesome-prometheus-alerts/rules)
 
 Now that we've got the metrics, we can define the [alert
 rules](alertmanager.md#alert-rules). Most have been tweaked from the [Awesome
-prometheus alert rules](https://awesome-prometheus-alerts.grep.to/rules)
+prometheus alert rules](https://samber.github.io/awesome-prometheus-alerts/rules)
 collection.
 
 ## Host out of memory
@@ -669,4 +669,4 @@ The metrics will show `node_reboot_required 1` when a reboot is required and `no
 
 - [Git](https://github.com/prometheus/node_exporter)
 - [Prometheus node exporter guide](https://prometheus.io/docs/guides/node-exporter/)
-- [Node exporter alerts](https://awesome-prometheus-alerts.grep.to/rules)
+- [Node exporter alerts](https://samber.github.io/awesome-prometheus-alerts/rules)
