@@ -113,7 +113,7 @@ helmfile apply
 
 Now that we've got the metrics, we can define the [alert
 rules](alertmanager.md#alert-rules). Most have been tweaked from the [Awesome
-prometheus alert rules](https://awesome-prometheus-alerts.grep.to/rules)
+prometheus alert rules](https://samber.github.io/awesome-prometheus-alerts/rules)
 collection.
 
 ## Availability alerts
