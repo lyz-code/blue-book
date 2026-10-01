@@ -453,7 +453,10 @@ Once the tool is built:
 [Diskprices.com](https://diskprices.com/) sorts the prices of the disks on the
 different amazon sites based on many filters. It will be interesting to have
 a service that monitors the data on this site and alerts the user once there is
-a deal that matches its criteria.
+a deal that matches its criteria. Sites like
+[hddhunt.com](https://hddhunt.com/cheapest-hdd-per-tb/) already publish a
+daily-updated table of the cheapest US/Amazon hard drives by $/TB, which could
+serve as a ready data source or reference for such a monitor.
 
 Once it's done, promote it in the [DataHoarder
 reddit](https://www.reddit.com/r/DataHoarder/).
